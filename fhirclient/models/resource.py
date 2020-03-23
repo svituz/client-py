@@ -3,9 +3,9 @@
 #
 #  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Resource) on 2019-05-07.
 #  2019, SMART Health IT.
-
-
+from fhirclient.datatypes.primitive import FHIRId, FHIRUri, FHIRCode
 from . import fhirabstractresource
+
 
 class Resource(fhirabstractresource.FHIRAbstractResource):
     """ Base Resource.
@@ -44,9 +44,9 @@ class Resource(fhirabstractresource.FHIRAbstractResource):
     def elementProperties(self):
         js = super(Resource, self).elementProperties()
         js.extend([
-            ("id", "id", str, False, None, False),
-            ("implicitRules", "implicitRules", str, False, None, False),
-            ("language", "language", str, False, None, False),
+            ("id", "id", FHIRId, False, None, False),
+            ("implicitRules", "implicitRules", FHIRUri, False, None, False),
+            ("language", "language", FHIRCode, False, None, False),
             ("meta", "meta", meta.Meta, False, None, False),
         ])
         return js

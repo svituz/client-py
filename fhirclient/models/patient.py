@@ -3,9 +3,9 @@
 #
 #  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Patient) on 2019-05-07.
 #  2019, SMART Health IT.
-
-
+from fhirclient.datatypes.primitive import FHIRString, FHIRDate
 from . import domainresource
+
 
 class Patient(domainresource.DomainResource):
     """ Information about an individual or animal receiving health care services.
@@ -105,12 +105,12 @@ class Patient(domainresource.DomainResource):
         js.extend([
             ("active", "active", bool, False, None, False),
             ("address", "address", address.Address, True, None, False),
-            ("birthDate", "birthDate", fhirdate.FHIRDate, False, None, False),
+            ("birthDate", "birthDate", FHIRDate, False, None, False),
             ("communication", "communication", PatientCommunication, True, None, False),
             ("contact", "contact", PatientContact, True, None, False),
             ("deceasedBoolean", "deceasedBoolean", bool, False, "deceased", False),
             ("deceasedDateTime", "deceasedDateTime", fhirdate.FHIRDate, False, "deceased", False),
-            ("gender", "gender", str, False, None, False),
+            ("gender", "gender", FHIRString, False, None, False),
             ("generalPractitioner", "generalPractitioner", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("link", "link", PatientLink, True, None, False),
@@ -124,8 +124,8 @@ class Patient(domainresource.DomainResource):
         ])
         return js
 
-
 from . import backboneelement
+
 
 class PatientCommunication(backboneelement.BackboneElement):
     """ A language which may be used to communicate with the patient about his or
