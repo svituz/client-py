@@ -8,14 +8,14 @@ from isodate import ISO8601Error
 logger = logging.getLogger(__name__)
 
 
-class AbstractFHIRDatatype:
+class FHIRAbstractDatatype(object):
     def __init__(self, value):
         self.value = value
         self.validate_value()
 
     @classmethod
     def with_json(cls, jsonobj):
-        if isinstance(jsonobj, six.string_types):
+        if isinstance(jsonobj, six.string_types) or isinstance(jsonobj, (int, float, bool)):
             return cls(jsonobj)
 
         if isinstance(jsonobj, list):
@@ -38,19 +38,19 @@ class AbstractFHIRDatatype:
                 raise ValueError(f'Invalid value. Should match {self.regex}')
 
 
-class FHIRString(AbstractFHIRDatatype):
+class FHIRString(FHIRAbstractDatatype):
     def __init__(self, value):
         self.regex = re.compile(r'[ \r\n\t\S]{1,1048576}')
         super(FHIRString, self).__init__(value)
 
 
-class FHIRUri(AbstractFHIRDatatype):
+class FHIRUri(FHIRAbstractDatatype):
     def __init__(self, value):
         self.regex = re.compile(r'\S*')
         super(FHIRUri, self).__init__(value)
 
 
-class FHIRUrl(AbstractFHIRDatatype):
+class FHIRUrl(FHIRAbstractDatatype):
     def __init__(self, value):
         # taken from Django and changed the protocol part
         self.regex = re.compile(
@@ -66,13 +66,13 @@ class FHIRUrl(AbstractFHIRDatatype):
 FHIRCanonical = FHIRUrl
 
 
-class FHIRBase64Binary(AbstractFHIRDatatype):
+class FHIRBase64Binary(FHIRAbstractDatatype):
     def __init__(self, value):
         self.regex = re.compile(r'(\s*([0-9a-zA-Z\+\=]){4}\s*)+')
         super(FHIRBase64Binary, self).__init__(value)
 
 
-class BaseFHIRTime(AbstractFHIRDatatype):
+class BaseFHIRTime(FHIRAbstractDatatype):
     def __init__(self, value):
         self.date = None
         self.origval = value
@@ -154,26 +154,26 @@ class FHIRTime(BaseFHIRTime):
         super(FHIRTime, self).__init__(value)
 
 
-class FHIRCode(AbstractFHIRDatatype):
+class FHIRCode(FHIRAbstractDatatype):
     def __init__(self, value):
         # TODO: checf if it is possible to add the valueset
         self.regex = re.compile(r'[^\s]+(\s[^\s]+)*')
         super(FHIRCode, self).__init__(value)
 
 
-class FHIROid(AbstractFHIRDatatype):
+class FHIROid(FHIRAbstractDatatype):
     def __init__(self, value):
         self.regex = r'urn:oid:[0-2](\.(0|[1-9][0-9]*))+'
         super(FHIROid, self).__init__(value)
 
 
-class FHIRId(AbstractFHIRDatatype):
+class FHIRId(FHIRAbstractDatatype):
     def __init__(self, value):
         self.regex = re.compile(r'([A-Za-z0-9\-\.]{1,64})')
         super(FHIRId, self).__init__(value)
 
 
-class FHIRMarkdown(AbstractFHIRDatatype):
+class FHIRMarkdown(FHIRAbstractDatatype):
     def __init__(self, value):
         self.regex = r'\s*(\S|\s)*'
         super(FHIRMarkdown, self).__init__(value)
@@ -182,7 +182,7 @@ class FHIRMarkdown(AbstractFHIRDatatype):
 FHIRUuid = FHIRUri
 
 
-class FHIRUnsignedInt(AbstractFHIRDatatype):
+class FHIRUnsignedInt(FHIRAbstractDatatype):
     def __init__(self, value):
         super(FHIRUnsignedInt, self).__init__(value)
 
@@ -191,7 +191,7 @@ class FHIRUnsignedInt(AbstractFHIRDatatype):
             raise ValueError('Invalid Value. It must be greater than 0')
 
 
-class FHIRPositiveInt(AbstractFHIRDatatype):
+class FHIRPositiveInt(FHIRAbstractDatatype):
     def __init__(self, value):
         super(FHIRPositiveInt, self).__init__(value)
 

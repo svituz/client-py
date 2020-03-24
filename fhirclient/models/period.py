@@ -3,9 +3,9 @@
 #
 #  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Period) on 2019-05-07.
 #  2019, SMART Health IT.
-
-
+from fhirclient.datatypes.primitive import FHIRDate
 from . import element
+
 
 class Period(element.Element):
     """ Time range defined by start and end date/time.
@@ -36,8 +36,8 @@ class Period(element.Element):
     def elementProperties(self):
         js = super(Period, self).elementProperties()
         js.extend([
-            ("end", "end", fhirdate.FHIRDate, False, None, False),
-            ("start", "start", fhirdate.FHIRDate, False, None, False),
+            ("end", "end", FHIRDate, False, None, False),
+            ("start", "start", FHIRDate, False, None, False),
         ])
         return js
 

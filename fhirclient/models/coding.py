@@ -3,9 +3,9 @@
 #
 #  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Coding) on 2019-05-07.
 #  2019, SMART Health IT.
-
-
+from fhirclient.datatypes.primitive import FHIRString, FHIRUri, FHIRCode
 from . import element
+
 
 class Coding(element.Element):
     """ A reference to a code defined by a terminology system.
@@ -46,11 +46,11 @@ class Coding(element.Element):
     def elementProperties(self):
         js = super(Coding, self).elementProperties()
         js.extend([
-            ("code", "code", str, False, None, False),
-            ("display", "display", str, False, None, False),
-            ("system", "system", str, False, None, False),
+            ("code", "code", FHIRCode, False, None, False),
+            ("display", "display", FHIRString, False, None, False),
+            ("system", "system", FHIRUri, False, None, False),
             ("userSelected", "userSelected", bool, False, None, False),
-            ("version", "version", str, False, None, False),
+            ("version", "version", FHIRString, False, None, False),
         ])
         return js
 

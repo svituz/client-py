@@ -3,9 +3,9 @@
 #
 #  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/CodeableConcept) on 2019-05-07.
 #  2019, SMART Health IT.
-
-
+from fhirclient.datatypes.primitive import FHIRString
 from . import element
+
 
 class CodeableConcept(element.Element):
     """ Concept - reference to a terminology or just  text.
@@ -38,7 +38,7 @@ class CodeableConcept(element.Element):
         js = super(CodeableConcept, self).elementProperties()
         js.extend([
             ("coding", "coding", coding.Coding, True, None, False),
-            ("text", "text", str, False, None, False),
+            ("text", "text", FHIRString, False, None, False),
         ])
         return js
 
