@@ -5,7 +5,73 @@
 #  2019, SMART Health IT.
 
 
-from . import domainresource
+import sys
+
+from fhirclient.datatypes.primitive import FHIRDate, FHIRMarkdown, FHIRDateTime, FHIRString, FHIRCode, FHIRCanonical, \
+    FHIRUrl
+from . import domainresource, backboneelement
+
+try:
+    from . import age
+except ImportError:
+    age = sys.modules[__package__ + '.age']
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+try:
+    from . import contactdetail
+except ImportError:
+    contactdetail = sys.modules[__package__ + '.contactdetail']
+try:
+    from . import dosage
+except ImportError:
+    dosage = sys.modules[__package__ + '.dosage']
+try:
+    from . import duration
+except ImportError:
+    duration = sys.modules[__package__ + '.duration']
+try:
+    from . import expression
+except ImportError:
+    expression = sys.modules[__package__ + '.expression']
+try:
+    from . import fhirdate
+except ImportError:
+    fhirdate = sys.modules[__package__ + '.fhirdate']
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']
+try:
+    from . import period
+except ImportError:
+    period = sys.modules[__package__ + '.period']
+try:
+    from . import quantity
+except ImportError:
+    quantity = sys.modules[__package__ + '.quantity']
+try:
+    from . import range
+except ImportError:
+    range = sys.modules[__package__ + '.range']
+try:
+    from . import relatedartifact
+except ImportError:
+    relatedartifact = sys.modules[__package__ + '.relatedartifact']
+try:
+    from . import timing
+except ImportError:
+    timing = sys.modules[__package__ + '.timing']
+try:
+    from . import usagecontext
+except ImportError:
+    usagecontext = sys.modules[__package__ + '.usagecontext']
+
 
 class ActivityDefinition(domainresource.DomainResource):
     """ The definition of a specific activity to be taken, independent of any
@@ -244,14 +310,14 @@ class ActivityDefinition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ActivityDefinition, self).elementProperties()
         js.extend([
-            ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
+            ("approvalDate", "approvalDate", FHIRDate, False, None, False),
             ("author", "author", contactdetail.ContactDetail, True, None, False),
             ("bodySite", "bodySite", codeableconcept.CodeableConcept, True, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("description", "description", str, False, None, False),
+            ("copyright", "copyright", FHIRMarkdown, False, None, False),
+            ("date", "date", FHIRDateTime, False, None, False),
+            ("description", "description", FHIRMarkdown, False, None, False),
             ("doNotPerform", "doNotPerform", bool, False, None, False),
             ("dosage", "dosage", dosage.Dosage, True, None, False),
             ("dynamicValue", "dynamicValue", ActivityDefinitionDynamicValue, True, None, False),
@@ -260,48 +326,46 @@ class ActivityDefinition(domainresource.DomainResource):
             ("endorser", "endorser", contactdetail.ContactDetail, True, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("intent", "intent", str, False, None, False),
+            ("intent", "intent", FHIRCode, False, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("kind", "kind", str, False, None, False),
-            ("lastReviewDate", "lastReviewDate", fhirdate.FHIRDate, False, None, False),
-            ("library", "library", str, True, None, False),
+            ("kind", "kind", FHIRCode, False, None, False),
+            ("lastReviewDate", "lastReviewDate", FHIRDate, False, None, False),
+            ("library", "library", FHIRCanonical, True, None, False),
             ("location", "location", fhirreference.FHIRReference, False, None, False),
-            ("name", "name", str, False, None, False),
+            ("name", "name", FHIRString, False, None, False),
             ("observationRequirement", "observationRequirement", fhirreference.FHIRReference, True, None, False),
             ("observationResultRequirement", "observationResultRequirement", fhirreference.FHIRReference, True, None, False),
             ("participant", "participant", ActivityDefinitionParticipant, True, None, False),
-            ("priority", "priority", str, False, None, False),
+            ("priority", "priority", FHIRCode, False, None, False),
             ("productCodeableConcept", "productCodeableConcept", codeableconcept.CodeableConcept, False, "product", False),
             ("productReference", "productReference", fhirreference.FHIRReference, False, "product", False),
-            ("profile", "profile", str, False, None, False),
-            ("publisher", "publisher", str, False, None, False),
-            ("purpose", "purpose", str, False, None, False),
+            ("profile", "profile", FHIRString, False, None, False),
+            ("publisher", "publisher", FHIRString, False, None, False),
+            ("purpose", "purpose", FHIRMarkdown, False, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False),
             ("reviewer", "reviewer", contactdetail.ContactDetail, True, None, False),
             ("specimenRequirement", "specimenRequirement", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", FHIRCode, False, None, True),
             ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False),
             ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False),
-            ("subtitle", "subtitle", str, False, None, False),
+            ("subtitle", "subtitle", FHIRString, False, None, False),
             ("timingAge", "timingAge", age.Age, False, "timing", False),
-            ("timingDateTime", "timingDateTime", fhirdate.FHIRDate, False, "timing", False),
+            ("timingDateTime", "timingDateTime", FHIRDate, False, "timing", False),
             ("timingDuration", "timingDuration", duration.Duration, False, "timing", False),
             ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
             ("timingRange", "timingRange", range.Range, False, "timing", False),
             ("timingTiming", "timingTiming", timing.Timing, False, "timing", False),
-            ("title", "title", str, False, None, False),
+            ("title", "title", FHIRString, False, None, False),
             ("topic", "topic", codeableconcept.CodeableConcept, True, None, False),
-            ("transform", "transform", str, False, None, False),
-            ("url", "url", str, False, None, False),
-            ("usage", "usage", str, False, None, False),
+            ("transform", "transform", FHIRCanonical, False, None, False),
+            ("url", "url", FHIRUrl, False, None, False),
+            ("usage", "usage", FHIRString, False, None, False),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("version", "version", str, False, None, False),
+            ("version", "version", FHIRString, False, None, False),
         ])
         return js
 
-
-from . import backboneelement
 
 class ActivityDefinitionDynamicValue(backboneelement.BackboneElement):
     """ Dynamic aspects of the definition.
@@ -337,7 +401,7 @@ class ActivityDefinitionDynamicValue(backboneelement.BackboneElement):
         js = super(ActivityDefinitionDynamicValue, self).elementProperties()
         js.extend([
             ("expression", "expression", expression.Expression, False, None, True),
-            ("path", "path", str, False, None, True),
+            ("path", "path", FHIRString, False, None, True),
         ])
         return js
 
@@ -372,69 +436,6 @@ class ActivityDefinitionParticipant(backboneelement.BackboneElement):
         js = super(ActivityDefinitionParticipant, self).elementProperties()
         js.extend([
             ("role", "role", codeableconcept.CodeableConcept, False, None, False),
-            ("type", "type", str, False, None, True),
+            ("type", "type", FHIRCode, False, None, True),
         ])
         return js
-
-
-import sys
-try:
-    from . import age
-except ImportError:
-    age = sys.modules[__package__ + '.age']
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
-try:
-    from . import dosage
-except ImportError:
-    dosage = sys.modules[__package__ + '.dosage']
-try:
-    from . import duration
-except ImportError:
-    duration = sys.modules[__package__ + '.duration']
-try:
-    from . import expression
-except ImportError:
-    expression = sys.modules[__package__ + '.expression']
-try:
-    from . import fhirdate
-except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
-try:
-    from . import relatedartifact
-except ImportError:
-    relatedartifact = sys.modules[__package__ + '.relatedartifact']
-try:
-    from . import timing
-except ImportError:
-    timing = sys.modules[__package__ + '.timing']
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']

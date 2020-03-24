@@ -3,8 +3,7 @@
 #
 #  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ContactPoint) on 2019-05-07.
 #  2019, SMART Health IT.
-
-
+from fhirclient.datatypes.primitive import FHIRPositiveInt, FHIRCode, FHIRString
 from . import element
 
 class ContactPoint(element.Element):
@@ -50,10 +49,10 @@ class ContactPoint(element.Element):
         js = super(ContactPoint, self).elementProperties()
         js.extend([
             ("period", "period", period.Period, False, None, False),
-            ("rank", "rank", int, False, None, False),
-            ("system", "system", str, False, None, False),
-            ("use", "use", str, False, None, False),
-            ("value", "value", str, False, None, False),
+            ("rank", "rank", FHIRPositiveInt, False, None, False),
+            ("system", "system", FHIRCode, False, None, False),
+            ("use", "use", FHIRCode, False, None, False),
+            ("value", "value", FHIRString, False, None, False),
         ])
         return js
 

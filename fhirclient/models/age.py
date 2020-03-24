@@ -4,8 +4,8 @@
 #  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Age) on 2019-05-07.
 #  2019, SMART Health IT.
 
-
 from . import quantity
+
 
 class Age(quantity.Quantity):
     """ A duration of time during which an organism (or a process) has existed.

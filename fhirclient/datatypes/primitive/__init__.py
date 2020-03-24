@@ -63,7 +63,7 @@ class FHIRUrl(FHIRAbstractDatatype):
         super(FHIRUrl, self).__init__(value)
 
 
-FHIRCanonical = FHIRUrl
+FHIRCanonical = FHIRUri
 
 
 class FHIRBase64Binary(FHIRAbstractDatatype):
@@ -138,8 +138,8 @@ class FHIRDate(BaseFHIRTime):
 class FHIRDateTime(BaseFHIRTime):
     def __init__(self, value):
         self.regex = r'([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?'
-        self.parser = isodate.parse_date
-        self.renderer = isodate.date_isoformat
+        self.parser = isodate.parse_datetime
+        self.renderer = isodate.datetime_isoformat
         self.error_message = 'Invalid value. It must be an ISO8601 datetime with time zone'
         super(FHIRDateTime, self).__init__(value)
 

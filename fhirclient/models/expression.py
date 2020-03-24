@@ -3,9 +3,9 @@
 #
 #  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Expression) on 2019-05-07.
 #  2019, SMART Health IT.
-
-
+from fhirclient.datatypes.primitive import FHIRString, FHIRId, FHIRCode, FHIRUri
 from . import element
+
 
 class Expression(element.Element):
     """ An expression that can be used to generate a value.
@@ -50,11 +50,11 @@ class Expression(element.Element):
     def elementProperties(self):
         js = super(Expression, self).elementProperties()
         js.extend([
-            ("description", "description", str, False, None, False),
-            ("expression", "expression", str, False, None, False),
-            ("language", "language", str, False, None, True),
-            ("name", "name", str, False, None, False),
-            ("reference", "reference", str, False, None, False),
+            ("description", "description", FHIRString, False, None, False),
+            ("expression", "expression", FHIRString, False, None, False),
+            ("language", "language", FHIRCode, False, None, True),
+            ("name", "name", FHIRId, False, None, False),
+            ("reference", "reference", FHIRUri, False, None, False),
         ])
         return js
 

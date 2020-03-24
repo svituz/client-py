@@ -7,6 +7,7 @@
 
 from . import quantity
 
+
 class Duration(quantity.Quantity):
     """ A length of time.
     """

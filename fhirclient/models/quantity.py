@@ -3,9 +3,9 @@
 #
 #  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MoneyQuantity) on 2019-05-07.
 #  2019, SMART Health IT.
-
-
+from fhirclient.datatypes.primitive import FHIRCode, FHIRString, FHIRUri
 from . import element
+
 
 class Quantity(element.Element):
     """ A measured or measurable amount.
@@ -50,10 +50,10 @@ class Quantity(element.Element):
     def elementProperties(self):
         js = super(Quantity, self).elementProperties()
         js.extend([
-            ("code", "code", str, False, None, False),
-            ("comparator", "comparator", str, False, None, False),
-            ("system", "system", str, False, None, False),
-            ("unit", "unit", str, False, None, False),
+            ("code", "code", FHIRCode, False, None, False),
+            ("comparator", "comparator", FHIRCode, False, None, False),
+            ("system", "system", FHIRUri, False, None, False),
+            ("unit", "unit", FHIRString, False, None, False),
             ("value", "value", float, False, None, False),
         ])
         return js

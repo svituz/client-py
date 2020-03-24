@@ -3,9 +3,9 @@
 #
 #  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Timing) on 2019-05-07.
 #  2019, SMART Health IT.
+from fhirclient.datatypes.primitive import FHIRDate, FHIRPositiveInt, FHIRCode, FHIRUnsignedInt
+from . import backboneelement, element
 
-
-from . import backboneelement
 
 class Timing(backboneelement.BackboneElement):
     """ A timing schedule that specifies an event that may occur multiple times.
@@ -45,13 +45,11 @@ class Timing(backboneelement.BackboneElement):
         js = super(Timing, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("event", "event", fhirdate.FHIRDate, True, None, False),
+            ("event", "event", FHIRDate, True, None, False),
             ("repeat", "repeat", TimingRepeat, False, None, False),
         ])
         return js
 
-
-from . import element
 
 class TimingRepeat(element.Element):
     """ When the event is to occur.
@@ -145,20 +143,20 @@ class TimingRepeat(element.Element):
             ("boundsDuration", "boundsDuration", duration.Duration, False, "bounds", False),
             ("boundsPeriod", "boundsPeriod", period.Period, False, "bounds", False),
             ("boundsRange", "boundsRange", range.Range, False, "bounds", False),
-            ("count", "count", int, False, None, False),
-            ("countMax", "countMax", int, False, None, False),
-            ("dayOfWeek", "dayOfWeek", str, True, None, False),
+            ("count", "count", FHIRPositiveInt, False, None, False),
+            ("countMax", "countMax", FHIRPositiveInt, False, None, False),
+            ("dayOfWeek", "dayOfWeek", FHIRCode, True, None, False),
             ("duration", "duration", float, False, None, False),
             ("durationMax", "durationMax", float, False, None, False),
-            ("durationUnit", "durationUnit", str, False, None, False),
-            ("frequency", "frequency", int, False, None, False),
-            ("frequencyMax", "frequencyMax", int, False, None, False),
-            ("offset", "offset", int, False, None, False),
+            ("durationUnit", "durationUnit", FHIRCode, False, None, False),
+            ("frequency", "frequency", FHIRPositiveInt, False, None, False),
+            ("frequencyMax", "frequencyMax", FHIRPositiveInt, False, None, False),
+            ("offset", "offset", FHIRUnsignedInt, False, None, False),
             ("period", "period", float, False, None, False),
             ("periodMax", "periodMax", float, False, None, False),
-            ("periodUnit", "periodUnit", str, False, None, False),
-            ("timeOfDay", "timeOfDay", fhirdate.FHIRDate, True, None, False),
-            ("when", "when", str, True, None, False),
+            ("periodUnit", "periodUnit", FHIRCode, False, None, False),
+            ("timeOfDay", "timeOfDay", FHIRDate, True, None, False),
+            ("when", "when", FHIRCode, True, None, False),
         ])
         return js
 

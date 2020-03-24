@@ -5,7 +5,15 @@
 #  2019, SMART Health IT.
 
 
+import sys
+
 from . import element
+
+try:
+    from . import quantity
+except ImportError:
+    quantity = sys.modules[__package__ + '.quantity']
+
 
 class Range(element.Element):
     """ Set of values bounded by low and high.
@@ -40,10 +48,3 @@ class Range(element.Element):
             ("low", "low", quantity.Quantity, False, None, False),
         ])
         return js
-
-
-import sys
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
