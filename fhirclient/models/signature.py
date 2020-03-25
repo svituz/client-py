@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Signature) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Signature) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import element
@@ -29,7 +29,7 @@ class Signature(element.Element):
         
         self.data = None
         """ The actual signature content (XML DigSig. JWS, picture, etc.).
-        Type `str`. """
+        Type `FHIRBase64Binary` (represented as `str` in JSON). """
         
         self.onBehalfOf = None
         """ The party represented.
@@ -37,11 +37,11 @@ class Signature(element.Element):
         
         self.sigFormat = None
         """ The technical format of the signature.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.targetFormat = None
         """ The technical format of the signed resources.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.type = None
         """ Indication of the reason the entity signed the object(s).
@@ -49,7 +49,7 @@ class Signature(element.Element):
         
         self.when = None
         """ When the signature was created.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.who = None
         """ Who signed.
@@ -60,15 +60,16 @@ class Signature(element.Element):
     def elementProperties(self):
         js = super(Signature, self).elementProperties()
         js.extend([
-            ("data", "data", str, False, None, False),
+            ("data", "data", fhirdatatypes.FHIRBase64Binary, False, None, False),
             ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
-            ("sigFormat", "sigFormat", str, False, None, False),
-            ("targetFormat", "targetFormat", str, False, None, False),
+            ("sigFormat", "sigFormat", fhirdatatypes.FHIRCode, False, None, False),
+            ("targetFormat", "targetFormat", fhirdatatypes.FHIRCode, False, None, False),
             ("type", "type", coding.Coding, True, None, True),
-            ("when", "when", fhirdate.FHIRDate, False, None, True),
+            ("when", "when", fhirdatatypes.FHIRInstant, False, None, True),
             ("who", "who", fhirreference.FHIRReference, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -76,11 +77,14 @@ try:
     from . import coding
 except ImportError:
     coding = sys.modules[__package__ + '.coding']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Measure) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Measure) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -33,7 +33,7 @@ class Measure(domainresource.DomainResource):
         
         self.clinicalRecommendationStatement = None
         """ Summary of clinical guidelines.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.compositeScoring = None
         """ opportunity | all-or-nothing | linear | weighted.
@@ -45,23 +45,23 @@ class Measure(domainresource.DomainResource):
         
         self.copyright = None
         """ Use and/or publishing restrictions.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.definition = None
         """ Defined terms used in the measure documentation.
-        List of `str` items. """
+        List of `FHIRMarkdown` items (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the measure.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.disclaimer = None
         """ Disclaimer for use of the measure or its referenced content.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.editor = None
         """ Who edited the content.
@@ -85,7 +85,7 @@ class Measure(domainresource.DomainResource):
         
         self.guidance = None
         """ Additional guidance for implementers.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Additional identifier for the measure.
@@ -105,27 +105,27 @@ class Measure(domainresource.DomainResource):
         
         self.library = None
         """ Logic used by the measure.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.name = None
         """ Name for this measure (computer friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.publisher = None
         """ Name of the publisher (organization or individual).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.purpose = None
         """ Why this measure is defined.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.rateAggregation = None
         """ How is rate aggregation performed for this measure.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.rationale = None
         """ Detailed description of why the measure exists.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.relatedArtifact = None
         """ Additional documentation, citations, etc..
@@ -137,7 +137,7 @@ class Measure(domainresource.DomainResource):
         
         self.riskAdjustment = None
         """ How risk adjustment is applied for this measure.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.scoring = None
         """ proportion | ratio | continuous-variable | cohort.
@@ -145,7 +145,7 @@ class Measure(domainresource.DomainResource):
         
         self.status = None
         """ draft | active | retired | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subjectCodeableConcept = None
         """ E.g. Patient, Practitioner, RelatedPerson, Organization, Location,
@@ -159,7 +159,7 @@ class Measure(domainresource.DomainResource):
         
         self.subtitle = None
         """ Subordinate title of the measure.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.supplementalData = None
         """ What other data should be reported with the measure.
@@ -167,7 +167,7 @@ class Measure(domainresource.DomainResource):
         
         self.title = None
         """ Name for this measure (human friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.topic = None
         """ The category of the measure, such as Education, Treatment,
@@ -182,11 +182,11 @@ class Measure(domainresource.DomainResource):
         self.url = None
         """ Canonical identifier for this measure, represented as a URI
         (globally unique).
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.usage = None
         """ Describes the clinical usage of the measure.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.useContext = None
         """ The context that the content is intended to support.
@@ -194,57 +194,58 @@ class Measure(domainresource.DomainResource):
         
         self.version = None
         """ Business version of the measure.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(Measure, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Measure, self).elementProperties()
         js.extend([
-            ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
+            ("approvalDate", "approvalDate", fhirdatatypes.FHIRDate, False, None, False),
             ("author", "author", contactdetail.ContactDetail, True, None, False),
-            ("clinicalRecommendationStatement", "clinicalRecommendationStatement", str, False, None, False),
+            ("clinicalRecommendationStatement", "clinicalRecommendationStatement", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("compositeScoring", "compositeScoring", codeableconcept.CodeableConcept, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("definition", "definition", str, True, None, False),
-            ("description", "description", str, False, None, False),
-            ("disclaimer", "disclaimer", str, False, None, False),
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("definition", "definition", fhirdatatypes.FHIRMarkdown, True, None, False),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("disclaimer", "disclaimer", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("editor", "editor", contactdetail.ContactDetail, True, None, False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
             ("endorser", "endorser", contactdetail.ContactDetail, True, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("group", "group", MeasureGroup, True, None, False),
-            ("guidance", "guidance", str, False, None, False),
+            ("guidance", "guidance", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("improvementNotation", "improvementNotation", codeableconcept.CodeableConcept, False, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("lastReviewDate", "lastReviewDate", fhirdate.FHIRDate, False, None, False),
-            ("library", "library", str, True, None, False),
-            ("name", "name", str, False, None, False),
-            ("publisher", "publisher", str, False, None, False),
-            ("purpose", "purpose", str, False, None, False),
-            ("rateAggregation", "rateAggregation", str, False, None, False),
-            ("rationale", "rationale", str, False, None, False),
+            ("lastReviewDate", "lastReviewDate", fhirdatatypes.FHIRDate, False, None, False),
+            ("library", "library", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("rateAggregation", "rateAggregation", fhirdatatypes.FHIRString, False, None, False),
+            ("rationale", "rationale", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False),
             ("reviewer", "reviewer", contactdetail.ContactDetail, True, None, False),
-            ("riskAdjustment", "riskAdjustment", str, False, None, False),
+            ("riskAdjustment", "riskAdjustment", fhirdatatypes.FHIRString, False, None, False),
             ("scoring", "scoring", codeableconcept.CodeableConcept, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False),
             ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False),
-            ("subtitle", "subtitle", str, False, None, False),
+            ("subtitle", "subtitle", fhirdatatypes.FHIRString, False, None, False),
             ("supplementalData", "supplementalData", MeasureSupplementalData, True, None, False),
-            ("title", "title", str, False, None, False),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
             ("topic", "topic", codeableconcept.CodeableConcept, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, True, None, False),
-            ("url", "url", str, False, None, False),
-            ("usage", "usage", str, False, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
+            ("usage", "usage", fhirdatatypes.FHIRString, False, None, False),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("version", "version", str, False, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -271,7 +272,7 @@ class MeasureGroup(backboneelement.BackboneElement):
         
         self.description = None
         """ Summary description.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.population = None
         """ Population criteria.
@@ -287,11 +288,13 @@ class MeasureGroup(backboneelement.BackboneElement):
         js = super(MeasureGroup, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("description", "description", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
             ("population", "population", MeasureGroupPopulation, True, None, False),
             ("stratifier", "stratifier", MeasureGroupStratifier, True, None, False),
         ])
         return js
+
+
 
 
 class MeasureGroupPopulation(backboneelement.BackboneElement):
@@ -322,7 +325,7 @@ class MeasureGroupPopulation(backboneelement.BackboneElement):
         
         self.description = None
         """ The human readable description of this population criteria.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(MeasureGroupPopulation, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -331,9 +334,11 @@ class MeasureGroupPopulation(backboneelement.BackboneElement):
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("criteria", "criteria", expression.Expression, False, None, True),
-            ("description", "description", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
+
 
 
 class MeasureGroupStratifier(backboneelement.BackboneElement):
@@ -368,7 +373,7 @@ class MeasureGroupStratifier(backboneelement.BackboneElement):
         
         self.description = None
         """ The human readable description of this stratifier.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(MeasureGroupStratifier, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -378,9 +383,11 @@ class MeasureGroupStratifier(backboneelement.BackboneElement):
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("component", "component", MeasureGroupStratifierComponent, True, None, False),
             ("criteria", "criteria", expression.Expression, False, None, False),
-            ("description", "description", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
+
 
 
 class MeasureGroupStratifierComponent(backboneelement.BackboneElement):
@@ -411,7 +418,7 @@ class MeasureGroupStratifierComponent(backboneelement.BackboneElement):
         
         self.description = None
         """ The human readable description of this stratifier component.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(MeasureGroupStratifierComponent, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -420,9 +427,11 @@ class MeasureGroupStratifierComponent(backboneelement.BackboneElement):
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("criteria", "criteria", expression.Expression, False, None, True),
-            ("description", "description", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
+
 
 
 class MeasureSupplementalData(backboneelement.BackboneElement):
@@ -453,7 +462,7 @@ class MeasureSupplementalData(backboneelement.BackboneElement):
         
         self.description = None
         """ The human readable description of this supplemental data.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.usage = None
         """ supplemental-data | risk-adjustment-factor.
@@ -466,10 +475,11 @@ class MeasureSupplementalData(backboneelement.BackboneElement):
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("criteria", "criteria", expression.Expression, False, None, True),
-            ("description", "description", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
             ("usage", "usage", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
+
 
 
 import sys
@@ -477,35 +487,44 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import contactdetail
 except ImportError:
     contactdetail = sys.modules[__package__ + '.contactdetail']
+
 try:
     from . import expression
 except ImportError:
     expression = sys.modules[__package__ + '.expression']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import relatedartifact
 except ImportError:
     relatedartifact = sys.modules[__package__ + '.relatedartifact']
+
 try:
     from . import usagecontext
 except ImportError:
     usagecontext = sys.modules[__package__ + '.usagecontext']
+

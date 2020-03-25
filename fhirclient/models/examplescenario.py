@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ExampleScenario) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ExampleScenario) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -31,11 +31,11 @@ class ExampleScenario(domainresource.DomainResource):
         
         self.copyright = None
         """ Use and/or publishing restrictions.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.experimental = None
         """ For testing purposes, not real usage.
@@ -55,7 +55,7 @@ class ExampleScenario(domainresource.DomainResource):
         
         self.name = None
         """ Name for this example scenario (computer friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.process = None
         """ Each major process - a group of operations.
@@ -63,20 +63,20 @@ class ExampleScenario(domainresource.DomainResource):
         
         self.publisher = None
         """ Name of the publisher (organization or individual).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.purpose = None
         """ The purpose of the example, e.g. to illustrate a scenario.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.status = None
         """ draft | active | retired | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.url = None
         """ Canonical identifier for this example scenario, represented as a
         URI (globally unique).
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.useContext = None
         """ The context that the content is intended to support.
@@ -84,11 +84,11 @@ class ExampleScenario(domainresource.DomainResource):
         
         self.version = None
         """ Business version of the example scenario.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.workflow = None
         """ Another nested workflow.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         super(ExampleScenario, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -97,23 +97,24 @@ class ExampleScenario(domainresource.DomainResource):
         js.extend([
             ("actor", "actor", ExampleScenarioActor, True, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("instance", "instance", ExampleScenarioInstance, True, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("name", "name", str, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
             ("process", "process", ExampleScenarioProcess, True, None, False),
-            ("publisher", "publisher", str, False, None, False),
-            ("purpose", "purpose", str, False, None, False),
-            ("status", "status", str, False, None, True),
-            ("url", "url", str, False, None, False),
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("version", "version", str, False, None, False),
-            ("workflow", "workflow", str, True, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
+            ("workflow", "workflow", fhirdatatypes.FHIRCanonical, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -134,31 +135,33 @@ class ExampleScenarioActor(backboneelement.BackboneElement):
         
         self.actorId = None
         """ ID or acronym of the actor.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.description = None
         """ The description of the actor.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.name = None
         """ The name of the actor as shown in the page.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ person | entity.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(ExampleScenarioActor, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ExampleScenarioActor, self).elementProperties()
         js.extend([
-            ("actorId", "actorId", str, False, None, True),
-            ("description", "description", str, False, None, False),
-            ("name", "name", str, False, None, False),
-            ("type", "type", str, False, None, True),
+            ("actorId", "actorId", fhirdatatypes.FHIRString, False, None, True),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
+
 
 
 class ExampleScenarioInstance(backboneelement.BackboneElement):
@@ -181,19 +184,19 @@ class ExampleScenarioInstance(backboneelement.BackboneElement):
         
         self.description = None
         """ Human-friendly description of the resource instance.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.name = None
         """ A short name for the resource instance.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.resourceId = None
         """ The id of the resource for referencing.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.resourceType = None
         """ The type of the resource.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.version = None
         """ A specific version of the resource.
@@ -205,13 +208,15 @@ class ExampleScenarioInstance(backboneelement.BackboneElement):
         js = super(ExampleScenarioInstance, self).elementProperties()
         js.extend([
             ("containedInstance", "containedInstance", ExampleScenarioInstanceContainedInstance, True, None, False),
-            ("description", "description", str, False, None, False),
-            ("name", "name", str, False, None, False),
-            ("resourceId", "resourceId", str, False, None, True),
-            ("resourceType", "resourceType", str, False, None, True),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
+            ("resourceId", "resourceId", fhirdatatypes.FHIRString, False, None, True),
+            ("resourceType", "resourceType", fhirdatatypes.FHIRCode, False, None, True),
             ("version", "version", ExampleScenarioInstanceVersion, True, None, False),
         ])
         return js
+
+
 
 
 class ExampleScenarioInstanceContainedInstance(backboneelement.BackboneElement):
@@ -233,21 +238,23 @@ class ExampleScenarioInstanceContainedInstance(backboneelement.BackboneElement):
         
         self.resourceId = None
         """ Each resource contained in the instance.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.versionId = None
         """ A specific version of a resource contained in the instance.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ExampleScenarioInstanceContainedInstance, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ExampleScenarioInstanceContainedInstance, self).elementProperties()
         js.extend([
-            ("resourceId", "resourceId", str, False, None, True),
-            ("versionId", "versionId", str, False, None, False),
+            ("resourceId", "resourceId", fhirdatatypes.FHIRString, False, None, True),
+            ("versionId", "versionId", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
+
 
 
 class ExampleScenarioInstanceVersion(backboneelement.BackboneElement):
@@ -266,21 +273,23 @@ class ExampleScenarioInstanceVersion(backboneelement.BackboneElement):
         
         self.description = None
         """ The description of the resource version.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.versionId = None
         """ The identifier of a specific version of a resource.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ExampleScenarioInstanceVersion, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ExampleScenarioInstanceVersion, self).elementProperties()
         js.extend([
-            ("description", "description", str, False, None, True),
-            ("versionId", "versionId", str, False, None, True),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, True),
+            ("versionId", "versionId", fhirdatatypes.FHIRString, False, None, True),
         ])
         return js
+
+
 
 
 class ExampleScenarioProcess(backboneelement.BackboneElement):
@@ -299,15 +308,15 @@ class ExampleScenarioProcess(backboneelement.BackboneElement):
         
         self.description = None
         """ A longer description of the group of operations.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.postConditions = None
         """ Description of final status after the process ends.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.preConditions = None
         """ Description of initial status before the process starts.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.step = None
         """ Each step of the process.
@@ -315,20 +324,22 @@ class ExampleScenarioProcess(backboneelement.BackboneElement):
         
         self.title = None
         """ The diagram title of the group of operations.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ExampleScenarioProcess, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ExampleScenarioProcess, self).elementProperties()
         js.extend([
-            ("description", "description", str, False, None, False),
-            ("postConditions", "postConditions", str, False, None, False),
-            ("preConditions", "preConditions", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("postConditions", "postConditions", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("preConditions", "preConditions", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("step", "step", ExampleScenarioProcessStep, True, None, False),
-            ("title", "title", str, False, None, True),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, True),
         ])
         return js
+
+
 
 
 class ExampleScenarioProcessStep(backboneelement.BackboneElement):
@@ -374,6 +385,8 @@ class ExampleScenarioProcessStep(backboneelement.BackboneElement):
         return js
 
 
+
+
 class ExampleScenarioProcessStepAlternative(backboneelement.BackboneElement):
     """ Alternate non-typical step action.
     
@@ -393,7 +406,7 @@ class ExampleScenarioProcessStepAlternative(backboneelement.BackboneElement):
         
         self.description = None
         """ A human-readable description of each option.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.step = None
         """ What happens in each alternative option.
@@ -401,18 +414,20 @@ class ExampleScenarioProcessStepAlternative(backboneelement.BackboneElement):
         
         self.title = None
         """ Label for alternative.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ExampleScenarioProcessStepAlternative, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ExampleScenarioProcessStepAlternative, self).elementProperties()
         js.extend([
-            ("description", "description", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("step", "step", ExampleScenarioProcessStep, True, None, False),
-            ("title", "title", str, False, None, True),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, True),
         ])
         return js
+
+
 
 
 class ExampleScenarioProcessStepOperation(backboneelement.BackboneElement):
@@ -431,11 +446,11 @@ class ExampleScenarioProcessStepOperation(backboneelement.BackboneElement):
         
         self.description = None
         """ A comment to be inserted in the diagram.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.initiator = None
         """ Who starts the transaction.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.initiatorActive = None
         """ Whether the initiator is deactivated right after the transaction.
@@ -443,15 +458,15 @@ class ExampleScenarioProcessStepOperation(backboneelement.BackboneElement):
         
         self.name = None
         """ The human-friendly name of the interaction.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.number = None
         """ The sequential number of the interaction.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.receiver = None
         """ Who receives the transaction.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.receiverActive = None
         """ Whether the receiver is deactivated right after the transaction.
@@ -467,25 +482,26 @@ class ExampleScenarioProcessStepOperation(backboneelement.BackboneElement):
         
         self.type = None
         """ The type of operation - CRUD.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ExampleScenarioProcessStepOperation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ExampleScenarioProcessStepOperation, self).elementProperties()
         js.extend([
-            ("description", "description", str, False, None, False),
-            ("initiator", "initiator", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("initiator", "initiator", fhirdatatypes.FHIRString, False, None, False),
             ("initiatorActive", "initiatorActive", bool, False, None, False),
-            ("name", "name", str, False, None, False),
-            ("number", "number", str, False, None, True),
-            ("receiver", "receiver", str, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
+            ("number", "number", fhirdatatypes.FHIRString, False, None, True),
+            ("receiver", "receiver", fhirdatatypes.FHIRString, False, None, False),
             ("receiverActive", "receiverActive", bool, False, None, False),
             ("request", "request", ExampleScenarioInstanceContainedInstance, False, None, False),
             ("response", "response", ExampleScenarioInstanceContainedInstance, False, None, False),
-            ("type", "type", str, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -493,19 +509,24 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import contactdetail
 except ImportError:
     contactdetail = sys.modules[__package__ + '.contactdetail']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import usagecontext
 except ImportError:
     usagecontext = sys.modules[__package__ + '.usagecontext']
+

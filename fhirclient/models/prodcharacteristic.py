@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ProdCharacteristic) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ProdCharacteristic) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import backboneelement
@@ -27,7 +27,7 @@ class ProdCharacteristic(backboneelement.BackboneElement):
         """ Where applicable, the color can be specified An appropriate
         controlled vocabulary shall be used The term and the term
         identifier shall be used.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.depth = None
         """ Where applicable, the depth can be specified using a numerical
@@ -57,7 +57,7 @@ class ProdCharacteristic(backboneelement.BackboneElement):
         
         self.imprint = None
         """ Where applicable, the imprint can be specified as text.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.nominalVolume = None
         """ Where applicable, the nominal volume can be specified using a
@@ -76,7 +76,7 @@ class ProdCharacteristic(backboneelement.BackboneElement):
         """ Where applicable, the shape can be specified An appropriate
         controlled vocabulary shall be used The term and the term
         identifier shall be used.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.weight = None
         """ Where applicable, the weight can be specified using a numerical
@@ -97,19 +97,20 @@ class ProdCharacteristic(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ProdCharacteristic, self).elementProperties()
         js.extend([
-            ("color", "color", str, True, None, False),
+            ("color", "color", fhirdatatypes.FHIRString, True, None, False),
             ("depth", "depth", quantity.Quantity, False, None, False),
             ("externalDiameter", "externalDiameter", quantity.Quantity, False, None, False),
             ("height", "height", quantity.Quantity, False, None, False),
             ("image", "image", attachment.Attachment, True, None, False),
-            ("imprint", "imprint", str, True, None, False),
+            ("imprint", "imprint", fhirdatatypes.FHIRString, True, None, False),
             ("nominalVolume", "nominalVolume", quantity.Quantity, False, None, False),
             ("scoring", "scoring", codeableconcept.CodeableConcept, False, None, False),
-            ("shape", "shape", str, False, None, False),
+            ("shape", "shape", fhirdatatypes.FHIRString, False, None, False),
             ("weight", "weight", quantity.Quantity, False, None, False),
             ("width", "width", quantity.Quantity, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -117,11 +118,19 @@ try:
     from . import attachment
 except ImportError:
     attachment = sys.modules[__package__ + '.attachment']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+

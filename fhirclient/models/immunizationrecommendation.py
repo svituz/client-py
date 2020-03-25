@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -30,7 +30,7 @@ class ImmunizationRecommendation(domainresource.DomainResource):
         
         self.date = None
         """ Date recommendation(s) created.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Business identifier.
@@ -50,12 +50,13 @@ class ImmunizationRecommendation(domainresource.DomainResource):
         js = super(ImmunizationRecommendation, self).elementProperties()
         js.extend([
             ("authority", "authority", fhirreference.FHIRReference, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, True),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, True),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("recommendation", "recommendation", ImmunizationRecommendationRecommendation, True, None, True),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -84,15 +85,15 @@ class ImmunizationRecommendationRecommendation(backboneelement.BackboneElement):
         
         self.description = None
         """ Protocol details.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.doseNumberPositiveInt = None
         """ Recommended dose number within series.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.doseNumberString = None
         """ Recommended dose number within series.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.forecastReason = None
         """ Vaccine administration status reason.
@@ -104,15 +105,15 @@ class ImmunizationRecommendationRecommendation(backboneelement.BackboneElement):
         
         self.series = None
         """ Name of vaccination series.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.seriesDosesPositiveInt = None
         """ Recommended number of doses for immunity.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.seriesDosesString = None
         """ Recommended number of doses for immunity.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.supportingImmunization = None
         """ Past immunizations supporting recommendation.
@@ -137,20 +138,22 @@ class ImmunizationRecommendationRecommendation(backboneelement.BackboneElement):
         js.extend([
             ("contraindicatedVaccineCode", "contraindicatedVaccineCode", codeableconcept.CodeableConcept, True, None, False),
             ("dateCriterion", "dateCriterion", ImmunizationRecommendationRecommendationDateCriterion, True, None, False),
-            ("description", "description", str, False, None, False),
-            ("doseNumberPositiveInt", "doseNumberPositiveInt", int, False, "doseNumber", False),
-            ("doseNumberString", "doseNumberString", str, False, "doseNumber", False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
+            ("doseNumberPositiveInt", "doseNumberPositiveInt", fhirdatatypes.FHIRPositiveInt, False, "doseNumber", False),
+            ("doseNumberString", "doseNumberString", fhirdatatypes.FHIRString, False, "doseNumber", False),
             ("forecastReason", "forecastReason", codeableconcept.CodeableConcept, True, None, False),
             ("forecastStatus", "forecastStatus", codeableconcept.CodeableConcept, False, None, True),
-            ("series", "series", str, False, None, False),
-            ("seriesDosesPositiveInt", "seriesDosesPositiveInt", int, False, "seriesDoses", False),
-            ("seriesDosesString", "seriesDosesString", str, False, "seriesDoses", False),
+            ("series", "series", fhirdatatypes.FHIRString, False, None, False),
+            ("seriesDosesPositiveInt", "seriesDosesPositiveInt", fhirdatatypes.FHIRPositiveInt, False, "seriesDoses", False),
+            ("seriesDosesString", "seriesDosesString", fhirdatatypes.FHIRString, False, "seriesDoses", False),
             ("supportingImmunization", "supportingImmunization", fhirreference.FHIRReference, True, None, False),
             ("supportingPatientInformation", "supportingPatientInformation", fhirreference.FHIRReference, True, None, False),
             ("targetDisease", "targetDisease", codeableconcept.CodeableConcept, False, None, False),
             ("vaccineCode", "vaccineCode", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
+
+
 
 
 class ImmunizationRecommendationRecommendationDateCriterion(backboneelement.BackboneElement):
@@ -176,7 +179,7 @@ class ImmunizationRecommendationRecommendationDateCriterion(backboneelement.Back
         
         self.value = None
         """ Recommended date.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         super(ImmunizationRecommendationRecommendationDateCriterion, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -184,9 +187,10 @@ class ImmunizationRecommendationRecommendationDateCriterion(backboneelement.Back
         js = super(ImmunizationRecommendationRecommendationDateCriterion, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("value", "value", fhirdate.FHIRDate, False, None, True),
+            ("value", "value", fhirdatatypes.FHIRDateTime, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -194,15 +198,19 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+

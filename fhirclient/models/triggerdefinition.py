@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/TriggerDefinition) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/TriggerDefinition) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import element
@@ -34,7 +34,7 @@ class TriggerDefinition(element.Element):
         
         self.name = None
         """ Name or URI that identifies the event.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.timingDate = None
         """ Timing of the event.
@@ -42,7 +42,7 @@ class TriggerDefinition(element.Element):
         
         self.timingDateTime = None
         """ Timing of the event.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.timingReference = None
         """ Timing of the event.
@@ -55,7 +55,7 @@ class TriggerDefinition(element.Element):
         self.type = None
         """ named-event | periodic | data-changed | data-added | data-modified
         | data-removed | data-accessed | data-access-ended.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(TriggerDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -64,14 +64,15 @@ class TriggerDefinition(element.Element):
         js.extend([
             ("condition", "condition", expression.Expression, False, None, False),
             ("data", "data", datarequirement.DataRequirement, True, None, False),
-            ("name", "name", str, False, None, False),
-            ("timingDate", "timingDate", fhirdate.FHIRDate, False, "timing", False),
-            ("timingDateTime", "timingDateTime", fhirdate.FHIRDate, False, "timing", False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
+            ("timingDate", "timingDate", fhirdatatypes.FHIRDate, False, "timing", False),
+            ("timingDateTime", "timingDateTime", fhirdatatypes.FHIRDateTime, False, "timing", False),
             ("timingReference", "timingReference", fhirreference.FHIRReference, False, "timing", False),
             ("timingTiming", "timingTiming", timing.Timing, False, "timing", False),
-            ("type", "type", str, False, None, True),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -79,19 +80,24 @@ try:
     from . import datarequirement
 except ImportError:
     datarequirement = sys.modules[__package__ + '.datarequirement']
+
 try:
     from . import expression
 except ImportError:
     expression = sys.modules[__package__ + '.expression']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import timing
 except ImportError:
     timing = sys.modules[__package__ + '.timing']
+

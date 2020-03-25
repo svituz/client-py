@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Meta) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Meta) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import element
@@ -27,11 +27,11 @@ class Meta(element.Element):
         
         self.lastUpdated = None
         """ When the resource version last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.profile = None
         """ Profiles this resource claims to conform to.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.security = None
         """ Security Labels applied to this resource.
@@ -39,7 +39,7 @@ class Meta(element.Element):
         
         self.source = None
         """ Identifies where the resource comes from.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.tag = None
         """ Tags applied to this resource.
@@ -47,21 +47,22 @@ class Meta(element.Element):
         
         self.versionId = None
         """ Version specific identifier.
-        Type `str`. """
+        Type `FHIRId` (represented as `str` in JSON). """
         
         super(Meta, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Meta, self).elementProperties()
         js.extend([
-            ("lastUpdated", "lastUpdated", fhirdate.FHIRDate, False, None, False),
-            ("profile", "profile", str, True, None, False),
+            ("lastUpdated", "lastUpdated", fhirdatatypes.FHIRInstant, False, None, False),
+            ("profile", "profile", fhirdatatypes.FHIRCanonical, True, None, False),
             ("security", "security", coding.Coding, True, None, False),
-            ("source", "source", str, False, None, False),
+            ("source", "source", fhirdatatypes.FHIRUri, False, None, False),
             ("tag", "tag", coding.Coding, True, None, False),
-            ("versionId", "versionId", str, False, None, False),
+            ("versionId", "versionId", fhirdatatypes.FHIRId, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -69,7 +70,9 @@ try:
     from . import coding
 except ImportError:
     coding = sys.modules[__package__ + '.coding']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+

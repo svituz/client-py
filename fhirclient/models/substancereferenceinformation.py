@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/SubstanceReferenceInformation) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SubstanceReferenceInformation) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -27,7 +27,7 @@ class SubstanceReferenceInformation(domainresource.DomainResource):
         
         self.comment = None
         """ Todo.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.gene = None
         """ Todo.
@@ -47,12 +47,13 @@ class SubstanceReferenceInformation(domainresource.DomainResource):
         js = super(SubstanceReferenceInformation, self).elementProperties()
         js.extend([
             ("classification", "classification", SubstanceReferenceInformationClassification, True, None, False),
-            ("comment", "comment", str, False, None, False),
+            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False),
             ("gene", "gene", SubstanceReferenceInformationGene, True, None, False),
             ("geneElement", "geneElement", SubstanceReferenceInformationGeneElement, True, None, False),
             ("target", "target", SubstanceReferenceInformationTarget, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -100,6 +101,8 @@ class SubstanceReferenceInformationClassification(backboneelement.BackboneElemen
         return js
 
 
+
+
 class SubstanceReferenceInformationGene(backboneelement.BackboneElement):
     """ Todo.
     """
@@ -136,6 +139,8 @@ class SubstanceReferenceInformationGene(backboneelement.BackboneElement):
             ("source", "source", fhirreference.FHIRReference, True, None, False),
         ])
         return js
+
+
 
 
 class SubstanceReferenceInformationGeneElement(backboneelement.BackboneElement):
@@ -176,6 +181,8 @@ class SubstanceReferenceInformationGeneElement(backboneelement.BackboneElement):
         return js
 
 
+
+
 class SubstanceReferenceInformationTarget(backboneelement.BackboneElement):
     """ Todo.
     """
@@ -200,7 +207,7 @@ class SubstanceReferenceInformationTarget(backboneelement.BackboneElement):
         
         self.amountString = None
         """ Todo.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.amountType = None
         """ Todo.
@@ -237,7 +244,7 @@ class SubstanceReferenceInformationTarget(backboneelement.BackboneElement):
         js.extend([
             ("amountQuantity", "amountQuantity", quantity.Quantity, False, "amount", False),
             ("amountRange", "amountRange", range.Range, False, "amount", False),
-            ("amountString", "amountString", str, False, "amount", False),
+            ("amountString", "amountString", fhirdatatypes.FHIRString, False, "amount", False),
             ("amountType", "amountType", codeableconcept.CodeableConcept, False, None, False),
             ("interaction", "interaction", codeableconcept.CodeableConcept, False, None, False),
             ("organism", "organism", codeableconcept.CodeableConcept, False, None, False),
@@ -249,24 +256,35 @@ class SubstanceReferenceInformationTarget(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+
 try:
     from . import range
 except ImportError:
     range = sys.modules[__package__ + '.range']
+

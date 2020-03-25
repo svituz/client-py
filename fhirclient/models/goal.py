@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Goal) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Goal) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -54,7 +54,7 @@ class Goal(domainresource.DomainResource):
         self.lifecycleStatus = None
         """ proposed | planned | accepted | active | on-hold | completed |
         cancelled | entered-in-error | rejected.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.note = None
         """ Comments about the goal.
@@ -86,7 +86,7 @@ class Goal(domainresource.DomainResource):
         
         self.statusReason = None
         """ Reason for current status.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.subject = None
         """ Who this goal is intended for.
@@ -107,19 +107,20 @@ class Goal(domainresource.DomainResource):
             ("description", "description", codeableconcept.CodeableConcept, False, None, True),
             ("expressedBy", "expressedBy", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("lifecycleStatus", "lifecycleStatus", str, False, None, True),
+            ("lifecycleStatus", "lifecycleStatus", fhirdatatypes.FHIRCode, False, None, True),
             ("note", "note", annotation.Annotation, True, None, False),
             ("outcomeCode", "outcomeCode", codeableconcept.CodeableConcept, True, None, False),
             ("outcomeReference", "outcomeReference", fhirreference.FHIRReference, True, None, False),
             ("priority", "priority", codeableconcept.CodeableConcept, False, None, False),
             ("startCodeableConcept", "startCodeableConcept", codeableconcept.CodeableConcept, False, "start", False),
-            ("startDate", "startDate", fhirdate.FHIRDate, False, "start", False),
-            ("statusDate", "statusDate", fhirdate.FHIRDate, False, None, False),
-            ("statusReason", "statusReason", str, False, None, False),
+            ("startDate", "startDate", fhirdatatypes.FHIRDate, False, "start", False),
+            ("statusDate", "statusDate", fhirdatatypes.FHIRDate, False, None, False),
+            ("statusReason", "statusReason", fhirdatatypes.FHIRString, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
             ("target", "target", GoalTarget, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -166,7 +167,7 @@ class GoalTarget(backboneelement.BackboneElement):
         
         self.detailString = None
         """ The target value to be achieved.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.dueDate = None
         """ Reach goal on or before.
@@ -191,12 +192,13 @@ class GoalTarget(backboneelement.BackboneElement):
             ("detailQuantity", "detailQuantity", quantity.Quantity, False, "detail", False),
             ("detailRange", "detailRange", range.Range, False, "detail", False),
             ("detailRatio", "detailRatio", ratio.Ratio, False, "detail", False),
-            ("detailString", "detailString", str, False, "detail", False),
-            ("dueDate", "dueDate", fhirdate.FHIRDate, False, "due", False),
+            ("detailString", "detailString", fhirdatatypes.FHIRString, False, "detail", False),
+            ("dueDate", "dueDate", fhirdatatypes.FHIRDate, False, "due", False),
             ("dueDuration", "dueDuration", duration.Duration, False, "due", False),
             ("measure", "measure", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -204,35 +206,44 @@ try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import duration
 except ImportError:
     duration = sys.modules[__package__ + '.duration']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+
 try:
     from . import range
 except ImportError:
     range = sys.modules[__package__ + '.range']
+
 try:
     from . import ratio
 except ImportError:
     ratio = sys.modules[__package__ + '.ratio']
+

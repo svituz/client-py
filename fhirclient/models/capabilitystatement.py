@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/CapabilityStatement) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CapabilityStatement) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -32,15 +32,15 @@ class CapabilityStatement(domainresource.DomainResource):
         
         self.copyright = None
         """ Use and/or publishing restrictions.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the capability statement.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.document = None
         """ Document definition.
@@ -52,11 +52,11 @@ class CapabilityStatement(domainresource.DomainResource):
         
         self.fhirVersion = None
         """ FHIR Version the system supports.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.format = None
         """ formats supported (xml | json | ttl | mime type).
-        List of `str` items. """
+        List of `FHIRCode` items (represented as `str` in JSON). """
         
         self.implementation = None
         """ If this describes a specific instance.
@@ -64,15 +64,15 @@ class CapabilityStatement(domainresource.DomainResource):
         
         self.implementationGuide = None
         """ Implementation guides supported.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.imports = None
         """ Canonical URL of another capability statement this adds to.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.instantiates = None
         """ Canonical URL of another capability statement this implements.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.jurisdiction = None
         """ Intended jurisdiction for capability statement (if applicable).
@@ -80,7 +80,7 @@ class CapabilityStatement(domainresource.DomainResource):
         
         self.kind = None
         """ instance | capability | requirements.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.messaging = None
         """ If messaging is supported.
@@ -88,19 +88,19 @@ class CapabilityStatement(domainresource.DomainResource):
         
         self.name = None
         """ Name for this capability statement (computer friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.patchFormat = None
         """ Patch formats supported.
-        List of `str` items. """
+        List of `FHIRCode` items (represented as `str` in JSON). """
         
         self.publisher = None
         """ Name of the publisher (organization or individual).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.purpose = None
         """ Why this capability statement is defined.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.rest = None
         """ If the endpoint is a RESTful one.
@@ -112,16 +112,16 @@ class CapabilityStatement(domainresource.DomainResource):
         
         self.status = None
         """ draft | active | retired | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.title = None
         """ Name for this capability statement (human friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.url = None
         """ Canonical identifier for this capability statement, represented as
         a URI (globally unique).
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.useContext = None
         """ The context that the content is intended to support.
@@ -129,7 +129,7 @@ class CapabilityStatement(domainresource.DomainResource):
         
         self.version = None
         """ Business version of the capability statement.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(CapabilityStatement, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -137,33 +137,34 @@ class CapabilityStatement(domainresource.DomainResource):
         js = super(CapabilityStatement, self).elementProperties()
         js.extend([
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, True),
-            ("description", "description", str, False, None, False),
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, True),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("document", "document", CapabilityStatementDocument, True, None, False),
             ("experimental", "experimental", bool, False, None, False),
-            ("fhirVersion", "fhirVersion", str, False, None, True),
-            ("format", "format", str, True, None, True),
+            ("fhirVersion", "fhirVersion", fhirdatatypes.FHIRCode, False, None, True),
+            ("format", "format", fhirdatatypes.FHIRCode, True, None, True),
             ("implementation", "implementation", CapabilityStatementImplementation, False, None, False),
-            ("implementationGuide", "implementationGuide", str, True, None, False),
-            ("imports", "imports", str, True, None, False),
-            ("instantiates", "instantiates", str, True, None, False),
+            ("implementationGuide", "implementationGuide", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("imports", "imports", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("instantiates", "instantiates", fhirdatatypes.FHIRCanonical, True, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("kind", "kind", str, False, None, True),
+            ("kind", "kind", fhirdatatypes.FHIRCode, False, None, True),
             ("messaging", "messaging", CapabilityStatementMessaging, True, None, False),
-            ("name", "name", str, False, None, False),
-            ("patchFormat", "patchFormat", str, True, None, False),
-            ("publisher", "publisher", str, False, None, False),
-            ("purpose", "purpose", str, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
+            ("patchFormat", "patchFormat", fhirdatatypes.FHIRCode, True, None, False),
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("rest", "rest", CapabilityStatementRest, True, None, False),
             ("software", "software", CapabilityStatementSoftware, False, None, False),
-            ("status", "status", str, False, None, True),
-            ("title", "title", str, False, None, False),
-            ("url", "url", str, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("version", "version", str, False, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -186,26 +187,28 @@ class CapabilityStatementDocument(backboneelement.BackboneElement):
         
         self.documentation = None
         """ Description of document support.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.mode = None
         """ producer | consumer.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.profile = None
         """ Constraint on the resources used in the document.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         super(CapabilityStatementDocument, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CapabilityStatementDocument, self).elementProperties()
         js.extend([
-            ("documentation", "documentation", str, False, None, False),
-            ("mode", "mode", str, False, None, True),
-            ("profile", "profile", str, False, None, True),
+            ("documentation", "documentation", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, True),
+            ("profile", "profile", fhirdatatypes.FHIRCanonical, False, None, True),
         ])
         return js
+
+
 
 
 class CapabilityStatementImplementation(backboneelement.BackboneElement):
@@ -232,11 +235,11 @@ class CapabilityStatementImplementation(backboneelement.BackboneElement):
         
         self.description = None
         """ Describes this specific instance.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.url = None
         """ Base URL for the installation.
-        Type `str`. """
+        Type `FHIRUrl` (represented as `str` in JSON). """
         
         super(CapabilityStatementImplementation, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -244,10 +247,12 @@ class CapabilityStatementImplementation(backboneelement.BackboneElement):
         js = super(CapabilityStatementImplementation, self).elementProperties()
         js.extend([
             ("custodian", "custodian", fhirreference.FHIRReference, False, None, False),
-            ("description", "description", str, False, None, True),
-            ("url", "url", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, True),
+            ("url", "url", fhirdatatypes.FHIRUrl, False, None, False),
         ])
         return js
+
+
 
 
 class CapabilityStatementMessaging(backboneelement.BackboneElement):
@@ -268,7 +273,7 @@ class CapabilityStatementMessaging(backboneelement.BackboneElement):
         
         self.documentation = None
         """ Messaging interface behavior details.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.endpoint = None
         """ Where messages should be sent.
@@ -276,7 +281,7 @@ class CapabilityStatementMessaging(backboneelement.BackboneElement):
         
         self.reliableCache = None
         """ Reliable Message Cache Length (min).
-        Type `int`. """
+        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
         
         self.supportedMessage = None
         """ Messages supported by this system.
@@ -287,12 +292,14 @@ class CapabilityStatementMessaging(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CapabilityStatementMessaging, self).elementProperties()
         js.extend([
-            ("documentation", "documentation", str, False, None, False),
+            ("documentation", "documentation", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("endpoint", "endpoint", CapabilityStatementMessagingEndpoint, True, None, False),
-            ("reliableCache", "reliableCache", int, False, None, False),
+            ("reliableCache", "reliableCache", fhirdatatypes.FHIRUnsignedInt, False, None, False),
             ("supportedMessage", "supportedMessage", CapabilityStatementMessagingSupportedMessage, True, None, False),
         ])
         return js
+
+
 
 
 class CapabilityStatementMessagingEndpoint(backboneelement.BackboneElement):
@@ -314,7 +321,7 @@ class CapabilityStatementMessagingEndpoint(backboneelement.BackboneElement):
         
         self.address = None
         """ Network address or identifier of the end-point.
-        Type `str`. """
+        Type `FHIRUrl` (represented as `str` in JSON). """
         
         self.protocol = None
         """ http | ftp | mllp +.
@@ -325,10 +332,12 @@ class CapabilityStatementMessagingEndpoint(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CapabilityStatementMessagingEndpoint, self).elementProperties()
         js.extend([
-            ("address", "address", str, False, None, True),
+            ("address", "address", fhirdatatypes.FHIRUrl, False, None, True),
             ("protocol", "protocol", coding.Coding, False, None, True),
         ])
         return js
+
+
 
 
 class CapabilityStatementMessagingSupportedMessage(backboneelement.BackboneElement):
@@ -350,21 +359,23 @@ class CapabilityStatementMessagingSupportedMessage(backboneelement.BackboneEleme
         
         self.definition = None
         """ Message supported by this system.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.mode = None
         """ sender | receiver.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(CapabilityStatementMessagingSupportedMessage, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CapabilityStatementMessagingSupportedMessage, self).elementProperties()
         js.extend([
-            ("definition", "definition", str, False, None, True),
-            ("mode", "mode", str, False, None, True),
+            ("definition", "definition", fhirdatatypes.FHIRCanonical, False, None, True),
+            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
+
 
 
 class CapabilityStatementRest(backboneelement.BackboneElement):
@@ -385,11 +396,11 @@ class CapabilityStatementRest(backboneelement.BackboneElement):
         
         self.compartment = None
         """ Compartments served/used by system.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.documentation = None
         """ General description of implementation.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.interaction = None
         """ What operations are supported?.
@@ -397,7 +408,7 @@ class CapabilityStatementRest(backboneelement.BackboneElement):
         
         self.mode = None
         """ client | server.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.operation = None
         """ Definition of a system level operation.
@@ -420,16 +431,18 @@ class CapabilityStatementRest(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CapabilityStatementRest, self).elementProperties()
         js.extend([
-            ("compartment", "compartment", str, True, None, False),
-            ("documentation", "documentation", str, False, None, False),
+            ("compartment", "compartment", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("documentation", "documentation", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("interaction", "interaction", CapabilityStatementRestInteraction, True, None, False),
-            ("mode", "mode", str, False, None, True),
+            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, True),
             ("operation", "operation", CapabilityStatementRestResourceOperation, True, None, False),
             ("resource", "resource", CapabilityStatementRestResource, True, None, False),
             ("searchParam", "searchParam", CapabilityStatementRestResourceSearchParam, True, None, False),
             ("security", "security", CapabilityStatementRestSecurity, False, None, False),
         ])
         return js
+
+
 
 
 class CapabilityStatementRestInteraction(backboneelement.BackboneElement):
@@ -450,21 +463,23 @@ class CapabilityStatementRestInteraction(backboneelement.BackboneElement):
         
         self.code = None
         """ transaction | batch | search-system | history-system.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.documentation = None
         """ Anything special about operation behavior.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         super(CapabilityStatementRestInteraction, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CapabilityStatementRestInteraction, self).elementProperties()
         js.extend([
-            ("code", "code", str, False, None, True),
-            ("documentation", "documentation", str, False, None, False),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
+            ("documentation", "documentation", fhirdatatypes.FHIRMarkdown, False, None, False),
         ])
         return js
+
+
 
 
 class CapabilityStatementRestResource(backboneelement.BackboneElement):
@@ -491,11 +506,11 @@ class CapabilityStatementRestResource(backboneelement.BackboneElement):
         self.conditionalDelete = None
         """ not-supported | single | multiple - how conditional delete is
         supported.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.conditionalRead = None
         """ not-supported | modified-since | not-match | full-support.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.conditionalUpdate = None
         """ If allows/uses conditional update.
@@ -503,7 +518,7 @@ class CapabilityStatementRestResource(backboneelement.BackboneElement):
         
         self.documentation = None
         """ Additional information about the use of the resource type.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.interaction = None
         """ What operations are supported?.
@@ -515,7 +530,7 @@ class CapabilityStatementRestResource(backboneelement.BackboneElement):
         
         self.profile = None
         """ Base System profile for all uses of resource.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.readHistory = None
         """ Whether vRead can return past versions.
@@ -523,11 +538,11 @@ class CapabilityStatementRestResource(backboneelement.BackboneElement):
         
         self.referencePolicy = None
         """ literal | logical | resolves | enforced | local.
-        List of `str` items. """
+        List of `FHIRCode` items (represented as `str` in JSON). """
         
         self.searchInclude = None
         """ _include values supported by the server.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.searchParam = None
         """ Search parameters supported by implementation.
@@ -535,15 +550,15 @@ class CapabilityStatementRestResource(backboneelement.BackboneElement):
         
         self.searchRevInclude = None
         """ _revinclude values supported by the server.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.supportedProfile = None
         """ Profiles for use cases supported.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.type = None
         """ A resource type that is supported.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.updateCreate = None
         """ If update can commit to a new identity.
@@ -551,7 +566,7 @@ class CapabilityStatementRestResource(backboneelement.BackboneElement):
         
         self.versioning = None
         """ no-version | versioned | versioned-update.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(CapabilityStatementRestResource, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -559,24 +574,26 @@ class CapabilityStatementRestResource(backboneelement.BackboneElement):
         js = super(CapabilityStatementRestResource, self).elementProperties()
         js.extend([
             ("conditionalCreate", "conditionalCreate", bool, False, None, False),
-            ("conditionalDelete", "conditionalDelete", str, False, None, False),
-            ("conditionalRead", "conditionalRead", str, False, None, False),
+            ("conditionalDelete", "conditionalDelete", fhirdatatypes.FHIRCode, False, None, False),
+            ("conditionalRead", "conditionalRead", fhirdatatypes.FHIRCode, False, None, False),
             ("conditionalUpdate", "conditionalUpdate", bool, False, None, False),
-            ("documentation", "documentation", str, False, None, False),
+            ("documentation", "documentation", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("interaction", "interaction", CapabilityStatementRestResourceInteraction, True, None, False),
             ("operation", "operation", CapabilityStatementRestResourceOperation, True, None, False),
-            ("profile", "profile", str, False, None, False),
+            ("profile", "profile", fhirdatatypes.FHIRCanonical, False, None, False),
             ("readHistory", "readHistory", bool, False, None, False),
-            ("referencePolicy", "referencePolicy", str, True, None, False),
-            ("searchInclude", "searchInclude", str, True, None, False),
+            ("referencePolicy", "referencePolicy", fhirdatatypes.FHIRCode, True, None, False),
+            ("searchInclude", "searchInclude", fhirdatatypes.FHIRString, True, None, False),
             ("searchParam", "searchParam", CapabilityStatementRestResourceSearchParam, True, None, False),
-            ("searchRevInclude", "searchRevInclude", str, True, None, False),
-            ("supportedProfile", "supportedProfile", str, True, None, False),
-            ("type", "type", str, False, None, True),
+            ("searchRevInclude", "searchRevInclude", fhirdatatypes.FHIRString, True, None, False),
+            ("supportedProfile", "supportedProfile", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
             ("updateCreate", "updateCreate", bool, False, None, False),
-            ("versioning", "versioning", str, False, None, False),
+            ("versioning", "versioning", fhirdatatypes.FHIRCode, False, None, False),
         ])
         return js
+
+
 
 
 class CapabilityStatementRestResourceInteraction(backboneelement.BackboneElement):
@@ -598,21 +615,23 @@ class CapabilityStatementRestResourceInteraction(backboneelement.BackboneElement
         self.code = None
         """ read | vread | update | patch | delete | history-instance |
         history-type | create | search-type.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.documentation = None
         """ Anything special about operation behavior.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         super(CapabilityStatementRestResourceInteraction, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CapabilityStatementRestResourceInteraction, self).elementProperties()
         js.extend([
-            ("code", "code", str, False, None, True),
-            ("documentation", "documentation", str, False, None, False),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
+            ("documentation", "documentation", fhirdatatypes.FHIRMarkdown, False, None, False),
         ])
         return js
+
+
 
 
 class CapabilityStatementRestResourceOperation(backboneelement.BackboneElement):
@@ -635,26 +654,28 @@ class CapabilityStatementRestResourceOperation(backboneelement.BackboneElement):
         
         self.definition = None
         """ The defined operation/query.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.documentation = None
         """ Specific details about operation behavior.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.name = None
         """ Name by which the operation/query is invoked.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(CapabilityStatementRestResourceOperation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CapabilityStatementRestResourceOperation, self).elementProperties()
         js.extend([
-            ("definition", "definition", str, False, None, True),
-            ("documentation", "documentation", str, False, None, False),
-            ("name", "name", str, False, None, True),
+            ("definition", "definition", fhirdatatypes.FHIRCanonical, False, None, True),
+            ("documentation", "documentation", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
         ])
         return js
+
+
 
 
 class CapabilityStatementRestResourceSearchParam(backboneelement.BackboneElement):
@@ -677,32 +698,34 @@ class CapabilityStatementRestResourceSearchParam(backboneelement.BackboneElement
         
         self.definition = None
         """ Source of definition for parameter.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.documentation = None
         """ Server-specific usage.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.name = None
         """ Name of search parameter.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ number | date | string | token | reference | composite | quantity |
         uri | special.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(CapabilityStatementRestResourceSearchParam, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CapabilityStatementRestResourceSearchParam, self).elementProperties()
         js.extend([
-            ("definition", "definition", str, False, None, False),
-            ("documentation", "documentation", str, False, None, False),
-            ("name", "name", str, False, None, True),
-            ("type", "type", str, False, None, True),
+            ("definition", "definition", fhirdatatypes.FHIRCanonical, False, None, False),
+            ("documentation", "documentation", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
+
 
 
 class CapabilityStatementRestSecurity(backboneelement.BackboneElement):
@@ -728,7 +751,7 @@ class CapabilityStatementRestSecurity(backboneelement.BackboneElement):
         
         self.description = None
         """ General description of how security works.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.service = None
         """ OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates.
@@ -740,10 +763,12 @@ class CapabilityStatementRestSecurity(backboneelement.BackboneElement):
         js = super(CapabilityStatementRestSecurity, self).elementProperties()
         js.extend([
             ("cors", "cors", bool, False, None, False),
-            ("description", "description", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("service", "service", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
+
+
 
 
 class CapabilityStatementSoftware(backboneelement.BackboneElement):
@@ -766,26 +791,27 @@ class CapabilityStatementSoftware(backboneelement.BackboneElement):
         
         self.name = None
         """ A name the software is known by.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.releaseDate = None
         """ Date this version was released.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.version = None
         """ Version covered by this statement.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(CapabilityStatementSoftware, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CapabilityStatementSoftware, self).elementProperties()
         js.extend([
-            ("name", "name", str, False, None, True),
-            ("releaseDate", "releaseDate", fhirdate.FHIRDate, False, None, False),
-            ("version", "version", str, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
+            ("releaseDate", "releaseDate", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -793,23 +819,29 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import coding
 except ImportError:
     coding = sys.modules[__package__ + '.coding']
+
 try:
     from . import contactdetail
 except ImportError:
     contactdetail = sys.modules[__package__ + '.contactdetail']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import usagecontext
 except ImportError:
     usagecontext = sys.modules[__package__ + '.usagecontext']
+

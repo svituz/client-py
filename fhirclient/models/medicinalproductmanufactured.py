@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MedicinalProductManufactured) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicinalProductManufactured) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -68,20 +68,25 @@ class MedicinalProductManufactured(domainresource.DomainResource):
         return js
 
 
+
 import sys
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import prodcharacteristic
 except ImportError:
     prodcharacteristic = sys.modules[__package__ + '.prodcharacteristic']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+

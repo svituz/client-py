@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/PractitionerRole) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/PractitionerRole) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -30,7 +30,7 @@ class PractitionerRole(domainresource.DomainResource):
         
         self.availabilityExceptions = None
         """ Description of availability exceptions.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.availableTime = None
         """ Times the Service Site is available.
@@ -90,7 +90,7 @@ class PractitionerRole(domainresource.DomainResource):
         js = super(PractitionerRole, self).elementProperties()
         js.extend([
             ("active", "active", bool, False, None, False),
-            ("availabilityExceptions", "availabilityExceptions", str, False, None, False),
+            ("availabilityExceptions", "availabilityExceptions", fhirdatatypes.FHIRString, False, None, False),
             ("availableTime", "availableTime", PractitionerRoleAvailableTime, True, None, False),
             ("code", "code", codeableconcept.CodeableConcept, True, None, False),
             ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False),
@@ -105,6 +105,7 @@ class PractitionerRole(domainresource.DomainResource):
             ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -132,15 +133,15 @@ class PractitionerRoleAvailableTime(backboneelement.BackboneElement):
         
         self.availableEndTime = None
         """ Closing time of day (ignored if allDay = true).
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         self.availableStartTime = None
         """ Opening time of day (ignored if allDay = true).
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         self.daysOfWeek = None
         """ mon | tue | wed | thu | fri | sat | sun.
-        List of `str` items. """
+        List of `FHIRCode` items (represented as `str` in JSON). """
         
         super(PractitionerRoleAvailableTime, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -148,11 +149,13 @@ class PractitionerRoleAvailableTime(backboneelement.BackboneElement):
         js = super(PractitionerRoleAvailableTime, self).elementProperties()
         js.extend([
             ("allDay", "allDay", bool, False, None, False),
-            ("availableEndTime", "availableEndTime", fhirdate.FHIRDate, False, None, False),
-            ("availableStartTime", "availableStartTime", fhirdate.FHIRDate, False, None, False),
-            ("daysOfWeek", "daysOfWeek", str, True, None, False),
+            ("availableEndTime", "availableEndTime", fhirdatatypes.FHIRTime, False, None, False),
+            ("availableStartTime", "availableStartTime", fhirdatatypes.FHIRTime, False, None, False),
+            ("daysOfWeek", "daysOfWeek", fhirdatatypes.FHIRCode, True, None, False),
         ])
         return js
+
+
 
 
 class PractitionerRoleNotAvailable(backboneelement.BackboneElement):
@@ -174,7 +177,7 @@ class PractitionerRoleNotAvailable(backboneelement.BackboneElement):
         
         self.description = None
         """ Reason presented to the user explaining why time not available.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.during = None
         """ Service not available from this date.
@@ -185,10 +188,11 @@ class PractitionerRoleNotAvailable(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PractitionerRoleNotAvailable, self).elementProperties()
         js.extend([
-            ("description", "description", str, False, None, True),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, True),
             ("during", "during", period.Period, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -196,23 +200,29 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import contactpoint
 except ImportError:
     contactpoint = sys.modules[__package__ + '.contactpoint']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+

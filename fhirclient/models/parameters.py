@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Parameters) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Parameters) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import resource
@@ -39,6 +39,7 @@ class Parameters(resource.Resource):
         return js
 
 
+
 from . import backboneelement
 
 class ParametersParameter(backboneelement.BackboneElement):
@@ -59,7 +60,7 @@ class ParametersParameter(backboneelement.BackboneElement):
         
         self.name = None
         """ Name from the definition.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.part = None
         """ Named part of a multi-part parameter.
@@ -87,7 +88,7 @@ class ParametersParameter(backboneelement.BackboneElement):
         
         self.valueBase64Binary = None
         """ If parameter is a data type.
-        Type `str`. """
+        Type `FHIRBase64Binary` (represented as `str` in JSON). """
         
         self.valueBoolean = None
         """ If parameter is a data type.
@@ -95,11 +96,11 @@ class ParametersParameter(backboneelement.BackboneElement):
         
         self.valueCanonical = None
         """ If parameter is a data type.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.valueCode = None
         """ If parameter is a data type.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.valueCodeableConcept = None
         """ If parameter is a data type.
@@ -135,7 +136,7 @@ class ParametersParameter(backboneelement.BackboneElement):
         
         self.valueDateTime = None
         """ If parameter is a data type.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.valueDecimal = None
         """ If parameter is a data type.
@@ -163,7 +164,7 @@ class ParametersParameter(backboneelement.BackboneElement):
         
         self.valueId = None
         """ If parameter is a data type.
-        Type `str`. """
+        Type `FHIRId` (represented as `str` in JSON). """
         
         self.valueIdentifier = None
         """ If parameter is a data type.
@@ -171,7 +172,7 @@ class ParametersParameter(backboneelement.BackboneElement):
         
         self.valueInstant = None
         """ If parameter is a data type.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.valueInteger = None
         """ If parameter is a data type.
@@ -179,7 +180,11 @@ class ParametersParameter(backboneelement.BackboneElement):
         
         self.valueMarkdown = None
         """ If parameter is a data type.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
+        
+        self.valueMeta = None
+        """ If parameter is a data type.
+        Type `Meta` (represented as `dict` in JSON). """
         
         self.valueMoney = None
         """ If parameter is a data type.
@@ -187,7 +192,7 @@ class ParametersParameter(backboneelement.BackboneElement):
         
         self.valueOid = None
         """ If parameter is a data type.
-        Type `str`. """
+        Type `FHIROid` (represented as `str` in JSON). """
         
         self.valueParameterDefinition = None
         """ If parameter is a data type.
@@ -199,7 +204,7 @@ class ParametersParameter(backboneelement.BackboneElement):
         
         self.valuePositiveInt = None
         """ If parameter is a data type.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.valueQuantity = None
         """ If parameter is a data type.
@@ -231,11 +236,11 @@ class ParametersParameter(backboneelement.BackboneElement):
         
         self.valueString = None
         """ If parameter is a data type.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.valueTime = None
         """ If parameter is a data type.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         self.valueTiming = None
         """ If parameter is a data type.
@@ -247,15 +252,15 @@ class ParametersParameter(backboneelement.BackboneElement):
         
         self.valueUnsignedInt = None
         """ If parameter is a data type.
-        Type `int`. """
+        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
         
         self.valueUri = None
         """ If parameter is a data type.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.valueUrl = None
         """ If parameter is a data type.
-        Type `str`. """
+        Type `FHIRUrl` (represented as `str` in JSON). """
         
         self.valueUsageContext = None
         """ If parameter is a data type.
@@ -263,24 +268,24 @@ class ParametersParameter(backboneelement.BackboneElement):
         
         self.valueUuid = None
         """ If parameter is a data type.
-        Type `str`. """
+        Type `FHIRUuid` (represented as `str` in JSON). """
         
         super(ParametersParameter, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ParametersParameter, self).elementProperties()
         js.extend([
-            ("name", "name", str, False, None, True),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
             ("part", "part", ParametersParameter, True, None, False),
             ("resource", "resource", resource.Resource, False, None, False),
             ("valueAddress", "valueAddress", address.Address, False, "value", False),
             ("valueAge", "valueAge", age.Age, False, "value", False),
             ("valueAnnotation", "valueAnnotation", annotation.Annotation, False, "value", False),
             ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", False),
-            ("valueBase64Binary", "valueBase64Binary", str, False, "value", False),
+            ("valueBase64Binary", "valueBase64Binary", fhirdatatypes.FHIRBase64Binary, False, "value", False),
             ("valueBoolean", "valueBoolean", bool, False, "value", False),
-            ("valueCanonical", "valueCanonical", str, False, "value", False),
-            ("valueCode", "valueCode", str, False, "value", False),
+            ("valueCanonical", "valueCanonical", fhirdatatypes.FHIRCanonical, False, "value", False),
+            ("valueCode", "valueCode", fhirdatatypes.FHIRCode, False, "value", False),
             ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", False),
             ("valueCoding", "valueCoding", coding.Coding, False, "value", False),
             ("valueContactDetail", "valueContactDetail", contactdetail.ContactDetail, False, "value", False),
@@ -288,24 +293,25 @@ class ParametersParameter(backboneelement.BackboneElement):
             ("valueContributor", "valueContributor", contributor.Contributor, False, "value", False),
             ("valueCount", "valueCount", count.Count, False, "value", False),
             ("valueDataRequirement", "valueDataRequirement", datarequirement.DataRequirement, False, "value", False),
-            ("valueDate", "valueDate", fhirdate.FHIRDate, False, "value", False),
-            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueDate", "valueDate", fhirdatatypes.FHIRDate, False, "value", False),
+            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", False),
             ("valueDecimal", "valueDecimal", float, False, "value", False),
             ("valueDistance", "valueDistance", distance.Distance, False, "value", False),
             ("valueDosage", "valueDosage", dosage.Dosage, False, "value", False),
             ("valueDuration", "valueDuration", duration.Duration, False, "value", False),
             ("valueExpression", "valueExpression", expression.Expression, False, "value", False),
             ("valueHumanName", "valueHumanName", humanname.HumanName, False, "value", False),
-            ("valueId", "valueId", str, False, "value", False),
+            ("valueId", "valueId", fhirdatatypes.FHIRId, False, "value", False),
             ("valueIdentifier", "valueIdentifier", identifier.Identifier, False, "value", False),
-            ("valueInstant", "valueInstant", fhirdate.FHIRDate, False, "value", False),
+            ("valueInstant", "valueInstant", fhirdatatypes.FHIRInstant, False, "value", False),
             ("valueInteger", "valueInteger", int, False, "value", False),
-            ("valueMarkdown", "valueMarkdown", str, False, "value", False),
+            ("valueMarkdown", "valueMarkdown", fhirdatatypes.FHIRMarkdown, False, "value", False),
+            ("valueMeta", "valueMeta", meta.Meta, False, "value", False),
             ("valueMoney", "valueMoney", money.Money, False, "value", False),
-            ("valueOid", "valueOid", str, False, "value", False),
+            ("valueOid", "valueOid", fhirdatatypes.FHIROid, False, "value", False),
             ("valueParameterDefinition", "valueParameterDefinition", parameterdefinition.ParameterDefinition, False, "value", False),
             ("valuePeriod", "valuePeriod", period.Period, False, "value", False),
-            ("valuePositiveInt", "valuePositiveInt", int, False, "value", False),
+            ("valuePositiveInt", "valuePositiveInt", fhirdatatypes.FHIRPositiveInt, False, "value", False),
             ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
             ("valueRange", "valueRange", range.Range, False, "value", False),
             ("valueRatio", "valueRatio", ratio.Ratio, False, "value", False),
@@ -313,17 +319,18 @@ class ParametersParameter(backboneelement.BackboneElement):
             ("valueRelatedArtifact", "valueRelatedArtifact", relatedartifact.RelatedArtifact, False, "value", False),
             ("valueSampledData", "valueSampledData", sampleddata.SampledData, False, "value", False),
             ("valueSignature", "valueSignature", signature.Signature, False, "value", False),
-            ("valueString", "valueString", str, False, "value", False),
-            ("valueTime", "valueTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", False),
+            ("valueTime", "valueTime", fhirdatatypes.FHIRTime, False, "value", False),
             ("valueTiming", "valueTiming", timing.Timing, False, "value", False),
             ("valueTriggerDefinition", "valueTriggerDefinition", triggerdefinition.TriggerDefinition, False, "value", False),
-            ("valueUnsignedInt", "valueUnsignedInt", int, False, "value", False),
-            ("valueUri", "valueUri", str, False, "value", False),
-            ("valueUrl", "valueUrl", str, False, "value", False),
+            ("valueUnsignedInt", "valueUnsignedInt", fhirdatatypes.FHIRUnsignedInt, False, "value", False),
+            ("valueUri", "valueUri", fhirdatatypes.FHIRUri, False, "value", False),
+            ("valueUrl", "valueUrl", fhirdatatypes.FHIRUrl, False, "value", False),
             ("valueUsageContext", "valueUsageContext", usagecontext.UsageContext, False, "value", False),
-            ("valueUuid", "valueUuid", str, False, "value", False),
+            ("valueUuid", "valueUuid", fhirdatatypes.FHIRUuid, False, "value", False),
         ])
         return js
+
 
 
 import sys
@@ -331,123 +338,159 @@ try:
     from . import address
 except ImportError:
     address = sys.modules[__package__ + '.address']
+
 try:
     from . import age
 except ImportError:
     age = sys.modules[__package__ + '.age']
+
 try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import attachment
 except ImportError:
     attachment = sys.modules[__package__ + '.attachment']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import coding
 except ImportError:
     coding = sys.modules[__package__ + '.coding']
+
 try:
     from . import contactdetail
 except ImportError:
     contactdetail = sys.modules[__package__ + '.contactdetail']
+
 try:
     from . import contactpoint
 except ImportError:
     contactpoint = sys.modules[__package__ + '.contactpoint']
+
 try:
     from . import contributor
 except ImportError:
     contributor = sys.modules[__package__ + '.contributor']
+
 try:
     from . import count
 except ImportError:
     count = sys.modules[__package__ + '.count']
+
 try:
     from . import datarequirement
 except ImportError:
     datarequirement = sys.modules[__package__ + '.datarequirement']
+
 try:
     from . import distance
 except ImportError:
     distance = sys.modules[__package__ + '.distance']
+
 try:
     from . import dosage
 except ImportError:
     dosage = sys.modules[__package__ + '.dosage']
+
 try:
     from . import duration
 except ImportError:
     duration = sys.modules[__package__ + '.duration']
+
 try:
     from . import expression
 except ImportError:
     expression = sys.modules[__package__ + '.expression']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import humanname
 except ImportError:
     humanname = sys.modules[__package__ + '.humanname']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
+try:
+    from . import meta
+except ImportError:
+    meta = sys.modules[__package__ + '.meta']
+
 try:
     from . import money
 except ImportError:
     money = sys.modules[__package__ + '.money']
+
 try:
     from . import parameterdefinition
 except ImportError:
     parameterdefinition = sys.modules[__package__ + '.parameterdefinition']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+
 try:
     from . import range
 except ImportError:
     range = sys.modules[__package__ + '.range']
+
 try:
     from . import ratio
 except ImportError:
     ratio = sys.modules[__package__ + '.ratio']
+
 try:
     from . import relatedartifact
 except ImportError:
     relatedartifact = sys.modules[__package__ + '.relatedartifact']
+
 try:
     from . import sampleddata
 except ImportError:
     sampleddata = sys.modules[__package__ + '.sampleddata']
+
 try:
     from . import signature
 except ImportError:
     signature = sys.modules[__package__ + '.signature']
+
 try:
     from . import timing
 except ImportError:
     timing = sys.modules[__package__ + '.timing']
+
 try:
     from . import triggerdefinition
 except ImportError:
     triggerdefinition = sys.modules[__package__ + '.triggerdefinition']
+
 try:
     from . import usagecontext
 except ImportError:
     usagecontext = sys.modules[__package__ + '.usagecontext']
+

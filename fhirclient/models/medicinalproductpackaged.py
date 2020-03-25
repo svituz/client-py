@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MedicinalProductPackaged) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicinalProductPackaged) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -27,7 +27,7 @@ class MedicinalProductPackaged(domainresource.DomainResource):
         
         self.description = None
         """ Textual description.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Unique identifier.
@@ -65,7 +65,7 @@ class MedicinalProductPackaged(domainresource.DomainResource):
         js = super(MedicinalProductPackaged, self).elementProperties()
         js.extend([
             ("batchIdentifier", "batchIdentifier", MedicinalProductPackagedBatchIdentifier, True, None, False),
-            ("description", "description", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("legalStatusOfSupply", "legalStatusOfSupply", codeableconcept.CodeableConcept, False, None, False),
             ("manufacturer", "manufacturer", fhirreference.FHIRReference, True, None, False),
@@ -75,6 +75,7 @@ class MedicinalProductPackaged(domainresource.DomainResource):
             ("subject", "subject", fhirreference.FHIRReference, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -111,6 +112,8 @@ class MedicinalProductPackagedBatchIdentifier(backboneelement.BackboneElement):
             ("outerPackaging", "outerPackaging", identifier.Identifier, False, None, True),
         ])
         return js
+
+
 
 
 class MedicinalProductPackagedPackageItem(backboneelement.BackboneElement):
@@ -199,32 +202,45 @@ class MedicinalProductPackagedPackageItem(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import marketingstatus
 except ImportError:
     marketingstatus = sys.modules[__package__ + '.marketingstatus']
+
 try:
     from . import prodcharacteristic
 except ImportError:
     prodcharacteristic = sys.modules[__package__ + '.prodcharacteristic']
+
 try:
     from . import productshelflife
 except ImportError:
     productshelflife = sys.modules[__package__ + '.productshelflife']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+

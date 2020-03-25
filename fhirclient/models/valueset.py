@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ValueSet) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -36,15 +36,15 @@ class ValueSet(domainresource.DomainResource):
         
         self.copyright = None
         """ Use and/or publishing restrictions.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the value set.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.expansion = None
         """ Used when the value set is "expanded".
@@ -69,28 +69,28 @@ class ValueSet(domainresource.DomainResource):
         
         self.name = None
         """ Name for this value set (computer friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.publisher = None
         """ Name of the publisher (organization or individual).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.purpose = None
         """ Why this value set is defined.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.status = None
         """ draft | active | retired | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.title = None
         """ Name for this value set (human friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.url = None
         """ Canonical identifier for this value set, represented as a URI
         (globally unique).
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.useContext = None
         """ The context that the content is intended to support.
@@ -98,7 +98,7 @@ class ValueSet(domainresource.DomainResource):
         
         self.version = None
         """ Business version of the value set.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ValueSet, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -107,24 +107,25 @@ class ValueSet(domainresource.DomainResource):
         js.extend([
             ("compose", "compose", ValueSetCompose, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("description", "description", str, False, None, False),
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("expansion", "expansion", ValueSetExpansion, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("immutable", "immutable", bool, False, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("name", "name", str, False, None, False),
-            ("publisher", "publisher", str, False, None, False),
-            ("purpose", "purpose", str, False, None, False),
-            ("status", "status", str, False, None, True),
-            ("title", "title", str, False, None, False),
-            ("url", "url", str, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("version", "version", str, False, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -171,9 +172,11 @@ class ValueSetCompose(backboneelement.BackboneElement):
             ("exclude", "exclude", ValueSetComposeInclude, True, None, False),
             ("inactive", "inactive", bool, False, None, False),
             ("include", "include", ValueSetComposeInclude, True, None, True),
-            ("lockedDate", "lockedDate", fhirdate.FHIRDate, False, None, False),
+            ("lockedDate", "lockedDate", fhirdatatypes.FHIRDate, False, None, False),
         ])
         return js
+
+
 
 
 class ValueSetComposeInclude(backboneelement.BackboneElement):
@@ -200,15 +203,15 @@ class ValueSetComposeInclude(backboneelement.BackboneElement):
         
         self.system = None
         """ The system the codes come from.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.valueSet = None
         """ Select the contents included in this value set.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.version = None
         """ Specific version of the code system referred to.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ValueSetComposeInclude, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -217,11 +220,13 @@ class ValueSetComposeInclude(backboneelement.BackboneElement):
         js.extend([
             ("concept", "concept", ValueSetComposeIncludeConcept, True, None, False),
             ("filter", "filter", ValueSetComposeIncludeFilter, True, None, False),
-            ("system", "system", str, False, None, False),
-            ("valueSet", "valueSet", str, True, None, False),
-            ("version", "version", str, False, None, False),
+            ("system", "system", fhirdatatypes.FHIRUri, False, None, False),
+            ("valueSet", "valueSet", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
+
 
 
 class ValueSetComposeIncludeConcept(backboneelement.BackboneElement):
@@ -242,7 +247,7 @@ class ValueSetComposeIncludeConcept(backboneelement.BackboneElement):
         
         self.code = None
         """ Code or expression from system.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.designation = None
         """ Additional representations for this concept.
@@ -250,18 +255,20 @@ class ValueSetComposeIncludeConcept(backboneelement.BackboneElement):
         
         self.display = None
         """ Text to display for this code for this value set in this valueset.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ValueSetComposeIncludeConcept, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ValueSetComposeIncludeConcept, self).elementProperties()
         js.extend([
-            ("code", "code", str, False, None, True),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
             ("designation", "designation", ValueSetComposeIncludeConceptDesignation, True, None, False),
-            ("display", "display", str, False, None, False),
+            ("display", "display", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
+
 
 
 class ValueSetComposeIncludeConceptDesignation(backboneelement.BackboneElement):
@@ -284,7 +291,7 @@ class ValueSetComposeIncludeConceptDesignation(backboneelement.BackboneElement):
         
         self.language = None
         """ Human language of the designation.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.use = None
         """ Types of uses of designations.
@@ -292,18 +299,20 @@ class ValueSetComposeIncludeConceptDesignation(backboneelement.BackboneElement):
         
         self.value = None
         """ The text value for this designation.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ValueSetComposeIncludeConceptDesignation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ValueSetComposeIncludeConceptDesignation, self).elementProperties()
         js.extend([
-            ("language", "language", str, False, None, False),
+            ("language", "language", fhirdatatypes.FHIRCode, False, None, False),
             ("use", "use", coding.Coding, False, None, False),
-            ("value", "value", str, False, None, True),
+            ("value", "value", fhirdatatypes.FHIRString, False, None, True),
         ])
         return js
+
+
 
 
 class ValueSetComposeIncludeFilter(backboneelement.BackboneElement):
@@ -327,27 +336,29 @@ class ValueSetComposeIncludeFilter(backboneelement.BackboneElement):
         self.op = None
         """ = | is-a | descendent-of | is-not-a | regex | in | not-in |
         generalizes | exists.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.property = None
         """ A property/filter defined by the code system.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.value = None
         """ Code from the system, or regex criteria, or boolean value for
         exists.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ValueSetComposeIncludeFilter, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ValueSetComposeIncludeFilter, self).elementProperties()
         js.extend([
-            ("op", "op", str, False, None, True),
-            ("property", "property", str, False, None, True),
-            ("value", "value", str, False, None, True),
+            ("op", "op", fhirdatatypes.FHIRCode, False, None, True),
+            ("property", "property", fhirdatatypes.FHIRCode, False, None, True),
+            ("value", "value", fhirdatatypes.FHIRString, False, None, True),
         ])
         return js
+
+
 
 
 class ValueSetExpansion(backboneelement.BackboneElement):
@@ -374,7 +385,7 @@ class ValueSetExpansion(backboneelement.BackboneElement):
         
         self.identifier = None
         """ Identifies the value set expansion (business identifier).
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.offset = None
         """ Offset at which this resource starts.
@@ -386,7 +397,7 @@ class ValueSetExpansion(backboneelement.BackboneElement):
         
         self.timestamp = None
         """ Time ValueSet expansion happened.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.total = None
         """ Total number of codes in the expansion.
@@ -398,13 +409,15 @@ class ValueSetExpansion(backboneelement.BackboneElement):
         js = super(ValueSetExpansion, self).elementProperties()
         js.extend([
             ("contains", "contains", ValueSetExpansionContains, True, None, False),
-            ("identifier", "identifier", str, False, None, False),
+            ("identifier", "identifier", fhirdatatypes.FHIRUri, False, None, False),
             ("offset", "offset", int, False, None, False),
             ("parameter", "parameter", ValueSetExpansionParameter, True, None, False),
-            ("timestamp", "timestamp", fhirdate.FHIRDate, False, None, True),
+            ("timestamp", "timestamp", fhirdatatypes.FHIRDateTime, False, None, True),
             ("total", "total", int, False, None, False),
         ])
         return js
+
+
 
 
 class ValueSetExpansionContains(backboneelement.BackboneElement):
@@ -429,7 +442,7 @@ class ValueSetExpansionContains(backboneelement.BackboneElement):
         
         self.code = None
         """ Code - if blank, this is not a selectable code.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.contains = None
         """ Codes contained under this entry.
@@ -441,7 +454,7 @@ class ValueSetExpansionContains(backboneelement.BackboneElement):
         
         self.display = None
         """ User display for the concept.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.inactive = None
         """ If concept is inactive in the code system.
@@ -449,11 +462,11 @@ class ValueSetExpansionContains(backboneelement.BackboneElement):
         
         self.system = None
         """ System value for the code.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.version = None
         """ Version in which this code/display is defined.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ValueSetExpansionContains, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -461,15 +474,17 @@ class ValueSetExpansionContains(backboneelement.BackboneElement):
         js = super(ValueSetExpansionContains, self).elementProperties()
         js.extend([
             ("abstract", "abstract", bool, False, None, False),
-            ("code", "code", str, False, None, False),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, False),
             ("contains", "contains", ValueSetExpansionContains, True, None, False),
             ("designation", "designation", ValueSetComposeIncludeConceptDesignation, True, None, False),
-            ("display", "display", str, False, None, False),
+            ("display", "display", fhirdatatypes.FHIRString, False, None, False),
             ("inactive", "inactive", bool, False, None, False),
-            ("system", "system", str, False, None, False),
-            ("version", "version", str, False, None, False),
+            ("system", "system", fhirdatatypes.FHIRUri, False, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
+
 
 
 class ValueSetExpansionParameter(backboneelement.BackboneElement):
@@ -492,7 +507,7 @@ class ValueSetExpansionParameter(backboneelement.BackboneElement):
         
         self.name = None
         """ Name as assigned by the client or server.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.valueBoolean = None
         """ Value of the named parameter.
@@ -500,11 +515,11 @@ class ValueSetExpansionParameter(backboneelement.BackboneElement):
         
         self.valueCode = None
         """ Value of the named parameter.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.valueDateTime = None
         """ Value of the named parameter.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.valueDecimal = None
         """ Value of the named parameter.
@@ -516,27 +531,28 @@ class ValueSetExpansionParameter(backboneelement.BackboneElement):
         
         self.valueString = None
         """ Value of the named parameter.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.valueUri = None
         """ Value of the named parameter.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         super(ValueSetExpansionParameter, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ValueSetExpansionParameter, self).elementProperties()
         js.extend([
-            ("name", "name", str, False, None, True),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
             ("valueBoolean", "valueBoolean", bool, False, "value", False),
-            ("valueCode", "valueCode", str, False, "value", False),
-            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueCode", "valueCode", fhirdatatypes.FHIRCode, False, "value", False),
+            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", False),
             ("valueDecimal", "valueDecimal", float, False, "value", False),
             ("valueInteger", "valueInteger", int, False, "value", False),
-            ("valueString", "valueString", str, False, "value", False),
-            ("valueUri", "valueUri", str, False, "value", False),
+            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", False),
+            ("valueUri", "valueUri", fhirdatatypes.FHIRUri, False, "value", False),
         ])
         return js
+
 
 
 import sys
@@ -544,23 +560,29 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import coding
 except ImportError:
     coding = sys.modules[__package__ + '.coding']
+
 try:
     from . import contactdetail
 except ImportError:
     contactdetail = sys.modules[__package__ + '.contactdetail']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import usagecontext
 except ImportError:
     usagecontext = sys.modules[__package__ + '.usagecontext']
+

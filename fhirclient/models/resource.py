@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Resource) on 2019-05-07.
-#  2019, SMART Health IT.
-from fhirclient.datatypes.primitive import FHIRId, FHIRUri, FHIRCode
-from . import fhirabstractresource
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Resource) on 2020-03-25.
+#  2020, SMART Health IT.
 
+
+from . import fhirabstractresource
 
 class Resource(fhirabstractresource.FHIRAbstractResource):
     """ Base Resource.
@@ -25,15 +25,15 @@ class Resource(fhirabstractresource.FHIRAbstractResource):
         
         self.id = None
         """ Logical id of this artifact.
-        Type `str`. """
+        Type `str` (represented as `dict` in JSON). """
         
         self.implicitRules = None
         """ A set of rules under which this content was created.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.language = None
         """ Language of the resource content.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.meta = None
         """ Metadata about the resource.
@@ -44,16 +44,23 @@ class Resource(fhirabstractresource.FHIRAbstractResource):
     def elementProperties(self):
         js = super(Resource, self).elementProperties()
         js.extend([
-            ("id", "id", FHIRId, False, None, False),
-            ("implicitRules", "implicitRules", FHIRUri, False, None, False),
-            ("language", "language", FHIRCode, False, None, False),
+            ("id", "id", str, False, None, False),
+            ("implicitRules", "implicitRules", fhirdatatypes.FHIRUri, False, None, False),
+            ("language", "language", fhirdatatypes.FHIRCode, False, None, False),
             ("meta", "meta", meta.Meta, False, None, False),
         ])
         return js
 
 
+
 import sys
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import meta
 except ImportError:
     meta = sys.modules[__package__ + '.meta']
+

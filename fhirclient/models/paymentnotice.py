@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/PaymentNotice) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/PaymentNotice) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -30,7 +30,7 @@ class PaymentNotice(domainresource.DomainResource):
         
         self.created = None
         """ Creation date.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Business Identifier for the payment noctice.
@@ -70,7 +70,7 @@ class PaymentNotice(domainresource.DomainResource):
         
         self.status = None
         """ active | cancelled | draft | entered-in-error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(PaymentNotice, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -78,19 +78,20 @@ class PaymentNotice(domainresource.DomainResource):
         js = super(PaymentNotice, self).elementProperties()
         js.extend([
             ("amount", "amount", money.Money, False, None, True),
-            ("created", "created", fhirdate.FHIRDate, False, None, True),
+            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, True),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("payee", "payee", fhirreference.FHIRReference, False, None, False),
             ("payment", "payment", fhirreference.FHIRReference, False, None, True),
-            ("paymentDate", "paymentDate", fhirdate.FHIRDate, False, None, False),
+            ("paymentDate", "paymentDate", fhirdatatypes.FHIRDate, False, None, False),
             ("paymentStatus", "paymentStatus", codeableconcept.CodeableConcept, False, None, False),
             ("provider", "provider", fhirreference.FHIRReference, False, None, False),
             ("recipient", "recipient", fhirreference.FHIRReference, False, None, True),
             ("request", "request", fhirreference.FHIRReference, False, None, False),
             ("response", "response", fhirreference.FHIRReference, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -98,19 +99,24 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import money
 except ImportError:
     money = sys.modules[__package__ + '.money']
+

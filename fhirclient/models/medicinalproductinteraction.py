@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MedicinalProductInteraction) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicinalProductInteraction) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -26,7 +26,7 @@ class MedicinalProductInteraction(domainresource.DomainResource):
         
         self.description = None
         """ The interaction described.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.effect = None
         """ The effect of the interaction, for example "reduced gastric
@@ -59,7 +59,7 @@ class MedicinalProductInteraction(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MedicinalProductInteraction, self).elementProperties()
         js.extend([
-            ("description", "description", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
             ("effect", "effect", codeableconcept.CodeableConcept, False, None, False),
             ("incidence", "incidence", codeableconcept.CodeableConcept, False, None, False),
             ("interactant", "interactant", MedicinalProductInteractionInteractant, True, None, False),
@@ -68,6 +68,7 @@ class MedicinalProductInteraction(domainresource.DomainResource):
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -105,12 +106,20 @@ class MedicinalProductInteractionInteractant(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+

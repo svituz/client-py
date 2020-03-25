@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DocumentReference) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -53,15 +53,15 @@ class DocumentReference(domainresource.DomainResource):
         
         self.date = None
         """ When this document reference was created.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.description = None
         """ Human-readable description.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.docStatus = None
-        """ preliminary | final | appended | amended | entered-in-error.
-        Type `str`. """
+        """ preliminary | final | amended | entered-in-error.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Other identifiers for the document.
@@ -81,7 +81,7 @@ class DocumentReference(domainresource.DomainResource):
         
         self.status = None
         """ current | superseded | entered-in-error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subject = None
         """ Who/what is the subject of the document.
@@ -102,18 +102,19 @@ class DocumentReference(domainresource.DomainResource):
             ("content", "content", DocumentReferenceContent, True, None, True),
             ("context", "context", DocumentReferenceContext, False, None, False),
             ("custodian", "custodian", fhirreference.FHIRReference, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("description", "description", str, False, None, False),
-            ("docStatus", "docStatus", str, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRInstant, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
+            ("docStatus", "docStatus", fhirdatatypes.FHIRCode, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("masterIdentifier", "masterIdentifier", identifier.Identifier, False, None, False),
             ("relatesTo", "relatesTo", DocumentReferenceRelatesTo, True, None, False),
             ("securityLabel", "securityLabel", codeableconcept.CodeableConcept, True, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -152,6 +153,8 @@ class DocumentReferenceContent(backboneelement.BackboneElement):
             ("format", "format", coding.Coding, False, None, False),
         ])
         return js
+
+
 
 
 class DocumentReferenceContext(backboneelement.BackboneElement):
@@ -215,6 +218,8 @@ class DocumentReferenceContext(backboneelement.BackboneElement):
         return js
 
 
+
+
 class DocumentReferenceRelatesTo(backboneelement.BackboneElement):
     """ Relationships to other documents.
     
@@ -234,7 +239,7 @@ class DocumentReferenceRelatesTo(backboneelement.BackboneElement):
         
         self.code = None
         """ replaces | transforms | signs | appends.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.target = None
         """ Target of the relationship.
@@ -245,10 +250,11 @@ class DocumentReferenceRelatesTo(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(DocumentReferenceRelatesTo, self).elementProperties()
         js.extend([
-            ("code", "code", str, False, None, True),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
             ("target", "target", fhirreference.FHIRReference, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -256,27 +262,34 @@ try:
     from . import attachment
 except ImportError:
     attachment = sys.modules[__package__ + '.attachment']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import coding
 except ImportError:
     coding = sys.modules[__package__ + '.coding']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+

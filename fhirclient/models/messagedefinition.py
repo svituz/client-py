@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MessageDefinition) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MessageDefinition) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -32,11 +32,11 @@ class MessageDefinition(domainresource.DomainResource):
         
         self.base = None
         """ Definition this one is based on.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.category = None
         """ consequence | currency | notification.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.contact = None
         """ Contact details for the publisher.
@@ -44,15 +44,15 @@ class MessageDefinition(domainresource.DomainResource):
         
         self.copyright = None
         """ Use and/or publishing restrictions.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the message definition.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.eventCoding = None
         """ Event code  or link to the EventDefinition.
@@ -60,7 +60,7 @@ class MessageDefinition(domainresource.DomainResource):
         
         self.eventUri = None
         """ Event code  or link to the EventDefinition.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.experimental = None
         """ For testing purposes, not real usage.
@@ -72,7 +72,7 @@ class MessageDefinition(domainresource.DomainResource):
         
         self.graph = None
         """ Canonical reference to a GraphDefinition.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.identifier = None
         """ Primary key for the message definition on a given server.
@@ -84,39 +84,39 @@ class MessageDefinition(domainresource.DomainResource):
         
         self.name = None
         """ Name for this message definition (computer friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.parent = None
         """ Protocol/workflow this is part of.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.publisher = None
         """ Name of the publisher (organization or individual).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.purpose = None
         """ Why this message definition is defined.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.replaces = None
         """ Takes the place of.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.responseRequired = None
         """ always | on-error | never | on-success.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.status = None
         """ draft | active | retired | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.title = None
         """ Name for this message definition (human friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.url = None
         """ Business Identifier for a given MessageDefinition.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.useContext = None
         """ The context that the content is intended to support.
@@ -124,7 +124,7 @@ class MessageDefinition(domainresource.DomainResource):
         
         self.version = None
         """ Business version of the message definition.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(MessageDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -132,32 +132,33 @@ class MessageDefinition(domainresource.DomainResource):
         js = super(MessageDefinition, self).elementProperties()
         js.extend([
             ("allowedResponse", "allowedResponse", MessageDefinitionAllowedResponse, True, None, False),
-            ("base", "base", str, False, None, False),
-            ("category", "category", str, False, None, False),
+            ("base", "base", fhirdatatypes.FHIRCanonical, False, None, False),
+            ("category", "category", fhirdatatypes.FHIRCode, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, True),
-            ("description", "description", str, False, None, False),
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, True),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("eventCoding", "eventCoding", coding.Coding, False, "event", True),
-            ("eventUri", "eventUri", str, False, "event", True),
+            ("eventUri", "eventUri", fhirdatatypes.FHIRUri, False, "event", True),
             ("experimental", "experimental", bool, False, None, False),
             ("focus", "focus", MessageDefinitionFocus, True, None, False),
-            ("graph", "graph", str, True, None, False),
+            ("graph", "graph", fhirdatatypes.FHIRCanonical, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("name", "name", str, False, None, False),
-            ("parent", "parent", str, True, None, False),
-            ("publisher", "publisher", str, False, None, False),
-            ("purpose", "purpose", str, False, None, False),
-            ("replaces", "replaces", str, True, None, False),
-            ("responseRequired", "responseRequired", str, False, None, False),
-            ("status", "status", str, False, None, True),
-            ("title", "title", str, False, None, False),
-            ("url", "url", str, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
+            ("parent", "parent", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("replaces", "replaces", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("responseRequired", "responseRequired", fhirdatatypes.FHIRCode, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("version", "version", str, False, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -181,21 +182,23 @@ class MessageDefinitionAllowedResponse(backboneelement.BackboneElement):
         
         self.message = None
         """ Reference to allowed message definition response.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.situation = None
         """ When should this response be used.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         super(MessageDefinitionAllowedResponse, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MessageDefinitionAllowedResponse, self).elementProperties()
         js.extend([
-            ("message", "message", str, False, None, True),
-            ("situation", "situation", str, False, None, False),
+            ("message", "message", fhirdatatypes.FHIRCanonical, False, None, True),
+            ("situation", "situation", fhirdatatypes.FHIRMarkdown, False, None, False),
         ])
         return js
+
+
 
 
 class MessageDefinitionFocus(backboneelement.BackboneElement):
@@ -218,31 +221,32 @@ class MessageDefinitionFocus(backboneelement.BackboneElement):
         
         self.code = None
         """ Type of resource.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.max = None
         """ Maximum number of focuses of this type.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.min = None
         """ Minimum number of focuses of this type.
-        Type `int`. """
+        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
         
         self.profile = None
         """ Profile that must be adhered to by focus.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         super(MessageDefinitionFocus, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MessageDefinitionFocus, self).elementProperties()
         js.extend([
-            ("code", "code", str, False, None, True),
-            ("max", "max", str, False, None, False),
-            ("min", "min", int, False, None, True),
-            ("profile", "profile", str, False, None, False),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
+            ("max", "max", fhirdatatypes.FHIRString, False, None, False),
+            ("min", "min", fhirdatatypes.FHIRUnsignedInt, False, None, True),
+            ("profile", "profile", fhirdatatypes.FHIRCanonical, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -250,23 +254,29 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import coding
 except ImportError:
     coding = sys.modules[__package__ + '.coding']
+
 try:
     from . import contactdetail
 except ImportError:
     contactdetail = sys.modules[__package__ + '.contactdetail']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import usagecontext
 except ImportError:
     usagecontext = sys.modules[__package__ + '.usagecontext']
+

@@ -4,15 +4,14 @@
 #  Generated from FHIR {{ info.version }} ({{ profile.url }}) on {{ info.date }}.
 #  {{ info.year }}, SMART Health IT.
 
-{%- set imported = {} %}
+{%- set imported = [] %}
 {%- for klass in classes %}
 
 
 {% if klass.superclass in imports and klass.superclass.module not in imported -%}
 from . import {{ klass.superclass.module }}
-{% set _ = imported.update({klass.superclass.module: True}) %}
-{% endif -%}
-
+{% set _ = imported.append(klass.superclass.module) %}{% endif -%}
+{% raw %}{% endraw %}
 class {{ klass.name }}({% if klass.superclass in imports %}{{ klass.superclass.module }}.{% endif -%}
     {{ klass.superclass.name|default('object')}}):
     """ {{ klass.short|wordwrap(width=75, wrapstring="\n    ") }}.
@@ -51,7 +50,7 @@ class {{ klass.name }}({% if klass.superclass in imports %}{{ klass.superclass.m
         {%- if 'element' == klass.module and 'Element' == klass.name %}
         {%- for imp in imports %}{% if imp.module not in imported %}
         from . import {{ imp.module }}
-        {%- set _ = imported.update({imp.module: True}) %}
+        {%- set _ = imported.append(imp.module) %}
         {%- endif %}{% endfor %}
         {%- endif %}
         js.extend([
@@ -64,7 +63,7 @@ class {{ klass.name }}({% if klass.superclass in imports %}{{ klass.superclass.m
         {%- endfor %}
         ])
         return js
-    
+{% raw %}{% endraw %}
 {%- endif %}
 {%- endfor %}
 
@@ -76,5 +75,6 @@ try:
     from . import {{ imp.module }}
 except ImportError:
     {{ imp.module }} = sys.modules[__package__ + '.{{ imp.module }}']
+{%  set _ = imported.append(imp.module) %}
 {%- endif %}{% endfor %}
 

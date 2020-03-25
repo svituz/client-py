@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ResearchStudy) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ResearchStudy) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -46,7 +46,7 @@ class ResearchStudy(domainresource.DomainResource):
         
         self.description = None
         """ What this is study doing.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.enrollment = None
         """ Inclusion & exclusion criteria.
@@ -125,11 +125,11 @@ class ResearchStudy(domainresource.DomainResource):
         | closed-to-accrual-and-intervention | completed | disapproved |
         in-review | temporarily-closed-to-accrual | temporarily-closed-to-
         accrual-and-intervention | withdrawn.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.title = None
         """ Name for this study.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ResearchStudy, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -140,7 +140,7 @@ class ResearchStudy(domainresource.DomainResource):
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("condition", "condition", codeableconcept.CodeableConcept, True, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("description", "description", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("enrollment", "enrollment", fhirreference.FHIRReference, True, None, False),
             ("focus", "focus", codeableconcept.CodeableConcept, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
@@ -158,10 +158,11 @@ class ResearchStudy(domainresource.DomainResource):
             ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False),
             ("site", "site", fhirreference.FHIRReference, True, None, False),
             ("sponsor", "sponsor", fhirreference.FHIRReference, False, None, False),
-            ("status", "status", str, False, None, True),
-            ("title", "title", str, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -186,11 +187,11 @@ class ResearchStudyArm(backboneelement.BackboneElement):
         
         self.description = None
         """ Short explanation of study path.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.name = None
         """ Label for study arm.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ Categorization of study arm.
@@ -201,11 +202,13 @@ class ResearchStudyArm(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ResearchStudyArm, self).elementProperties()
         js.extend([
-            ("description", "description", str, False, None, False),
-            ("name", "name", str, False, None, True),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class ResearchStudyObjective(backboneelement.BackboneElement):
@@ -227,7 +230,7 @@ class ResearchStudyObjective(backboneelement.BackboneElement):
         
         self.name = None
         """ Label for the objective.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ primary | secondary | exploratory.
@@ -238,10 +241,11 @@ class ResearchStudyObjective(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ResearchStudyObjective, self).elementProperties()
         js.extend([
-            ("name", "name", str, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -249,27 +253,39 @@ try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import contactdetail
 except ImportError:
     contactdetail = sys.modules[__package__ + '.contactdetail']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import relatedartifact
 except ImportError:
     relatedartifact = sys.modules[__package__ + '.relatedartifact']
+

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/SpecimenDefinition) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SpecimenDefinition) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -37,7 +37,7 @@ class SpecimenDefinition(domainresource.DomainResource):
         
         self.timeAspect = None
         """ Time aspect for collection.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.typeCollected = None
         """ Kind of material to collect.
@@ -55,11 +55,12 @@ class SpecimenDefinition(domainresource.DomainResource):
             ("collection", "collection", codeableconcept.CodeableConcept, True, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("patientPreparation", "patientPreparation", codeableconcept.CodeableConcept, True, None, False),
-            ("timeAspect", "timeAspect", str, False, None, False),
+            ("timeAspect", "timeAspect", fhirdatatypes.FHIRString, False, None, False),
             ("typeCollected", "typeCollected", codeableconcept.CodeableConcept, False, None, False),
             ("typeTested", "typeTested", SpecimenDefinitionTypeTested, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -94,7 +95,7 @@ class SpecimenDefinitionTypeTested(backboneelement.BackboneElement):
         
         self.preference = None
         """ preferred | alternate.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.rejectionCriterion = None
         """ Rejection criterion.
@@ -102,7 +103,7 @@ class SpecimenDefinitionTypeTested(backboneelement.BackboneElement):
         
         self.requirement = None
         """ Specimen requirements.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.retentionTime = None
         """ Specimen retention time.
@@ -120,13 +121,15 @@ class SpecimenDefinitionTypeTested(backboneelement.BackboneElement):
             ("container", "container", SpecimenDefinitionTypeTestedContainer, False, None, False),
             ("handling", "handling", SpecimenDefinitionTypeTestedHandling, True, None, False),
             ("isDerived", "isDerived", bool, False, None, False),
-            ("preference", "preference", str, False, None, True),
+            ("preference", "preference", fhirdatatypes.FHIRCode, False, None, True),
             ("rejectionCriterion", "rejectionCriterion", codeableconcept.CodeableConcept, True, None, False),
-            ("requirement", "requirement", str, False, None, False),
+            ("requirement", "requirement", fhirdatatypes.FHIRString, False, None, False),
             ("retentionTime", "retentionTime", duration.Duration, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class SpecimenDefinitionTypeTestedContainer(backboneelement.BackboneElement):
@@ -157,7 +160,7 @@ class SpecimenDefinitionTypeTestedContainer(backboneelement.BackboneElement):
         
         self.description = None
         """ Container description.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.material = None
         """ Container material.
@@ -169,11 +172,11 @@ class SpecimenDefinitionTypeTestedContainer(backboneelement.BackboneElement):
         
         self.minimumVolumeString = None
         """ Minimum volume.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.preparation = None
         """ Specimen container preparation.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ Kind of container associated with the kind of specimen.
@@ -187,14 +190,16 @@ class SpecimenDefinitionTypeTestedContainer(backboneelement.BackboneElement):
             ("additive", "additive", SpecimenDefinitionTypeTestedContainerAdditive, True, None, False),
             ("cap", "cap", codeableconcept.CodeableConcept, False, None, False),
             ("capacity", "capacity", quantity.Quantity, False, None, False),
-            ("description", "description", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
             ("material", "material", codeableconcept.CodeableConcept, False, None, False),
             ("minimumVolumeQuantity", "minimumVolumeQuantity", quantity.Quantity, False, "minimumVolume", False),
-            ("minimumVolumeString", "minimumVolumeString", str, False, "minimumVolume", False),
-            ("preparation", "preparation", str, False, None, False),
+            ("minimumVolumeString", "minimumVolumeString", fhirdatatypes.FHIRString, False, "minimumVolume", False),
+            ("preparation", "preparation", fhirdatatypes.FHIRString, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class SpecimenDefinitionTypeTestedContainerAdditive(backboneelement.BackboneElement):
@@ -233,6 +238,8 @@ class SpecimenDefinitionTypeTestedContainerAdditive(backboneelement.BackboneElem
         return js
 
 
+
+
 class SpecimenDefinitionTypeTestedHandling(backboneelement.BackboneElement):
     """ Specimen handling before testing.
     
@@ -252,7 +259,7 @@ class SpecimenDefinitionTypeTestedHandling(backboneelement.BackboneElement):
         
         self.instruction = None
         """ Preservation instruction.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.maxDuration = None
         """ Maximum preservation time.
@@ -271,7 +278,7 @@ class SpecimenDefinitionTypeTestedHandling(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SpecimenDefinitionTypeTestedHandling, self).elementProperties()
         js.extend([
-            ("instruction", "instruction", str, False, None, False),
+            ("instruction", "instruction", fhirdatatypes.FHIRString, False, None, False),
             ("maxDuration", "maxDuration", duration.Duration, False, None, False),
             ("temperatureQualifier", "temperatureQualifier", codeableconcept.CodeableConcept, False, None, False),
             ("temperatureRange", "temperatureRange", range.Range, False, None, False),
@@ -279,28 +286,40 @@ class SpecimenDefinitionTypeTestedHandling(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import duration
 except ImportError:
     duration = sys.modules[__package__ + '.duration']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+
 try:
     from . import range
 except ImportError:
     range = sys.modules[__package__ + '.range']
+

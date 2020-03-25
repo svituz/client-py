@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Slot) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Slot) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -29,11 +29,11 @@ class Slot(domainresource.DomainResource):
         self.comment = None
         """ Comments on the slot to describe any extended information. Such as
         custom constraints on the slot.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.end = None
         """ Date/Time that the slot is to conclude.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.identifier = None
         """ External Ids for this item.
@@ -68,11 +68,11 @@ class Slot(domainresource.DomainResource):
         
         self.start = None
         """ Date/Time that the slot is to begin.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.status = None
         """ busy | free | busy-unavailable | busy-tentative | entered-in-error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(Slot, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -80,18 +80,19 @@ class Slot(domainresource.DomainResource):
         js = super(Slot, self).elementProperties()
         js.extend([
             ("appointmentType", "appointmentType", codeableconcept.CodeableConcept, False, None, False),
-            ("comment", "comment", str, False, None, False),
-            ("end", "end", fhirdate.FHIRDate, False, None, True),
+            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False),
+            ("end", "end", fhirdatatypes.FHIRInstant, False, None, True),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("overbooked", "overbooked", bool, False, None, False),
             ("schedule", "schedule", fhirreference.FHIRReference, False, None, True),
             ("serviceCategory", "serviceCategory", codeableconcept.CodeableConcept, True, None, False),
             ("serviceType", "serviceType", codeableconcept.CodeableConcept, True, None, False),
             ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False),
-            ("start", "start", fhirdate.FHIRDate, False, None, True),
-            ("status", "status", str, False, None, True),
+            ("start", "start", fhirdatatypes.FHIRInstant, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -99,15 +100,19 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+

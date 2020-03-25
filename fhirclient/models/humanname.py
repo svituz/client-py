@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/HumanName) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/HumanName) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import element
@@ -25,11 +25,11 @@ class HumanName(element.Element):
         
         self.family = None
         """ Family name (often called 'Surname').
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.given = None
         """ Given names (not always 'first'). Includes middle names.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.period = None
         """ Time period when name was/is in use.
@@ -37,38 +37,45 @@ class HumanName(element.Element):
         
         self.prefix = None
         """ Parts that come before the name.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.suffix = None
         """ Parts that come after the name.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.text = None
         """ Text representation of the full name.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.use = None
         """ usual | official | temp | nickname | anonymous | old | maiden.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(HumanName, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(HumanName, self).elementProperties()
         js.extend([
-            ("family", "family", str, False, None, False),
-            ("given", "given", str, True, None, False),
+            ("family", "family", fhirdatatypes.FHIRString, False, None, False),
+            ("given", "given", fhirdatatypes.FHIRString, True, None, False),
             ("period", "period", period.Period, False, None, False),
-            ("prefix", "prefix", str, True, None, False),
-            ("suffix", "suffix", str, True, None, False),
-            ("text", "text", str, False, None, False),
-            ("use", "use", str, False, None, False),
+            ("prefix", "prefix", fhirdatatypes.FHIRString, True, None, False),
+            ("suffix", "suffix", fhirdatatypes.FHIRString, True, None, False),
+            ("text", "text", fhirdatatypes.FHIRString, False, None, False),
+            ("use", "use", fhirdatatypes.FHIRCode, False, None, False),
         ])
         return js
 
 
+
 import sys
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+

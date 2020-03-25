@@ -1,77 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ActivityDefinition) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ActivityDefinition) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
-import sys
-
-from fhirclient.datatypes.primitive import FHIRDate, FHIRMarkdown, FHIRDateTime, FHIRString, FHIRCode, FHIRCanonical, \
-    FHIRUrl
-from . import domainresource, backboneelement
-
-try:
-    from . import age
-except ImportError:
-    age = sys.modules[__package__ + '.age']
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
-try:
-    from . import dosage
-except ImportError:
-    dosage = sys.modules[__package__ + '.dosage']
-try:
-    from . import duration
-except ImportError:
-    duration = sys.modules[__package__ + '.duration']
-try:
-    from . import expression
-except ImportError:
-    expression = sys.modules[__package__ + '.expression']
-try:
-    from . import fhirdate
-except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
-try:
-    from . import relatedartifact
-except ImportError:
-    relatedartifact = sys.modules[__package__ + '.relatedartifact']
-try:
-    from . import timing
-except ImportError:
-    timing = sys.modules[__package__ + '.timing']
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
-
+from . import domainresource
 
 class ActivityDefinition(domainresource.DomainResource):
     """ The definition of a specific activity to be taken, independent of any
@@ -114,15 +48,15 @@ class ActivityDefinition(domainresource.DomainResource):
         
         self.copyright = None
         """ Use and/or publishing restrictions.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the activity definition.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.doNotPerform = None
         """ True if the activity should not be performed.
@@ -157,8 +91,9 @@ class ActivityDefinition(domainresource.DomainResource):
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.intent = None
-        """ proposal | plan | order.
-        Type `str`. """
+        """ proposal | plan | directive | order | original-order | reflex-order
+        | filler-order | instance-order | option.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.jurisdiction = None
         """ Intended jurisdiction for activity definition (if applicable).
@@ -166,7 +101,7 @@ class ActivityDefinition(domainresource.DomainResource):
         
         self.kind = None
         """ Kind of resource.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.lastReviewDate = None
         """ When the activity definition was last reviewed.
@@ -174,7 +109,7 @@ class ActivityDefinition(domainresource.DomainResource):
         
         self.library = None
         """ Logic used by the activity definition.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.location = None
         """ Where it should happen.
@@ -182,7 +117,7 @@ class ActivityDefinition(domainresource.DomainResource):
         
         self.name = None
         """ Name for this activity definition (computer friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.observationRequirement = None
         """ What observations are required to perform this action.
@@ -198,7 +133,7 @@ class ActivityDefinition(domainresource.DomainResource):
         
         self.priority = None
         """ routine | urgent | asap | stat.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.productCodeableConcept = None
         """ What's administered/supplied.
@@ -210,15 +145,15 @@ class ActivityDefinition(domainresource.DomainResource):
         
         self.profile = None
         """ What profile the resource needs to conform to.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.publisher = None
         """ Name of the publisher (organization or individual).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.purpose = None
         """ Why this activity definition is defined.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.quantity = None
         """ How much is administered/consumed/supplied.
@@ -238,7 +173,7 @@ class ActivityDefinition(domainresource.DomainResource):
         
         self.status = None
         """ draft | active | retired | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subjectCodeableConcept = None
         """ Type of individual the activity definition is intended for.
@@ -250,7 +185,7 @@ class ActivityDefinition(domainresource.DomainResource):
         
         self.subtitle = None
         """ Subordinate title of the activity definition.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.timingAge = None
         """ When activity is to occur.
@@ -258,7 +193,7 @@ class ActivityDefinition(domainresource.DomainResource):
         
         self.timingDateTime = None
         """ When activity is to occur.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.timingDuration = None
         """ When activity is to occur.
@@ -278,7 +213,7 @@ class ActivityDefinition(domainresource.DomainResource):
         
         self.title = None
         """ Name for this activity definition (human friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.topic = None
         """ E.g. Education, Treatment, Assessment, etc..
@@ -286,16 +221,16 @@ class ActivityDefinition(domainresource.DomainResource):
         
         self.transform = None
         """ Transform to apply the template.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.url = None
         """ Canonical identifier for this activity definition, represented as a
         URI (globally unique).
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.usage = None
         """ Describes the clinical usage of the activity definition.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.useContext = None
         """ The context that the content is intended to support.
@@ -303,21 +238,21 @@ class ActivityDefinition(domainresource.DomainResource):
         
         self.version = None
         """ Business version of the activity definition.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ActivityDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ActivityDefinition, self).elementProperties()
         js.extend([
-            ("approvalDate", "approvalDate", FHIRDate, False, None, False),
+            ("approvalDate", "approvalDate", fhirdatatypes.FHIRDate, False, None, False),
             ("author", "author", contactdetail.ContactDetail, True, None, False),
             ("bodySite", "bodySite", codeableconcept.CodeableConcept, True, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("copyright", "copyright", FHIRMarkdown, False, None, False),
-            ("date", "date", FHIRDateTime, False, None, False),
-            ("description", "description", FHIRMarkdown, False, None, False),
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("doNotPerform", "doNotPerform", bool, False, None, False),
             ("dosage", "dosage", dosage.Dosage, True, None, False),
             ("dynamicValue", "dynamicValue", ActivityDefinitionDynamicValue, True, None, False),
@@ -326,46 +261,49 @@ class ActivityDefinition(domainresource.DomainResource):
             ("endorser", "endorser", contactdetail.ContactDetail, True, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("intent", "intent", FHIRCode, False, None, False),
+            ("intent", "intent", fhirdatatypes.FHIRCode, False, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("kind", "kind", FHIRCode, False, None, False),
-            ("lastReviewDate", "lastReviewDate", FHIRDate, False, None, False),
-            ("library", "library", FHIRCanonical, True, None, False),
+            ("kind", "kind", fhirdatatypes.FHIRCode, False, None, False),
+            ("lastReviewDate", "lastReviewDate", fhirdatatypes.FHIRDate, False, None, False),
+            ("library", "library", fhirdatatypes.FHIRCanonical, True, None, False),
             ("location", "location", fhirreference.FHIRReference, False, None, False),
-            ("name", "name", FHIRString, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
             ("observationRequirement", "observationRequirement", fhirreference.FHIRReference, True, None, False),
             ("observationResultRequirement", "observationResultRequirement", fhirreference.FHIRReference, True, None, False),
             ("participant", "participant", ActivityDefinitionParticipant, True, None, False),
-            ("priority", "priority", FHIRCode, False, None, False),
+            ("priority", "priority", fhirdatatypes.FHIRCode, False, None, False),
             ("productCodeableConcept", "productCodeableConcept", codeableconcept.CodeableConcept, False, "product", False),
             ("productReference", "productReference", fhirreference.FHIRReference, False, "product", False),
-            ("profile", "profile", FHIRString, False, None, False),
-            ("publisher", "publisher", FHIRString, False, None, False),
-            ("purpose", "purpose", FHIRMarkdown, False, None, False),
+            ("profile", "profile", fhirdatatypes.FHIRCanonical, False, None, False),
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False),
             ("reviewer", "reviewer", contactdetail.ContactDetail, True, None, False),
             ("specimenRequirement", "specimenRequirement", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", FHIRCode, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False),
             ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False),
-            ("subtitle", "subtitle", FHIRString, False, None, False),
+            ("subtitle", "subtitle", fhirdatatypes.FHIRString, False, None, False),
             ("timingAge", "timingAge", age.Age, False, "timing", False),
-            ("timingDateTime", "timingDateTime", FHIRDate, False, "timing", False),
+            ("timingDateTime", "timingDateTime", fhirdatatypes.FHIRDateTime, False, "timing", False),
             ("timingDuration", "timingDuration", duration.Duration, False, "timing", False),
             ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
             ("timingRange", "timingRange", range.Range, False, "timing", False),
             ("timingTiming", "timingTiming", timing.Timing, False, "timing", False),
-            ("title", "title", FHIRString, False, None, False),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
             ("topic", "topic", codeableconcept.CodeableConcept, True, None, False),
-            ("transform", "transform", FHIRCanonical, False, None, False),
-            ("url", "url", FHIRUrl, False, None, False),
-            ("usage", "usage", FHIRString, False, None, False),
+            ("transform", "transform", fhirdatatypes.FHIRCanonical, False, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
+            ("usage", "usage", fhirdatatypes.FHIRString, False, None, False),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("version", "version", FHIRString, False, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
 
+
+
+from . import backboneelement
 
 class ActivityDefinitionDynamicValue(backboneelement.BackboneElement):
     """ Dynamic aspects of the definition.
@@ -393,7 +331,7 @@ class ActivityDefinitionDynamicValue(backboneelement.BackboneElement):
         
         self.path = None
         """ The path to the element to be set dynamically.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ActivityDefinitionDynamicValue, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -401,9 +339,11 @@ class ActivityDefinitionDynamicValue(backboneelement.BackboneElement):
         js = super(ActivityDefinitionDynamicValue, self).elementProperties()
         js.extend([
             ("expression", "expression", expression.Expression, False, None, True),
-            ("path", "path", FHIRString, False, None, True),
+            ("path", "path", fhirdatatypes.FHIRString, False, None, True),
         ])
         return js
+
+
 
 
 class ActivityDefinitionParticipant(backboneelement.BackboneElement):
@@ -428,7 +368,7 @@ class ActivityDefinitionParticipant(backboneelement.BackboneElement):
         
         self.type = None
         """ patient | practitioner | related-person | device.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(ActivityDefinitionParticipant, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -436,6 +376,85 @@ class ActivityDefinitionParticipant(backboneelement.BackboneElement):
         js = super(ActivityDefinitionParticipant, self).elementProperties()
         js.extend([
             ("role", "role", codeableconcept.CodeableConcept, False, None, False),
-            ("type", "type", FHIRCode, False, None, True),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
+
+
+import sys
+try:
+    from . import age
+except ImportError:
+    age = sys.modules[__package__ + '.age']
+
+try:
+    from . import codeableconcept
+except ImportError:
+    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
+try:
+    from . import contactdetail
+except ImportError:
+    contactdetail = sys.modules[__package__ + '.contactdetail']
+
+try:
+    from . import dosage
+except ImportError:
+    dosage = sys.modules[__package__ + '.dosage']
+
+try:
+    from . import duration
+except ImportError:
+    duration = sys.modules[__package__ + '.duration']
+
+try:
+    from . import expression
+except ImportError:
+    expression = sys.modules[__package__ + '.expression']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
+try:
+    from . import fhirreference
+except ImportError:
+    fhirreference = sys.modules[__package__ + '.fhirreference']
+
+try:
+    from . import identifier
+except ImportError:
+    identifier = sys.modules[__package__ + '.identifier']
+
+try:
+    from . import period
+except ImportError:
+    period = sys.modules[__package__ + '.period']
+
+try:
+    from . import quantity
+except ImportError:
+    quantity = sys.modules[__package__ + '.quantity']
+
+try:
+    from . import range
+except ImportError:
+    range = sys.modules[__package__ + '.range']
+
+try:
+    from . import relatedartifact
+except ImportError:
+    relatedartifact = sys.modules[__package__ + '.relatedartifact']
+
+try:
+    from . import timing
+except ImportError:
+    timing = sys.modules[__package__ + '.timing']
+
+try:
+    from . import usagecontext
+except ImportError:
+    usagecontext = sys.modules[__package__ + '.usagecontext']
+

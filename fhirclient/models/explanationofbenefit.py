@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -63,7 +63,7 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         
         self.created = None
         """ Response creation date.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.diagnosis = None
         """ Pertinent diagnosis information.
@@ -71,7 +71,7 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         
         self.disposition = None
         """ Disposition Message.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.enterer = None
         """ Author of the claim.
@@ -119,7 +119,7 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         
         self.outcome = None
         """ queued | complete | error | partial.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.patient = None
         """ The recipient of the products and services.
@@ -135,7 +135,7 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         
         self.preAuthRef = None
         """ Preauthorization reference.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.preAuthRefPeriod = None
         """ Preauthorization in-effect period.
@@ -143,7 +143,7 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         
         self.precedence = None
         """ Precedence (primary, secondary, etc.).
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.prescription = None
         """ Prescription authorizing services or products.
@@ -175,7 +175,7 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         
         self.status = None
         """ active | cancelled | draft | entered-in-error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subType = None
         """ More granular claim type.
@@ -195,7 +195,7 @@ class ExplanationOfBenefit(domainresource.DomainResource):
         
         self.use = None
         """ claim | preauthorization | predetermination.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(ExplanationOfBenefit, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -211,9 +211,9 @@ class ExplanationOfBenefit(domainresource.DomainResource):
             ("careTeam", "careTeam", ExplanationOfBenefitCareTeam, True, None, False),
             ("claim", "claim", fhirreference.FHIRReference, False, None, False),
             ("claimResponse", "claimResponse", fhirreference.FHIRReference, False, None, False),
-            ("created", "created", fhirdate.FHIRDate, False, None, True),
+            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, True),
             ("diagnosis", "diagnosis", ExplanationOfBenefitDiagnosis, True, None, False),
-            ("disposition", "disposition", str, False, None, False),
+            ("disposition", "disposition", fhirdatatypes.FHIRString, False, None, False),
             ("enterer", "enterer", fhirreference.FHIRReference, False, None, False),
             ("facility", "facility", fhirreference.FHIRReference, False, None, False),
             ("form", "form", attachment.Attachment, False, None, False),
@@ -225,13 +225,13 @@ class ExplanationOfBenefit(domainresource.DomainResource):
             ("insurer", "insurer", fhirreference.FHIRReference, False, None, True),
             ("item", "item", ExplanationOfBenefitItem, True, None, False),
             ("originalPrescription", "originalPrescription", fhirreference.FHIRReference, False, None, False),
-            ("outcome", "outcome", str, False, None, True),
+            ("outcome", "outcome", fhirdatatypes.FHIRCode, False, None, True),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("payee", "payee", ExplanationOfBenefitPayee, False, None, False),
             ("payment", "payment", ExplanationOfBenefitPayment, False, None, False),
-            ("preAuthRef", "preAuthRef", str, True, None, False),
+            ("preAuthRef", "preAuthRef", fhirdatatypes.FHIRString, True, None, False),
             ("preAuthRefPeriod", "preAuthRefPeriod", period.Period, True, None, False),
-            ("precedence", "precedence", int, False, None, False),
+            ("precedence", "precedence", fhirdatatypes.FHIRPositiveInt, False, None, False),
             ("prescription", "prescription", fhirreference.FHIRReference, False, None, False),
             ("priority", "priority", codeableconcept.CodeableConcept, False, None, False),
             ("procedure", "procedure", ExplanationOfBenefitProcedure, True, None, False),
@@ -239,14 +239,15 @@ class ExplanationOfBenefit(domainresource.DomainResource):
             ("provider", "provider", fhirreference.FHIRReference, False, None, True),
             ("referral", "referral", fhirreference.FHIRReference, False, None, False),
             ("related", "related", ExplanationOfBenefitRelated, True, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("subType", "subType", codeableconcept.CodeableConcept, False, None, False),
             ("supportingInfo", "supportingInfo", ExplanationOfBenefitSupportingInfo, True, None, False),
             ("total", "total", ExplanationOfBenefitTotal, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
-            ("use", "use", str, False, None, True),
+            ("use", "use", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -289,12 +290,14 @@ class ExplanationOfBenefitAccident(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ExplanationOfBenefitAccident, self).elementProperties()
         js.extend([
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDate, False, None, False),
             ("locationAddress", "locationAddress", address.Address, False, "location", False),
             ("locationReference", "locationReference", fhirreference.FHIRReference, False, "location", False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class ExplanationOfBenefitAddItem(backboneelement.BackboneElement):
@@ -328,7 +331,7 @@ class ExplanationOfBenefitAddItem(backboneelement.BackboneElement):
         
         self.detailSequence = None
         """ Detail sequence number.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.factor = None
         """ Price scaling factor.
@@ -336,7 +339,7 @@ class ExplanationOfBenefitAddItem(backboneelement.BackboneElement):
         
         self.itemSequence = None
         """ Item sequence number.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.locationAddress = None
         """ Place of service or where product was supplied.
@@ -360,7 +363,7 @@ class ExplanationOfBenefitAddItem(backboneelement.BackboneElement):
         
         self.noteNumber = None
         """ Applicable note numbers.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.productOrService = None
         """ Billing, service, product, or drug code.
@@ -388,7 +391,7 @@ class ExplanationOfBenefitAddItem(backboneelement.BackboneElement):
         
         self.subDetailSequence = None
         """ Subdetail sequence number.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.subSite = None
         """ Anatomical sub-location.
@@ -406,26 +409,28 @@ class ExplanationOfBenefitAddItem(backboneelement.BackboneElement):
             ("adjudication", "adjudication", ExplanationOfBenefitItemAdjudication, True, None, False),
             ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False),
             ("detail", "detail", ExplanationOfBenefitAddItemDetail, True, None, False),
-            ("detailSequence", "detailSequence", int, True, None, False),
+            ("detailSequence", "detailSequence", fhirdatatypes.FHIRPositiveInt, True, None, False),
             ("factor", "factor", float, False, None, False),
-            ("itemSequence", "itemSequence", int, True, None, False),
+            ("itemSequence", "itemSequence", fhirdatatypes.FHIRPositiveInt, True, None, False),
             ("locationAddress", "locationAddress", address.Address, False, "location", False),
             ("locationCodeableConcept", "locationCodeableConcept", codeableconcept.CodeableConcept, False, "location", False),
             ("locationReference", "locationReference", fhirreference.FHIRReference, False, "location", False),
             ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
             ("net", "net", money.Money, False, None, False),
-            ("noteNumber", "noteNumber", int, True, None, False),
+            ("noteNumber", "noteNumber", fhirdatatypes.FHIRPositiveInt, True, None, False),
             ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
             ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False),
             ("provider", "provider", fhirreference.FHIRReference, True, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("servicedDate", "servicedDate", fhirdate.FHIRDate, False, "serviced", False),
+            ("servicedDate", "servicedDate", fhirdatatypes.FHIRDate, False, "serviced", False),
             ("servicedPeriod", "servicedPeriod", period.Period, False, "serviced", False),
-            ("subDetailSequence", "subDetailSequence", int, True, None, False),
+            ("subDetailSequence", "subDetailSequence", fhirdatatypes.FHIRPositiveInt, True, None, False),
             ("subSite", "subSite", codeableconcept.CodeableConcept, True, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
         return js
+
+
 
 
 class ExplanationOfBenefitAddItemDetail(backboneelement.BackboneElement):
@@ -462,7 +467,7 @@ class ExplanationOfBenefitAddItemDetail(backboneelement.BackboneElement):
         
         self.noteNumber = None
         """ Applicable note numbers.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.productOrService = None
         """ Billing, service, product, or drug code.
@@ -489,13 +494,15 @@ class ExplanationOfBenefitAddItemDetail(backboneelement.BackboneElement):
             ("factor", "factor", float, False, None, False),
             ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
             ("net", "net", money.Money, False, None, False),
-            ("noteNumber", "noteNumber", int, True, None, False),
+            ("noteNumber", "noteNumber", fhirdatatypes.FHIRPositiveInt, True, None, False),
             ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("subDetail", "subDetail", ExplanationOfBenefitAddItemDetailSubDetail, True, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
         return js
+
+
 
 
 class ExplanationOfBenefitAddItemDetailSubDetail(backboneelement.BackboneElement):
@@ -532,7 +539,7 @@ class ExplanationOfBenefitAddItemDetailSubDetail(backboneelement.BackboneElement
         
         self.noteNumber = None
         """ Applicable note numbers.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.productOrService = None
         """ Billing, service, product, or drug code.
@@ -555,12 +562,14 @@ class ExplanationOfBenefitAddItemDetailSubDetail(backboneelement.BackboneElement
             ("factor", "factor", float, False, None, False),
             ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
             ("net", "net", money.Money, False, None, False),
-            ("noteNumber", "noteNumber", int, True, None, False),
+            ("noteNumber", "noteNumber", fhirdatatypes.FHIRPositiveInt, True, None, False),
             ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
         return js
+
+
 
 
 class ExplanationOfBenefitBenefitBalance(backboneelement.BackboneElement):
@@ -583,7 +592,7 @@ class ExplanationOfBenefitBenefitBalance(backboneelement.BackboneElement):
         
         self.description = None
         """ Description of the benefit or services covered.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.excluded = None
         """ Excluded from the plan.
@@ -595,7 +604,7 @@ class ExplanationOfBenefitBenefitBalance(backboneelement.BackboneElement):
         
         self.name = None
         """ Short name for the benefit.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.network = None
         """ In or out of network.
@@ -615,15 +624,17 @@ class ExplanationOfBenefitBenefitBalance(backboneelement.BackboneElement):
         js = super(ExplanationOfBenefitBenefitBalance, self).elementProperties()
         js.extend([
             ("category", "category", codeableconcept.CodeableConcept, False, None, True),
-            ("description", "description", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
             ("excluded", "excluded", bool, False, None, False),
             ("financial", "financial", ExplanationOfBenefitBenefitBalanceFinancial, True, None, False),
-            ("name", "name", str, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
             ("network", "network", codeableconcept.CodeableConcept, False, None, False),
             ("term", "term", codeableconcept.CodeableConcept, False, None, False),
             ("unit", "unit", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class ExplanationOfBenefitBenefitBalanceFinancial(backboneelement.BackboneElement):
@@ -648,11 +659,11 @@ class ExplanationOfBenefitBenefitBalanceFinancial(backboneelement.BackboneElemen
         
         self.allowedString = None
         """ Benefits allowed.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.allowedUnsignedInt = None
         """ Benefits allowed.
-        Type `int`. """
+        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
         
         self.type = None
         """ Benefit classification.
@@ -664,7 +675,7 @@ class ExplanationOfBenefitBenefitBalanceFinancial(backboneelement.BackboneElemen
         
         self.usedUnsignedInt = None
         """ Benefits used.
-        Type `int`. """
+        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
         
         super(ExplanationOfBenefitBenefitBalanceFinancial, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -672,13 +683,15 @@ class ExplanationOfBenefitBenefitBalanceFinancial(backboneelement.BackboneElemen
         js = super(ExplanationOfBenefitBenefitBalanceFinancial, self).elementProperties()
         js.extend([
             ("allowedMoney", "allowedMoney", money.Money, False, "allowed", False),
-            ("allowedString", "allowedString", str, False, "allowed", False),
-            ("allowedUnsignedInt", "allowedUnsignedInt", int, False, "allowed", False),
+            ("allowedString", "allowedString", fhirdatatypes.FHIRString, False, "allowed", False),
+            ("allowedUnsignedInt", "allowedUnsignedInt", fhirdatatypes.FHIRUnsignedInt, False, "allowed", False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
             ("usedMoney", "usedMoney", money.Money, False, "used", False),
-            ("usedUnsignedInt", "usedUnsignedInt", int, False, "used", False),
+            ("usedUnsignedInt", "usedUnsignedInt", fhirdatatypes.FHIRUnsignedInt, False, "used", False),
         ])
         return js
+
+
 
 
 class ExplanationOfBenefitCareTeam(backboneelement.BackboneElement):
@@ -715,7 +728,7 @@ class ExplanationOfBenefitCareTeam(backboneelement.BackboneElement):
         
         self.sequence = None
         """ Order of care team.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         super(ExplanationOfBenefitCareTeam, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -726,9 +739,11 @@ class ExplanationOfBenefitCareTeam(backboneelement.BackboneElement):
             ("qualification", "qualification", codeableconcept.CodeableConcept, False, None, False),
             ("responsible", "responsible", bool, False, None, False),
             ("role", "role", codeableconcept.CodeableConcept, False, None, False),
-            ("sequence", "sequence", int, False, None, True),
+            ("sequence", "sequence", fhirdatatypes.FHIRPositiveInt, False, None, True),
         ])
         return js
+
+
 
 
 class ExplanationOfBenefitDiagnosis(backboneelement.BackboneElement):
@@ -765,7 +780,7 @@ class ExplanationOfBenefitDiagnosis(backboneelement.BackboneElement):
         
         self.sequence = None
         """ Diagnosis instance identifier.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.type = None
         """ Timing or nature of the diagnosis.
@@ -780,10 +795,12 @@ class ExplanationOfBenefitDiagnosis(backboneelement.BackboneElement):
             ("diagnosisReference", "diagnosisReference", fhirreference.FHIRReference, False, "diagnosis", True),
             ("onAdmission", "onAdmission", codeableconcept.CodeableConcept, False, None, False),
             ("packageCode", "packageCode", codeableconcept.CodeableConcept, False, None, False),
-            ("sequence", "sequence", int, False, None, True),
+            ("sequence", "sequence", fhirdatatypes.FHIRPositiveInt, False, None, True),
             ("type", "type", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
+
+
 
 
 class ExplanationOfBenefitInsurance(backboneelement.BackboneElement):
@@ -813,7 +830,7 @@ class ExplanationOfBenefitInsurance(backboneelement.BackboneElement):
         
         self.preAuthRef = None
         """ Prior authorization reference number.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         super(ExplanationOfBenefitInsurance, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -822,9 +839,11 @@ class ExplanationOfBenefitInsurance(backboneelement.BackboneElement):
         js.extend([
             ("coverage", "coverage", fhirreference.FHIRReference, False, None, True),
             ("focal", "focal", bool, False, None, True),
-            ("preAuthRef", "preAuthRef", str, True, None, False),
+            ("preAuthRef", "preAuthRef", fhirdatatypes.FHIRString, True, None, False),
         ])
         return js
+
+
 
 
 class ExplanationOfBenefitItem(backboneelement.BackboneElement):
@@ -854,7 +873,7 @@ class ExplanationOfBenefitItem(backboneelement.BackboneElement):
         
         self.careTeamSequence = None
         """ Applicable care team members.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.category = None
         """ Benefit classification.
@@ -866,7 +885,7 @@ class ExplanationOfBenefitItem(backboneelement.BackboneElement):
         
         self.diagnosisSequence = None
         """ Applicable diagnoses.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.encounter = None
         """ Encounters related to this billed item.
@@ -878,7 +897,7 @@ class ExplanationOfBenefitItem(backboneelement.BackboneElement):
         
         self.informationSequence = None
         """ Applicable exception and supporting information.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.locationAddress = None
         """ Place of service or where product was supplied.
@@ -902,11 +921,11 @@ class ExplanationOfBenefitItem(backboneelement.BackboneElement):
         
         self.noteNumber = None
         """ Applicable note numbers.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.procedureSequence = None
         """ Applicable procedures.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.productOrService = None
         """ Billing, service, product, or drug code.
@@ -926,7 +945,7 @@ class ExplanationOfBenefitItem(backboneelement.BackboneElement):
         
         self.sequence = None
         """ Item instance identifier.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.servicedDate = None
         """ Date or dates of service or product delivery.
@@ -955,32 +974,34 @@ class ExplanationOfBenefitItem(backboneelement.BackboneElement):
         js.extend([
             ("adjudication", "adjudication", ExplanationOfBenefitItemAdjudication, True, None, False),
             ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False),
-            ("careTeamSequence", "careTeamSequence", int, True, None, False),
+            ("careTeamSequence", "careTeamSequence", fhirdatatypes.FHIRPositiveInt, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, False, None, False),
             ("detail", "detail", ExplanationOfBenefitItemDetail, True, None, False),
-            ("diagnosisSequence", "diagnosisSequence", int, True, None, False),
+            ("diagnosisSequence", "diagnosisSequence", fhirdatatypes.FHIRPositiveInt, True, None, False),
             ("encounter", "encounter", fhirreference.FHIRReference, True, None, False),
             ("factor", "factor", float, False, None, False),
-            ("informationSequence", "informationSequence", int, True, None, False),
+            ("informationSequence", "informationSequence", fhirdatatypes.FHIRPositiveInt, True, None, False),
             ("locationAddress", "locationAddress", address.Address, False, "location", False),
             ("locationCodeableConcept", "locationCodeableConcept", codeableconcept.CodeableConcept, False, "location", False),
             ("locationReference", "locationReference", fhirreference.FHIRReference, False, "location", False),
             ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
             ("net", "net", money.Money, False, None, False),
-            ("noteNumber", "noteNumber", int, True, None, False),
-            ("procedureSequence", "procedureSequence", int, True, None, False),
+            ("noteNumber", "noteNumber", fhirdatatypes.FHIRPositiveInt, True, None, False),
+            ("procedureSequence", "procedureSequence", fhirdatatypes.FHIRPositiveInt, True, None, False),
             ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
             ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
-            ("sequence", "sequence", int, False, None, True),
-            ("servicedDate", "servicedDate", fhirdate.FHIRDate, False, "serviced", False),
+            ("sequence", "sequence", fhirdatatypes.FHIRPositiveInt, False, None, True),
+            ("servicedDate", "servicedDate", fhirdatatypes.FHIRDate, False, "serviced", False),
             ("servicedPeriod", "servicedPeriod", period.Period, False, "serviced", False),
             ("subSite", "subSite", codeableconcept.CodeableConcept, True, None, False),
             ("udi", "udi", fhirreference.FHIRReference, True, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
         return js
+
+
 
 
 class ExplanationOfBenefitItemAdjudication(backboneelement.BackboneElement):
@@ -1030,6 +1051,8 @@ class ExplanationOfBenefitItemAdjudication(backboneelement.BackboneElement):
         return js
 
 
+
+
 class ExplanationOfBenefitItemDetail(backboneelement.BackboneElement):
     """ Additional items.
     
@@ -1068,7 +1091,7 @@ class ExplanationOfBenefitItemDetail(backboneelement.BackboneElement):
         
         self.noteNumber = None
         """ Applicable note numbers.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.productOrService = None
         """ Billing, service, product, or drug code.
@@ -1088,7 +1111,7 @@ class ExplanationOfBenefitItemDetail(backboneelement.BackboneElement):
         
         self.sequence = None
         """ Product or service provided.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.subDetail = None
         """ Additional items.
@@ -1112,17 +1135,19 @@ class ExplanationOfBenefitItemDetail(backboneelement.BackboneElement):
             ("factor", "factor", float, False, None, False),
             ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
             ("net", "net", money.Money, False, None, False),
-            ("noteNumber", "noteNumber", int, True, None, False),
+            ("noteNumber", "noteNumber", fhirdatatypes.FHIRPositiveInt, True, None, False),
             ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
             ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
-            ("sequence", "sequence", int, False, None, True),
+            ("sequence", "sequence", fhirdatatypes.FHIRPositiveInt, False, None, True),
             ("subDetail", "subDetail", ExplanationOfBenefitItemDetailSubDetail, True, None, False),
             ("udi", "udi", fhirreference.FHIRReference, True, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
         return js
+
+
 
 
 class ExplanationOfBenefitItemDetailSubDetail(backboneelement.BackboneElement):
@@ -1163,7 +1188,7 @@ class ExplanationOfBenefitItemDetailSubDetail(backboneelement.BackboneElement):
         
         self.noteNumber = None
         """ Applicable note numbers.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.productOrService = None
         """ Billing, service, product, or drug code.
@@ -1183,7 +1208,7 @@ class ExplanationOfBenefitItemDetailSubDetail(backboneelement.BackboneElement):
         
         self.sequence = None
         """ Product or service provided.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.udi = None
         """ Unique device identifier.
@@ -1203,16 +1228,18 @@ class ExplanationOfBenefitItemDetailSubDetail(backboneelement.BackboneElement):
             ("factor", "factor", float, False, None, False),
             ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
             ("net", "net", money.Money, False, None, False),
-            ("noteNumber", "noteNumber", int, True, None, False),
+            ("noteNumber", "noteNumber", fhirdatatypes.FHIRPositiveInt, True, None, False),
             ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
             ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
-            ("sequence", "sequence", int, False, None, True),
+            ("sequence", "sequence", fhirdatatypes.FHIRPositiveInt, False, None, True),
             ("udi", "udi", fhirreference.FHIRReference, True, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
         return js
+
+
 
 
 class ExplanationOfBenefitPayee(backboneelement.BackboneElement):
@@ -1249,6 +1276,8 @@ class ExplanationOfBenefitPayee(backboneelement.BackboneElement):
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class ExplanationOfBenefitPayment(backboneelement.BackboneElement):
@@ -1299,11 +1328,13 @@ class ExplanationOfBenefitPayment(backboneelement.BackboneElement):
             ("adjustment", "adjustment", money.Money, False, None, False),
             ("adjustmentReason", "adjustmentReason", codeableconcept.CodeableConcept, False, None, False),
             ("amount", "amount", money.Money, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDate, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class ExplanationOfBenefitProcedure(backboneelement.BackboneElement):
@@ -1325,7 +1356,7 @@ class ExplanationOfBenefitProcedure(backboneelement.BackboneElement):
         
         self.date = None
         """ When the procedure was performed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.procedureCodeableConcept = None
         """ Specific clinical procedure.
@@ -1337,7 +1368,7 @@ class ExplanationOfBenefitProcedure(backboneelement.BackboneElement):
         
         self.sequence = None
         """ Procedure instance identifier.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.type = None
         """ Category of Procedure.
@@ -1352,14 +1383,16 @@ class ExplanationOfBenefitProcedure(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ExplanationOfBenefitProcedure, self).elementProperties()
         js.extend([
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
             ("procedureCodeableConcept", "procedureCodeableConcept", codeableconcept.CodeableConcept, False, "procedure", True),
             ("procedureReference", "procedureReference", fhirreference.FHIRReference, False, "procedure", True),
-            ("sequence", "sequence", int, False, None, True),
+            ("sequence", "sequence", fhirdatatypes.FHIRPositiveInt, False, None, True),
             ("type", "type", codeableconcept.CodeableConcept, True, None, False),
             ("udi", "udi", fhirreference.FHIRReference, True, None, False),
         ])
         return js
+
+
 
 
 class ExplanationOfBenefitProcessNote(backboneelement.BackboneElement):
@@ -1385,15 +1418,15 @@ class ExplanationOfBenefitProcessNote(backboneelement.BackboneElement):
         
         self.number = None
         """ Note instance identifier.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.text = None
         """ Note explanatory text.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ display | print | printoper.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(ExplanationOfBenefitProcessNote, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -1401,11 +1434,13 @@ class ExplanationOfBenefitProcessNote(backboneelement.BackboneElement):
         js = super(ExplanationOfBenefitProcessNote, self).elementProperties()
         js.extend([
             ("language", "language", codeableconcept.CodeableConcept, False, None, False),
-            ("number", "number", int, False, None, False),
-            ("text", "text", str, False, None, False),
-            ("type", "type", str, False, None, False),
+            ("number", "number", fhirdatatypes.FHIRPositiveInt, False, None, False),
+            ("text", "text", fhirdatatypes.FHIRString, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, False),
         ])
         return js
+
+
 
 
 class ExplanationOfBenefitRelated(backboneelement.BackboneElement):
@@ -1449,6 +1484,8 @@ class ExplanationOfBenefitRelated(backboneelement.BackboneElement):
         return js
 
 
+
+
 class ExplanationOfBenefitSupportingInfo(backboneelement.BackboneElement):
     """ Supporting information.
     
@@ -1480,7 +1517,7 @@ class ExplanationOfBenefitSupportingInfo(backboneelement.BackboneElement):
         
         self.sequence = None
         """ Information instance identifier.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.timingDate = None
         """ When it occurred.
@@ -1508,7 +1545,7 @@ class ExplanationOfBenefitSupportingInfo(backboneelement.BackboneElement):
         
         self.valueString = None
         """ Data to be provided.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ExplanationOfBenefitSupportingInfo, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -1518,16 +1555,18 @@ class ExplanationOfBenefitSupportingInfo(backboneelement.BackboneElement):
             ("category", "category", codeableconcept.CodeableConcept, False, None, True),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("reason", "reason", coding.Coding, False, None, False),
-            ("sequence", "sequence", int, False, None, True),
-            ("timingDate", "timingDate", fhirdate.FHIRDate, False, "timing", False),
+            ("sequence", "sequence", fhirdatatypes.FHIRPositiveInt, False, None, True),
+            ("timingDate", "timingDate", fhirdatatypes.FHIRDate, False, "timing", False),
             ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
             ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", False),
             ("valueBoolean", "valueBoolean", bool, False, "value", False),
             ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
             ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", False),
-            ("valueString", "valueString", str, False, "value", False),
+            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", False),
         ])
         return js
+
+
 
 
 class ExplanationOfBenefitTotal(backboneelement.BackboneElement):
@@ -1565,44 +1604,55 @@ class ExplanationOfBenefitTotal(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import address
 except ImportError:
     address = sys.modules[__package__ + '.address']
+
 try:
     from . import attachment
 except ImportError:
     attachment = sys.modules[__package__ + '.attachment']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import coding
 except ImportError:
     coding = sys.modules[__package__ + '.coding']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import money
 except ImportError:
     money = sys.modules[__package__ + '.money']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+

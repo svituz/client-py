@@ -1,0 +1,258 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+#  Generated from FHIR 4.0.1-9346c8cc45 on 2020-03-25.
+#  2020, SMART Health IT.
+
+
+import os
+import io
+import unittest
+import json
+from fhirclient.models import substance
+
+class SubstanceTests(unittest.TestCase):
+    def instantiate_from(self, filename):
+        datadir = os.environ.get('FHIR_UNITTEST_DATADIR') or ''
+        with io.open(os.path.join(datadir, filename), 'r', encoding='utf-8') as handle:
+            js = json.load(handle)
+            self.assertEqual("Substance", js["resourceType"])
+        return substance.Substance(js)
+
+    def testSubstance1(self):
+        inst = self.instantiate_from('substance-example-silver-nitrate-product.json')
+        self.assertIsNotNone(inst, 'Must have instantiated a Substance instance')
+        self.implSubstance1(inst)
+
+        js = inst.as_json()
+        self.assertEqual("Substance", js["resourceType"])
+        inst2 = substance.Substance(js)
+        self.implSubstance1(inst2)
+
+    def implSubstance1(self, inst):
+        self.assertEqual(inst.category[0].coding[0].code.value, FHIRCode('chemical').value)
+        self.assertEqual(inst.category[0].coding[0].code.as_json(), 'chemical')
+        self.assertEqual(inst.category[0].coding[0].display.value, FHIRString('Chemical').value)
+        self.assertEqual(inst.category[0].coding[0].display.as_json(), 'Chemical')
+        self.assertEqual(inst.category[0].coding[0].system.value, FHIRUri('http://terminology.hl7.org/CodeSystem/substance-category').value)
+        self.assertEqual(inst.category[0].coding[0].system.as_json(), 'http://terminology.hl7.org/CodeSystem/substance-category')
+        self.assertEqual(inst.code.coding[0].code.value, FHIRCode('333346007').value)
+        self.assertEqual(inst.code.coding[0].code.as_json(), '333346007')
+        self.assertEqual(inst.code.coding[0].display.value, FHIRString('Silver nitrate 20% solution (product)').value)
+        self.assertEqual(inst.code.coding[0].display.as_json(), 'Silver nitrate 20% solution (product)')
+        self.assertEqual(inst.code.coding[0].system.value, FHIRUri('http://snomed.info/sct').value)
+        self.assertEqual(inst.code.coding[0].system.as_json(), 'http://snomed.info/sct')
+        self.assertEqual(inst.description.value, FHIRString('Solution for silver nitrate stain').value)
+        self.assertEqual(inst.description.as_json(), 'Solution for silver nitrate stain')
+        self.assertEqual(inst.identifier[0].system.value, FHIRUri('http://acme.org/identifiers/substances').value)
+        self.assertEqual(inst.identifier[0].system.as_json(), 'http://acme.org/identifiers/substances')
+        self.assertEqual(inst.identifier[0].value.value, FHIRString('15970').value)
+        self.assertEqual(inst.identifier[0].value.as_json(), '15970')
+        self.assertEqual(inst.instance[0].expiry.value, FHIRDateTime('2018-01-01').value)
+        self.assertEqual(inst.instance[0].expiry.as_json(), '2018-01-01')
+        self.assertEqual(inst.instance[0].identifier.system.value, FHIRUri('http://acme.org/identifiers/substances/lot').value)
+        self.assertEqual(inst.instance[0].identifier.system.as_json(), 'http://acme.org/identifiers/substances/lot')
+        self.assertEqual(inst.instance[0].identifier.value.value, FHIRString('AB94687').value)
+        self.assertEqual(inst.instance[0].identifier.value.as_json(), 'AB94687')
+        self.assertEqual(inst.instance[0].quantity.code.value, FHIRCode('mL').value)
+        self.assertEqual(inst.instance[0].quantity.code.as_json(), 'mL')
+        self.assertEqual(inst.instance[0].quantity.system.value, FHIRUri('http://unitsofmeasure.org').value)
+        self.assertEqual(inst.instance[0].quantity.system.as_json(), 'http://unitsofmeasure.org')
+        self.assertEqual(inst.instance[0].quantity.unit.value, FHIRString('mL').value)
+        self.assertEqual(inst.instance[0].quantity.unit.as_json(), 'mL')
+        self.assertEqual(inst.instance[0].quantity.value, 100)
+        self.assertEqual(inst.meta.tag[0].code.value, FHIRCode('HTEST').value)
+        self.assertEqual(inst.meta.tag[0].code.as_json(), 'HTEST')
+        self.assertEqual(inst.meta.tag[0].display.value, FHIRString('test health data').value)
+        self.assertEqual(inst.meta.tag[0].display.as_json(), 'test health data')
+        self.assertEqual(inst.meta.tag[0].system.value, FHIRUri('http://terminology.hl7.org/CodeSystem/v3-ActReason').value)
+        self.assertEqual(inst.meta.tag[0].system.as_json(), 'http://terminology.hl7.org/CodeSystem/v3-ActReason')
+        self.assertEqual(inst.text.status.value, FHIRCode('generated').value)
+        self.assertEqual(inst.text.status.as_json(), 'generated')
+
+    def testSubstance2(self):
+        inst = self.instantiate_from('substance-example-amoxicillin-clavulanate.json')
+        self.assertIsNotNone(inst, 'Must have instantiated a Substance instance')
+        self.implSubstance2(inst)
+
+        js = inst.as_json()
+        self.assertEqual("Substance", js["resourceType"])
+        inst2 = substance.Substance(js)
+        self.implSubstance2(inst2)
+
+    def implSubstance2(self, inst):
+        self.assertEqual(inst.category[0].coding[0].code.value, FHIRCode('drug').value)
+        self.assertEqual(inst.category[0].coding[0].code.as_json(), 'drug')
+        self.assertEqual(inst.category[0].coding[0].display.value, FHIRString('Drug or Medicament').value)
+        self.assertEqual(inst.category[0].coding[0].display.as_json(), 'Drug or Medicament')
+        self.assertEqual(inst.category[0].coding[0].system.value, FHIRUri('http://terminology.hl7.org/CodeSystem/substance-category').value)
+        self.assertEqual(inst.category[0].coding[0].system.as_json(), 'http://terminology.hl7.org/CodeSystem/substance-category')
+        self.assertEqual(inst.code.coding[0].code.value, FHIRCode('392259005').value)
+        self.assertEqual(inst.code.coding[0].code.as_json(), '392259005')
+        self.assertEqual(inst.code.coding[0].display.value, FHIRString('Amoxicillin + clavulanate potassium 875mg/125mg tablet (product)').value)
+        self.assertEqual(inst.code.coding[0].display.as_json(), 'Amoxicillin + clavulanate potassium 875mg/125mg tablet (product)')
+        self.assertEqual(inst.code.coding[0].system.value, FHIRUri('http://snomed.info/sct').value)
+        self.assertEqual(inst.code.coding[0].system.as_json(), 'http://snomed.info/sct')
+        self.assertEqual(inst.description.value, FHIRString('Augmentin 875').value)
+        self.assertEqual(inst.description.as_json(), 'Augmentin 875')
+        self.assertEqual(inst.ingredient[0].quantity.denominator.code.value, FHIRCode('mg').value)
+        self.assertEqual(inst.ingredient[0].quantity.denominator.code.as_json(), 'mg')
+        self.assertEqual(inst.ingredient[0].quantity.denominator.system.value, FHIRUri('http://unitsofmeasure.org').value)
+        self.assertEqual(inst.ingredient[0].quantity.denominator.system.as_json(), 'http://unitsofmeasure.org')
+        self.assertEqual(inst.ingredient[0].quantity.denominator.unit.value, FHIRString('mg').value)
+        self.assertEqual(inst.ingredient[0].quantity.denominator.unit.as_json(), 'mg')
+        self.assertEqual(inst.ingredient[0].quantity.denominator.value, 1000)
+        self.assertEqual(inst.ingredient[0].quantity.numerator.code.value, FHIRCode('mg').value)
+        self.assertEqual(inst.ingredient[0].quantity.numerator.code.as_json(), 'mg')
+        self.assertEqual(inst.ingredient[0].quantity.numerator.system.value, FHIRUri('http://unitsofmeasure.org').value)
+        self.assertEqual(inst.ingredient[0].quantity.numerator.system.as_json(), 'http://unitsofmeasure.org')
+        self.assertEqual(inst.ingredient[0].quantity.numerator.unit.value, FHIRString('mg').value)
+        self.assertEqual(inst.ingredient[0].quantity.numerator.unit.as_json(), 'mg')
+        self.assertEqual(inst.ingredient[0].quantity.numerator.value, 875)
+        self.assertEqual(inst.ingredient[1].quantity.denominator.code.value, FHIRCode('mg').value)
+        self.assertEqual(inst.ingredient[1].quantity.denominator.code.as_json(), 'mg')
+        self.assertEqual(inst.ingredient[1].quantity.denominator.system.value, FHIRUri('http://unitsofmeasure.org').value)
+        self.assertEqual(inst.ingredient[1].quantity.denominator.system.as_json(), 'http://unitsofmeasure.org')
+        self.assertEqual(inst.ingredient[1].quantity.denominator.unit.value, FHIRString('mg').value)
+        self.assertEqual(inst.ingredient[1].quantity.denominator.unit.as_json(), 'mg')
+        self.assertEqual(inst.ingredient[1].quantity.denominator.value, 1000)
+        self.assertEqual(inst.ingredient[1].quantity.numerator.code.value, FHIRCode('mg').value)
+        self.assertEqual(inst.ingredient[1].quantity.numerator.code.as_json(), 'mg')
+        self.assertEqual(inst.ingredient[1].quantity.numerator.system.value, FHIRUri('http://unitsofmeasure.org').value)
+        self.assertEqual(inst.ingredient[1].quantity.numerator.system.as_json(), 'http://unitsofmeasure.org')
+        self.assertEqual(inst.ingredient[1].quantity.numerator.unit.value, FHIRString('mg').value)
+        self.assertEqual(inst.ingredient[1].quantity.numerator.unit.as_json(), 'mg')
+        self.assertEqual(inst.ingredient[1].quantity.numerator.value, 125)
+        self.assertEqual(inst.meta.tag[0].code.value, FHIRCode('HTEST').value)
+        self.assertEqual(inst.meta.tag[0].code.as_json(), 'HTEST')
+        self.assertEqual(inst.meta.tag[0].display.value, FHIRString('test health data').value)
+        self.assertEqual(inst.meta.tag[0].display.as_json(), 'test health data')
+        self.assertEqual(inst.meta.tag[0].system.value, FHIRUri('http://terminology.hl7.org/CodeSystem/v3-ActReason').value)
+        self.assertEqual(inst.meta.tag[0].system.as_json(), 'http://terminology.hl7.org/CodeSystem/v3-ActReason')
+        self.assertEqual(inst.text.status.value, FHIRCode('generated').value)
+        self.assertEqual(inst.text.status.as_json(), 'generated')
+
+    def testSubstance3(self):
+        inst = self.instantiate_from('substance-example-f201-dust.json')
+        self.assertIsNotNone(inst, 'Must have instantiated a Substance instance')
+        self.implSubstance3(inst)
+
+        js = inst.as_json()
+        self.assertEqual("Substance", js["resourceType"])
+        inst2 = substance.Substance(js)
+        self.implSubstance3(inst2)
+
+    def implSubstance3(self, inst):
+        self.assertEqual(inst.code.coding[0].code.value, FHIRCode('406466009').value)
+        self.assertEqual(inst.code.coding[0].code.as_json(), '406466009')
+        self.assertEqual(inst.code.coding[0].display.value, FHIRString('House dust allergen').value)
+        self.assertEqual(inst.code.coding[0].display.as_json(), 'House dust allergen')
+        self.assertEqual(inst.code.coding[0].system.value, FHIRUri('http://snomed.info/sct').value)
+        self.assertEqual(inst.code.coding[0].system.as_json(), 'http://snomed.info/sct')
+        self.assertEqual(inst.meta.tag[0].code.value, FHIRCode('HTEST').value)
+        self.assertEqual(inst.meta.tag[0].code.as_json(), 'HTEST')
+        self.assertEqual(inst.meta.tag[0].display.value, FHIRString('test health data').value)
+        self.assertEqual(inst.meta.tag[0].display.as_json(), 'test health data')
+        self.assertEqual(inst.meta.tag[0].system.value, FHIRUri('http://terminology.hl7.org/CodeSystem/v3-ActReason').value)
+        self.assertEqual(inst.meta.tag[0].system.as_json(), 'http://terminology.hl7.org/CodeSystem/v3-ActReason')
+        self.assertEqual(inst.text.status.value, FHIRCode('generated').value)
+        self.assertEqual(inst.text.status.as_json(), 'generated')
+
+    def testSubstance4(self):
+        inst = self.instantiate_from('substance-example-f202-staphylococcus.json')
+        self.assertIsNotNone(inst, 'Must have instantiated a Substance instance')
+        self.implSubstance4(inst)
+
+        js = inst.as_json()
+        self.assertEqual("Substance", js["resourceType"])
+        inst2 = substance.Substance(js)
+        self.implSubstance4(inst2)
+
+    def implSubstance4(self, inst):
+        self.assertEqual(inst.code.coding[0].code.value, FHIRCode('3092008').value)
+        self.assertEqual(inst.code.coding[0].code.as_json(), '3092008')
+        self.assertEqual(inst.code.coding[0].display.value, FHIRString('Staphylococcus Aureus').value)
+        self.assertEqual(inst.code.coding[0].display.as_json(), 'Staphylococcus Aureus')
+        self.assertEqual(inst.code.coding[0].system.value, FHIRUri('http://snomed.info/sct').value)
+        self.assertEqual(inst.code.coding[0].system.as_json(), 'http://snomed.info/sct')
+        self.assertEqual(inst.meta.tag[0].code.value, FHIRCode('HTEST').value)
+        self.assertEqual(inst.meta.tag[0].code.as_json(), 'HTEST')
+        self.assertEqual(inst.meta.tag[0].display.value, FHIRString('test health data').value)
+        self.assertEqual(inst.meta.tag[0].display.as_json(), 'test health data')
+        self.assertEqual(inst.meta.tag[0].system.value, FHIRUri('http://terminology.hl7.org/CodeSystem/v3-ActReason').value)
+        self.assertEqual(inst.meta.tag[0].system.as_json(), 'http://terminology.hl7.org/CodeSystem/v3-ActReason')
+        self.assertEqual(inst.text.status.value, FHIRCode('generated').value)
+        self.assertEqual(inst.text.status.as_json(), 'generated')
+
+    def testSubstance5(self):
+        inst = self.instantiate_from('substance-example-f203-potassium.json')
+        self.assertIsNotNone(inst, 'Must have instantiated a Substance instance')
+        self.implSubstance5(inst)
+
+        js = inst.as_json()
+        self.assertEqual("Substance", js["resourceType"])
+        inst2 = substance.Substance(js)
+        self.implSubstance5(inst2)
+
+    def implSubstance5(self, inst):
+        self.assertEqual(inst.category[0].coding[0].code.value, FHIRCode('chemical').value)
+        self.assertEqual(inst.category[0].coding[0].code.as_json(), 'chemical')
+        self.assertEqual(inst.category[0].coding[0].display.value, FHIRString('Chemical').value)
+        self.assertEqual(inst.category[0].coding[0].display.as_json(), 'Chemical')
+        self.assertEqual(inst.category[0].coding[0].system.value, FHIRUri('http://terminology.hl7.org/CodeSystem/substance-category').value)
+        self.assertEqual(inst.category[0].coding[0].system.as_json(), 'http://terminology.hl7.org/CodeSystem/substance-category')
+        self.assertEqual(inst.code.coding[0].code.value, FHIRCode('88480006').value)
+        self.assertEqual(inst.code.coding[0].code.as_json(), '88480006')
+        self.assertEqual(inst.code.coding[0].display.value, FHIRString('Potassium').value)
+        self.assertEqual(inst.code.coding[0].display.as_json(), 'Potassium')
+        self.assertEqual(inst.code.coding[0].system.value, FHIRUri('http://snomed.info/sct').value)
+        self.assertEqual(inst.code.coding[0].system.as_json(), 'http://snomed.info/sct')
+        self.assertEqual(inst.identifier[0].system.value, FHIRUri('http://acme.org/identifiers/substances').value)
+        self.assertEqual(inst.identifier[0].system.as_json(), 'http://acme.org/identifiers/substances')
+        self.assertEqual(inst.identifier[0].value.value, FHIRString('1234').value)
+        self.assertEqual(inst.identifier[0].value.as_json(), '1234')
+        self.assertEqual(inst.meta.tag[0].code.value, FHIRCode('HTEST').value)
+        self.assertEqual(inst.meta.tag[0].code.as_json(), 'HTEST')
+        self.assertEqual(inst.meta.tag[0].display.value, FHIRString('test health data').value)
+        self.assertEqual(inst.meta.tag[0].display.as_json(), 'test health data')
+        self.assertEqual(inst.meta.tag[0].system.value, FHIRUri('http://terminology.hl7.org/CodeSystem/v3-ActReason').value)
+        self.assertEqual(inst.meta.tag[0].system.as_json(), 'http://terminology.hl7.org/CodeSystem/v3-ActReason')
+        self.assertEqual(inst.text.status.value, FHIRCode('generated').value)
+        self.assertEqual(inst.text.status.as_json(), 'generated')
+
+    def testSubstance6(self):
+        inst = self.instantiate_from('substance-example.json')
+        self.assertIsNotNone(inst, 'Must have instantiated a Substance instance')
+        self.implSubstance6(inst)
+
+        js = inst.as_json()
+        self.assertEqual("Substance", js["resourceType"])
+        inst2 = substance.Substance(js)
+        self.implSubstance6(inst2)
+
+    def implSubstance6(self, inst):
+        self.assertEqual(inst.category[0].coding[0].code.value, FHIRCode('allergen').value)
+        self.assertEqual(inst.category[0].coding[0].code.as_json(), 'allergen')
+        self.assertEqual(inst.category[0].coding[0].display.value, FHIRString('Allergen').value)
+        self.assertEqual(inst.category[0].coding[0].display.as_json(), 'Allergen')
+        self.assertEqual(inst.category[0].coding[0].system.value, FHIRUri('http://terminology.hl7.org/CodeSystem/substance-category').value)
+        self.assertEqual(inst.category[0].coding[0].system.as_json(), 'http://terminology.hl7.org/CodeSystem/substance-category')
+        self.assertEqual(inst.code.text.value, FHIRString('apitoxin (Honey Bee Venom)').value)
+        self.assertEqual(inst.code.text.as_json(), 'apitoxin (Honey Bee Venom)')
+        self.assertEqual(inst.identifier[0].system.value, FHIRUri('http://acme.org/identifiers/substances').value)
+        self.assertEqual(inst.identifier[0].system.as_json(), 'http://acme.org/identifiers/substances')
+        self.assertEqual(inst.identifier[0].value.value, FHIRString('1463').value)
+        self.assertEqual(inst.identifier[0].value.as_json(), '1463')
+        self.assertEqual(inst.meta.tag[0].code.value, FHIRCode('HTEST').value)
+        self.assertEqual(inst.meta.tag[0].code.as_json(), 'HTEST')
+        self.assertEqual(inst.meta.tag[0].display.value, FHIRString('test health data').value)
+        self.assertEqual(inst.meta.tag[0].display.as_json(), 'test health data')
+        self.assertEqual(inst.meta.tag[0].system.value, FHIRUri('http://terminology.hl7.org/CodeSystem/v3-ActReason').value)
+        self.assertEqual(inst.meta.tag[0].system.as_json(), 'http://terminology.hl7.org/CodeSystem/v3-ActReason')
+        self.assertEqual(inst.status.value, FHIRCode('active').value)
+        self.assertEqual(inst.status.as_json(), 'active')
+        self.assertEqual(inst.text.status.value, FHIRCode('generated').value)
+        self.assertEqual(inst.text.status.as_json(), 'generated')
+
+
+from fhirclient.models.fhirdatatypes import FHIRCode, FHIRString, FHIRUri, FHIRDateTime

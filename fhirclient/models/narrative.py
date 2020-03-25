@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Narrative) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Narrative) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import element
@@ -27,20 +27,27 @@ class Narrative(element.Element):
         
         self.div = None
         """ Limited xhtml content.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.status = None
         """ generated | extensions | additional | empty.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(Narrative, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Narrative, self).elementProperties()
         js.extend([
-            ("div", "div", str, False, None, True),
-            ("status", "status", str, False, None, True),
+            ("div", "div", fhirdatatypes.FHIRString, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
 
+
+
+import sys
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
 

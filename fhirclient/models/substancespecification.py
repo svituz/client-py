@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/SubstanceSpecification) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SubstanceSpecification) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -24,15 +24,15 @@ class SubstanceSpecification(domainresource.DomainResource):
         
         self.code = None
         """ Codes associated with the substance.
-        List of `SubstanceSpecificationstr` items (represented as `dict` in JSON). """
+        List of `SubstanceSpecificationFHIRCode` items (represented as `dict` in JSON). """
         
         self.comment = None
         """ Textual comment about this record of a substance.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.description = None
         """ Textual description of the substance.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.domain = None
         """ If the substance applies to only human or veterinary use.
@@ -106,9 +106,9 @@ class SubstanceSpecification(domainresource.DomainResource):
     def elementProperties(self):
         js = super(SubstanceSpecification, self).elementProperties()
         js.extend([
-            ("code", "code", SubstanceSpecificationstr, True, None, False),
-            ("comment", "comment", str, False, None, False),
-            ("description", "description", str, False, None, False),
+            ("code", "code", SubstanceSpecificationFHIRCode, True, None, False),
+            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
             ("domain", "domain", codeableconcept.CodeableConcept, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("moiety", "moiety", SubstanceSpecificationMoiety, True, None, False),
@@ -129,7 +129,59 @@ class SubstanceSpecification(domainresource.DomainResource):
         return js
 
 
+
 from . import backboneelement
+
+class SubstanceSpecificationFHIRCode(backboneelement.BackboneElement):
+    """ Codes associated with the substance.
+    """
+    
+    resource_type = "SubstanceSpecificationFHIRCode"
+    
+    def __init__(self, jsondict=None, strict=True):
+        """ Initialize all valid properties.
+        
+        :raises: FHIRValidationError on validation errors, unless strict is False
+        :param dict jsondict: A JSON dictionary to use for initialization
+        :param bool strict: If True (the default), invalid variables will raise a TypeError
+        """
+        
+        self.code = None
+        """ The specific code.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.comment = None
+        """ Any comment can be provided in this field, if necessary.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.source = None
+        """ Supporting literature.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+        
+        self.status = None
+        """ Status of the code assignment.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.statusDate = None
+        """ The date at which the code status is changed as part of the
+        terminology maintenance.
+        Type `FHIRDateTime` (represented as `str` in JSON). """
+        
+        super(SubstanceSpecificationFHIRCode, self).__init__(jsondict=jsondict, strict=strict)
+    
+    def elementProperties(self):
+        js = super(SubstanceSpecificationFHIRCode, self).elementProperties()
+        js.extend([
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False),
+            ("source", "source", fhirreference.FHIRReference, True, None, False),
+            ("status", "status", codeableconcept.CodeableConcept, False, None, False),
+            ("statusDate", "statusDate", fhirdatatypes.FHIRDateTime, False, None, False),
+        ])
+        return js
+
+
+
 
 class SubstanceSpecificationMoiety(backboneelement.BackboneElement):
     """ Moiety, for structural modifications.
@@ -151,7 +203,7 @@ class SubstanceSpecificationMoiety(backboneelement.BackboneElement):
         
         self.amountString = None
         """ Quantitative value for this moiety.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Identifier by which this moiety substance is known.
@@ -159,11 +211,11 @@ class SubstanceSpecificationMoiety(backboneelement.BackboneElement):
         
         self.molecularFormula = None
         """ Molecular formula.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.name = None
         """ Textual name for this moiety substance.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.opticalActivity = None
         """ Optical activity type.
@@ -183,15 +235,17 @@ class SubstanceSpecificationMoiety(backboneelement.BackboneElement):
         js = super(SubstanceSpecificationMoiety, self).elementProperties()
         js.extend([
             ("amountQuantity", "amountQuantity", quantity.Quantity, False, "amount", False),
-            ("amountString", "amountString", str, False, "amount", False),
+            ("amountString", "amountString", fhirdatatypes.FHIRString, False, "amount", False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("molecularFormula", "molecularFormula", str, False, None, False),
-            ("name", "name", str, False, None, False),
+            ("molecularFormula", "molecularFormula", fhirdatatypes.FHIRString, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
             ("opticalActivity", "opticalActivity", codeableconcept.CodeableConcept, False, None, False),
             ("role", "role", codeableconcept.CodeableConcept, False, None, False),
             ("stereochemistry", "stereochemistry", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class SubstanceSpecificationName(backboneelement.BackboneElement):
@@ -223,7 +277,7 @@ class SubstanceSpecificationName(backboneelement.BackboneElement):
         
         self.name = None
         """ The actual name.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.official = None
         """ Details of the official nature of this name.
@@ -261,7 +315,7 @@ class SubstanceSpecificationName(backboneelement.BackboneElement):
             ("domain", "domain", codeableconcept.CodeableConcept, True, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("language", "language", codeableconcept.CodeableConcept, True, None, False),
-            ("name", "name", str, False, None, True),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
             ("official", "official", SubstanceSpecificationNameOfficial, True, None, False),
             ("preferred", "preferred", bool, False, None, False),
             ("source", "source", fhirreference.FHIRReference, True, None, False),
@@ -271,6 +325,8 @@ class SubstanceSpecificationName(backboneelement.BackboneElement):
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class SubstanceSpecificationNameOfficial(backboneelement.BackboneElement):
@@ -293,7 +349,7 @@ class SubstanceSpecificationNameOfficial(backboneelement.BackboneElement):
         
         self.date = None
         """ Date of official name change.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.status = None
         """ The status of the official name.
@@ -305,10 +361,12 @@ class SubstanceSpecificationNameOfficial(backboneelement.BackboneElement):
         js = super(SubstanceSpecificationNameOfficial, self).elementProperties()
         js.extend([
             ("authority", "authority", codeableconcept.CodeableConcept, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
             ("status", "status", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class SubstanceSpecificationProperty(backboneelement.BackboneElement):
@@ -332,7 +390,7 @@ class SubstanceSpecificationProperty(backboneelement.BackboneElement):
         
         self.amountString = None
         """ Quantitative value for this property.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.category = None
         """ A category for this property, e.g. Physical, Chemical, Enzymatic.
@@ -355,7 +413,7 @@ class SubstanceSpecificationProperty(backboneelement.BackboneElement):
         self.parameters = None
         """ Parameters that were used in the measurement of a property (e.g.
         for viscosity: measured at 20C with a pH of 7.1).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(SubstanceSpecificationProperty, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -363,14 +421,16 @@ class SubstanceSpecificationProperty(backboneelement.BackboneElement):
         js = super(SubstanceSpecificationProperty, self).elementProperties()
         js.extend([
             ("amountQuantity", "amountQuantity", quantity.Quantity, False, "amount", False),
-            ("amountString", "amountString", str, False, "amount", False),
+            ("amountString", "amountString", fhirdatatypes.FHIRString, False, "amount", False),
             ("category", "category", codeableconcept.CodeableConcept, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("definingSubstanceCodeableConcept", "definingSubstanceCodeableConcept", codeableconcept.CodeableConcept, False, "definingSubstance", False),
             ("definingSubstanceReference", "definingSubstanceReference", fhirreference.FHIRReference, False, "definingSubstance", False),
-            ("parameters", "parameters", str, False, None, False),
+            ("parameters", "parameters", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
+
 
 
 class SubstanceSpecificationRelationship(backboneelement.BackboneElement):
@@ -413,7 +473,7 @@ class SubstanceSpecificationRelationship(backboneelement.BackboneElement):
         """ A numeric factor for the relationship, for instance to express that
         the salt of a substance has some percentage of the active substance
         in relation to some other.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.amountType = None
         """ An operator for the amount, for example "average", "approximately",
@@ -453,7 +513,7 @@ class SubstanceSpecificationRelationship(backboneelement.BackboneElement):
             ("amountRange", "amountRange", range.Range, False, "amount", False),
             ("amountRatio", "amountRatio", ratio.Ratio, False, "amount", False),
             ("amountRatioLowLimit", "amountRatioLowLimit", ratio.Ratio, False, None, False),
-            ("amountString", "amountString", str, False, "amount", False),
+            ("amountString", "amountString", fhirdatatypes.FHIRString, False, "amount", False),
             ("amountType", "amountType", codeableconcept.CodeableConcept, False, None, False),
             ("isDefining", "isDefining", bool, False, None, False),
             ("relationship", "relationship", codeableconcept.CodeableConcept, False, None, False),
@@ -462,6 +522,8 @@ class SubstanceSpecificationRelationship(backboneelement.BackboneElement):
             ("substanceReference", "substanceReference", fhirreference.FHIRReference, False, "substance", False),
         ])
         return js
+
+
 
 
 class SubstanceSpecificationStructure(backboneelement.BackboneElement):
@@ -485,12 +547,12 @@ class SubstanceSpecificationStructure(backboneelement.BackboneElement):
         
         self.molecularFormula = None
         """ Molecular formula.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.molecularFormulaByMoiety = None
         """ Specified per moiety according to the Hill system, i.e. first C,
         then H, then alphabetical, each moiety separated by a dot.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.molecularWeight = None
         """ The molecular weight or weight range (for proteins, polymers or
@@ -519,8 +581,8 @@ class SubstanceSpecificationStructure(backboneelement.BackboneElement):
         js = super(SubstanceSpecificationStructure, self).elementProperties()
         js.extend([
             ("isotope", "isotope", SubstanceSpecificationStructureIsotope, True, None, False),
-            ("molecularFormula", "molecularFormula", str, False, None, False),
-            ("molecularFormulaByMoiety", "molecularFormulaByMoiety", str, False, None, False),
+            ("molecularFormula", "molecularFormula", fhirdatatypes.FHIRString, False, None, False),
+            ("molecularFormulaByMoiety", "molecularFormulaByMoiety", fhirdatatypes.FHIRString, False, None, False),
             ("molecularWeight", "molecularWeight", SubstanceSpecificationStructureIsotopeMolecularWeight, False, None, False),
             ("opticalActivity", "opticalActivity", codeableconcept.CodeableConcept, False, None, False),
             ("representation", "representation", SubstanceSpecificationStructureRepresentation, True, None, False),
@@ -528,6 +590,8 @@ class SubstanceSpecificationStructure(backboneelement.BackboneElement):
             ("stereochemistry", "stereochemistry", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class SubstanceSpecificationStructureIsotope(backboneelement.BackboneElement):
@@ -580,6 +644,8 @@ class SubstanceSpecificationStructureIsotope(backboneelement.BackboneElement):
         return js
 
 
+
+
 class SubstanceSpecificationStructureIsotopeMolecularWeight(backboneelement.BackboneElement):
     """ The molecular weight or weight range (for proteins, polymers or nucleic
     acids).
@@ -623,6 +689,8 @@ class SubstanceSpecificationStructureIsotopeMolecularWeight(backboneelement.Back
         return js
 
 
+
+
 class SubstanceSpecificationStructureRepresentation(backboneelement.BackboneElement):
     """ Molecular structural representation.
     """
@@ -644,7 +712,7 @@ class SubstanceSpecificationStructureRepresentation(backboneelement.BackboneElem
         self.representation = None
         """ The structural representation as text string in a format e.g.
         InChI, SMILES, MOLFILE, CDX.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ The type of structure (e.g. Full, Partial, Representative).
@@ -656,59 +724,11 @@ class SubstanceSpecificationStructureRepresentation(backboneelement.BackboneElem
         js = super(SubstanceSpecificationStructureRepresentation, self).elementProperties()
         js.extend([
             ("attachment", "attachment", attachment.Attachment, False, None, False),
-            ("representation", "representation", str, False, None, False),
+            ("representation", "representation", fhirdatatypes.FHIRString, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
-
-class SubstanceSpecificationstr(backboneelement.BackboneElement):
-    """ Codes associated with the substance.
-    """
-    
-    resource_type = "SubstanceSpecificationstr"
-    
-    def __init__(self, jsondict=None, strict=True):
-        """ Initialize all valid properties.
-        
-        :raises: FHIRValidationError on validation errors, unless strict is False
-        :param dict jsondict: A JSON dictionary to use for initialization
-        :param bool strict: If True (the default), invalid variables will raise a TypeError
-        """
-        
-        self.code = None
-        """ The specific code.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.comment = None
-        """ Any comment can be provided in this field, if necessary.
-        Type `str`. """
-        
-        self.source = None
-        """ Supporting literature.
-        List of `FHIRReference` items (represented as `dict` in JSON). """
-        
-        self.status = None
-        """ Status of the code assignment.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.statusDate = None
-        """ The date at which the code status is changed as part of the
-        terminology maintenance.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        super(SubstanceSpecificationstr, self).__init__(jsondict=jsondict, strict=strict)
-    
-    def elementProperties(self):
-        js = super(SubstanceSpecificationstr, self).elementProperties()
-        js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("comment", "comment", str, False, None, False),
-            ("source", "source", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", codeableconcept.CodeableConcept, False, None, False),
-            ("statusDate", "statusDate", fhirdate.FHIRDate, False, None, False),
-        ])
-        return js
 
 
 import sys
@@ -716,31 +736,39 @@ try:
     from . import attachment
 except ImportError:
     attachment = sys.modules[__package__ + '.attachment']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+
 try:
     from . import range
 except ImportError:
     range = sys.modules[__package__ + '.range']
+
 try:
     from . import ratio
 except ImportError:
     ratio = sys.modules[__package__ + '.ratio']
+

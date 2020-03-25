@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/DataRequirement) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DataRequirement) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import element
@@ -34,16 +34,16 @@ class DataRequirement(element.Element):
         
         self.limit = None
         """ Number of results.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.mustSupport = None
         """ Indicates specific structure elements that are referenced by the
         knowledge module.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.profile = None
         """ The profile of the required data.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.sort = None
         """ Order of the results.
@@ -61,7 +61,7 @@ class DataRequirement(element.Element):
         
         self.type = None
         """ The type of the required data.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(DataRequirement, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -70,15 +70,17 @@ class DataRequirement(element.Element):
         js.extend([
             ("codeFilter", "codeFilter", DataRequirementCodeFilter, True, None, False),
             ("dateFilter", "dateFilter", DataRequirementDateFilter, True, None, False),
-            ("limit", "limit", int, False, None, False),
-            ("mustSupport", "mustSupport", str, True, None, False),
-            ("profile", "profile", str, True, None, False),
+            ("limit", "limit", fhirdatatypes.FHIRPositiveInt, False, None, False),
+            ("mustSupport", "mustSupport", fhirdatatypes.FHIRString, True, None, False),
+            ("profile", "profile", fhirdatatypes.FHIRCanonical, True, None, False),
             ("sort", "sort", DataRequirementSort, True, None, False),
             ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False),
             ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False),
-            ("type", "type", str, False, None, True),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
+
 
 
 class DataRequirementCodeFilter(element.Element):
@@ -106,15 +108,15 @@ class DataRequirementCodeFilter(element.Element):
         
         self.path = None
         """ A code-valued attribute to filter on.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.searchParam = None
         """ A coded (token) parameter to search on.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.valueSet = None
         """ Valueset for the filter.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         super(DataRequirementCodeFilter, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -122,11 +124,13 @@ class DataRequirementCodeFilter(element.Element):
         js = super(DataRequirementCodeFilter, self).elementProperties()
         js.extend([
             ("code", "code", coding.Coding, True, None, False),
-            ("path", "path", str, False, None, False),
-            ("searchParam", "searchParam", str, False, None, False),
-            ("valueSet", "valueSet", str, False, None, False),
+            ("path", "path", fhirdatatypes.FHIRString, False, None, False),
+            ("searchParam", "searchParam", fhirdatatypes.FHIRString, False, None, False),
+            ("valueSet", "valueSet", fhirdatatypes.FHIRCanonical, False, None, False),
         ])
         return js
+
+
 
 
 class DataRequirementDateFilter(element.Element):
@@ -149,15 +153,15 @@ class DataRequirementDateFilter(element.Element):
         
         self.path = None
         """ A date-valued attribute to filter on.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.searchParam = None
         """ A date valued parameter to search on.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.valueDateTime = None
         """ The value of the filter, as a Period, DateTime, or Duration value.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.valueDuration = None
         """ The value of the filter, as a Period, DateTime, or Duration value.
@@ -172,13 +176,15 @@ class DataRequirementDateFilter(element.Element):
     def elementProperties(self):
         js = super(DataRequirementDateFilter, self).elementProperties()
         js.extend([
-            ("path", "path", str, False, None, False),
-            ("searchParam", "searchParam", str, False, None, False),
-            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", False),
+            ("path", "path", fhirdatatypes.FHIRString, False, None, False),
+            ("searchParam", "searchParam", fhirdatatypes.FHIRString, False, None, False),
+            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", False),
             ("valueDuration", "valueDuration", duration.Duration, False, "value", False),
             ("valuePeriod", "valuePeriod", period.Period, False, "value", False),
         ])
         return js
+
+
 
 
 class DataRequirementSort(element.Element):
@@ -199,21 +205,22 @@ class DataRequirementSort(element.Element):
         
         self.direction = None
         """ ascending | descending.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.path = None
         """ The name of the attribute to perform the sort.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(DataRequirementSort, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DataRequirementSort, self).elementProperties()
         js.extend([
-            ("direction", "direction", str, False, None, True),
-            ("path", "path", str, False, None, True),
+            ("direction", "direction", fhirdatatypes.FHIRCode, False, None, True),
+            ("path", "path", fhirdatatypes.FHIRString, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -221,23 +228,29 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import coding
 except ImportError:
     coding = sys.modules[__package__ + '.coding']
+
 try:
     from . import duration
 except ImportError:
     duration = sys.modules[__package__ + '.duration']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+

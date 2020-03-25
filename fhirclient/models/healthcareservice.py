@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/HealthcareService) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -31,7 +31,7 @@ class HealthcareService(domainresource.DomainResource):
         
         self.availabilityExceptions = None
         """ Description of availability exceptions.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.availableTime = None
         """ Times the Service Site is available.
@@ -48,7 +48,7 @@ class HealthcareService(domainresource.DomainResource):
         self.comment = None
         """ Additional description and/or any specific issues not covered
         elsewhere.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.communication = None
         """ The language that this service is offered in.
@@ -70,7 +70,7 @@ class HealthcareService(domainresource.DomainResource):
         self.extraDetails = None
         """ Extra details about the service that can't be placed in the other
         fields.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.identifier = None
         """ External identifiers for this item.
@@ -82,7 +82,7 @@ class HealthcareService(domainresource.DomainResource):
         
         self.name = None
         """ Description of service as presented to a consumer while searching.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.notAvailable = None
         """ Not available during this time due to provided reason.
@@ -127,19 +127,19 @@ class HealthcareService(domainresource.DomainResource):
         js.extend([
             ("active", "active", bool, False, None, False),
             ("appointmentRequired", "appointmentRequired", bool, False, None, False),
-            ("availabilityExceptions", "availabilityExceptions", str, False, None, False),
+            ("availabilityExceptions", "availabilityExceptions", fhirdatatypes.FHIRString, False, None, False),
             ("availableTime", "availableTime", HealthcareServiceAvailableTime, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("characteristic", "characteristic", codeableconcept.CodeableConcept, True, None, False),
-            ("comment", "comment", str, False, None, False),
+            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False),
             ("communication", "communication", codeableconcept.CodeableConcept, True, None, False),
             ("coverageArea", "coverageArea", fhirreference.FHIRReference, True, None, False),
             ("eligibility", "eligibility", HealthcareServiceEligibility, True, None, False),
             ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False),
-            ("extraDetails", "extraDetails", str, False, None, False),
+            ("extraDetails", "extraDetails", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("location", "location", fhirreference.FHIRReference, True, None, False),
-            ("name", "name", str, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
             ("notAvailable", "notAvailable", HealthcareServiceNotAvailable, True, None, False),
             ("photo", "photo", attachment.Attachment, False, None, False),
             ("program", "program", codeableconcept.CodeableConcept, True, None, False),
@@ -151,6 +151,7 @@ class HealthcareService(domainresource.DomainResource):
             ("type", "type", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -177,15 +178,15 @@ class HealthcareServiceAvailableTime(backboneelement.BackboneElement):
         
         self.availableEndTime = None
         """ Closing time of day (ignored if allDay = true).
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         self.availableStartTime = None
         """ Opening time of day (ignored if allDay = true).
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         self.daysOfWeek = None
         """ mon | tue | wed | thu | fri | sat | sun.
-        List of `str` items. """
+        List of `FHIRCode` items (represented as `str` in JSON). """
         
         super(HealthcareServiceAvailableTime, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -193,11 +194,13 @@ class HealthcareServiceAvailableTime(backboneelement.BackboneElement):
         js = super(HealthcareServiceAvailableTime, self).elementProperties()
         js.extend([
             ("allDay", "allDay", bool, False, None, False),
-            ("availableEndTime", "availableEndTime", fhirdate.FHIRDate, False, None, False),
-            ("availableStartTime", "availableStartTime", fhirdate.FHIRDate, False, None, False),
-            ("daysOfWeek", "daysOfWeek", str, True, None, False),
+            ("availableEndTime", "availableEndTime", fhirdatatypes.FHIRTime, False, None, False),
+            ("availableStartTime", "availableStartTime", fhirdatatypes.FHIRTime, False, None, False),
+            ("daysOfWeek", "daysOfWeek", fhirdatatypes.FHIRCode, True, None, False),
         ])
         return js
+
+
 
 
 class HealthcareServiceEligibility(backboneelement.BackboneElement):
@@ -223,7 +226,7 @@ class HealthcareServiceEligibility(backboneelement.BackboneElement):
         
         self.comment = None
         """ Describes the eligibility conditions for the service.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         super(HealthcareServiceEligibility, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -231,9 +234,11 @@ class HealthcareServiceEligibility(backboneelement.BackboneElement):
         js = super(HealthcareServiceEligibility, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("comment", "comment", str, False, None, False),
+            ("comment", "comment", fhirdatatypes.FHIRMarkdown, False, None, False),
         ])
         return js
+
+
 
 
 class HealthcareServiceNotAvailable(backboneelement.BackboneElement):
@@ -255,7 +260,7 @@ class HealthcareServiceNotAvailable(backboneelement.BackboneElement):
         
         self.description = None
         """ Reason presented to the user explaining why time not available.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.during = None
         """ Service not available from this date.
@@ -266,10 +271,11 @@ class HealthcareServiceNotAvailable(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(HealthcareServiceNotAvailable, self).elementProperties()
         js.extend([
-            ("description", "description", str, False, None, True),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, True),
             ("during", "during", period.Period, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -277,27 +283,34 @@ try:
     from . import attachment
 except ImportError:
     attachment = sys.modules[__package__ + '.attachment']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import contactpoint
 except ImportError:
     contactpoint = sys.modules[__package__ + '.contactpoint']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+

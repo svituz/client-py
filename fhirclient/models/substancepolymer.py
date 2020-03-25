@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/SubstancePolymer) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SubstancePolymer) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -35,7 +35,7 @@ class SubstancePolymer(domainresource.DomainResource):
         
         self.modification = None
         """ Todo.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.monomerSet = None
         """ Todo.
@@ -53,11 +53,12 @@ class SubstancePolymer(domainresource.DomainResource):
             ("class_fhir", "class", codeableconcept.CodeableConcept, False, None, False),
             ("copolymerConnectivity", "copolymerConnectivity", codeableconcept.CodeableConcept, True, None, False),
             ("geometry", "geometry", codeableconcept.CodeableConcept, False, None, False),
-            ("modification", "modification", str, True, None, False),
+            ("modification", "modification", fhirdatatypes.FHIRString, True, None, False),
             ("monomerSet", "monomerSet", SubstancePolymerMonomerSet, True, None, False),
             ("repeat", "repeat", SubstancePolymerRepeat, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -93,6 +94,8 @@ class SubstancePolymerMonomerSet(backboneelement.BackboneElement):
             ("startingMaterial", "startingMaterial", SubstancePolymerMonomerSetStartingMaterial, True, None, False),
         ])
         return js
+
+
 
 
 class SubstancePolymerMonomerSetStartingMaterial(backboneelement.BackboneElement):
@@ -138,6 +141,8 @@ class SubstancePolymerMonomerSetStartingMaterial(backboneelement.BackboneElement
         return js
 
 
+
+
 class SubstancePolymerRepeat(backboneelement.BackboneElement):
     """ Todo.
     """
@@ -154,7 +159,7 @@ class SubstancePolymerRepeat(backboneelement.BackboneElement):
         
         self.averageMolecularFormula = None
         """ Todo.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.numberOfUnits = None
         """ Todo.
@@ -173,12 +178,14 @@ class SubstancePolymerRepeat(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SubstancePolymerRepeat, self).elementProperties()
         js.extend([
-            ("averageMolecularFormula", "averageMolecularFormula", str, False, None, False),
+            ("averageMolecularFormula", "averageMolecularFormula", fhirdatatypes.FHIRString, False, None, False),
             ("numberOfUnits", "numberOfUnits", int, False, None, False),
             ("repeatUnit", "repeatUnit", SubstancePolymerRepeatRepeatUnit, True, None, False),
             ("repeatUnitAmountType", "repeatUnitAmountType", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class SubstancePolymerRepeatRepeatUnit(backboneelement.BackboneElement):
@@ -209,7 +216,7 @@ class SubstancePolymerRepeatRepeatUnit(backboneelement.BackboneElement):
         
         self.repeatUnit = None
         """ Todo.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.structuralRepresentation = None
         """ Todo.
@@ -223,10 +230,12 @@ class SubstancePolymerRepeatRepeatUnit(backboneelement.BackboneElement):
             ("amount", "amount", substanceamount.SubstanceAmount, False, None, False),
             ("degreeOfPolymerisation", "degreeOfPolymerisation", SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation, True, None, False),
             ("orientationOfPolymerisation", "orientationOfPolymerisation", codeableconcept.CodeableConcept, False, None, False),
-            ("repeatUnit", "repeatUnit", str, False, None, False),
+            ("repeatUnit", "repeatUnit", fhirdatatypes.FHIRString, False, None, False),
             ("structuralRepresentation", "structuralRepresentation", SubstancePolymerRepeatRepeatUnitStructuralRepresentation, True, None, False),
         ])
         return js
+
+
 
 
 class SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation(backboneelement.BackboneElement):
@@ -262,6 +271,8 @@ class SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation(backboneelement.Bac
         return js
 
 
+
+
 class SubstancePolymerRepeatRepeatUnitStructuralRepresentation(backboneelement.BackboneElement):
     """ Todo.
     """
@@ -282,7 +293,7 @@ class SubstancePolymerRepeatRepeatUnitStructuralRepresentation(backboneelement.B
         
         self.representation = None
         """ Todo.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ Todo.
@@ -294,10 +305,11 @@ class SubstancePolymerRepeatRepeatUnitStructuralRepresentation(backboneelement.B
         js = super(SubstancePolymerRepeatRepeatUnitStructuralRepresentation, self).elementProperties()
         js.extend([
             ("attachment", "attachment", attachment.Attachment, False, None, False),
-            ("representation", "representation", str, False, None, False),
+            ("representation", "representation", fhirdatatypes.FHIRString, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -305,11 +317,19 @@ try:
     from . import attachment
 except ImportError:
     attachment = sys.modules[__package__ + '.attachment']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import substanceamount
 except ImportError:
     substanceamount = sys.modules[__package__ + '.substanceamount']
+

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/GuidanceResponse) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/GuidanceResponse) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -43,7 +43,7 @@ class GuidanceResponse(domainresource.DomainResource):
         
         self.moduleCanonical = None
         """ What guidance was requested.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.moduleCodeableConcept = None
         """ What guidance was requested.
@@ -51,7 +51,7 @@ class GuidanceResponse(domainresource.DomainResource):
         
         self.moduleUri = None
         """ What guidance was requested.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.note = None
         """ Additional notes about the response.
@@ -59,7 +59,7 @@ class GuidanceResponse(domainresource.DomainResource):
         
         self.occurrenceDateTime = None
         """ When the guidance response was processed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.outputParameters = None
         """ The output parameters of the evaluation, if any.
@@ -88,7 +88,7 @@ class GuidanceResponse(domainresource.DomainResource):
         self.status = None
         """ success | data-requested | data-required | in-progress | failure |
         entered-in-error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subject = None
         """ Patient the request was performed for.
@@ -103,21 +103,22 @@ class GuidanceResponse(domainresource.DomainResource):
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("evaluationMessage", "evaluationMessage", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("moduleCanonical", "moduleCanonical", str, False, "module", True),
+            ("moduleCanonical", "moduleCanonical", fhirdatatypes.FHIRCanonical, False, "module", True),
             ("moduleCodeableConcept", "moduleCodeableConcept", codeableconcept.CodeableConcept, False, "module", True),
-            ("moduleUri", "moduleUri", str, False, "module", True),
+            ("moduleUri", "moduleUri", fhirdatatypes.FHIRUri, False, "module", True),
             ("note", "note", annotation.Annotation, True, None, False),
-            ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, None, False),
+            ("occurrenceDateTime", "occurrenceDateTime", fhirdatatypes.FHIRDateTime, False, None, False),
             ("outputParameters", "outputParameters", fhirreference.FHIRReference, False, None, False),
             ("performer", "performer", fhirreference.FHIRReference, False, None, False),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("requestIdentifier", "requestIdentifier", identifier.Identifier, False, None, False),
             ("result", "result", fhirreference.FHIRReference, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -125,23 +126,29 @@ try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import datarequirement
 except ImportError:
     datarequirement = sys.modules[__package__ + '.datarequirement']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+

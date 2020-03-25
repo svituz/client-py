@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/GraphDefinition) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/GraphDefinition) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -31,11 +31,11 @@ class GraphDefinition(domainresource.DomainResource):
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the graph definition.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.experimental = None
         """ For testing purposes, not real usage.
@@ -51,32 +51,32 @@ class GraphDefinition(domainresource.DomainResource):
         
         self.name = None
         """ Name for this graph definition (computer friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.profile = None
         """ Profile on base resource.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.publisher = None
         """ Name of the publisher (organization or individual).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.purpose = None
         """ Why this graph definition is defined.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.start = None
         """ Type of resource at which the graph starts.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.status = None
         """ draft | active | retired | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.url = None
         """ Canonical identifier for this graph definition, represented as a
         URI (globally unique).
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.useContext = None
         """ The context that the content is intended to support.
@@ -84,7 +84,7 @@ class GraphDefinition(domainresource.DomainResource):
         
         self.version = None
         """ Business version of the graph definition.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(GraphDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -92,22 +92,23 @@ class GraphDefinition(domainresource.DomainResource):
         js = super(GraphDefinition, self).elementProperties()
         js.extend([
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("description", "description", str, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("link", "link", GraphDefinitionLink, True, None, False),
-            ("name", "name", str, False, None, True),
-            ("profile", "profile", str, False, None, False),
-            ("publisher", "publisher", str, False, None, False),
-            ("purpose", "purpose", str, False, None, False),
-            ("start", "start", str, False, None, True),
-            ("status", "status", str, False, None, True),
-            ("url", "url", str, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
+            ("profile", "profile", fhirdatatypes.FHIRCanonical, False, None, False),
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("start", "start", fhirdatatypes.FHIRCode, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("version", "version", str, False, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -128,11 +129,11 @@ class GraphDefinitionLink(backboneelement.BackboneElement):
         
         self.description = None
         """ Why this link is specified.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.max = None
         """ Maximum occurrences for this link.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.min = None
         """ Minimum occurrences for this link.
@@ -140,11 +141,11 @@ class GraphDefinitionLink(backboneelement.BackboneElement):
         
         self.path = None
         """ Path in the resource that contains the link.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.sliceName = None
         """ Which slice (if profiled).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.target = None
         """ Potential target for the link.
@@ -155,14 +156,16 @@ class GraphDefinitionLink(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(GraphDefinitionLink, self).elementProperties()
         js.extend([
-            ("description", "description", str, False, None, False),
-            ("max", "max", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
+            ("max", "max", fhirdatatypes.FHIRString, False, None, False),
             ("min", "min", int, False, None, False),
-            ("path", "path", str, False, None, False),
-            ("sliceName", "sliceName", str, False, None, False),
+            ("path", "path", fhirdatatypes.FHIRString, False, None, False),
+            ("sliceName", "sliceName", fhirdatatypes.FHIRString, False, None, False),
             ("target", "target", GraphDefinitionLinkTarget, True, None, False),
         ])
         return js
+
+
 
 
 class GraphDefinitionLinkTarget(backboneelement.BackboneElement):
@@ -189,15 +192,15 @@ class GraphDefinitionLinkTarget(backboneelement.BackboneElement):
         
         self.params = None
         """ Criteria for reverse lookup.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.profile = None
         """ Profile for the target resource.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.type = None
         """ Type of resource this link refers to.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(GraphDefinitionLinkTarget, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -206,11 +209,13 @@ class GraphDefinitionLinkTarget(backboneelement.BackboneElement):
         js.extend([
             ("compartment", "compartment", GraphDefinitionLinkTargetCompartment, True, None, False),
             ("link", "link", GraphDefinitionLink, True, None, False),
-            ("params", "params", str, False, None, False),
-            ("profile", "profile", str, False, None, False),
-            ("type", "type", str, False, None, True),
+            ("params", "params", fhirdatatypes.FHIRString, False, None, False),
+            ("profile", "profile", fhirdatatypes.FHIRCanonical, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
+
 
 
 class GraphDefinitionLinkTargetCompartment(backboneelement.BackboneElement):
@@ -228,37 +233,38 @@ class GraphDefinitionLinkTargetCompartment(backboneelement.BackboneElement):
         """
         
         self.code = None
-        """ Identifies the compartment.
-        Type `str`. """
+        """ Patient | Encounter | RelatedPerson | Practitioner | Device.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.description = None
         """ Documentation for FHIRPath expression.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.expression = None
         """ Custom rule, as a FHIRPath expression.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.rule = None
         """ identical | matching | different | custom.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.use = None
         """ condition | requirement.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(GraphDefinitionLinkTargetCompartment, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(GraphDefinitionLinkTargetCompartment, self).elementProperties()
         js.extend([
-            ("code", "code", str, False, None, True),
-            ("description", "description", str, False, None, False),
-            ("expression", "expression", str, False, None, False),
-            ("rule", "rule", str, False, None, True),
-            ("use", "use", str, False, None, True),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
+            ("expression", "expression", fhirdatatypes.FHIRString, False, None, False),
+            ("rule", "rule", fhirdatatypes.FHIRCode, False, None, True),
+            ("use", "use", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -266,15 +272,19 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import contactdetail
 except ImportError:
     contactdetail = sys.modules[__package__ + '.contactdetail']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import usagecontext
 except ImportError:
     usagecontext = sys.modules[__package__ + '.usagecontext']
+

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Questionnaire) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -40,19 +40,19 @@ class Questionnaire(domainresource.DomainResource):
         
         self.copyright = None
         """ Use and/or publishing restrictions.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.derivedFrom = None
         """ Instantiates protocol or definition.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the questionnaire.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.effectivePeriod = None
         """ When the questionnaire is expected to be used.
@@ -80,32 +80,32 @@ class Questionnaire(domainresource.DomainResource):
         
         self.name = None
         """ Name for this questionnaire (computer friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.publisher = None
         """ Name of the publisher (organization or individual).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.purpose = None
         """ Why this questionnaire is defined.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.status = None
         """ draft | active | retired | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subjectType = None
         """ Resource that can be subject of QuestionnaireResponse.
-        List of `str` items. """
+        List of `FHIRCode` items (represented as `str` in JSON). """
         
         self.title = None
         """ Name for this questionnaire (human friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.url = None
         """ Canonical identifier for this questionnaire, represented as a URI
         (globally unique).
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.useContext = None
         """ The context that the content is intended to support.
@@ -113,37 +113,38 @@ class Questionnaire(domainresource.DomainResource):
         
         self.version = None
         """ Business version of the questionnaire.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(Questionnaire, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Questionnaire, self).elementProperties()
         js.extend([
-            ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
+            ("approvalDate", "approvalDate", fhirdatatypes.FHIRDate, False, None, False),
             ("code", "code", coding.Coding, True, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("derivedFrom", "derivedFrom", str, True, None, False),
-            ("description", "description", str, False, None, False),
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("derivedFrom", "derivedFrom", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("item", "item", QuestionnaireItem, True, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("lastReviewDate", "lastReviewDate", fhirdate.FHIRDate, False, None, False),
-            ("name", "name", str, False, None, False),
-            ("publisher", "publisher", str, False, None, False),
-            ("purpose", "purpose", str, False, None, False),
-            ("status", "status", str, False, None, True),
-            ("subjectType", "subjectType", str, True, None, False),
-            ("title", "title", str, False, None, False),
-            ("url", "url", str, False, None, False),
+            ("lastReviewDate", "lastReviewDate", fhirdatatypes.FHIRDate, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
+            ("subjectType", "subjectType", fhirdatatypes.FHIRCode, True, None, False),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("version", "version", str, False, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -171,7 +172,7 @@ class QuestionnaireItem(backboneelement.BackboneElement):
         
         self.answerValueSet = None
         """ Valueset containing permitted answers.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.code = None
         """ Corresponding concept for this item in a terminology.
@@ -179,11 +180,11 @@ class QuestionnaireItem(backboneelement.BackboneElement):
         
         self.definition = None
         """ ElementDefinition - details for the item.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.enableBehavior = None
         """ all | any.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.enableWhen = None
         """ Only allow data when.
@@ -199,7 +200,7 @@ class QuestionnaireItem(backboneelement.BackboneElement):
         
         self.linkId = None
         """ Unique id for item in questionnaire.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.maxLength = None
         """ No more than this many characters.
@@ -207,7 +208,7 @@ class QuestionnaireItem(backboneelement.BackboneElement):
         
         self.prefix = None
         """ E.g. "1(a)", "2.5.3".
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.readOnly = None
         """ Don't allow human editing.
@@ -223,11 +224,11 @@ class QuestionnaireItem(backboneelement.BackboneElement):
         
         self.text = None
         """ Primary text for the item.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ group | display | boolean | decimal | integer | date | dateTime +.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(QuestionnaireItem, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -235,23 +236,25 @@ class QuestionnaireItem(backboneelement.BackboneElement):
         js = super(QuestionnaireItem, self).elementProperties()
         js.extend([
             ("answerOption", "answerOption", QuestionnaireItemAnswerOption, True, None, False),
-            ("answerValueSet", "answerValueSet", str, False, None, False),
+            ("answerValueSet", "answerValueSet", fhirdatatypes.FHIRCanonical, False, None, False),
             ("code", "code", coding.Coding, True, None, False),
-            ("definition", "definition", str, False, None, False),
-            ("enableBehavior", "enableBehavior", str, False, None, False),
+            ("definition", "definition", fhirdatatypes.FHIRUri, False, None, False),
+            ("enableBehavior", "enableBehavior", fhirdatatypes.FHIRCode, False, None, False),
             ("enableWhen", "enableWhen", QuestionnaireItemEnableWhen, True, None, False),
             ("initial", "initial", QuestionnaireItemInitial, True, None, False),
             ("item", "item", QuestionnaireItem, True, None, False),
-            ("linkId", "linkId", str, False, None, True),
+            ("linkId", "linkId", fhirdatatypes.FHIRString, False, None, True),
             ("maxLength", "maxLength", int, False, None, False),
-            ("prefix", "prefix", str, False, None, False),
+            ("prefix", "prefix", fhirdatatypes.FHIRString, False, None, False),
             ("readOnly", "readOnly", bool, False, None, False),
             ("repeats", "repeats", bool, False, None, False),
             ("required", "required", bool, False, None, False),
-            ("text", "text", str, False, None, False),
-            ("type", "type", str, False, None, True),
+            ("text", "text", fhirdatatypes.FHIRString, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
+
 
 
 class QuestionnaireItemAnswerOption(backboneelement.BackboneElement):
@@ -292,11 +295,11 @@ class QuestionnaireItemAnswerOption(backboneelement.BackboneElement):
         
         self.valueString = None
         """ Answer value.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.valueTime = None
         """ Answer value.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         super(QuestionnaireItemAnswerOption, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -305,13 +308,15 @@ class QuestionnaireItemAnswerOption(backboneelement.BackboneElement):
         js.extend([
             ("initialSelected", "initialSelected", bool, False, None, False),
             ("valueCoding", "valueCoding", coding.Coding, False, "value", True),
-            ("valueDate", "valueDate", fhirdate.FHIRDate, False, "value", True),
+            ("valueDate", "valueDate", fhirdatatypes.FHIRDate, False, "value", True),
             ("valueInteger", "valueInteger", int, False, "value", True),
             ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", True),
-            ("valueString", "valueString", str, False, "value", True),
-            ("valueTime", "valueTime", fhirdate.FHIRDate, False, "value", True),
+            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", True),
+            ("valueTime", "valueTime", fhirdatatypes.FHIRTime, False, "value", True),
         ])
         return js
+
+
 
 
 class QuestionnaireItemEnableWhen(backboneelement.BackboneElement):
@@ -346,7 +351,7 @@ class QuestionnaireItemEnableWhen(backboneelement.BackboneElement):
         
         self.answerDateTime = None
         """ Value for question comparison based on operator.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.answerDecimal = None
         """ Value for question comparison based on operator.
@@ -366,19 +371,19 @@ class QuestionnaireItemEnableWhen(backboneelement.BackboneElement):
         
         self.answerString = None
         """ Value for question comparison based on operator.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.answerTime = None
         """ Value for question comparison based on operator.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         self.operator = None
         """ exists | = | != | > | < | >= | <=.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.question = None
         """ Question that determines whether item is enabled.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(QuestionnaireItemEnableWhen, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -387,18 +392,20 @@ class QuestionnaireItemEnableWhen(backboneelement.BackboneElement):
         js.extend([
             ("answerBoolean", "answerBoolean", bool, False, "answer", True),
             ("answerCoding", "answerCoding", coding.Coding, False, "answer", True),
-            ("answerDate", "answerDate", fhirdate.FHIRDate, False, "answer", True),
-            ("answerDateTime", "answerDateTime", fhirdate.FHIRDate, False, "answer", True),
+            ("answerDate", "answerDate", fhirdatatypes.FHIRDate, False, "answer", True),
+            ("answerDateTime", "answerDateTime", fhirdatatypes.FHIRDateTime, False, "answer", True),
             ("answerDecimal", "answerDecimal", float, False, "answer", True),
             ("answerInteger", "answerInteger", int, False, "answer", True),
             ("answerQuantity", "answerQuantity", quantity.Quantity, False, "answer", True),
             ("answerReference", "answerReference", fhirreference.FHIRReference, False, "answer", True),
-            ("answerString", "answerString", str, False, "answer", True),
-            ("answerTime", "answerTime", fhirdate.FHIRDate, False, "answer", True),
-            ("operator", "operator", str, False, None, True),
-            ("question", "question", str, False, None, True),
+            ("answerString", "answerString", fhirdatatypes.FHIRString, False, "answer", True),
+            ("answerTime", "answerTime", fhirdatatypes.FHIRTime, False, "answer", True),
+            ("operator", "operator", fhirdatatypes.FHIRCode, False, None, True),
+            ("question", "question", fhirdatatypes.FHIRString, False, None, True),
         ])
         return js
+
+
 
 
 class QuestionnaireItemInitial(backboneelement.BackboneElement):
@@ -436,7 +443,7 @@ class QuestionnaireItemInitial(backboneelement.BackboneElement):
         
         self.valueDateTime = None
         """ Actual value for initializing the question.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.valueDecimal = None
         """ Actual value for initializing the question.
@@ -456,15 +463,15 @@ class QuestionnaireItemInitial(backboneelement.BackboneElement):
         
         self.valueString = None
         """ Actual value for initializing the question.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.valueTime = None
         """ Actual value for initializing the question.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         self.valueUri = None
         """ Actual value for initializing the question.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         super(QuestionnaireItemInitial, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -474,17 +481,18 @@ class QuestionnaireItemInitial(backboneelement.BackboneElement):
             ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", True),
             ("valueBoolean", "valueBoolean", bool, False, "value", True),
             ("valueCoding", "valueCoding", coding.Coding, False, "value", True),
-            ("valueDate", "valueDate", fhirdate.FHIRDate, False, "value", True),
-            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", True),
+            ("valueDate", "valueDate", fhirdatatypes.FHIRDate, False, "value", True),
+            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", True),
             ("valueDecimal", "valueDecimal", float, False, "value", True),
             ("valueInteger", "valueInteger", int, False, "value", True),
             ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", True),
             ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", True),
-            ("valueString", "valueString", str, False, "value", True),
-            ("valueTime", "valueTime", fhirdate.FHIRDate, False, "value", True),
-            ("valueUri", "valueUri", str, False, "value", True),
+            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", True),
+            ("valueTime", "valueTime", fhirdatatypes.FHIRTime, False, "value", True),
+            ("valueUri", "valueUri", fhirdatatypes.FHIRUri, False, "value", True),
         ])
         return js
+
 
 
 import sys
@@ -492,39 +500,49 @@ try:
     from . import attachment
 except ImportError:
     attachment = sys.modules[__package__ + '.attachment']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import coding
 except ImportError:
     coding = sys.modules[__package__ + '.coding']
+
 try:
     from . import contactdetail
 except ImportError:
     contactdetail = sys.modules[__package__ + '.contactdetail']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+
 try:
     from . import usagecontext
 except ImportError:
     usagecontext = sys.modules[__package__ + '.usagecontext']
+

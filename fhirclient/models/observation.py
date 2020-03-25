@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Observation) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Observation) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -58,11 +58,11 @@ class Observation(domainresource.DomainResource):
         
         self.effectiveDateTime = None
         """ Clinically relevant time/time-period for observation.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.effectiveInstant = None
         """ Clinically relevant time/time-period for observation.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.effectivePeriod = None
         """ Clinically relevant time/time-period for observation.
@@ -95,7 +95,7 @@ class Observation(domainresource.DomainResource):
         
         self.issued = None
         """ Date/Time this version was made available.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.method = None
         """ How it was done.
@@ -123,7 +123,7 @@ class Observation(domainresource.DomainResource):
         
         self.status = None
         """ registered | preliminary | final | amended +.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subject = None
         """ Who and/or what the observation is about.
@@ -139,7 +139,7 @@ class Observation(domainresource.DomainResource):
         
         self.valueDateTime = None
         """ Actual result.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.valueInteger = None
         """ Actual result.
@@ -167,11 +167,11 @@ class Observation(domainresource.DomainResource):
         
         self.valueString = None
         """ Actual result.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.valueTime = None
         """ Actual result.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         super(Observation, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -186,8 +186,8 @@ class Observation(domainresource.DomainResource):
             ("dataAbsentReason", "dataAbsentReason", codeableconcept.CodeableConcept, False, None, False),
             ("derivedFrom", "derivedFrom", fhirreference.FHIRReference, True, None, False),
             ("device", "device", fhirreference.FHIRReference, False, None, False),
-            ("effectiveDateTime", "effectiveDateTime", fhirdate.FHIRDate, False, "effective", False),
-            ("effectiveInstant", "effectiveInstant", fhirdate.FHIRDate, False, "effective", False),
+            ("effectiveDateTime", "effectiveDateTime", fhirdatatypes.FHIRDateTime, False, "effective", False),
+            ("effectiveInstant", "effectiveInstant", fhirdatatypes.FHIRInstant, False, "effective", False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", False),
             ("effectiveTiming", "effectiveTiming", timing.Timing, False, "effective", False),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
@@ -195,28 +195,29 @@ class Observation(domainresource.DomainResource):
             ("hasMember", "hasMember", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("interpretation", "interpretation", codeableconcept.CodeableConcept, True, None, False),
-            ("issued", "issued", fhirdate.FHIRDate, False, None, False),
+            ("issued", "issued", fhirdatatypes.FHIRInstant, False, None, False),
             ("method", "method", codeableconcept.CodeableConcept, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
             ("performer", "performer", fhirreference.FHIRReference, True, None, False),
             ("referenceRange", "referenceRange", ObservationReferenceRange, True, None, False),
             ("specimen", "specimen", fhirreference.FHIRReference, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("valueBoolean", "valueBoolean", bool, False, "value", False),
             ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", False),
-            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", False),
             ("valueInteger", "valueInteger", int, False, "value", False),
             ("valuePeriod", "valuePeriod", period.Period, False, "value", False),
             ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
             ("valueRange", "valueRange", range.Range, False, "value", False),
             ("valueRatio", "valueRatio", ratio.Ratio, False, "value", False),
             ("valueSampledData", "valueSampledData", sampleddata.SampledData, False, "value", False),
-            ("valueString", "valueString", str, False, "value", False),
-            ("valueTime", "valueTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", False),
+            ("valueTime", "valueTime", fhirdatatypes.FHIRTime, False, "value", False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -267,7 +268,7 @@ class ObservationComponent(backboneelement.BackboneElement):
         
         self.valueDateTime = None
         """ Actual component result.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.valueInteger = None
         """ Actual component result.
@@ -295,11 +296,11 @@ class ObservationComponent(backboneelement.BackboneElement):
         
         self.valueString = None
         """ Actual component result.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.valueTime = None
         """ Actual component result.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         super(ObservationComponent, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -312,17 +313,19 @@ class ObservationComponent(backboneelement.BackboneElement):
             ("referenceRange", "referenceRange", ObservationReferenceRange, True, None, False),
             ("valueBoolean", "valueBoolean", bool, False, "value", False),
             ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", False),
-            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", False),
             ("valueInteger", "valueInteger", int, False, "value", False),
             ("valuePeriod", "valuePeriod", period.Period, False, "value", False),
             ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
             ("valueRange", "valueRange", range.Range, False, "value", False),
             ("valueRatio", "valueRatio", ratio.Ratio, False, "value", False),
             ("valueSampledData", "valueSampledData", sampleddata.SampledData, False, "value", False),
-            ("valueString", "valueString", str, False, "value", False),
-            ("valueTime", "valueTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", False),
+            ("valueTime", "valueTime", fhirdatatypes.FHIRTime, False, "value", False),
         ])
         return js
+
+
 
 
 class ObservationReferenceRange(backboneelement.BackboneElement):
@@ -362,7 +365,7 @@ class ObservationReferenceRange(backboneelement.BackboneElement):
         
         self.text = None
         """ Text based reference range in an observation.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ Reference range qualifier.
@@ -377,10 +380,11 @@ class ObservationReferenceRange(backboneelement.BackboneElement):
             ("appliesTo", "appliesTo", codeableconcept.CodeableConcept, True, None, False),
             ("high", "high", quantity.Quantity, False, None, False),
             ("low", "low", quantity.Quantity, False, None, False),
-            ("text", "text", str, False, None, False),
+            ("text", "text", fhirdatatypes.FHIRString, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -388,43 +392,54 @@ try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+
 try:
     from . import range
 except ImportError:
     range = sys.modules[__package__ + '.range']
+
 try:
     from . import ratio
 except ImportError:
     ratio = sys.modules[__package__ + '.ratio']
+
 try:
     from . import sampleddata
 except ImportError:
     sampleddata = sys.modules[__package__ + '.sampleddata']
+
 try:
     from . import timing
 except ImportError:
     timing = sys.modules[__package__ + '.timing']
+

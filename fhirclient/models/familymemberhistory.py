@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -34,7 +34,7 @@ class FamilyMemberHistory(domainresource.DomainResource):
         
         self.ageString = None
         """ (approximate) age.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.bornDate = None
         """ (approximate) date of birth.
@@ -46,7 +46,7 @@ class FamilyMemberHistory(domainresource.DomainResource):
         
         self.bornString = None
         """ (approximate) date of birth.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.condition = None
         """ Condition that the related person had.
@@ -58,7 +58,7 @@ class FamilyMemberHistory(domainresource.DomainResource):
         
         self.date = None
         """ When history was recorded or last updated.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.deceasedAge = None
         """ Dead? How old/when?.
@@ -78,7 +78,7 @@ class FamilyMemberHistory(domainresource.DomainResource):
         
         self.deceasedString = None
         """ Dead? How old/when?.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.estimatedAge = None
         """ Age is estimated?.
@@ -90,15 +90,15 @@ class FamilyMemberHistory(domainresource.DomainResource):
         
         self.instantiatesCanonical = None
         """ Instantiates FHIR protocol or definition.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.instantiatesUri = None
         """ Instantiates external protocol or definition.
-        List of `str` items. """
+        List of `FHIRUri` items (represented as `str` in JSON). """
         
         self.name = None
         """ The family member described.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.note = None
         """ General note about related person.
@@ -126,7 +126,7 @@ class FamilyMemberHistory(domainresource.DomainResource):
         
         self.status = None
         """ partial | completed | entered-in-error | health-unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(FamilyMemberHistory, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -135,32 +135,33 @@ class FamilyMemberHistory(domainresource.DomainResource):
         js.extend([
             ("ageAge", "ageAge", age.Age, False, "age", False),
             ("ageRange", "ageRange", range.Range, False, "age", False),
-            ("ageString", "ageString", str, False, "age", False),
-            ("bornDate", "bornDate", fhirdate.FHIRDate, False, "born", False),
+            ("ageString", "ageString", fhirdatatypes.FHIRString, False, "age", False),
+            ("bornDate", "bornDate", fhirdatatypes.FHIRDate, False, "born", False),
             ("bornPeriod", "bornPeriod", period.Period, False, "born", False),
-            ("bornString", "bornString", str, False, "born", False),
+            ("bornString", "bornString", fhirdatatypes.FHIRString, False, "born", False),
             ("condition", "condition", FamilyMemberHistoryCondition, True, None, False),
             ("dataAbsentReason", "dataAbsentReason", codeableconcept.CodeableConcept, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
             ("deceasedAge", "deceasedAge", age.Age, False, "deceased", False),
             ("deceasedBoolean", "deceasedBoolean", bool, False, "deceased", False),
-            ("deceasedDate", "deceasedDate", fhirdate.FHIRDate, False, "deceased", False),
+            ("deceasedDate", "deceasedDate", fhirdatatypes.FHIRDate, False, "deceased", False),
             ("deceasedRange", "deceasedRange", range.Range, False, "deceased", False),
-            ("deceasedString", "deceasedString", str, False, "deceased", False),
+            ("deceasedString", "deceasedString", fhirdatatypes.FHIRString, False, "deceased", False),
             ("estimatedAge", "estimatedAge", bool, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("instantiatesCanonical", "instantiatesCanonical", str, True, None, False),
-            ("instantiatesUri", "instantiatesUri", str, True, None, False),
-            ("name", "name", str, False, None, False),
+            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("relationship", "relationship", codeableconcept.CodeableConcept, False, None, True),
             ("sex", "sex", codeableconcept.CodeableConcept, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -210,7 +211,7 @@ class FamilyMemberHistoryCondition(backboneelement.BackboneElement):
         
         self.onsetString = None
         """ When condition first manifested.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.outcome = None
         """ deceased | permanent disability | etc..
@@ -227,10 +228,11 @@ class FamilyMemberHistoryCondition(backboneelement.BackboneElement):
             ("onsetAge", "onsetAge", age.Age, False, "onset", False),
             ("onsetPeriod", "onsetPeriod", period.Period, False, "onset", False),
             ("onsetRange", "onsetRange", range.Range, False, "onset", False),
-            ("onsetString", "onsetString", str, False, "onset", False),
+            ("onsetString", "onsetString", fhirdatatypes.FHIRString, False, "onset", False),
             ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -238,31 +240,39 @@ try:
     from . import age
 except ImportError:
     age = sys.modules[__package__ + '.age']
+
 try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import range
 except ImportError:
     range = sys.modules[__package__ + '.range']
+

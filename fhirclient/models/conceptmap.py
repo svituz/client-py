@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ConceptMap) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -31,15 +31,15 @@ class ConceptMap(domainresource.DomainResource):
         
         self.copyright = None
         """ Use and/or publishing restrictions.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the concept map.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.experimental = None
         """ For testing purposes, not real usage.
@@ -59,46 +59,46 @@ class ConceptMap(domainresource.DomainResource):
         
         self.name = None
         """ Name for this concept map (computer friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.publisher = None
         """ Name of the publisher (organization or individual).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.purpose = None
         """ Why this concept map is defined.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.sourceCanonical = None
         """ The source value set that contains the concepts that are being
         mapped.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.sourceUri = None
         """ The source value set that contains the concepts that are being
         mapped.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.status = None
         """ draft | active | retired | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.targetCanonical = None
         """ The target value set which provides context for the mappings.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.targetUri = None
         """ The target value set which provides context for the mappings.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.title = None
         """ Name for this concept map (human friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.url = None
         """ Canonical identifier for this concept map, represented as a URI
         (globally unique).
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.useContext = None
         """ The context that the content is intended to support.
@@ -106,7 +106,7 @@ class ConceptMap(domainresource.DomainResource):
         
         self.version = None
         """ Business version of the concept map.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ConceptMap, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -114,27 +114,28 @@ class ConceptMap(domainresource.DomainResource):
         js = super(ConceptMap, self).elementProperties()
         js.extend([
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("description", "description", str, False, None, False),
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("group", "group", ConceptMapGroup, True, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("name", "name", str, False, None, False),
-            ("publisher", "publisher", str, False, None, False),
-            ("purpose", "purpose", str, False, None, False),
-            ("sourceCanonical", "sourceCanonical", str, False, "source", False),
-            ("sourceUri", "sourceUri", str, False, "source", False),
-            ("status", "status", str, False, None, True),
-            ("targetCanonical", "targetCanonical", str, False, "target", False),
-            ("targetUri", "targetUri", str, False, "target", False),
-            ("title", "title", str, False, None, False),
-            ("url", "url", str, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("sourceCanonical", "sourceCanonical", fhirdatatypes.FHIRCanonical, False, "source", False),
+            ("sourceUri", "sourceUri", fhirdatatypes.FHIRUri, False, "source", False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
+            ("targetCanonical", "targetCanonical", fhirdatatypes.FHIRCanonical, False, "target", False),
+            ("targetUri", "targetUri", fhirdatatypes.FHIRUri, False, "target", False),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("version", "version", str, False, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -161,19 +162,19 @@ class ConceptMapGroup(backboneelement.BackboneElement):
         
         self.source = None
         """ Source system where concepts to be mapped are defined.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.sourceVersion = None
         """ Specific version of the  code system.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.target = None
         """ Target system that the concepts are to be mapped to.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.targetVersion = None
         """ Specific version of the  code system.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.unmapped = None
         """ What to do when there is no mapping for the source concept.
@@ -185,13 +186,15 @@ class ConceptMapGroup(backboneelement.BackboneElement):
         js = super(ConceptMapGroup, self).elementProperties()
         js.extend([
             ("element", "element", ConceptMapGroupElement, True, None, True),
-            ("source", "source", str, False, None, False),
-            ("sourceVersion", "sourceVersion", str, False, None, False),
-            ("target", "target", str, False, None, False),
-            ("targetVersion", "targetVersion", str, False, None, False),
+            ("source", "source", fhirdatatypes.FHIRUri, False, None, False),
+            ("sourceVersion", "sourceVersion", fhirdatatypes.FHIRString, False, None, False),
+            ("target", "target", fhirdatatypes.FHIRUri, False, None, False),
+            ("targetVersion", "targetVersion", fhirdatatypes.FHIRString, False, None, False),
             ("unmapped", "unmapped", ConceptMapGroupUnmapped, False, None, False),
         ])
         return js
+
+
 
 
 class ConceptMapGroupElement(backboneelement.BackboneElement):
@@ -213,11 +216,11 @@ class ConceptMapGroupElement(backboneelement.BackboneElement):
         
         self.code = None
         """ Identifies element being mapped.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.display = None
         """ Display for the code.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.target = None
         """ Concept in target system for element.
@@ -228,11 +231,13 @@ class ConceptMapGroupElement(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConceptMapGroupElement, self).elementProperties()
         js.extend([
-            ("code", "code", str, False, None, False),
-            ("display", "display", str, False, None, False),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, False),
+            ("display", "display", fhirdatatypes.FHIRString, False, None, False),
             ("target", "target", ConceptMapGroupElementTarget, True, None, False),
         ])
         return js
+
+
 
 
 class ConceptMapGroupElementTarget(backboneelement.BackboneElement):
@@ -253,11 +258,11 @@ class ConceptMapGroupElementTarget(backboneelement.BackboneElement):
         
         self.code = None
         """ Code that identifies the target element.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.comment = None
         """ Description of status/issues in mapping.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.dependsOn = None
         """ Other elements required for this mapping (from context).
@@ -265,12 +270,12 @@ class ConceptMapGroupElementTarget(backboneelement.BackboneElement):
         
         self.display = None
         """ Display for the code.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.equivalence = None
         """ relatedto | equivalent | equal | wider | subsumes | narrower |
         specializes | inexact | unmatched | disjoint.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.product = None
         """ Other concepts that this mapping also produces.
@@ -281,14 +286,16 @@ class ConceptMapGroupElementTarget(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConceptMapGroupElementTarget, self).elementProperties()
         js.extend([
-            ("code", "code", str, False, None, False),
-            ("comment", "comment", str, False, None, False),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, False),
+            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False),
             ("dependsOn", "dependsOn", ConceptMapGroupElementTargetDependsOn, True, None, False),
-            ("display", "display", str, False, None, False),
-            ("equivalence", "equivalence", str, False, None, True),
+            ("display", "display", fhirdatatypes.FHIRString, False, None, False),
+            ("equivalence", "equivalence", fhirdatatypes.FHIRCode, False, None, True),
             ("product", "product", ConceptMapGroupElementTargetDependsOn, True, None, False),
         ])
         return js
+
+
 
 
 class ConceptMapGroupElementTargetDependsOn(backboneelement.BackboneElement):
@@ -311,31 +318,33 @@ class ConceptMapGroupElementTargetDependsOn(backboneelement.BackboneElement):
         
         self.display = None
         """ Display for the code (if value is a code).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.property = None
         """ Reference to property mapping depends on.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.system = None
         """ Code System (if necessary).
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.value = None
         """ Value of the referenced element.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ConceptMapGroupElementTargetDependsOn, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConceptMapGroupElementTargetDependsOn, self).elementProperties()
         js.extend([
-            ("display", "display", str, False, None, False),
-            ("property", "property", str, False, None, True),
-            ("system", "system", str, False, None, False),
-            ("value", "value", str, False, None, True),
+            ("display", "display", fhirdatatypes.FHIRString, False, None, False),
+            ("property", "property", fhirdatatypes.FHIRUri, False, None, True),
+            ("system", "system", fhirdatatypes.FHIRCanonical, False, None, False),
+            ("value", "value", fhirdatatypes.FHIRString, False, None, True),
         ])
         return js
+
+
 
 
 class ConceptMapGroupUnmapped(backboneelement.BackboneElement):
@@ -358,32 +367,33 @@ class ConceptMapGroupUnmapped(backboneelement.BackboneElement):
         
         self.code = None
         """ Fixed code when mode = fixed.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.display = None
         """ Display for the code.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.mode = None
         """ provided | fixed | other-map.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.url = None
         """ canonical reference to an additional ConceptMap to use for mapping
         if the source concept is unmapped.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         super(ConceptMapGroupUnmapped, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConceptMapGroupUnmapped, self).elementProperties()
         js.extend([
-            ("code", "code", str, False, None, False),
-            ("display", "display", str, False, None, False),
-            ("mode", "mode", str, False, None, True),
-            ("url", "url", str, False, None, False),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, False),
+            ("display", "display", fhirdatatypes.FHIRString, False, None, False),
+            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, True),
+            ("url", "url", fhirdatatypes.FHIRCanonical, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -391,19 +401,24 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import contactdetail
 except ImportError:
     contactdetail = sys.modules[__package__ + '.contactdetail']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import usagecontext
 except ImportError:
     usagecontext = sys.modules[__package__ + '.usagecontext']
+

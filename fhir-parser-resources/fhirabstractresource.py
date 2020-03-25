@@ -199,6 +199,5 @@ class FHIRAbstractResource(fhirabstractbase.FHIRAbstractBase):
         return fhirsearch.FHIRSearch(cls, struct)
 
 
-from . import fhirdate
 from . import fhirsearch
 from . import fhirelementfactory

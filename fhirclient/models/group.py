@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Group) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Group) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -56,15 +56,15 @@ class Group(domainresource.DomainResource):
         
         self.name = None
         """ Label for Group.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.quantity = None
         """ Number of members.
-        Type `int`. """
+        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
         
         self.type = None
         """ person | animal | practitioner | device | medication | substance.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(Group, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -78,11 +78,12 @@ class Group(domainresource.DomainResource):
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("managingEntity", "managingEntity", fhirreference.FHIRReference, False, None, False),
             ("member", "member", GroupMember, True, None, False),
-            ("name", "name", str, False, None, False),
-            ("quantity", "quantity", int, False, None, False),
-            ("type", "type", str, False, None, True),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
+            ("quantity", "quantity", fhirdatatypes.FHIRUnsignedInt, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -153,6 +154,8 @@ class GroupCharacteristic(backboneelement.BackboneElement):
         return js
 
 
+
+
 class GroupMember(backboneelement.BackboneElement):
     """ Who or what is in group.
     
@@ -193,28 +196,40 @@ class GroupMember(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+
 try:
     from . import range
 except ImportError:
     range = sys.modules[__package__ + '.range']
+

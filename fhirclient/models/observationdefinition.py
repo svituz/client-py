@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ObservationDefinition) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ObservationDefinition) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -62,11 +62,11 @@ class ObservationDefinition(domainresource.DomainResource):
         self.permittedDataType = None
         """ Quantity | CodeableConcept | string | boolean | integer | Range |
         Ratio | SampledData | time | dateTime | Period.
-        List of `str` items. """
+        List of `FHIRCode` items (represented as `str` in JSON). """
         
         self.preferredReportName = None
         """ Preferred report name.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.qualifiedInterval = None
         """ Qualified range for continuous and ordinal observation results.
@@ -94,13 +94,14 @@ class ObservationDefinition(domainresource.DomainResource):
             ("method", "method", codeableconcept.CodeableConcept, False, None, False),
             ("multipleResultsAllowed", "multipleResultsAllowed", bool, False, None, False),
             ("normalCodedValueSet", "normalCodedValueSet", fhirreference.FHIRReference, False, None, False),
-            ("permittedDataType", "permittedDataType", str, True, None, False),
-            ("preferredReportName", "preferredReportName", str, False, None, False),
+            ("permittedDataType", "permittedDataType", fhirdatatypes.FHIRCode, True, None, False),
+            ("preferredReportName", "preferredReportName", fhirdatatypes.FHIRString, False, None, False),
             ("qualifiedInterval", "qualifiedInterval", ObservationDefinitionQualifiedInterval, True, None, False),
             ("quantitativeDetails", "quantitativeDetails", ObservationDefinitionQuantitativeDetails, False, None, False),
             ("validCodedValueSet", "validCodedValueSet", fhirreference.FHIRReference, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -132,11 +133,11 @@ class ObservationDefinitionQualifiedInterval(backboneelement.BackboneElement):
         
         self.category = None
         """ reference | critical | absolute.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.condition = None
         """ Condition associated with the reference range.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.context = None
         """ Range context qualifier.
@@ -144,7 +145,7 @@ class ObservationDefinitionQualifiedInterval(backboneelement.BackboneElement):
         
         self.gender = None
         """ male | female | other | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.gestationalAge = None
         """ Applicable gestational age range, if relevant.
@@ -161,14 +162,16 @@ class ObservationDefinitionQualifiedInterval(backboneelement.BackboneElement):
         js.extend([
             ("age", "age", range.Range, False, None, False),
             ("appliesTo", "appliesTo", codeableconcept.CodeableConcept, True, None, False),
-            ("category", "category", str, False, None, False),
-            ("condition", "condition", str, False, None, False),
+            ("category", "category", fhirdatatypes.FHIRCode, False, None, False),
+            ("condition", "condition", fhirdatatypes.FHIRString, False, None, False),
             ("context", "context", codeableconcept.CodeableConcept, False, None, False),
-            ("gender", "gender", str, False, None, False),
+            ("gender", "gender", fhirdatatypes.FHIRCode, False, None, False),
             ("gestationalAge", "gestationalAge", range.Range, False, None, False),
             ("range", "range", range.Range, False, None, False),
         ])
         return js
+
+
 
 
 class ObservationDefinitionQuantitativeDetails(backboneelement.BackboneElement):
@@ -216,20 +219,30 @@ class ObservationDefinitionQuantitativeDetails(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import range
 except ImportError:
     range = sys.modules[__package__ + '.range']
+

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/SubstanceNucleicAcid) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SubstanceNucleicAcid) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -30,7 +30,7 @@ class SubstanceNucleicAcid(domainresource.DomainResource):
         followed by the number associated to the residue shall be specified
         in increasing order. The underscore “” shall be used as separator
         as follows: “Subunitnumber Residue”.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.numberOfSubunits = None
         """ The number of linear sequences of nucleotides linked through
@@ -60,13 +60,14 @@ class SubstanceNucleicAcid(domainresource.DomainResource):
     def elementProperties(self):
         js = super(SubstanceNucleicAcid, self).elementProperties()
         js.extend([
-            ("areaOfHybridisation", "areaOfHybridisation", str, False, None, False),
+            ("areaOfHybridisation", "areaOfHybridisation", fhirdatatypes.FHIRString, False, None, False),
             ("numberOfSubunits", "numberOfSubunits", int, False, None, False),
             ("oligoNucleotideType", "oligoNucleotideType", codeableconcept.CodeableConcept, False, None, False),
             ("sequenceType", "sequenceType", codeableconcept.CodeableConcept, False, None, False),
             ("subunit", "subunit", SubstanceNucleicAcidSubunit, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -108,7 +109,7 @@ class SubstanceNucleicAcidSubunit(backboneelement.BackboneElement):
         standard single letter codes. In addition to the base sequence,
         sugar and type of phosphate or non-phosphate linkage should also be
         captured.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.sequenceAttachment = None
         """ (TBC).
@@ -141,13 +142,15 @@ class SubstanceNucleicAcidSubunit(backboneelement.BackboneElement):
             ("fivePrime", "fivePrime", codeableconcept.CodeableConcept, False, None, False),
             ("length", "length", int, False, None, False),
             ("linkage", "linkage", SubstanceNucleicAcidSubunitLinkage, True, None, False),
-            ("sequence", "sequence", str, False, None, False),
+            ("sequence", "sequence", fhirdatatypes.FHIRString, False, None, False),
             ("sequenceAttachment", "sequenceAttachment", attachment.Attachment, False, None, False),
             ("subunit", "subunit", int, False, None, False),
             ("sugar", "sugar", SubstanceNucleicAcidSubunitSugar, True, None, False),
             ("threePrime", "threePrime", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class SubstanceNucleicAcidSubunitLinkage(backboneelement.BackboneElement):
@@ -171,7 +174,7 @@ class SubstanceNucleicAcidSubunitLinkage(backboneelement.BackboneElement):
         phosphorothioate linkages are often seen. Linkage connectivity is
         assumed to be 3’-5’. If the linkage is either 3’-3’ or 5’-5’ this
         should be specified.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Each linkage will be registered as a fragment and have an ID.
@@ -180,23 +183,25 @@ class SubstanceNucleicAcidSubunitLinkage(backboneelement.BackboneElement):
         self.name = None
         """ Each linkage will be registered as a fragment and have at least one
         name. A single name shall be assigned to each linkage.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.residueSite = None
         """ Residues shall be captured as described in 5.3.6.8.3.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(SubstanceNucleicAcidSubunitLinkage, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(SubstanceNucleicAcidSubunitLinkage, self).elementProperties()
         js.extend([
-            ("connectivity", "connectivity", str, False, None, False),
+            ("connectivity", "connectivity", fhirdatatypes.FHIRString, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("name", "name", str, False, None, False),
-            ("residueSite", "residueSite", str, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
+            ("residueSite", "residueSite", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
+
 
 
 class SubstanceNucleicAcidSubunitSugar(backboneelement.BackboneElement):
@@ -221,13 +226,13 @@ class SubstanceNucleicAcidSubunitSugar(backboneelement.BackboneElement):
         self.name = None
         """ The name of the sugar or sugar-like component that make up the
         nucleotide.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.residueSite = None
         """ The residues that contain a given sugar will be captured. The order
         of given residues will be captured in the 5‘-3‘direction consistent
         with the base sequences listed above.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(SubstanceNucleicAcidSubunitSugar, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -235,10 +240,11 @@ class SubstanceNucleicAcidSubunitSugar(backboneelement.BackboneElement):
         js = super(SubstanceNucleicAcidSubunitSugar, self).elementProperties()
         js.extend([
             ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("name", "name", str, False, None, False),
-            ("residueSite", "residueSite", str, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
+            ("residueSite", "residueSite", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -246,11 +252,19 @@ try:
     from . import attachment
 except ImportError:
     attachment = sys.modules[__package__ + '.attachment']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+

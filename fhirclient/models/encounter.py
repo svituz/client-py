@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Encounter) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Encounter) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -104,7 +104,7 @@ class Encounter(domainresource.DomainResource):
         self.status = None
         """ planned | arrived | triaged | in-progress | onleave | finished |
         cancelled +.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.statusHistory = None
         """ List of past encounter statuses.
@@ -142,12 +142,13 @@ class Encounter(domainresource.DomainResource):
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("serviceProvider", "serviceProvider", fhirreference.FHIRReference, False, None, False),
             ("serviceType", "serviceType", codeableconcept.CodeableConcept, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("statusHistory", "statusHistory", EncounterStatusHistory, True, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -193,6 +194,8 @@ class EncounterClassHistory(backboneelement.BackboneElement):
         return js
 
 
+
+
 class EncounterDiagnosis(backboneelement.BackboneElement):
     """ The list of diagnosis relevant to this encounter.
     """
@@ -213,7 +216,7 @@ class EncounterDiagnosis(backboneelement.BackboneElement):
         
         self.rank = None
         """ Ranking of the diagnosis (for each role type).
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.use = None
         """ Role that this diagnosis has within the encounter (e.g. admission,
@@ -226,10 +229,12 @@ class EncounterDiagnosis(backboneelement.BackboneElement):
         js = super(EncounterDiagnosis, self).elementProperties()
         js.extend([
             ("condition", "condition", fhirreference.FHIRReference, False, None, True),
-            ("rank", "rank", int, False, None, False),
+            ("rank", "rank", fhirdatatypes.FHIRPositiveInt, False, None, False),
             ("use", "use", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class EncounterHospitalization(backboneelement.BackboneElement):
@@ -302,6 +307,8 @@ class EncounterHospitalization(backboneelement.BackboneElement):
         return js
 
 
+
+
 class EncounterLocation(backboneelement.BackboneElement):
     """ List of locations where the patient has been.
     
@@ -333,7 +340,7 @@ class EncounterLocation(backboneelement.BackboneElement):
         
         self.status = None
         """ planned | active | reserved | completed.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(EncounterLocation, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -343,9 +350,11 @@ class EncounterLocation(backboneelement.BackboneElement):
             ("location", "location", fhirreference.FHIRReference, False, None, True),
             ("period", "period", period.Period, False, None, False),
             ("physicalType", "physicalType", codeableconcept.CodeableConcept, False, None, False),
-            ("status", "status", str, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
         ])
         return js
+
+
 
 
 class EncounterParticipant(backboneelement.BackboneElement):
@@ -389,6 +398,8 @@ class EncounterParticipant(backboneelement.BackboneElement):
         return js
 
 
+
+
 class EncounterStatusHistory(backboneelement.BackboneElement):
     """ List of past encounter statuses.
     
@@ -414,7 +425,7 @@ class EncounterStatusHistory(backboneelement.BackboneElement):
         self.status = None
         """ planned | arrived | triaged | in-progress | onleave | finished |
         cancelled +.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(EncounterStatusHistory, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -422,9 +433,10 @@ class EncounterStatusHistory(backboneelement.BackboneElement):
         js = super(EncounterStatusHistory, self).elementProperties()
         js.extend([
             ("period", "period", period.Period, False, None, True),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -432,23 +444,34 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import coding
 except ImportError:
     coding = sys.modules[__package__ + '.coding']
+
 try:
     from . import duration
 except ImportError:
     duration = sys.modules[__package__ + '.duration']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+

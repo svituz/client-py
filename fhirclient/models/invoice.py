@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Invoice) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Invoice) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -30,11 +30,11 @@ class Invoice(domainresource.DomainResource):
         
         self.cancelledReason = None
         """ Reason for cancellation of this Invoice.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.date = None
         """ Invoice date / posting date.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Business Identifier for item.
@@ -58,7 +58,7 @@ class Invoice(domainresource.DomainResource):
         
         self.paymentTerms = None
         """ Payment details.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.recipient = None
         """ Recipient of this invoice.
@@ -66,7 +66,7 @@ class Invoice(domainresource.DomainResource):
         
         self.status = None
         """ draft | issued | balanced | cancelled | entered-in-error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subject = None
         """ Recipient(s) of goods and services.
@@ -94,16 +94,16 @@ class Invoice(domainresource.DomainResource):
         js = super(Invoice, self).elementProperties()
         js.extend([
             ("account", "account", fhirreference.FHIRReference, False, None, False),
-            ("cancelledReason", "cancelledReason", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("cancelledReason", "cancelledReason", fhirdatatypes.FHIRString, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("issuer", "issuer", fhirreference.FHIRReference, False, None, False),
             ("lineItem", "lineItem", InvoiceLineItem, True, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("participant", "participant", InvoiceParticipant, True, None, False),
-            ("paymentTerms", "paymentTerms", str, False, None, False),
+            ("paymentTerms", "paymentTerms", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("recipient", "recipient", fhirreference.FHIRReference, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("totalGross", "totalGross", money.Money, False, None, False),
             ("totalNet", "totalNet", money.Money, False, None, False),
@@ -111,6 +111,7 @@ class Invoice(domainresource.DomainResource):
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -149,7 +150,7 @@ class InvoiceLineItem(backboneelement.BackboneElement):
         
         self.sequence = None
         """ Sequence number of line item.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         super(InvoiceLineItem, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -159,9 +160,11 @@ class InvoiceLineItem(backboneelement.BackboneElement):
             ("chargeItemCodeableConcept", "chargeItemCodeableConcept", codeableconcept.CodeableConcept, False, "chargeItem", True),
             ("chargeItemReference", "chargeItemReference", fhirreference.FHIRReference, False, "chargeItem", True),
             ("priceComponent", "priceComponent", InvoiceLineItemPriceComponent, True, None, False),
-            ("sequence", "sequence", int, False, None, False),
+            ("sequence", "sequence", fhirdatatypes.FHIRPositiveInt, False, None, False),
         ])
         return js
+
+
 
 
 class InvoiceLineItemPriceComponent(backboneelement.BackboneElement):
@@ -199,7 +202,7 @@ class InvoiceLineItemPriceComponent(backboneelement.BackboneElement):
         
         self.type = None
         """ base | surcharge | deduction | discount | tax | informational.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(InvoiceLineItemPriceComponent, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -209,9 +212,11 @@ class InvoiceLineItemPriceComponent(backboneelement.BackboneElement):
             ("amount", "amount", money.Money, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("factor", "factor", float, False, None, False),
-            ("type", "type", str, False, None, True),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
+
 
 
 class InvoiceParticipant(backboneelement.BackboneElement):
@@ -249,28 +254,35 @@ class InvoiceParticipant(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import money
 except ImportError:
     money = sys.modules[__package__ + '.money']
+

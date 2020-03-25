@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Binary) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Binary) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import resource
@@ -27,11 +27,11 @@ class Binary(resource.Resource):
         
         self.contentType = None
         """ MimeType of the binary content.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.data = None
         """ The actual content.
-        Type `str`. """
+        Type `FHIRBase64Binary` (represented as `str` in JSON). """
         
         self.securityContext = None
         """ Identifies another resource to use as proxy when enforcing access
@@ -43,15 +43,22 @@ class Binary(resource.Resource):
     def elementProperties(self):
         js = super(Binary, self).elementProperties()
         js.extend([
-            ("contentType", "contentType", str, False, None, True),
-            ("data", "data", str, False, None, False),
+            ("contentType", "contentType", fhirdatatypes.FHIRCode, False, None, True),
+            ("data", "data", fhirdatatypes.FHIRBase64Binary, False, None, False),
             ("securityContext", "securityContext", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
 
+
 import sys
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+

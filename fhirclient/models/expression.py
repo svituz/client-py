@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Expression) on 2019-05-07.
-#  2019, SMART Health IT.
-from fhirclient.datatypes.primitive import FHIRString, FHIRId, FHIRCode, FHIRUri
-from . import element
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Expression) on 2020-03-25.
+#  2020, SMART Health IT.
 
+
+from . import element
 
 class Expression(element.Element):
     """ An expression that can be used to generate a value.
@@ -27,35 +27,42 @@ class Expression(element.Element):
         
         self.description = None
         """ Natural language description of the condition.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.expression = None
         """ Expression in specified language.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.language = None
         """ text/cql | text/fhirpath | application/x-fhir-query | etc..
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.name = None
         """ Short name assigned to expression for reuse.
-        Type `str`. """
+        Type `FHIRId` (represented as `str` in JSON). """
         
         self.reference = None
         """ Where the expression is found.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         super(Expression, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Expression, self).elementProperties()
         js.extend([
-            ("description", "description", FHIRString, False, None, False),
-            ("expression", "expression", FHIRString, False, None, False),
-            ("language", "language", FHIRCode, False, None, True),
-            ("name", "name", FHIRId, False, None, False),
-            ("reference", "reference", FHIRUri, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
+            ("expression", "expression", fhirdatatypes.FHIRString, False, None, False),
+            ("language", "language", fhirdatatypes.FHIRCode, False, None, True),
+            ("name", "name", fhirdatatypes.FHIRId, False, None, False),
+            ("reference", "reference", fhirdatatypes.FHIRUri, False, None, False),
         ])
         return js
 
+
+
+import sys
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
 

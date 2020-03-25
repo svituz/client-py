@@ -9,9 +9,10 @@ import os
 import io
 import unittest
 import json
-from . import {{ class.module }}
-from .fhirdate import FHIRDate
+from fhirclient.models import {{ class.module }}
 
+{%- set datatypes = ['FHIRBase64Binary', 'FHIRCanonical', 'FHIRCode', 'FHIRDate', 'FHIRDateTime', 'FHIRId', 'FHIRInstant', 'FHIRMarkdown', 'FHIROid', 'FHIRPositiveInt', 'FHIRTime', 'FHIRUnsignedInt', 'FHIRUri', 'FHIRUrl', 'FHIRUuid', 'FHIRString'] %}
+{%- set used_datatypes = [] %}
 
 class {{ class.name }}Tests(unittest.TestCase):
     def instantiate_from(self, filename):
@@ -20,23 +21,23 @@ class {{ class.name }}Tests(unittest.TestCase):
             js = json.load(handle)
             self.assertEqual("{{ class.name }}", js["resourceType"])
         return {{ class.module }}.{{ class.name }}(js)
-    
+
 {%- for tcase in tests %}
-    
+
     def test{{ class.name }}{{ loop.index }}(self):
-        inst = self.instantiate_from("{{ tcase.filename }}")
-        self.assertIsNotNone(inst, "Must have instantiated a {{ class.name }} instance")
+        inst = self.instantiate_from('{{ tcase.filename }}')
+        self.assertIsNotNone(inst, 'Must have instantiated a {{ class.name }} instance')
         self.impl{{ class.name }}{{ loop.index }}(inst)
-        
+
         js = inst.as_json()
         self.assertEqual("{{ class.name }}", js["resourceType"])
         inst2 = {{ class.module }}.{{ class.name }}(js)
         self.impl{{ class.name }}{{ loop.index }}(inst2)
-    
+
     def impl{{ class.name }}{{ loop.index }}(self, inst):
     {%- for onetest in tcase.tests %}
     {%- if "str" == onetest.klass.name %}
-        self.assertEqual(inst.{{ onetest.path }}, "{{ onetest.value|replace('\\n', '\\\\n')|replace('"', '\\"') }}")
+        self.assertEqual(inst.{{ onetest.path }}, '{{ onetest.value|replace('\\n', '\\\\n')|replace("\"", "\"") }}')
     {%- else %}{% if "int" == onetest.klass.name or "float" == onetest.klass.name or "NSDecimalNumber" == onetest.klass.name %}
         self.assertEqual(inst.{{ onetest.path }}, {{ onetest.value }})
     {%- else %}{% if "bool" == onetest.klass.name %}
@@ -45,9 +46,22 @@ class {{ class.name }}Tests(unittest.TestCase):
         {%- else %}
         self.assertFalse(inst.{{ onetest.path }})
         {%- endif %}
-    {%- else %}{% if "FHIRDate" == onetest.klass.name %}
-        self.assertEqual(inst.{{ onetest.path }}.date, FHIRDate("{{ onetest.value }}").date)
-        self.assertEqual(inst.{{ onetest.path }}.as_json(), "{{ onetest.value }}")
+        {%- else %}{% if onetest.klass.name in datatypes %}
+        {%- if onetest.klass.name not in used_datatypes %}
+        {%- set _ = used_datatypes.append(onetest.klass.name) %}
+        {%- endif %}
+
+        {%- if onetest.klass.name in ["FHIRPositiveInt", "FHIRUnsignedInt"] %}
+        self.assertEqual(inst.{{onetest.path}}.value, {{onetest.klass.name}}('{{ onetest.value }}').value)
+        self.assertEqual(inst.{{ onetest.path }}.as_json(), {{ onetest.value }})
+        {%- else %}
+        self.assertEqual(inst.{{onetest.path}}.value, {{onetest.klass.name}}('{{ onetest.value|escape }}').value)
+        self.assertEqual(inst.{{ onetest.path }}.as_json(), '{{ onetest.value|escape }}')
+        {%- endif %}
+
+        {%- if onetest.klass.name in ["FHIRDate", "FHIRDatetime", "FHIRInstant", "FHIRTime"] %}
+        self.assertEqual(inst.{{ onetest.path }}.date, {{ onetest.klass.name }}('{{ onetest.value }}').date)
+        {%- endif %}
     {%- else %}
         # Don't know how to create unit test for "{{ onetest.path }}", which is a {{ onetest.klass.name }}
     {%- endif %}{% endif %}{% endif %}{% endif %}
@@ -55,3 +69,4 @@ class {{ class.name }}Tests(unittest.TestCase):
 {%- endfor %}
 
 
+from fhirclient.models.fhirdatatypes import {%- for dt in used_datatypes %} {{ dt }}{% if not loop.last %},{% endif %}{%- endfor %}

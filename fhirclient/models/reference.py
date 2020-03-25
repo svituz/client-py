@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Reference) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Reference) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import element
@@ -23,7 +23,7 @@ class Reference(element.Element):
         
         self.display = None
         """ Text alternative for the resource.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Logical reference, when literal reference is not known.
@@ -31,27 +31,34 @@ class Reference(element.Element):
         
         self.reference = None
         """ Literal reference, Relative, internal or absolute URL.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ Type the reference refers to (e.g. "Patient").
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         super(Reference, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Reference, self).elementProperties()
         js.extend([
-            ("display", "display", str, False, None, False),
+            ("display", "display", fhirdatatypes.FHIRString, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("reference", "reference", str, False, None, False),
-            ("type", "type", str, False, None, False),
+            ("reference", "reference", fhirdatatypes.FHIRString, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRUri, False, None, False),
         ])
         return js
 
 
+
 import sys
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+

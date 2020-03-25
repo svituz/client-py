@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Composition) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Composition) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -46,7 +46,7 @@ class Composition(domainresource.DomainResource):
         
         self.confidentiality = None
         """ As defined by affinity domain.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.custodian = None
         """ Organization which maintains the composition.
@@ -54,7 +54,7 @@ class Composition(domainresource.DomainResource):
         
         self.date = None
         """ Composition editing time.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.encounter = None
         """ Context of the Composition.
@@ -78,7 +78,7 @@ class Composition(domainresource.DomainResource):
         
         self.status = None
         """ preliminary | final | amended | entered-in-error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subject = None
         """ Who and/or what the composition is about.
@@ -86,7 +86,7 @@ class Composition(domainresource.DomainResource):
         
         self.title = None
         """ Human Readable name/title.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ Kind of composition (LOINC if possible).
@@ -100,20 +100,21 @@ class Composition(domainresource.DomainResource):
             ("attester", "attester", CompositionAttester, True, None, False),
             ("author", "author", fhirreference.FHIRReference, True, None, True),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
-            ("confidentiality", "confidentiality", str, False, None, False),
+            ("confidentiality", "confidentiality", fhirdatatypes.FHIRCode, False, None, False),
             ("custodian", "custodian", fhirreference.FHIRReference, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, True),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, True),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("event", "event", CompositionEvent, True, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("relatesTo", "relatesTo", CompositionRelatesTo, True, None, False),
             ("section", "section", CompositionSection, True, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("title", "title", str, False, None, True),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, True),
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -136,7 +137,7 @@ class CompositionAttester(backboneelement.BackboneElement):
         
         self.mode = None
         """ personal | professional | legal | official.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.party = None
         """ Who attested the composition.
@@ -144,18 +145,20 @@ class CompositionAttester(backboneelement.BackboneElement):
         
         self.time = None
         """ When the composition was attested.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         super(CompositionAttester, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CompositionAttester, self).elementProperties()
         js.extend([
-            ("mode", "mode", str, False, None, True),
+            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, True),
             ("party", "party", fhirreference.FHIRReference, False, None, False),
-            ("time", "time", fhirdate.FHIRDate, False, None, False),
+            ("time", "time", fhirdatatypes.FHIRDateTime, False, None, False),
         ])
         return js
+
+
 
 
 class CompositionEvent(backboneelement.BackboneElement):
@@ -199,6 +202,8 @@ class CompositionEvent(backboneelement.BackboneElement):
         return js
 
 
+
+
 class CompositionRelatesTo(backboneelement.BackboneElement):
     """ Relationships to other compositions/documents.
     
@@ -218,7 +223,7 @@ class CompositionRelatesTo(backboneelement.BackboneElement):
         
         self.code = None
         """ replaces | transforms | signs | appends.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.targetIdentifier = None
         """ Target of the relationship.
@@ -233,11 +238,13 @@ class CompositionRelatesTo(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CompositionRelatesTo, self).elementProperties()
         js.extend([
-            ("code", "code", str, False, None, True),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
             ("targetIdentifier", "targetIdentifier", identifier.Identifier, False, "target", True),
             ("targetReference", "targetReference", fhirreference.FHIRReference, False, "target", True),
         ])
         return js
+
+
 
 
 class CompositionSection(backboneelement.BackboneElement):
@@ -279,7 +286,7 @@ class CompositionSection(backboneelement.BackboneElement):
         
         self.mode = None
         """ working | snapshot | changes.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.orderedBy = None
         """ Order of section entries.
@@ -295,7 +302,7 @@ class CompositionSection(backboneelement.BackboneElement):
         
         self.title = None
         """ Label for section (e.g. for ToC).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(CompositionSection, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -307,13 +314,14 @@ class CompositionSection(backboneelement.BackboneElement):
             ("emptyReason", "emptyReason", codeableconcept.CodeableConcept, False, None, False),
             ("entry", "entry", fhirreference.FHIRReference, True, None, False),
             ("focus", "focus", fhirreference.FHIRReference, False, None, False),
-            ("mode", "mode", str, False, None, False),
+            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, False),
             ("orderedBy", "orderedBy", codeableconcept.CodeableConcept, False, None, False),
             ("section", "section", CompositionSection, True, None, False),
             ("text", "text", narrative.Narrative, False, None, False),
-            ("title", "title", str, False, None, False),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -321,23 +329,29 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import narrative
 except ImportError:
     narrative = sys.modules[__package__ + '.narrative']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ResearchSubject) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ResearchSubject) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -26,11 +26,11 @@ class ResearchSubject(domainresource.DomainResource):
         
         self.actualArm = None
         """ What path was followed.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.assignedArm = None
         """ What path should be followed.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.consent = None
         """ Agreement to participate in study.
@@ -52,7 +52,7 @@ class ResearchSubject(domainresource.DomainResource):
         """ candidate | eligible | follow-up | ineligible | not-registered |
         off-study | on-study | on-study-intervention | on-study-observation
         | pending-on-study | potential-candidate | screening | withdrawn.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.study = None
         """ Study subject is part of.
@@ -63,28 +63,37 @@ class ResearchSubject(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ResearchSubject, self).elementProperties()
         js.extend([
-            ("actualArm", "actualArm", str, False, None, False),
-            ("assignedArm", "assignedArm", str, False, None, False),
+            ("actualArm", "actualArm", fhirdatatypes.FHIRString, False, None, False),
+            ("assignedArm", "assignedArm", fhirdatatypes.FHIRString, False, None, False),
             ("consent", "consent", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("individual", "individual", fhirreference.FHIRReference, False, None, True),
             ("period", "period", period.Period, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("study", "study", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 
 
+
 import sys
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+

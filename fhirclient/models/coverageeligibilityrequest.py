@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/CoverageEligibilityRequest) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CoverageEligibilityRequest) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -29,7 +29,7 @@ class CoverageEligibilityRequest(domainresource.DomainResource):
         
         self.created = None
         """ Creation date.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.enterer = None
         """ Author.
@@ -69,7 +69,7 @@ class CoverageEligibilityRequest(domainresource.DomainResource):
         
         self.purpose = None
         """ auth-requirements | benefits | discovery | validation.
-        List of `str` items. """
+        List of `FHIRCode` items (represented as `str` in JSON). """
         
         self.servicedDate = None
         """ Estimated date or dates of service.
@@ -81,7 +81,7 @@ class CoverageEligibilityRequest(domainresource.DomainResource):
         
         self.status = None
         """ active | cancelled | draft | entered-in-error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.supportingInfo = None
         """ Supporting information.
@@ -92,7 +92,7 @@ class CoverageEligibilityRequest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(CoverageEligibilityRequest, self).elementProperties()
         js.extend([
-            ("created", "created", fhirdate.FHIRDate, False, None, True),
+            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, True),
             ("enterer", "enterer", fhirreference.FHIRReference, False, None, False),
             ("facility", "facility", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
@@ -102,13 +102,14 @@ class CoverageEligibilityRequest(domainresource.DomainResource):
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("priority", "priority", codeableconcept.CodeableConcept, False, None, False),
             ("provider", "provider", fhirreference.FHIRReference, False, None, False),
-            ("purpose", "purpose", str, True, None, True),
-            ("servicedDate", "servicedDate", fhirdate.FHIRDate, False, "serviced", False),
+            ("purpose", "purpose", fhirdatatypes.FHIRCode, True, None, True),
+            ("servicedDate", "servicedDate", fhirdatatypes.FHIRDate, False, "serviced", False),
             ("servicedPeriod", "servicedPeriod", period.Period, False, "serviced", False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("supportingInfo", "supportingInfo", CoverageEligibilityRequestSupportingInfo, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -132,7 +133,7 @@ class CoverageEligibilityRequestInsurance(backboneelement.BackboneElement):
         
         self.businessArrangement = None
         """ Additional provider contract number.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.coverage = None
         """ Insurance information.
@@ -147,11 +148,13 @@ class CoverageEligibilityRequestInsurance(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CoverageEligibilityRequestInsurance, self).elementProperties()
         js.extend([
-            ("businessArrangement", "businessArrangement", str, False, None, False),
+            ("businessArrangement", "businessArrangement", fhirdatatypes.FHIRString, False, None, False),
             ("coverage", "coverage", fhirreference.FHIRReference, False, None, True),
             ("focal", "focal", bool, False, None, False),
         ])
         return js
+
+
 
 
 class CoverageEligibilityRequestItem(backboneelement.BackboneElement):
@@ -205,7 +208,7 @@ class CoverageEligibilityRequestItem(backboneelement.BackboneElement):
         
         self.supportingInfoSequence = None
         """ Applicable exception or supporting information.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.unitPrice = None
         """ Fee, charge or cost per item.
@@ -224,10 +227,12 @@ class CoverageEligibilityRequestItem(backboneelement.BackboneElement):
             ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, False),
             ("provider", "provider", fhirreference.FHIRReference, False, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("supportingInfoSequence", "supportingInfoSequence", int, True, None, False),
+            ("supportingInfoSequence", "supportingInfoSequence", fhirdatatypes.FHIRPositiveInt, True, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
         return js
+
+
 
 
 class CoverageEligibilityRequestItemDiagnosis(backboneelement.BackboneElement):
@@ -265,6 +270,8 @@ class CoverageEligibilityRequestItemDiagnosis(backboneelement.BackboneElement):
         return js
 
 
+
+
 class CoverageEligibilityRequestSupportingInfo(backboneelement.BackboneElement):
     """ Supporting information.
     
@@ -292,7 +299,7 @@ class CoverageEligibilityRequestSupportingInfo(backboneelement.BackboneElement):
         
         self.sequence = None
         """ Information instance identifier.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         super(CoverageEligibilityRequestSupportingInfo, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -301,9 +308,10 @@ class CoverageEligibilityRequestSupportingInfo(backboneelement.BackboneElement):
         js.extend([
             ("appliesToAll", "appliesToAll", bool, False, None, False),
             ("information", "information", fhirreference.FHIRReference, False, None, True),
-            ("sequence", "sequence", int, False, None, True),
+            ("sequence", "sequence", fhirdatatypes.FHIRPositiveInt, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -311,27 +319,34 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import money
 except ImportError:
     money = sys.modules[__package__ + '.money']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+

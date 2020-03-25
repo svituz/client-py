@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ContactPoint) on 2019-05-07.
-#  2019, SMART Health IT.
-from fhirclient.datatypes.primitive import FHIRPositiveInt, FHIRCode, FHIRString
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ContactPoint) on 2020-03-25.
+#  2020, SMART Health IT.
+
+
 from . import element
 
 class ContactPoint(element.Element):
@@ -29,19 +30,19 @@ class ContactPoint(element.Element):
         
         self.rank = None
         """ Specify preferred order of use (1 = highest).
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.system = None
         """ phone | fax | email | pager | url | sms | other.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.use = None
         """ home | work | temp | old | mobile - purpose of this contact point.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.value = None
         """ The actual contact point details.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ContactPoint, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -49,16 +50,23 @@ class ContactPoint(element.Element):
         js = super(ContactPoint, self).elementProperties()
         js.extend([
             ("period", "period", period.Period, False, None, False),
-            ("rank", "rank", FHIRPositiveInt, False, None, False),
-            ("system", "system", FHIRCode, False, None, False),
-            ("use", "use", FHIRCode, False, None, False),
-            ("value", "value", FHIRString, False, None, False),
+            ("rank", "rank", fhirdatatypes.FHIRPositiveInt, False, None, False),
+            ("system", "system", fhirdatatypes.FHIRCode, False, None, False),
+            ("use", "use", fhirdatatypes.FHIRCode, False, None, False),
+            ("value", "value", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
 
 
+
 import sys
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+

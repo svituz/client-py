@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/RiskAssessment) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/RiskAssessment) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -54,7 +54,7 @@ class RiskAssessment(domainresource.DomainResource):
         
         self.mitigation = None
         """ How to reduce risk.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.note = None
         """ Comments on the risk assessment.
@@ -62,7 +62,7 @@ class RiskAssessment(domainresource.DomainResource):
         
         self.occurrenceDateTime = None
         """ When was assessment made?.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.occurrencePeriod = None
         """ When was assessment made?.
@@ -90,7 +90,7 @@ class RiskAssessment(domainresource.DomainResource):
         
         self.status = None
         """ registered | preliminary | final | amended +.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subject = None
         """ Who/what does assessment apply to?.
@@ -108,19 +108,20 @@ class RiskAssessment(domainresource.DomainResource):
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("method", "method", codeableconcept.CodeableConcept, False, None, False),
-            ("mitigation", "mitigation", str, False, None, False),
+            ("mitigation", "mitigation", fhirdatatypes.FHIRString, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
-            ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, "occurrence", False),
+            ("occurrenceDateTime", "occurrenceDateTime", fhirdatatypes.FHIRDateTime, False, "occurrence", False),
             ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
             ("parent", "parent", fhirreference.FHIRReference, False, None, False),
             ("performer", "performer", fhirreference.FHIRReference, False, None, False),
             ("prediction", "prediction", RiskAssessmentPrediction, True, None, False),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -159,7 +160,7 @@ class RiskAssessmentPrediction(backboneelement.BackboneElement):
         
         self.rationale = None
         """ Explanation of prediction.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.relativeRisk = None
         """ Relative likelihood.
@@ -182,7 +183,7 @@ class RiskAssessmentPrediction(backboneelement.BackboneElement):
             ("probabilityDecimal", "probabilityDecimal", float, False, "probability", False),
             ("probabilityRange", "probabilityRange", range.Range, False, "probability", False),
             ("qualitativeRisk", "qualitativeRisk", codeableconcept.CodeableConcept, False, None, False),
-            ("rationale", "rationale", str, False, None, False),
+            ("rationale", "rationale", fhirdatatypes.FHIRString, False, None, False),
             ("relativeRisk", "relativeRisk", float, False, None, False),
             ("whenPeriod", "whenPeriod", period.Period, False, "when", False),
             ("whenRange", "whenRange", range.Range, False, "when", False),
@@ -190,32 +191,40 @@ class RiskAssessmentPrediction(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import range
 except ImportError:
     range = sys.modules[__package__ + '.range']
+

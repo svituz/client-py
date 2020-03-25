@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ParameterDefinition) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ParameterDefinition) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import element
@@ -28,11 +28,11 @@ class ParameterDefinition(element.Element):
         
         self.documentation = None
         """ A brief description of the parameter.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.max = None
         """ Maximum cardinality (a number of *).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.min = None
         """ Minimum cardinality.
@@ -40,33 +40,40 @@ class ParameterDefinition(element.Element):
         
         self.name = None
         """ Name used to access the parameter value.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.profile = None
         """ What profile the value is expected to be.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.type = None
         """ What type of value.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.use = None
         """ in | out.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(ParameterDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ParameterDefinition, self).elementProperties()
         js.extend([
-            ("documentation", "documentation", str, False, None, False),
-            ("max", "max", str, False, None, False),
+            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False),
+            ("max", "max", fhirdatatypes.FHIRString, False, None, False),
             ("min", "min", int, False, None, False),
-            ("name", "name", str, False, None, False),
-            ("profile", "profile", str, False, None, False),
-            ("type", "type", str, False, None, True),
-            ("use", "use", str, False, None, True),
+            ("name", "name", fhirdatatypes.FHIRCode, False, None, False),
+            ("profile", "profile", fhirdatatypes.FHIRCanonical, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
+            ("use", "use", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
 
+
+
+import sys
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
 

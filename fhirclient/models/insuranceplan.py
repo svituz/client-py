@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/InsurancePlan) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/InsurancePlan) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -27,7 +27,7 @@ class InsurancePlan(domainresource.DomainResource):
         
         self.alias = None
         """ Alternate names.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.contact = None
         """ Contact for the product.
@@ -51,7 +51,7 @@ class InsurancePlan(domainresource.DomainResource):
         
         self.name = None
         """ Official name.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.network = None
         """ What networks are Included.
@@ -71,7 +71,7 @@ class InsurancePlan(domainresource.DomainResource):
         
         self.status = None
         """ draft | active | retired | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.type = None
         """ Kind of product.
@@ -83,21 +83,22 @@ class InsurancePlan(domainresource.DomainResource):
         js = super(InsurancePlan, self).elementProperties()
         js.extend([
             ("administeredBy", "administeredBy", fhirreference.FHIRReference, False, None, False),
-            ("alias", "alias", str, True, None, False),
+            ("alias", "alias", fhirdatatypes.FHIRString, True, None, False),
             ("contact", "contact", InsurancePlanContact, True, None, False),
             ("coverage", "coverage", InsurancePlanCoverage, True, None, False),
             ("coverageArea", "coverageArea", fhirreference.FHIRReference, True, None, False),
             ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("name", "name", str, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
             ("network", "network", fhirreference.FHIRReference, True, None, False),
             ("ownedBy", "ownedBy", fhirreference.FHIRReference, False, None, False),
             ("period", "period", period.Period, False, None, False),
             ("plan", "plan", InsurancePlanPlan, True, None, False),
-            ("status", "status", str, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -147,6 +148,8 @@ class InsurancePlanContact(backboneelement.BackboneElement):
         return js
 
 
+
+
 class InsurancePlanCoverage(backboneelement.BackboneElement):
     """ Coverage details.
     
@@ -187,6 +190,8 @@ class InsurancePlanCoverage(backboneelement.BackboneElement):
         return js
 
 
+
+
 class InsurancePlanCoverageBenefit(backboneelement.BackboneElement):
     """ List of benefits.
     
@@ -209,7 +214,7 @@ class InsurancePlanCoverageBenefit(backboneelement.BackboneElement):
         
         self.requirement = None
         """ Referral requirements.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ Type of benefit.
@@ -221,10 +226,12 @@ class InsurancePlanCoverageBenefit(backboneelement.BackboneElement):
         js = super(InsurancePlanCoverageBenefit, self).elementProperties()
         js.extend([
             ("limit", "limit", InsurancePlanCoverageBenefitLimit, True, None, False),
-            ("requirement", "requirement", str, False, None, False),
+            ("requirement", "requirement", fhirdatatypes.FHIRString, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
+
+
 
 
 class InsurancePlanCoverageBenefitLimit(backboneelement.BackboneElement):
@@ -260,6 +267,8 @@ class InsurancePlanCoverageBenefitLimit(backboneelement.BackboneElement):
             ("value", "value", quantity.Quantity, False, None, False),
         ])
         return js
+
+
 
 
 class InsurancePlanPlan(backboneelement.BackboneElement):
@@ -317,6 +326,8 @@ class InsurancePlanPlan(backboneelement.BackboneElement):
         return js
 
 
+
+
 class InsurancePlanPlanGeneralCost(backboneelement.BackboneElement):
     """ Overall costs.
     
@@ -335,7 +346,7 @@ class InsurancePlanPlanGeneralCost(backboneelement.BackboneElement):
         
         self.comment = None
         """ Additional cost information.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.cost = None
         """ Cost value.
@@ -343,7 +354,7 @@ class InsurancePlanPlanGeneralCost(backboneelement.BackboneElement):
         
         self.groupSize = None
         """ Number of enrollees.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.type = None
         """ Type of cost.
@@ -354,12 +365,14 @@ class InsurancePlanPlanGeneralCost(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(InsurancePlanPlanGeneralCost, self).elementProperties()
         js.extend([
-            ("comment", "comment", str, False, None, False),
+            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False),
             ("cost", "cost", money.Money, False, None, False),
-            ("groupSize", "groupSize", int, False, None, False),
+            ("groupSize", "groupSize", fhirdatatypes.FHIRPositiveInt, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class InsurancePlanPlanSpecificCost(backboneelement.BackboneElement):
@@ -397,6 +410,8 @@ class InsurancePlanPlanSpecificCost(backboneelement.BackboneElement):
         return js
 
 
+
+
 class InsurancePlanPlanSpecificCostBenefit(backboneelement.BackboneElement):
     """ Benefits list.
     
@@ -430,6 +445,8 @@ class InsurancePlanPlanSpecificCostBenefit(backboneelement.BackboneElement):
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
+
+
 
 
 class InsurancePlanPlanSpecificCostBenefitCost(backboneelement.BackboneElement):
@@ -477,40 +494,55 @@ class InsurancePlanPlanSpecificCostBenefitCost(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import address
 except ImportError:
     address = sys.modules[__package__ + '.address']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import contactpoint
 except ImportError:
     contactpoint = sys.modules[__package__ + '.contactpoint']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import humanname
 except ImportError:
     humanname = sys.modules[__package__ + '.humanname']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import money
 except ImportError:
     money = sys.modules[__package__ + '.money']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+

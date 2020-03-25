@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MeasureReport) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MeasureReport) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -27,7 +27,7 @@ class MeasureReport(domainresource.DomainResource):
         
         self.date = None
         """ When the report was generated.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.evaluatedResource = None
         """ What data was used to calculate the measure score.
@@ -47,7 +47,7 @@ class MeasureReport(domainresource.DomainResource):
         
         self.measure = None
         """ What measure was calculated.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.period = None
         """ What period the report covers.
@@ -59,7 +59,7 @@ class MeasureReport(domainresource.DomainResource):
         
         self.status = None
         """ complete | pending | error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subject = None
         """ What individual(s) the report is for.
@@ -67,26 +67,27 @@ class MeasureReport(domainresource.DomainResource):
         
         self.type = None
         """ individual | subject-list | summary | data-collection.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(MeasureReport, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MeasureReport, self).elementProperties()
         js.extend([
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
             ("evaluatedResource", "evaluatedResource", fhirreference.FHIRReference, True, None, False),
             ("group", "group", MeasureReportGroup, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("improvementNotation", "improvementNotation", codeableconcept.CodeableConcept, False, None, False),
-            ("measure", "measure", str, False, None, True),
+            ("measure", "measure", fhirdatatypes.FHIRCanonical, False, None, True),
             ("period", "period", period.Period, False, None, True),
             ("reporter", "reporter", fhirreference.FHIRReference, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("type", "type", str, False, None, True),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -137,6 +138,8 @@ class MeasureReportGroup(backboneelement.BackboneElement):
         return js
 
 
+
+
 class MeasureReportGroupPopulation(backboneelement.BackboneElement):
     """ The populations in the group.
     
@@ -180,6 +183,8 @@ class MeasureReportGroupPopulation(backboneelement.BackboneElement):
         return js
 
 
+
+
 class MeasureReportGroupStratifier(backboneelement.BackboneElement):
     """ Stratification results.
     
@@ -215,6 +220,8 @@ class MeasureReportGroupStratifier(backboneelement.BackboneElement):
             ("stratum", "stratum", MeasureReportGroupStratifierStratum, True, None, False),
         ])
         return js
+
+
 
 
 class MeasureReportGroupStratifierStratum(backboneelement.BackboneElement):
@@ -265,6 +272,8 @@ class MeasureReportGroupStratifierStratum(backboneelement.BackboneElement):
         return js
 
 
+
+
 class MeasureReportGroupStratifierStratumComponent(backboneelement.BackboneElement):
     """ Stratifier component values.
     
@@ -298,6 +307,8 @@ class MeasureReportGroupStratifierStratumComponent(backboneelement.BackboneEleme
             ("value", "value", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
+
+
 
 
 class MeasureReportGroupStratifierStratumPopulation(backboneelement.BackboneElement):
@@ -343,28 +354,35 @@ class MeasureReportGroupStratifierStratumPopulation(backboneelement.BackboneElem
         return js
 
 
+
 import sys
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+

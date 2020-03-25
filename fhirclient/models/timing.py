@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Timing) on 2019-05-07.
-#  2019, SMART Health IT.
-from fhirclient.datatypes.primitive import FHIRDate, FHIRPositiveInt, FHIRCode, FHIRUnsignedInt
-from . import backboneelement, element
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Timing) on 2020-03-25.
+#  2020, SMART Health IT.
 
+
+from . import backboneelement
 
 class Timing(backboneelement.BackboneElement):
     """ A timing schedule that specifies an event that may occur multiple times.
@@ -33,7 +33,7 @@ class Timing(backboneelement.BackboneElement):
         
         self.event = None
         """ When the event occurs.
-        List of `FHIRDate` items (represented as `str` in JSON). """
+        List of `FHIRDateTime` items (represented as `str` in JSON). """
         
         self.repeat = None
         """ When the event is to occur.
@@ -45,11 +45,14 @@ class Timing(backboneelement.BackboneElement):
         js = super(Timing, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("event", "event", FHIRDate, True, None, False),
+            ("event", "event", fhirdatatypes.FHIRDateTime, True, None, False),
             ("repeat", "repeat", TimingRepeat, False, None, False),
         ])
         return js
 
+
+
+from . import element
 
 class TimingRepeat(element.Element):
     """ When the event is to occur.
@@ -81,15 +84,15 @@ class TimingRepeat(element.Element):
         
         self.count = None
         """ Number of times to repeat.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.countMax = None
         """ Maximum number of times to repeat.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.dayOfWeek = None
         """ mon | tue | wed | thu | fri | sat | sun.
-        List of `str` items. """
+        List of `FHIRCode` items (represented as `str` in JSON). """
         
         self.duration = None
         """ How long when it happens.
@@ -101,19 +104,19 @@ class TimingRepeat(element.Element):
         
         self.durationUnit = None
         """ s | min | h | d | wk | mo | a - unit of time (UCUM).
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.frequency = None
         """ Event occurs frequency times per period.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.frequencyMax = None
         """ Event occurs up to frequencyMax times per period.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.offset = None
         """ Minutes from event (before or after).
-        Type `int`. """
+        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
         
         self.period = None
         """ Event occurs frequency times per period.
@@ -125,15 +128,15 @@ class TimingRepeat(element.Element):
         
         self.periodUnit = None
         """ s | min | h | d | wk | mo | a - unit of time (UCUM).
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.timeOfDay = None
         """ Time of day for action.
-        List of `FHIRDate` items (represented as `str` in JSON). """
+        List of `FHIRTime` items (represented as `str` in JSON). """
         
         self.when = None
         """ Code for time period of occurrence.
-        List of `str` items. """
+        List of `FHIRCode` items (represented as `str` in JSON). """
         
         super(TimingRepeat, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -143,22 +146,23 @@ class TimingRepeat(element.Element):
             ("boundsDuration", "boundsDuration", duration.Duration, False, "bounds", False),
             ("boundsPeriod", "boundsPeriod", period.Period, False, "bounds", False),
             ("boundsRange", "boundsRange", range.Range, False, "bounds", False),
-            ("count", "count", FHIRPositiveInt, False, None, False),
-            ("countMax", "countMax", FHIRPositiveInt, False, None, False),
-            ("dayOfWeek", "dayOfWeek", FHIRCode, True, None, False),
+            ("count", "count", fhirdatatypes.FHIRPositiveInt, False, None, False),
+            ("countMax", "countMax", fhirdatatypes.FHIRPositiveInt, False, None, False),
+            ("dayOfWeek", "dayOfWeek", fhirdatatypes.FHIRCode, True, None, False),
             ("duration", "duration", float, False, None, False),
             ("durationMax", "durationMax", float, False, None, False),
-            ("durationUnit", "durationUnit", FHIRCode, False, None, False),
-            ("frequency", "frequency", FHIRPositiveInt, False, None, False),
-            ("frequencyMax", "frequencyMax", FHIRPositiveInt, False, None, False),
-            ("offset", "offset", FHIRUnsignedInt, False, None, False),
+            ("durationUnit", "durationUnit", fhirdatatypes.FHIRCode, False, None, False),
+            ("frequency", "frequency", fhirdatatypes.FHIRPositiveInt, False, None, False),
+            ("frequencyMax", "frequencyMax", fhirdatatypes.FHIRPositiveInt, False, None, False),
+            ("offset", "offset", fhirdatatypes.FHIRUnsignedInt, False, None, False),
             ("period", "period", float, False, None, False),
             ("periodMax", "periodMax", float, False, None, False),
-            ("periodUnit", "periodUnit", FHIRCode, False, None, False),
-            ("timeOfDay", "timeOfDay", FHIRDate, True, None, False),
-            ("when", "when", FHIRCode, True, None, False),
+            ("periodUnit", "periodUnit", fhirdatatypes.FHIRCode, False, None, False),
+            ("timeOfDay", "timeOfDay", fhirdatatypes.FHIRTime, True, None, False),
+            ("when", "when", fhirdatatypes.FHIRCode, True, None, False),
         ])
         return js
+
 
 
 import sys
@@ -166,19 +170,24 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import duration
 except ImportError:
     duration = sys.modules[__package__ + '.duration']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import range
 except ImportError:
     range = sys.modules[__package__ + '.range']
+

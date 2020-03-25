@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Subscription) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Subscription) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -37,23 +37,23 @@ class Subscription(domainresource.DomainResource):
         
         self.criteria = None
         """ Rule for server push.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.end = None
         """ When to automatically delete the subscription.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.error = None
         """ Latest error note.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.reason = None
         """ Description of why this subscription was created.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.status = None
         """ requested | active | error | off.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(Subscription, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -62,13 +62,14 @@ class Subscription(domainresource.DomainResource):
         js.extend([
             ("channel", "channel", SubscriptionChannel, False, None, True),
             ("contact", "contact", contactpoint.ContactPoint, True, None, False),
-            ("criteria", "criteria", str, False, None, True),
-            ("end", "end", fhirdate.FHIRDate, False, None, False),
-            ("error", "error", str, False, None, False),
-            ("reason", "reason", str, False, None, True),
-            ("status", "status", str, False, None, True),
+            ("criteria", "criteria", fhirdatatypes.FHIRString, False, None, True),
+            ("end", "end", fhirdatatypes.FHIRInstant, False, None, False),
+            ("error", "error", fhirdatatypes.FHIRString, False, None, False),
+            ("reason", "reason", fhirdatatypes.FHIRString, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -92,31 +93,32 @@ class SubscriptionChannel(backboneelement.BackboneElement):
         
         self.endpoint = None
         """ Where the channel points to.
-        Type `str`. """
+        Type `FHIRUrl` (represented as `str` in JSON). """
         
         self.header = None
         """ Usage depends on the channel type.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.payload = None
         """ MIME type to send, or omit for no payload.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.type = None
         """ rest-hook | websocket | email | sms | message.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(SubscriptionChannel, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(SubscriptionChannel, self).elementProperties()
         js.extend([
-            ("endpoint", "endpoint", str, False, None, False),
-            ("header", "header", str, True, None, False),
-            ("payload", "payload", str, False, None, False),
-            ("type", "type", str, False, None, True),
+            ("endpoint", "endpoint", fhirdatatypes.FHIRUrl, False, None, False),
+            ("header", "header", fhirdatatypes.FHIRString, True, None, False),
+            ("payload", "payload", fhirdatatypes.FHIRCode, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -124,7 +126,9 @@ try:
     from . import contactpoint
 except ImportError:
     contactpoint = sys.modules[__package__ + '.contactpoint']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+

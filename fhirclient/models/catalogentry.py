@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/CatalogEntry) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CatalogEntry) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -47,7 +47,7 @@ class CatalogEntry(domainresource.DomainResource):
         
         self.lastUpdated = None
         """ When was this catalog last updated.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.orderable = None
         """ Whether the entry represents an orderable item.
@@ -63,7 +63,7 @@ class CatalogEntry(domainresource.DomainResource):
         
         self.status = None
         """ draft | active | retired | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.type = None
         """ The type of item - medication, device, service, protocol or other.
@@ -71,7 +71,7 @@ class CatalogEntry(domainresource.DomainResource):
         
         self.validTo = None
         """ The date until which this catalog entry is expected to be active.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.validityPeriod = None
         """ The time period in which this catalog entry is expected to be
@@ -88,16 +88,17 @@ class CatalogEntry(domainresource.DomainResource):
             ("additionalIdentifier", "additionalIdentifier", identifier.Identifier, True, None, False),
             ("classification", "classification", codeableconcept.CodeableConcept, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("lastUpdated", "lastUpdated", fhirdate.FHIRDate, False, None, False),
+            ("lastUpdated", "lastUpdated", fhirdatatypes.FHIRDateTime, False, None, False),
             ("orderable", "orderable", bool, False, None, True),
             ("referencedItem", "referencedItem", fhirreference.FHIRReference, False, None, True),
             ("relatedEntry", "relatedEntry", CatalogEntryRelatedEntry, True, None, False),
-            ("status", "status", str, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("validTo", "validTo", fhirdate.FHIRDate, False, None, False),
+            ("validTo", "validTo", fhirdatatypes.FHIRDateTime, False, None, False),
             ("validityPeriod", "validityPeriod", period.Period, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -125,7 +126,7 @@ class CatalogEntryRelatedEntry(backboneelement.BackboneElement):
         
         self.relationtype = None
         """ triggers | is-replaced-by.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(CatalogEntryRelatedEntry, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -133,9 +134,10 @@ class CatalogEntryRelatedEntry(backboneelement.BackboneElement):
         js = super(CatalogEntryRelatedEntry, self).elementProperties()
         js.extend([
             ("item", "item", fhirreference.FHIRReference, False, None, True),
-            ("relationtype", "relationtype", str, False, None, True),
+            ("relationtype", "relationtype", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -143,19 +145,24 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+

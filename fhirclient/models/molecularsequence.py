@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MolecularSequence) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MolecularSequence) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -39,7 +39,7 @@ class MolecularSequence(domainresource.DomainResource):
         
         self.observedSeq = None
         """ Sequence that was observed.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.patient = None
         """ Who and/or what this is about.
@@ -85,7 +85,7 @@ class MolecularSequence(domainresource.DomainResource):
         
         self.type = None
         """ aa | dna | rna.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.variant = None
         """ Variant in sequence.
@@ -99,7 +99,7 @@ class MolecularSequence(domainresource.DomainResource):
             ("coordinateSystem", "coordinateSystem", int, False, None, True),
             ("device", "device", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("observedSeq", "observedSeq", str, False, None, False),
+            ("observedSeq", "observedSeq", fhirdatatypes.FHIRString, False, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, False),
             ("performer", "performer", fhirreference.FHIRReference, False, None, False),
             ("pointer", "pointer", fhirreference.FHIRReference, True, None, False),
@@ -110,10 +110,11 @@ class MolecularSequence(domainresource.DomainResource):
             ("repository", "repository", MolecularSequenceRepository, True, None, False),
             ("specimen", "specimen", fhirreference.FHIRReference, False, None, False),
             ("structureVariant", "structureVariant", MolecularSequenceStructureVariant, True, None, False),
-            ("type", "type", str, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, False),
             ("variant", "variant", MolecularSequenceVariant, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -195,7 +196,7 @@ class MolecularSequenceQuality(backboneelement.BackboneElement):
         
         self.type = None
         """ indel | snp | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(MolecularSequenceQuality, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -216,9 +217,11 @@ class MolecularSequenceQuality(backboneelement.BackboneElement):
             ("start", "start", int, False, None, False),
             ("truthFN", "truthFN", float, False, None, False),
             ("truthTP", "truthTP", float, False, None, False),
-            ("type", "type", str, False, None, True),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
+
 
 
 class MolecularSequenceQualityRoc(backboneelement.BackboneElement):
@@ -282,6 +285,8 @@ class MolecularSequenceQualityRoc(backboneelement.BackboneElement):
         return js
 
 
+
+
 class MolecularSequenceReferenceSeq(backboneelement.BackboneElement):
     """ A sequence used as reference.
     
@@ -306,11 +311,11 @@ class MolecularSequenceReferenceSeq(backboneelement.BackboneElement):
         self.genomeBuild = None
         """ The Genome Build used for reference, following GRCh build versions
         e.g. 'GRCh 37'.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.orientation = None
         """ sense | antisense.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.referenceSeqId = None
         """ Reference identifier.
@@ -322,11 +327,11 @@ class MolecularSequenceReferenceSeq(backboneelement.BackboneElement):
         
         self.referenceSeqString = None
         """ A string to represent reference sequence.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.strand = None
         """ watson | crick.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.windowEnd = None
         """ End position of the window on the reference sequence.
@@ -342,16 +347,18 @@ class MolecularSequenceReferenceSeq(backboneelement.BackboneElement):
         js = super(MolecularSequenceReferenceSeq, self).elementProperties()
         js.extend([
             ("chromosome", "chromosome", codeableconcept.CodeableConcept, False, None, False),
-            ("genomeBuild", "genomeBuild", str, False, None, False),
-            ("orientation", "orientation", str, False, None, False),
+            ("genomeBuild", "genomeBuild", fhirdatatypes.FHIRString, False, None, False),
+            ("orientation", "orientation", fhirdatatypes.FHIRCode, False, None, False),
             ("referenceSeqId", "referenceSeqId", codeableconcept.CodeableConcept, False, None, False),
             ("referenceSeqPointer", "referenceSeqPointer", fhirreference.FHIRReference, False, None, False),
-            ("referenceSeqString", "referenceSeqString", str, False, None, False),
-            ("strand", "strand", str, False, None, False),
+            ("referenceSeqString", "referenceSeqString", fhirdatatypes.FHIRString, False, None, False),
+            ("strand", "strand", fhirdatatypes.FHIRCode, False, None, False),
             ("windowEnd", "windowEnd", int, False, None, False),
             ("windowStart", "windowStart", int, False, None, False),
         ])
         return js
+
+
 
 
 class MolecularSequenceRepository(backboneelement.BackboneElement):
@@ -374,41 +381,43 @@ class MolecularSequenceRepository(backboneelement.BackboneElement):
         
         self.datasetId = None
         """ Id of the dataset that used to call for dataset in repository.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.name = None
         """ Repository's name.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.readsetId = None
         """ Id of the read.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ directlink | openapi | login | oauth | other.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.url = None
         """ URI of the repository.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.variantsetId = None
         """ Id of the variantset that used to call for variantset in repository.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(MolecularSequenceRepository, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MolecularSequenceRepository, self).elementProperties()
         js.extend([
-            ("datasetId", "datasetId", str, False, None, False),
-            ("name", "name", str, False, None, False),
-            ("readsetId", "readsetId", str, False, None, False),
-            ("type", "type", str, False, None, True),
-            ("url", "url", str, False, None, False),
-            ("variantsetId", "variantsetId", str, False, None, False),
+            ("datasetId", "datasetId", fhirdatatypes.FHIRString, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
+            ("readsetId", "readsetId", fhirdatatypes.FHIRString, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
+            ("variantsetId", "variantsetId", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
+
 
 
 class MolecularSequenceStructureVariant(backboneelement.BackboneElement):
@@ -461,6 +470,8 @@ class MolecularSequenceStructureVariant(backboneelement.BackboneElement):
         return js
 
 
+
+
 class MolecularSequenceStructureVariantInner(backboneelement.BackboneElement):
     """ Structural variant inner.
     """
@@ -492,6 +503,8 @@ class MolecularSequenceStructureVariantInner(backboneelement.BackboneElement):
             ("start", "start", int, False, None, False),
         ])
         return js
+
+
 
 
 class MolecularSequenceStructureVariantOuter(backboneelement.BackboneElement):
@@ -527,6 +540,8 @@ class MolecularSequenceStructureVariantOuter(backboneelement.BackboneElement):
         return js
 
 
+
+
 class MolecularSequenceVariant(backboneelement.BackboneElement):
     """ Variant in sequence.
     
@@ -550,7 +565,7 @@ class MolecularSequenceVariant(backboneelement.BackboneElement):
         self.cigar = None
         """ Extended CIGAR string for aligning the sequence with reference
         bases.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.end = None
         """ End position of the variant on the reference sequence.
@@ -558,11 +573,11 @@ class MolecularSequenceVariant(backboneelement.BackboneElement):
         
         self.observedAllele = None
         """ Allele that was observed.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.referenceAllele = None
         """ Allele in the reference sequence.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.start = None
         """ Start position of the variant on the  reference sequence.
@@ -577,14 +592,15 @@ class MolecularSequenceVariant(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MolecularSequenceVariant, self).elementProperties()
         js.extend([
-            ("cigar", "cigar", str, False, None, False),
+            ("cigar", "cigar", fhirdatatypes.FHIRString, False, None, False),
             ("end", "end", int, False, None, False),
-            ("observedAllele", "observedAllele", str, False, None, False),
-            ("referenceAllele", "referenceAllele", str, False, None, False),
+            ("observedAllele", "observedAllele", fhirdatatypes.FHIRString, False, None, False),
+            ("referenceAllele", "referenceAllele", fhirdatatypes.FHIRString, False, None, False),
             ("start", "start", int, False, None, False),
             ("variantPointer", "variantPointer", fhirreference.FHIRReference, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -592,15 +608,24 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+

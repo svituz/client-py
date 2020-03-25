@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/DeviceUseStatement) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DeviceUseStatement) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -58,7 +58,7 @@ class DeviceUseStatement(domainresource.DomainResource):
         
         self.recordedOn = None
         """ When statement was recorded.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.source = None
         """ Who made the statement.
@@ -66,7 +66,7 @@ class DeviceUseStatement(domainresource.DomainResource):
         
         self.status = None
         """ active | completed | entered-in-error +.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subject = None
         """ Patient using device.
@@ -74,7 +74,7 @@ class DeviceUseStatement(domainresource.DomainResource):
         
         self.timingDateTime = None
         """ How often  the device was used.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.timingPeriod = None
         """ How often  the device was used.
@@ -97,15 +97,16 @@ class DeviceUseStatement(domainresource.DomainResource):
             ("note", "note", annotation.Annotation, True, None, False),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("recordedOn", "recordedOn", fhirdate.FHIRDate, False, None, False),
+            ("recordedOn", "recordedOn", fhirdatatypes.FHIRDateTime, False, None, False),
             ("source", "source", fhirreference.FHIRReference, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
-            ("timingDateTime", "timingDateTime", fhirdate.FHIRDate, False, "timing", False),
+            ("timingDateTime", "timingDateTime", fhirdatatypes.FHIRDateTime, False, "timing", False),
             ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
             ("timingTiming", "timingTiming", timing.Timing, False, "timing", False),
         ])
         return js
+
 
 
 import sys
@@ -113,27 +114,34 @@ try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import timing
 except ImportError:
     timing = sys.modules[__package__ + '.timing']
+

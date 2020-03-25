@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/List) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/List) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -27,7 +27,7 @@ class List(domainresource.DomainResource):
         
         self.date = None
         """ When the list was prepared.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.emptyReason = None
         """ Why list is empty.
@@ -47,7 +47,7 @@ class List(domainresource.DomainResource):
         
         self.mode = None
         """ working | snapshot | changes.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.note = None
         """ Comments about the list.
@@ -63,7 +63,7 @@ class List(domainresource.DomainResource):
         
         self.status = None
         """ current | retired | entered-in-error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subject = None
         """ If all resources have the same subject.
@@ -71,7 +71,7 @@ class List(domainresource.DomainResource):
         
         self.title = None
         """ Descriptive name for the list.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(List, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -79,20 +79,21 @@ class List(domainresource.DomainResource):
         js = super(List, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
             ("emptyReason", "emptyReason", codeableconcept.CodeableConcept, False, None, False),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("entry", "entry", ListEntry, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("mode", "mode", str, False, None, True),
+            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, True),
             ("note", "note", annotation.Annotation, True, None, False),
             ("orderedBy", "orderedBy", codeableconcept.CodeableConcept, False, None, False),
             ("source", "source", fhirreference.FHIRReference, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("title", "title", str, False, None, False),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -115,7 +116,7 @@ class ListEntry(backboneelement.BackboneElement):
         
         self.date = None
         """ When item added to list.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.deleted = None
         """ If this item is actually marked as deleted.
@@ -134,7 +135,7 @@ class ListEntry(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ListEntry, self).elementProperties()
         js.extend([
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
             ("deleted", "deleted", bool, False, None, False),
             ("flag", "flag", codeableconcept.CodeableConcept, False, None, False),
             ("item", "item", fhirreference.FHIRReference, False, None, True),
@@ -142,24 +143,30 @@ class ListEntry(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+

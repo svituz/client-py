@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ResearchElementDefinition) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ResearchElementDefinition) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -38,7 +38,7 @@ class ResearchElementDefinition(domainresource.DomainResource):
         
         self.comment = None
         """ Used for footnotes or explanatory notes.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.contact = None
         """ Contact details for the publisher.
@@ -46,15 +46,15 @@ class ResearchElementDefinition(domainresource.DomainResource):
         
         self.copyright = None
         """ Use and/or publishing restrictions.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the research element definition.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.editor = None
         """ Who edited the content.
@@ -87,19 +87,19 @@ class ResearchElementDefinition(domainresource.DomainResource):
         
         self.library = None
         """ Logic used by the ResearchElementDefinition.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.name = None
         """ Name for this research element definition (computer friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.publisher = None
         """ Name of the publisher (organization or individual).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.purpose = None
         """ Why this research element definition is defined.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.relatedArtifact = None
         """ Additional documentation, citations, etc..
@@ -111,11 +111,11 @@ class ResearchElementDefinition(domainresource.DomainResource):
         
         self.shortTitle = None
         """ Title for use in informal contexts.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.status = None
         """ draft | active | retired | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subjectCodeableConcept = None
         """ E.g. Patient, Practitioner, RelatedPerson, Organization, Location,
@@ -129,11 +129,11 @@ class ResearchElementDefinition(domainresource.DomainResource):
         
         self.subtitle = None
         """ Subordinate title of the ResearchElementDefinition.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.title = None
         """ Name for this research element definition (human friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.topic = None
         """ The category of the ResearchElementDefinition, such as Education,
@@ -142,16 +142,16 @@ class ResearchElementDefinition(domainresource.DomainResource):
         
         self.type = None
         """ population | exposure | outcome.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.url = None
         """ Canonical identifier for this research element definition,
         represented as a URI (globally unique).
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.usage = None
         """ Describes the clinical usage of the ResearchElementDefinition.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.useContext = None
         """ The context that the content is intended to support.
@@ -159,53 +159,54 @@ class ResearchElementDefinition(domainresource.DomainResource):
         
         self.variableType = None
         """ dichotomous | continuous | descriptive.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.version = None
         """ Business version of the research element definition.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ResearchElementDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ResearchElementDefinition, self).elementProperties()
         js.extend([
-            ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
+            ("approvalDate", "approvalDate", fhirdatatypes.FHIRDate, False, None, False),
             ("author", "author", contactdetail.ContactDetail, True, None, False),
             ("characteristic", "characteristic", ResearchElementDefinitionCharacteristic, True, None, True),
-            ("comment", "comment", str, True, None, False),
+            ("comment", "comment", fhirdatatypes.FHIRString, True, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("description", "description", str, False, None, False),
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("editor", "editor", contactdetail.ContactDetail, True, None, False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
             ("endorser", "endorser", contactdetail.ContactDetail, True, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("lastReviewDate", "lastReviewDate", fhirdate.FHIRDate, False, None, False),
-            ("library", "library", str, True, None, False),
-            ("name", "name", str, False, None, False),
-            ("publisher", "publisher", str, False, None, False),
-            ("purpose", "purpose", str, False, None, False),
+            ("lastReviewDate", "lastReviewDate", fhirdatatypes.FHIRDate, False, None, False),
+            ("library", "library", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False),
             ("reviewer", "reviewer", contactdetail.ContactDetail, True, None, False),
-            ("shortTitle", "shortTitle", str, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("shortTitle", "shortTitle", fhirdatatypes.FHIRString, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False),
             ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False),
-            ("subtitle", "subtitle", str, False, None, False),
-            ("title", "title", str, False, None, False),
+            ("subtitle", "subtitle", fhirdatatypes.FHIRString, False, None, False),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
             ("topic", "topic", codeableconcept.CodeableConcept, True, None, False),
-            ("type", "type", str, False, None, True),
-            ("url", "url", str, False, None, False),
-            ("usage", "usage", str, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
+            ("usage", "usage", fhirdatatypes.FHIRString, False, None, False),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("variableType", "variableType", str, False, None, False),
-            ("version", "version", str, False, None, False),
+            ("variableType", "variableType", fhirdatatypes.FHIRCode, False, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -229,7 +230,7 @@ class ResearchElementDefinitionCharacteristic(backboneelement.BackboneElement):
         
         self.definitionCanonical = None
         """ What code or expression defines members?.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.definitionCodeableConcept = None
         """ What code or expression defines members?.
@@ -249,11 +250,11 @@ class ResearchElementDefinitionCharacteristic(backboneelement.BackboneElement):
         
         self.participantEffectiveDateTime = None
         """ What time period do participants cover.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.participantEffectiveDescription = None
         """ What time period do participants cover.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.participantEffectiveDuration = None
         """ What time period do participants cover.
@@ -262,7 +263,7 @@ class ResearchElementDefinitionCharacteristic(backboneelement.BackboneElement):
         self.participantEffectiveGroupMeasure = None
         """ mean | median | mean-of-mean | mean-of-median | median-of-mean |
         median-of-median.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.participantEffectivePeriod = None
         """ What time period do participants cover.
@@ -278,11 +279,11 @@ class ResearchElementDefinitionCharacteristic(backboneelement.BackboneElement):
         
         self.studyEffectiveDateTime = None
         """ What time period does the study cover.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.studyEffectiveDescription = None
         """ What time period does the study cover.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.studyEffectiveDuration = None
         """ What time period does the study cover.
@@ -291,7 +292,7 @@ class ResearchElementDefinitionCharacteristic(backboneelement.BackboneElement):
         self.studyEffectiveGroupMeasure = None
         """ mean | median | mean-of-mean | mean-of-median | median-of-mean |
         median-of-median.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.studyEffectivePeriod = None
         """ What time period does the study cover.
@@ -318,22 +319,22 @@ class ResearchElementDefinitionCharacteristic(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ResearchElementDefinitionCharacteristic, self).elementProperties()
         js.extend([
-            ("definitionCanonical", "definitionCanonical", str, False, "definition", True),
+            ("definitionCanonical", "definitionCanonical", fhirdatatypes.FHIRCanonical, False, "definition", True),
             ("definitionCodeableConcept", "definitionCodeableConcept", codeableconcept.CodeableConcept, False, "definition", True),
             ("definitionDataRequirement", "definitionDataRequirement", datarequirement.DataRequirement, False, "definition", True),
             ("definitionExpression", "definitionExpression", expression.Expression, False, "definition", True),
             ("exclude", "exclude", bool, False, None, False),
-            ("participantEffectiveDateTime", "participantEffectiveDateTime", fhirdate.FHIRDate, False, "participantEffective", False),
-            ("participantEffectiveDescription", "participantEffectiveDescription", str, False, None, False),
+            ("participantEffectiveDateTime", "participantEffectiveDateTime", fhirdatatypes.FHIRDateTime, False, "participantEffective", False),
+            ("participantEffectiveDescription", "participantEffectiveDescription", fhirdatatypes.FHIRString, False, None, False),
             ("participantEffectiveDuration", "participantEffectiveDuration", duration.Duration, False, "participantEffective", False),
-            ("participantEffectiveGroupMeasure", "participantEffectiveGroupMeasure", str, False, None, False),
+            ("participantEffectiveGroupMeasure", "participantEffectiveGroupMeasure", fhirdatatypes.FHIRCode, False, None, False),
             ("participantEffectivePeriod", "participantEffectivePeriod", period.Period, False, "participantEffective", False),
             ("participantEffectiveTimeFromStart", "participantEffectiveTimeFromStart", duration.Duration, False, None, False),
             ("participantEffectiveTiming", "participantEffectiveTiming", timing.Timing, False, "participantEffective", False),
-            ("studyEffectiveDateTime", "studyEffectiveDateTime", fhirdate.FHIRDate, False, "studyEffective", False),
-            ("studyEffectiveDescription", "studyEffectiveDescription", str, False, None, False),
+            ("studyEffectiveDateTime", "studyEffectiveDateTime", fhirdatatypes.FHIRDateTime, False, "studyEffective", False),
+            ("studyEffectiveDescription", "studyEffectiveDescription", fhirdatatypes.FHIRString, False, None, False),
             ("studyEffectiveDuration", "studyEffectiveDuration", duration.Duration, False, "studyEffective", False),
-            ("studyEffectiveGroupMeasure", "studyEffectiveGroupMeasure", str, False, None, False),
+            ("studyEffectiveGroupMeasure", "studyEffectiveGroupMeasure", fhirdatatypes.FHIRCode, False, None, False),
             ("studyEffectivePeriod", "studyEffectivePeriod", period.Period, False, "studyEffective", False),
             ("studyEffectiveTimeFromStart", "studyEffectiveTimeFromStart", duration.Duration, False, None, False),
             ("studyEffectiveTiming", "studyEffectiveTiming", timing.Timing, False, "studyEffective", False),
@@ -343,52 +344,65 @@ class ResearchElementDefinitionCharacteristic(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import contactdetail
 except ImportError:
     contactdetail = sys.modules[__package__ + '.contactdetail']
+
 try:
     from . import datarequirement
 except ImportError:
     datarequirement = sys.modules[__package__ + '.datarequirement']
+
 try:
     from . import duration
 except ImportError:
     duration = sys.modules[__package__ + '.duration']
+
 try:
     from . import expression
 except ImportError:
     expression = sys.modules[__package__ + '.expression']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import relatedartifact
 except ImportError:
     relatedartifact = sys.modules[__package__ + '.relatedartifact']
+
 try:
     from . import timing
 except ImportError:
     timing = sys.modules[__package__ + '.timing']
+
 try:
     from . import usagecontext
 except ImportError:
     usagecontext = sys.modules[__package__ + '.usagecontext']
+

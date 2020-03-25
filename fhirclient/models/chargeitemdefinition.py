@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -46,19 +46,19 @@ class ChargeItemDefinition(domainresource.DomainResource):
         
         self.copyright = None
         """ Use and/or publishing restrictions.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.derivedFromUri = None
         """ Underlying externally-defined charge item definition.
-        List of `str` items. """
+        List of `FHIRUri` items (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the charge item definition.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.effectivePeriod = None
         """ When the charge item definition is expected to be used.
@@ -87,7 +87,7 @@ class ChargeItemDefinition(domainresource.DomainResource):
         self.partOf = None
         """ A larger definition of which this particular definition is a
         component or step.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.propertyGroup = None
         """ Group of properties which are applicable under the same conditions.
@@ -95,25 +95,25 @@ class ChargeItemDefinition(domainresource.DomainResource):
         
         self.publisher = None
         """ Name of the publisher (organization or individual).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.replaces = None
         """ Completed or terminated request(s) whose function is taken by this
         new request.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.status = None
         """ draft | active | retired | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.title = None
         """ Name for this charge item definition (human friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.url = None
         """ Canonical identifier for this charge item definition, represented
         as a URI (globally unique).
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.useContext = None
         """ The context that the content is intended to support.
@@ -121,7 +121,7 @@ class ChargeItemDefinition(domainresource.DomainResource):
         
         self.version = None
         """ Business version of the charge item definition.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ChargeItemDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -129,30 +129,31 @@ class ChargeItemDefinition(domainresource.DomainResource):
         js = super(ChargeItemDefinition, self).elementProperties()
         js.extend([
             ("applicability", "applicability", ChargeItemDefinitionApplicability, True, None, False),
-            ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
+            ("approvalDate", "approvalDate", fhirdatatypes.FHIRDate, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("derivedFromUri", "derivedFromUri", str, True, None, False),
-            ("description", "description", str, False, None, False),
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("derivedFromUri", "derivedFromUri", fhirdatatypes.FHIRUri, True, None, False),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("instance", "instance", fhirreference.FHIRReference, True, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("lastReviewDate", "lastReviewDate", fhirdate.FHIRDate, False, None, False),
-            ("partOf", "partOf", str, True, None, False),
+            ("lastReviewDate", "lastReviewDate", fhirdatatypes.FHIRDate, False, None, False),
+            ("partOf", "partOf", fhirdatatypes.FHIRCanonical, True, None, False),
             ("propertyGroup", "propertyGroup", ChargeItemDefinitionPropertyGroup, True, None, False),
-            ("publisher", "publisher", str, False, None, False),
-            ("replaces", "replaces", str, True, None, False),
-            ("status", "status", str, False, None, True),
-            ("title", "title", str, False, None, False),
-            ("url", "url", str, False, None, True),
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
+            ("replaces", "replaces", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, True),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("version", "version", str, False, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -175,26 +176,28 @@ class ChargeItemDefinitionApplicability(backboneelement.BackboneElement):
         
         self.description = None
         """ Natural language description of the condition.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.expression = None
         """ Boolean-valued expression.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.language = None
         """ Language of the expression.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ChargeItemDefinitionApplicability, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ChargeItemDefinitionApplicability, self).elementProperties()
         js.extend([
-            ("description", "description", str, False, None, False),
-            ("expression", "expression", str, False, None, False),
-            ("language", "language", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
+            ("expression", "expression", fhirdatatypes.FHIRString, False, None, False),
+            ("language", "language", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
+
 
 
 class ChargeItemDefinitionPropertyGroup(backboneelement.BackboneElement):
@@ -234,6 +237,8 @@ class ChargeItemDefinitionPropertyGroup(backboneelement.BackboneElement):
         return js
 
 
+
+
 class ChargeItemDefinitionPropertyGroupPriceComponent(backboneelement.BackboneElement):
     """ Components of total line item price.
     
@@ -269,7 +274,7 @@ class ChargeItemDefinitionPropertyGroupPriceComponent(backboneelement.BackboneEl
         
         self.type = None
         """ base | surcharge | deduction | discount | tax | informational.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(ChargeItemDefinitionPropertyGroupPriceComponent, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -279,9 +284,10 @@ class ChargeItemDefinitionPropertyGroupPriceComponent(backboneelement.BackboneEl
             ("amount", "amount", money.Money, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("factor", "factor", float, False, None, False),
-            ("type", "type", str, False, None, True),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -289,31 +295,39 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import contactdetail
 except ImportError:
     contactdetail = sys.modules[__package__ + '.contactdetail']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import money
 except ImportError:
     money = sys.modules[__package__ + '.money']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import usagecontext
 except ImportError:
     usagecontext = sys.modules[__package__ + '.usagecontext']
+

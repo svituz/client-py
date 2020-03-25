@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ImmunizationEvaluation) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ImmunizationEvaluation) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -31,19 +31,19 @@ class ImmunizationEvaluation(domainresource.DomainResource):
         
         self.date = None
         """ Date evaluation was performed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Evaluation notes.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.doseNumberPositiveInt = None
         """ Dose number within series.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.doseNumberString = None
         """ Dose number within series.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.doseStatus = None
         """ Status of the dose relative to published recommendations.
@@ -67,19 +67,19 @@ class ImmunizationEvaluation(domainresource.DomainResource):
         
         self.series = None
         """ Name of vaccine series.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.seriesDosesPositiveInt = None
         """ Recommended number of doses for immunity.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.seriesDosesString = None
         """ Recommended number of doses for immunity.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.status = None
         """ completed | entered-in-error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.targetDisease = None
         """ Evaluation target disease.
@@ -91,22 +91,23 @@ class ImmunizationEvaluation(domainresource.DomainResource):
         js = super(ImmunizationEvaluation, self).elementProperties()
         js.extend([
             ("authority", "authority", fhirreference.FHIRReference, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("description", "description", str, False, None, False),
-            ("doseNumberPositiveInt", "doseNumberPositiveInt", int, False, "doseNumber", False),
-            ("doseNumberString", "doseNumberString", str, False, "doseNumber", False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
+            ("doseNumberPositiveInt", "doseNumberPositiveInt", fhirdatatypes.FHIRPositiveInt, False, "doseNumber", False),
+            ("doseNumberString", "doseNumberString", fhirdatatypes.FHIRString, False, "doseNumber", False),
             ("doseStatus", "doseStatus", codeableconcept.CodeableConcept, False, None, True),
             ("doseStatusReason", "doseStatusReason", codeableconcept.CodeableConcept, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("immunizationEvent", "immunizationEvent", fhirreference.FHIRReference, False, None, True),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
-            ("series", "series", str, False, None, False),
-            ("seriesDosesPositiveInt", "seriesDosesPositiveInt", int, False, "seriesDoses", False),
-            ("seriesDosesString", "seriesDosesString", str, False, "seriesDoses", False),
-            ("status", "status", str, False, None, True),
+            ("series", "series", fhirdatatypes.FHIRString, False, None, False),
+            ("seriesDosesPositiveInt", "seriesDosesPositiveInt", fhirdatatypes.FHIRPositiveInt, False, "seriesDoses", False),
+            ("seriesDosesString", "seriesDosesString", fhirdatatypes.FHIRString, False, "seriesDoses", False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("targetDisease", "targetDisease", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -114,15 +115,19 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+

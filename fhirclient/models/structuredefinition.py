@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/StructureDefinition) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -31,7 +31,7 @@ class StructureDefinition(domainresource.DomainResource):
         
         self.baseDefinition = None
         """ Definition that this type is constrained/specialized from.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.contact = None
         """ Contact details for the publisher.
@@ -43,23 +43,23 @@ class StructureDefinition(domainresource.DomainResource):
         
         self.contextInvariant = None
         """ FHIRPath invariants - when the extension can be used.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.copyright = None
         """ Use and/or publishing restrictions.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.derivation = None
         """ specialization | constraint - How relates to base definition.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the structure definition.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.differential = None
         """ Differential view of the structure.
@@ -71,7 +71,7 @@ class StructureDefinition(domainresource.DomainResource):
         
         self.fhirVersion = None
         """ FHIR Version this StructureDefinition targets.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Additional identifier for the structure definition.
@@ -87,7 +87,7 @@ class StructureDefinition(domainresource.DomainResource):
         
         self.kind = None
         """ primitive-type | complex-type | resource | logical.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.mapping = None
         """ External specification that the content is mapped to.
@@ -95,15 +95,15 @@ class StructureDefinition(domainresource.DomainResource):
         
         self.name = None
         """ Name for this structure definition (computer friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.publisher = None
         """ Name of the publisher (organization or individual).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.purpose = None
         """ Why this structure definition is defined.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.snapshot = None
         """ Snapshot view of the structure.
@@ -111,20 +111,20 @@ class StructureDefinition(domainresource.DomainResource):
         
         self.status = None
         """ draft | active | retired | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.title = None
         """ Name for this structure definition (human friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ Type defined or constrained by this structure.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.url = None
         """ Canonical identifier for this structure definition, represented as
         a URI (globally unique).
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.useContext = None
         """ The context that the content is intended to support.
@@ -132,7 +132,7 @@ class StructureDefinition(domainresource.DomainResource):
         
         self.version = None
         """ Business version of the structure definition.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(StructureDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -140,34 +140,35 @@ class StructureDefinition(domainresource.DomainResource):
         js = super(StructureDefinition, self).elementProperties()
         js.extend([
             ("abstract", "abstract", bool, False, None, True),
-            ("baseDefinition", "baseDefinition", str, False, None, False),
+            ("baseDefinition", "baseDefinition", fhirdatatypes.FHIRCanonical, False, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("context", "context", StructureDefinitionContext, True, None, False),
-            ("contextInvariant", "contextInvariant", str, True, None, False),
-            ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("derivation", "derivation", str, False, None, False),
-            ("description", "description", str, False, None, False),
+            ("contextInvariant", "contextInvariant", fhirdatatypes.FHIRString, True, None, False),
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("derivation", "derivation", fhirdatatypes.FHIRCode, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("differential", "differential", StructureDefinitionDifferential, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
-            ("fhirVersion", "fhirVersion", str, False, None, False),
+            ("fhirVersion", "fhirVersion", fhirdatatypes.FHIRCode, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
             ("keyword", "keyword", coding.Coding, True, None, False),
-            ("kind", "kind", str, False, None, True),
+            ("kind", "kind", fhirdatatypes.FHIRCode, False, None, True),
             ("mapping", "mapping", StructureDefinitionMapping, True, None, False),
-            ("name", "name", str, False, None, True),
-            ("publisher", "publisher", str, False, None, False),
-            ("purpose", "purpose", str, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("snapshot", "snapshot", StructureDefinitionSnapshot, False, None, False),
-            ("status", "status", str, False, None, True),
-            ("title", "title", str, False, None, False),
-            ("type", "type", str, False, None, True),
-            ("url", "url", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRUri, False, None, True),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, True),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("version", "version", str, False, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -191,21 +192,23 @@ class StructureDefinitionContext(backboneelement.BackboneElement):
         
         self.expression = None
         """ Where the extension can be used in instances.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ fhirpath | element | extension.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(StructureDefinitionContext, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureDefinitionContext, self).elementProperties()
         js.extend([
-            ("expression", "expression", str, False, None, True),
-            ("type", "type", str, False, None, True),
+            ("expression", "expression", fhirdatatypes.FHIRString, False, None, True),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
+
 
 
 class StructureDefinitionDifferential(backboneelement.BackboneElement):
@@ -239,6 +242,8 @@ class StructureDefinitionDifferential(backboneelement.BackboneElement):
         return js
 
 
+
+
 class StructureDefinitionMapping(backboneelement.BackboneElement):
     """ External specification that the content is mapped to.
     
@@ -257,31 +262,33 @@ class StructureDefinitionMapping(backboneelement.BackboneElement):
         
         self.comment = None
         """ Versions, Issues, Scope limitations etc..
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.identity = None
         """ Internal id when this mapping is used.
-        Type `str`. """
+        Type `FHIRId` (represented as `str` in JSON). """
         
         self.name = None
         """ Names what this mapping refers to.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.uri = None
         """ Identifies what this mapping refers to.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         super(StructureDefinitionMapping, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureDefinitionMapping, self).elementProperties()
         js.extend([
-            ("comment", "comment", str, False, None, False),
-            ("identity", "identity", str, False, None, True),
-            ("name", "name", str, False, None, False),
-            ("uri", "uri", str, False, None, False),
+            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False),
+            ("identity", "identity", fhirdatatypes.FHIRId, False, None, True),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
+            ("uri", "uri", fhirdatatypes.FHIRUri, False, None, False),
         ])
         return js
+
+
 
 
 class StructureDefinitionSnapshot(backboneelement.BackboneElement):
@@ -315,32 +322,40 @@ class StructureDefinitionSnapshot(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import coding
 except ImportError:
     coding = sys.modules[__package__ + '.coding']
+
 try:
     from . import contactdetail
 except ImportError:
     contactdetail = sys.modules[__package__ + '.contactdetail']
+
 try:
     from . import elementdefinition
 except ImportError:
     elementdefinition = sys.modules[__package__ + '.elementdefinition']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import usagecontext
 except ImportError:
     usagecontext = sys.modules[__package__ + '.usagecontext']
+

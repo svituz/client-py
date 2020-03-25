@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/DeviceMetric) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DeviceMetric) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -31,11 +31,11 @@ class DeviceMetric(domainresource.DomainResource):
         
         self.category = None
         """ measurement | setting | calculation | unspecified.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.color = None
         """ black | red | green | yellow | blue | magenta | cyan | white.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Instance identifier.
@@ -47,7 +47,7 @@ class DeviceMetric(domainresource.DomainResource):
         
         self.operationalStatus = None
         """ on | off | standby | entered-in-error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.parent = None
         """ Describes the link to the parent Device.
@@ -71,17 +71,18 @@ class DeviceMetric(domainresource.DomainResource):
         js = super(DeviceMetric, self).elementProperties()
         js.extend([
             ("calibration", "calibration", DeviceMetricCalibration, True, None, False),
-            ("category", "category", str, False, None, True),
-            ("color", "color", str, False, None, False),
+            ("category", "category", fhirdatatypes.FHIRCode, False, None, True),
+            ("color", "color", fhirdatatypes.FHIRCode, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("measurementPeriod", "measurementPeriod", timing.Timing, False, None, False),
-            ("operationalStatus", "operationalStatus", str, False, None, False),
+            ("operationalStatus", "operationalStatus", fhirdatatypes.FHIRCode, False, None, False),
             ("parent", "parent", fhirreference.FHIRReference, False, None, False),
             ("source", "source", fhirreference.FHIRReference, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
             ("unit", "unit", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -103,26 +104,27 @@ class DeviceMetricCalibration(backboneelement.BackboneElement):
         
         self.state = None
         """ not-calibrated | calibration-required | calibrated | unspecified.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.time = None
         """ Describes the time last calibration has been performed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.type = None
         """ unspecified | offset | gain | two-point.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(DeviceMetricCalibration, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DeviceMetricCalibration, self).elementProperties()
         js.extend([
-            ("state", "state", str, False, None, False),
-            ("time", "time", fhirdate.FHIRDate, False, None, False),
-            ("type", "type", str, False, None, False),
+            ("state", "state", fhirdatatypes.FHIRCode, False, None, False),
+            ("time", "time", fhirdatatypes.FHIRInstant, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -130,19 +132,24 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import timing
 except ImportError:
     timing = sys.modules[__package__ + '.timing']
+

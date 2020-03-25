@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Organization) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Organization) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -37,7 +37,7 @@ class Organization(domainresource.DomainResource):
         self.alias = None
         """ A list of alternate names that the organization is known as, or was
         known as in the past.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.contact = None
         """ Contact for the organization for a certain purpose.
@@ -54,7 +54,7 @@ class Organization(domainresource.DomainResource):
         
         self.name = None
         """ Name used for the organization.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.partOf = None
         """ The organization of which this organization forms a part.
@@ -75,16 +75,17 @@ class Organization(domainresource.DomainResource):
         js.extend([
             ("active", "active", bool, False, None, False),
             ("address", "address", address.Address, True, None, False),
-            ("alias", "alias", str, True, None, False),
+            ("alias", "alias", fhirdatatypes.FHIRString, True, None, False),
             ("contact", "contact", OrganizationContact, True, None, False),
             ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("name", "name", str, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
             ("partOf", "partOf", fhirreference.FHIRReference, False, None, False),
             ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -132,28 +133,40 @@ class OrganizationContact(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import address
 except ImportError:
     address = sys.modules[__package__ + '.address']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import contactpoint
 except ImportError:
     contactpoint = sys.modules[__package__ + '.contactpoint']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import humanname
 except ImportError:
     humanname = sys.modules[__package__ + '.humanname']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+

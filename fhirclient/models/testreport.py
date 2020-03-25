@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/TestReport) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/TestReport) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -29,11 +29,11 @@ class TestReport(domainresource.DomainResource):
         
         self.issued = None
         """ When the TestScript was executed and this TestReport was generated.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.name = None
         """ Informal name of the executed TestScript.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.participant = None
         """ A participant in the test execution, either the execution engine, a
@@ -42,7 +42,7 @@ class TestReport(domainresource.DomainResource):
         
         self.result = None
         """ pass | fail | pending.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.score = None
         """ The final score (percentage of tests passed) resulting from the
@@ -56,7 +56,7 @@ class TestReport(domainresource.DomainResource):
         
         self.status = None
         """ completed | in-progress | waiting | stopped | entered-in-error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.teardown = None
         """ The results of running the series of required clean up steps.
@@ -74,7 +74,7 @@ class TestReport(domainresource.DomainResource):
         self.tester = None
         """ Name of the tester producing this report (Organization or
         individual).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(TestReport, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -82,19 +82,20 @@ class TestReport(domainresource.DomainResource):
         js = super(TestReport, self).elementProperties()
         js.extend([
             ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("issued", "issued", fhirdate.FHIRDate, False, None, False),
-            ("name", "name", str, False, None, False),
+            ("issued", "issued", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
             ("participant", "participant", TestReportParticipant, True, None, False),
-            ("result", "result", str, False, None, True),
+            ("result", "result", fhirdatatypes.FHIRCode, False, None, True),
             ("score", "score", float, False, None, False),
             ("setup", "setup", TestReportSetup, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("teardown", "teardown", TestReportTeardown, False, None, False),
             ("test", "test", TestReportTest, True, None, False),
             ("testScript", "testScript", fhirreference.FHIRReference, False, None, True),
-            ("tester", "tester", str, False, None, False),
+            ("tester", "tester", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -116,26 +117,28 @@ class TestReportParticipant(backboneelement.BackboneElement):
         
         self.display = None
         """ The display name of the participant.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ test-engine | client | server.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.uri = None
         """ The uri of the participant. An absolute URL is preferred.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         super(TestReportParticipant, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestReportParticipant, self).elementProperties()
         js.extend([
-            ("display", "display", str, False, None, False),
-            ("type", "type", str, False, None, True),
-            ("uri", "uri", str, False, None, True),
+            ("display", "display", fhirdatatypes.FHIRString, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
+            ("uri", "uri", fhirdatatypes.FHIRUri, False, None, True),
         ])
         return js
+
+
 
 
 class TestReportSetup(backboneelement.BackboneElement):
@@ -165,6 +168,8 @@ class TestReportSetup(backboneelement.BackboneElement):
             ("action", "action", TestReportSetupAction, True, None, True),
         ])
         return js
+
+
 
 
 class TestReportSetupAction(backboneelement.BackboneElement):
@@ -202,6 +207,8 @@ class TestReportSetupAction(backboneelement.BackboneElement):
         return js
 
 
+
+
 class TestReportSetupActionAssert(backboneelement.BackboneElement):
     """ The assertion to perform.
     
@@ -220,26 +227,28 @@ class TestReportSetupActionAssert(backboneelement.BackboneElement):
         
         self.detail = None
         """ A link to further details on the result.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.message = None
         """ A message associated with the result.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.result = None
         """ pass | skip | fail | warning | error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(TestReportSetupActionAssert, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestReportSetupActionAssert, self).elementProperties()
         js.extend([
-            ("detail", "detail", str, False, None, False),
-            ("message", "message", str, False, None, False),
-            ("result", "result", str, False, None, True),
+            ("detail", "detail", fhirdatatypes.FHIRString, False, None, False),
+            ("message", "message", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("result", "result", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
+
 
 
 class TestReportSetupActionOperation(backboneelement.BackboneElement):
@@ -260,26 +269,28 @@ class TestReportSetupActionOperation(backboneelement.BackboneElement):
         
         self.detail = None
         """ A link to further details on the result.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.message = None
         """ A message associated with the result.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.result = None
         """ pass | skip | fail | warning | error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(TestReportSetupActionOperation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestReportSetupActionOperation, self).elementProperties()
         js.extend([
-            ("detail", "detail", str, False, None, False),
-            ("message", "message", str, False, None, False),
-            ("result", "result", str, False, None, True),
+            ("detail", "detail", fhirdatatypes.FHIRUri, False, None, False),
+            ("message", "message", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("result", "result", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
+
 
 
 class TestReportTeardown(backboneelement.BackboneElement):
@@ -313,6 +324,8 @@ class TestReportTeardown(backboneelement.BackboneElement):
         return js
 
 
+
+
 class TestReportTeardownAction(backboneelement.BackboneElement):
     """ One or more teardown operations performed.
     
@@ -343,6 +356,8 @@ class TestReportTeardownAction(backboneelement.BackboneElement):
         return js
 
 
+
+
 class TestReportTest(backboneelement.BackboneElement):
     """ A test executed from the test script.
     """
@@ -363,11 +378,11 @@ class TestReportTest(backboneelement.BackboneElement):
         
         self.description = None
         """ Tracking/reporting short description of the test.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.name = None
         """ Tracking/logging name of this test.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(TestReportTest, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -375,10 +390,12 @@ class TestReportTest(backboneelement.BackboneElement):
         js = super(TestReportTest, self).elementProperties()
         js.extend([
             ("action", "action", TestReportTestAction, True, None, True),
-            ("description", "description", str, False, None, False),
-            ("name", "name", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
+
 
 
 class TestReportTestAction(backboneelement.BackboneElement):
@@ -416,16 +433,20 @@ class TestReportTestAction(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+

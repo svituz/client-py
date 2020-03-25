@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/OperationOutcome) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/OperationOutcome) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -38,6 +38,7 @@ class OperationOutcome(domainresource.DomainResource):
         return js
 
 
+
 from . import backboneelement
 
 class OperationOutcomeIssue(backboneelement.BackboneElement):
@@ -59,7 +60,7 @@ class OperationOutcomeIssue(backboneelement.BackboneElement):
         
         self.code = None
         """ Error or warning code.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.details = None
         """ Additional details about the error.
@@ -67,33 +68,34 @@ class OperationOutcomeIssue(backboneelement.BackboneElement):
         
         self.diagnostics = None
         """ Additional diagnostic information about the issue.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.expression = None
         """ FHIRPath of element(s) related to issue.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.location = None
         """ Deprecated: Path of element(s) related to issue.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.severity = None
         """ fatal | error | warning | information.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(OperationOutcomeIssue, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(OperationOutcomeIssue, self).elementProperties()
         js.extend([
-            ("code", "code", str, False, None, True),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
             ("details", "details", codeableconcept.CodeableConcept, False, None, False),
-            ("diagnostics", "diagnostics", str, False, None, False),
-            ("expression", "expression", str, True, None, False),
-            ("location", "location", str, True, None, False),
-            ("severity", "severity", str, False, None, True),
+            ("diagnostics", "diagnostics", fhirdatatypes.FHIRString, False, None, False),
+            ("expression", "expression", fhirdatatypes.FHIRString, True, None, False),
+            ("location", "location", fhirdatatypes.FHIRString, True, None, False),
+            ("severity", "severity", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -101,3 +103,9 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+

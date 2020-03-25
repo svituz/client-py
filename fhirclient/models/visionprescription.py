@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/VisionPrescription) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/VisionPrescription) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -26,11 +26,11 @@ class VisionPrescription(domainresource.DomainResource):
         
         self.created = None
         """ Response creation date.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.dateWritten = None
         """ When prescription was authorized.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.encounter = None
         """ Created during encounter / admission / stay.
@@ -54,23 +54,24 @@ class VisionPrescription(domainresource.DomainResource):
         
         self.status = None
         """ active | cancelled | draft | entered-in-error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(VisionPrescription, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(VisionPrescription, self).elementProperties()
         js.extend([
-            ("created", "created", fhirdate.FHIRDate, False, None, True),
-            ("dateWritten", "dateWritten", fhirdate.FHIRDate, False, None, True),
+            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, True),
+            ("dateWritten", "dateWritten", fhirdatatypes.FHIRDateTime, False, None, True),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("lensSpecification", "lensSpecification", VisionPrescriptionLensSpecification, True, None, True),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("prescriber", "prescriber", fhirreference.FHIRReference, False, None, True),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -106,11 +107,11 @@ class VisionPrescriptionLensSpecification(backboneelement.BackboneElement):
         
         self.brand = None
         """ Brand required.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.color = None
         """ Color required.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.cylinder = None
         """ Lens power for astigmatism.
@@ -126,7 +127,7 @@ class VisionPrescriptionLensSpecification(backboneelement.BackboneElement):
         
         self.eye = None
         """ right | left.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.note = None
         """ Notes for coatings.
@@ -156,12 +157,12 @@ class VisionPrescriptionLensSpecification(backboneelement.BackboneElement):
             ("add", "add", float, False, None, False),
             ("axis", "axis", int, False, None, False),
             ("backCurve", "backCurve", float, False, None, False),
-            ("brand", "brand", str, False, None, False),
-            ("color", "color", str, False, None, False),
+            ("brand", "brand", fhirdatatypes.FHIRString, False, None, False),
+            ("color", "color", fhirdatatypes.FHIRString, False, None, False),
             ("cylinder", "cylinder", float, False, None, False),
             ("diameter", "diameter", float, False, None, False),
             ("duration", "duration", quantity.Quantity, False, None, False),
-            ("eye", "eye", str, False, None, True),
+            ("eye", "eye", fhirdatatypes.FHIRCode, False, None, True),
             ("note", "note", annotation.Annotation, True, None, False),
             ("power", "power", float, False, None, False),
             ("prism", "prism", VisionPrescriptionLensSpecificationPrism, True, None, False),
@@ -169,6 +170,8 @@ class VisionPrescriptionLensSpecification(backboneelement.BackboneElement):
             ("sphere", "sphere", float, False, None, False),
         ])
         return js
+
+
 
 
 class VisionPrescriptionLensSpecificationPrism(backboneelement.BackboneElement):
@@ -193,7 +196,7 @@ class VisionPrescriptionLensSpecificationPrism(backboneelement.BackboneElement):
         
         self.base = None
         """ up | down | in | out.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(VisionPrescriptionLensSpecificationPrism, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -201,9 +204,10 @@ class VisionPrescriptionLensSpecificationPrism(backboneelement.BackboneElement):
         js = super(VisionPrescriptionLensSpecificationPrism, self).elementProperties()
         js.extend([
             ("amount", "amount", float, False, None, True),
-            ("base", "base", str, False, None, True),
+            ("base", "base", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -211,23 +215,29 @@ try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+

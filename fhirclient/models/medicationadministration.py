@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MedicationAdministration) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicationAdministration) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -45,7 +45,7 @@ class MedicationAdministration(domainresource.DomainResource):
         
         self.effectiveDateTime = None
         """ Start and end time of administration.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.effectivePeriod = None
         """ Start and end time of administration.
@@ -61,7 +61,7 @@ class MedicationAdministration(domainresource.DomainResource):
         
         self.instantiates = None
         """ Instantiates protocol or definition.
-        List of `str` items. """
+        List of `FHIRUri` items (represented as `str` in JSON). """
         
         self.medicationCodeableConcept = None
         """ What was administered.
@@ -99,7 +99,7 @@ class MedicationAdministration(domainresource.DomainResource):
         self.status = None
         """ in-progress | not-done | on-hold | completed | entered-in-error |
         stopped | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.statusReason = None
         """ Reason administration not performed.
@@ -122,11 +122,11 @@ class MedicationAdministration(domainresource.DomainResource):
             ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("device", "device", fhirreference.FHIRReference, True, None, False),
             ("dosage", "dosage", MedicationAdministrationDosage, False, None, False),
-            ("effectiveDateTime", "effectiveDateTime", fhirdate.FHIRDate, False, "effective", True),
+            ("effectiveDateTime", "effectiveDateTime", fhirdatatypes.FHIRDateTime, False, "effective", True),
             ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", True),
             ("eventHistory", "eventHistory", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("instantiates", "instantiates", str, True, None, False),
+            ("instantiates", "instantiates", fhirdatatypes.FHIRUri, True, None, False),
             ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", True),
             ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True),
             ("note", "note", annotation.Annotation, True, None, False),
@@ -135,12 +135,13 @@ class MedicationAdministration(domainresource.DomainResource):
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("request", "request", fhirreference.FHIRReference, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("statusReason", "statusReason", codeableconcept.CodeableConcept, True, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
             ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -188,7 +189,7 @@ class MedicationAdministrationDosage(backboneelement.BackboneElement):
         
         self.text = None
         """ Free text dosage instructions e.g. SIG.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(MedicationAdministrationDosage, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -201,9 +202,11 @@ class MedicationAdministrationDosage(backboneelement.BackboneElement):
             ("rateRatio", "rateRatio", ratio.Ratio, False, "rate", False),
             ("route", "route", codeableconcept.CodeableConcept, False, None, False),
             ("site", "site", codeableconcept.CodeableConcept, False, None, False),
-            ("text", "text", str, False, None, False),
+            ("text", "text", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
+
 
 
 class MedicationAdministrationPerformer(backboneelement.BackboneElement):
@@ -242,36 +245,45 @@ class MedicationAdministrationPerformer(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+
 try:
     from . import ratio
 except ImportError:
     ratio = sys.modules[__package__ + '.ratio']
+

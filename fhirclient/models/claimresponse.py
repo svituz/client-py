@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ClaimResponse) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ClaimResponse) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -38,11 +38,11 @@ class ClaimResponse(domainresource.DomainResource):
         
         self.created = None
         """ Response creation date.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.disposition = None
         """ Disposition Message.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.error = None
         """ Processing errors.
@@ -78,7 +78,7 @@ class ClaimResponse(domainresource.DomainResource):
         
         self.outcome = None
         """ queued | complete | error | partial.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.patient = None
         """ The recipient of the products and services.
@@ -98,7 +98,7 @@ class ClaimResponse(domainresource.DomainResource):
         
         self.preAuthRef = None
         """ Preauthorization reference.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.processNote = None
         """ Note concerning adjudication.
@@ -114,7 +114,7 @@ class ClaimResponse(domainresource.DomainResource):
         
         self.status = None
         """ active | cancelled | draft | entered-in-error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subType = None
         """ More granular claim type.
@@ -130,7 +130,7 @@ class ClaimResponse(domainresource.DomainResource):
         
         self.use = None
         """ claim | preauthorization | predetermination.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(ClaimResponse, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -140,8 +140,8 @@ class ClaimResponse(domainresource.DomainResource):
             ("addItem", "addItem", ClaimResponseAddItem, True, None, False),
             ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, False),
             ("communicationRequest", "communicationRequest", fhirreference.FHIRReference, True, None, False),
-            ("created", "created", fhirdate.FHIRDate, False, None, True),
-            ("disposition", "disposition", str, False, None, False),
+            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, True),
+            ("disposition", "disposition", fhirdatatypes.FHIRString, False, None, False),
             ("error", "error", ClaimResponseError, True, None, False),
             ("form", "form", attachment.Attachment, False, None, False),
             ("formCode", "formCode", codeableconcept.CodeableConcept, False, None, False),
@@ -150,22 +150,23 @@ class ClaimResponse(domainresource.DomainResource):
             ("insurance", "insurance", ClaimResponseInsurance, True, None, False),
             ("insurer", "insurer", fhirreference.FHIRReference, False, None, True),
             ("item", "item", ClaimResponseItem, True, None, False),
-            ("outcome", "outcome", str, False, None, True),
+            ("outcome", "outcome", fhirdatatypes.FHIRCode, False, None, True),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
             ("payeeType", "payeeType", codeableconcept.CodeableConcept, False, None, False),
             ("payment", "payment", ClaimResponsePayment, False, None, False),
             ("preAuthPeriod", "preAuthPeriod", period.Period, False, None, False),
-            ("preAuthRef", "preAuthRef", str, False, None, False),
+            ("preAuthRef", "preAuthRef", fhirdatatypes.FHIRString, False, None, False),
             ("processNote", "processNote", ClaimResponseProcessNote, True, None, False),
             ("request", "request", fhirreference.FHIRReference, False, None, False),
             ("requestor", "requestor", fhirreference.FHIRReference, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("subType", "subType", codeableconcept.CodeableConcept, False, None, False),
             ("total", "total", ClaimResponseTotal, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
-            ("use", "use", str, False, None, True),
+            ("use", "use", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -201,7 +202,7 @@ class ClaimResponseAddItem(backboneelement.BackboneElement):
         
         self.detailSequence = None
         """ Detail sequence number.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.factor = None
         """ Price scaling factor.
@@ -209,7 +210,7 @@ class ClaimResponseAddItem(backboneelement.BackboneElement):
         
         self.itemSequence = None
         """ Item sequence number.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.locationAddress = None
         """ Place of service or where product was supplied.
@@ -233,7 +234,7 @@ class ClaimResponseAddItem(backboneelement.BackboneElement):
         
         self.noteNumber = None
         """ Applicable note numbers.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.productOrService = None
         """ Billing, service, product, or drug code.
@@ -265,7 +266,7 @@ class ClaimResponseAddItem(backboneelement.BackboneElement):
         
         self.subdetailSequence = None
         """ Subdetail sequence number.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.unitPrice = None
         """ Fee, charge or cost per item.
@@ -279,26 +280,28 @@ class ClaimResponseAddItem(backboneelement.BackboneElement):
             ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, True),
             ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False),
             ("detail", "detail", ClaimResponseAddItemDetail, True, None, False),
-            ("detailSequence", "detailSequence", int, True, None, False),
+            ("detailSequence", "detailSequence", fhirdatatypes.FHIRPositiveInt, True, None, False),
             ("factor", "factor", float, False, None, False),
-            ("itemSequence", "itemSequence", int, True, None, False),
+            ("itemSequence", "itemSequence", fhirdatatypes.FHIRPositiveInt, True, None, False),
             ("locationAddress", "locationAddress", address.Address, False, "location", False),
             ("locationCodeableConcept", "locationCodeableConcept", codeableconcept.CodeableConcept, False, "location", False),
             ("locationReference", "locationReference", fhirreference.FHIRReference, False, "location", False),
             ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
             ("net", "net", money.Money, False, None, False),
-            ("noteNumber", "noteNumber", int, True, None, False),
+            ("noteNumber", "noteNumber", fhirdatatypes.FHIRPositiveInt, True, None, False),
             ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
             ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False),
             ("provider", "provider", fhirreference.FHIRReference, True, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("servicedDate", "servicedDate", fhirdate.FHIRDate, False, "serviced", False),
+            ("servicedDate", "servicedDate", fhirdatatypes.FHIRDate, False, "serviced", False),
             ("servicedPeriod", "servicedPeriod", period.Period, False, "serviced", False),
             ("subSite", "subSite", codeableconcept.CodeableConcept, True, None, False),
-            ("subdetailSequence", "subdetailSequence", int, True, None, False),
+            ("subdetailSequence", "subdetailSequence", fhirdatatypes.FHIRPositiveInt, True, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
         return js
+
+
 
 
 class ClaimResponseAddItemDetail(backboneelement.BackboneElement):
@@ -335,7 +338,7 @@ class ClaimResponseAddItemDetail(backboneelement.BackboneElement):
         
         self.noteNumber = None
         """ Applicable note numbers.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.productOrService = None
         """ Billing, service, product, or drug code.
@@ -362,13 +365,15 @@ class ClaimResponseAddItemDetail(backboneelement.BackboneElement):
             ("factor", "factor", float, False, None, False),
             ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
             ("net", "net", money.Money, False, None, False),
-            ("noteNumber", "noteNumber", int, True, None, False),
+            ("noteNumber", "noteNumber", fhirdatatypes.FHIRPositiveInt, True, None, False),
             ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("subDetail", "subDetail", ClaimResponseAddItemDetailSubDetail, True, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
         return js
+
+
 
 
 class ClaimResponseAddItemDetailSubDetail(backboneelement.BackboneElement):
@@ -405,7 +410,7 @@ class ClaimResponseAddItemDetailSubDetail(backboneelement.BackboneElement):
         
         self.noteNumber = None
         """ Applicable note numbers.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.productOrService = None
         """ Billing, service, product, or drug code.
@@ -428,12 +433,14 @@ class ClaimResponseAddItemDetailSubDetail(backboneelement.BackboneElement):
             ("factor", "factor", float, False, None, False),
             ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
             ("net", "net", money.Money, False, None, False),
-            ("noteNumber", "noteNumber", int, True, None, False),
+            ("noteNumber", "noteNumber", fhirdatatypes.FHIRPositiveInt, True, None, False),
             ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
         return js
+
+
 
 
 class ClaimResponseError(backboneelement.BackboneElement):
@@ -458,15 +465,15 @@ class ClaimResponseError(backboneelement.BackboneElement):
         
         self.detailSequence = None
         """ Detail sequence number.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.itemSequence = None
         """ Item sequence number.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.subDetailSequence = None
         """ Subdetail sequence number.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         super(ClaimResponseError, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -474,11 +481,13 @@ class ClaimResponseError(backboneelement.BackboneElement):
         js = super(ClaimResponseError, self).elementProperties()
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("detailSequence", "detailSequence", int, False, None, False),
-            ("itemSequence", "itemSequence", int, False, None, False),
-            ("subDetailSequence", "subDetailSequence", int, False, None, False),
+            ("detailSequence", "detailSequence", fhirdatatypes.FHIRPositiveInt, False, None, False),
+            ("itemSequence", "itemSequence", fhirdatatypes.FHIRPositiveInt, False, None, False),
+            ("subDetailSequence", "subDetailSequence", fhirdatatypes.FHIRPositiveInt, False, None, False),
         ])
         return js
+
+
 
 
 class ClaimResponseInsurance(backboneelement.BackboneElement):
@@ -500,7 +509,7 @@ class ClaimResponseInsurance(backboneelement.BackboneElement):
         
         self.businessArrangement = None
         """ Additional provider contract number.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.claimResponse = None
         """ Adjudication results.
@@ -516,20 +525,22 @@ class ClaimResponseInsurance(backboneelement.BackboneElement):
         
         self.sequence = None
         """ Insurance instance identifier.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         super(ClaimResponseInsurance, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimResponseInsurance, self).elementProperties()
         js.extend([
-            ("businessArrangement", "businessArrangement", str, False, None, False),
+            ("businessArrangement", "businessArrangement", fhirdatatypes.FHIRString, False, None, False),
             ("claimResponse", "claimResponse", fhirreference.FHIRReference, False, None, False),
             ("coverage", "coverage", fhirreference.FHIRReference, False, None, True),
             ("focal", "focal", bool, False, None, True),
-            ("sequence", "sequence", int, False, None, True),
+            ("sequence", "sequence", fhirdatatypes.FHIRPositiveInt, False, None, True),
         ])
         return js
+
+
 
 
 class ClaimResponseItem(backboneelement.BackboneElement):
@@ -559,11 +570,11 @@ class ClaimResponseItem(backboneelement.BackboneElement):
         
         self.itemSequence = None
         """ Claim item instance identifier.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.noteNumber = None
         """ Applicable note numbers.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         super(ClaimResponseItem, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -572,10 +583,12 @@ class ClaimResponseItem(backboneelement.BackboneElement):
         js.extend([
             ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, True),
             ("detail", "detail", ClaimResponseItemDetail, True, None, False),
-            ("itemSequence", "itemSequence", int, False, None, True),
-            ("noteNumber", "noteNumber", int, True, None, False),
+            ("itemSequence", "itemSequence", fhirdatatypes.FHIRPositiveInt, False, None, True),
+            ("noteNumber", "noteNumber", fhirdatatypes.FHIRPositiveInt, True, None, False),
         ])
         return js
+
+
 
 
 class ClaimResponseItemAdjudication(backboneelement.BackboneElement):
@@ -625,6 +638,8 @@ class ClaimResponseItemAdjudication(backboneelement.BackboneElement):
         return js
 
 
+
+
 class ClaimResponseItemDetail(backboneelement.BackboneElement):
     """ Adjudication for claim details.
     
@@ -648,11 +663,11 @@ class ClaimResponseItemDetail(backboneelement.BackboneElement):
         
         self.detailSequence = None
         """ Claim detail instance identifier.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.noteNumber = None
         """ Applicable note numbers.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.subDetail = None
         """ Adjudication for claim sub-details.
@@ -664,11 +679,13 @@ class ClaimResponseItemDetail(backboneelement.BackboneElement):
         js = super(ClaimResponseItemDetail, self).elementProperties()
         js.extend([
             ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, True),
-            ("detailSequence", "detailSequence", int, False, None, True),
-            ("noteNumber", "noteNumber", int, True, None, False),
+            ("detailSequence", "detailSequence", fhirdatatypes.FHIRPositiveInt, False, None, True),
+            ("noteNumber", "noteNumber", fhirdatatypes.FHIRPositiveInt, True, None, False),
             ("subDetail", "subDetail", ClaimResponseItemDetailSubDetail, True, None, False),
         ])
         return js
+
+
 
 
 class ClaimResponseItemDetailSubDetail(backboneelement.BackboneElement):
@@ -693,11 +710,11 @@ class ClaimResponseItemDetailSubDetail(backboneelement.BackboneElement):
         
         self.noteNumber = None
         """ Applicable note numbers.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.subDetailSequence = None
         """ Claim sub-detail instance identifier.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         super(ClaimResponseItemDetailSubDetail, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -705,10 +722,12 @@ class ClaimResponseItemDetailSubDetail(backboneelement.BackboneElement):
         js = super(ClaimResponseItemDetailSubDetail, self).elementProperties()
         js.extend([
             ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, False),
-            ("noteNumber", "noteNumber", int, True, None, False),
-            ("subDetailSequence", "subDetailSequence", int, False, None, True),
+            ("noteNumber", "noteNumber", fhirdatatypes.FHIRPositiveInt, True, None, False),
+            ("subDetailSequence", "subDetailSequence", fhirdatatypes.FHIRPositiveInt, False, None, True),
         ])
         return js
+
+
 
 
 class ClaimResponsePayment(backboneelement.BackboneElement):
@@ -759,11 +778,13 @@ class ClaimResponsePayment(backboneelement.BackboneElement):
             ("adjustment", "adjustment", money.Money, False, None, False),
             ("adjustmentReason", "adjustmentReason", codeableconcept.CodeableConcept, False, None, False),
             ("amount", "amount", money.Money, False, None, True),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDate, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
+
+
 
 
 class ClaimResponseProcessNote(backboneelement.BackboneElement):
@@ -789,15 +810,15 @@ class ClaimResponseProcessNote(backboneelement.BackboneElement):
         
         self.number = None
         """ Note instance identifier.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.text = None
         """ Note explanatory text.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ display | print | printoper.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(ClaimResponseProcessNote, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -805,11 +826,13 @@ class ClaimResponseProcessNote(backboneelement.BackboneElement):
         js = super(ClaimResponseProcessNote, self).elementProperties()
         js.extend([
             ("language", "language", codeableconcept.CodeableConcept, False, None, False),
-            ("number", "number", int, False, None, False),
-            ("text", "text", str, False, None, True),
-            ("type", "type", str, False, None, False),
+            ("number", "number", fhirdatatypes.FHIRPositiveInt, False, None, False),
+            ("text", "text", fhirdatatypes.FHIRString, False, None, True),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, False),
         ])
         return js
+
+
 
 
 class ClaimResponseTotal(backboneelement.BackboneElement):
@@ -847,40 +870,50 @@ class ClaimResponseTotal(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import address
 except ImportError:
     address = sys.modules[__package__ + '.address']
+
 try:
     from . import attachment
 except ImportError:
     attachment = sys.modules[__package__ + '.attachment']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import money
 except ImportError:
     money = sys.modules[__package__ + '.money']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+

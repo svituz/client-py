@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Claim) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Claim) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -39,7 +39,7 @@ class Claim(domainresource.DomainResource):
         
         self.created = None
         """ Resource creation date.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.diagnosis = None
         """ Pertinent diagnosis information.
@@ -111,7 +111,7 @@ class Claim(domainresource.DomainResource):
         
         self.status = None
         """ active | cancelled | draft | entered-in-error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subType = None
         """ More granular claim type.
@@ -131,7 +131,7 @@ class Claim(domainresource.DomainResource):
         
         self.use = None
         """ claim | preauthorization | predetermination.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(Claim, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -141,7 +141,7 @@ class Claim(domainresource.DomainResource):
             ("accident", "accident", ClaimAccident, False, None, False),
             ("billablePeriod", "billablePeriod", period.Period, False, None, False),
             ("careTeam", "careTeam", ClaimCareTeam, True, None, False),
-            ("created", "created", fhirdate.FHIRDate, False, None, True),
+            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, True),
             ("diagnosis", "diagnosis", ClaimDiagnosis, True, None, False),
             ("enterer", "enterer", fhirreference.FHIRReference, False, None, False),
             ("facility", "facility", fhirreference.FHIRReference, False, None, False),
@@ -159,14 +159,15 @@ class Claim(domainresource.DomainResource):
             ("provider", "provider", fhirreference.FHIRReference, False, None, True),
             ("referral", "referral", fhirreference.FHIRReference, False, None, False),
             ("related", "related", ClaimRelated, True, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("subType", "subType", codeableconcept.CodeableConcept, False, None, False),
             ("supportingInfo", "supportingInfo", ClaimSupportingInfo, True, None, False),
             ("total", "total", money.Money, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
-            ("use", "use", str, False, None, True),
+            ("use", "use", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -209,12 +210,14 @@ class ClaimAccident(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimAccident, self).elementProperties()
         js.extend([
-            ("date", "date", fhirdate.FHIRDate, False, None, True),
+            ("date", "date", fhirdatatypes.FHIRDate, False, None, True),
             ("locationAddress", "locationAddress", address.Address, False, "location", False),
             ("locationReference", "locationReference", fhirreference.FHIRReference, False, "location", False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class ClaimCareTeam(backboneelement.BackboneElement):
@@ -251,7 +254,7 @@ class ClaimCareTeam(backboneelement.BackboneElement):
         
         self.sequence = None
         """ Order of care team.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         super(ClaimCareTeam, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -262,9 +265,11 @@ class ClaimCareTeam(backboneelement.BackboneElement):
             ("qualification", "qualification", codeableconcept.CodeableConcept, False, None, False),
             ("responsible", "responsible", bool, False, None, False),
             ("role", "role", codeableconcept.CodeableConcept, False, None, False),
-            ("sequence", "sequence", int, False, None, True),
+            ("sequence", "sequence", fhirdatatypes.FHIRPositiveInt, False, None, True),
         ])
         return js
+
+
 
 
 class ClaimDiagnosis(backboneelement.BackboneElement):
@@ -301,7 +306,7 @@ class ClaimDiagnosis(backboneelement.BackboneElement):
         
         self.sequence = None
         """ Diagnosis instance identifier.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.type = None
         """ Timing or nature of the diagnosis.
@@ -316,10 +321,12 @@ class ClaimDiagnosis(backboneelement.BackboneElement):
             ("diagnosisReference", "diagnosisReference", fhirreference.FHIRReference, False, "diagnosis", True),
             ("onAdmission", "onAdmission", codeableconcept.CodeableConcept, False, None, False),
             ("packageCode", "packageCode", codeableconcept.CodeableConcept, False, None, False),
-            ("sequence", "sequence", int, False, None, True),
+            ("sequence", "sequence", fhirdatatypes.FHIRPositiveInt, False, None, True),
             ("type", "type", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
+
+
 
 
 class ClaimInsurance(backboneelement.BackboneElement):
@@ -341,7 +348,7 @@ class ClaimInsurance(backboneelement.BackboneElement):
         
         self.businessArrangement = None
         """ Additional provider contract number.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.claimResponse = None
         """ Adjudication results.
@@ -361,26 +368,28 @@ class ClaimInsurance(backboneelement.BackboneElement):
         
         self.preAuthRef = None
         """ Prior authorization reference number.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.sequence = None
         """ Insurance instance identifier.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         super(ClaimInsurance, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ClaimInsurance, self).elementProperties()
         js.extend([
-            ("businessArrangement", "businessArrangement", str, False, None, False),
+            ("businessArrangement", "businessArrangement", fhirdatatypes.FHIRString, False, None, False),
             ("claimResponse", "claimResponse", fhirreference.FHIRReference, False, None, False),
             ("coverage", "coverage", fhirreference.FHIRReference, False, None, True),
             ("focal", "focal", bool, False, None, True),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("preAuthRef", "preAuthRef", str, True, None, False),
-            ("sequence", "sequence", int, False, None, True),
+            ("preAuthRef", "preAuthRef", fhirdatatypes.FHIRString, True, None, False),
+            ("sequence", "sequence", fhirdatatypes.FHIRPositiveInt, False, None, True),
         ])
         return js
+
+
 
 
 class ClaimItem(backboneelement.BackboneElement):
@@ -406,7 +415,7 @@ class ClaimItem(backboneelement.BackboneElement):
         
         self.careTeamSequence = None
         """ Applicable careTeam members.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.category = None
         """ Benefit classification.
@@ -418,7 +427,7 @@ class ClaimItem(backboneelement.BackboneElement):
         
         self.diagnosisSequence = None
         """ Applicable diagnoses.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.encounter = None
         """ Encounters related to this billed item.
@@ -430,7 +439,7 @@ class ClaimItem(backboneelement.BackboneElement):
         
         self.informationSequence = None
         """ Applicable exception and supporting information.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.locationAddress = None
         """ Place of service or where product was supplied.
@@ -454,7 +463,7 @@ class ClaimItem(backboneelement.BackboneElement):
         
         self.procedureSequence = None
         """ Applicable procedures.
-        List of `int` items. """
+        List of `FHIRPositiveInt` items (represented as `int` in JSON). """
         
         self.productOrService = None
         """ Billing, service, product, or drug code.
@@ -474,7 +483,7 @@ class ClaimItem(backboneelement.BackboneElement):
         
         self.sequence = None
         """ Item instance identifier.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.servicedDate = None
         """ Date or dates of service or product delivery.
@@ -502,31 +511,33 @@ class ClaimItem(backboneelement.BackboneElement):
         js = super(ClaimItem, self).elementProperties()
         js.extend([
             ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False),
-            ("careTeamSequence", "careTeamSequence", int, True, None, False),
+            ("careTeamSequence", "careTeamSequence", fhirdatatypes.FHIRPositiveInt, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, False, None, False),
             ("detail", "detail", ClaimItemDetail, True, None, False),
-            ("diagnosisSequence", "diagnosisSequence", int, True, None, False),
+            ("diagnosisSequence", "diagnosisSequence", fhirdatatypes.FHIRPositiveInt, True, None, False),
             ("encounter", "encounter", fhirreference.FHIRReference, True, None, False),
             ("factor", "factor", float, False, None, False),
-            ("informationSequence", "informationSequence", int, True, None, False),
+            ("informationSequence", "informationSequence", fhirdatatypes.FHIRPositiveInt, True, None, False),
             ("locationAddress", "locationAddress", address.Address, False, "location", False),
             ("locationCodeableConcept", "locationCodeableConcept", codeableconcept.CodeableConcept, False, "location", False),
             ("locationReference", "locationReference", fhirreference.FHIRReference, False, "location", False),
             ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
             ("net", "net", money.Money, False, None, False),
-            ("procedureSequence", "procedureSequence", int, True, None, False),
+            ("procedureSequence", "procedureSequence", fhirdatatypes.FHIRPositiveInt, True, None, False),
             ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
             ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
-            ("sequence", "sequence", int, False, None, True),
-            ("servicedDate", "servicedDate", fhirdate.FHIRDate, False, "serviced", False),
+            ("sequence", "sequence", fhirdatatypes.FHIRPositiveInt, False, None, True),
+            ("servicedDate", "servicedDate", fhirdatatypes.FHIRDate, False, "serviced", False),
             ("servicedPeriod", "servicedPeriod", period.Period, False, "serviced", False),
             ("subSite", "subSite", codeableconcept.CodeableConcept, True, None, False),
             ("udi", "udi", fhirreference.FHIRReference, True, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
         return js
+
+
 
 
 class ClaimItemDetail(backboneelement.BackboneElement):
@@ -580,7 +591,7 @@ class ClaimItemDetail(backboneelement.BackboneElement):
         
         self.sequence = None
         """ Item instance identifier.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.subDetail = None
         """ Product or service provided.
@@ -607,12 +618,14 @@ class ClaimItemDetail(backboneelement.BackboneElement):
             ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
-            ("sequence", "sequence", int, False, None, True),
+            ("sequence", "sequence", fhirdatatypes.FHIRPositiveInt, False, None, True),
             ("subDetail", "subDetail", ClaimItemDetailSubDetail, True, None, False),
             ("udi", "udi", fhirreference.FHIRReference, True, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
         return js
+
+
 
 
 class ClaimItemDetailSubDetail(backboneelement.BackboneElement):
@@ -666,7 +679,7 @@ class ClaimItemDetailSubDetail(backboneelement.BackboneElement):
         
         self.sequence = None
         """ Item instance identifier.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.udi = None
         """ Unique device identifier.
@@ -689,11 +702,13 @@ class ClaimItemDetailSubDetail(backboneelement.BackboneElement):
             ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("revenue", "revenue", codeableconcept.CodeableConcept, False, None, False),
-            ("sequence", "sequence", int, False, None, True),
+            ("sequence", "sequence", fhirdatatypes.FHIRPositiveInt, False, None, True),
             ("udi", "udi", fhirreference.FHIRReference, True, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
         return js
+
+
 
 
 class ClaimPayee(backboneelement.BackboneElement):
@@ -732,6 +747,8 @@ class ClaimPayee(backboneelement.BackboneElement):
         return js
 
 
+
+
 class ClaimProcedure(backboneelement.BackboneElement):
     """ Clinical procedures performed.
     
@@ -751,7 +768,7 @@ class ClaimProcedure(backboneelement.BackboneElement):
         
         self.date = None
         """ When the procedure was performed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.procedureCodeableConcept = None
         """ Specific clinical procedure.
@@ -763,7 +780,7 @@ class ClaimProcedure(backboneelement.BackboneElement):
         
         self.sequence = None
         """ Procedure instance identifier.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.type = None
         """ Category of Procedure.
@@ -778,14 +795,16 @@ class ClaimProcedure(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimProcedure, self).elementProperties()
         js.extend([
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
             ("procedureCodeableConcept", "procedureCodeableConcept", codeableconcept.CodeableConcept, False, "procedure", True),
             ("procedureReference", "procedureReference", fhirreference.FHIRReference, False, "procedure", True),
-            ("sequence", "sequence", int, False, None, True),
+            ("sequence", "sequence", fhirdatatypes.FHIRPositiveInt, False, None, True),
             ("type", "type", codeableconcept.CodeableConcept, True, None, False),
             ("udi", "udi", fhirreference.FHIRReference, True, None, False),
         ])
         return js
+
+
 
 
 class ClaimRelated(backboneelement.BackboneElement):
@@ -829,6 +848,8 @@ class ClaimRelated(backboneelement.BackboneElement):
         return js
 
 
+
+
 class ClaimSupportingInfo(backboneelement.BackboneElement):
     """ Supporting information.
     
@@ -860,7 +881,7 @@ class ClaimSupportingInfo(backboneelement.BackboneElement):
         
         self.sequence = None
         """ Information instance identifier.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.timingDate = None
         """ When it occurred.
@@ -888,7 +909,7 @@ class ClaimSupportingInfo(backboneelement.BackboneElement):
         
         self.valueString = None
         """ Data to be provided.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ClaimSupportingInfo, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -898,16 +919,17 @@ class ClaimSupportingInfo(backboneelement.BackboneElement):
             ("category", "category", codeableconcept.CodeableConcept, False, None, True),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
-            ("sequence", "sequence", int, False, None, True),
-            ("timingDate", "timingDate", fhirdate.FHIRDate, False, "timing", False),
+            ("sequence", "sequence", fhirdatatypes.FHIRPositiveInt, False, None, True),
+            ("timingDate", "timingDate", fhirdatatypes.FHIRDate, False, "timing", False),
             ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
             ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", False),
             ("valueBoolean", "valueBoolean", bool, False, "value", False),
             ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
             ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", False),
-            ("valueString", "valueString", str, False, "value", False),
+            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", False),
         ])
         return js
+
 
 
 import sys
@@ -915,35 +937,44 @@ try:
     from . import address
 except ImportError:
     address = sys.modules[__package__ + '.address']
+
 try:
     from . import attachment
 except ImportError:
     attachment = sys.modules[__package__ + '.attachment']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import money
 except ImportError:
     money = sys.modules[__package__ + '.money']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+

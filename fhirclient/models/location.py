@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Location) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Location) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -32,16 +32,16 @@ class Location(domainresource.DomainResource):
         self.alias = None
         """ A list of alternate names that the location is known as, or was
         known as, in the past.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.availabilityExceptions = None
         """ Description of availability exceptions.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.description = None
         """ Additional details about the location that could be displayed as
         further information to identify the location beyond its name.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.endpoint = None
         """ Technical endpoints providing access to services operated for the
@@ -62,11 +62,11 @@ class Location(domainresource.DomainResource):
         
         self.mode = None
         """ instance | kind.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.name = None
         """ Name of the location as used by humans.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.operationalStatus = None
         """ The operational status of the location (typically only for a
@@ -87,7 +87,7 @@ class Location(domainresource.DomainResource):
         
         self.status = None
         """ active | suspended | inactive.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.telecom = None
         """ Contact details of the location.
@@ -103,24 +103,25 @@ class Location(domainresource.DomainResource):
         js = super(Location, self).elementProperties()
         js.extend([
             ("address", "address", address.Address, False, None, False),
-            ("alias", "alias", str, True, None, False),
-            ("availabilityExceptions", "availabilityExceptions", str, False, None, False),
-            ("description", "description", str, False, None, False),
+            ("alias", "alias", fhirdatatypes.FHIRString, True, None, False),
+            ("availabilityExceptions", "availabilityExceptions", fhirdatatypes.FHIRString, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
             ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False),
             ("hoursOfOperation", "hoursOfOperation", LocationHoursOfOperation, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False),
-            ("mode", "mode", str, False, None, False),
-            ("name", "name", str, False, None, False),
+            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
             ("operationalStatus", "operationalStatus", coding.Coding, False, None, False),
             ("partOf", "partOf", fhirreference.FHIRReference, False, None, False),
             ("physicalType", "physicalType", codeableconcept.CodeableConcept, False, None, False),
             ("position", "position", LocationPosition, False, None, False),
-            ("status", "status", str, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
             ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -145,15 +146,15 @@ class LocationHoursOfOperation(backboneelement.BackboneElement):
         
         self.closingTime = None
         """ Time that the Location closes.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         self.daysOfWeek = None
         """ mon | tue | wed | thu | fri | sat | sun.
-        List of `str` items. """
+        List of `FHIRCode` items (represented as `str` in JSON). """
         
         self.openingTime = None
         """ Time that the Location opens.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         super(LocationHoursOfOperation, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -161,11 +162,13 @@ class LocationHoursOfOperation(backboneelement.BackboneElement):
         js = super(LocationHoursOfOperation, self).elementProperties()
         js.extend([
             ("allDay", "allDay", bool, False, None, False),
-            ("closingTime", "closingTime", fhirdate.FHIRDate, False, None, False),
-            ("daysOfWeek", "daysOfWeek", str, True, None, False),
-            ("openingTime", "openingTime", fhirdate.FHIRDate, False, None, False),
+            ("closingTime", "closingTime", fhirdatatypes.FHIRTime, False, None, False),
+            ("daysOfWeek", "daysOfWeek", fhirdatatypes.FHIRCode, True, None, False),
+            ("openingTime", "openingTime", fhirdatatypes.FHIRTime, False, None, False),
         ])
         return js
+
+
 
 
 class LocationPosition(backboneelement.BackboneElement):
@@ -209,32 +212,40 @@ class LocationPosition(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import address
 except ImportError:
     address = sys.modules[__package__ + '.address']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import coding
 except ImportError:
     coding = sys.modules[__package__ + '.coding']
+
 try:
     from . import contactpoint
 except ImportError:
     contactpoint = sys.modules[__package__ + '.contactpoint']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+

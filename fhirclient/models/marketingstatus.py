@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MarketingStatus) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MarketingStatus) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import backboneelement
@@ -55,7 +55,7 @@ class MarketingStatus(backboneelement.BackboneElement):
         specified using the ISO 8601 date format NOTE “Placed on the
         market” refers to the release of the Medicinal Product into the
         distribution chain.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.status = None
         """ This attribute provides information on the status of the marketing
@@ -71,10 +71,11 @@ class MarketingStatus(backboneelement.BackboneElement):
             ("country", "country", codeableconcept.CodeableConcept, False, None, True),
             ("dateRange", "dateRange", period.Period, False, None, True),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, False, None, False),
-            ("restoreDate", "restoreDate", fhirdate.FHIRDate, False, None, False),
+            ("restoreDate", "restoreDate", fhirdatatypes.FHIRDateTime, False, None, False),
             ("status", "status", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -82,11 +83,14 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MedicationKnowledge) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicationKnowledge) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -91,7 +91,7 @@ class MedicationKnowledge(domainresource.DomainResource):
         
         self.preparationInstruction = None
         """ The instructions for preparing the medication.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.productType = None
         """ Category of the medication or product.
@@ -107,11 +107,11 @@ class MedicationKnowledge(domainresource.DomainResource):
         
         self.status = None
         """ active | inactive | entered-in-error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.synonym = None
         """ Additional names for a medication.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         super(MedicationKnowledge, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -134,14 +134,15 @@ class MedicationKnowledge(domainresource.DomainResource):
             ("monitoringProgram", "monitoringProgram", MedicationKnowledgeMonitoringProgram, True, None, False),
             ("monograph", "monograph", MedicationKnowledgeMonograph, True, None, False),
             ("packaging", "packaging", MedicationKnowledgePackaging, False, None, False),
-            ("preparationInstruction", "preparationInstruction", str, False, None, False),
+            ("preparationInstruction", "preparationInstruction", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("productType", "productType", codeableconcept.CodeableConcept, True, None, False),
             ("regulatory", "regulatory", MedicationKnowledgeRegulatory, True, None, False),
             ("relatedMedicationKnowledge", "relatedMedicationKnowledge", MedicationKnowledgeRelatedMedicationKnowledge, True, None, False),
-            ("status", "status", str, False, None, False),
-            ("synonym", "synonym", str, True, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
+            ("synonym", "synonym", fhirdatatypes.FHIRString, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -194,6 +195,8 @@ class MedicationKnowledgeAdministrationGuidelines(backboneelement.BackboneElemen
         return js
 
 
+
+
 class MedicationKnowledgeAdministrationGuidelinesDosage(backboneelement.BackboneElement):
     """ Dosage for the medication for the specific guidelines.
     """
@@ -227,6 +230,8 @@ class MedicationKnowledgeAdministrationGuidelinesDosage(backboneelement.Backbone
         return js
 
 
+
+
 class MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics(backboneelement.BackboneElement):
     """ Characteristics of the patient that are relevant to the administration
     guidelines.
@@ -257,7 +262,7 @@ class MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics(backbone
         
         self.value = None
         """ The specific characteristic.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         super(MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -266,9 +271,11 @@ class MedicationKnowledgeAdministrationGuidelinesPatientCharacteristics(backbone
         js.extend([
             ("characteristicCodeableConcept", "characteristicCodeableConcept", codeableconcept.CodeableConcept, False, "characteristic", True),
             ("characteristicQuantity", "characteristicQuantity", quantity.Quantity, False, "characteristic", True),
-            ("value", "value", str, True, None, False),
+            ("value", "value", fhirdatatypes.FHIRString, True, None, False),
         ])
         return js
+
+
 
 
 class MedicationKnowledgeCost(backboneelement.BackboneElement):
@@ -293,7 +300,7 @@ class MedicationKnowledgeCost(backboneelement.BackboneElement):
         
         self.source = None
         """ The source or owner for the price information.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ The category of the cost information.
@@ -305,10 +312,12 @@ class MedicationKnowledgeCost(backboneelement.BackboneElement):
         js = super(MedicationKnowledgeCost, self).elementProperties()
         js.extend([
             ("cost", "cost", money.Money, False, None, True),
-            ("source", "source", str, False, None, False),
+            ("source", "source", fhirdatatypes.FHIRString, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
+
+
 
 
 class MedicationKnowledgeDrugCharacteristic(backboneelement.BackboneElement):
@@ -334,7 +343,7 @@ class MedicationKnowledgeDrugCharacteristic(backboneelement.BackboneElement):
         
         self.valueBase64Binary = None
         """ Description of the characteristic.
-        Type `str`. """
+        Type `FHIRBase64Binary` (represented as `str` in JSON). """
         
         self.valueCodeableConcept = None
         """ Description of the characteristic.
@@ -346,7 +355,7 @@ class MedicationKnowledgeDrugCharacteristic(backboneelement.BackboneElement):
         
         self.valueString = None
         """ Description of the characteristic.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(MedicationKnowledgeDrugCharacteristic, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -354,12 +363,14 @@ class MedicationKnowledgeDrugCharacteristic(backboneelement.BackboneElement):
         js = super(MedicationKnowledgeDrugCharacteristic, self).elementProperties()
         js.extend([
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("valueBase64Binary", "valueBase64Binary", str, False, "value", False),
+            ("valueBase64Binary", "valueBase64Binary", fhirdatatypes.FHIRBase64Binary, False, "value", False),
             ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", False),
             ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
-            ("valueString", "valueString", str, False, "value", False),
+            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", False),
         ])
         return js
+
+
 
 
 class MedicationKnowledgeIngredient(backboneelement.BackboneElement):
@@ -407,6 +418,8 @@ class MedicationKnowledgeIngredient(backboneelement.BackboneElement):
         return js
 
 
+
+
 class MedicationKnowledgeKinetics(backboneelement.BackboneElement):
     """ The time course of drug absorption, distribution, metabolism and excretion
     of a medication from the body.
@@ -446,6 +459,8 @@ class MedicationKnowledgeKinetics(backboneelement.BackboneElement):
         return js
 
 
+
+
 class MedicationKnowledgeMedicineClassification(backboneelement.BackboneElement):
     """ Categorization of the medication within a formulary or classification
     system.
@@ -481,6 +496,8 @@ class MedicationKnowledgeMedicineClassification(backboneelement.BackboneElement)
         return js
 
 
+
+
 class MedicationKnowledgeMonitoringProgram(backboneelement.BackboneElement):
     """ Program under which a medication is reviewed.
     
@@ -499,7 +516,7 @@ class MedicationKnowledgeMonitoringProgram(backboneelement.BackboneElement):
         
         self.name = None
         """ Name of the reviewing program.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ Type of program under which the medication is monitored.
@@ -510,10 +527,12 @@ class MedicationKnowledgeMonitoringProgram(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicationKnowledgeMonitoringProgram, self).elementProperties()
         js.extend([
-            ("name", "name", str, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class MedicationKnowledgeMonograph(backboneelement.BackboneElement):
@@ -547,6 +566,8 @@ class MedicationKnowledgeMonograph(backboneelement.BackboneElement):
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class MedicationKnowledgePackaging(backboneelement.BackboneElement):
@@ -584,6 +605,8 @@ class MedicationKnowledgePackaging(backboneelement.BackboneElement):
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class MedicationKnowledgeRegulatory(backboneelement.BackboneElement):
@@ -631,6 +654,8 @@ class MedicationKnowledgeRegulatory(backboneelement.BackboneElement):
         return js
 
 
+
+
 class MedicationKnowledgeRegulatoryMaxDispense(backboneelement.BackboneElement):
     """ The maximum number of units of the medication that can be dispensed in a
     period.
@@ -665,6 +690,8 @@ class MedicationKnowledgeRegulatoryMaxDispense(backboneelement.BackboneElement):
         return js
 
 
+
+
 class MedicationKnowledgeRegulatorySchedule(backboneelement.BackboneElement):
     """ Specifies the schedule of a medication in jurisdiction.
     """
@@ -691,6 +718,8 @@ class MedicationKnowledgeRegulatorySchedule(backboneelement.BackboneElement):
             ("schedule", "schedule", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
+
+
 
 
 class MedicationKnowledgeRegulatorySubstitution(backboneelement.BackboneElement):
@@ -728,6 +757,8 @@ class MedicationKnowledgeRegulatorySubstitution(backboneelement.BackboneElement)
         return js
 
 
+
+
 class MedicationKnowledgeRelatedMedicationKnowledge(backboneelement.BackboneElement):
     """ Associated or related medication information.
     
@@ -763,32 +794,45 @@ class MedicationKnowledgeRelatedMedicationKnowledge(backboneelement.BackboneElem
         return js
 
 
+
 import sys
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import dosage
 except ImportError:
     dosage = sys.modules[__package__ + '.dosage']
+
 try:
     from . import duration
 except ImportError:
     duration = sys.modules[__package__ + '.duration']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import money
 except ImportError:
     money = sys.modules[__package__ + '.money']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+
 try:
     from . import ratio
 except ImportError:
     ratio = sys.modules[__package__ + '.ratio']
+

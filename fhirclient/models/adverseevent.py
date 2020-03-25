@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/AdverseEvent) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/AdverseEvent) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -29,7 +29,7 @@ class AdverseEvent(domainresource.DomainResource):
         
         self.actuality = None
         """ actual | potential.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.category = None
         """ product-problem | product-quality | product-use-error | wrong-dose
@@ -46,11 +46,11 @@ class AdverseEvent(domainresource.DomainResource):
         
         self.date = None
         """ When the event occurred.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.detected = None
         """ When the event was detected.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.encounter = None
         """ Encounter created as part of.
@@ -75,7 +75,7 @@ class AdverseEvent(domainresource.DomainResource):
         
         self.recordedDate = None
         """ When the event was recorded.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.recorder = None
         """ Who recorded the adverse event.
@@ -118,17 +118,17 @@ class AdverseEvent(domainresource.DomainResource):
     def elementProperties(self):
         js = super(AdverseEvent, self).elementProperties()
         js.extend([
-            ("actuality", "actuality", str, False, None, True),
+            ("actuality", "actuality", fhirdatatypes.FHIRCode, False, None, True),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("contributor", "contributor", fhirreference.FHIRReference, True, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("detected", "detected", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("detected", "detected", fhirdatatypes.FHIRDateTime, False, None, False),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("event", "event", codeableconcept.CodeableConcept, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("location", "location", fhirreference.FHIRReference, False, None, False),
             ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
-            ("recordedDate", "recordedDate", fhirdate.FHIRDate, False, None, False),
+            ("recordedDate", "recordedDate", fhirdatatypes.FHIRDateTime, False, None, False),
             ("recorder", "recorder", fhirreference.FHIRReference, False, None, False),
             ("referenceDocument", "referenceDocument", fhirreference.FHIRReference, True, None, False),
             ("resultingCondition", "resultingCondition", fhirreference.FHIRReference, True, None, False),
@@ -140,6 +140,7 @@ class AdverseEvent(domainresource.DomainResource):
             ("suspectEntity", "suspectEntity", AdverseEventSuspectEntity, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -179,6 +180,8 @@ class AdverseEventSuspectEntity(backboneelement.BackboneElement):
         return js
 
 
+
+
 class AdverseEventSuspectEntityCausality(backboneelement.BackboneElement):
     """ Information on the possible cause of the event.
     """
@@ -207,7 +210,7 @@ class AdverseEventSuspectEntityCausality(backboneelement.BackboneElement):
         
         self.productRelatedness = None
         """ AdverseEvent.suspectEntity.causalityProductRelatedness.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(AdverseEventSuspectEntityCausality, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -217,9 +220,10 @@ class AdverseEventSuspectEntityCausality(backboneelement.BackboneElement):
             ("assessment", "assessment", codeableconcept.CodeableConcept, False, None, False),
             ("author", "author", fhirreference.FHIRReference, False, None, False),
             ("method", "method", codeableconcept.CodeableConcept, False, None, False),
-            ("productRelatedness", "productRelatedness", str, False, None, False),
+            ("productRelatedness", "productRelatedness", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -227,15 +231,19 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MedicationRequest) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicationRequest) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -30,7 +30,7 @@ class MedicationRequest(domainresource.DomainResource):
         
         self.authoredOn = None
         """ When request was initially authored.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.basedOn = None
         """ What request fulfills.
@@ -78,19 +78,20 @@ class MedicationRequest(domainresource.DomainResource):
         
         self.instantiatesCanonical = None
         """ Instantiates FHIR protocol or definition.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.instantiatesUri = None
         """ Instantiates external protocol or definition.
-        List of `str` items. """
+        List of `FHIRUri` items (represented as `str` in JSON). """
         
         self.insurance = None
         """ Associated insurance coverage.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.intent = None
-        """ proposal | plan | order | original-order | instance-order | option.
-        Type `str`. """
+        """ proposal | plan | order | original-order | reflex-order | filler-
+        order | instance-order | option.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.medicationCodeableConcept = None
         """ Medication to be taken.
@@ -118,7 +119,7 @@ class MedicationRequest(domainresource.DomainResource):
         
         self.priority = None
         """ routine | urgent | asap | stat.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.reasonCode = None
         """ Reason or indication for ordering or not ordering the medication.
@@ -148,7 +149,7 @@ class MedicationRequest(domainresource.DomainResource):
         self.status = None
         """ active | on-hold | cancelled | completed | entered-in-error |
         stopped | draft | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.statusReason = None
         """ Reason for current status.
@@ -171,7 +172,7 @@ class MedicationRequest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MedicationRequest, self).elementProperties()
         js.extend([
-            ("authoredOn", "authoredOn", fhirdate.FHIRDate, False, None, False),
+            ("authoredOn", "authoredOn", fhirdatatypes.FHIRDateTime, False, None, False),
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("courseOfTherapyType", "courseOfTherapyType", codeableconcept.CodeableConcept, False, None, False),
@@ -183,30 +184,31 @@ class MedicationRequest(domainresource.DomainResource):
             ("eventHistory", "eventHistory", fhirreference.FHIRReference, True, None, False),
             ("groupIdentifier", "groupIdentifier", identifier.Identifier, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("instantiatesCanonical", "instantiatesCanonical", str, True, None, False),
-            ("instantiatesUri", "instantiatesUri", str, True, None, False),
+            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False),
             ("insurance", "insurance", fhirreference.FHIRReference, True, None, False),
-            ("intent", "intent", str, False, None, True),
+            ("intent", "intent", fhirdatatypes.FHIRCode, False, None, True),
             ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", True),
             ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True),
             ("note", "note", annotation.Annotation, True, None, False),
             ("performer", "performer", fhirreference.FHIRReference, False, None, False),
             ("performerType", "performerType", codeableconcept.CodeableConcept, False, None, False),
             ("priorPrescription", "priorPrescription", fhirreference.FHIRReference, False, None, False),
-            ("priority", "priority", str, False, None, False),
+            ("priority", "priority", fhirdatatypes.FHIRCode, False, None, False),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("recorder", "recorder", fhirreference.FHIRReference, False, None, False),
             ("reportedBoolean", "reportedBoolean", bool, False, "reported", False),
             ("reportedReference", "reportedReference", fhirreference.FHIRReference, False, "reported", False),
             ("requester", "requester", fhirreference.FHIRReference, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
             ("substitution", "substitution", MedicationRequestSubstitution, False, None, False),
             ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -246,7 +248,7 @@ class MedicationRequestDispenseRequest(backboneelement.BackboneElement):
         
         self.numberOfRepeatsAllowed = None
         """ Number of refills authorized.
-        Type `int`. """
+        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
         
         self.performer = None
         """ Intended dispenser.
@@ -268,12 +270,14 @@ class MedicationRequestDispenseRequest(backboneelement.BackboneElement):
             ("dispenseInterval", "dispenseInterval", duration.Duration, False, None, False),
             ("expectedSupplyDuration", "expectedSupplyDuration", duration.Duration, False, None, False),
             ("initialFill", "initialFill", MedicationRequestDispenseRequestInitialFill, False, None, False),
-            ("numberOfRepeatsAllowed", "numberOfRepeatsAllowed", int, False, None, False),
+            ("numberOfRepeatsAllowed", "numberOfRepeatsAllowed", fhirdatatypes.FHIRUnsignedInt, False, None, False),
             ("performer", "performer", fhirreference.FHIRReference, False, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("validityPeriod", "validityPeriod", period.Period, False, None, False),
         ])
         return js
+
+
 
 
 class MedicationRequestDispenseRequestInitialFill(backboneelement.BackboneElement):
@@ -310,6 +314,8 @@ class MedicationRequestDispenseRequestInitialFill(backboneelement.BackboneElemen
             ("quantity", "quantity", quantity.Quantity, False, None, False),
         ])
         return js
+
+
 
 
 class MedicationRequestSubstitution(backboneelement.BackboneElement):
@@ -355,40 +361,50 @@ class MedicationRequestSubstitution(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import dosage
 except ImportError:
     dosage = sys.modules[__package__ + '.dosage']
+
 try:
     from . import duration
 except ImportError:
     duration = sys.modules[__package__ + '.duration']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+

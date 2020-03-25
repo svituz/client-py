@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MessageHeader) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MessageHeader) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -33,7 +33,7 @@ class MessageHeader(domainresource.DomainResource):
         
         self.definition = None
         """ Link to the definition for this message.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.destination = None
         """ Message destination application(s).
@@ -51,7 +51,7 @@ class MessageHeader(domainresource.DomainResource):
         self.eventUri = None
         """ Code for the event this message represents or link to event
         definition.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.focus = None
         """ The actual content of the message.
@@ -83,11 +83,11 @@ class MessageHeader(domainresource.DomainResource):
         js = super(MessageHeader, self).elementProperties()
         js.extend([
             ("author", "author", fhirreference.FHIRReference, False, None, False),
-            ("definition", "definition", str, False, None, False),
+            ("definition", "definition", fhirdatatypes.FHIRCanonical, False, None, False),
             ("destination", "destination", MessageHeaderDestination, True, None, False),
             ("enterer", "enterer", fhirreference.FHIRReference, False, None, False),
             ("eventCoding", "eventCoding", coding.Coding, False, "event", True),
-            ("eventUri", "eventUri", str, False, "event", True),
+            ("eventUri", "eventUri", fhirdatatypes.FHIRUri, False, "event", True),
             ("focus", "focus", fhirreference.FHIRReference, True, None, False),
             ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
             ("response", "response", MessageHeaderResponse, False, None, False),
@@ -96,6 +96,7 @@ class MessageHeader(domainresource.DomainResource):
             ("source", "source", MessageHeaderSource, False, None, True),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -118,11 +119,11 @@ class MessageHeaderDestination(backboneelement.BackboneElement):
         
         self.endpoint = None
         """ Actual destination address or id.
-        Type `str`. """
+        Type `FHIRUrl` (represented as `str` in JSON). """
         
         self.name = None
         """ Name of system.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.receiver = None
         """ Intended "real-world" recipient for the data.
@@ -137,12 +138,14 @@ class MessageHeaderDestination(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MessageHeaderDestination, self).elementProperties()
         js.extend([
-            ("endpoint", "endpoint", str, False, None, True),
-            ("name", "name", str, False, None, False),
+            ("endpoint", "endpoint", fhirdatatypes.FHIRUrl, False, None, True),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
             ("receiver", "receiver", fhirreference.FHIRReference, False, None, False),
             ("target", "target", fhirreference.FHIRReference, False, None, False),
         ])
         return js
+
+
 
 
 class MessageHeaderResponse(backboneelement.BackboneElement):
@@ -164,7 +167,7 @@ class MessageHeaderResponse(backboneelement.BackboneElement):
         
         self.code = None
         """ ok | transient-error | fatal-error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.details = None
         """ Specific list of hints/warnings/errors.
@@ -172,18 +175,20 @@ class MessageHeaderResponse(backboneelement.BackboneElement):
         
         self.identifier = None
         """ Id of original message.
-        Type `str`. """
+        Type `FHIRId` (represented as `str` in JSON). """
         
         super(MessageHeaderResponse, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MessageHeaderResponse, self).elementProperties()
         js.extend([
-            ("code", "code", str, False, None, True),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
             ("details", "details", fhirreference.FHIRReference, False, None, False),
-            ("identifier", "identifier", str, False, None, True),
+            ("identifier", "identifier", fhirdatatypes.FHIRId, False, None, True),
         ])
         return js
+
+
 
 
 class MessageHeaderSource(backboneelement.BackboneElement):
@@ -208,19 +213,19 @@ class MessageHeaderSource(backboneelement.BackboneElement):
         
         self.endpoint = None
         """ Actual message source address or id.
-        Type `str`. """
+        Type `FHIRUrl` (represented as `str` in JSON). """
         
         self.name = None
         """ Name of system.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.software = None
         """ Name of software running the system.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.version = None
         """ Version of software running.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(MessageHeaderSource, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -228,12 +233,13 @@ class MessageHeaderSource(backboneelement.BackboneElement):
         js = super(MessageHeaderSource, self).elementProperties()
         js.extend([
             ("contact", "contact", contactpoint.ContactPoint, False, None, False),
-            ("endpoint", "endpoint", str, False, None, True),
-            ("name", "name", str, False, None, False),
-            ("software", "software", str, False, None, False),
-            ("version", "version", str, False, None, False),
+            ("endpoint", "endpoint", fhirdatatypes.FHIRUrl, False, None, True),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
+            ("software", "software", fhirdatatypes.FHIRString, False, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -241,15 +247,24 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import coding
 except ImportError:
     coding = sys.modules[__package__ + '.coding']
+
 try:
     from . import contactpoint
 except ImportError:
     contactpoint = sys.modules[__package__ + '.contactpoint']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+

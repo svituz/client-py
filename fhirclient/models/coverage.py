@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Coverage) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Coverage) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -42,7 +42,7 @@ class Coverage(domainresource.DomainResource):
         
         self.dependent = None
         """ Dependent number.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Business Identifier for the coverage.
@@ -50,11 +50,11 @@ class Coverage(domainresource.DomainResource):
         
         self.network = None
         """ Insurer network.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.order = None
         """ Relative order of the coverage.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.payor = None
         """ Issuer of the policy.
@@ -74,7 +74,7 @@ class Coverage(domainresource.DomainResource):
         
         self.status = None
         """ active | cancelled | draft | entered-in-error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subrogation = None
         """ Reimbursement to insurer.
@@ -86,7 +86,7 @@ class Coverage(domainresource.DomainResource):
         
         self.subscriberId = None
         """ ID assigned to the subscriber.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ Coverage category such as medical or accident.
@@ -101,21 +101,22 @@ class Coverage(domainresource.DomainResource):
             ("class_fhir", "class", CoverageClass, True, None, False),
             ("contract", "contract", fhirreference.FHIRReference, True, None, False),
             ("costToBeneficiary", "costToBeneficiary", CoverageCostToBeneficiary, True, None, False),
-            ("dependent", "dependent", str, False, None, False),
+            ("dependent", "dependent", fhirdatatypes.FHIRString, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("network", "network", str, False, None, False),
-            ("order", "order", int, False, None, False),
+            ("network", "network", fhirdatatypes.FHIRString, False, None, False),
+            ("order", "order", fhirdatatypes.FHIRPositiveInt, False, None, False),
             ("payor", "payor", fhirreference.FHIRReference, True, None, True),
             ("period", "period", period.Period, False, None, False),
             ("policyHolder", "policyHolder", fhirreference.FHIRReference, False, None, False),
             ("relationship", "relationship", codeableconcept.CodeableConcept, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("subrogation", "subrogation", bool, False, None, False),
             ("subscriber", "subscriber", fhirreference.FHIRReference, False, None, False),
-            ("subscriberId", "subscriberId", str, False, None, False),
+            ("subscriberId", "subscriberId", fhirdatatypes.FHIRString, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -138,7 +139,7 @@ class CoverageClass(backboneelement.BackboneElement):
         
         self.name = None
         """ Human readable description of the type and value.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ Type of class such as 'group' or 'plan'.
@@ -146,18 +147,20 @@ class CoverageClass(backboneelement.BackboneElement):
         
         self.value = None
         """ Value associated with the type.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(CoverageClass, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CoverageClass, self).elementProperties()
         js.extend([
-            ("name", "name", str, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
-            ("value", "value", str, False, None, True),
+            ("value", "value", fhirdatatypes.FHIRString, False, None, True),
         ])
         return js
+
+
 
 
 class CoverageCostToBeneficiary(backboneelement.BackboneElement):
@@ -207,6 +210,8 @@ class CoverageCostToBeneficiary(backboneelement.BackboneElement):
         return js
 
 
+
+
 class CoverageCostToBeneficiaryException(backboneelement.BackboneElement):
     """ Exceptions for patient payments.
     
@@ -243,28 +248,40 @@ class CoverageCostToBeneficiaryException(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import money
 except ImportError:
     money = sys.modules[__package__ + '.money']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+

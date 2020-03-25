@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/SubstanceProtein) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SubstanceProtein) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -36,7 +36,7 @@ class SubstanceProtein(domainresource.DomainResource):
         subunit followed by the abbreviation of the amino acids involved.
         The disulfide linkage positions shall actually contain the amino
         acid Cysteine at the respective positions.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.numberOfSubunits = None
         """ Number of linear sequences of amino acids linked through peptide
@@ -68,12 +68,13 @@ class SubstanceProtein(domainresource.DomainResource):
     def elementProperties(self):
         js = super(SubstanceProtein, self).elementProperties()
         js.extend([
-            ("disulfideLinkage", "disulfideLinkage", str, True, None, False),
+            ("disulfideLinkage", "disulfideLinkage", fhirdatatypes.FHIRString, True, None, False),
             ("numberOfSubunits", "numberOfSubunits", int, False, None, False),
             ("sequenceType", "sequenceType", codeableconcept.CodeableConcept, False, None, False),
             ("subunit", "subunit", SubstanceProteinSubunit, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -101,7 +102,7 @@ class SubstanceProteinSubunit(backboneelement.BackboneElement):
         
         self.cTerminalModification = None
         """ The modification at the C-terminal shall be specified.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.cTerminalModificationId = None
         """ Unique identifier for molecular fragment modification based on the
@@ -115,7 +116,7 @@ class SubstanceProteinSubunit(backboneelement.BackboneElement):
         self.nTerminalModification = None
         """ The name of the fragment modified at the N-terminal of the
         SubstanceProtein shall be specified.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.nTerminalModificationId = None
         """ Unique identifier for molecular fragment modification based on the
@@ -131,7 +132,7 @@ class SubstanceProteinSubunit(backboneelement.BackboneElement):
         containing amino acids that are not represented with a single
         letter code an X should be used within the sequence. The modified
         amino acids will be distinguished by their position in the sequence.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.sequenceAttachment = None
         """ The sequence information shall be provided enumerating the amino
@@ -156,16 +157,17 @@ class SubstanceProteinSubunit(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SubstanceProteinSubunit, self).elementProperties()
         js.extend([
-            ("cTerminalModification", "cTerminalModification", str, False, None, False),
+            ("cTerminalModification", "cTerminalModification", fhirdatatypes.FHIRString, False, None, False),
             ("cTerminalModificationId", "cTerminalModificationId", identifier.Identifier, False, None, False),
             ("length", "length", int, False, None, False),
-            ("nTerminalModification", "nTerminalModification", str, False, None, False),
+            ("nTerminalModification", "nTerminalModification", fhirdatatypes.FHIRString, False, None, False),
             ("nTerminalModificationId", "nTerminalModificationId", identifier.Identifier, False, None, False),
-            ("sequence", "sequence", str, False, None, False),
+            ("sequence", "sequence", fhirdatatypes.FHIRString, False, None, False),
             ("sequenceAttachment", "sequenceAttachment", attachment.Attachment, False, None, False),
             ("subunit", "subunit", int, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -173,11 +175,19 @@ try:
     from . import attachment
 except ImportError:
     attachment = sys.modules[__package__ + '.attachment']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+

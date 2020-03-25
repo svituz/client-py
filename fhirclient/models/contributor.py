@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Contributor) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Contributor) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import element
@@ -30,11 +30,11 @@ class Contributor(element.Element):
         
         self.name = None
         """ Who contributed the content.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ author | editor | reviewer | endorser.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(Contributor, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -42,10 +42,11 @@ class Contributor(element.Element):
         js = super(Contributor, self).elementProperties()
         js.extend([
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("name", "name", str, False, None, True),
-            ("type", "type", str, False, None, True),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -53,3 +54,9 @@ try:
     from . import contactdetail
 except ImportError:
     contactdetail = sys.modules[__package__ + '.contactdetail']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+

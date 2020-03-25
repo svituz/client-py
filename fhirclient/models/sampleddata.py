@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/SampledData) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SampledData) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import element
@@ -26,11 +26,11 @@ class SampledData(element.Element):
         
         self.data = None
         """ Decimal values with spaces, or "E" | "U" | "L".
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.dimensions = None
         """ Number of sample points at each time point.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.factor = None
         """ Multiply data by this before adding to origin.
@@ -57,8 +57,8 @@ class SampledData(element.Element):
     def elementProperties(self):
         js = super(SampledData, self).elementProperties()
         js.extend([
-            ("data", "data", str, False, None, False),
-            ("dimensions", "dimensions", int, False, None, True),
+            ("data", "data", fhirdatatypes.FHIRString, False, None, False),
+            ("dimensions", "dimensions", fhirdatatypes.FHIRPositiveInt, False, None, True),
             ("factor", "factor", float, False, None, False),
             ("lowerLimit", "lowerLimit", float, False, None, False),
             ("origin", "origin", quantity.Quantity, False, None, True),
@@ -68,8 +68,15 @@ class SampledData(element.Element):
         return js
 
 
+
 import sys
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+

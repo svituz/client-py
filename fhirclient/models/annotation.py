@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Annotation) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Annotation) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import element
@@ -30,15 +30,15 @@ class Annotation(element.Element):
         
         self.authorString = None
         """ Individual responsible for the annotation.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.text = None
         """ The annotation  - text content (as markdown).
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.time = None
         """ When the annotation was made.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         super(Annotation, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -46,19 +46,22 @@ class Annotation(element.Element):
         js = super(Annotation, self).elementProperties()
         js.extend([
             ("authorReference", "authorReference", fhirreference.FHIRReference, False, "author", False),
-            ("authorString", "authorString", str, False, "author", False),
-            ("text", "text", str, False, None, True),
-            ("time", "time", fhirdate.FHIRDate, False, None, False),
+            ("authorString", "authorString", fhirdatatypes.FHIRString, False, "author", False),
+            ("text", "text", fhirdatatypes.FHIRMarkdown, False, None, True),
+            ("time", "time", fhirdatatypes.FHIRDateTime, False, None, False),
         ])
         return js
 
 
+
 import sys
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+

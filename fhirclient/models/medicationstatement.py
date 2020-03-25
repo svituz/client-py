@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicationStatement) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -60,7 +60,7 @@ class MedicationStatement(domainresource.DomainResource):
         
         self.dateAsserted = None
         """ When the statement was asserted?.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.derivedFrom = None
         """ Additional supporting information.
@@ -72,7 +72,7 @@ class MedicationStatement(domainresource.DomainResource):
         
         self.effectiveDateTime = None
         """ The date/time or interval when the medication is/was/will be taken.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.effectivePeriod = None
         """ The date/time or interval when the medication is/was/will be taken.
@@ -115,7 +115,7 @@ class MedicationStatement(domainresource.DomainResource):
         self.status = None
         """ active | completed | entered-in-error | intended | stopped | on-
         hold | unknown | not-taken.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.statusReason = None
         """ Reason for current status.
@@ -133,10 +133,10 @@ class MedicationStatement(domainresource.DomainResource):
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, False, None, False),
             ("context", "context", fhirreference.FHIRReference, False, None, False),
-            ("dateAsserted", "dateAsserted", fhirdate.FHIRDate, False, None, False),
+            ("dateAsserted", "dateAsserted", fhirdatatypes.FHIRDateTime, False, None, False),
             ("derivedFrom", "derivedFrom", fhirreference.FHIRReference, True, None, False),
             ("dosage", "dosage", dosage.Dosage, True, None, False),
-            ("effectiveDateTime", "effectiveDateTime", fhirdate.FHIRDate, False, "effective", False),
+            ("effectiveDateTime", "effectiveDateTime", fhirdatatypes.FHIRDateTime, False, "effective", False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("informationSource", "informationSource", fhirreference.FHIRReference, False, None, False),
@@ -146,11 +146,12 @@ class MedicationStatement(domainresource.DomainResource):
             ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("statusReason", "statusReason", codeableconcept.CodeableConcept, True, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -158,27 +159,34 @@ try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import dosage
 except ImportError:
     dosage = sys.modules[__package__ + '.dosage']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/SubstanceSourceMaterial) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SubstanceSourceMaterial) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -65,7 +65,7 @@ class SubstanceSourceMaterial(domainresource.DomainResource):
         self.geographicalLocation = None
         """ The place/region where the plant is harvested or the places/regions
         where the animal source material has its habitat.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.organism = None
         """ This subclause describes the organism which the substance is
@@ -82,7 +82,7 @@ class SubstanceSourceMaterial(domainresource.DomainResource):
         self.organismName = None
         """ The organism accepted Scientific name shall be provided based on
         the organism taxonomy.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.parentSubstanceId = None
         """ The parent of the herbal drug Ginkgo biloba, Leaf is the substance
@@ -92,7 +92,7 @@ class SubstanceSourceMaterial(domainresource.DomainResource):
         
         self.parentSubstanceName = None
         """ The parent substance of the Herbal Drug, or Herbal preparation.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.partDescription = None
         """ To do.
@@ -121,18 +121,19 @@ class SubstanceSourceMaterial(domainresource.DomainResource):
             ("countryOfOrigin", "countryOfOrigin", codeableconcept.CodeableConcept, True, None, False),
             ("developmentStage", "developmentStage", codeableconcept.CodeableConcept, False, None, False),
             ("fractionDescription", "fractionDescription", SubstanceSourceMaterialFractionDescription, True, None, False),
-            ("geographicalLocation", "geographicalLocation", str, True, None, False),
+            ("geographicalLocation", "geographicalLocation", fhirdatatypes.FHIRString, True, None, False),
             ("organism", "organism", SubstanceSourceMaterialOrganism, False, None, False),
             ("organismId", "organismId", identifier.Identifier, False, None, False),
-            ("organismName", "organismName", str, False, None, False),
+            ("organismName", "organismName", fhirdatatypes.FHIRString, False, None, False),
             ("parentSubstanceId", "parentSubstanceId", identifier.Identifier, True, None, False),
-            ("parentSubstanceName", "parentSubstanceName", str, True, None, False),
+            ("parentSubstanceName", "parentSubstanceName", fhirdatatypes.FHIRString, True, None, False),
             ("partDescription", "partDescription", SubstanceSourceMaterialPartDescription, True, None, False),
             ("sourceMaterialClass", "sourceMaterialClass", codeableconcept.CodeableConcept, False, None, False),
             ("sourceMaterialState", "sourceMaterialState", codeableconcept.CodeableConcept, False, None, False),
             ("sourceMaterialType", "sourceMaterialType", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -162,7 +163,7 @@ class SubstanceSourceMaterialFractionDescription(backboneelement.BackboneElement
         self.fraction = None
         """ This element is capturing information about the fraction of a plant
         part, or human plasma for fractionation.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.materialType = None
         """ The specific type of the material constituting the component. For
@@ -175,10 +176,12 @@ class SubstanceSourceMaterialFractionDescription(backboneelement.BackboneElement
     def elementProperties(self):
         js = super(SubstanceSourceMaterialFractionDescription, self).elementProperties()
         js.extend([
-            ("fraction", "fraction", str, False, None, False),
+            ("fraction", "fraction", fhirdatatypes.FHIRString, False, None, False),
             ("materialType", "materialType", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class SubstanceSourceMaterialOrganism(backboneelement.BackboneElement):
@@ -221,7 +224,7 @@ class SubstanceSourceMaterialOrganism(backboneelement.BackboneElement):
         based on a controlled vocabulary. For Influenza Vaccine, the
         intraspecific description shall contain the syntax of the antigen
         in line with the WHO convention.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.intraspecificType = None
         """ The Intraspecific type of an organism shall be specified.
@@ -246,12 +249,14 @@ class SubstanceSourceMaterialOrganism(backboneelement.BackboneElement):
             ("family", "family", codeableconcept.CodeableConcept, False, None, False),
             ("genus", "genus", codeableconcept.CodeableConcept, False, None, False),
             ("hybrid", "hybrid", SubstanceSourceMaterialOrganismHybrid, False, None, False),
-            ("intraspecificDescription", "intraspecificDescription", str, False, None, False),
+            ("intraspecificDescription", "intraspecificDescription", fhirdatatypes.FHIRString, False, None, False),
             ("intraspecificType", "intraspecificType", codeableconcept.CodeableConcept, False, None, False),
             ("organismGeneral", "organismGeneral", SubstanceSourceMaterialOrganismOrganismGeneral, False, None, False),
             ("species", "species", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class SubstanceSourceMaterialOrganismAuthor(backboneelement.BackboneElement):
@@ -273,7 +278,7 @@ class SubstanceSourceMaterialOrganismAuthor(backboneelement.BackboneElement):
         year of an organism shall also be specified when applicable; refers
         to the year in which the first author(s) published the
         infraspecific plant/animal name (of any rank).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.authorType = None
         """ The type of author of an organism species shall be specified. The
@@ -288,10 +293,12 @@ class SubstanceSourceMaterialOrganismAuthor(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SubstanceSourceMaterialOrganismAuthor, self).elementProperties()
         js.extend([
-            ("authorDescription", "authorDescription", str, False, None, False),
+            ("authorDescription", "authorDescription", fhirdatatypes.FHIRString, False, None, False),
             ("authorType", "authorType", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class SubstanceSourceMaterialOrganismHybrid(backboneelement.BackboneElement):
@@ -317,24 +324,24 @@ class SubstanceSourceMaterialOrganismHybrid(backboneelement.BackboneElement):
         organism shall be specified based on a controlled vocabulary. For
         plants, the parents aren’t always known, and it is unlikely that it
         will be known which is maternal and which is paternal.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.maternalOrganismName = None
         """ The name of the maternal species constituting the hybrid organism
         shall be specified. For plants, the parents aren’t always known,
         and it is unlikely that it will be known which is maternal and
         which is paternal.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.paternalOrganismId = None
         """ The identifier of the paternal species constituting the hybrid
         organism shall be specified based on a controlled vocabulary.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.paternalOrganismName = None
         """ The name of the paternal species constituting the hybrid organism
         shall be specified.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(SubstanceSourceMaterialOrganismHybrid, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -342,12 +349,14 @@ class SubstanceSourceMaterialOrganismHybrid(backboneelement.BackboneElement):
         js = super(SubstanceSourceMaterialOrganismHybrid, self).elementProperties()
         js.extend([
             ("hybridType", "hybridType", codeableconcept.CodeableConcept, False, None, False),
-            ("maternalOrganismId", "maternalOrganismId", str, False, None, False),
-            ("maternalOrganismName", "maternalOrganismName", str, False, None, False),
-            ("paternalOrganismId", "paternalOrganismId", str, False, None, False),
-            ("paternalOrganismName", "paternalOrganismName", str, False, None, False),
+            ("maternalOrganismId", "maternalOrganismId", fhirdatatypes.FHIRString, False, None, False),
+            ("maternalOrganismName", "maternalOrganismName", fhirdatatypes.FHIRString, False, None, False),
+            ("paternalOrganismId", "paternalOrganismId", fhirdatatypes.FHIRString, False, None, False),
+            ("paternalOrganismName", "paternalOrganismName", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
+
 
 
 class SubstanceSourceMaterialOrganismOrganismGeneral(backboneelement.BackboneElement):
@@ -393,6 +402,8 @@ class SubstanceSourceMaterialOrganismOrganismGeneral(backboneelement.BackboneEle
         return js
 
 
+
+
 class SubstanceSourceMaterialPartDescription(backboneelement.BackboneElement):
     """ To do.
     """
@@ -428,12 +439,20 @@ class SubstanceSourceMaterialPartDescription(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+

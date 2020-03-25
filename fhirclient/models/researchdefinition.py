@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ResearchDefinition) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ResearchDefinition) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -36,7 +36,7 @@ class ResearchDefinition(domainresource.DomainResource):
         
         self.comment = None
         """ Used for footnotes or explanatory notes.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.contact = None
         """ Contact details for the publisher.
@@ -44,15 +44,15 @@ class ResearchDefinition(domainresource.DomainResource):
         
         self.copyright = None
         """ Use and/or publishing restrictions.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the research definition.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.editor = None
         """ Who edited the content.
@@ -92,11 +92,11 @@ class ResearchDefinition(domainresource.DomainResource):
         
         self.library = None
         """ Logic used by the ResearchDefinition.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.name = None
         """ Name for this research definition (computer friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.outcome = None
         """ What outcome?.
@@ -108,11 +108,11 @@ class ResearchDefinition(domainresource.DomainResource):
         
         self.publisher = None
         """ Name of the publisher (organization or individual).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.purpose = None
         """ Why this research definition is defined.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.relatedArtifact = None
         """ Additional documentation, citations, etc..
@@ -124,11 +124,11 @@ class ResearchDefinition(domainresource.DomainResource):
         
         self.shortTitle = None
         """ Title for use in informal contexts.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.status = None
         """ draft | active | retired | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subjectCodeableConcept = None
         """ E.g. Patient, Practitioner, RelatedPerson, Organization, Location,
@@ -142,11 +142,11 @@ class ResearchDefinition(domainresource.DomainResource):
         
         self.subtitle = None
         """ Subordinate title of the ResearchDefinition.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.title = None
         """ Name for this research definition (human friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.topic = None
         """ The category of the ResearchDefinition, such as Education,
@@ -156,11 +156,11 @@ class ResearchDefinition(domainresource.DomainResource):
         self.url = None
         """ Canonical identifier for this research definition, represented as a
         URI (globally unique).
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.usage = None
         """ Describes the clinical usage of the ResearchDefinition.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.useContext = None
         """ The context that the content is intended to support.
@@ -168,20 +168,20 @@ class ResearchDefinition(domainresource.DomainResource):
         
         self.version = None
         """ Business version of the research definition.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ResearchDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ResearchDefinition, self).elementProperties()
         js.extend([
-            ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
+            ("approvalDate", "approvalDate", fhirdatatypes.FHIRDate, False, None, False),
             ("author", "author", contactdetail.ContactDetail, True, None, False),
-            ("comment", "comment", str, True, None, False),
+            ("comment", "comment", fhirdatatypes.FHIRString, True, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("description", "description", str, False, None, False),
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("editor", "editor", contactdetail.ContactDetail, True, None, False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
             ("endorser", "endorser", contactdetail.ContactDetail, True, None, False),
@@ -190,28 +190,29 @@ class ResearchDefinition(domainresource.DomainResource):
             ("exposureAlternative", "exposureAlternative", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("lastReviewDate", "lastReviewDate", fhirdate.FHIRDate, False, None, False),
-            ("library", "library", str, True, None, False),
-            ("name", "name", str, False, None, False),
+            ("lastReviewDate", "lastReviewDate", fhirdatatypes.FHIRDate, False, None, False),
+            ("library", "library", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
             ("outcome", "outcome", fhirreference.FHIRReference, False, None, False),
             ("population", "population", fhirreference.FHIRReference, False, None, True),
-            ("publisher", "publisher", str, False, None, False),
-            ("purpose", "purpose", str, False, None, False),
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False),
             ("reviewer", "reviewer", contactdetail.ContactDetail, True, None, False),
-            ("shortTitle", "shortTitle", str, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("shortTitle", "shortTitle", fhirdatatypes.FHIRString, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False),
             ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False),
-            ("subtitle", "subtitle", str, False, None, False),
-            ("title", "title", str, False, None, False),
+            ("subtitle", "subtitle", fhirdatatypes.FHIRString, False, None, False),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
             ("topic", "topic", codeableconcept.CodeableConcept, True, None, False),
-            ("url", "url", str, False, None, False),
-            ("usage", "usage", str, False, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
+            ("usage", "usage", fhirdatatypes.FHIRString, False, None, False),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("version", "version", str, False, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -219,31 +220,39 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import contactdetail
 except ImportError:
     contactdetail = sys.modules[__package__ + '.contactdetail']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import relatedartifact
 except ImportError:
     relatedartifact = sys.modules[__package__ + '.relatedartifact']
+
 try:
     from . import usagecontext
 except ImportError:
     usagecontext = sys.modules[__package__ + '.usagecontext']
+

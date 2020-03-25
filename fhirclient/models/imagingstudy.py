@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ImagingStudy) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ImagingStudy) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -34,7 +34,7 @@ class ImagingStudy(domainresource.DomainResource):
         
         self.description = None
         """ Institution-generated description.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.encounter = None
         """ Encounter with which this imaging study is associated.
@@ -66,11 +66,11 @@ class ImagingStudy(domainresource.DomainResource):
         
         self.numberOfInstances = None
         """ Number of Study Related Instances.
-        Type `int`. """
+        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
         
         self.numberOfSeries = None
         """ Number of Study Related Series.
-        Type `int`. """
+        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
         
         self.procedureCode = None
         """ The performed procedure code.
@@ -98,11 +98,11 @@ class ImagingStudy(domainresource.DomainResource):
         
         self.started = None
         """ When the study was started.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.status = None
         """ registered | available | cancelled | entered-in-error | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subject = None
         """ Who or what is the subject of the study.
@@ -114,7 +114,7 @@ class ImagingStudy(domainresource.DomainResource):
         js = super(ImagingStudy, self).elementProperties()
         js.extend([
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
-            ("description", "description", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
@@ -122,19 +122,20 @@ class ImagingStudy(domainresource.DomainResource):
             ("location", "location", fhirreference.FHIRReference, False, None, False),
             ("modality", "modality", coding.Coding, True, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
-            ("numberOfInstances", "numberOfInstances", int, False, None, False),
-            ("numberOfSeries", "numberOfSeries", int, False, None, False),
+            ("numberOfInstances", "numberOfInstances", fhirdatatypes.FHIRUnsignedInt, False, None, False),
+            ("numberOfSeries", "numberOfSeries", fhirdatatypes.FHIRUnsignedInt, False, None, False),
             ("procedureCode", "procedureCode", codeableconcept.CodeableConcept, True, None, False),
             ("procedureReference", "procedureReference", fhirreference.FHIRReference, False, None, False),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("referrer", "referrer", fhirreference.FHIRReference, False, None, False),
             ("series", "series", ImagingStudySeries, True, None, False),
-            ("started", "started", fhirdate.FHIRDate, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("started", "started", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -161,7 +162,7 @@ class ImagingStudySeries(backboneelement.BackboneElement):
         
         self.description = None
         """ A short human readable summary of the series.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.endpoint = None
         """ Series access endpoint.
@@ -181,11 +182,11 @@ class ImagingStudySeries(backboneelement.BackboneElement):
         
         self.number = None
         """ Numeric identifier of this series.
-        Type `int`. """
+        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
         
         self.numberOfInstances = None
         """ Number of Series Related Instances.
-        Type `int`. """
+        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
         
         self.performer = None
         """ Who performed the series.
@@ -197,11 +198,11 @@ class ImagingStudySeries(backboneelement.BackboneElement):
         
         self.started = None
         """ When the series started.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.uid = None
         """ DICOM Series Instance UID for the series.
-        Type `str`. """
+        Type `FHIRId` (represented as `str` in JSON). """
         
         super(ImagingStudySeries, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -209,19 +210,21 @@ class ImagingStudySeries(backboneelement.BackboneElement):
         js = super(ImagingStudySeries, self).elementProperties()
         js.extend([
             ("bodySite", "bodySite", coding.Coding, False, None, False),
-            ("description", "description", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
             ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False),
             ("instance", "instance", ImagingStudySeriesInstance, True, None, False),
             ("laterality", "laterality", coding.Coding, False, None, False),
             ("modality", "modality", coding.Coding, False, None, True),
-            ("number", "number", int, False, None, False),
-            ("numberOfInstances", "numberOfInstances", int, False, None, False),
+            ("number", "number", fhirdatatypes.FHIRUnsignedInt, False, None, False),
+            ("numberOfInstances", "numberOfInstances", fhirdatatypes.FHIRUnsignedInt, False, None, False),
             ("performer", "performer", ImagingStudySeriesPerformer, True, None, False),
             ("specimen", "specimen", fhirreference.FHIRReference, True, None, False),
-            ("started", "started", fhirdate.FHIRDate, False, None, False),
-            ("uid", "uid", str, False, None, True),
+            ("started", "started", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("uid", "uid", fhirdatatypes.FHIRId, False, None, True),
         ])
         return js
+
+
 
 
 class ImagingStudySeriesInstance(backboneelement.BackboneElement):
@@ -243,7 +246,7 @@ class ImagingStudySeriesInstance(backboneelement.BackboneElement):
         
         self.number = None
         """ The number of this instance in the series.
-        Type `int`. """
+        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
         
         self.sopClass = None
         """ DICOM class type.
@@ -251,23 +254,25 @@ class ImagingStudySeriesInstance(backboneelement.BackboneElement):
         
         self.title = None
         """ Description of instance.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.uid = None
         """ DICOM SOP Instance UID.
-        Type `str`. """
+        Type `FHIRId` (represented as `str` in JSON). """
         
         super(ImagingStudySeriesInstance, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImagingStudySeriesInstance, self).elementProperties()
         js.extend([
-            ("number", "number", int, False, None, False),
+            ("number", "number", fhirdatatypes.FHIRUnsignedInt, False, None, False),
             ("sopClass", "sopClass", coding.Coding, False, None, True),
-            ("title", "title", str, False, None, False),
-            ("uid", "uid", str, False, None, True),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
+            ("uid", "uid", fhirdatatypes.FHIRId, False, None, True),
         ])
         return js
+
+
 
 
 class ImagingStudySeriesPerformer(backboneelement.BackboneElement):
@@ -305,28 +310,35 @@ class ImagingStudySeriesPerformer(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import coding
 except ImportError:
     coding = sys.modules[__package__ + '.coding']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+

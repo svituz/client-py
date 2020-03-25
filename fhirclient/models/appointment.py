@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Appointment) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Appointment) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -38,19 +38,19 @@ class Appointment(domainresource.DomainResource):
         
         self.comment = None
         """ Additional comments.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.created = None
         """ The date that this appointment was initially created.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Shown on a subject line in a meeting request, or appointment list.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.end = None
         """ When appointment is to conclude.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.identifier = None
         """ External Ids for this item.
@@ -58,7 +58,7 @@ class Appointment(domainresource.DomainResource):
         
         self.minutesDuration = None
         """ Can be less than start/end (e.g. estimate).
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.participant = None
         """ Participants involved in appointment.
@@ -66,11 +66,11 @@ class Appointment(domainresource.DomainResource):
         
         self.patientInstruction = None
         """ Detailed information and instructions for the patient.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.priority = None
         """ Used to make informed decisions if needing to re-prioritize.
-        Type `int`. """
+        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
         
         self.reasonCode = None
         """ Coded reason this appointment is scheduled.
@@ -106,12 +106,12 @@ class Appointment(domainresource.DomainResource):
         
         self.start = None
         """ When appointment is to take place.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.status = None
         """ proposed | pending | booked | arrived | fulfilled | cancelled |
         noshow | entered-in-error | checked-in | waitlist.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.supportingInformation = None
         """ Additional information to support the appointment.
@@ -125,15 +125,15 @@ class Appointment(domainresource.DomainResource):
             ("appointmentType", "appointmentType", codeableconcept.CodeableConcept, False, None, False),
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
             ("cancelationReason", "cancelationReason", codeableconcept.CodeableConcept, False, None, False),
-            ("comment", "comment", str, False, None, False),
-            ("created", "created", fhirdate.FHIRDate, False, None, False),
-            ("description", "description", str, False, None, False),
-            ("end", "end", fhirdate.FHIRDate, False, None, False),
+            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False),
+            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
+            ("end", "end", fhirdatatypes.FHIRInstant, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("minutesDuration", "minutesDuration", int, False, None, False),
+            ("minutesDuration", "minutesDuration", fhirdatatypes.FHIRPositiveInt, False, None, False),
             ("participant", "participant", AppointmentParticipant, True, None, True),
-            ("patientInstruction", "patientInstruction", str, False, None, False),
-            ("priority", "priority", int, False, None, False),
+            ("patientInstruction", "patientInstruction", fhirdatatypes.FHIRString, False, None, False),
+            ("priority", "priority", fhirdatatypes.FHIRUnsignedInt, False, None, False),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("requestedPeriod", "requestedPeriod", period.Period, True, None, False),
@@ -141,11 +141,12 @@ class Appointment(domainresource.DomainResource):
             ("serviceType", "serviceType", codeableconcept.CodeableConcept, True, None, False),
             ("slot", "slot", fhirreference.FHIRReference, True, None, False),
             ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False),
-            ("start", "start", fhirdate.FHIRDate, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("start", "start", fhirdatatypes.FHIRInstant, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -176,11 +177,11 @@ class AppointmentParticipant(backboneelement.BackboneElement):
         
         self.required = None
         """ required | optional | information-only.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.status = None
         """ accepted | declined | tentative | needs-action.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.type = None
         """ Role of participant in the appointment.
@@ -193,11 +194,12 @@ class AppointmentParticipant(backboneelement.BackboneElement):
         js.extend([
             ("actor", "actor", fhirreference.FHIRReference, False, None, False),
             ("period", "period", period.Period, False, None, False),
-            ("required", "required", str, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("required", "required", fhirdatatypes.FHIRCode, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("type", "type", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
+
 
 
 import sys
@@ -205,19 +207,24 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+

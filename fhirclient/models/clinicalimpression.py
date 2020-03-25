@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ClinicalImpression) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ClinicalImpression) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -40,15 +40,15 @@ class ClinicalImpression(domainresource.DomainResource):
         
         self.date = None
         """ When the assessment was documented.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Why/how the assessment was performed.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.effectiveDateTime = None
         """ Time of assessment.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.effectivePeriod = None
         """ Time of assessment.
@@ -92,11 +92,11 @@ class ClinicalImpression(domainresource.DomainResource):
         
         self.protocol = None
         """ Clinical Protocol followed.
-        List of `str` items. """
+        List of `FHIRUri` items (represented as `str` in JSON). """
         
         self.status = None
-        """ draft | completed | entered-in-error.
-        Type `str`. """
+        """ in-progress | completed | entered-in-error.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.statusReason = None
         """ Reason for current status.
@@ -108,7 +108,7 @@ class ClinicalImpression(domainresource.DomainResource):
         
         self.summary = None
         """ Summary of the assessment.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.supportingInfo = None
         """ Information supporting the clinical impression.
@@ -121,9 +121,9 @@ class ClinicalImpression(domainresource.DomainResource):
         js.extend([
             ("assessor", "assessor", fhirreference.FHIRReference, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("description", "description", str, False, None, False),
-            ("effectiveDateTime", "effectiveDateTime", fhirdate.FHIRDate, False, "effective", False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
+            ("effectiveDateTime", "effectiveDateTime", fhirdatatypes.FHIRDateTime, False, "effective", False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", False),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("finding", "finding", ClinicalImpressionFinding, True, None, False),
@@ -134,14 +134,15 @@ class ClinicalImpression(domainresource.DomainResource):
             ("problem", "problem", fhirreference.FHIRReference, True, None, False),
             ("prognosisCodeableConcept", "prognosisCodeableConcept", codeableconcept.CodeableConcept, True, None, False),
             ("prognosisReference", "prognosisReference", fhirreference.FHIRReference, True, None, False),
-            ("protocol", "protocol", str, True, None, False),
-            ("status", "status", str, False, None, True),
+            ("protocol", "protocol", fhirdatatypes.FHIRUri, True, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
-            ("summary", "summary", str, False, None, False),
+            ("summary", "summary", fhirdatatypes.FHIRString, False, None, False),
             ("supportingInfo", "supportingInfo", fhirreference.FHIRReference, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -165,7 +166,7 @@ class ClinicalImpressionFinding(backboneelement.BackboneElement):
         
         self.basis = None
         """ Which investigations support finding.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.itemCodeableConcept = None
         """ What was found.
@@ -180,11 +181,13 @@ class ClinicalImpressionFinding(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClinicalImpressionFinding, self).elementProperties()
         js.extend([
-            ("basis", "basis", str, False, None, False),
+            ("basis", "basis", fhirdatatypes.FHIRString, False, None, False),
             ("itemCodeableConcept", "itemCodeableConcept", codeableconcept.CodeableConcept, False, None, False),
             ("itemReference", "itemReference", fhirreference.FHIRReference, False, None, False),
         ])
         return js
+
+
 
 
 class ClinicalImpressionInvestigation(backboneelement.BackboneElement):
@@ -226,28 +229,35 @@ class ClinicalImpressionInvestigation(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+

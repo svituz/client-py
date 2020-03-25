@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Device) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Device) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -39,11 +39,11 @@ class Device(domainresource.DomainResource):
         
         self.distinctIdentifier = None
         """ The distinct identification string.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.expirationDate = None
         """ Date and time of expiry of this device (if applicable).
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Instance identifier.
@@ -55,19 +55,19 @@ class Device(domainresource.DomainResource):
         
         self.lotNumber = None
         """ Lot number of manufacture.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.manufactureDate = None
         """ Date when the device was made.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.manufacturer = None
         """ Name of device manufacturer.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.modelNumber = None
         """ The model number for the device.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.note = None
         """ Device notes and comments.
@@ -83,7 +83,7 @@ class Device(domainresource.DomainResource):
         
         self.partNumber = None
         """ The part number of the device.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.patient = None
         """ Patient to whom Device is affixed.
@@ -100,7 +100,7 @@ class Device(domainresource.DomainResource):
         
         self.serialNumber = None
         """ Serial number assigned by the manufacturer.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.specialization = None
         """ The capabilities supported on a  device, the standards to which the
@@ -110,7 +110,7 @@ class Device(domainresource.DomainResource):
         
         self.status = None
         """ active | inactive | entered-in-error | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.statusReason = None
         """ online | paused | standby | offline | not-ready | transduc-discon |
@@ -127,7 +127,7 @@ class Device(domainresource.DomainResource):
         
         self.url = None
         """ Network address to contact device.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.version = None
         """ The actual design of the device or software version running on the
@@ -142,31 +142,32 @@ class Device(domainresource.DomainResource):
             ("contact", "contact", contactpoint.ContactPoint, True, None, False),
             ("definition", "definition", fhirreference.FHIRReference, False, None, False),
             ("deviceName", "deviceName", DeviceDeviceName, True, None, False),
-            ("distinctIdentifier", "distinctIdentifier", str, False, None, False),
-            ("expirationDate", "expirationDate", fhirdate.FHIRDate, False, None, False),
+            ("distinctIdentifier", "distinctIdentifier", fhirdatatypes.FHIRString, False, None, False),
+            ("expirationDate", "expirationDate", fhirdatatypes.FHIRDateTime, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("location", "location", fhirreference.FHIRReference, False, None, False),
-            ("lotNumber", "lotNumber", str, False, None, False),
-            ("manufactureDate", "manufactureDate", fhirdate.FHIRDate, False, None, False),
-            ("manufacturer", "manufacturer", str, False, None, False),
-            ("modelNumber", "modelNumber", str, False, None, False),
+            ("lotNumber", "lotNumber", fhirdatatypes.FHIRString, False, None, False),
+            ("manufactureDate", "manufactureDate", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("manufacturer", "manufacturer", fhirdatatypes.FHIRString, False, None, False),
+            ("modelNumber", "modelNumber", fhirdatatypes.FHIRString, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("owner", "owner", fhirreference.FHIRReference, False, None, False),
             ("parent", "parent", fhirreference.FHIRReference, False, None, False),
-            ("partNumber", "partNumber", str, False, None, False),
+            ("partNumber", "partNumber", fhirdatatypes.FHIRString, False, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, False),
             ("property", "property", DeviceProperty, True, None, False),
             ("safety", "safety", codeableconcept.CodeableConcept, True, None, False),
-            ("serialNumber", "serialNumber", str, False, None, False),
+            ("serialNumber", "serialNumber", fhirdatatypes.FHIRString, False, None, False),
             ("specialization", "specialization", DeviceSpecialization, True, None, False),
-            ("status", "status", str, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
             ("statusReason", "statusReason", codeableconcept.CodeableConcept, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
             ("udiCarrier", "udiCarrier", DeviceUdiCarrier, True, None, False),
-            ("url", "url", str, False, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
             ("version", "version", DeviceVersion, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -192,22 +193,24 @@ class DeviceDeviceName(backboneelement.BackboneElement):
         
         self.name = None
         """ The name of the device.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ udi-label-name | user-friendly-name | patient-reported-name |
         manufacturer-name | model-name | other.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(DeviceDeviceName, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DeviceDeviceName, self).elementProperties()
         js.extend([
-            ("name", "name", str, False, None, True),
-            ("type", "type", str, False, None, True),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
+
 
 
 class DeviceProperty(backboneelement.BackboneElement):
@@ -250,6 +253,8 @@ class DeviceProperty(backboneelement.BackboneElement):
         return js
 
 
+
+
 class DeviceSpecialization(backboneelement.BackboneElement):
     """ The capabilities supported on a  device, the standards to which the device
     conforms for a particular purpose, and used for the communication.
@@ -271,7 +276,7 @@ class DeviceSpecialization(backboneelement.BackboneElement):
         
         self.version = None
         """ The version of the standard that is used to operate and communicate.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(DeviceSpecialization, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -279,9 +284,11 @@ class DeviceSpecialization(backboneelement.BackboneElement):
         js = super(DeviceSpecialization, self).elementProperties()
         js.extend([
             ("systemType", "systemType", codeableconcept.CodeableConcept, False, None, True),
-            ("version", "version", str, False, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
+
 
 
 class DeviceUdiCarrier(backboneelement.BackboneElement):
@@ -305,41 +312,43 @@ class DeviceUdiCarrier(backboneelement.BackboneElement):
         
         self.carrierAIDC = None
         """ UDI Machine Readable Barcode String.
-        Type `str`. """
+        Type `FHIRBase64Binary` (represented as `str` in JSON). """
         
         self.carrierHRF = None
         """ UDI Human Readable Barcode String.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.deviceIdentifier = None
         """ Mandatory fixed portion of UDI.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.entryType = None
         """ barcode | rfid | manual +.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.issuer = None
         """ UDI Issuing Organization.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.jurisdiction = None
         """ Regional UDI authority.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         super(DeviceUdiCarrier, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DeviceUdiCarrier, self).elementProperties()
         js.extend([
-            ("carrierAIDC", "carrierAIDC", str, False, None, False),
-            ("carrierHRF", "carrierHRF", str, False, None, False),
-            ("deviceIdentifier", "deviceIdentifier", str, False, None, False),
-            ("entryType", "entryType", str, False, None, False),
-            ("issuer", "issuer", str, False, None, False),
-            ("jurisdiction", "jurisdiction", str, False, None, False),
+            ("carrierAIDC", "carrierAIDC", fhirdatatypes.FHIRBase64Binary, False, None, False),
+            ("carrierHRF", "carrierHRF", fhirdatatypes.FHIRString, False, None, False),
+            ("deviceIdentifier", "deviceIdentifier", fhirdatatypes.FHIRString, False, None, False),
+            ("entryType", "entryType", fhirdatatypes.FHIRCode, False, None, False),
+            ("issuer", "issuer", fhirdatatypes.FHIRUri, False, None, False),
+            ("jurisdiction", "jurisdiction", fhirdatatypes.FHIRUri, False, None, False),
         ])
         return js
+
+
 
 
 class DeviceVersion(backboneelement.BackboneElement):
@@ -366,7 +375,7 @@ class DeviceVersion(backboneelement.BackboneElement):
         
         self.value = None
         """ The version text.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(DeviceVersion, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -375,9 +384,10 @@ class DeviceVersion(backboneelement.BackboneElement):
         js.extend([
             ("component", "component", identifier.Identifier, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("value", "value", str, False, None, True),
+            ("value", "value", fhirdatatypes.FHIRString, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -385,27 +395,34 @@ try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import contactpoint
 except ImportError:
     contactpoint = sys.modules[__package__ + '.contactpoint']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+

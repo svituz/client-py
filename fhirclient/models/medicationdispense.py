@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicationDispense) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -98,8 +98,8 @@ class MedicationDispense(domainresource.DomainResource):
         
         self.status = None
         """ preparation | in-progress | cancelled | on-hold | completed |
-        entered-in-error | stopped | unknown.
-        Type `str`. """
+        entered-in-error | stopped | declined | unknown.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.statusReasonCodeableConcept = None
         """ Why a dispense was not performed.
@@ -127,11 +127,11 @@ class MedicationDispense(domainresource.DomainResource):
         
         self.whenHandedOver = None
         """ When product was given out.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.whenPrepared = None
         """ When product was packaged and reviewed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         super(MedicationDispense, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -155,17 +155,18 @@ class MedicationDispense(domainresource.DomainResource):
             ("performer", "performer", MedicationDispensePerformer, True, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("receiver", "receiver", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("statusReasonCodeableConcept", "statusReasonCodeableConcept", codeableconcept.CodeableConcept, False, "statusReason", False),
             ("statusReasonReference", "statusReasonReference", fhirreference.FHIRReference, False, "statusReason", False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("substitution", "substitution", MedicationDispenseSubstitution, False, None, False),
             ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("whenHandedOver", "whenHandedOver", fhirdate.FHIRDate, False, None, False),
-            ("whenPrepared", "whenPrepared", fhirdate.FHIRDate, False, None, False),
+            ("whenHandedOver", "whenHandedOver", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("whenPrepared", "whenPrepared", fhirdatatypes.FHIRDateTime, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -203,6 +204,8 @@ class MedicationDispensePerformer(backboneelement.BackboneElement):
             ("function", "function", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class MedicationDispenseSubstitution(backboneelement.BackboneElement):
@@ -255,32 +258,40 @@ class MedicationDispenseSubstitution(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import dosage
 except ImportError:
     dosage = sys.modules[__package__ + '.dosage']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+

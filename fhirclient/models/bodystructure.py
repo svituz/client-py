@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/BodyStructure) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/BodyStructure) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -31,7 +31,7 @@ class BodyStructure(domainresource.DomainResource):
         
         self.description = None
         """ Text description.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Bodystructure identifier.
@@ -63,7 +63,7 @@ class BodyStructure(domainresource.DomainResource):
         js = super(BodyStructure, self).elementProperties()
         js.extend([
             ("active", "active", bool, False, None, False),
-            ("description", "description", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("image", "image", attachment.Attachment, True, None, False),
             ("location", "location", codeableconcept.CodeableConcept, False, None, False),
@@ -74,20 +74,30 @@ class BodyStructure(domainresource.DomainResource):
         return js
 
 
+
 import sys
 try:
     from . import attachment
 except ImportError:
     attachment = sys.modules[__package__ + '.attachment']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+

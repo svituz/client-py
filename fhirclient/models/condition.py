@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Condition) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Condition) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -30,7 +30,7 @@ class Condition(domainresource.DomainResource):
         
         self.abatementDateTime = None
         """ When in resolution/remission.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.abatementPeriod = None
         """ When in resolution/remission.
@@ -42,7 +42,7 @@ class Condition(domainresource.DomainResource):
         
         self.abatementString = None
         """ When in resolution/remission.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.asserter = None
         """ Person who asserts this condition.
@@ -86,7 +86,7 @@ class Condition(domainresource.DomainResource):
         
         self.onsetDateTime = None
         """ Estimated or actual date,  date-time, or age.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.onsetPeriod = None
         """ Estimated or actual date,  date-time, or age.
@@ -98,11 +98,11 @@ class Condition(domainresource.DomainResource):
         
         self.onsetString = None
         """ Estimated or actual date,  date-time, or age.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.recordedDate = None
         """ Date record was first recorded.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.recorder = None
         """ Who recorded the condition.
@@ -131,10 +131,10 @@ class Condition(domainresource.DomainResource):
         js = super(Condition, self).elementProperties()
         js.extend([
             ("abatementAge", "abatementAge", age.Age, False, "abatement", False),
-            ("abatementDateTime", "abatementDateTime", fhirdate.FHIRDate, False, "abatement", False),
+            ("abatementDateTime", "abatementDateTime", fhirdatatypes.FHIRDateTime, False, "abatement", False),
             ("abatementPeriod", "abatementPeriod", period.Period, False, "abatement", False),
             ("abatementRange", "abatementRange", range.Range, False, "abatement", False),
-            ("abatementString", "abatementString", str, False, "abatement", False),
+            ("abatementString", "abatementString", fhirdatatypes.FHIRString, False, "abatement", False),
             ("asserter", "asserter", fhirreference.FHIRReference, False, None, False),
             ("bodySite", "bodySite", codeableconcept.CodeableConcept, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
@@ -145,11 +145,11 @@ class Condition(domainresource.DomainResource):
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("onsetAge", "onsetAge", age.Age, False, "onset", False),
-            ("onsetDateTime", "onsetDateTime", fhirdate.FHIRDate, False, "onset", False),
+            ("onsetDateTime", "onsetDateTime", fhirdatatypes.FHIRDateTime, False, "onset", False),
             ("onsetPeriod", "onsetPeriod", period.Period, False, "onset", False),
             ("onsetRange", "onsetRange", range.Range, False, "onset", False),
-            ("onsetString", "onsetString", str, False, "onset", False),
-            ("recordedDate", "recordedDate", fhirdate.FHIRDate, False, None, False),
+            ("onsetString", "onsetString", fhirdatatypes.FHIRString, False, "onset", False),
+            ("recordedDate", "recordedDate", fhirdatatypes.FHIRDateTime, False, None, False),
             ("recorder", "recorder", fhirreference.FHIRReference, False, None, False),
             ("severity", "severity", codeableconcept.CodeableConcept, False, None, False),
             ("stage", "stage", ConditionStage, True, None, False),
@@ -157,6 +157,7 @@ class Condition(domainresource.DomainResource):
             ("verificationStatus", "verificationStatus", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -196,6 +197,8 @@ class ConditionEvidence(backboneelement.BackboneElement):
             ("detail", "detail", fhirreference.FHIRReference, True, None, False),
         ])
         return js
+
+
 
 
 class ConditionStage(backboneelement.BackboneElement):
@@ -239,36 +242,45 @@ class ConditionStage(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import age
 except ImportError:
     age = sys.modules[__package__ + '.age']
+
 try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import range
 except ImportError:
     range = sys.modules[__package__ + '.range']
+

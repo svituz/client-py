@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Patient) on 2019-05-07.
-#  2019, SMART Health IT.
-from fhirclient.datatypes.primitive import FHIRString, FHIRDate
-from . import domainresource
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Patient) on 2020-03-25.
+#  2020, SMART Health IT.
 
+
+from . import domainresource
 
 class Patient(domainresource.DomainResource):
     """ Information about an individual or animal receiving health care services.
@@ -51,11 +51,11 @@ class Patient(domainresource.DomainResource):
         
         self.deceasedDateTime = None
         """ Indicates if the individual is deceased or not.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.gender = None
         """ male | female | other | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.generalPractitioner = None
         """ Patient's nominated primary care provider.
@@ -105,12 +105,12 @@ class Patient(domainresource.DomainResource):
         js.extend([
             ("active", "active", bool, False, None, False),
             ("address", "address", address.Address, True, None, False),
-            ("birthDate", "birthDate", FHIRDate, False, None, False),
+            ("birthDate", "birthDate", fhirdatatypes.FHIRDate, False, None, False),
             ("communication", "communication", PatientCommunication, True, None, False),
             ("contact", "contact", PatientContact, True, None, False),
             ("deceasedBoolean", "deceasedBoolean", bool, False, "deceased", False),
-            ("deceasedDateTime", "deceasedDateTime", fhirdate.FHIRDate, False, "deceased", False),
-            ("gender", "gender", FHIRString, False, None, False),
+            ("deceasedDateTime", "deceasedDateTime", fhirdatatypes.FHIRDateTime, False, "deceased", False),
+            ("gender", "gender", fhirdatatypes.FHIRCode, False, None, False),
             ("generalPractitioner", "generalPractitioner", fhirreference.FHIRReference, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("link", "link", PatientLink, True, None, False),
@@ -124,8 +124,9 @@ class Patient(domainresource.DomainResource):
         ])
         return js
 
-from . import backboneelement
 
+
+from . import backboneelement
 
 class PatientCommunication(backboneelement.BackboneElement):
     """ A language which may be used to communicate with the patient about his or
@@ -162,6 +163,8 @@ class PatientCommunication(backboneelement.BackboneElement):
         return js
 
 
+
+
 class PatientContact(backboneelement.BackboneElement):
     """ A contact party (e.g. guardian, partner, friend) for the patient.
     """
@@ -182,7 +185,7 @@ class PatientContact(backboneelement.BackboneElement):
         
         self.gender = None
         """ male | female | other | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.name = None
         """ A name associated with the contact person.
@@ -211,7 +214,7 @@ class PatientContact(backboneelement.BackboneElement):
         js = super(PatientContact, self).elementProperties()
         js.extend([
             ("address", "address", address.Address, False, None, False),
-            ("gender", "gender", str, False, None, False),
+            ("gender", "gender", fhirdatatypes.FHIRCode, False, None, False),
             ("name", "name", humanname.HumanName, False, None, False),
             ("organization", "organization", fhirreference.FHIRReference, False, None, False),
             ("period", "period", period.Period, False, None, False),
@@ -219,6 +222,8 @@ class PatientContact(backboneelement.BackboneElement):
             ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
+
+
 
 
 class PatientLink(backboneelement.BackboneElement):
@@ -244,7 +249,7 @@ class PatientLink(backboneelement.BackboneElement):
         
         self.type = None
         """ replaced-by | replaces | refer | seealso.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(PatientLink, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -252,9 +257,10 @@ class PatientLink(backboneelement.BackboneElement):
         js = super(PatientLink, self).elementProperties()
         js.extend([
             ("other", "other", fhirreference.FHIRReference, False, None, True),
-            ("type", "type", str, False, None, True),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -262,35 +268,44 @@ try:
     from . import address
 except ImportError:
     address = sys.modules[__package__ + '.address']
+
 try:
     from . import attachment
 except ImportError:
     attachment = sys.modules[__package__ + '.attachment']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import contactpoint
 except ImportError:
     contactpoint = sys.modules[__package__ + '.contactpoint']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import humanname
 except ImportError:
     humanname = sys.modules[__package__ + '.humanname']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+

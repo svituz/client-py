@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Practitioner) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Practitioner) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -44,7 +44,7 @@ class Practitioner(domainresource.DomainResource):
         
         self.gender = None
         """ male | female | other | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.identifier = None
         """ An identifier for the person as this agent.
@@ -74,9 +74,9 @@ class Practitioner(domainresource.DomainResource):
         js.extend([
             ("active", "active", bool, False, None, False),
             ("address", "address", address.Address, True, None, False),
-            ("birthDate", "birthDate", fhirdate.FHIRDate, False, None, False),
+            ("birthDate", "birthDate", fhirdatatypes.FHIRDate, False, None, False),
             ("communication", "communication", codeableconcept.CodeableConcept, True, None, False),
-            ("gender", "gender", str, False, None, False),
+            ("gender", "gender", fhirdatatypes.FHIRCode, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("name", "name", humanname.HumanName, True, None, False),
             ("photo", "photo", attachment.Attachment, True, None, False),
@@ -84,6 +84,7 @@ class Practitioner(domainresource.DomainResource):
             ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -136,40 +137,50 @@ class PractitionerQualification(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import address
 except ImportError:
     address = sys.modules[__package__ + '.address']
+
 try:
     from . import attachment
 except ImportError:
     attachment = sys.modules[__package__ + '.attachment']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import contactpoint
 except ImportError:
     contactpoint = sys.modules[__package__ + '.contactpoint']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import humanname
 except ImportError:
     humanname = sys.modules[__package__ + '.humanname']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+

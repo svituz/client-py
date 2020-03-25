@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/NamingSystem) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/NamingSystem) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -31,11 +31,11 @@ class NamingSystem(domainresource.DomainResource):
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the naming system.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.jurisdiction = None
         """ Intended jurisdiction for naming system (if applicable).
@@ -43,23 +43,23 @@ class NamingSystem(domainresource.DomainResource):
         
         self.kind = None
         """ codesystem | identifier | root.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.name = None
         """ Name for this naming system (computer friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.publisher = None
         """ Name of the publisher (organization or individual).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.responsible = None
         """ Who maintains system namespace?.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.status = None
         """ draft | active | retired | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.type = None
         """ e.g. driver,  provider,  patient, bank etc..
@@ -71,7 +71,7 @@ class NamingSystem(domainresource.DomainResource):
         
         self.usage = None
         """ How/where is it used.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.useContext = None
         """ The context that the content is intended to support.
@@ -83,20 +83,21 @@ class NamingSystem(domainresource.DomainResource):
         js = super(NamingSystem, self).elementProperties()
         js.extend([
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, True),
-            ("description", "description", str, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, True),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("kind", "kind", str, False, None, True),
-            ("name", "name", str, False, None, True),
-            ("publisher", "publisher", str, False, None, False),
-            ("responsible", "responsible", str, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("kind", "kind", fhirdatatypes.FHIRCode, False, None, True),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
+            ("responsible", "responsible", fhirdatatypes.FHIRString, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
             ("uniqueId", "uniqueId", NamingSystemUniqueId, True, None, True),
-            ("usage", "usage", str, False, None, False),
+            ("usage", "usage", fhirdatatypes.FHIRString, False, None, False),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -120,7 +121,7 @@ class NamingSystemUniqueId(backboneelement.BackboneElement):
         
         self.comment = None
         """ Notes about identifier usage.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.period = None
         """ When is identifier valid?.
@@ -132,24 +133,25 @@ class NamingSystemUniqueId(backboneelement.BackboneElement):
         
         self.type = None
         """ oid | uuid | uri | other.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.value = None
         """ The unique identifier.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(NamingSystemUniqueId, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(NamingSystemUniqueId, self).elementProperties()
         js.extend([
-            ("comment", "comment", str, False, None, False),
+            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False),
             ("period", "period", period.Period, False, None, False),
             ("preferred", "preferred", bool, False, None, False),
-            ("type", "type", str, False, None, True),
-            ("value", "value", str, False, None, True),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
+            ("value", "value", fhirdatatypes.FHIRString, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -157,19 +159,24 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import contactdetail
 except ImportError:
     contactdetail = sys.modules[__package__ + '.contactdetail']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import usagecontext
 except ImportError:
     usagecontext = sys.modules[__package__ + '.usagecontext']
+

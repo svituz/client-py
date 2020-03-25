@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MedicinalProductContraindication) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicinalProductContraindication) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -70,6 +70,7 @@ class MedicinalProductContraindication(domainresource.DomainResource):
         return js
 
 
+
 from . import backboneelement
 
 class MedicinalProductContraindicationOtherTherapy(backboneelement.BackboneElement):
@@ -116,16 +117,20 @@ class MedicinalProductContraindicationOtherTherapy(backboneelement.BackboneEleme
         return js
 
 
+
 import sys
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import population
 except ImportError:
     population = sys.modules[__package__ + '.population']
+

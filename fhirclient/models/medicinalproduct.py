@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MedicinalProduct) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicinalProduct) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -105,7 +105,7 @@ class MedicinalProduct(domainresource.DomainResource):
         self.specialMeasures = None
         """ Whether the Medicinal Product is subject to special measures for
         regulatory reasons.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.type = None
         """ Regulatory type, e.g. Investigational or Authorized.
@@ -134,10 +134,11 @@ class MedicinalProduct(domainresource.DomainResource):
             ("pharmaceuticalProduct", "pharmaceuticalProduct", fhirreference.FHIRReference, True, None, False),
             ("productClassification", "productClassification", codeableconcept.CodeableConcept, True, None, False),
             ("specialDesignation", "specialDesignation", MedicinalProductSpecialDesignation, True, None, False),
-            ("specialMeasures", "specialMeasures", str, True, None, False),
+            ("specialMeasures", "specialMeasures", fhirdatatypes.FHIRString, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -167,7 +168,7 @@ class MedicinalProductManufacturingBusinessOperation(backboneelement.BackboneEle
         
         self.effectiveDate = None
         """ Regulatory authorization date.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.manufacturer = None
         """ The manufacturer or establishment associated with the process.
@@ -188,12 +189,14 @@ class MedicinalProductManufacturingBusinessOperation(backboneelement.BackboneEle
         js.extend([
             ("authorisationReferenceNumber", "authorisationReferenceNumber", identifier.Identifier, False, None, False),
             ("confidentialityIndicator", "confidentialityIndicator", codeableconcept.CodeableConcept, False, None, False),
-            ("effectiveDate", "effectiveDate", fhirdate.FHIRDate, False, None, False),
+            ("effectiveDate", "effectiveDate", fhirdatatypes.FHIRDateTime, False, None, False),
             ("manufacturer", "manufacturer", fhirreference.FHIRReference, True, None, False),
             ("operationType", "operationType", codeableconcept.CodeableConcept, False, None, False),
             ("regulator", "regulator", fhirreference.FHIRReference, False, None, False),
         ])
         return js
+
+
 
 
 class MedicinalProductName(backboneelement.BackboneElement):
@@ -220,7 +223,7 @@ class MedicinalProductName(backboneelement.BackboneElement):
         
         self.productName = None
         """ The full product name.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(MedicinalProductName, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -229,9 +232,11 @@ class MedicinalProductName(backboneelement.BackboneElement):
         js.extend([
             ("countryLanguage", "countryLanguage", MedicinalProductNameCountryLanguage, True, None, False),
             ("namePart", "namePart", MedicinalProductNameNamePart, True, None, False),
-            ("productName", "productName", str, False, None, True),
+            ("productName", "productName", fhirdatatypes.FHIRString, False, None, True),
         ])
         return js
+
+
 
 
 class MedicinalProductNameCountryLanguage(backboneelement.BackboneElement):
@@ -272,6 +277,8 @@ class MedicinalProductNameCountryLanguage(backboneelement.BackboneElement):
         return js
 
 
+
+
 class MedicinalProductNameNamePart(backboneelement.BackboneElement):
     """ Coding words or phrases of the name.
     """
@@ -288,7 +295,7 @@ class MedicinalProductNameNamePart(backboneelement.BackboneElement):
         
         self.part = None
         """ A fragment of a product name.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ Idenifying type for this part of the name (e.g. strength part).
@@ -299,10 +306,12 @@ class MedicinalProductNameNamePart(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicinalProductNameNamePart, self).elementProperties()
         js.extend([
-            ("part", "part", str, False, None, True),
+            ("part", "part", fhirdatatypes.FHIRString, False, None, True),
             ("type", "type", coding.Coding, False, None, True),
         ])
         return js
+
+
 
 
 class MedicinalProductSpecialDesignation(backboneelement.BackboneElement):
@@ -322,7 +331,7 @@ class MedicinalProductSpecialDesignation(backboneelement.BackboneElement):
         
         self.date = None
         """ Date when the designation was granted.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Identifier for the designation, or procedure number.
@@ -357,7 +366,7 @@ class MedicinalProductSpecialDesignation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicinalProductSpecialDesignation, self).elementProperties()
         js.extend([
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("indicationCodeableConcept", "indicationCodeableConcept", codeableconcept.CodeableConcept, False, "indication", False),
             ("indicationReference", "indicationReference", fhirreference.FHIRReference, False, "indication", False),
@@ -369,28 +378,35 @@ class MedicinalProductSpecialDesignation(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import coding
 except ImportError:
     coding = sys.modules[__package__ + '.coding']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import marketingstatus
 except ImportError:
     marketingstatus = sys.modules[__package__ + '.marketingstatus']
+

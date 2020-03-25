@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Bundle) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Bundle) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import resource
@@ -41,16 +41,16 @@ class Bundle(resource.Resource):
         
         self.timestamp = None
         """ When the bundle was assembled.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.total = None
         """ If search, the total number of matches.
-        Type `int`. """
+        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
         
         self.type = None
         """ document | message | transaction | transaction-response | batch |
         batch-response | history | searchset | collection.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(Bundle, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -61,11 +61,12 @@ class Bundle(resource.Resource):
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("link", "link", BundleLink, True, None, False),
             ("signature", "signature", signature.Signature, False, None, False),
-            ("timestamp", "timestamp", fhirdate.FHIRDate, False, None, False),
-            ("total", "total", int, False, None, False),
-            ("type", "type", str, False, None, True),
+            ("timestamp", "timestamp", fhirdatatypes.FHIRInstant, False, None, False),
+            ("total", "total", fhirdatatypes.FHIRUnsignedInt, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -89,7 +90,7 @@ class BundleEntry(backboneelement.BackboneElement):
         
         self.fullUrl = None
         """ URI for resource (Absolute URL server address or URI for UUID/OID).
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.link = None
         """ Links related to this entry.
@@ -116,7 +117,7 @@ class BundleEntry(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(BundleEntry, self).elementProperties()
         js.extend([
-            ("fullUrl", "fullUrl", str, False, None, False),
+            ("fullUrl", "fullUrl", fhirdatatypes.FHIRUri, False, None, False),
             ("link", "link", BundleLink, True, None, False),
             ("request", "request", BundleEntryRequest, False, None, False),
             ("resource", "resource", resource.Resource, False, None, False),
@@ -124,6 +125,8 @@ class BundleEntry(backboneelement.BackboneElement):
             ("search", "search", BundleEntrySearch, False, None, False),
         ])
         return js
+
+
 
 
 class BundleEntryRequest(backboneelement.BackboneElement):
@@ -146,41 +149,43 @@ class BundleEntryRequest(backboneelement.BackboneElement):
         
         self.ifMatch = None
         """ For managing update contention.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.ifModifiedSince = None
         """ For managing cache currency.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.ifNoneExist = None
         """ For conditional creates.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.ifNoneMatch = None
         """ For managing cache currency.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.method = None
         """ GET | HEAD | POST | PUT | DELETE | PATCH.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.url = None
         """ URL for HTTP equivalent of this entry.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         super(BundleEntryRequest, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(BundleEntryRequest, self).elementProperties()
         js.extend([
-            ("ifMatch", "ifMatch", str, False, None, False),
-            ("ifModifiedSince", "ifModifiedSince", fhirdate.FHIRDate, False, None, False),
-            ("ifNoneExist", "ifNoneExist", str, False, None, False),
-            ("ifNoneMatch", "ifNoneMatch", str, False, None, False),
-            ("method", "method", str, False, None, True),
-            ("url", "url", str, False, None, True),
+            ("ifMatch", "ifMatch", fhirdatatypes.FHIRString, False, None, False),
+            ("ifModifiedSince", "ifModifiedSince", fhirdatatypes.FHIRInstant, False, None, False),
+            ("ifNoneExist", "ifNoneExist", fhirdatatypes.FHIRString, False, None, False),
+            ("ifNoneMatch", "ifNoneMatch", fhirdatatypes.FHIRString, False, None, False),
+            ("method", "method", fhirdatatypes.FHIRCode, False, None, True),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, True),
         ])
         return js
+
+
 
 
 class BundleEntryResponse(backboneelement.BackboneElement):
@@ -203,15 +208,15 @@ class BundleEntryResponse(backboneelement.BackboneElement):
         
         self.etag = None
         """ The Etag for the resource (if relevant).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.lastModified = None
         """ Server's date time modified.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.location = None
         """ The location (if the operation returns a location).
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.outcome = None
         """ OperationOutcome with hints and warnings (for batch/transaction).
@@ -219,20 +224,22 @@ class BundleEntryResponse(backboneelement.BackboneElement):
         
         self.status = None
         """ Status response code (text optional).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(BundleEntryResponse, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(BundleEntryResponse, self).elementProperties()
         js.extend([
-            ("etag", "etag", str, False, None, False),
-            ("lastModified", "lastModified", fhirdate.FHIRDate, False, None, False),
-            ("location", "location", str, False, None, False),
+            ("etag", "etag", fhirdatatypes.FHIRString, False, None, False),
+            ("lastModified", "lastModified", fhirdatatypes.FHIRInstant, False, None, False),
+            ("location", "location", fhirdatatypes.FHIRUri, False, None, False),
             ("outcome", "outcome", resource.Resource, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRString, False, None, True),
         ])
         return js
+
+
 
 
 class BundleEntrySearch(backboneelement.BackboneElement):
@@ -254,7 +261,7 @@ class BundleEntrySearch(backboneelement.BackboneElement):
         
         self.mode = None
         """ match | include | outcome - why this is in the result set.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.score = None
         """ Search ranking (between 0 and 1).
@@ -265,10 +272,12 @@ class BundleEntrySearch(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(BundleEntrySearch, self).elementProperties()
         js.extend([
-            ("mode", "mode", str, False, None, False),
+            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, False),
             ("score", "score", float, False, None, False),
         ])
         return js
+
+
 
 
 class BundleLink(backboneelement.BackboneElement):
@@ -290,33 +299,37 @@ class BundleLink(backboneelement.BackboneElement):
         self.relation = None
         """ See http://www.iana.org/assignments/link-relations/link-
         relations.xhtml#link-relations-1.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.url = None
         """ Reference details for the link.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         super(BundleLink, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(BundleLink, self).elementProperties()
         js.extend([
-            ("relation", "relation", str, False, None, True),
-            ("url", "url", str, False, None, True),
+            ("relation", "relation", fhirdatatypes.FHIRString, False, None, True),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, True),
         ])
         return js
 
 
+
 import sys
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import signature
 except ImportError:
     signature = sys.modules[__package__ + '.signature']
+

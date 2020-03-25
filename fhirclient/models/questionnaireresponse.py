@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -31,7 +31,7 @@ class QuestionnaireResponse(domainresource.DomainResource):
         
         self.authored = None
         """ Date the answers were gathered.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.basedOn = None
         """ Request fulfilled by this QuestionnaireResponse.
@@ -55,7 +55,7 @@ class QuestionnaireResponse(domainresource.DomainResource):
         
         self.questionnaire = None
         """ Form being answered.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.source = None
         """ The person who answered the questions.
@@ -63,7 +63,7 @@ class QuestionnaireResponse(domainresource.DomainResource):
         
         self.status = None
         """ in-progress | completed | amended | entered-in-error | stopped.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subject = None
         """ The subject of the questions.
@@ -75,18 +75,19 @@ class QuestionnaireResponse(domainresource.DomainResource):
         js = super(QuestionnaireResponse, self).elementProperties()
         js.extend([
             ("author", "author", fhirreference.FHIRReference, False, None, False),
-            ("authored", "authored", fhirdate.FHIRDate, False, None, False),
+            ("authored", "authored", fhirdatatypes.FHIRDateTime, False, None, False),
             ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("item", "item", QuestionnaireResponseItem, True, None, False),
             ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
-            ("questionnaire", "questionnaire", str, False, None, False),
+            ("questionnaire", "questionnaire", fhirdatatypes.FHIRCanonical, False, None, False),
             ("source", "source", fhirreference.FHIRReference, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -114,7 +115,7 @@ class QuestionnaireResponseItem(backboneelement.BackboneElement):
         
         self.definition = None
         """ ElementDefinition - details for the item.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.item = None
         """ Nested questionnaire response items.
@@ -122,11 +123,11 @@ class QuestionnaireResponseItem(backboneelement.BackboneElement):
         
         self.linkId = None
         """ Pointer to specific item from Questionnaire.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.text = None
         """ Name for group or question text.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(QuestionnaireResponseItem, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -134,12 +135,14 @@ class QuestionnaireResponseItem(backboneelement.BackboneElement):
         js = super(QuestionnaireResponseItem, self).elementProperties()
         js.extend([
             ("answer", "answer", QuestionnaireResponseItemAnswer, True, None, False),
-            ("definition", "definition", str, False, None, False),
+            ("definition", "definition", fhirdatatypes.FHIRUri, False, None, False),
             ("item", "item", QuestionnaireResponseItem, True, None, False),
-            ("linkId", "linkId", str, False, None, True),
-            ("text", "text", str, False, None, False),
+            ("linkId", "linkId", fhirdatatypes.FHIRString, False, None, True),
+            ("text", "text", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
+
 
 
 class QuestionnaireResponseItemAnswer(backboneelement.BackboneElement):
@@ -180,7 +183,7 @@ class QuestionnaireResponseItemAnswer(backboneelement.BackboneElement):
         
         self.valueDateTime = None
         """ Single-valued answer to the question.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.valueDecimal = None
         """ Single-valued answer to the question.
@@ -200,15 +203,15 @@ class QuestionnaireResponseItemAnswer(backboneelement.BackboneElement):
         
         self.valueString = None
         """ Single-valued answer to the question.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.valueTime = None
         """ Single-valued answer to the question.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         self.valueUri = None
         """ Single-valued answer to the question.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         super(QuestionnaireResponseItemAnswer, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -219,17 +222,18 @@ class QuestionnaireResponseItemAnswer(backboneelement.BackboneElement):
             ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", False),
             ("valueBoolean", "valueBoolean", bool, False, "value", False),
             ("valueCoding", "valueCoding", coding.Coding, False, "value", False),
-            ("valueDate", "valueDate", fhirdate.FHIRDate, False, "value", False),
-            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", False),
+            ("valueDate", "valueDate", fhirdatatypes.FHIRDate, False, "value", False),
+            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", False),
             ("valueDecimal", "valueDecimal", float, False, "value", False),
             ("valueInteger", "valueInteger", int, False, "value", False),
             ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
             ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", False),
-            ("valueString", "valueString", str, False, "value", False),
-            ("valueTime", "valueTime", fhirdate.FHIRDate, False, "value", False),
-            ("valueUri", "valueUri", str, False, "value", False),
+            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", False),
+            ("valueTime", "valueTime", fhirdatatypes.FHIRTime, False, "value", False),
+            ("valueUri", "valueUri", fhirdatatypes.FHIRUri, False, "value", False),
         ])
         return js
+
 
 
 import sys
@@ -237,23 +241,29 @@ try:
     from . import attachment
 except ImportError:
     attachment = sys.modules[__package__ + '.attachment']
+
 try:
     from . import coding
 except ImportError:
     coding = sys.modules[__package__ + '.coding']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+

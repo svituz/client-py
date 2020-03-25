@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Coding) on 2019-05-07.
-#  2019, SMART Health IT.
-from fhirclient.datatypes.primitive import FHIRString, FHIRUri, FHIRCode
-from . import element
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Coding) on 2020-03-25.
+#  2020, SMART Health IT.
 
+
+from . import element
 
 class Coding(element.Element):
     """ A reference to a code defined by a terminology system.
@@ -23,15 +23,15 @@ class Coding(element.Element):
         
         self.code = None
         """ Symbol in syntax defined by the system.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.display = None
         """ Representation defined by the system.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.system = None
         """ Identity of the terminology system.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.userSelected = None
         """ If this coding was chosen directly by the user.
@@ -39,19 +39,26 @@ class Coding(element.Element):
         
         self.version = None
         """ Version of the system - if relevant.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(Coding, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Coding, self).elementProperties()
         js.extend([
-            ("code", "code", FHIRCode, False, None, False),
-            ("display", "display", FHIRString, False, None, False),
-            ("system", "system", FHIRUri, False, None, False),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, False),
+            ("display", "display", fhirdatatypes.FHIRString, False, None, False),
+            ("system", "system", fhirdatatypes.FHIRUri, False, None, False),
             ("userSelected", "userSelected", bool, False, None, False),
-            ("version", "version", FHIRString, False, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
 
+
+
+import sys
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
 

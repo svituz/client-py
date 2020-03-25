@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/DeviceDefinition) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/DeviceDefinition) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -51,7 +51,7 @@ class DeviceDefinition(domainresource.DomainResource):
         
         self.manufacturerString = None
         """ Name of device manufacturer.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.material = None
         """ A substance used to create the material(s) of which the device is
@@ -60,7 +60,7 @@ class DeviceDefinition(domainresource.DomainResource):
         
         self.modelNumber = None
         """ The model number for the device.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.note = None
         """ Device notes and comments.
@@ -68,7 +68,7 @@ class DeviceDefinition(domainresource.DomainResource):
         
         self.onlineInformation = None
         """ Access to on-line information.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.owner = None
         """ Organization responsible for device.
@@ -117,11 +117,11 @@ class DeviceDefinition(domainresource.DomainResource):
         
         self.url = None
         """ Network address to contact device.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.version = None
         """ Available versions.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         super(DeviceDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -134,11 +134,11 @@ class DeviceDefinition(domainresource.DomainResource):
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("languageCode", "languageCode", codeableconcept.CodeableConcept, True, None, False),
             ("manufacturerReference", "manufacturerReference", fhirreference.FHIRReference, False, "manufacturer", False),
-            ("manufacturerString", "manufacturerString", str, False, "manufacturer", False),
+            ("manufacturerString", "manufacturerString", fhirdatatypes.FHIRString, False, "manufacturer", False),
             ("material", "material", DeviceDefinitionMaterial, True, None, False),
-            ("modelNumber", "modelNumber", str, False, None, False),
+            ("modelNumber", "modelNumber", fhirdatatypes.FHIRString, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
-            ("onlineInformation", "onlineInformation", str, False, None, False),
+            ("onlineInformation", "onlineInformation", fhirdatatypes.FHIRUri, False, None, False),
             ("owner", "owner", fhirreference.FHIRReference, False, None, False),
             ("parentDevice", "parentDevice", fhirreference.FHIRReference, False, None, False),
             ("physicalCharacteristics", "physicalCharacteristics", prodcharacteristic.ProdCharacteristic, False, None, False),
@@ -149,10 +149,11 @@ class DeviceDefinition(domainresource.DomainResource):
             ("specialization", "specialization", DeviceDefinitionSpecialization, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
             ("udiDeviceIdentifier", "udiDeviceIdentifier", DeviceDefinitionUdiDeviceIdentifier, True, None, False),
-            ("url", "url", str, False, None, False),
-            ("version", "version", str, True, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -190,6 +191,8 @@ class DeviceDefinitionCapability(backboneelement.BackboneElement):
         return js
 
 
+
+
 class DeviceDefinitionDeviceName(backboneelement.BackboneElement):
     """ A name given to the device to identify it.
     """
@@ -206,22 +209,24 @@ class DeviceDefinitionDeviceName(backboneelement.BackboneElement):
         
         self.name = None
         """ The name of the device.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ udi-label-name | user-friendly-name | patient-reported-name |
         manufacturer-name | model-name | other.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(DeviceDefinitionDeviceName, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DeviceDefinitionDeviceName, self).elementProperties()
         js.extend([
-            ("name", "name", str, False, None, True),
-            ("type", "type", str, False, None, True),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
+
 
 
 class DeviceDefinitionMaterial(backboneelement.BackboneElement):
@@ -260,6 +265,8 @@ class DeviceDefinitionMaterial(backboneelement.BackboneElement):
             ("substance", "substance", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
+
+
 
 
 class DeviceDefinitionProperty(backboneelement.BackboneElement):
@@ -302,6 +309,8 @@ class DeviceDefinitionProperty(backboneelement.BackboneElement):
         return js
 
 
+
+
 class DeviceDefinitionSpecialization(backboneelement.BackboneElement):
     """ The capabilities supported on a  device, the standards to which the device
     conforms for a particular purpose, and used for the communication.
@@ -319,21 +328,23 @@ class DeviceDefinitionSpecialization(backboneelement.BackboneElement):
         
         self.systemType = None
         """ The standard that is used to operate and communicate.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.version = None
         """ The version of the standard that is used to operate and communicate.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(DeviceDefinitionSpecialization, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DeviceDefinitionSpecialization, self).elementProperties()
         js.extend([
-            ("systemType", "systemType", str, False, None, True),
-            ("version", "version", str, False, None, False),
+            ("systemType", "systemType", fhirdatatypes.FHIRString, False, None, True),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
+
 
 
 class DeviceDefinitionUdiDeviceIdentifier(backboneelement.BackboneElement):
@@ -359,26 +370,27 @@ class DeviceDefinitionUdiDeviceIdentifier(backboneelement.BackboneElement):
         """ The identifier that is to be associated with every Device that
         references this DeviceDefintiion for the issuer and jurisdication
         porvided in the DeviceDefinition.udiDeviceIdentifier.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.issuer = None
         """ The organization that assigns the identifier algorithm.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.jurisdiction = None
         """ The jurisdiction to which the deviceIdentifier applies.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         super(DeviceDefinitionUdiDeviceIdentifier, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DeviceDefinitionUdiDeviceIdentifier, self).elementProperties()
         js.extend([
-            ("deviceIdentifier", "deviceIdentifier", str, False, None, True),
-            ("issuer", "issuer", str, False, None, True),
-            ("jurisdiction", "jurisdiction", str, False, None, True),
+            ("deviceIdentifier", "deviceIdentifier", fhirdatatypes.FHIRString, False, None, True),
+            ("issuer", "issuer", fhirdatatypes.FHIRUri, False, None, True),
+            ("jurisdiction", "jurisdiction", fhirdatatypes.FHIRUri, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -386,31 +398,44 @@ try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import contactpoint
 except ImportError:
     contactpoint = sys.modules[__package__ + '.contactpoint']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import prodcharacteristic
 except ImportError:
     prodcharacteristic = sys.modules[__package__ + '.prodcharacteristic']
+
 try:
     from . import productshelflife
 except ImportError:
     productshelflife = sys.modules[__package__ + '.productshelflife']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+

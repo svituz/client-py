@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Substance) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Substance) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -31,7 +31,7 @@ class Substance(domainresource.DomainResource):
         
         self.description = None
         """ Textual description of the substance, comments.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Unique identifier.
@@ -47,7 +47,7 @@ class Substance(domainresource.DomainResource):
         
         self.status = None
         """ active | inactive | entered-in-error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(Substance, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -56,13 +56,14 @@ class Substance(domainresource.DomainResource):
         js.extend([
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("description", "description", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("ingredient", "ingredient", SubstanceIngredient, True, None, False),
             ("instance", "instance", SubstanceInstance, True, None, False),
-            ("status", "status", str, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -107,6 +108,8 @@ class SubstanceIngredient(backboneelement.BackboneElement):
         return js
 
 
+
+
 class SubstanceInstance(backboneelement.BackboneElement):
     """ If this describes a specific package/container of the substance.
     
@@ -126,7 +129,7 @@ class SubstanceInstance(backboneelement.BackboneElement):
         
         self.expiry = None
         """ When no longer valid to use.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Identifier of the package/container.
@@ -141,11 +144,12 @@ class SubstanceInstance(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SubstanceInstance, self).elementProperties()
         js.extend([
-            ("expiry", "expiry", fhirdate.FHIRDate, False, None, False),
+            ("expiry", "expiry", fhirdatatypes.FHIRDateTime, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -153,23 +157,29 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+
 try:
     from . import ratio
 except ImportError:
     ratio = sys.modules[__package__ + '.ratio']
+

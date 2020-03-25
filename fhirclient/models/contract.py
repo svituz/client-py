@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Contract) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Contract) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -26,7 +26,7 @@ class Contract(domainresource.DomainResource):
         
         self.alias = None
         """ Acronym or short name.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.applies = None
         """ Effective time.
@@ -71,11 +71,11 @@ class Contract(domainresource.DomainResource):
         
         self.instantiatesUri = None
         """ External Contract Definition.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.issued = None
         """ When this Contract was issued.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.legal = None
         """ Contract Legal Language.
@@ -95,7 +95,7 @@ class Contract(domainresource.DomainResource):
         
         self.name = None
         """ Computer friendly designation.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.relevantHistory = None
         """ Key event in Contract History.
@@ -118,9 +118,10 @@ class Contract(domainresource.DomainResource):
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.status = None
-        """ draft | active | suspended | cancelled | completed | entered-in-
-        error | unknown.
-        Type `str`. """
+        """ amended | appended | cancelled | disputed | entered-in-error |
+        executable | executed | negotiable | offered | policy | rejected |
+        renewed | revoked | resolved | terminated.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subType = None
         """ Subtype within the context of type.
@@ -132,7 +133,7 @@ class Contract(domainresource.DomainResource):
         
         self.subtitle = None
         """ Subordinate Friendly name.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.supportingInfo = None
         """ Extra Information.
@@ -144,7 +145,7 @@ class Contract(domainresource.DomainResource):
         
         self.title = None
         """ Human Friendly name.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.topicCodeableConcept = None
         """ Focus of contract interest.
@@ -160,18 +161,18 @@ class Contract(domainresource.DomainResource):
         
         self.url = None
         """ Basal definition.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.version = None
         """ Business edition.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(Contract, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Contract, self).elementProperties()
         js.extend([
-            ("alias", "alias", str, True, None, False),
+            ("alias", "alias", fhirdatatypes.FHIRString, True, None, False),
             ("applies", "applies", period.Period, False, None, False),
             ("author", "author", fhirreference.FHIRReference, False, None, False),
             ("authority", "authority", fhirreference.FHIRReference, True, None, False),
@@ -182,32 +183,33 @@ class Contract(domainresource.DomainResource):
             ("friendly", "friendly", ContractFriendly, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("instantiatesCanonical", "instantiatesCanonical", fhirreference.FHIRReference, False, None, False),
-            ("instantiatesUri", "instantiatesUri", str, False, None, False),
-            ("issued", "issued", fhirdate.FHIRDate, False, None, False),
+            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, False, None, False),
+            ("issued", "issued", fhirdatatypes.FHIRDateTime, False, None, False),
             ("legal", "legal", ContractLegal, True, None, False),
             ("legalState", "legalState", codeableconcept.CodeableConcept, False, None, False),
             ("legallyBindingAttachment", "legallyBindingAttachment", attachment.Attachment, False, "legallyBinding", False),
             ("legallyBindingReference", "legallyBindingReference", fhirreference.FHIRReference, False, "legallyBinding", False),
-            ("name", "name", str, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
             ("relevantHistory", "relevantHistory", fhirreference.FHIRReference, True, None, False),
             ("rule", "rule", ContractRule, True, None, False),
             ("scope", "scope", codeableconcept.CodeableConcept, False, None, False),
             ("signer", "signer", ContractSigner, True, None, False),
             ("site", "site", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", str, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
             ("subType", "subType", codeableconcept.CodeableConcept, True, None, False),
             ("subject", "subject", fhirreference.FHIRReference, True, None, False),
-            ("subtitle", "subtitle", str, False, None, False),
+            ("subtitle", "subtitle", fhirdatatypes.FHIRString, False, None, False),
             ("supportingInfo", "supportingInfo", fhirreference.FHIRReference, True, None, False),
             ("term", "term", ContractTerm, True, None, False),
-            ("title", "title", str, False, None, False),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
             ("topicCodeableConcept", "topicCodeableConcept", codeableconcept.CodeableConcept, False, "topic", False),
             ("topicReference", "topicReference", fhirreference.FHIRReference, False, "topic", False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("url", "url", str, False, None, False),
-            ("version", "version", str, False, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -232,15 +234,17 @@ class ContractContentDefinition(backboneelement.BackboneElement):
         
         self.copyright = None
         """ Publication Ownership.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.publicationDate = None
         """ When published.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.publicationStatus = None
-        """ draft | active | retired | unknown.
-        Type `str`. """
+        """ amended | appended | cancelled | disputed | entered-in-error |
+        executable | executed | negotiable | offered | policy | rejected |
+        renewed | revoked | resolved | terminated.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.publisher = None
         """ Publisher Entity.
@@ -259,14 +263,16 @@ class ContractContentDefinition(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractContentDefinition, self).elementProperties()
         js.extend([
-            ("copyright", "copyright", str, False, None, False),
-            ("publicationDate", "publicationDate", fhirdate.FHIRDate, False, None, False),
-            ("publicationStatus", "publicationStatus", str, False, None, True),
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("publicationDate", "publicationDate", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("publicationStatus", "publicationStatus", fhirdatatypes.FHIRCode, False, None, True),
             ("publisher", "publisher", fhirreference.FHIRReference, False, None, False),
             ("subType", "subType", codeableconcept.CodeableConcept, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
+
+
 
 
 class ContractFriendly(backboneelement.BackboneElement):
@@ -310,6 +316,8 @@ class ContractFriendly(backboneelement.BackboneElement):
         return js
 
 
+
+
 class ContractLegal(backboneelement.BackboneElement):
     """ Contract Legal Language.
     
@@ -345,6 +353,8 @@ class ContractLegal(backboneelement.BackboneElement):
         return js
 
 
+
+
 class ContractRule(backboneelement.BackboneElement):
     """ Computable Contract Language.
     
@@ -378,6 +388,8 @@ class ContractRule(backboneelement.BackboneElement):
             ("contentReference", "contentReference", fhirreference.FHIRReference, False, "content", True),
         ])
         return js
+
+
 
 
 class ContractSigner(backboneelement.BackboneElement):
@@ -423,6 +435,8 @@ class ContractSigner(backboneelement.BackboneElement):
         return js
 
 
+
+
 class ContractTerm(backboneelement.BackboneElement):
     """ Contract Term List.
     
@@ -462,7 +476,7 @@ class ContractTerm(backboneelement.BackboneElement):
         
         self.issued = None
         """ Contract Term Issue Date Time.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.offer = None
         """ Context of the Contract term.
@@ -478,7 +492,7 @@ class ContractTerm(backboneelement.BackboneElement):
         
         self.text = None
         """ Term Statement.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.topicCodeableConcept = None
         """ Term Concern.
@@ -502,16 +516,18 @@ class ContractTerm(backboneelement.BackboneElement):
             ("asset", "asset", ContractTermAsset, True, None, False),
             ("group", "group", ContractTerm, True, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("issued", "issued", fhirdate.FHIRDate, False, None, False),
+            ("issued", "issued", fhirdatatypes.FHIRDateTime, False, None, False),
             ("offer", "offer", ContractTermOffer, False, None, True),
             ("securityLabel", "securityLabel", ContractTermSecurityLabel, True, None, False),
             ("subType", "subType", codeableconcept.CodeableConcept, False, None, False),
-            ("text", "text", str, False, None, False),
+            ("text", "text", fhirdatatypes.FHIRString, False, None, False),
             ("topicCodeableConcept", "topicCodeableConcept", codeableconcept.CodeableConcept, False, "topic", False),
             ("topicReference", "topicReference", fhirreference.FHIRReference, False, "topic", False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class ContractTermAction(backboneelement.BackboneElement):
@@ -537,7 +553,7 @@ class ContractTermAction(backboneelement.BackboneElement):
         
         self.contextLinkId = None
         """ Pointer to specific item.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.doNotPerform = None
         """ True if the term prohibits the  action.
@@ -549,7 +565,7 @@ class ContractTermAction(backboneelement.BackboneElement):
         
         self.linkId = None
         """ Pointer to specific item.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.note = None
         """ Comments about the action.
@@ -557,7 +573,7 @@ class ContractTermAction(backboneelement.BackboneElement):
         
         self.occurrenceDateTime = None
         """ When action happens.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.occurrencePeriod = None
         """ When action happens.
@@ -573,7 +589,7 @@ class ContractTermAction(backboneelement.BackboneElement):
         
         self.performerLinkId = None
         """ Pointer to specific item.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.performerRole = None
         """ Competency of the performer.
@@ -585,7 +601,7 @@ class ContractTermAction(backboneelement.BackboneElement):
         
         self.reason = None
         """ Why action is to be performed.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.reasonCode = None
         """ Why is action (not) needed?.
@@ -593,7 +609,7 @@ class ContractTermAction(backboneelement.BackboneElement):
         
         self.reasonLinkId = None
         """ Pointer to specific item.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.reasonReference = None
         """ Why is action (not) needed?.
@@ -605,11 +621,11 @@ class ContractTermAction(backboneelement.BackboneElement):
         
         self.requesterLinkId = None
         """ Pointer to specific item.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.securityLabelNumber = None
         """ Action restriction numbers.
-        List of `int` items. """
+        List of `FHIRUnsignedInt` items (represented as `int` in JSON). """
         
         self.status = None
         """ State of the action.
@@ -629,30 +645,32 @@ class ContractTermAction(backboneelement.BackboneElement):
         js = super(ContractTermAction, self).elementProperties()
         js.extend([
             ("context", "context", fhirreference.FHIRReference, False, None, False),
-            ("contextLinkId", "contextLinkId", str, True, None, False),
+            ("contextLinkId", "contextLinkId", fhirdatatypes.FHIRString, True, None, False),
             ("doNotPerform", "doNotPerform", bool, False, None, False),
             ("intent", "intent", codeableconcept.CodeableConcept, False, None, True),
-            ("linkId", "linkId", str, True, None, False),
+            ("linkId", "linkId", fhirdatatypes.FHIRString, True, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
-            ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, "occurrence", False),
+            ("occurrenceDateTime", "occurrenceDateTime", fhirdatatypes.FHIRDateTime, False, "occurrence", False),
             ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
             ("occurrenceTiming", "occurrenceTiming", timing.Timing, False, "occurrence", False),
             ("performer", "performer", fhirreference.FHIRReference, False, None, False),
-            ("performerLinkId", "performerLinkId", str, True, None, False),
+            ("performerLinkId", "performerLinkId", fhirdatatypes.FHIRString, True, None, False),
             ("performerRole", "performerRole", codeableconcept.CodeableConcept, False, None, False),
             ("performerType", "performerType", codeableconcept.CodeableConcept, True, None, False),
-            ("reason", "reason", str, True, None, False),
+            ("reason", "reason", fhirdatatypes.FHIRString, True, None, False),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonLinkId", "reasonLinkId", str, True, None, False),
+            ("reasonLinkId", "reasonLinkId", fhirdatatypes.FHIRString, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("requester", "requester", fhirreference.FHIRReference, True, None, False),
-            ("requesterLinkId", "requesterLinkId", str, True, None, False),
-            ("securityLabelNumber", "securityLabelNumber", int, True, None, False),
+            ("requesterLinkId", "requesterLinkId", fhirdatatypes.FHIRString, True, None, False),
+            ("securityLabelNumber", "securityLabelNumber", fhirdatatypes.FHIRUnsignedInt, True, None, False),
             ("status", "status", codeableconcept.CodeableConcept, False, None, True),
             ("subject", "subject", ContractTermActionSubject, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
+
+
 
 
 class ContractTermActionSubject(backboneelement.BackboneElement):
@@ -688,6 +706,8 @@ class ContractTermActionSubject(backboneelement.BackboneElement):
         return js
 
 
+
+
 class ContractTermAsset(backboneelement.BackboneElement):
     """ Contract Term Asset List.
     """
@@ -708,7 +728,7 @@ class ContractTermAsset(backboneelement.BackboneElement):
         
         self.condition = None
         """ Quality desctiption of asset.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.context = None
         """ Circumstance of the asset.
@@ -716,7 +736,7 @@ class ContractTermAsset(backboneelement.BackboneElement):
         
         self.linkId = None
         """ Pointer to asset text.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.period = None
         """ Time period of the asset.
@@ -736,7 +756,7 @@ class ContractTermAsset(backboneelement.BackboneElement):
         
         self.securityLabelNumber = None
         """ Asset restriction numbers.
-        List of `int` items. """
+        List of `FHIRUnsignedInt` items (represented as `int` in JSON). """
         
         self.subtype = None
         """ Asset sub-category.
@@ -744,7 +764,7 @@ class ContractTermAsset(backboneelement.BackboneElement):
         
         self.text = None
         """ Asset clause or question text.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.type = None
         """ Asset category.
@@ -768,22 +788,24 @@ class ContractTermAsset(backboneelement.BackboneElement):
         js = super(ContractTermAsset, self).elementProperties()
         js.extend([
             ("answer", "answer", ContractTermOfferAnswer, True, None, False),
-            ("condition", "condition", str, False, None, False),
+            ("condition", "condition", fhirdatatypes.FHIRString, False, None, False),
             ("context", "context", ContractTermAssetContext, True, None, False),
-            ("linkId", "linkId", str, True, None, False),
+            ("linkId", "linkId", fhirdatatypes.FHIRString, True, None, False),
             ("period", "period", period.Period, True, None, False),
             ("periodType", "periodType", codeableconcept.CodeableConcept, True, None, False),
             ("relationship", "relationship", coding.Coding, False, None, False),
             ("scope", "scope", codeableconcept.CodeableConcept, False, None, False),
-            ("securityLabelNumber", "securityLabelNumber", int, True, None, False),
+            ("securityLabelNumber", "securityLabelNumber", fhirdatatypes.FHIRUnsignedInt, True, None, False),
             ("subtype", "subtype", codeableconcept.CodeableConcept, True, None, False),
-            ("text", "text", str, False, None, False),
+            ("text", "text", fhirdatatypes.FHIRString, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, True, None, False),
             ("typeReference", "typeReference", fhirreference.FHIRReference, True, None, False),
             ("usePeriod", "usePeriod", period.Period, True, None, False),
             ("valuedItem", "valuedItem", ContractTermAssetValuedItem, True, None, False),
         ])
         return js
+
+
 
 
 class ContractTermAssetContext(backboneelement.BackboneElement):
@@ -810,7 +832,7 @@ class ContractTermAssetContext(backboneelement.BackboneElement):
         
         self.text = None
         """ Context description.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ContractTermAssetContext, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -819,9 +841,11 @@ class ContractTermAssetContext(backboneelement.BackboneElement):
         js.extend([
             ("code", "code", codeableconcept.CodeableConcept, True, None, False),
             ("reference", "reference", fhirreference.FHIRReference, False, None, False),
-            ("text", "text", str, False, None, False),
+            ("text", "text", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
+
 
 
 class ContractTermAssetValuedItem(backboneelement.BackboneElement):
@@ -840,7 +864,7 @@ class ContractTermAssetValuedItem(backboneelement.BackboneElement):
         
         self.effectiveTime = None
         """ Contract Valued Item Effective Tiem.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.entityCodeableConcept = None
         """ Contract Valued Item Type.
@@ -860,7 +884,7 @@ class ContractTermAssetValuedItem(backboneelement.BackboneElement):
         
         self.linkId = None
         """ Pointer to specific item.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.net = None
         """ Total Contract Valued Item Value.
@@ -868,11 +892,11 @@ class ContractTermAssetValuedItem(backboneelement.BackboneElement):
         
         self.payment = None
         """ Terms of valuation.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.paymentDate = None
         """ When payment is due.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.points = None
         """ Contract Valued Item Difficulty Scaling Factor.
@@ -892,7 +916,7 @@ class ContractTermAssetValuedItem(backboneelement.BackboneElement):
         
         self.securityLabelNumber = None
         """ Security Labels that define affected terms.
-        List of `int` items. """
+        List of `FHIRUnsignedInt` items (represented as `int` in JSON). """
         
         self.unitPrice = None
         """ Contract Valued Item fee, charge, or cost.
@@ -903,23 +927,25 @@ class ContractTermAssetValuedItem(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractTermAssetValuedItem, self).elementProperties()
         js.extend([
-            ("effectiveTime", "effectiveTime", fhirdate.FHIRDate, False, None, False),
+            ("effectiveTime", "effectiveTime", fhirdatatypes.FHIRDateTime, False, None, False),
             ("entityCodeableConcept", "entityCodeableConcept", codeableconcept.CodeableConcept, False, "entity", False),
             ("entityReference", "entityReference", fhirreference.FHIRReference, False, "entity", False),
             ("factor", "factor", float, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("linkId", "linkId", str, True, None, False),
+            ("linkId", "linkId", fhirdatatypes.FHIRString, True, None, False),
             ("net", "net", money.Money, False, None, False),
-            ("payment", "payment", str, False, None, False),
-            ("paymentDate", "paymentDate", fhirdate.FHIRDate, False, None, False),
+            ("payment", "payment", fhirdatatypes.FHIRString, False, None, False),
+            ("paymentDate", "paymentDate", fhirdatatypes.FHIRDateTime, False, None, False),
             ("points", "points", float, False, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("recipient", "recipient", fhirreference.FHIRReference, False, None, False),
             ("responsible", "responsible", fhirreference.FHIRReference, False, None, False),
-            ("securityLabelNumber", "securityLabelNumber", int, True, None, False),
+            ("securityLabelNumber", "securityLabelNumber", fhirdatatypes.FHIRUnsignedInt, True, None, False),
             ("unitPrice", "unitPrice", money.Money, False, None, False),
         ])
         return js
+
+
 
 
 class ContractTermOffer(backboneelement.BackboneElement):
@@ -956,7 +982,7 @@ class ContractTermOffer(backboneelement.BackboneElement):
         
         self.linkId = None
         """ Pointer to text.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.party = None
         """ Offer Recipient.
@@ -964,11 +990,11 @@ class ContractTermOffer(backboneelement.BackboneElement):
         
         self.securityLabelNumber = None
         """ Offer restriction numbers.
-        List of `int` items. """
+        List of `FHIRUnsignedInt` items (represented as `int` in JSON). """
         
         self.text = None
         """ Human readable offer text.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.topic = None
         """ Negotiable offer asset.
@@ -987,14 +1013,16 @@ class ContractTermOffer(backboneelement.BackboneElement):
             ("decision", "decision", codeableconcept.CodeableConcept, False, None, False),
             ("decisionMode", "decisionMode", codeableconcept.CodeableConcept, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("linkId", "linkId", str, True, None, False),
+            ("linkId", "linkId", fhirdatatypes.FHIRString, True, None, False),
             ("party", "party", ContractTermOfferParty, True, None, False),
-            ("securityLabelNumber", "securityLabelNumber", int, True, None, False),
-            ("text", "text", str, False, None, False),
+            ("securityLabelNumber", "securityLabelNumber", fhirdatatypes.FHIRUnsignedInt, True, None, False),
+            ("text", "text", fhirdatatypes.FHIRString, False, None, False),
             ("topic", "topic", fhirreference.FHIRReference, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class ContractTermOfferAnswer(backboneelement.BackboneElement):
@@ -1029,7 +1057,7 @@ class ContractTermOfferAnswer(backboneelement.BackboneElement):
         
         self.valueDateTime = None
         """ The actual answer response.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.valueDecimal = None
         """ The actual answer response.
@@ -1049,15 +1077,15 @@ class ContractTermOfferAnswer(backboneelement.BackboneElement):
         
         self.valueString = None
         """ The actual answer response.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.valueTime = None
         """ The actual answer response.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         self.valueUri = None
         """ The actual answer response.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         super(ContractTermOfferAnswer, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -1067,17 +1095,19 @@ class ContractTermOfferAnswer(backboneelement.BackboneElement):
             ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", True),
             ("valueBoolean", "valueBoolean", bool, False, "value", True),
             ("valueCoding", "valueCoding", coding.Coding, False, "value", True),
-            ("valueDate", "valueDate", fhirdate.FHIRDate, False, "value", True),
-            ("valueDateTime", "valueDateTime", fhirdate.FHIRDate, False, "value", True),
+            ("valueDate", "valueDate", fhirdatatypes.FHIRDate, False, "value", True),
+            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", True),
             ("valueDecimal", "valueDecimal", float, False, "value", True),
             ("valueInteger", "valueInteger", int, False, "value", True),
             ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", True),
             ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", True),
-            ("valueString", "valueString", str, False, "value", True),
-            ("valueTime", "valueTime", fhirdate.FHIRDate, False, "value", True),
-            ("valueUri", "valueUri", str, False, "value", True),
+            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", True),
+            ("valueTime", "valueTime", fhirdatatypes.FHIRTime, False, "value", True),
+            ("valueUri", "valueUri", fhirdatatypes.FHIRUri, False, "value", True),
         ])
         return js
+
+
 
 
 class ContractTermOfferParty(backboneelement.BackboneElement):
@@ -1113,6 +1143,8 @@ class ContractTermOfferParty(backboneelement.BackboneElement):
         return js
 
 
+
+
 class ContractTermSecurityLabel(backboneelement.BackboneElement):
     """ Protection for the Term.
     
@@ -1144,7 +1176,7 @@ class ContractTermSecurityLabel(backboneelement.BackboneElement):
         
         self.number = None
         """ Link to Security Labels.
-        List of `int` items. """
+        List of `FHIRUnsignedInt` items (represented as `int` in JSON). """
         
         super(ContractTermSecurityLabel, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -1154,9 +1186,10 @@ class ContractTermSecurityLabel(backboneelement.BackboneElement):
             ("category", "category", coding.Coding, True, None, False),
             ("classification", "classification", coding.Coding, False, None, True),
             ("control", "control", coding.Coding, True, None, False),
-            ("number", "number", int, True, None, False),
+            ("number", "number", fhirdatatypes.FHIRUnsignedInt, True, None, False),
         ])
         return js
+
 
 
 import sys
@@ -1164,47 +1197,59 @@ try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import attachment
 except ImportError:
     attachment = sys.modules[__package__ + '.attachment']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import coding
 except ImportError:
     coding = sys.modules[__package__ + '.coding']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import money
 except ImportError:
     money = sys.modules[__package__ + '.money']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+
 try:
     from . import signature
 except ImportError:
     signature = sys.modules[__package__ + '.signature']
+
 try:
     from . import timing
 except ImportError:
     timing = sys.modules[__package__ + '.timing']
+

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 class FHIRElementFactory(object):
@@ -1781,6 +1781,9 @@ class FHIRElementFactory(object):
         if "SubstanceSpecification" == resource_type:
             from . import substancespecification
             return substancespecification.SubstanceSpecification(jsondict)
+        if "SubstanceSpecificationFHIRCode" == resource_type:
+            from . import substancespecification
+            return substancespecification.SubstanceSpecificationFHIRCode(jsondict)
         if "SubstanceSpecificationMoiety" == resource_type:
             from . import substancespecification
             return substancespecification.SubstanceSpecificationMoiety(jsondict)
@@ -1808,9 +1811,6 @@ class FHIRElementFactory(object):
         if "SubstanceSpecificationStructureRepresentation" == resource_type:
             from . import substancespecification
             return substancespecification.SubstanceSpecificationStructureRepresentation(jsondict)
-        if "SubstanceSpecificationstr" == resource_type:
-            from . import substancespecification
-            return substancespecification.SubstanceSpecificationstr(jsondict)
         if "SupplyDelivery" == resource_type:
             from . import supplydelivery
             return supplydelivery.SupplyDelivery(jsondict)

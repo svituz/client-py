@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Communication) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Communication) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -51,11 +51,11 @@ class Communication(domainresource.DomainResource):
         
         self.instantiatesCanonical = None
         """ Instantiates FHIR protocol or definition.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.instantiatesUri = None
         """ Instantiates external protocol or definition.
-        List of `str` items. """
+        List of `FHIRUri` items (represented as `str` in JSON). """
         
         self.medium = None
         """ A channel of communication.
@@ -74,8 +74,8 @@ class Communication(domainresource.DomainResource):
         List of `CommunicationPayload` items (represented as `dict` in JSON). """
         
         self.priority = None
-        """ Message urgency.
-        Type `str`. """
+        """ routine | urgent | asap | stat.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.reasonCode = None
         """ Indication for message.
@@ -87,7 +87,7 @@ class Communication(domainresource.DomainResource):
         
         self.received = None
         """ When received.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.recipient = None
         """ Message recipient.
@@ -99,12 +99,12 @@ class Communication(domainresource.DomainResource):
         
         self.sent = None
         """ When sent.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.status = None
-        """ preparation | in-progress | not-done | suspended | aborted |
-        completed | entered-in-error.
-        Type `str`. """
+        """ preparation | in-progress | not-done | on-hold | stopped |
+        completed | entered-in-error | unknown.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.statusReason = None
         """ Reason for current status.
@@ -129,25 +129,26 @@ class Communication(domainresource.DomainResource):
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("inResponseTo", "inResponseTo", fhirreference.FHIRReference, True, None, False),
-            ("instantiatesCanonical", "instantiatesCanonical", str, True, None, False),
-            ("instantiatesUri", "instantiatesUri", str, True, None, False),
+            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False),
             ("medium", "medium", codeableconcept.CodeableConcept, True, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
             ("payload", "payload", CommunicationPayload, True, None, False),
-            ("priority", "priority", str, False, None, False),
+            ("priority", "priority", fhirdatatypes.FHIRCode, False, None, False),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("received", "received", fhirdate.FHIRDate, False, None, False),
+            ("received", "received", fhirdatatypes.FHIRDateTime, False, None, False),
             ("recipient", "recipient", fhirreference.FHIRReference, True, None, False),
             ("sender", "sender", fhirreference.FHIRReference, False, None, False),
-            ("sent", "sent", fhirdate.FHIRDate, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("sent", "sent", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("topic", "topic", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -178,7 +179,7 @@ class CommunicationPayload(backboneelement.BackboneElement):
         
         self.contentString = None
         """ Message part content.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(CommunicationPayload, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -187,9 +188,10 @@ class CommunicationPayload(backboneelement.BackboneElement):
         js.extend([
             ("contentAttachment", "contentAttachment", attachment.Attachment, False, "content", True),
             ("contentReference", "contentReference", fhirreference.FHIRReference, False, "content", True),
-            ("contentString", "contentString", str, False, "content", True),
+            ("contentString", "contentString", fhirdatatypes.FHIRString, False, "content", True),
         ])
         return js
+
 
 
 import sys
@@ -197,23 +199,29 @@ try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import attachment
 except ImportError:
     attachment = sys.modules[__package__ + '.attachment']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+

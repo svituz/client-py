@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/ChargeItem) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/ChargeItem) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -51,15 +51,15 @@ class ChargeItem(domainresource.DomainResource):
         
         self.definitionCanonical = None
         """ Resource defining the code of this ChargeItem.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.definitionUri = None
         """ Defining information about the code of this charge item.
-        List of `str` items. """
+        List of `FHIRUri` items (represented as `str` in JSON). """
         
         self.enteredDate = None
         """ Date the charge item was entered.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.enterer = None
         """ Individual who was entering.
@@ -79,7 +79,7 @@ class ChargeItem(domainresource.DomainResource):
         
         self.occurrenceDateTime = None
         """ When the charged service was applied.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.occurrencePeriod = None
         """ When the charged service was applied.
@@ -91,7 +91,7 @@ class ChargeItem(domainresource.DomainResource):
         
         self.overrideReason = None
         """ Reason for overriding the list price/factor.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.partOf = None
         """ Part of referenced ChargeItem.
@@ -136,7 +136,7 @@ class ChargeItem(domainresource.DomainResource):
         self.status = None
         """ planned | billable | not-billable | aborted | billed | entered-in-
         error | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subject = None
         """ Individual service was done for/to.
@@ -156,17 +156,17 @@ class ChargeItem(domainresource.DomainResource):
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
             ("context", "context", fhirreference.FHIRReference, False, None, False),
             ("costCenter", "costCenter", fhirreference.FHIRReference, False, None, False),
-            ("definitionCanonical", "definitionCanonical", str, True, None, False),
-            ("definitionUri", "definitionUri", str, True, None, False),
-            ("enteredDate", "enteredDate", fhirdate.FHIRDate, False, None, False),
+            ("definitionCanonical", "definitionCanonical", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("definitionUri", "definitionUri", fhirdatatypes.FHIRUri, True, None, False),
+            ("enteredDate", "enteredDate", fhirdatatypes.FHIRDateTime, False, None, False),
             ("enterer", "enterer", fhirreference.FHIRReference, False, None, False),
             ("factorOverride", "factorOverride", float, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
-            ("occurrenceDateTime", "occurrenceDateTime", fhirdate.FHIRDate, False, "occurrence", False),
+            ("occurrenceDateTime", "occurrenceDateTime", fhirdatatypes.FHIRDateTime, False, "occurrence", False),
             ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
             ("occurrenceTiming", "occurrenceTiming", timing.Timing, False, "occurrence", False),
-            ("overrideReason", "overrideReason", str, False, None, False),
+            ("overrideReason", "overrideReason", fhirdatatypes.FHIRString, False, None, False),
             ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
             ("performer", "performer", ChargeItemPerformer, True, None, False),
             ("performingOrganization", "performingOrganization", fhirreference.FHIRReference, False, None, False),
@@ -177,11 +177,12 @@ class ChargeItem(domainresource.DomainResource):
             ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
             ("requestingOrganization", "requestingOrganization", fhirreference.FHIRReference, False, None, False),
             ("service", "service", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
             ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -221,40 +222,50 @@ class ChargeItemPerformer(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import money
 except ImportError:
     money = sys.modules[__package__ + '.money']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+
 try:
     from . import timing
 except ImportError:
     timing = sys.modules[__package__ + '.timing']
+

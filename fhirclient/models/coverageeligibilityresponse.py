@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -26,11 +26,11 @@ class CoverageEligibilityResponse(domainresource.DomainResource):
         
         self.created = None
         """ Response creation date.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.disposition = None
         """ Disposition Message.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.error = None
         """ Processing errors.
@@ -54,7 +54,7 @@ class CoverageEligibilityResponse(domainresource.DomainResource):
         
         self.outcome = None
         """ queued | complete | error | partial.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.patient = None
         """ Intended recipient of products and services.
@@ -62,11 +62,11 @@ class CoverageEligibilityResponse(domainresource.DomainResource):
         
         self.preAuthRef = None
         """ Preauthorization reference.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.purpose = None
         """ auth-requirements | benefits | discovery | validation.
-        List of `str` items. """
+        List of `FHIRCode` items (represented as `str` in JSON). """
         
         self.request = None
         """ Eligibility request reference.
@@ -86,31 +86,32 @@ class CoverageEligibilityResponse(domainresource.DomainResource):
         
         self.status = None
         """ active | cancelled | draft | entered-in-error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(CoverageEligibilityResponse, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CoverageEligibilityResponse, self).elementProperties()
         js.extend([
-            ("created", "created", fhirdate.FHIRDate, False, None, True),
-            ("disposition", "disposition", str, False, None, False),
+            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, True),
+            ("disposition", "disposition", fhirdatatypes.FHIRString, False, None, False),
             ("error", "error", CoverageEligibilityResponseError, True, None, False),
             ("form", "form", codeableconcept.CodeableConcept, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("insurance", "insurance", CoverageEligibilityResponseInsurance, True, None, False),
             ("insurer", "insurer", fhirreference.FHIRReference, False, None, True),
-            ("outcome", "outcome", str, False, None, True),
+            ("outcome", "outcome", fhirdatatypes.FHIRCode, False, None, True),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
-            ("preAuthRef", "preAuthRef", str, False, None, False),
-            ("purpose", "purpose", str, True, None, True),
+            ("preAuthRef", "preAuthRef", fhirdatatypes.FHIRString, False, None, False),
+            ("purpose", "purpose", fhirdatatypes.FHIRCode, True, None, True),
             ("request", "request", fhirreference.FHIRReference, False, None, True),
             ("requestor", "requestor", fhirreference.FHIRReference, False, None, False),
-            ("servicedDate", "servicedDate", fhirdate.FHIRDate, False, "serviced", False),
+            ("servicedDate", "servicedDate", fhirdatatypes.FHIRDate, False, "serviced", False),
             ("servicedPeriod", "servicedPeriod", period.Period, False, "serviced", False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -143,6 +144,8 @@ class CoverageEligibilityResponseError(backboneelement.BackboneElement):
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
         ])
         return js
+
+
 
 
 class CoverageEligibilityResponseInsurance(backboneelement.BackboneElement):
@@ -191,6 +194,8 @@ class CoverageEligibilityResponseInsurance(backboneelement.BackboneElement):
         return js
 
 
+
+
 class CoverageEligibilityResponseInsuranceItem(backboneelement.BackboneElement):
     """ Benefits and authorization details.
     
@@ -218,7 +223,7 @@ class CoverageEligibilityResponseInsuranceItem(backboneelement.BackboneElement):
         
         self.authorizationUrl = None
         """ Preauthorization requirements endpoint.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.benefit = None
         """ Benefit Summary.
@@ -230,7 +235,7 @@ class CoverageEligibilityResponseInsuranceItem(backboneelement.BackboneElement):
         
         self.description = None
         """ Description of the benefit or services covered.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.excluded = None
         """ Excluded from the plan.
@@ -242,7 +247,7 @@ class CoverageEligibilityResponseInsuranceItem(backboneelement.BackboneElement):
         
         self.name = None
         """ Short name for the benefit.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.network = None
         """ In or out of network.
@@ -271,13 +276,13 @@ class CoverageEligibilityResponseInsuranceItem(backboneelement.BackboneElement):
         js.extend([
             ("authorizationRequired", "authorizationRequired", bool, False, None, False),
             ("authorizationSupporting", "authorizationSupporting", codeableconcept.CodeableConcept, True, None, False),
-            ("authorizationUrl", "authorizationUrl", str, False, None, False),
+            ("authorizationUrl", "authorizationUrl", fhirdatatypes.FHIRUri, False, None, False),
             ("benefit", "benefit", CoverageEligibilityResponseInsuranceItemBenefit, True, None, False),
             ("category", "category", codeableconcept.CodeableConcept, False, None, False),
-            ("description", "description", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
             ("excluded", "excluded", bool, False, None, False),
             ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
-            ("name", "name", str, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
             ("network", "network", codeableconcept.CodeableConcept, False, None, False),
             ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, False),
             ("provider", "provider", fhirreference.FHIRReference, False, None, False),
@@ -285,6 +290,8 @@ class CoverageEligibilityResponseInsuranceItem(backboneelement.BackboneElement):
             ("unit", "unit", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class CoverageEligibilityResponseInsuranceItemBenefit(backboneelement.BackboneElement):
@@ -309,11 +316,11 @@ class CoverageEligibilityResponseInsuranceItemBenefit(backboneelement.BackboneEl
         
         self.allowedString = None
         """ Benefits allowed.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.allowedUnsignedInt = None
         """ Benefits allowed.
-        Type `int`. """
+        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
         
         self.type = None
         """ Benefit classification.
@@ -325,11 +332,11 @@ class CoverageEligibilityResponseInsuranceItemBenefit(backboneelement.BackboneEl
         
         self.usedString = None
         """ Benefits used.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.usedUnsignedInt = None
         """ Benefits used.
-        Type `int`. """
+        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
         
         super(CoverageEligibilityResponseInsuranceItemBenefit, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -337,14 +344,15 @@ class CoverageEligibilityResponseInsuranceItemBenefit(backboneelement.BackboneEl
         js = super(CoverageEligibilityResponseInsuranceItemBenefit, self).elementProperties()
         js.extend([
             ("allowedMoney", "allowedMoney", money.Money, False, "allowed", False),
-            ("allowedString", "allowedString", str, False, "allowed", False),
-            ("allowedUnsignedInt", "allowedUnsignedInt", int, False, "allowed", False),
+            ("allowedString", "allowedString", fhirdatatypes.FHIRString, False, "allowed", False),
+            ("allowedUnsignedInt", "allowedUnsignedInt", fhirdatatypes.FHIRUnsignedInt, False, "allowed", False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
             ("usedMoney", "usedMoney", money.Money, False, "used", False),
-            ("usedString", "usedString", str, False, "used", False),
-            ("usedUnsignedInt", "usedUnsignedInt", int, False, "used", False),
+            ("usedString", "usedString", fhirdatatypes.FHIRString, False, "used", False),
+            ("usedUnsignedInt", "usedUnsignedInt", fhirdatatypes.FHIRUnsignedInt, False, "used", False),
         ])
         return js
+
 
 
 import sys
@@ -352,23 +360,29 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import money
 except ImportError:
     money = sys.modules[__package__ + '.money']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+

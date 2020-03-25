@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Consent) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Consent) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -32,7 +32,7 @@ class Consent(domainresource.DomainResource):
         
         self.dateTime = None
         """ When this Consent was created or indexed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Identifier for this record (external references).
@@ -76,7 +76,7 @@ class Consent(domainresource.DomainResource):
         
         self.status = None
         """ draft | proposed | active | rejected | inactive | entered-in-error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.verification = None
         """ Consent Verified by patient or family.
@@ -88,7 +88,7 @@ class Consent(domainresource.DomainResource):
         js = super(Consent, self).elementProperties()
         js.extend([
             ("category", "category", codeableconcept.CodeableConcept, True, None, True),
-            ("dateTime", "dateTime", fhirdate.FHIRDate, False, None, False),
+            ("dateTime", "dateTime", fhirdatatypes.FHIRDateTime, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("organization", "organization", fhirreference.FHIRReference, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, False),
@@ -99,10 +99,11 @@ class Consent(domainresource.DomainResource):
             ("scope", "scope", codeableconcept.CodeableConcept, False, None, True),
             ("sourceAttachment", "sourceAttachment", attachment.Attachment, False, "source", False),
             ("sourceReference", "sourceReference", fhirreference.FHIRReference, False, "source", False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("verification", "verification", ConsentVerification, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -127,21 +128,23 @@ class ConsentPolicy(backboneelement.BackboneElement):
         
         self.authority = None
         """ Enforcement source for policy.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.uri = None
         """ Specific policy covered by this consent.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         super(ConsentPolicy, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ConsentPolicy, self).elementProperties()
         js.extend([
-            ("authority", "authority", str, False, None, False),
-            ("uri", "uri", str, False, None, False),
+            ("authority", "authority", fhirdatatypes.FHIRUri, False, None, False),
+            ("uri", "uri", fhirdatatypes.FHIRUri, False, None, False),
         ])
         return js
+
+
 
 
 class ConsentProvision(backboneelement.BackboneElement):
@@ -203,7 +206,7 @@ class ConsentProvision(backboneelement.BackboneElement):
         
         self.type = None
         """ deny | permit.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(ConsentProvision, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -220,9 +223,11 @@ class ConsentProvision(backboneelement.BackboneElement):
             ("provision", "provision", ConsentProvision, True, None, False),
             ("purpose", "purpose", coding.Coding, True, None, False),
             ("securityLabel", "securityLabel", coding.Coding, True, None, False),
-            ("type", "type", str, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, False),
         ])
         return js
+
+
 
 
 class ConsentProvisionActor(backboneelement.BackboneElement):
@@ -261,6 +266,8 @@ class ConsentProvisionActor(backboneelement.BackboneElement):
         return js
 
 
+
+
 class ConsentProvisionData(backboneelement.BackboneElement):
     """ Data controlled by this rule.
     
@@ -279,7 +286,7 @@ class ConsentProvisionData(backboneelement.BackboneElement):
         
         self.meaning = None
         """ instance | related | dependents | authoredby.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.reference = None
         """ The actual data reference.
@@ -290,10 +297,12 @@ class ConsentProvisionData(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConsentProvisionData, self).elementProperties()
         js.extend([
-            ("meaning", "meaning", str, False, None, True),
+            ("meaning", "meaning", fhirdatatypes.FHIRCode, False, None, True),
             ("reference", "reference", fhirreference.FHIRReference, False, None, True),
         ])
         return js
+
+
 
 
 class ConsentVerification(backboneelement.BackboneElement):
@@ -315,7 +324,7 @@ class ConsentVerification(backboneelement.BackboneElement):
         
         self.verificationDate = None
         """ When consent verified.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.verified = None
         """ Has been verified.
@@ -330,11 +339,12 @@ class ConsentVerification(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConsentVerification, self).elementProperties()
         js.extend([
-            ("verificationDate", "verificationDate", fhirdate.FHIRDate, False, None, False),
+            ("verificationDate", "verificationDate", fhirdatatypes.FHIRDateTime, False, None, False),
             ("verified", "verified", bool, False, None, True),
             ("verifiedWith", "verifiedWith", fhirreference.FHIRReference, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -342,27 +352,34 @@ try:
     from . import attachment
 except ImportError:
     attachment = sys.modules[__package__ + '.attachment']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import coding
 except ImportError:
     coding = sys.modules[__package__ + '.coding']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+

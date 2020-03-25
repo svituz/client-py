@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/NutritionOrder) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/NutritionOrder) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -31,7 +31,7 @@ class NutritionOrder(domainresource.DomainResource):
         
         self.dateTime = None
         """ Date and time the nutrition order was requested.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.encounter = None
         """ The encounter associated with this nutrition order.
@@ -56,19 +56,20 @@ class NutritionOrder(domainresource.DomainResource):
         
         self.instantiates = None
         """ Instantiates protocol or definition.
-        List of `str` items. """
+        List of `FHIRUri` items (represented as `str` in JSON). """
         
         self.instantiatesCanonical = None
         """ Instantiates FHIR protocol or definition.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.instantiatesUri = None
         """ Instantiates external protocol or definition.
-        List of `str` items. """
+        List of `FHIRUri` items (represented as `str` in JSON). """
         
         self.intent = None
-        """ proposal | plan | order.
-        Type `str`. """
+        """ proposal | plan | directive | order | original-order | reflex-order
+        | filler-order | instance-order | option.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.note = None
         """ Comments.
@@ -87,9 +88,9 @@ class NutritionOrder(domainresource.DomainResource):
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.status = None
-        """ proposed | draft | planned | requested | active | on-hold |
-        completed | cancelled | entered-in-error.
-        Type `str`. """
+        """ draft | active | on-hold | revoked | completed | entered-in-error |
+        unknown.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.supplement = None
         """ Supplement components.
@@ -101,24 +102,25 @@ class NutritionOrder(domainresource.DomainResource):
         js = super(NutritionOrder, self).elementProperties()
         js.extend([
             ("allergyIntolerance", "allergyIntolerance", fhirreference.FHIRReference, True, None, False),
-            ("dateTime", "dateTime", fhirdate.FHIRDate, False, None, True),
+            ("dateTime", "dateTime", fhirdatatypes.FHIRDateTime, False, None, True),
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("enteralFormula", "enteralFormula", NutritionOrderEnteralFormula, False, None, False),
             ("excludeFoodModifier", "excludeFoodModifier", codeableconcept.CodeableConcept, True, None, False),
             ("foodPreferenceModifier", "foodPreferenceModifier", codeableconcept.CodeableConcept, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("instantiates", "instantiates", str, True, None, False),
-            ("instantiatesCanonical", "instantiatesCanonical", str, True, None, False),
-            ("instantiatesUri", "instantiatesUri", str, True, None, False),
-            ("intent", "intent", str, False, None, True),
+            ("instantiates", "instantiates", fhirdatatypes.FHIRUri, True, None, False),
+            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False),
+            ("intent", "intent", fhirdatatypes.FHIRCode, False, None, True),
             ("note", "note", annotation.Annotation, True, None, False),
             ("oralDiet", "oralDiet", NutritionOrderOralDiet, False, None, False),
             ("orderer", "orderer", fhirreference.FHIRReference, False, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("supplement", "supplement", NutritionOrderSupplement, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -142,7 +144,7 @@ class NutritionOrderEnteralFormula(backboneelement.BackboneElement):
         
         self.additiveProductName = None
         """ Product or brand name of the modular additive.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.additiveType = None
         """ Type of modular component to add to the feeding.
@@ -154,11 +156,11 @@ class NutritionOrderEnteralFormula(backboneelement.BackboneElement):
         
         self.administrationInstruction = None
         """ Formula feeding instructions expressed as text.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.baseFormulaProductName = None
         """ Product or brand name of the enteral or infant formula.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.baseFormulaType = None
         """ Type of enteral or infant formula.
@@ -181,17 +183,19 @@ class NutritionOrderEnteralFormula(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(NutritionOrderEnteralFormula, self).elementProperties()
         js.extend([
-            ("additiveProductName", "additiveProductName", str, False, None, False),
+            ("additiveProductName", "additiveProductName", fhirdatatypes.FHIRString, False, None, False),
             ("additiveType", "additiveType", codeableconcept.CodeableConcept, False, None, False),
             ("administration", "administration", NutritionOrderEnteralFormulaAdministration, True, None, False),
-            ("administrationInstruction", "administrationInstruction", str, False, None, False),
-            ("baseFormulaProductName", "baseFormulaProductName", str, False, None, False),
+            ("administrationInstruction", "administrationInstruction", fhirdatatypes.FHIRString, False, None, False),
+            ("baseFormulaProductName", "baseFormulaProductName", fhirdatatypes.FHIRString, False, None, False),
             ("baseFormulaType", "baseFormulaType", codeableconcept.CodeableConcept, False, None, False),
             ("caloricDensity", "caloricDensity", quantity.Quantity, False, None, False),
             ("maxVolumeToDeliver", "maxVolumeToDeliver", quantity.Quantity, False, None, False),
             ("routeofAdministration", "routeofAdministration", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class NutritionOrderEnteralFormulaAdministration(backboneelement.BackboneElement):
@@ -242,6 +246,8 @@ class NutritionOrderEnteralFormulaAdministration(backboneelement.BackboneElement
         return js
 
 
+
+
 class NutritionOrderOralDiet(backboneelement.BackboneElement):
     """ Oral diet components.
     
@@ -265,7 +271,7 @@ class NutritionOrderOralDiet(backboneelement.BackboneElement):
         
         self.instruction = None
         """ Instructions or additional information about the oral diet.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.nutrient = None
         """ Required  nutrient modifications.
@@ -290,13 +296,15 @@ class NutritionOrderOralDiet(backboneelement.BackboneElement):
         js = super(NutritionOrderOralDiet, self).elementProperties()
         js.extend([
             ("fluidConsistencyType", "fluidConsistencyType", codeableconcept.CodeableConcept, True, None, False),
-            ("instruction", "instruction", str, False, None, False),
+            ("instruction", "instruction", fhirdatatypes.FHIRString, False, None, False),
             ("nutrient", "nutrient", NutritionOrderOralDietNutrient, True, None, False),
             ("schedule", "schedule", timing.Timing, True, None, False),
             ("texture", "texture", NutritionOrderOralDietTexture, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
+
+
 
 
 class NutritionOrderOralDietNutrient(backboneelement.BackboneElement):
@@ -333,6 +341,8 @@ class NutritionOrderOralDietNutrient(backboneelement.BackboneElement):
             ("modifier", "modifier", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class NutritionOrderOralDietTexture(backboneelement.BackboneElement):
@@ -372,6 +382,8 @@ class NutritionOrderOralDietTexture(backboneelement.BackboneElement):
         return js
 
 
+
+
 class NutritionOrderSupplement(backboneelement.BackboneElement):
     """ Supplement components.
     
@@ -391,11 +403,11 @@ class NutritionOrderSupplement(backboneelement.BackboneElement):
         
         self.instruction = None
         """ Instructions or additional information about the oral supplement.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.productName = None
         """ Product or brand name of the nutritional supplement.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.quantity = None
         """ Amount of the nutritional supplement.
@@ -414,8 +426,8 @@ class NutritionOrderSupplement(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(NutritionOrderSupplement, self).elementProperties()
         js.extend([
-            ("instruction", "instruction", str, False, None, False),
-            ("productName", "productName", str, False, None, False),
+            ("instruction", "instruction", fhirdatatypes.FHIRString, False, None, False),
+            ("productName", "productName", fhirdatatypes.FHIRString, False, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
             ("schedule", "schedule", timing.Timing, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
@@ -423,36 +435,45 @@ class NutritionOrderSupplement(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+
 try:
     from . import ratio
 except ImportError:
     ratio = sys.modules[__package__ + '.ratio']
+
 try:
     from . import timing
 except ImportError:
     timing = sys.modules[__package__ + '.timing']
+

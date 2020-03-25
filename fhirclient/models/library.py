@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Library) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Library) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -44,7 +44,7 @@ class Library(domainresource.DomainResource):
         
         self.copyright = None
         """ Use and/or publishing restrictions.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.dataRequirement = None
         """ What data is referenced by this library.
@@ -52,11 +52,11 @@ class Library(domainresource.DomainResource):
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the library.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.editor = None
         """ Who edited the content.
@@ -88,7 +88,7 @@ class Library(domainresource.DomainResource):
         
         self.name = None
         """ Name for this library (computer friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.parameter = None
         """ Parameters defined by the library.
@@ -96,11 +96,11 @@ class Library(domainresource.DomainResource):
         
         self.publisher = None
         """ Name of the publisher (organization or individual).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.purpose = None
         """ Why this library is defined.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.relatedArtifact = None
         """ Additional documentation, citations, etc..
@@ -112,7 +112,7 @@ class Library(domainresource.DomainResource):
         
         self.status = None
         """ draft | active | retired | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subjectCodeableConcept = None
         """ Type of individual the library content is focused on.
@@ -124,11 +124,11 @@ class Library(domainresource.DomainResource):
         
         self.subtitle = None
         """ Subordinate title of the library.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.title = None
         """ Name for this library (human friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.topic = None
         """ E.g. Education, Treatment, Assessment, etc..
@@ -142,11 +142,11 @@ class Library(domainresource.DomainResource):
         self.url = None
         """ Canonical identifier for this library, represented as a URI
         (globally unique).
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.usage = None
         """ Describes the clinical usage of the library.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.useContext = None
         """ The context that the content is intended to support.
@@ -154,47 +154,48 @@ class Library(domainresource.DomainResource):
         
         self.version = None
         """ Business version of the library.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(Library, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Library, self).elementProperties()
         js.extend([
-            ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
+            ("approvalDate", "approvalDate", fhirdatatypes.FHIRDate, False, None, False),
             ("author", "author", contactdetail.ContactDetail, True, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("content", "content", attachment.Attachment, True, None, False),
-            ("copyright", "copyright", str, False, None, False),
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("dataRequirement", "dataRequirement", datarequirement.DataRequirement, True, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("description", "description", str, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("editor", "editor", contactdetail.ContactDetail, True, None, False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
             ("endorser", "endorser", contactdetail.ContactDetail, True, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("lastReviewDate", "lastReviewDate", fhirdate.FHIRDate, False, None, False),
-            ("name", "name", str, False, None, False),
+            ("lastReviewDate", "lastReviewDate", fhirdatatypes.FHIRDate, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
             ("parameter", "parameter", parameterdefinition.ParameterDefinition, True, None, False),
-            ("publisher", "publisher", str, False, None, False),
-            ("purpose", "purpose", str, False, None, False),
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False),
             ("reviewer", "reviewer", contactdetail.ContactDetail, True, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False),
             ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False),
-            ("subtitle", "subtitle", str, False, None, False),
-            ("title", "title", str, False, None, False),
+            ("subtitle", "subtitle", fhirdatatypes.FHIRString, False, None, False),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
             ("topic", "topic", codeableconcept.CodeableConcept, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, True),
-            ("url", "url", str, False, None, False),
-            ("usage", "usage", str, False, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
+            ("usage", "usage", fhirdatatypes.FHIRString, False, None, False),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("version", "version", str, False, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
 
 
 import sys
@@ -202,43 +203,54 @@ try:
     from . import attachment
 except ImportError:
     attachment = sys.modules[__package__ + '.attachment']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import contactdetail
 except ImportError:
     contactdetail = sys.modules[__package__ + '.contactdetail']
+
 try:
     from . import datarequirement
 except ImportError:
     datarequirement = sys.modules[__package__ + '.datarequirement']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import parameterdefinition
 except ImportError:
     parameterdefinition = sys.modules[__package__ + '.parameterdefinition']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import relatedartifact
 except ImportError:
     relatedartifact = sys.modules[__package__ + '.relatedartifact']
+
 try:
     from . import usagecontext
 except ImportError:
     usagecontext = sys.modules[__package__ + '.usagecontext']
+

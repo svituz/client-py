@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Linkage) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Linkage) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -48,6 +48,7 @@ class Linkage(domainresource.DomainResource):
         return js
 
 
+
 from . import backboneelement
 
 class LinkageItem(backboneelement.BackboneElement):
@@ -74,7 +75,7 @@ class LinkageItem(backboneelement.BackboneElement):
         
         self.type = None
         """ source | alternate | historical.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(LinkageItem, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -82,13 +83,20 @@ class LinkageItem(backboneelement.BackboneElement):
         js = super(LinkageItem, self).elementProperties()
         js.extend([
             ("resource", "resource", fhirreference.FHIRReference, False, None, True),
-            ("type", "type", str, False, None, True),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
 
 
+
 import sys
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+

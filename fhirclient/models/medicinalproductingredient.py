@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MedicinalProductIngredient) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicinalProductIngredient) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -60,6 +60,7 @@ class MedicinalProductIngredient(domainresource.DomainResource):
         return js
 
 
+
 from . import backboneelement
 
 class MedicinalProductIngredientSpecifiedSubstance(backboneelement.BackboneElement):
@@ -106,6 +107,8 @@ class MedicinalProductIngredientSpecifiedSubstance(backboneelement.BackboneEleme
         return js
 
 
+
+
 class MedicinalProductIngredientSpecifiedSubstanceStrength(backboneelement.BackboneElement):
     """ Quantity of the substance or specified substance present in the
     manufactured item or pharmaceutical product.
@@ -137,7 +140,7 @@ class MedicinalProductIngredientSpecifiedSubstanceStrength(backboneelement.Backb
         
         self.measurementPoint = None
         """ For when strength is measured at a particular point or distance.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.presentation = None
         """ The quantity of substance in the unit of presentation, or in the
@@ -164,12 +167,14 @@ class MedicinalProductIngredientSpecifiedSubstanceStrength(backboneelement.Backb
             ("concentration", "concentration", ratio.Ratio, False, None, False),
             ("concentrationLowLimit", "concentrationLowLimit", ratio.Ratio, False, None, False),
             ("country", "country", codeableconcept.CodeableConcept, True, None, False),
-            ("measurementPoint", "measurementPoint", str, False, None, False),
+            ("measurementPoint", "measurementPoint", fhirdatatypes.FHIRString, False, None, False),
             ("presentation", "presentation", ratio.Ratio, False, None, True),
             ("presentationLowLimit", "presentationLowLimit", ratio.Ratio, False, None, False),
             ("referenceStrength", "referenceStrength", MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength, True, None, False),
         ])
         return js
+
+
 
 
 class MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength(backboneelement.BackboneElement):
@@ -192,7 +197,7 @@ class MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength(back
         
         self.measurementPoint = None
         """ For when strength is measured at a particular point or distance.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.strength = None
         """ Strength expressed in terms of a reference substance.
@@ -212,12 +217,14 @@ class MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength(back
         js = super(MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength, self).elementProperties()
         js.extend([
             ("country", "country", codeableconcept.CodeableConcept, True, None, False),
-            ("measurementPoint", "measurementPoint", str, False, None, False),
+            ("measurementPoint", "measurementPoint", fhirdatatypes.FHIRString, False, None, False),
             ("strength", "strength", ratio.Ratio, False, None, True),
             ("strengthLowLimit", "strengthLowLimit", ratio.Ratio, False, None, False),
             ("substance", "substance", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class MedicinalProductIngredientSubstance(backboneelement.BackboneElement):
@@ -254,20 +261,30 @@ class MedicinalProductIngredientSubstance(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import ratio
 except ImportError:
     ratio = sys.modules[__package__ + '.ratio']
+

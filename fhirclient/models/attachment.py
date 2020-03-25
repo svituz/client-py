@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Attachment) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Attachment) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import element
@@ -25,55 +25,57 @@ class Attachment(element.Element):
         
         self.contentType = None
         """ Mime type of the content, with charset etc..
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.creation = None
         """ Date attachment was first created.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.data = None
         """ Data inline, base64ed.
-        Type `str`. """
+        Type `FHIRBase64Binary` (represented as `str` in JSON). """
         
         self.hash = None
         """ Hash of the data (sha-1, base64ed).
-        Type `str`. """
+        Type `FHIRBase64Binary` (represented as `str` in JSON). """
         
         self.language = None
         """ Human language of the content (BCP-47).
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.size = None
         """ Number of bytes of content (if url provided).
-        Type `int`. """
+        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
         
         self.title = None
         """ Label to display in place of the data.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.url = None
         """ Uri where the data can be found.
-        Type `str`. """
+        Type `FHIRUrl` (represented as `str` in JSON). """
         
         super(Attachment, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Attachment, self).elementProperties()
         js.extend([
-            ("contentType", "contentType", str, False, None, False),
-            ("creation", "creation", fhirdate.FHIRDate, False, None, False),
-            ("data", "data", str, False, None, False),
-            ("hash", "hash", str, False, None, False),
-            ("language", "language", str, False, None, False),
-            ("size", "size", int, False, None, False),
-            ("title", "title", str, False, None, False),
-            ("url", "url", str, False, None, False),
+            ("contentType", "contentType", fhirdatatypes.FHIRCode, False, None, False),
+            ("creation", "creation", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("data", "data", fhirdatatypes.FHIRBase64Binary, False, None, False),
+            ("hash", "hash", fhirdatatypes.FHIRBase64Binary, False, None, False),
+            ("language", "language", fhirdatatypes.FHIRCode, False, None, False),
+            ("size", "size", fhirdatatypes.FHIRUnsignedInt, False, None, False),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
+            ("url", "url", fhirdatatypes.FHIRUrl, False, None, False),
         ])
         return js
 
 
+
 import sys
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+

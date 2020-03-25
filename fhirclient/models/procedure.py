@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Procedure) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Procedure) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -71,11 +71,11 @@ class Procedure(domainresource.DomainResource):
         
         self.instantiatesCanonical = None
         """ Instantiates FHIR protocol or definition.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.instantiatesUri = None
         """ Instantiates external protocol or definition.
-        List of `str` items. """
+        List of `FHIRUri` items (represented as `str` in JSON). """
         
         self.location = None
         """ Where the procedure happened.
@@ -99,7 +99,7 @@ class Procedure(domainresource.DomainResource):
         
         self.performedDateTime = None
         """ When the procedure was performed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.performedPeriod = None
         """ When the procedure was performed.
@@ -111,7 +111,7 @@ class Procedure(domainresource.DomainResource):
         
         self.performedString = None
         """ When the procedure was performed.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.performer = None
         """ The people who performed the procedure.
@@ -134,9 +134,9 @@ class Procedure(domainresource.DomainResource):
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.status = None
-        """ preparation | in-progress | not-done | suspended | aborted |
+        """ preparation | in-progress | not-done | on-hold | stopped |
         completed | entered-in-error | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.statusReason = None
         """ Reason for current status.
@@ -170,29 +170,30 @@ class Procedure(domainresource.DomainResource):
             ("focalDevice", "focalDevice", ProcedureFocalDevice, True, None, False),
             ("followUp", "followUp", codeableconcept.CodeableConcept, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("instantiatesCanonical", "instantiatesCanonical", str, True, None, False),
-            ("instantiatesUri", "instantiatesUri", str, True, None, False),
+            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False),
             ("location", "location", fhirreference.FHIRReference, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
             ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
             ("performedAge", "performedAge", age.Age, False, "performed", False),
-            ("performedDateTime", "performedDateTime", fhirdate.FHIRDate, False, "performed", False),
+            ("performedDateTime", "performedDateTime", fhirdatatypes.FHIRDateTime, False, "performed", False),
             ("performedPeriod", "performedPeriod", period.Period, False, "performed", False),
             ("performedRange", "performedRange", range.Range, False, "performed", False),
-            ("performedString", "performedString", str, False, "performed", False),
+            ("performedString", "performedString", fhirdatatypes.FHIRString, False, "performed", False),
             ("performer", "performer", ProcedurePerformer, True, None, False),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
             ("recorder", "recorder", fhirreference.FHIRReference, False, None, False),
             ("report", "report", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, True),
             ("usedCode", "usedCode", codeableconcept.CodeableConcept, True, None, False),
             ("usedReference", "usedReference", fhirreference.FHIRReference, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -232,6 +233,8 @@ class ProcedureFocalDevice(backboneelement.BackboneElement):
             ("manipulated", "manipulated", fhirreference.FHIRReference, False, None, True),
         ])
         return js
+
+
 
 
 class ProcedurePerformer(backboneelement.BackboneElement):
@@ -274,36 +277,45 @@ class ProcedurePerformer(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import age
 except ImportError:
     age = sys.modules[__package__ + '.age']
+
 try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import range
 except ImportError:
     range = sys.modules[__package__ + '.range']
+

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/CareTeam) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/CareTeam) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -43,7 +43,7 @@ class CareTeam(domainresource.DomainResource):
         
         self.name = None
         """ Name of the team, such as crisis assessment team.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.note = None
         """ Comments made about the CareTeam.
@@ -67,7 +67,7 @@ class CareTeam(domainresource.DomainResource):
         
         self.status = None
         """ proposed | active | suspended | inactive | entered-in-error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subject = None
         """ Who care team is for.
@@ -86,17 +86,18 @@ class CareTeam(domainresource.DomainResource):
             ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, True, None, False),
-            ("name", "name", str, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
             ("note", "note", annotation.Annotation, True, None, False),
             ("participant", "participant", CareTeamParticipant, True, None, False),
             ("period", "period", period.Period, False, None, False),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", str, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -147,28 +148,40 @@ class CareTeamParticipant(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import contactpoint
 except ImportError:
     contactpoint = sys.modules[__package__ + '.contactpoint']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/StructureMap) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/StructureMap) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -28,15 +28,15 @@ class StructureMap(domainresource.DomainResource):
         
         self.copyright = None
         """ Use and/or publishing restrictions.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the structure map.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.experimental = None
         """ For testing purposes, not real usage.
@@ -52,7 +52,7 @@ class StructureMap(domainresource.DomainResource):
         
         self.import_fhir = None
         """ Other maps used by this map (canonical URLs).
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.jurisdiction = None
         """ Intended jurisdiction for structure map (if applicable).
@@ -60,19 +60,19 @@ class StructureMap(domainresource.DomainResource):
         
         self.name = None
         """ Name for this structure map (computer friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.publisher = None
         """ Name of the publisher (organization or individual).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.purpose = None
         """ Why this structure map is defined.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.status = None
         """ draft | active | retired | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.structure = None
         """ Structure Definition used by this map.
@@ -80,12 +80,12 @@ class StructureMap(domainresource.DomainResource):
         
         self.title = None
         """ Name for this structure map (human friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.url = None
         """ Canonical identifier for this structure map, represented as a URI
         (globally unique).
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.useContext = None
         """ The context that the content is intended to support.
@@ -93,7 +93,7 @@ class StructureMap(domainresource.DomainResource):
         
         self.version = None
         """ Business version of the structure map.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(StructureMap, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -101,25 +101,26 @@ class StructureMap(domainresource.DomainResource):
         js = super(StructureMap, self).elementProperties()
         js.extend([
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("description", "description", str, False, None, False),
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("experimental", "experimental", bool, False, None, False),
             ("group", "group", StructureMapGroup, True, None, True),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("import_fhir", "import", str, True, None, False),
+            ("import_fhir", "import", fhirdatatypes.FHIRCanonical, True, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("name", "name", str, False, None, True),
-            ("publisher", "publisher", str, False, None, False),
-            ("purpose", "purpose", str, False, None, False),
-            ("status", "status", str, False, None, True),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("structure", "structure", StructureMapStructure, True, None, False),
-            ("title", "title", str, False, None, False),
-            ("url", "url", str, False, None, True),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, True),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("version", "version", str, False, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -143,11 +144,11 @@ class StructureMapGroup(backboneelement.BackboneElement):
         
         self.documentation = None
         """ Additional description/explanation for group.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.extends = None
         """ Another group that this group adds rules to.
-        Type `str`. """
+        Type `FHIRId` (represented as `str` in JSON). """
         
         self.input = None
         """ Named instance provided when invoking the map.
@@ -155,7 +156,7 @@ class StructureMapGroup(backboneelement.BackboneElement):
         
         self.name = None
         """ Human-readable label.
-        Type `str`. """
+        Type `FHIRId` (represented as `str` in JSON). """
         
         self.rule = None
         """ Transform Rule from source to target.
@@ -163,21 +164,23 @@ class StructureMapGroup(backboneelement.BackboneElement):
         
         self.typeMode = None
         """ none | types | type-and-types.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(StructureMapGroup, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureMapGroup, self).elementProperties()
         js.extend([
-            ("documentation", "documentation", str, False, None, False),
-            ("extends", "extends", str, False, None, False),
+            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False),
+            ("extends", "extends", fhirdatatypes.FHIRId, False, None, False),
             ("input", "input", StructureMapGroupInput, True, None, True),
-            ("name", "name", str, False, None, True),
+            ("name", "name", fhirdatatypes.FHIRId, False, None, True),
             ("rule", "rule", StructureMapGroupRule, True, None, True),
-            ("typeMode", "typeMode", str, False, None, True),
+            ("typeMode", "typeMode", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
+
 
 
 class StructureMapGroupInput(backboneelement.BackboneElement):
@@ -199,31 +202,33 @@ class StructureMapGroupInput(backboneelement.BackboneElement):
         
         self.documentation = None
         """ Documentation for this instance of data.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.mode = None
         """ source | target.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.name = None
         """ Name for this instance of data.
-        Type `str`. """
+        Type `FHIRId` (represented as `str` in JSON). """
         
         self.type = None
         """ Type for this instance of data.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(StructureMapGroupInput, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureMapGroupInput, self).elementProperties()
         js.extend([
-            ("documentation", "documentation", str, False, None, False),
-            ("mode", "mode", str, False, None, True),
-            ("name", "name", str, False, None, True),
-            ("type", "type", str, False, None, False),
+            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False),
+            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, True),
+            ("name", "name", fhirdatatypes.FHIRId, False, None, True),
+            ("type", "type", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
+
 
 
 class StructureMapGroupRule(backboneelement.BackboneElement):
@@ -246,11 +251,11 @@ class StructureMapGroupRule(backboneelement.BackboneElement):
         
         self.documentation = None
         """ Documentation for this instance of data.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.name = None
         """ Name of the rule for internal references.
-        Type `str`. """
+        Type `FHIRId` (represented as `str` in JSON). """
         
         self.rule = None
         """ Rules contained in this rule.
@@ -270,13 +275,15 @@ class StructureMapGroupRule(backboneelement.BackboneElement):
         js = super(StructureMapGroupRule, self).elementProperties()
         js.extend([
             ("dependent", "dependent", StructureMapGroupRuleDependent, True, None, False),
-            ("documentation", "documentation", str, False, None, False),
-            ("name", "name", str, False, None, True),
+            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRId, False, None, True),
             ("rule", "rule", StructureMapGroupRule, True, None, False),
             ("source", "source", StructureMapGroupRuleSource, True, None, True),
             ("target", "target", StructureMapGroupRuleTarget, True, None, False),
         ])
         return js
+
+
 
 
 class StructureMapGroupRuleDependent(backboneelement.BackboneElement):
@@ -295,21 +302,23 @@ class StructureMapGroupRuleDependent(backboneelement.BackboneElement):
         
         self.name = None
         """ Name of a rule or group to apply.
-        Type `str`. """
+        Type `FHIRId` (represented as `str` in JSON). """
         
         self.variable = None
         """ Variable to pass to the rule or group.
-        List of `str` items. """
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         super(StructureMapGroupRuleDependent, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureMapGroupRuleDependent, self).elementProperties()
         js.extend([
-            ("name", "name", str, False, None, True),
-            ("variable", "variable", str, True, None, True),
+            ("name", "name", fhirdatatypes.FHIRId, False, None, True),
+            ("variable", "variable", fhirdatatypes.FHIRString, True, None, True),
         ])
         return js
+
+
 
 
 class StructureMapGroupRuleSource(backboneelement.BackboneElement):
@@ -329,15 +338,15 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         self.check = None
         """ FHIRPath expression  - must be true or the mapping engine throws an
         error instead of completing.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.condition = None
         """ FHIRPath expression  - must be true or the rule does not apply.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.context = None
         """ Type or variable this rule applies to.
-        Type `str`. """
+        Type `FHIRId` (represented as `str` in JSON). """
         
         self.defaultValueAddress = None
         """ Default value if no value exists.
@@ -357,7 +366,7 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         
         self.defaultValueBase64Binary = None
         """ Default value if no value exists.
-        Type `str`. """
+        Type `FHIRBase64Binary` (represented as `str` in JSON). """
         
         self.defaultValueBoolean = None
         """ Default value if no value exists.
@@ -365,11 +374,11 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         
         self.defaultValueCanonical = None
         """ Default value if no value exists.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.defaultValueCode = None
         """ Default value if no value exists.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.defaultValueCodeableConcept = None
         """ Default value if no value exists.
@@ -405,7 +414,7 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         
         self.defaultValueDateTime = None
         """ Default value if no value exists.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.defaultValueDecimal = None
         """ Default value if no value exists.
@@ -433,7 +442,7 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         
         self.defaultValueId = None
         """ Default value if no value exists.
-        Type `str`. """
+        Type `FHIRId` (represented as `str` in JSON). """
         
         self.defaultValueIdentifier = None
         """ Default value if no value exists.
@@ -441,7 +450,7 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         
         self.defaultValueInstant = None
         """ Default value if no value exists.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRInstant` (represented as `str` in JSON). """
         
         self.defaultValueInteger = None
         """ Default value if no value exists.
@@ -449,7 +458,11 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         
         self.defaultValueMarkdown = None
         """ Default value if no value exists.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
+        
+        self.defaultValueMeta = None
+        """ Default value if no value exists.
+        Type `Meta` (represented as `dict` in JSON). """
         
         self.defaultValueMoney = None
         """ Default value if no value exists.
@@ -457,7 +470,7 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         
         self.defaultValueOid = None
         """ Default value if no value exists.
-        Type `str`. """
+        Type `FHIROid` (represented as `str` in JSON). """
         
         self.defaultValueParameterDefinition = None
         """ Default value if no value exists.
@@ -469,7 +482,7 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         
         self.defaultValuePositiveInt = None
         """ Default value if no value exists.
-        Type `int`. """
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.defaultValueQuantity = None
         """ Default value if no value exists.
@@ -501,11 +514,11 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         
         self.defaultValueString = None
         """ Default value if no value exists.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.defaultValueTime = None
         """ Default value if no value exists.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRTime` (represented as `str` in JSON). """
         
         self.defaultValueTiming = None
         """ Default value if no value exists.
@@ -517,15 +530,15 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         
         self.defaultValueUnsignedInt = None
         """ Default value if no value exists.
-        Type `int`. """
+        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
         
         self.defaultValueUri = None
         """ Default value if no value exists.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.defaultValueUrl = None
         """ Default value if no value exists.
-        Type `str`. """
+        Type `FHIRUrl` (represented as `str` in JSON). """
         
         self.defaultValueUsageContext = None
         """ Default value if no value exists.
@@ -533,23 +546,23 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         
         self.defaultValueUuid = None
         """ Default value if no value exists.
-        Type `str`. """
+        Type `FHIRUuid` (represented as `str` in JSON). """
         
         self.element = None
         """ Optional field for this source.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.listMode = None
         """ first | not_first | last | not_last | only_one.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.logMessage = None
         """ Message to put in log if source exists (FHIRPath).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.max = None
         """ Specified maximum cardinality (number or *).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.min = None
         """ Specified minimum cardinality.
@@ -557,28 +570,28 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         
         self.type = None
         """ Rule only applies if source has this type.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.variable = None
         """ Named context for field, if a field is specified.
-        Type `str`. """
+        Type `FHIRId` (represented as `str` in JSON). """
         
         super(StructureMapGroupRuleSource, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureMapGroupRuleSource, self).elementProperties()
         js.extend([
-            ("check", "check", str, False, None, False),
-            ("condition", "condition", str, False, None, False),
-            ("context", "context", str, False, None, True),
+            ("check", "check", fhirdatatypes.FHIRString, False, None, False),
+            ("condition", "condition", fhirdatatypes.FHIRString, False, None, False),
+            ("context", "context", fhirdatatypes.FHIRId, False, None, True),
             ("defaultValueAddress", "defaultValueAddress", address.Address, False, "defaultValue", False),
             ("defaultValueAge", "defaultValueAge", age.Age, False, "defaultValue", False),
             ("defaultValueAnnotation", "defaultValueAnnotation", annotation.Annotation, False, "defaultValue", False),
             ("defaultValueAttachment", "defaultValueAttachment", attachment.Attachment, False, "defaultValue", False),
-            ("defaultValueBase64Binary", "defaultValueBase64Binary", str, False, "defaultValue", False),
+            ("defaultValueBase64Binary", "defaultValueBase64Binary", fhirdatatypes.FHIRBase64Binary, False, "defaultValue", False),
             ("defaultValueBoolean", "defaultValueBoolean", bool, False, "defaultValue", False),
-            ("defaultValueCanonical", "defaultValueCanonical", str, False, "defaultValue", False),
-            ("defaultValueCode", "defaultValueCode", str, False, "defaultValue", False),
+            ("defaultValueCanonical", "defaultValueCanonical", fhirdatatypes.FHIRCanonical, False, "defaultValue", False),
+            ("defaultValueCode", "defaultValueCode", fhirdatatypes.FHIRCode, False, "defaultValue", False),
             ("defaultValueCodeableConcept", "defaultValueCodeableConcept", codeableconcept.CodeableConcept, False, "defaultValue", False),
             ("defaultValueCoding", "defaultValueCoding", coding.Coding, False, "defaultValue", False),
             ("defaultValueContactDetail", "defaultValueContactDetail", contactdetail.ContactDetail, False, "defaultValue", False),
@@ -586,24 +599,25 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
             ("defaultValueContributor", "defaultValueContributor", contributor.Contributor, False, "defaultValue", False),
             ("defaultValueCount", "defaultValueCount", count.Count, False, "defaultValue", False),
             ("defaultValueDataRequirement", "defaultValueDataRequirement", datarequirement.DataRequirement, False, "defaultValue", False),
-            ("defaultValueDate", "defaultValueDate", fhirdate.FHIRDate, False, "defaultValue", False),
-            ("defaultValueDateTime", "defaultValueDateTime", fhirdate.FHIRDate, False, "defaultValue", False),
+            ("defaultValueDate", "defaultValueDate", fhirdatatypes.FHIRDate, False, "defaultValue", False),
+            ("defaultValueDateTime", "defaultValueDateTime", fhirdatatypes.FHIRDateTime, False, "defaultValue", False),
             ("defaultValueDecimal", "defaultValueDecimal", float, False, "defaultValue", False),
             ("defaultValueDistance", "defaultValueDistance", distance.Distance, False, "defaultValue", False),
             ("defaultValueDosage", "defaultValueDosage", dosage.Dosage, False, "defaultValue", False),
             ("defaultValueDuration", "defaultValueDuration", duration.Duration, False, "defaultValue", False),
             ("defaultValueExpression", "defaultValueExpression", expression.Expression, False, "defaultValue", False),
             ("defaultValueHumanName", "defaultValueHumanName", humanname.HumanName, False, "defaultValue", False),
-            ("defaultValueId", "defaultValueId", str, False, "defaultValue", False),
+            ("defaultValueId", "defaultValueId", fhirdatatypes.FHIRId, False, "defaultValue", False),
             ("defaultValueIdentifier", "defaultValueIdentifier", identifier.Identifier, False, "defaultValue", False),
-            ("defaultValueInstant", "defaultValueInstant", fhirdate.FHIRDate, False, "defaultValue", False),
+            ("defaultValueInstant", "defaultValueInstant", fhirdatatypes.FHIRInstant, False, "defaultValue", False),
             ("defaultValueInteger", "defaultValueInteger", int, False, "defaultValue", False),
-            ("defaultValueMarkdown", "defaultValueMarkdown", str, False, "defaultValue", False),
+            ("defaultValueMarkdown", "defaultValueMarkdown", fhirdatatypes.FHIRMarkdown, False, "defaultValue", False),
+            ("defaultValueMeta", "defaultValueMeta", meta.Meta, False, "defaultValue", False),
             ("defaultValueMoney", "defaultValueMoney", money.Money, False, "defaultValue", False),
-            ("defaultValueOid", "defaultValueOid", str, False, "defaultValue", False),
+            ("defaultValueOid", "defaultValueOid", fhirdatatypes.FHIROid, False, "defaultValue", False),
             ("defaultValueParameterDefinition", "defaultValueParameterDefinition", parameterdefinition.ParameterDefinition, False, "defaultValue", False),
             ("defaultValuePeriod", "defaultValuePeriod", period.Period, False, "defaultValue", False),
-            ("defaultValuePositiveInt", "defaultValuePositiveInt", int, False, "defaultValue", False),
+            ("defaultValuePositiveInt", "defaultValuePositiveInt", fhirdatatypes.FHIRPositiveInt, False, "defaultValue", False),
             ("defaultValueQuantity", "defaultValueQuantity", quantity.Quantity, False, "defaultValue", False),
             ("defaultValueRange", "defaultValueRange", range.Range, False, "defaultValue", False),
             ("defaultValueRatio", "defaultValueRatio", ratio.Ratio, False, "defaultValue", False),
@@ -611,24 +625,26 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
             ("defaultValueRelatedArtifact", "defaultValueRelatedArtifact", relatedartifact.RelatedArtifact, False, "defaultValue", False),
             ("defaultValueSampledData", "defaultValueSampledData", sampleddata.SampledData, False, "defaultValue", False),
             ("defaultValueSignature", "defaultValueSignature", signature.Signature, False, "defaultValue", False),
-            ("defaultValueString", "defaultValueString", str, False, "defaultValue", False),
-            ("defaultValueTime", "defaultValueTime", fhirdate.FHIRDate, False, "defaultValue", False),
+            ("defaultValueString", "defaultValueString", fhirdatatypes.FHIRString, False, "defaultValue", False),
+            ("defaultValueTime", "defaultValueTime", fhirdatatypes.FHIRTime, False, "defaultValue", False),
             ("defaultValueTiming", "defaultValueTiming", timing.Timing, False, "defaultValue", False),
             ("defaultValueTriggerDefinition", "defaultValueTriggerDefinition", triggerdefinition.TriggerDefinition, False, "defaultValue", False),
-            ("defaultValueUnsignedInt", "defaultValueUnsignedInt", int, False, "defaultValue", False),
-            ("defaultValueUri", "defaultValueUri", str, False, "defaultValue", False),
-            ("defaultValueUrl", "defaultValueUrl", str, False, "defaultValue", False),
+            ("defaultValueUnsignedInt", "defaultValueUnsignedInt", fhirdatatypes.FHIRUnsignedInt, False, "defaultValue", False),
+            ("defaultValueUri", "defaultValueUri", fhirdatatypes.FHIRUri, False, "defaultValue", False),
+            ("defaultValueUrl", "defaultValueUrl", fhirdatatypes.FHIRUrl, False, "defaultValue", False),
             ("defaultValueUsageContext", "defaultValueUsageContext", usagecontext.UsageContext, False, "defaultValue", False),
-            ("defaultValueUuid", "defaultValueUuid", str, False, "defaultValue", False),
-            ("element", "element", str, False, None, False),
-            ("listMode", "listMode", str, False, None, False),
-            ("logMessage", "logMessage", str, False, None, False),
-            ("max", "max", str, False, None, False),
+            ("defaultValueUuid", "defaultValueUuid", fhirdatatypes.FHIRUuid, False, "defaultValue", False),
+            ("element", "element", fhirdatatypes.FHIRString, False, None, False),
+            ("listMode", "listMode", fhirdatatypes.FHIRCode, False, None, False),
+            ("logMessage", "logMessage", fhirdatatypes.FHIRString, False, None, False),
+            ("max", "max", fhirdatatypes.FHIRString, False, None, False),
             ("min", "min", int, False, None, False),
-            ("type", "type", str, False, None, False),
-            ("variable", "variable", str, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRString, False, None, False),
+            ("variable", "variable", fhirdatatypes.FHIRId, False, None, False),
         ])
         return js
+
+
 
 
 class StructureMapGroupRuleTarget(backboneelement.BackboneElement):
@@ -647,23 +663,23 @@ class StructureMapGroupRuleTarget(backboneelement.BackboneElement):
         
         self.context = None
         """ Type or variable this rule applies to.
-        Type `str`. """
+        Type `FHIRId` (represented as `str` in JSON). """
         
         self.contextType = None
         """ type | variable.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.element = None
         """ Field to create in the context.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.listMode = None
         """ first | share | last | collate.
-        List of `str` items. """
+        List of `FHIRCode` items (represented as `str` in JSON). """
         
         self.listRuleId = None
         """ Internal rule reference for shared list items.
-        Type `str`. """
+        Type `FHIRId` (represented as `str` in JSON). """
         
         self.parameter = None
         """ Parameters to the transform.
@@ -671,27 +687,29 @@ class StructureMapGroupRuleTarget(backboneelement.BackboneElement):
         
         self.transform = None
         """ create | copy +.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.variable = None
         """ Named context for field, if desired, and a field is specified.
-        Type `str`. """
+        Type `FHIRId` (represented as `str` in JSON). """
         
         super(StructureMapGroupRuleTarget, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureMapGroupRuleTarget, self).elementProperties()
         js.extend([
-            ("context", "context", str, False, None, False),
-            ("contextType", "contextType", str, False, None, False),
-            ("element", "element", str, False, None, False),
-            ("listMode", "listMode", str, True, None, False),
-            ("listRuleId", "listRuleId", str, False, None, False),
+            ("context", "context", fhirdatatypes.FHIRId, False, None, False),
+            ("contextType", "contextType", fhirdatatypes.FHIRCode, False, None, False),
+            ("element", "element", fhirdatatypes.FHIRString, False, None, False),
+            ("listMode", "listMode", fhirdatatypes.FHIRCode, True, None, False),
+            ("listRuleId", "listRuleId", fhirdatatypes.FHIRId, False, None, False),
             ("parameter", "parameter", StructureMapGroupRuleTargetParameter, True, None, False),
-            ("transform", "transform", str, False, None, False),
-            ("variable", "variable", str, False, None, False),
+            ("transform", "transform", fhirdatatypes.FHIRCode, False, None, False),
+            ("variable", "variable", fhirdatatypes.FHIRId, False, None, False),
         ])
         return js
+
+
 
 
 class StructureMapGroupRuleTargetParameter(backboneelement.BackboneElement):
@@ -718,7 +736,7 @@ class StructureMapGroupRuleTargetParameter(backboneelement.BackboneElement):
         
         self.valueId = None
         """ Parameter value - variable or literal.
-        Type `str`. """
+        Type `FHIRId` (represented as `str` in JSON). """
         
         self.valueInteger = None
         """ Parameter value - variable or literal.
@@ -726,7 +744,7 @@ class StructureMapGroupRuleTargetParameter(backboneelement.BackboneElement):
         
         self.valueString = None
         """ Parameter value - variable or literal.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(StructureMapGroupRuleTargetParameter, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -735,11 +753,13 @@ class StructureMapGroupRuleTargetParameter(backboneelement.BackboneElement):
         js.extend([
             ("valueBoolean", "valueBoolean", bool, False, "value", True),
             ("valueDecimal", "valueDecimal", float, False, "value", True),
-            ("valueId", "valueId", str, False, "value", True),
+            ("valueId", "valueId", fhirdatatypes.FHIRId, False, "value", True),
             ("valueInteger", "valueInteger", int, False, "value", True),
-            ("valueString", "valueString", str, False, "value", True),
+            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", True),
         ])
         return js
+
+
 
 
 class StructureMapStructure(backboneelement.BackboneElement):
@@ -761,31 +781,32 @@ class StructureMapStructure(backboneelement.BackboneElement):
         
         self.alias = None
         """ Name for type in this map.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.documentation = None
         """ Documentation on use of structure.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.mode = None
         """ source | queried | target | produced.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.url = None
         """ Canonical reference to structure definition.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         super(StructureMapStructure, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureMapStructure, self).elementProperties()
         js.extend([
-            ("alias", "alias", str, False, None, False),
-            ("documentation", "documentation", str, False, None, False),
-            ("mode", "mode", str, False, None, True),
-            ("url", "url", str, False, None, True),
+            ("alias", "alias", fhirdatatypes.FHIRString, False, None, False),
+            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False),
+            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, True),
+            ("url", "url", fhirdatatypes.FHIRCanonical, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -793,123 +814,159 @@ try:
     from . import address
 except ImportError:
     address = sys.modules[__package__ + '.address']
+
 try:
     from . import age
 except ImportError:
     age = sys.modules[__package__ + '.age']
+
 try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import attachment
 except ImportError:
     attachment = sys.modules[__package__ + '.attachment']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import coding
 except ImportError:
     coding = sys.modules[__package__ + '.coding']
+
 try:
     from . import contactdetail
 except ImportError:
     contactdetail = sys.modules[__package__ + '.contactdetail']
+
 try:
     from . import contactpoint
 except ImportError:
     contactpoint = sys.modules[__package__ + '.contactpoint']
+
 try:
     from . import contributor
 except ImportError:
     contributor = sys.modules[__package__ + '.contributor']
+
 try:
     from . import count
 except ImportError:
     count = sys.modules[__package__ + '.count']
+
 try:
     from . import datarequirement
 except ImportError:
     datarequirement = sys.modules[__package__ + '.datarequirement']
+
 try:
     from . import distance
 except ImportError:
     distance = sys.modules[__package__ + '.distance']
+
 try:
     from . import dosage
 except ImportError:
     dosage = sys.modules[__package__ + '.dosage']
+
 try:
     from . import duration
 except ImportError:
     duration = sys.modules[__package__ + '.duration']
+
 try:
     from . import expression
 except ImportError:
     expression = sys.modules[__package__ + '.expression']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import humanname
 except ImportError:
     humanname = sys.modules[__package__ + '.humanname']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
+try:
+    from . import meta
+except ImportError:
+    meta = sys.modules[__package__ + '.meta']
+
 try:
     from . import money
 except ImportError:
     money = sys.modules[__package__ + '.money']
+
 try:
     from . import parameterdefinition
 except ImportError:
     parameterdefinition = sys.modules[__package__ + '.parameterdefinition']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+
 try:
     from . import range
 except ImportError:
     range = sys.modules[__package__ + '.range']
+
 try:
     from . import ratio
 except ImportError:
     ratio = sys.modules[__package__ + '.ratio']
+
 try:
     from . import relatedartifact
 except ImportError:
     relatedartifact = sys.modules[__package__ + '.relatedartifact']
+
 try:
     from . import sampleddata
 except ImportError:
     sampleddata = sys.modules[__package__ + '.sampleddata']
+
 try:
     from . import signature
 except ImportError:
     signature = sys.modules[__package__ + '.signature']
+
 try:
     from . import timing
 except ImportError:
     timing = sys.modules[__package__ + '.timing']
+
 try:
     from . import triggerdefinition
 except ImportError:
     triggerdefinition = sys.modules[__package__ + '.triggerdefinition']
+
 try:
     from . import usagecontext
 except ImportError:
     usagecontext = sys.modules[__package__ + '.usagecontext']
+

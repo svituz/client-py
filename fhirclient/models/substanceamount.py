@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/SubstanceAmount) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/SubstanceAmount) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import backboneelement
@@ -46,11 +46,11 @@ class SubstanceAmount(backboneelement.BackboneElement):
         only limits are given, the arithmetic mean would be the average. If
         only a single definite value for a given element is given, it would
         be captured in this field.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.amountText = None
         """ A textual comment on a numeric value.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.amountType = None
         """ Most elements that require a quantitative value will also have a
@@ -74,12 +74,13 @@ class SubstanceAmount(backboneelement.BackboneElement):
         js.extend([
             ("amountQuantity", "amountQuantity", quantity.Quantity, False, "amount", False),
             ("amountRange", "amountRange", range.Range, False, "amount", False),
-            ("amountString", "amountString", str, False, "amount", False),
-            ("amountText", "amountText", str, False, None, False),
+            ("amountString", "amountString", fhirdatatypes.FHIRString, False, "amount", False),
+            ("amountText", "amountText", fhirdatatypes.FHIRString, False, None, False),
             ("amountType", "amountType", codeableconcept.CodeableConcept, False, None, False),
             ("referenceRange", "referenceRange", SubstanceAmountReferenceRange, False, None, False),
         ])
         return js
+
 
 
 from . import element
@@ -117,16 +118,25 @@ class SubstanceAmountReferenceRange(element.Element):
         return js
 
 
+
 import sys
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+
 try:
     from . import range
 except ImportError:
     range = sys.modules[__package__ + '.range']
+

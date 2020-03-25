@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MedicinalProductPharmaceutical) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MedicinalProductPharmaceutical) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -67,6 +67,7 @@ class MedicinalProductPharmaceutical(domainresource.DomainResource):
         return js
 
 
+
 from . import backboneelement
 
 class MedicinalProductPharmaceuticalCharacteristics(backboneelement.BackboneElement):
@@ -100,6 +101,8 @@ class MedicinalProductPharmaceuticalCharacteristics(backboneelement.BackboneElem
             ("status", "status", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class MedicinalProductPharmaceuticalRouteOfAdministration(backboneelement.BackboneElement):
@@ -170,6 +173,8 @@ class MedicinalProductPharmaceuticalRouteOfAdministration(backboneelement.Backbo
         return js
 
 
+
+
 class MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies(backboneelement.BackboneElement):
     """ A species for which this route applies.
     """
@@ -204,6 +209,8 @@ class MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies(backbonee
         return js
 
 
+
+
 class MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawalPeriod(backboneelement.BackboneElement):
     """ A species specific time during which consumption of animal product is not
     appropriate.
@@ -221,7 +228,7 @@ class MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawal
         
         self.supportingInformation = None
         """ Extra information about the withdrawal period.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.tissue = None
         """ Coded expression for the type of tissue for which the withdrawal
@@ -237,11 +244,12 @@ class MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawal
     def elementProperties(self):
         js = super(MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawalPeriod, self).elementProperties()
         js.extend([
-            ("supportingInformation", "supportingInformation", str, False, None, False),
+            ("supportingInformation", "supportingInformation", fhirdatatypes.FHIRString, False, None, False),
             ("tissue", "tissue", codeableconcept.CodeableConcept, False, None, True),
             ("value", "value", quantity.Quantity, False, None, True),
         ])
         return js
+
 
 
 import sys
@@ -249,23 +257,34 @@ try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import duration
 except ImportError:
     duration = sys.modules[__package__ + '.duration']
+
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+
 try:
     from . import ratio
 except ImportError:
     ratio = sys.modules[__package__ + '.ratio']
+

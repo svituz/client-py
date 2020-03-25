@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/MoneyQuantity) on 2019-05-07.
-#  2019, SMART Health IT.
-from fhirclient.datatypes.primitive import FHIRCode, FHIRString, FHIRUri
-from . import element
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/MoneyQuantity) on 2020-03-25.
+#  2020, SMART Health IT.
 
+
+from . import element
 
 class Quantity(element.Element):
     """ A measured or measurable amount.
@@ -27,19 +27,19 @@ class Quantity(element.Element):
         
         self.code = None
         """ Coded form of the unit.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.comparator = None
         """ < | <= | >= | > - how to understand the value.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.system = None
         """ System that defines coded unit form.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.unit = None
         """ Unit representation.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.value = None
         """ Numerical value (with implicit precision).
@@ -50,12 +50,19 @@ class Quantity(element.Element):
     def elementProperties(self):
         js = super(Quantity, self).elementProperties()
         js.extend([
-            ("code", "code", FHIRCode, False, None, False),
-            ("comparator", "comparator", FHIRCode, False, None, False),
-            ("system", "system", FHIRUri, False, None, False),
-            ("unit", "unit", FHIRString, False, None, False),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, False),
+            ("comparator", "comparator", fhirdatatypes.FHIRCode, False, None, False),
+            ("system", "system", fhirdatatypes.FHIRUri, False, None, False),
+            ("unit", "unit", fhirdatatypes.FHIRString, False, None, False),
             ("value", "value", float, False, None, False),
         ])
         return js
 
+
+
+import sys
+try:
+    from . import fhirdatatypes
+except ImportError:
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
 

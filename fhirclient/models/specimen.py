@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/Specimen) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/Specimen) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -57,7 +57,7 @@ class Specimen(domainresource.DomainResource):
         
         self.receivedTime = None
         """ The time when specimen was received for processing.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.request = None
         """ Why the specimen was collected.
@@ -65,7 +65,7 @@ class Specimen(domainresource.DomainResource):
         
         self.status = None
         """ available | unavailable | unsatisfactory | entered-in-error.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subject = None
         """ Where the specimen came from. This may be from patient(s), from a
@@ -90,13 +90,14 @@ class Specimen(domainresource.DomainResource):
             ("note", "note", annotation.Annotation, True, None, False),
             ("parent", "parent", fhirreference.FHIRReference, True, None, False),
             ("processing", "processing", SpecimenProcessing, True, None, False),
-            ("receivedTime", "receivedTime", fhirdate.FHIRDate, False, None, False),
+            ("receivedTime", "receivedTime", fhirdatatypes.FHIRDateTime, False, None, False),
             ("request", "request", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", str, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -123,7 +124,7 @@ class SpecimenCollection(backboneelement.BackboneElement):
         
         self.collectedDateTime = None
         """ Collection time.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.collectedPeriod = None
         """ Collection time.
@@ -159,7 +160,7 @@ class SpecimenCollection(backboneelement.BackboneElement):
         js = super(SpecimenCollection, self).elementProperties()
         js.extend([
             ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False),
-            ("collectedDateTime", "collectedDateTime", fhirdate.FHIRDate, False, "collected", False),
+            ("collectedDateTime", "collectedDateTime", fhirdatatypes.FHIRDateTime, False, "collected", False),
             ("collectedPeriod", "collectedPeriod", period.Period, False, "collected", False),
             ("collector", "collector", fhirreference.FHIRReference, False, None, False),
             ("duration", "duration", duration.Duration, False, None, False),
@@ -169,6 +170,8 @@ class SpecimenCollection(backboneelement.BackboneElement):
             ("quantity", "quantity", quantity.Quantity, False, None, False),
         ])
         return js
+
+
 
 
 class SpecimenContainer(backboneelement.BackboneElement):
@@ -202,7 +205,7 @@ class SpecimenContainer(backboneelement.BackboneElement):
         
         self.description = None
         """ Textual description of the container.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Id for the container.
@@ -224,12 +227,14 @@ class SpecimenContainer(backboneelement.BackboneElement):
             ("additiveCodeableConcept", "additiveCodeableConcept", codeableconcept.CodeableConcept, False, "additive", False),
             ("additiveReference", "additiveReference", fhirreference.FHIRReference, False, "additive", False),
             ("capacity", "capacity", quantity.Quantity, False, None, False),
-            ("description", "description", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("specimenQuantity", "specimenQuantity", quantity.Quantity, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class SpecimenProcessing(backboneelement.BackboneElement):
@@ -254,7 +259,7 @@ class SpecimenProcessing(backboneelement.BackboneElement):
         
         self.description = None
         """ Textual description of procedure.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.procedure = None
         """ Indicates the treatment step  applied to the specimen.
@@ -262,7 +267,7 @@ class SpecimenProcessing(backboneelement.BackboneElement):
         
         self.timeDateTime = None
         """ Date and time of specimen processing.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.timePeriod = None
         """ Date and time of specimen processing.
@@ -274,12 +279,13 @@ class SpecimenProcessing(backboneelement.BackboneElement):
         js = super(SpecimenProcessing, self).elementProperties()
         js.extend([
             ("additive", "additive", fhirreference.FHIRReference, True, None, False),
-            ("description", "description", str, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
             ("procedure", "procedure", codeableconcept.CodeableConcept, False, None, False),
-            ("timeDateTime", "timeDateTime", fhirdate.FHIRDate, False, "time", False),
+            ("timeDateTime", "timeDateTime", fhirdatatypes.FHIRDateTime, False, "time", False),
             ("timePeriod", "timePeriod", period.Period, False, "time", False),
         ])
         return js
+
 
 
 import sys
@@ -287,31 +293,39 @@ try:
     from . import annotation
 except ImportError:
     annotation = sys.modules[__package__ + '.annotation']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import duration
 except ImportError:
     duration = sys.modules[__package__ + '.duration']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+

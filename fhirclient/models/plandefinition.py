@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.0-a53ec6ee1b (http://hl7.org/fhir/StructureDefinition/PlanDefinition) on 2019-05-07.
-#  2019, SMART Health IT.
+#  Generated from FHIR 4.0.1-9346c8cc45 (http://hl7.org/fhir/StructureDefinition/PlanDefinition) on 2020-03-25.
+#  2020, SMART Health IT.
 
 
 from . import domainresource
@@ -45,15 +45,15 @@ class PlanDefinition(domainresource.DomainResource):
         
         self.copyright = None
         """ Use and/or publishing restrictions.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.date = None
         """ Date last changed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.description = None
         """ Natural language description of the plan definition.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.editor = None
         """ Who edited the content.
@@ -89,19 +89,19 @@ class PlanDefinition(domainresource.DomainResource):
         
         self.library = None
         """ Logic used by the plan definition.
-        List of `str` items. """
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.name = None
         """ Name for this plan definition (computer friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.publisher = None
         """ Name of the publisher (organization or individual).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.purpose = None
         """ Why this plan definition is defined.
-        Type `str`. """
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.relatedArtifact = None
         """ Additional documentation, citations.
@@ -113,7 +113,7 @@ class PlanDefinition(domainresource.DomainResource):
         
         self.status = None
         """ draft | active | retired | unknown.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subjectCodeableConcept = None
         """ Type of individual the plan definition is focused on.
@@ -125,11 +125,11 @@ class PlanDefinition(domainresource.DomainResource):
         
         self.subtitle = None
         """ Subordinate title of the plan definition.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.title = None
         """ Name for this plan definition (human friendly).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.topic = None
         """ E.g. Education, Treatment, Assessment.
@@ -142,11 +142,11 @@ class PlanDefinition(domainresource.DomainResource):
         self.url = None
         """ Canonical identifier for this plan definition, represented as a URI
         (globally unique).
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.usage = None
         """ Describes the clinical usage of the plan.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.useContext = None
         """ The context that the content is intended to support.
@@ -154,7 +154,7 @@ class PlanDefinition(domainresource.DomainResource):
         
         self.version = None
         """ Business version of the plan definition.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(PlanDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -162,12 +162,12 @@ class PlanDefinition(domainresource.DomainResource):
         js = super(PlanDefinition, self).elementProperties()
         js.extend([
             ("action", "action", PlanDefinitionAction, True, None, False),
-            ("approvalDate", "approvalDate", fhirdate.FHIRDate, False, None, False),
+            ("approvalDate", "approvalDate", fhirdatatypes.FHIRDate, False, None, False),
             ("author", "author", contactdetail.ContactDetail, True, None, False),
             ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("copyright", "copyright", str, False, None, False),
-            ("date", "date", fhirdate.FHIRDate, False, None, False),
-            ("description", "description", str, False, None, False),
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("editor", "editor", contactdetail.ContactDetail, True, None, False),
             ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
             ("endorser", "endorser", contactdetail.ContactDetail, True, None, False),
@@ -175,26 +175,27 @@ class PlanDefinition(domainresource.DomainResource):
             ("goal", "goal", PlanDefinitionGoal, True, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("lastReviewDate", "lastReviewDate", fhirdate.FHIRDate, False, None, False),
-            ("library", "library", str, True, None, False),
-            ("name", "name", str, False, None, False),
-            ("publisher", "publisher", str, False, None, False),
-            ("purpose", "purpose", str, False, None, False),
+            ("lastReviewDate", "lastReviewDate", fhirdatatypes.FHIRDate, False, None, False),
+            ("library", "library", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False),
             ("reviewer", "reviewer", contactdetail.ContactDetail, True, None, False),
-            ("status", "status", str, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False),
             ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False),
-            ("subtitle", "subtitle", str, False, None, False),
-            ("title", "title", str, False, None, False),
+            ("subtitle", "subtitle", fhirdatatypes.FHIRString, False, None, False),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
             ("topic", "topic", codeableconcept.CodeableConcept, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("url", "url", str, False, None, False),
-            ("usage", "usage", str, False, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
+            ("usage", "usage", fhirdatatypes.FHIRString, False, None, False),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("version", "version", str, False, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
 
 
 from . import backboneelement
@@ -221,7 +222,7 @@ class PlanDefinitionAction(backboneelement.BackboneElement):
         
         self.cardinalityBehavior = None
         """ single | multiple.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.code = None
         """ Code representing the meaning of the action or sub-actions.
@@ -233,15 +234,15 @@ class PlanDefinitionAction(backboneelement.BackboneElement):
         
         self.definitionCanonical = None
         """ Description of the activity to be performed.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.definitionUri = None
         """ Description of the activity to be performed.
-        Type `str`. """
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.description = None
         """ Brief description of the action.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.documentation = None
         """ Supporting documentation for the intended performer of the action.
@@ -253,11 +254,11 @@ class PlanDefinitionAction(backboneelement.BackboneElement):
         
         self.goalId = None
         """ What goals this action supports.
-        List of `str` items. """
+        List of `FHIRId` items (represented as `str` in JSON). """
         
         self.groupingBehavior = None
         """ visual-group | logical-group | sentence-group.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.input = None
         """ Input data requirements.
@@ -273,15 +274,15 @@ class PlanDefinitionAction(backboneelement.BackboneElement):
         
         self.precheckBehavior = None
         """ yes | no.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.prefix = None
         """ User-visible prefix for the action (e.g. 1. or A.).
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.priority = None
         """ routine | urgent | asap | stat.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.reason = None
         """ Why the action should be performed.
@@ -293,11 +294,11 @@ class PlanDefinitionAction(backboneelement.BackboneElement):
         
         self.requiredBehavior = None
         """ must | could | must-unless-documented.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.selectionBehavior = None
         """ any | all | all-or-none | exactly-one | at-most-one | one-or-more.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.subjectCodeableConcept = None
         """ Type of individual the action is focused on.
@@ -310,7 +311,7 @@ class PlanDefinitionAction(backboneelement.BackboneElement):
         self.textEquivalent = None
         """ Static text equivalent of the action, used if the dynamic aspects
         cannot be interpreted by the receiving system.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.timingAge = None
         """ When the action should take place.
@@ -318,7 +319,7 @@ class PlanDefinitionAction(backboneelement.BackboneElement):
         
         self.timingDateTime = None
         """ When the action should take place.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.timingDuration = None
         """ When the action should take place.
@@ -338,11 +339,11 @@ class PlanDefinitionAction(backboneelement.BackboneElement):
         
         self.title = None
         """ User-visible title.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.transform = None
         """ Transform to apply the template.
-        Type `str`. """
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.trigger = None
         """ When the action should be triggered.
@@ -358,41 +359,43 @@ class PlanDefinitionAction(backboneelement.BackboneElement):
         js = super(PlanDefinitionAction, self).elementProperties()
         js.extend([
             ("action", "action", PlanDefinitionAction, True, None, False),
-            ("cardinalityBehavior", "cardinalityBehavior", str, False, None, False),
+            ("cardinalityBehavior", "cardinalityBehavior", fhirdatatypes.FHIRCode, False, None, False),
             ("code", "code", codeableconcept.CodeableConcept, True, None, False),
             ("condition", "condition", PlanDefinitionActionCondition, True, None, False),
-            ("definitionCanonical", "definitionCanonical", str, False, "definition", False),
-            ("definitionUri", "definitionUri", str, False, "definition", False),
-            ("description", "description", str, False, None, False),
+            ("definitionCanonical", "definitionCanonical", fhirdatatypes.FHIRCanonical, False, "definition", False),
+            ("definitionUri", "definitionUri", fhirdatatypes.FHIRUri, False, "definition", False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
             ("documentation", "documentation", relatedartifact.RelatedArtifact, True, None, False),
             ("dynamicValue", "dynamicValue", PlanDefinitionActionDynamicValue, True, None, False),
-            ("goalId", "goalId", str, True, None, False),
-            ("groupingBehavior", "groupingBehavior", str, False, None, False),
+            ("goalId", "goalId", fhirdatatypes.FHIRId, True, None, False),
+            ("groupingBehavior", "groupingBehavior", fhirdatatypes.FHIRCode, False, None, False),
             ("input", "input", datarequirement.DataRequirement, True, None, False),
             ("output", "output", datarequirement.DataRequirement, True, None, False),
             ("participant", "participant", PlanDefinitionActionParticipant, True, None, False),
-            ("precheckBehavior", "precheckBehavior", str, False, None, False),
-            ("prefix", "prefix", str, False, None, False),
-            ("priority", "priority", str, False, None, False),
+            ("precheckBehavior", "precheckBehavior", fhirdatatypes.FHIRCode, False, None, False),
+            ("prefix", "prefix", fhirdatatypes.FHIRString, False, None, False),
+            ("priority", "priority", fhirdatatypes.FHIRCode, False, None, False),
             ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
             ("relatedAction", "relatedAction", PlanDefinitionActionRelatedAction, True, None, False),
-            ("requiredBehavior", "requiredBehavior", str, False, None, False),
-            ("selectionBehavior", "selectionBehavior", str, False, None, False),
+            ("requiredBehavior", "requiredBehavior", fhirdatatypes.FHIRCode, False, None, False),
+            ("selectionBehavior", "selectionBehavior", fhirdatatypes.FHIRCode, False, None, False),
             ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False),
             ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False),
-            ("textEquivalent", "textEquivalent", str, False, None, False),
+            ("textEquivalent", "textEquivalent", fhirdatatypes.FHIRString, False, None, False),
             ("timingAge", "timingAge", age.Age, False, "timing", False),
-            ("timingDateTime", "timingDateTime", fhirdate.FHIRDate, False, "timing", False),
+            ("timingDateTime", "timingDateTime", fhirdatatypes.FHIRDateTime, False, "timing", False),
             ("timingDuration", "timingDuration", duration.Duration, False, "timing", False),
             ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
             ("timingRange", "timingRange", range.Range, False, "timing", False),
             ("timingTiming", "timingTiming", timing.Timing, False, "timing", False),
-            ("title", "title", str, False, None, False),
-            ("transform", "transform", str, False, None, False),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
+            ("transform", "transform", fhirdatatypes.FHIRCanonical, False, None, False),
             ("trigger", "trigger", triggerdefinition.TriggerDefinition, True, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
+
+
 
 
 class PlanDefinitionActionCondition(backboneelement.BackboneElement):
@@ -418,7 +421,7 @@ class PlanDefinitionActionCondition(backboneelement.BackboneElement):
         
         self.kind = None
         """ applicability | start | stop.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(PlanDefinitionActionCondition, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -426,9 +429,11 @@ class PlanDefinitionActionCondition(backboneelement.BackboneElement):
         js = super(PlanDefinitionActionCondition, self).elementProperties()
         js.extend([
             ("expression", "expression", expression.Expression, False, None, False),
-            ("kind", "kind", str, False, None, True),
+            ("kind", "kind", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
+
 
 
 class PlanDefinitionActionDynamicValue(backboneelement.BackboneElement):
@@ -457,7 +462,7 @@ class PlanDefinitionActionDynamicValue(backboneelement.BackboneElement):
         
         self.path = None
         """ The path to the element to be set dynamically.
-        Type `str`. """
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(PlanDefinitionActionDynamicValue, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -465,9 +470,11 @@ class PlanDefinitionActionDynamicValue(backboneelement.BackboneElement):
         js = super(PlanDefinitionActionDynamicValue, self).elementProperties()
         js.extend([
             ("expression", "expression", expression.Expression, False, None, False),
-            ("path", "path", str, False, None, False),
+            ("path", "path", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
+
+
 
 
 class PlanDefinitionActionParticipant(backboneelement.BackboneElement):
@@ -492,7 +499,7 @@ class PlanDefinitionActionParticipant(backboneelement.BackboneElement):
         
         self.type = None
         """ patient | practitioner | related-person | device.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(PlanDefinitionActionParticipant, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -500,9 +507,11 @@ class PlanDefinitionActionParticipant(backboneelement.BackboneElement):
         js = super(PlanDefinitionActionParticipant, self).elementProperties()
         js.extend([
             ("role", "role", codeableconcept.CodeableConcept, False, None, False),
-            ("type", "type", str, False, None, True),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
+
 
 
 class PlanDefinitionActionRelatedAction(backboneelement.BackboneElement):
@@ -524,7 +533,7 @@ class PlanDefinitionActionRelatedAction(backboneelement.BackboneElement):
         
         self.actionId = None
         """ What action is this related to.
-        Type `str`. """
+        Type `FHIRId` (represented as `str` in JSON). """
         
         self.offsetDuration = None
         """ Time offset for the relationship.
@@ -537,19 +546,21 @@ class PlanDefinitionActionRelatedAction(backboneelement.BackboneElement):
         self.relationship = None
         """ before-start | before | before-end | concurrent-with-start |
         concurrent | concurrent-with-end | after-start | after | after-end.
-        Type `str`. """
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(PlanDefinitionActionRelatedAction, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(PlanDefinitionActionRelatedAction, self).elementProperties()
         js.extend([
-            ("actionId", "actionId", str, False, None, True),
+            ("actionId", "actionId", fhirdatatypes.FHIRId, False, None, True),
             ("offsetDuration", "offsetDuration", duration.Duration, False, "offset", False),
             ("offsetRange", "offsetRange", range.Range, False, "offset", False),
-            ("relationship", "relationship", str, False, None, True),
+            ("relationship", "relationship", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
+
+
 
 
 class PlanDefinitionGoal(backboneelement.BackboneElement):
@@ -615,6 +626,8 @@ class PlanDefinitionGoal(backboneelement.BackboneElement):
         return js
 
 
+
+
 class PlanDefinitionGoalTarget(backboneelement.BackboneElement):
     """ Target outcome for the goal.
     
@@ -665,68 +678,85 @@ class PlanDefinitionGoalTarget(backboneelement.BackboneElement):
         return js
 
 
+
 import sys
 try:
     from . import age
 except ImportError:
     age = sys.modules[__package__ + '.age']
+
 try:
     from . import codeableconcept
 except ImportError:
     codeableconcept = sys.modules[__package__ + '.codeableconcept']
+
 try:
     from . import contactdetail
 except ImportError:
     contactdetail = sys.modules[__package__ + '.contactdetail']
+
 try:
     from . import datarequirement
 except ImportError:
     datarequirement = sys.modules[__package__ + '.datarequirement']
+
 try:
     from . import duration
 except ImportError:
     duration = sys.modules[__package__ + '.duration']
+
 try:
     from . import expression
 except ImportError:
     expression = sys.modules[__package__ + '.expression']
+
 try:
-    from . import fhirdate
+    from . import fhirdatatypes
 except ImportError:
-    fhirdate = sys.modules[__package__ + '.fhirdate']
+    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+
 try:
     from . import fhirreference
 except ImportError:
     fhirreference = sys.modules[__package__ + '.fhirreference']
+
 try:
     from . import identifier
 except ImportError:
     identifier = sys.modules[__package__ + '.identifier']
+
 try:
     from . import period
 except ImportError:
     period = sys.modules[__package__ + '.period']
+
 try:
     from . import quantity
 except ImportError:
     quantity = sys.modules[__package__ + '.quantity']
+
 try:
     from . import range
 except ImportError:
     range = sys.modules[__package__ + '.range']
+
 try:
     from . import relatedartifact
 except ImportError:
     relatedartifact = sys.modules[__package__ + '.relatedartifact']
+
 try:
     from . import timing
 except ImportError:
     timing = sys.modules[__package__ + '.timing']
+
 try:
     from . import triggerdefinition
 except ImportError:
     triggerdefinition = sys.modules[__package__ + '.triggerdefinition']
+
 try:
     from . import usagecontext
 except ImportError:
     usagecontext = sys.modules[__package__ + '.usagecontext']
+
