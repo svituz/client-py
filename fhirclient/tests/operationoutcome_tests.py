@@ -30,6 +30,8 @@ class OperationOutcomeTests(unittest.TestCase):
         self.implOperationOutcome1(inst2)
 
     def implOperationOutcome1(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("searchfail").value)
+        self.assertEqual(inst.id.as_json(), "searchfail")
         self.assertEqual(inst.issue[0].code.value, FHIRCode("code-invalid").value)
         self.assertEqual(inst.issue[0].code.as_json(), "code-invalid")
         self.assertEqual(inst.issue[0].details.text.value, FHIRString("The \"name\" parameter has the modifier \"exact\" which is not supported by this server").value)
@@ -58,6 +60,8 @@ class OperationOutcomeTests(unittest.TestCase):
         self.implOperationOutcome2(inst2)
 
     def implOperationOutcome2(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("101").value)
+        self.assertEqual(inst.id.as_json(), "101")
         self.assertEqual(inst.issue[0].code.value, FHIRCode("code-invalid").value)
         self.assertEqual(inst.issue[0].code.as_json(), "code-invalid")
         self.assertEqual(inst.issue[0].details.text.value, FHIRString("The code \"W\" is not known and not legal in this context").value)
@@ -90,6 +94,8 @@ class OperationOutcomeTests(unittest.TestCase):
         self.implOperationOutcome3(inst2)
 
     def implOperationOutcome3(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("allok").value)
+        self.assertEqual(inst.id.as_json(), "allok")
         self.assertEqual(inst.issue[0].code.value, FHIRCode("informational").value)
         self.assertEqual(inst.issue[0].code.as_json(), "informational")
         self.assertEqual(inst.issue[0].details.text.value, FHIRString("All OK").value)
@@ -116,6 +122,8 @@ class OperationOutcomeTests(unittest.TestCase):
         self.implOperationOutcome4(inst2)
 
     def implOperationOutcome4(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("exception").value)
+        self.assertEqual(inst.id.as_json(), "exception")
         self.assertEqual(inst.issue[0].code.value, FHIRCode("exception").value)
         self.assertEqual(inst.issue[0].code.as_json(), "exception")
         self.assertEqual(inst.issue[0].details.text.value, FHIRString("SQL Link Communication Error (dbx = 34234)").value)
@@ -142,6 +150,8 @@ class OperationOutcomeTests(unittest.TestCase):
         self.implOperationOutcome5(inst2)
 
     def implOperationOutcome5(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("validationfail").value)
+        self.assertEqual(inst.id.as_json(), "validationfail")
         self.assertEqual(inst.issue[0].code.value, FHIRCode("structure").value)
         self.assertEqual(inst.issue[0].code.as_json(), "structure")
         self.assertEqual(inst.issue[0].details.text.value, FHIRString("Error parsing resource XML (Unknown Content \"label\"").value)
@@ -172,6 +182,8 @@ class OperationOutcomeTests(unittest.TestCase):
         self.implOperationOutcome6(inst2)
 
     def implOperationOutcome6(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("break-the-glass").value)
+        self.assertEqual(inst.id.as_json(), "break-the-glass")
         self.assertEqual(inst.issue[0].code.value, FHIRCode("suppressed").value)
         self.assertEqual(inst.issue[0].code.as_json(), "suppressed")
         self.assertEqual(inst.issue[0].details.coding[0].code.value, FHIRCode("ETREAT").value)
@@ -194,4 +206,4 @@ class OperationOutcomeTests(unittest.TestCase):
         self.assertEqual(inst.text.status.as_json(), "generated")
 
 
-from fhirclient.models.fhirdatatypes import FHIRCode, FHIRString, FHIRUri
+from fhirclient.models.fhirdatatypes import FHIRString, FHIRCode, FHIRUri

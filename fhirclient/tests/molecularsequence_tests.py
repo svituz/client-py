@@ -31,6 +31,8 @@ class MolecularSequenceTests(unittest.TestCase):
 
     def implMolecularSequence1(self, inst):
         self.assertEqual(inst.coordinateSystem, 0)
+        self.assertEqual(inst.id.value, FHIRString("graphic-example-2").value)
+        self.assertEqual(inst.id.as_json(), "graphic-example-2")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)
@@ -60,6 +62,8 @@ class MolecularSequenceTests(unittest.TestCase):
 
     def implMolecularSequence2(self, inst):
         self.assertEqual(inst.coordinateSystem, 0)
+        self.assertEqual(inst.id.value, FHIRString("graphic-example-1").value)
+        self.assertEqual(inst.id.as_json(), "graphic-example-1")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)
@@ -99,6 +103,8 @@ class MolecularSequenceTests(unittest.TestCase):
 
     def implMolecularSequence3(self, inst):
         self.assertEqual(inst.coordinateSystem, 0)
+        self.assertEqual(inst.id.value, FHIRString("coord-0-base").value)
+        self.assertEqual(inst.id.as_json(), "coord-0-base")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)
@@ -154,6 +160,8 @@ class MolecularSequenceTests(unittest.TestCase):
 
     def implMolecularSequence4(self, inst):
         self.assertEqual(inst.coordinateSystem, 1)
+        self.assertEqual(inst.id.value, FHIRString("fda-example").value)
+        self.assertEqual(inst.id.as_json(), "fda-example")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)
@@ -221,6 +229,8 @@ class MolecularSequenceTests(unittest.TestCase):
 
     def implMolecularSequence5(self, inst):
         self.assertEqual(inst.coordinateSystem, 0)
+        self.assertEqual(inst.id.value, FHIRString("example-pgx-1").value)
+        self.assertEqual(inst.id.as_json(), "example-pgx-1")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)
@@ -260,6 +270,8 @@ class MolecularSequenceTests(unittest.TestCase):
 
     def implMolecularSequence6(self, inst):
         self.assertEqual(inst.coordinateSystem, 1)
+        self.assertEqual(inst.id.value, FHIRString("fda-vcf-comparison").value)
+        self.assertEqual(inst.id.as_json(), "fda-vcf-comparison")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)
@@ -322,6 +334,8 @@ class MolecularSequenceTests(unittest.TestCase):
 
     def implMolecularSequence7(self, inst):
         self.assertEqual(inst.coordinateSystem, 0)
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)
@@ -367,6 +381,8 @@ class MolecularSequenceTests(unittest.TestCase):
 
     def implMolecularSequence8(self, inst):
         self.assertEqual(inst.coordinateSystem, 1)
+        self.assertEqual(inst.id.value, FHIRString("example-TPMT-one").value)
+        self.assertEqual(inst.id.as_json(), "example-TPMT-one")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)
@@ -406,6 +422,8 @@ class MolecularSequenceTests(unittest.TestCase):
 
     def implMolecularSequence9(self, inst):
         self.assertEqual(inst.coordinateSystem, 1)
+        self.assertEqual(inst.id.value, FHIRString("coord-1-base").value)
+        self.assertEqual(inst.id.as_json(), "coord-1-base")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)
@@ -461,6 +479,8 @@ class MolecularSequenceTests(unittest.TestCase):
 
     def implMolecularSequence10(self, inst):
         self.assertEqual(inst.coordinateSystem, 0)
+        self.assertEqual(inst.id.value, FHIRString("graphic-example-4").value)
+        self.assertEqual(inst.id.as_json(), "graphic-example-4")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)
@@ -485,4 +505,4 @@ class MolecularSequenceTests(unittest.TestCase):
         self.assertEqual(inst.type.as_json(), "dna")
 
 
-from fhirclient.models.fhirdatatypes import FHIRCode, FHIRString, FHIRUri
+from fhirclient.models.fhirdatatypes import FHIRString, FHIRCode, FHIRUri

@@ -17,8 +17,6 @@ class Signature(element.Element):
     ceremony Different signature approaches have different utilities.
     """
     
-    resource_type = "Signature"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -26,22 +24,6 @@ class Signature(element.Element):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
-        
-        self.data = None
-        """ The actual signature content (XML DigSig. JWS, picture, etc.).
-        Type `FHIRBase64Binary` (represented as `str` in JSON). """
-        
-        self.onBehalfOf = None
-        """ The party represented.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-        
-        self.sigFormat = None
-        """ The technical format of the signature.
-        Type `FHIRCode` (represented as `str` in JSON). """
-        
-        self.targetFormat = None
-        """ The technical format of the signed resources.
-        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.type = None
         """ Indication of the reason the entity signed the object(s).
@@ -55,18 +37,34 @@ class Signature(element.Element):
         """ Who signed.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
+        self.onBehalfOf = None
+        """ The party represented.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.targetFormat = None
+        """ The technical format of the signed resources.
+        Type `FHIRCode` (represented as `str` in JSON). """
+        
+        self.sigFormat = None
+        """ The technical format of the signature.
+        Type `FHIRCode` (represented as `str` in JSON). """
+        
+        self.data = None
+        """ The actual signature content (XML DigSig. JWS, picture, etc.).
+        Type `FHIRBase64Binary` (represented as `str` in JSON). """
+        
         super(Signature, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Signature, self).elementProperties()
         js.extend([
-            ("data", "data", fhirdatatypes.FHIRBase64Binary, False, None, False),
-            ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
-            ("sigFormat", "sigFormat", fhirdatatypes.FHIRCode, False, None, False),
-            ("targetFormat", "targetFormat", fhirdatatypes.FHIRCode, False, None, False),
             ("type", "type", coding.Coding, True, None, True),
             ("when", "when", fhirdatatypes.FHIRInstant, False, None, True),
             ("who", "who", fhirreference.FHIRReference, False, None, True),
+            ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
+            ("targetFormat", "targetFormat", fhirdatatypes.FHIRCode, False, None, False),
+            ("sigFormat", "sigFormat", fhirdatatypes.FHIRCode, False, None, False),
+            ("data", "data", fhirdatatypes.FHIRBase64Binary, False, None, False),
         ])
         return js
 

@@ -14,8 +14,6 @@ class ContactPoint(element.Element):
     organization, including telephone, email, etc.
     """
     
-    resource_type = "ContactPoint"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -24,36 +22,36 @@ class ContactPoint(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.period = None
-        """ Time period when the contact point was/is in use.
-        Type `Period` (represented as `dict` in JSON). """
-        
-        self.rank = None
-        """ Specify preferred order of use (1 = highest).
-        Type `FHIRPositiveInt` (represented as `int` in JSON). """
-        
         self.system = None
         """ phone | fax | email | pager | url | sms | other.
-        Type `FHIRCode` (represented as `str` in JSON). """
-        
-        self.use = None
-        """ home | work | temp | old | mobile - purpose of this contact point.
         Type `FHIRCode` (represented as `str` in JSON). """
         
         self.value = None
         """ The actual contact point details.
         Type `FHIRString` (represented as `str` in JSON). """
         
+        self.use = None
+        """ home | work | temp | old | mobile - purpose of this contact point.
+        Type `FHIRCode` (represented as `str` in JSON). """
+        
+        self.rank = None
+        """ Specify preferred order of use (1 = highest).
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
+        
+        self.period = None
+        """ Time period when the contact point was/is in use.
+        Type `Period` (represented as `dict` in JSON). """
+        
         super(ContactPoint, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ContactPoint, self).elementProperties()
         js.extend([
-            ("period", "period", period.Period, False, None, False),
-            ("rank", "rank", fhirdatatypes.FHIRPositiveInt, False, None, False),
             ("system", "system", fhirdatatypes.FHIRCode, False, None, False),
-            ("use", "use", fhirdatatypes.FHIRCode, False, None, False),
             ("value", "value", fhirdatatypes.FHIRString, False, None, False),
+            ("use", "use", fhirdatatypes.FHIRCode, False, None, False),
+            ("rank", "rank", fhirdatatypes.FHIRPositiveInt, False, None, False),
+            ("period", "period", period.Period, False, None, False),
         ])
         return js
 

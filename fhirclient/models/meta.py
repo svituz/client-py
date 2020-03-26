@@ -15,8 +15,6 @@ class Meta(element.Element):
     be associated with version changes to the resource.
     """
     
-    resource_type = "Meta"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -25,9 +23,17 @@ class Meta(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.versionId = None
+        """ Version specific identifier.
+        Type `FHIRId` (represented as `str` in JSON). """
+        
         self.lastUpdated = None
         """ When the resource version last changed.
         Type `FHIRInstant` (represented as `str` in JSON). """
+        
+        self.source = None
+        """ Identifies where the resource comes from.
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.profile = None
         """ Profiles this resource claims to conform to.
@@ -37,29 +43,21 @@ class Meta(element.Element):
         """ Security Labels applied to this resource.
         List of `Coding` items (represented as `dict` in JSON). """
         
-        self.source = None
-        """ Identifies where the resource comes from.
-        Type `FHIRUri` (represented as `str` in JSON). """
-        
         self.tag = None
         """ Tags applied to this resource.
         List of `Coding` items (represented as `dict` in JSON). """
-        
-        self.versionId = None
-        """ Version specific identifier.
-        Type `FHIRId` (represented as `str` in JSON). """
         
         super(Meta, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Meta, self).elementProperties()
         js.extend([
+            ("versionId", "versionId", fhirdatatypes.FHIRId, False, None, False),
             ("lastUpdated", "lastUpdated", fhirdatatypes.FHIRInstant, False, None, False),
+            ("source", "source", fhirdatatypes.FHIRUri, False, None, False),
             ("profile", "profile", fhirdatatypes.FHIRCanonical, True, None, False),
             ("security", "security", coding.Coding, True, None, False),
-            ("source", "source", fhirdatatypes.FHIRUri, False, None, False),
             ("tag", "tag", coding.Coding, True, None, False),
-            ("versionId", "versionId", fhirdatatypes.FHIRId, False, None, False),
         ])
         return js
 

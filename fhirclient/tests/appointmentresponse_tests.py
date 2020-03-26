@@ -30,6 +30,8 @@ class AppointmentResponseTests(unittest.TestCase):
         self.implAppointmentResponse1(inst2)
 
     def implAppointmentResponse1(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)
@@ -59,6 +61,8 @@ class AppointmentResponseTests(unittest.TestCase):
         self.assertEqual(inst.end.value, FHIRInstant("2013-12-25T13:30:00Z").value)
         self.assertEqual(inst.end.as_json(), "2013-12-25T13:30:00Z")
         self.assertEqual(inst.end.date, FHIRInstant('2013-12-25T13:30:00Z').date)
+        self.assertEqual(inst.id.value, FHIRString("exampleresp").value)
+        self.assertEqual(inst.id.as_json(), "exampleresp")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://example.org/sampleappointmentresponse-identifier").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://example.org/sampleappointmentresponse-identifier")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("response123").value)
@@ -84,4 +88,4 @@ class AppointmentResponseTests(unittest.TestCase):
         self.assertEqual(inst.text.status.as_json(), "generated")
 
 
-from fhirclient.models.fhirdatatypes import FHIRCode, FHIRString, FHIRUri, FHIRInstant
+from fhirclient.models.fhirdatatypes import FHIRString, FHIRCode, FHIRUri, FHIRInstant

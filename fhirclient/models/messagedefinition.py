@@ -26,33 +26,77 @@ class MessageDefinition(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.allowedResponse = None
-        """ Responses to this message.
-        List of `MessageDefinitionAllowedResponse` items (represented as `dict` in JSON). """
+        self.url = None
+        """ Business Identifier for a given MessageDefinition.
+        Type `FHIRUri` (represented as `str` in JSON). """
         
-        self.base = None
-        """ Definition this one is based on.
-        Type `FHIRCanonical` (represented as `str` in JSON). """
+        self.identifier = None
+        """ Primary key for the message definition on a given server.
+        List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.category = None
-        """ consequence | currency | notification.
+        self.version = None
+        """ Business version of the message definition.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.name = None
+        """ Name for this message definition (computer friendly).
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.title = None
+        """ Name for this message definition (human friendly).
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.replaces = None
+        """ Takes the place of.
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
+        
+        self.status = None
+        """ draft | active | retired | unknown.
         Type `FHIRCode` (represented as `str` in JSON). """
         
-        self.contact = None
-        """ Contact details for the publisher.
-        List of `ContactDetail` items (represented as `dict` in JSON). """
-        
-        self.copyright = None
-        """ Use and/or publishing restrictions.
-        Type `FHIRMarkdown` (represented as `str` in JSON). """
+        self.experimental = None
+        """ For testing purposes, not real usage.
+        Type `bool`. """
         
         self.date = None
         """ Date last changed.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
+        self.publisher = None
+        """ Name of the publisher (organization or individual).
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.contact = None
+        """ Contact details for the publisher.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
+        
         self.description = None
         """ Natural language description of the message definition.
         Type `FHIRMarkdown` (represented as `str` in JSON). """
+        
+        self.useContext = None
+        """ The context that the content is intended to support.
+        List of `UsageContext` items (represented as `dict` in JSON). """
+        
+        self.jurisdiction = None
+        """ Intended jurisdiction for message definition (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.purpose = None
+        """ Why this message definition is defined.
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
+        
+        self.copyright = None
+        """ Use and/or publishing restrictions.
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
+        
+        self.base = None
+        """ Definition this one is based on.
+        Type `FHIRCanonical` (represented as `str` in JSON). """
+        
+        self.parent = None
+        """ Protocol/workflow this is part of.
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         self.eventCoding = None
         """ Event code  or link to the EventDefinition.
@@ -62,100 +106,56 @@ class MessageDefinition(domainresource.DomainResource):
         """ Event code  or link to the EventDefinition.
         Type `FHIRUri` (represented as `str` in JSON). """
         
-        self.experimental = None
-        """ For testing purposes, not real usage.
-        Type `bool`. """
+        self.category = None
+        """ consequence | currency | notification.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.focus = None
         """ Resource(s) that are the subject of the event.
         List of `MessageDefinitionFocus` items (represented as `dict` in JSON). """
         
-        self.graph = None
-        """ Canonical reference to a GraphDefinition.
-        List of `FHIRCanonical` items (represented as `str` in JSON). """
-        
-        self.identifier = None
-        """ Primary key for the message definition on a given server.
-        List of `Identifier` items (represented as `dict` in JSON). """
-        
-        self.jurisdiction = None
-        """ Intended jurisdiction for message definition (if applicable).
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
-        self.name = None
-        """ Name for this message definition (computer friendly).
-        Type `FHIRString` (represented as `str` in JSON). """
-        
-        self.parent = None
-        """ Protocol/workflow this is part of.
-        List of `FHIRCanonical` items (represented as `str` in JSON). """
-        
-        self.publisher = None
-        """ Name of the publisher (organization or individual).
-        Type `FHIRString` (represented as `str` in JSON). """
-        
-        self.purpose = None
-        """ Why this message definition is defined.
-        Type `FHIRMarkdown` (represented as `str` in JSON). """
-        
-        self.replaces = None
-        """ Takes the place of.
-        List of `FHIRCanonical` items (represented as `str` in JSON). """
-        
         self.responseRequired = None
         """ always | on-error | never | on-success.
         Type `FHIRCode` (represented as `str` in JSON). """
         
-        self.status = None
-        """ draft | active | retired | unknown.
-        Type `FHIRCode` (represented as `str` in JSON). """
+        self.allowedResponse = None
+        """ Responses to this message.
+        List of `MessageDefinitionAllowedResponse` items (represented as `dict` in JSON). """
         
-        self.title = None
-        """ Name for this message definition (human friendly).
-        Type `FHIRString` (represented as `str` in JSON). """
-        
-        self.url = None
-        """ Business Identifier for a given MessageDefinition.
-        Type `FHIRUri` (represented as `str` in JSON). """
-        
-        self.useContext = None
-        """ The context that the content is intended to support.
-        List of `UsageContext` items (represented as `dict` in JSON). """
-        
-        self.version = None
-        """ Business version of the message definition.
-        Type `FHIRString` (represented as `str` in JSON). """
+        self.graph = None
+        """ Canonical reference to a GraphDefinition.
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
         
         super(MessageDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MessageDefinition, self).elementProperties()
         js.extend([
-            ("allowedResponse", "allowedResponse", MessageDefinitionAllowedResponse, True, None, False),
-            ("base", "base", fhirdatatypes.FHIRCanonical, False, None, False),
-            ("category", "category", fhirdatatypes.FHIRCode, False, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
+            ("replaces", "replaces", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
+            ("experimental", "experimental", bool, False, None, False),
             ("date", "date", fhirdatatypes.FHIRDateTime, False, None, True),
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
             ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("base", "base", fhirdatatypes.FHIRCanonical, False, None, False),
+            ("parent", "parent", fhirdatatypes.FHIRCanonical, True, None, False),
             ("eventCoding", "eventCoding", coding.Coding, False, "event", True),
             ("eventUri", "eventUri", fhirdatatypes.FHIRUri, False, "event", True),
-            ("experimental", "experimental", bool, False, None, False),
+            ("category", "category", fhirdatatypes.FHIRCode, False, None, False),
             ("focus", "focus", MessageDefinitionFocus, True, None, False),
-            ("graph", "graph", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("parent", "parent", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("replaces", "replaces", fhirdatatypes.FHIRCanonical, True, None, False),
             ("responseRequired", "responseRequired", fhirdatatypes.FHIRCode, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
+            ("allowedResponse", "allowedResponse", MessageDefinitionAllowedResponse, True, None, False),
+            ("graph", "graph", fhirdatatypes.FHIRCanonical, True, None, False),
         ])
         return js
 
@@ -169,8 +169,6 @@ class MessageDefinitionAllowedResponse(backboneelement.BackboneElement):
     Indicates what types of messages may be sent as an application-level
     response to this message.
     """
-    
-    resource_type = "MessageDefinitionAllowedResponse"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -209,8 +207,6 @@ class MessageDefinitionFocus(backboneelement.BackboneElement):
     records for a merge.
     """
     
-    resource_type = "MessageDefinitionFocus"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -223,17 +219,17 @@ class MessageDefinitionFocus(backboneelement.BackboneElement):
         """ Type of resource.
         Type `FHIRCode` (represented as `str` in JSON). """
         
-        self.max = None
-        """ Maximum number of focuses of this type.
-        Type `FHIRString` (represented as `str` in JSON). """
+        self.profile = None
+        """ Profile that must be adhered to by focus.
+        Type `FHIRCanonical` (represented as `str` in JSON). """
         
         self.min = None
         """ Minimum number of focuses of this type.
         Type `FHIRUnsignedInt` (represented as `int` in JSON). """
         
-        self.profile = None
-        """ Profile that must be adhered to by focus.
-        Type `FHIRCanonical` (represented as `str` in JSON). """
+        self.max = None
+        """ Maximum number of focuses of this type.
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(MessageDefinitionFocus, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -241,9 +237,9 @@ class MessageDefinitionFocus(backboneelement.BackboneElement):
         js = super(MessageDefinitionFocus, self).elementProperties()
         js.extend([
             ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
-            ("max", "max", fhirdatatypes.FHIRString, False, None, False),
-            ("min", "min", fhirdatatypes.FHIRUnsignedInt, False, None, True),
             ("profile", "profile", fhirdatatypes.FHIRCanonical, False, None, False),
+            ("min", "min", fhirdatatypes.FHIRUnsignedInt, False, None, True),
+            ("max", "max", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
 

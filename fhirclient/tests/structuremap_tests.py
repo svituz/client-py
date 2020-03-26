@@ -66,6 +66,8 @@ class StructureMapTests(unittest.TestCase):
         self.assertEqual(inst.group[0].rule[0].target[0].transform.as_json(), "copy")
         self.assertEqual(inst.group[0].typeMode.value, FHIRCode("none").value)
         self.assertEqual(inst.group[0].typeMode.as_json(), "none")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("urn:ietf:rfc:3986").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "urn:ietf:rfc:3986")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("urn:oid:37843577-95fb-4adb-84c0-8837188a7bf3").value)

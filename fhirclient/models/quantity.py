@@ -15,8 +15,6 @@ class Quantity(element.Element):
     including amounts involving arbitrary units and floating currencies.
     """
     
-    resource_type = "Quantity"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -25,36 +23,36 @@ class Quantity(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
-        """ Coded form of the unit.
-        Type `FHIRCode` (represented as `str` in JSON). """
+        self.value = None
+        """ Numerical value (with implicit precision).
+        Type `float`. """
         
         self.comparator = None
         """ < | <= | >= | > - how to understand the value.
         Type `FHIRCode` (represented as `str` in JSON). """
         
-        self.system = None
-        """ System that defines coded unit form.
-        Type `FHIRUri` (represented as `str` in JSON). """
-        
         self.unit = None
         """ Unit representation.
         Type `FHIRString` (represented as `str` in JSON). """
         
-        self.value = None
-        """ Numerical value (with implicit precision).
-        Type `float`. """
+        self.system = None
+        """ System that defines coded unit form.
+        Type `FHIRUri` (represented as `str` in JSON). """
+        
+        self.code = None
+        """ Coded form of the unit.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(Quantity, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Quantity, self).elementProperties()
         js.extend([
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, False),
-            ("comparator", "comparator", fhirdatatypes.FHIRCode, False, None, False),
-            ("system", "system", fhirdatatypes.FHIRUri, False, None, False),
-            ("unit", "unit", fhirdatatypes.FHIRString, False, None, False),
             ("value", "value", float, False, None, False),
+            ("comparator", "comparator", fhirdatatypes.FHIRCode, False, None, False),
+            ("unit", "unit", fhirdatatypes.FHIRString, False, None, False),
+            ("system", "system", fhirdatatypes.FHIRUri, False, None, False),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, False),
         ])
         return js
 

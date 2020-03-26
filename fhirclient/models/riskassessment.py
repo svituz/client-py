@@ -24,41 +24,37 @@ class RiskAssessment(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.identifier = None
+        """ Unique identifier for the assessment.
+        List of `Identifier` items (represented as `dict` in JSON). """
+        
         self.basedOn = None
         """ Request fulfilled by this assessment.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.basis = None
-        """ Information used in assessment.
-        List of `FHIRReference` items (represented as `dict` in JSON). """
-        
-        self.code = None
-        """ Type of assessment.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.condition = None
-        """ Condition assessed.
+        self.parent = None
+        """ Part of this occurrence.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.encounter = None
-        """ Where was assessment performed?.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-        
-        self.identifier = None
-        """ Unique identifier for the assessment.
-        List of `Identifier` items (represented as `dict` in JSON). """
+        self.status = None
+        """ registered | preliminary | final | amended +.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.method = None
         """ Evaluation mechanism.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.mitigation = None
-        """ How to reduce risk.
-        Type `FHIRString` (represented as `str` in JSON). """
+        self.code = None
+        """ Type of assessment.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.note = None
-        """ Comments on the risk assessment.
-        List of `Annotation` items (represented as `dict` in JSON). """
+        self.subject = None
+        """ Who/what does assessment apply to?.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.encounter = None
+        """ Where was assessment performed?.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.occurrenceDateTime = None
         """ When was assessment made?.
@@ -68,17 +64,13 @@ class RiskAssessment(domainresource.DomainResource):
         """ When was assessment made?.
         Type `Period` (represented as `dict` in JSON). """
         
-        self.parent = None
-        """ Part of this occurrence.
+        self.condition = None
+        """ Condition assessed.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.performer = None
         """ Who did assessment?.
         Type `FHIRReference` (represented as `dict` in JSON). """
-        
-        self.prediction = None
-        """ Outcome predicted.
-        List of `RiskAssessmentPrediction` items (represented as `dict` in JSON). """
         
         self.reasonCode = None
         """ Why the assessment was necessary?.
@@ -88,37 +80,45 @@ class RiskAssessment(domainresource.DomainResource):
         """ Why the assessment was necessary?.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.status = None
-        """ registered | preliminary | final | amended +.
-        Type `FHIRCode` (represented as `str` in JSON). """
+        self.basis = None
+        """ Information used in assessment.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.subject = None
-        """ Who/what does assessment apply to?.
-        Type `FHIRReference` (represented as `dict` in JSON). """
+        self.prediction = None
+        """ Outcome predicted.
+        List of `RiskAssessmentPrediction` items (represented as `dict` in JSON). """
+        
+        self.mitigation = None
+        """ How to reduce risk.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.note = None
+        """ Comments on the risk assessment.
+        List of `Annotation` items (represented as `dict` in JSON). """
         
         super(RiskAssessment, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(RiskAssessment, self).elementProperties()
         js.extend([
-            ("basedOn", "basedOn", fhirreference.FHIRReference, False, None, False),
-            ("basis", "basis", fhirreference.FHIRReference, True, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("condition", "condition", fhirreference.FHIRReference, False, None, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("basedOn", "basedOn", fhirreference.FHIRReference, False, None, False),
+            ("parent", "parent", fhirreference.FHIRReference, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("method", "method", codeableconcept.CodeableConcept, False, None, False),
-            ("mitigation", "mitigation", fhirdatatypes.FHIRString, False, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
             ("occurrenceDateTime", "occurrenceDateTime", fhirdatatypes.FHIRDateTime, False, "occurrence", False),
             ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
-            ("parent", "parent", fhirreference.FHIRReference, False, None, False),
+            ("condition", "condition", fhirreference.FHIRReference, False, None, False),
             ("performer", "performer", fhirreference.FHIRReference, False, None, False),
-            ("prediction", "prediction", RiskAssessmentPrediction, True, None, False),
             ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
             ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
+            ("basis", "basis", fhirreference.FHIRReference, True, None, False),
+            ("prediction", "prediction", RiskAssessmentPrediction, True, None, False),
+            ("mitigation", "mitigation", fhirdatatypes.FHIRString, False, None, False),
+            ("note", "note", annotation.Annotation, True, None, False),
         ])
         return js
 
@@ -131,8 +131,6 @@ class RiskAssessmentPrediction(backboneelement.BackboneElement):
     
     Describes the expected outcome for the subject.
     """
-    
-    resource_type = "RiskAssessmentPrediction"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -158,10 +156,6 @@ class RiskAssessmentPrediction(backboneelement.BackboneElement):
         """ Likelihood of specified outcome as a qualitative value.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.rationale = None
-        """ Explanation of prediction.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
         self.relativeRisk = None
         """ Relative likelihood.
         Type `float`. """
@@ -174,6 +168,10 @@ class RiskAssessmentPrediction(backboneelement.BackboneElement):
         """ Timeframe or age range.
         Type `Range` (represented as `dict` in JSON). """
         
+        self.rationale = None
+        """ Explanation of prediction.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
         super(RiskAssessmentPrediction, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
@@ -183,10 +181,10 @@ class RiskAssessmentPrediction(backboneelement.BackboneElement):
             ("probabilityDecimal", "probabilityDecimal", float, False, "probability", False),
             ("probabilityRange", "probabilityRange", range.Range, False, "probability", False),
             ("qualitativeRisk", "qualitativeRisk", codeableconcept.CodeableConcept, False, None, False),
-            ("rationale", "rationale", fhirdatatypes.FHIRString, False, None, False),
             ("relativeRisk", "relativeRisk", float, False, None, False),
             ("whenPeriod", "whenPeriod", period.Period, False, "when", False),
             ("whenRange", "whenRange", range.Range, False, "when", False),
+            ("rationale", "rationale", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
 

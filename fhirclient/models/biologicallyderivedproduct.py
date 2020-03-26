@@ -25,25 +25,9 @@ class BiologicallyDerivedProduct(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.collection = None
-        """ How this product was collected.
-        Type `BiologicallyDerivedProductCollection` (represented as `dict` in JSON). """
-        
         self.identifier = None
         """ External ids for this item.
         List of `Identifier` items (represented as `dict` in JSON). """
-        
-        self.manipulation = None
-        """ Any manipulation of product post-collection.
-        Type `BiologicallyDerivedProductManipulation` (represented as `dict` in JSON). """
-        
-        self.parent = None
-        """ BiologicallyDerivedProduct parent.
-        List of `FHIRReference` items (represented as `dict` in JSON). """
-        
-        self.processing = None
-        """ Any processing of the product during collection.
-        List of `BiologicallyDerivedProductProcessing` items (represented as `dict` in JSON). """
         
         self.productCategory = None
         """ organ | tissue | fluid | cells | biologicalAgent.
@@ -53,17 +37,33 @@ class BiologicallyDerivedProduct(domainresource.DomainResource):
         """ What this biologically derived product is.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.quantity = None
-        """ The amount of this biologically derived product.
-        Type `int`. """
+        self.status = None
+        """ available | unavailable.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.request = None
         """ Procedure request.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.status = None
-        """ available | unavailable.
-        Type `FHIRCode` (represented as `str` in JSON). """
+        self.quantity = None
+        """ The amount of this biologically derived product.
+        Type `int`. """
+        
+        self.parent = None
+        """ BiologicallyDerivedProduct parent.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+        
+        self.collection = None
+        """ How this product was collected.
+        Type `BiologicallyDerivedProductCollection` (represented as `dict` in JSON). """
+        
+        self.processing = None
+        """ Any processing of the product during collection.
+        List of `BiologicallyDerivedProductProcessing` items (represented as `dict` in JSON). """
+        
+        self.manipulation = None
+        """ Any manipulation of product post-collection.
+        Type `BiologicallyDerivedProductManipulation` (represented as `dict` in JSON). """
         
         self.storage = None
         """ Product storage.
@@ -74,16 +74,16 @@ class BiologicallyDerivedProduct(domainresource.DomainResource):
     def elementProperties(self):
         js = super(BiologicallyDerivedProduct, self).elementProperties()
         js.extend([
-            ("collection", "collection", BiologicallyDerivedProductCollection, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("manipulation", "manipulation", BiologicallyDerivedProductManipulation, False, None, False),
-            ("parent", "parent", fhirreference.FHIRReference, True, None, False),
-            ("processing", "processing", BiologicallyDerivedProductProcessing, True, None, False),
             ("productCategory", "productCategory", fhirdatatypes.FHIRCode, False, None, False),
             ("productCode", "productCode", codeableconcept.CodeableConcept, False, None, False),
-            ("quantity", "quantity", int, False, None, False),
-            ("request", "request", fhirreference.FHIRReference, True, None, False),
             ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
+            ("request", "request", fhirreference.FHIRReference, True, None, False),
+            ("quantity", "quantity", int, False, None, False),
+            ("parent", "parent", fhirreference.FHIRReference, True, None, False),
+            ("collection", "collection", BiologicallyDerivedProductCollection, False, None, False),
+            ("processing", "processing", BiologicallyDerivedProductProcessing, True, None, False),
+            ("manipulation", "manipulation", BiologicallyDerivedProductManipulation, False, None, False),
             ("storage", "storage", BiologicallyDerivedProductStorage, True, None, False),
         ])
         return js
@@ -96,8 +96,6 @@ class BiologicallyDerivedProductCollection(backboneelement.BackboneElement):
     """ How this product was collected.
     """
     
-    resource_type = "BiologicallyDerivedProductCollection"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -105,14 +103,6 @@ class BiologicallyDerivedProductCollection(backboneelement.BackboneElement):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
-        
-        self.collectedDateTime = None
-        """ Time of product collection.
-        Type `FHIRDateTime` (represented as `str` in JSON). """
-        
-        self.collectedPeriod = None
-        """ Time of product collection.
-        Type `Period` (represented as `dict` in JSON). """
         
         self.collector = None
         """ Individual performing collection.
@@ -122,15 +112,23 @@ class BiologicallyDerivedProductCollection(backboneelement.BackboneElement):
         """ Who is product from.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
+        self.collectedDateTime = None
+        """ Time of product collection.
+        Type `FHIRDateTime` (represented as `str` in JSON). """
+        
+        self.collectedPeriod = None
+        """ Time of product collection.
+        Type `Period` (represented as `dict` in JSON). """
+        
         super(BiologicallyDerivedProductCollection, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(BiologicallyDerivedProductCollection, self).elementProperties()
         js.extend([
-            ("collectedDateTime", "collectedDateTime", fhirdatatypes.FHIRDateTime, False, "collected", False),
-            ("collectedPeriod", "collectedPeriod", period.Period, False, "collected", False),
             ("collector", "collector", fhirreference.FHIRReference, False, None, False),
             ("source", "source", fhirreference.FHIRReference, False, None, False),
+            ("collectedDateTime", "collectedDateTime", fhirdatatypes.FHIRDateTime, False, "collected", False),
+            ("collectedPeriod", "collectedPeriod", period.Period, False, "collected", False),
         ])
         return js
 
@@ -144,8 +142,6 @@ class BiologicallyDerivedProductManipulation(backboneelement.BackboneElement):
     product.  For example a buffy-coat enrichment or CD8 reduction of
     Peripheral Blood Stem Cells to make it more suitable for infusion.
     """
-    
-    resource_type = "BiologicallyDerivedProductManipulation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -189,8 +185,6 @@ class BiologicallyDerivedProductProcessing(backboneelement.BackboneElement):
     during the collection of Peripheral Blood Stem Cells.
     """
     
-    resource_type = "BiologicallyDerivedProductProcessing"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -199,10 +193,6 @@ class BiologicallyDerivedProductProcessing(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.additive = None
-        """ Substance added during processing.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-        
         self.description = None
         """ Description of of processing.
         Type `FHIRString` (represented as `str` in JSON). """
@@ -210,6 +200,10 @@ class BiologicallyDerivedProductProcessing(backboneelement.BackboneElement):
         self.procedure = None
         """ Procesing code.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.additive = None
+        """ Substance added during processing.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.timeDateTime = None
         """ Time of processing.
@@ -224,9 +218,9 @@ class BiologicallyDerivedProductProcessing(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(BiologicallyDerivedProductProcessing, self).elementProperties()
         js.extend([
-            ("additive", "additive", fhirreference.FHIRReference, False, None, False),
             ("description", "description", fhirdatatypes.FHIRString, False, None, False),
             ("procedure", "procedure", codeableconcept.CodeableConcept, False, None, False),
+            ("additive", "additive", fhirreference.FHIRReference, False, None, False),
             ("timeDateTime", "timeDateTime", fhirdatatypes.FHIRDateTime, False, "time", False),
             ("timePeriod", "timePeriod", period.Period, False, "time", False),
         ])
@@ -238,8 +232,6 @@ class BiologicallyDerivedProductProcessing(backboneelement.BackboneElement):
 class BiologicallyDerivedProductStorage(backboneelement.BackboneElement):
     """ Product storage.
     """
-    
-    resource_type = "BiologicallyDerivedProductStorage"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -253,17 +245,17 @@ class BiologicallyDerivedProductStorage(backboneelement.BackboneElement):
         """ Description of storage.
         Type `FHIRString` (represented as `str` in JSON). """
         
-        self.duration = None
-        """ Storage timeperiod.
-        Type `Period` (represented as `dict` in JSON). """
+        self.temperature = None
+        """ Storage temperature.
+        Type `float`. """
         
         self.scale = None
         """ farenheit | celsius | kelvin.
         Type `FHIRCode` (represented as `str` in JSON). """
         
-        self.temperature = None
-        """ Storage temperature.
-        Type `float`. """
+        self.duration = None
+        """ Storage timeperiod.
+        Type `Period` (represented as `dict` in JSON). """
         
         super(BiologicallyDerivedProductStorage, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -271,9 +263,9 @@ class BiologicallyDerivedProductStorage(backboneelement.BackboneElement):
         js = super(BiologicallyDerivedProductStorage, self).elementProperties()
         js.extend([
             ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("duration", "duration", period.Period, False, None, False),
-            ("scale", "scale", fhirdatatypes.FHIRCode, False, None, False),
             ("temperature", "temperature", float, False, None, False),
+            ("scale", "scale", fhirdatatypes.FHIRCode, False, None, False),
+            ("duration", "duration", period.Period, False, None, False),
         ])
         return js
 

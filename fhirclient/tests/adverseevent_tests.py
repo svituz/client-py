@@ -48,6 +48,8 @@ class AdverseEventTests(unittest.TestCase):
         self.assertEqual(inst.event.coding[0].system.as_json(), "http://snomed.info/sct")
         self.assertEqual(inst.event.text.value, FHIRString("This was a mild rash on the left forearm").value)
         self.assertEqual(inst.event.text.as_json(), "This was a mild rash on the left forearm")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.identifier.system.value, FHIRUri("http://acme.com/ids/patients/risks").value)
         self.assertEqual(inst.identifier.system.as_json(), "http://acme.com/ids/patients/risks")
         self.assertEqual(inst.identifier.value.value, FHIRString("49476534").value)

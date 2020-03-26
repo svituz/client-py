@@ -35,6 +35,8 @@ class PaymentNoticeTests(unittest.TestCase):
         self.assertEqual(inst.amount.value, 12500.0)
         self.assertEqual(inst.created.value, FHIRDateTime("2014-08-16").value)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
+        self.assertEqual(inst.id.value, FHIRString("77654").value)
+        self.assertEqual(inst.id.as_json(), "77654")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://benefitsinc.com/paymentnotice").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://benefitsinc.com/paymentnotice")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("776543").value)
@@ -60,4 +62,4 @@ class PaymentNoticeTests(unittest.TestCase):
         self.assertEqual(inst.text.status.as_json(), "generated")
 
 
-from fhirclient.models.fhirdatatypes import FHIRCode, FHIRDateTime, FHIRUri, FHIRString, FHIRDate
+from fhirclient.models.fhirdatatypes import FHIRCode, FHIRDateTime, FHIRString, FHIRUri, FHIRDate

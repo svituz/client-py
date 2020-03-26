@@ -23,6 +23,10 @@ class DomainResource(resource.Resource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.text = None
+        """ Text summary of the resource, for human interpretation.
+        Type `Narrative` (represented as `dict` in JSON). """
+        
         self.contained = None
         """ Contained, inline Resources.
         List of `Resource` items (represented as `dict` in JSON). """
@@ -35,19 +39,15 @@ class DomainResource(resource.Resource):
         """ Extensions that cannot be ignored.
         List of `Extension` items (represented as `dict` in JSON). """
         
-        self.text = None
-        """ Text summary of the resource, for human interpretation.
-        Type `Narrative` (represented as `dict` in JSON). """
-        
         super(DomainResource, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DomainResource, self).elementProperties()
         js.extend([
+            ("text", "text", narrative.Narrative, False, None, False),
             ("contained", "contained", resource.Resource, True, None, False),
             ("extension", "extension", extension.Extension, True, None, False),
             ("modifierExtension", "modifierExtension", extension.Extension, True, None, False),
-            ("text", "text", narrative.Narrative, False, None, False),
         ])
         return js
 

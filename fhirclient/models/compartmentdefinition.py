@@ -24,82 +24,82 @@ class CompartmentDefinition(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.code = None
-        """ Patient | Encounter | RelatedPerson | Practitioner | Device.
-        Type `FHIRCode` (represented as `str` in JSON). """
-        
-        self.contact = None
-        """ Contact details for the publisher.
-        List of `ContactDetail` items (represented as `dict` in JSON). """
-        
-        self.date = None
-        """ Date last changed.
-        Type `FHIRDateTime` (represented as `str` in JSON). """
-        
-        self.description = None
-        """ Natural language description of the compartment definition.
-        Type `FHIRMarkdown` (represented as `str` in JSON). """
-        
-        self.experimental = None
-        """ For testing purposes, not real usage.
-        Type `bool`. """
-        
-        self.name = None
-        """ Name for this compartment definition (computer friendly).
-        Type `FHIRString` (represented as `str` in JSON). """
-        
-        self.publisher = None
-        """ Name of the publisher (organization or individual).
-        Type `FHIRString` (represented as `str` in JSON). """
-        
-        self.purpose = None
-        """ Why this compartment definition is defined.
-        Type `FHIRMarkdown` (represented as `str` in JSON). """
-        
-        self.resource = None
-        """ How a resource is related to the compartment.
-        List of `CompartmentDefinitionResource` items (represented as `dict` in JSON). """
-        
-        self.search = None
-        """ Whether the search syntax is supported.
-        Type `bool`. """
-        
-        self.status = None
-        """ draft | active | retired | unknown.
-        Type `FHIRCode` (represented as `str` in JSON). """
-        
         self.url = None
         """ Canonical identifier for this compartment definition, represented
         as a URI (globally unique).
         Type `FHIRUri` (represented as `str` in JSON). """
         
+        self.version = None
+        """ Business version of the compartment definition.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.name = None
+        """ Name for this compartment definition (computer friendly).
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.status = None
+        """ draft | active | retired | unknown.
+        Type `FHIRCode` (represented as `str` in JSON). """
+        
+        self.experimental = None
+        """ For testing purposes, not real usage.
+        Type `bool`. """
+        
+        self.date = None
+        """ Date last changed.
+        Type `FHIRDateTime` (represented as `str` in JSON). """
+        
+        self.publisher = None
+        """ Name of the publisher (organization or individual).
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.contact = None
+        """ Contact details for the publisher.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
+        
+        self.description = None
+        """ Natural language description of the compartment definition.
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
+        
         self.useContext = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
-        self.version = None
-        """ Business version of the compartment definition.
-        Type `FHIRString` (represented as `str` in JSON). """
+        self.purpose = None
+        """ Why this compartment definition is defined.
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
+        
+        self.code = None
+        """ Patient | Encounter | RelatedPerson | Practitioner | Device.
+        Type `FHIRCode` (represented as `str` in JSON). """
+        
+        self.search = None
+        """ Whether the search syntax is supported.
+        Type `bool`. """
+        
+        self.resource = None
+        """ How a resource is related to the compartment.
+        List of `CompartmentDefinitionResource` items (represented as `dict` in JSON). """
         
         super(CompartmentDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CompartmentDefinition, self).elementProperties()
         js.extend([
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("experimental", "experimental", bool, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("resource", "resource", CompartmentDefinitionResource, True, None, False),
-            ("search", "search", bool, False, None, True),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
             ("url", "url", fhirdatatypes.FHIRUri, False, None, True),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
             ("version", "version", fhirdatatypes.FHIRString, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
+            ("experimental", "experimental", bool, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
+            ("search", "search", bool, False, None, True),
+            ("resource", "resource", CompartmentDefinitionResource, True, None, False),
         ])
         return js
 
@@ -113,8 +113,6 @@ class CompartmentDefinitionResource(backboneelement.BackboneElement):
     Information about how a resource is related to the compartment.
     """
     
-    resource_type = "CompartmentDefinitionResource"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -127,13 +125,13 @@ class CompartmentDefinitionResource(backboneelement.BackboneElement):
         """ Name of resource type.
         Type `FHIRCode` (represented as `str` in JSON). """
         
-        self.documentation = None
-        """ Additional documentation about the resource and compartment.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
         self.param = None
         """ Search Parameter Name, or chained parameters.
         List of `FHIRString` items (represented as `str` in JSON). """
+        
+        self.documentation = None
+        """ Additional documentation about the resource and compartment.
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(CompartmentDefinitionResource, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -141,8 +139,8 @@ class CompartmentDefinitionResource(backboneelement.BackboneElement):
         js = super(CompartmentDefinitionResource, self).elementProperties()
         js.extend([
             ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
-            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False),
             ("param", "param", fhirdatatypes.FHIRString, True, None, False),
+            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
 

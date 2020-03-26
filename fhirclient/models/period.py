@@ -13,8 +13,6 @@ class Period(element.Element):
     A time period defined by a start and end date and optionally time.
     """
     
-    resource_type = "Period"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -23,12 +21,12 @@ class Period(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.end = None
-        """ End time with inclusive boundary, if not ongoing.
-        Type `FHIRDateTime` (represented as `str` in JSON). """
-        
         self.start = None
         """ Starting time with inclusive boundary.
+        Type `FHIRDateTime` (represented as `str` in JSON). """
+        
+        self.end = None
+        """ End time with inclusive boundary, if not ongoing.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
         super(Period, self).__init__(jsondict=jsondict, strict=strict)
@@ -36,8 +34,8 @@ class Period(element.Element):
     def elementProperties(self):
         js = super(Period, self).elementProperties()
         js.extend([
-            ("end", "end", fhirdatatypes.FHIRDateTime, False, None, False),
             ("start", "start", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("end", "end", fhirdatatypes.FHIRDateTime, False, None, False),
         ])
         return js
 

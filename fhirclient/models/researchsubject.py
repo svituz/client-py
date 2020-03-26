@@ -24,29 +24,9 @@ class ResearchSubject(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.actualArm = None
-        """ What path was followed.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
-        self.assignedArm = None
-        """ What path should be followed.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
-        self.consent = None
-        """ Agreement to participate in study.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-        
         self.identifier = None
         """ Business Identifier for research subject in a study.
         List of `Identifier` items (represented as `dict` in JSON). """
-        
-        self.individual = None
-        """ Who is part of study.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-        
-        self.period = None
-        """ Start and end of participation.
-        Type `Period` (represented as `dict` in JSON). """
         
         self.status = None
         """ candidate | eligible | follow-up | ineligible | not-registered |
@@ -54,8 +34,28 @@ class ResearchSubject(domainresource.DomainResource):
         | pending-on-study | potential-candidate | screening | withdrawn.
         Type `FHIRCode` (represented as `str` in JSON). """
         
+        self.period = None
+        """ Start and end of participation.
+        Type `Period` (represented as `dict` in JSON). """
+        
         self.study = None
         """ Study subject is part of.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.individual = None
+        """ Who is part of study.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.assignedArm = None
+        """ What path should be followed.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.actualArm = None
+        """ What path was followed.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.consent = None
+        """ Agreement to participate in study.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(ResearchSubject, self).__init__(jsondict=jsondict, strict=strict)
@@ -63,14 +63,14 @@ class ResearchSubject(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ResearchSubject, self).elementProperties()
         js.extend([
-            ("actualArm", "actualArm", fhirdatatypes.FHIRString, False, None, False),
-            ("assignedArm", "assignedArm", fhirdatatypes.FHIRString, False, None, False),
-            ("consent", "consent", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("individual", "individual", fhirreference.FHIRReference, False, None, True),
-            ("period", "period", period.Period, False, None, False),
             ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
+            ("period", "period", period.Period, False, None, False),
             ("study", "study", fhirreference.FHIRReference, False, None, True),
+            ("individual", "individual", fhirreference.FHIRReference, False, None, True),
+            ("assignedArm", "assignedArm", fhirdatatypes.FHIRString, False, None, False),
+            ("actualArm", "actualArm", fhirdatatypes.FHIRString, False, None, False),
+            ("consent", "consent", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 

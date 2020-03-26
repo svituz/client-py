@@ -14,8 +14,6 @@ class SampledData(element.Element):
     There may be more than one dimension in the data.
     """
     
-    resource_type = "SampledData"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -23,22 +21,6 @@ class SampledData(element.Element):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
-        
-        self.data = None
-        """ Decimal values with spaces, or "E" | "U" | "L".
-        Type `FHIRString` (represented as `str` in JSON). """
-        
-        self.dimensions = None
-        """ Number of sample points at each time point.
-        Type `FHIRPositiveInt` (represented as `int` in JSON). """
-        
-        self.factor = None
-        """ Multiply data by this before adding to origin.
-        Type `float`. """
-        
-        self.lowerLimit = None
-        """ Lower limit of detection.
-        Type `float`. """
         
         self.origin = None
         """ Zero value and units.
@@ -48,22 +30,38 @@ class SampledData(element.Element):
         """ Number of milliseconds between samples.
         Type `float`. """
         
+        self.factor = None
+        """ Multiply data by this before adding to origin.
+        Type `float`. """
+        
+        self.lowerLimit = None
+        """ Lower limit of detection.
+        Type `float`. """
+        
         self.upperLimit = None
         """ Upper limit of detection.
         Type `float`. """
+        
+        self.dimensions = None
+        """ Number of sample points at each time point.
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
+        
+        self.data = None
+        """ Decimal values with spaces, or "E" | "U" | "L".
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(SampledData, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(SampledData, self).elementProperties()
         js.extend([
-            ("data", "data", fhirdatatypes.FHIRString, False, None, False),
-            ("dimensions", "dimensions", fhirdatatypes.FHIRPositiveInt, False, None, True),
-            ("factor", "factor", float, False, None, False),
-            ("lowerLimit", "lowerLimit", float, False, None, False),
             ("origin", "origin", quantity.Quantity, False, None, True),
             ("period", "period", float, False, None, True),
+            ("factor", "factor", float, False, None, False),
+            ("lowerLimit", "lowerLimit", float, False, None, False),
             ("upperLimit", "upperLimit", float, False, None, False),
+            ("dimensions", "dimensions", fhirdatatypes.FHIRPositiveInt, False, None, True),
+            ("data", "data", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
 

@@ -30,6 +30,8 @@ class ImmunizationTests(unittest.TestCase):
         self.implImmunization1(inst2)
 
     def implImmunization1(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("historical").value)
+        self.assertEqual(inst.id.as_json(), "historical")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("urn:ietf:rfc:3986").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "urn:ietf:rfc:3986")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234").value)
@@ -85,6 +87,8 @@ class ImmunizationTests(unittest.TestCase):
         self.assertEqual(inst.fundingSource.coding[0].code.as_json(), "private")
         self.assertEqual(inst.fundingSource.coding[0].system.value, FHIRUri("http://terminology.hl7.org/CodeSystem/immunization-funding-source").value)
         self.assertEqual(inst.fundingSource.coding[0].system.as_json(), "http://terminology.hl7.org/CodeSystem/immunization-funding-source")
+        self.assertEqual(inst.id.value, FHIRString("protocol").value)
+        self.assertEqual(inst.id.as_json(), "protocol")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("urn:ietf:rfc:3986").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "urn:ietf:rfc:3986")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234").value)
@@ -181,6 +185,8 @@ class ImmunizationTests(unittest.TestCase):
         self.assertEqual(inst.fundingSource.coding[0].code.as_json(), "private")
         self.assertEqual(inst.fundingSource.coding[0].system.value, FHIRUri("http://terminology.hl7.org/CodeSystem/immunization-funding-source").value)
         self.assertEqual(inst.fundingSource.coding[0].system.as_json(), "http://terminology.hl7.org/CodeSystem/immunization-funding-source")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("urn:ietf:rfc:3986").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "urn:ietf:rfc:3986")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234").value)
@@ -249,6 +255,8 @@ class ImmunizationTests(unittest.TestCase):
         self.implImmunization4(inst2)
 
     def implImmunization4(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("notGiven").value)
+        self.assertEqual(inst.id.as_json(), "notGiven")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)
@@ -304,6 +312,8 @@ class ImmunizationTests(unittest.TestCase):
         self.assertEqual(inst.fundingSource.coding[0].code.as_json(), "private")
         self.assertEqual(inst.fundingSource.coding[0].system.value, FHIRUri("http://terminology.hl7.org/CodeSystem/immunization-funding-source").value)
         self.assertEqual(inst.fundingSource.coding[0].system.as_json(), "http://terminology.hl7.org/CodeSystem/immunization-funding-source")
+        self.assertEqual(inst.id.value, FHIRString("subpotent").value)
+        self.assertEqual(inst.id.as_json(), "subpotent")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("urn:ietf:rfc:3986").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "urn:ietf:rfc:3986")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234").value)
@@ -362,4 +372,4 @@ class ImmunizationTests(unittest.TestCase):
         self.assertEqual(inst.vaccineCode.text.as_json(), "Hepatitis B")
 
 
-from fhirclient.models.fhirdatatypes import FHIRUri, FHIRString, FHIRCode, FHIRMarkdown, FHIRDate, FHIRDateTime, FHIRPositiveInt
+from fhirclient.models.fhirdatatypes import FHIRString, FHIRUri, FHIRCode, FHIRMarkdown, FHIRDate, FHIRDateTime, FHIRPositiveInt

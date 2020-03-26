@@ -30,6 +30,8 @@ class DeviceUseStatementTests(unittest.TestCase):
         self.implDeviceUseStatement1(inst2)
 
     def implDeviceUseStatement1(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http:goodhealth.org/identifiers").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http:goodhealth.org/identifiers")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("51ebb7a9-4e3a-4360-9a05-0cc2d869086f").value)
@@ -46,4 +48,4 @@ class DeviceUseStatementTests(unittest.TestCase):
         self.assertEqual(inst.text.status.as_json(), "generated")
 
 
-from fhirclient.models.fhirdatatypes import FHIRUri, FHIRString, FHIRCode
+from fhirclient.models.fhirdatatypes import FHIRString, FHIRUri, FHIRCode

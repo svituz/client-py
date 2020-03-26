@@ -17,8 +17,6 @@ class Timing(backboneelement.BackboneElement):
     schedule to which past regular activities were carried out.
     """
     
-    resource_type = "Timing"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -26,10 +24,6 @@ class Timing(backboneelement.BackboneElement):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
-        
-        self.code = None
-        """ BID | TID | QID | AM | PM | QD | QOD | +.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.event = None
         """ When the event occurs.
@@ -39,14 +33,18 @@ class Timing(backboneelement.BackboneElement):
         """ When the event is to occur.
         Type `TimingRepeat` (represented as `dict` in JSON). """
         
+        self.code = None
+        """ BID | TID | QID | AM | PM | QD | QOD | +.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         super(Timing, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Timing, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("event", "event", fhirdatatypes.FHIRDateTime, True, None, False),
             ("repeat", "repeat", TimingRepeat, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
         ])
         return js
 
@@ -60,8 +58,6 @@ class TimingRepeat(element.Element):
     A set of rules that describe when the event is scheduled.
     """
     
-    resource_type = "TimingRepeat"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -74,13 +70,13 @@ class TimingRepeat(element.Element):
         """ Length/Range of lengths, or (Start and/or end) limits.
         Type `Duration` (represented as `dict` in JSON). """
         
-        self.boundsPeriod = None
-        """ Length/Range of lengths, or (Start and/or end) limits.
-        Type `Period` (represented as `dict` in JSON). """
-        
         self.boundsRange = None
         """ Length/Range of lengths, or (Start and/or end) limits.
         Type `Range` (represented as `dict` in JSON). """
+        
+        self.boundsPeriod = None
+        """ Length/Range of lengths, or (Start and/or end) limits.
+        Type `Period` (represented as `dict` in JSON). """
         
         self.count = None
         """ Number of times to repeat.
@@ -89,10 +85,6 @@ class TimingRepeat(element.Element):
         self.countMax = None
         """ Maximum number of times to repeat.
         Type `FHIRPositiveInt` (represented as `int` in JSON). """
-        
-        self.dayOfWeek = None
-        """ mon | tue | wed | thu | fri | sat | sun.
-        List of `FHIRCode` items (represented as `str` in JSON). """
         
         self.duration = None
         """ How long when it happens.
@@ -114,10 +106,6 @@ class TimingRepeat(element.Element):
         """ Event occurs up to frequencyMax times per period.
         Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
-        self.offset = None
-        """ Minutes from event (before or after).
-        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
-        
         self.period = None
         """ Event occurs frequency times per period.
         Type `float`. """
@@ -130,6 +118,10 @@ class TimingRepeat(element.Element):
         """ s | min | h | d | wk | mo | a - unit of time (UCUM).
         Type `FHIRCode` (represented as `str` in JSON). """
         
+        self.dayOfWeek = None
+        """ mon | tue | wed | thu | fri | sat | sun.
+        List of `FHIRCode` items (represented as `str` in JSON). """
+        
         self.timeOfDay = None
         """ Time of day for action.
         List of `FHIRTime` items (represented as `str` in JSON). """
@@ -138,28 +130,32 @@ class TimingRepeat(element.Element):
         """ Code for time period of occurrence.
         List of `FHIRCode` items (represented as `str` in JSON). """
         
+        self.offset = None
+        """ Minutes from event (before or after).
+        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
+        
         super(TimingRepeat, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TimingRepeat, self).elementProperties()
         js.extend([
             ("boundsDuration", "boundsDuration", duration.Duration, False, "bounds", False),
-            ("boundsPeriod", "boundsPeriod", period.Period, False, "bounds", False),
             ("boundsRange", "boundsRange", range.Range, False, "bounds", False),
+            ("boundsPeriod", "boundsPeriod", period.Period, False, "bounds", False),
             ("count", "count", fhirdatatypes.FHIRPositiveInt, False, None, False),
             ("countMax", "countMax", fhirdatatypes.FHIRPositiveInt, False, None, False),
-            ("dayOfWeek", "dayOfWeek", fhirdatatypes.FHIRCode, True, None, False),
             ("duration", "duration", float, False, None, False),
             ("durationMax", "durationMax", float, False, None, False),
             ("durationUnit", "durationUnit", fhirdatatypes.FHIRCode, False, None, False),
             ("frequency", "frequency", fhirdatatypes.FHIRPositiveInt, False, None, False),
             ("frequencyMax", "frequencyMax", fhirdatatypes.FHIRPositiveInt, False, None, False),
-            ("offset", "offset", fhirdatatypes.FHIRUnsignedInt, False, None, False),
             ("period", "period", float, False, None, False),
             ("periodMax", "periodMax", float, False, None, False),
             ("periodUnit", "periodUnit", fhirdatatypes.FHIRCode, False, None, False),
+            ("dayOfWeek", "dayOfWeek", fhirdatatypes.FHIRCode, True, None, False),
             ("timeOfDay", "timeOfDay", fhirdatatypes.FHIRTime, True, None, False),
             ("when", "when", fhirdatatypes.FHIRCode, True, None, False),
+            ("offset", "offset", fhirdatatypes.FHIRUnsignedInt, False, None, False),
         ])
         return js
 

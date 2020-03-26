@@ -41,6 +41,8 @@ class DeviceMetricTests(unittest.TestCase):
         self.assertEqual(inst.category.as_json(), "measurement")
         self.assertEqual(inst.color.value, FHIRCode("blue").value)
         self.assertEqual(inst.color.as_json(), "blue")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://goodcare.org/devicemetric/id").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://goodcare.org/devicemetric/id")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("345675").value)
@@ -74,4 +76,4 @@ class DeviceMetricTests(unittest.TestCase):
         self.assertEqual(inst.unit.coding[0].system.as_json(), "urn:iso:std:iso:11073:10101")
 
 
-from fhirclient.models.fhirdatatypes import FHIRCode, FHIRInstant, FHIRUri, FHIRString, FHIRPositiveInt
+from fhirclient.models.fhirdatatypes import FHIRCode, FHIRInstant, FHIRString, FHIRUri, FHIRPositiveInt

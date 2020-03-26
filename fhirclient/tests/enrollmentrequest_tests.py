@@ -32,6 +32,8 @@ class EnrollmentRequestTests(unittest.TestCase):
     def implEnrollmentRequest1(self, inst):
         self.assertEqual(inst.created.value, FHIRDateTime("2014-08-16").value)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
+        self.assertEqual(inst.id.value, FHIRString("22345").value)
+        self.assertEqual(inst.id.as_json(), "22345")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://happyvalley.com/enrollmentrequest").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://happyvalley.com/enrollmentrequest")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("EN22345").value)
@@ -50,4 +52,4 @@ class EnrollmentRequestTests(unittest.TestCase):
         self.assertEqual(inst.text.status.as_json(), "generated")
 
 
-from fhirclient.models.fhirdatatypes import FHIRDateTime, FHIRUri, FHIRString, FHIRCode
+from fhirclient.models.fhirdatatypes import FHIRDateTime, FHIRString, FHIRUri, FHIRCode

@@ -13,8 +13,6 @@ class Range(element.Element):
     A set of ordered Quantities defined by a low and high limit.
     """
     
-    resource_type = "Range"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -23,12 +21,12 @@ class Range(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.high = None
-        """ High limit.
-        Type `Quantity` (represented as `dict` in JSON). """
-        
         self.low = None
         """ Low limit.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.high = None
+        """ High limit.
         Type `Quantity` (represented as `dict` in JSON). """
         
         super(Range, self).__init__(jsondict=jsondict, strict=strict)
@@ -36,8 +34,8 @@ class Range(element.Element):
     def elementProperties(self):
         js = super(Range, self).elementProperties()
         js.extend([
-            ("high", "high", quantity.Quantity, False, None, False),
             ("low", "low", quantity.Quantity, False, None, False),
+            ("high", "high", quantity.Quantity, False, None, False),
         ])
         return js
 

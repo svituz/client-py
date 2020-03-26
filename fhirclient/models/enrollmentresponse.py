@@ -24,51 +24,51 @@ class EnrollmentResponse(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.created = None
-        """ Creation date.
-        Type `FHIRDateTime` (represented as `str` in JSON). """
-        
-        self.disposition = None
-        """ Disposition Message.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
         self.identifier = None
         """ Business Identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.organization = None
-        """ Insurer.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-        
-        self.outcome = None
-        """ queued | complete | error | partial.
+        self.status = None
+        """ active | cancelled | draft | entered-in-error.
         Type `FHIRCode` (represented as `str` in JSON). """
         
         self.request = None
         """ Claim reference.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
+        self.outcome = None
+        """ queued | complete | error | partial.
+        Type `FHIRCode` (represented as `str` in JSON). """
+        
+        self.disposition = None
+        """ Disposition Message.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.created = None
+        """ Creation date.
+        Type `FHIRDateTime` (represented as `str` in JSON). """
+        
+        self.organization = None
+        """ Insurer.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
         self.requestProvider = None
         """ Responsible practitioner.
         Type `FHIRReference` (represented as `dict` in JSON). """
-        
-        self.status = None
-        """ active | cancelled | draft | entered-in-error.
-        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(EnrollmentResponse, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(EnrollmentResponse, self).elementProperties()
         js.extend([
-            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("disposition", "disposition", fhirdatatypes.FHIRString, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
-            ("outcome", "outcome", fhirdatatypes.FHIRCode, False, None, False),
-            ("request", "request", fhirreference.FHIRReference, False, None, False),
-            ("requestProvider", "requestProvider", fhirreference.FHIRReference, False, None, False),
             ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
+            ("request", "request", fhirreference.FHIRReference, False, None, False),
+            ("outcome", "outcome", fhirdatatypes.FHIRCode, False, None, False),
+            ("disposition", "disposition", fhirdatatypes.FHIRString, False, None, False),
+            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
+            ("requestProvider", "requestProvider", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 

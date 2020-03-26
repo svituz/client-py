@@ -15,8 +15,6 @@ class Expression(element.Element):
     expression is evaluated, and how the result of the expression is used.
     """
     
-    resource_type = "Expression"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -29,17 +27,17 @@ class Expression(element.Element):
         """ Natural language description of the condition.
         Type `FHIRString` (represented as `str` in JSON). """
         
-        self.expression = None
-        """ Expression in specified language.
-        Type `FHIRString` (represented as `str` in JSON). """
+        self.name = None
+        """ Short name assigned to expression for reuse.
+        Type `FHIRId` (represented as `str` in JSON). """
         
         self.language = None
         """ text/cql | text/fhirpath | application/x-fhir-query | etc..
         Type `FHIRCode` (represented as `str` in JSON). """
         
-        self.name = None
-        """ Short name assigned to expression for reuse.
-        Type `FHIRId` (represented as `str` in JSON). """
+        self.expression = None
+        """ Expression in specified language.
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.reference = None
         """ Where the expression is found.
@@ -51,9 +49,9 @@ class Expression(element.Element):
         js = super(Expression, self).elementProperties()
         js.extend([
             ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("expression", "expression", fhirdatatypes.FHIRString, False, None, False),
-            ("language", "language", fhirdatatypes.FHIRCode, False, None, True),
             ("name", "name", fhirdatatypes.FHIRId, False, None, False),
+            ("language", "language", fhirdatatypes.FHIRCode, False, None, True),
+            ("expression", "expression", fhirdatatypes.FHIRString, False, None, False),
             ("reference", "reference", fhirdatatypes.FHIRUri, False, None, False),
         ])
         return js

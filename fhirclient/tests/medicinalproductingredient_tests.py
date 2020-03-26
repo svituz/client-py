@@ -30,6 +30,8 @@ class MedicinalProductIngredientTests(unittest.TestCase):
         self.implMedicinalProductIngredient1(inst2)
 
     def implMedicinalProductIngredient1(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)
@@ -62,4 +64,4 @@ class MedicinalProductIngredientTests(unittest.TestCase):
         self.assertEqual(inst.text.status.as_json(), "generated")
 
 
-from fhirclient.models.fhirdatatypes import FHIRCode, FHIRString, FHIRUri
+from fhirclient.models.fhirdatatypes import FHIRString, FHIRCode, FHIRUri

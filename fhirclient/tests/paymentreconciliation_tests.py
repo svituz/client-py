@@ -80,6 +80,8 @@ class PaymentReconciliationTests(unittest.TestCase):
         self.assertEqual(inst.formCode.coding[0].code.as_json(), "PAYREC/2016/01B")
         self.assertEqual(inst.formCode.coding[0].system.value, FHIRUri("http://ncforms.org/formid").value)
         self.assertEqual(inst.formCode.coding[0].system.as_json(), "http://ncforms.org/formid")
+        self.assertEqual(inst.id.value, FHIRString("ER2500").value)
+        self.assertEqual(inst.id.as_json(), "ER2500")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://www.BenefitsInc.com/fhir/enrollmentresponse").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://www.BenefitsInc.com/fhir/enrollmentresponse")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("781234").value)

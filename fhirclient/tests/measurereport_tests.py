@@ -30,8 +30,12 @@ class MeasureReportTests(unittest.TestCase):
         self.implMeasureReport1(inst2)
 
     def implMeasureReport1(self, inst):
+        self.assertEqual(inst.contained[0].id.value, FHIRString("reporter").value)
+        self.assertEqual(inst.contained[0].id.as_json(), "reporter")
         self.assertEqual(inst.date.value, FHIRDateTime("2014-04-01").value)
         self.assertEqual(inst.date.as_json(), "2014-04-01")
+        self.assertEqual(inst.group[0].id.value, FHIRString("CMS146-group-1").value)
+        self.assertEqual(inst.group[0].id.as_json(), "CMS146-group-1")
         self.assertEqual(inst.group[0].population[0].code.coding[0].code.value, FHIRCode("initial-population").value)
         self.assertEqual(inst.group[0].population[0].code.coding[0].code.as_json(), "initial-population")
         self.assertEqual(inst.group[0].population[0].count, 500)
@@ -162,6 +166,8 @@ class MeasureReportTests(unittest.TestCase):
         self.assertEqual(inst.group[0].stratifier[2].stratum[3].population[3].count, 0)
         self.assertEqual(inst.group[0].stratifier[2].stratum[3].value.text.value, FHIRString("unknown").value)
         self.assertEqual(inst.group[0].stratifier[2].stratum[3].value.text.as_json(), "unknown")
+        self.assertEqual(inst.id.value, FHIRString("measurereport-cms146-cat3-example").value)
+        self.assertEqual(inst.id.as_json(), "measurereport-cms146-cat3-example")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("measurereport-cms146-cat3-example-2017-03-13").value)
         self.assertEqual(inst.identifier[0].value.as_json(), "measurereport-cms146-cat3-example-2017-03-13")
         self.assertEqual(inst.measure.value, FHIRCanonical("Measure/CMS146").value)
@@ -194,8 +200,12 @@ class MeasureReportTests(unittest.TestCase):
         self.implMeasureReport2(inst2)
 
     def implMeasureReport2(self, inst):
+        self.assertEqual(inst.contained[0].id.value, FHIRString("reporter").value)
+        self.assertEqual(inst.contained[0].id.as_json(), "reporter")
         self.assertEqual(inst.date.value, FHIRDateTime("2014-04-01").value)
         self.assertEqual(inst.date.as_json(), "2014-04-01")
+        self.assertEqual(inst.group[0].id.value, FHIRString("CMS146-group-1").value)
+        self.assertEqual(inst.group[0].id.as_json(), "CMS146-group-1")
         self.assertEqual(inst.group[0].population[0].code.coding[0].code.value, FHIRCode("initial-population").value)
         self.assertEqual(inst.group[0].population[0].code.coding[0].code.as_json(), "initial-population")
         self.assertEqual(inst.group[0].population[0].count, 500)
@@ -326,6 +336,8 @@ class MeasureReportTests(unittest.TestCase):
         self.assertEqual(inst.group[0].stratifier[2].stratum[3].population[3].count, 0)
         self.assertEqual(inst.group[0].stratifier[2].stratum[3].value.text.value, FHIRString("unknown").value)
         self.assertEqual(inst.group[0].stratifier[2].stratum[3].value.text.as_json(), "unknown")
+        self.assertEqual(inst.id.value, FHIRString("measurereport-cms146-cat2-example").value)
+        self.assertEqual(inst.id.as_json(), "measurereport-cms146-cat2-example")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("measurereport-cms146-cat2-example-2017-03-13").value)
         self.assertEqual(inst.identifier[0].value.as_json(), "measurereport-cms146-cat2-example-2017-03-13")
         self.assertEqual(inst.measure.value, FHIRCanonical("Measure/CMS146").value)
@@ -358,8 +370,12 @@ class MeasureReportTests(unittest.TestCase):
         self.implMeasureReport3(inst2)
 
     def implMeasureReport3(self, inst):
+        self.assertEqual(inst.contained[0].id.value, FHIRString("reporter").value)
+        self.assertEqual(inst.contained[0].id.as_json(), "reporter")
         self.assertEqual(inst.date.value, FHIRDateTime("2014-04-01").value)
         self.assertEqual(inst.date.as_json(), "2014-04-01")
+        self.assertEqual(inst.group[0].id.value, FHIRString("CMS146-group-1").value)
+        self.assertEqual(inst.group[0].id.as_json(), "CMS146-group-1")
         self.assertEqual(inst.group[0].population[0].code.coding[0].code.value, FHIRCode("initial-population").value)
         self.assertEqual(inst.group[0].population[0].code.coding[0].code.as_json(), "initial-population")
         self.assertEqual(inst.group[0].population[0].count, 1)
@@ -490,6 +506,8 @@ class MeasureReportTests(unittest.TestCase):
         self.assertEqual(inst.group[0].stratifier[2].stratum[3].population[3].count, 0)
         self.assertEqual(inst.group[0].stratifier[2].stratum[3].value.text.value, FHIRString("unknown").value)
         self.assertEqual(inst.group[0].stratifier[2].stratum[3].value.text.as_json(), "unknown")
+        self.assertEqual(inst.id.value, FHIRString("measurereport-cms146-cat1-example").value)
+        self.assertEqual(inst.id.as_json(), "measurereport-cms146-cat1-example")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("measurereport-cms146-cat1-example-2017-03-13").value)
         self.assertEqual(inst.identifier[0].value.as_json(), "measurereport-cms146-cat1-example-2017-03-13")
         self.assertEqual(inst.measure.value, FHIRCanonical("Measure/CMS146").value)
@@ -512,4 +530,4 @@ class MeasureReportTests(unittest.TestCase):
         self.assertEqual(inst.type.as_json(), "individual")
 
 
-from fhirclient.models.fhirdatatypes import FHIRDateTime, FHIRCode, FHIRString, FHIRCanonical, FHIRUri
+from fhirclient.models.fhirdatatypes import FHIRString, FHIRDateTime, FHIRCode, FHIRCanonical, FHIRUri

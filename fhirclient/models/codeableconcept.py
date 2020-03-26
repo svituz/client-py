@@ -14,8 +14,6 @@ class CodeableConcept(element.Element):
     ontology or may be provided by text.
     """
     
-    resource_type = "CodeableConcept"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         

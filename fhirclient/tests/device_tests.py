@@ -30,6 +30,8 @@ class DeviceTests(unittest.TestCase):
         self.implDevice1(inst2)
 
     def implDevice1(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://goodcare.org/devices/id").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://goodcare.org/devices/id")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("345675").value)
@@ -56,6 +58,8 @@ class DeviceTests(unittest.TestCase):
         self.implDevice2(inst2)
 
     def implDevice2(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("f001").value)
+        self.assertEqual(inst.id.as_json(), "f001")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http:/goodhealthhospital/identifier/devices").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http:/goodhealthhospital/identifier/devices")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("12345").value)
@@ -74,4 +78,4 @@ class DeviceTests(unittest.TestCase):
         self.assertEqual(inst.text.status.as_json(), "generated")
 
 
-from fhirclient.models.fhirdatatypes import FHIRUri, FHIRString, FHIRCode
+from fhirclient.models.fhirdatatypes import FHIRString, FHIRUri, FHIRCode

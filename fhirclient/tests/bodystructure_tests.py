@@ -32,6 +32,8 @@ class BodyStructureTests(unittest.TestCase):
     def implBodyStructure1(self, inst):
         self.assertEqual(inst.description.value, FHIRString("7 cm maximum diameter").value)
         self.assertEqual(inst.description.as_json(), "7 cm maximum diameter")
+        self.assertEqual(inst.id.value, FHIRString("tumor").value)
+        self.assertEqual(inst.id.as_json(), "tumor")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://goodhealth.org/bodystructure/identifiers").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://goodhealth.org/bodystructure/identifiers")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("12345").value)
@@ -78,6 +80,8 @@ class BodyStructureTests(unittest.TestCase):
     def implBodyStructure2(self, inst):
         self.assertEqual(inst.description.value, FHIRString("EDD 1/1/2017 confirmation by LMP").value)
         self.assertEqual(inst.description.as_json(), "EDD 1/1/2017 confirmation by LMP")
+        self.assertEqual(inst.id.value, FHIRString("fetus").value)
+        self.assertEqual(inst.id.as_json(), "fetus")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://goodhealth.org/bodystructure/identifiers").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://goodhealth.org/bodystructure/identifiers")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("12345").value)
@@ -113,6 +117,8 @@ class BodyStructureTests(unittest.TestCase):
         self.assertFalse(inst.active)
         self.assertEqual(inst.description.value, FHIRString("inner surface (volar) of the left forearm").value)
         self.assertEqual(inst.description.as_json(), "inner surface (volar) of the left forearm")
+        self.assertEqual(inst.id.value, FHIRString("skin-patch").value)
+        self.assertEqual(inst.id.as_json(), "skin-patch")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://goodhealth.org/bodystructure/identifiers").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://goodhealth.org/bodystructure/identifiers")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("12345").value)

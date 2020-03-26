@@ -48,8 +48,6 @@ class OperationOutcomeIssue(backboneelement.BackboneElement):
     action.
     """
     
-    resource_type = "OperationOutcomeIssue"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -57,6 +55,10 @@ class OperationOutcomeIssue(backboneelement.BackboneElement):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
+        
+        self.severity = None
+        """ fatal | error | warning | information.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.code = None
         """ Error or warning code.
@@ -70,29 +72,25 @@ class OperationOutcomeIssue(backboneelement.BackboneElement):
         """ Additional diagnostic information about the issue.
         Type `FHIRString` (represented as `str` in JSON). """
         
-        self.expression = None
-        """ FHIRPath of element(s) related to issue.
-        List of `FHIRString` items (represented as `str` in JSON). """
-        
         self.location = None
         """ Deprecated: Path of element(s) related to issue.
         List of `FHIRString` items (represented as `str` in JSON). """
         
-        self.severity = None
-        """ fatal | error | warning | information.
-        Type `FHIRCode` (represented as `str` in JSON). """
+        self.expression = None
+        """ FHIRPath of element(s) related to issue.
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         super(OperationOutcomeIssue, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(OperationOutcomeIssue, self).elementProperties()
         js.extend([
+            ("severity", "severity", fhirdatatypes.FHIRCode, False, None, True),
             ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
             ("details", "details", codeableconcept.CodeableConcept, False, None, False),
             ("diagnostics", "diagnostics", fhirdatatypes.FHIRString, False, None, False),
-            ("expression", "expression", fhirdatatypes.FHIRString, True, None, False),
             ("location", "location", fhirdatatypes.FHIRString, True, None, False),
-            ("severity", "severity", fhirdatatypes.FHIRCode, False, None, True),
+            ("expression", "expression", fhirdatatypes.FHIRString, True, None, False),
         ])
         return js
 

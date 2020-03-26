@@ -30,6 +30,10 @@ class GuidanceResponseTests(unittest.TestCase):
         self.implGuidanceResponse1(inst2)
 
     def implGuidanceResponse1(self, inst):
+        self.assertEqual(inst.contained[0].id.value, FHIRString("outputParameters1").value)
+        self.assertEqual(inst.contained[0].id.as_json(), "outputParameters1")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://example.org").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://example.org")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("guidanceResponse1").value)
@@ -56,4 +60,4 @@ class GuidanceResponseTests(unittest.TestCase):
         self.assertEqual(inst.text.status.as_json(), "generated")
 
 
-from fhirclient.models.fhirdatatypes import FHIRUri, FHIRString, FHIRCode, FHIRDateTime
+from fhirclient.models.fhirdatatypes import FHIRString, FHIRUri, FHIRCode, FHIRDateTime

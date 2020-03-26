@@ -24,11 +24,6 @@ class ObservationDefinition(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.abnormalCodedValueSet = None
-        """ Value set of abnormal coded values for the observations conforming
-        to this ObservationDefinition.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-        
         self.category = None
         """ Category of observation.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
@@ -37,48 +32,53 @@ class ObservationDefinition(domainresource.DomainResource):
         """ Type of observation (code / type).
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.criticalCodedValueSet = None
-        """ Value set of critical coded values for the observations conforming
-        to this ObservationDefinition.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-        
         self.identifier = None
         """ Business identifier for this ObservationDefinition instance.
         List of `Identifier` items (represented as `dict` in JSON). """
-        
-        self.method = None
-        """ Method used to produce the observation.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.multipleResultsAllowed = None
-        """ Multiple results allowed.
-        Type `bool`. """
-        
-        self.normalCodedValueSet = None
-        """ Value set of normal coded values for the observations conforming to
-        this ObservationDefinition.
-        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.permittedDataType = None
         """ Quantity | CodeableConcept | string | boolean | integer | Range |
         Ratio | SampledData | time | dateTime | Period.
         List of `FHIRCode` items (represented as `str` in JSON). """
         
+        self.multipleResultsAllowed = None
+        """ Multiple results allowed.
+        Type `bool`. """
+        
+        self.method = None
+        """ Method used to produce the observation.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.preferredReportName = None
         """ Preferred report name.
         Type `FHIRString` (represented as `str` in JSON). """
-        
-        self.qualifiedInterval = None
-        """ Qualified range for continuous and ordinal observation results.
-        List of `ObservationDefinitionQualifiedInterval` items (represented as `dict` in JSON). """
         
         self.quantitativeDetails = None
         """ Characteristics of quantitative results.
         Type `ObservationDefinitionQuantitativeDetails` (represented as `dict` in JSON). """
         
+        self.qualifiedInterval = None
+        """ Qualified range for continuous and ordinal observation results.
+        List of `ObservationDefinitionQualifiedInterval` items (represented as `dict` in JSON). """
+        
         self.validCodedValueSet = None
         """ Value set of valid coded values for the observations conforming to
         this ObservationDefinition.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.normalCodedValueSet = None
+        """ Value set of normal coded values for the observations conforming to
+        this ObservationDefinition.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.abnormalCodedValueSet = None
+        """ Value set of abnormal coded values for the observations conforming
+        to this ObservationDefinition.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.criticalCodedValueSet = None
+        """ Value set of critical coded values for the observations conforming
+        to this ObservationDefinition.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(ObservationDefinition, self).__init__(jsondict=jsondict, strict=strict)
@@ -86,19 +86,19 @@ class ObservationDefinition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ObservationDefinition, self).elementProperties()
         js.extend([
-            ("abnormalCodedValueSet", "abnormalCodedValueSet", fhirreference.FHIRReference, False, None, False),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("criticalCodedValueSet", "criticalCodedValueSet", fhirreference.FHIRReference, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("method", "method", codeableconcept.CodeableConcept, False, None, False),
-            ("multipleResultsAllowed", "multipleResultsAllowed", bool, False, None, False),
-            ("normalCodedValueSet", "normalCodedValueSet", fhirreference.FHIRReference, False, None, False),
             ("permittedDataType", "permittedDataType", fhirdatatypes.FHIRCode, True, None, False),
+            ("multipleResultsAllowed", "multipleResultsAllowed", bool, False, None, False),
+            ("method", "method", codeableconcept.CodeableConcept, False, None, False),
             ("preferredReportName", "preferredReportName", fhirdatatypes.FHIRString, False, None, False),
-            ("qualifiedInterval", "qualifiedInterval", ObservationDefinitionQualifiedInterval, True, None, False),
             ("quantitativeDetails", "quantitativeDetails", ObservationDefinitionQuantitativeDetails, False, None, False),
+            ("qualifiedInterval", "qualifiedInterval", ObservationDefinitionQualifiedInterval, True, None, False),
             ("validCodedValueSet", "validCodedValueSet", fhirreference.FHIRReference, False, None, False),
+            ("normalCodedValueSet", "normalCodedValueSet", fhirreference.FHIRReference, False, None, False),
+            ("abnormalCodedValueSet", "abnormalCodedValueSet", fhirreference.FHIRReference, False, None, False),
+            ("criticalCodedValueSet", "criticalCodedValueSet", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 
@@ -113,8 +113,6 @@ class ObservationDefinitionQualifiedInterval(backboneelement.BackboneElement):
     continuous observations conforming to this ObservationDefinition.
     """
     
-    resource_type = "ObservationDefinitionQualifiedInterval"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -123,51 +121,51 @@ class ObservationDefinitionQualifiedInterval(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.age = None
-        """ Applicable age range, if relevant.
-        Type `Range` (represented as `dict` in JSON). """
-        
-        self.appliesTo = None
-        """ Targetted population of the range.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
         self.category = None
         """ reference | critical | absolute.
         Type `FHIRCode` (represented as `str` in JSON). """
         
-        self.condition = None
-        """ Condition associated with the reference range.
-        Type `FHIRString` (represented as `str` in JSON). """
+        self.range = None
+        """ The interval itself, for continuous or ordinal observations.
+        Type `Range` (represented as `dict` in JSON). """
         
         self.context = None
         """ Range context qualifier.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.appliesTo = None
+        """ Targetted population of the range.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         self.gender = None
         """ male | female | other | unknown.
         Type `FHIRCode` (represented as `str` in JSON). """
+        
+        self.age = None
+        """ Applicable age range, if relevant.
+        Type `Range` (represented as `dict` in JSON). """
         
         self.gestationalAge = None
         """ Applicable gestational age range, if relevant.
         Type `Range` (represented as `dict` in JSON). """
         
-        self.range = None
-        """ The interval itself, for continuous or ordinal observations.
-        Type `Range` (represented as `dict` in JSON). """
+        self.condition = None
+        """ Condition associated with the reference range.
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(ObservationDefinitionQualifiedInterval, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ObservationDefinitionQualifiedInterval, self).elementProperties()
         js.extend([
-            ("age", "age", range.Range, False, None, False),
-            ("appliesTo", "appliesTo", codeableconcept.CodeableConcept, True, None, False),
             ("category", "category", fhirdatatypes.FHIRCode, False, None, False),
-            ("condition", "condition", fhirdatatypes.FHIRString, False, None, False),
-            ("context", "context", codeableconcept.CodeableConcept, False, None, False),
-            ("gender", "gender", fhirdatatypes.FHIRCode, False, None, False),
-            ("gestationalAge", "gestationalAge", range.Range, False, None, False),
             ("range", "range", range.Range, False, None, False),
+            ("context", "context", codeableconcept.CodeableConcept, False, None, False),
+            ("appliesTo", "appliesTo", codeableconcept.CodeableConcept, True, None, False),
+            ("gender", "gender", fhirdatatypes.FHIRCode, False, None, False),
+            ("age", "age", range.Range, False, None, False),
+            ("gestationalAge", "gestationalAge", range.Range, False, None, False),
+            ("condition", "condition", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
 
@@ -180,8 +178,6 @@ class ObservationDefinitionQuantitativeDetails(backboneelement.BackboneElement):
     Characteristics for quantitative results of this observation.
     """
     
-    resource_type = "ObservationDefinitionQuantitativeDetails"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -190,31 +186,31 @@ class ObservationDefinitionQuantitativeDetails(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.conversionFactor = None
-        """ SI to Customary unit conversion factor.
-        Type `float`. """
-        
         self.customaryUnit = None
         """ Customary unit for quantitative results.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
-        self.decimalPrecision = None
-        """ Decimal precision of observation quantitative results.
-        Type `int`. """
-        
         self.unit = None
         """ SI unit for quantitative results.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.conversionFactor = None
+        """ SI to Customary unit conversion factor.
+        Type `float`. """
+        
+        self.decimalPrecision = None
+        """ Decimal precision of observation quantitative results.
+        Type `int`. """
         
         super(ObservationDefinitionQuantitativeDetails, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ObservationDefinitionQuantitativeDetails, self).elementProperties()
         js.extend([
-            ("conversionFactor", "conversionFactor", float, False, None, False),
             ("customaryUnit", "customaryUnit", codeableconcept.CodeableConcept, False, None, False),
-            ("decimalPrecision", "decimalPrecision", int, False, None, False),
             ("unit", "unit", codeableconcept.CodeableConcept, False, None, False),
+            ("conversionFactor", "conversionFactor", float, False, None, False),
+            ("decimalPrecision", "decimalPrecision", int, False, None, False),
         ])
         return js
 

@@ -13,8 +13,6 @@ class Attachment(element.Element):
     For referring to data content defined in other formats.
     """
     
-    resource_type = "Attachment"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -27,33 +25,33 @@ class Attachment(element.Element):
         """ Mime type of the content, with charset etc..
         Type `FHIRCode` (represented as `str` in JSON). """
         
-        self.creation = None
-        """ Date attachment was first created.
-        Type `FHIRDateTime` (represented as `str` in JSON). """
+        self.language = None
+        """ Human language of the content (BCP-47).
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.data = None
         """ Data inline, base64ed.
         Type `FHIRBase64Binary` (represented as `str` in JSON). """
         
-        self.hash = None
-        """ Hash of the data (sha-1, base64ed).
-        Type `FHIRBase64Binary` (represented as `str` in JSON). """
-        
-        self.language = None
-        """ Human language of the content (BCP-47).
-        Type `FHIRCode` (represented as `str` in JSON). """
+        self.url = None
+        """ Uri where the data can be found.
+        Type `FHIRUrl` (represented as `str` in JSON). """
         
         self.size = None
         """ Number of bytes of content (if url provided).
         Type `FHIRUnsignedInt` (represented as `int` in JSON). """
         
+        self.hash = None
+        """ Hash of the data (sha-1, base64ed).
+        Type `FHIRBase64Binary` (represented as `str` in JSON). """
+        
         self.title = None
         """ Label to display in place of the data.
         Type `FHIRString` (represented as `str` in JSON). """
         
-        self.url = None
-        """ Uri where the data can be found.
-        Type `FHIRUrl` (represented as `str` in JSON). """
+        self.creation = None
+        """ Date attachment was first created.
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         super(Attachment, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -61,13 +59,13 @@ class Attachment(element.Element):
         js = super(Attachment, self).elementProperties()
         js.extend([
             ("contentType", "contentType", fhirdatatypes.FHIRCode, False, None, False),
-            ("creation", "creation", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("data", "data", fhirdatatypes.FHIRBase64Binary, False, None, False),
-            ("hash", "hash", fhirdatatypes.FHIRBase64Binary, False, None, False),
             ("language", "language", fhirdatatypes.FHIRCode, False, None, False),
-            ("size", "size", fhirdatatypes.FHIRUnsignedInt, False, None, False),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
+            ("data", "data", fhirdatatypes.FHIRBase64Binary, False, None, False),
             ("url", "url", fhirdatatypes.FHIRUrl, False, None, False),
+            ("size", "size", fhirdatatypes.FHIRUnsignedInt, False, None, False),
+            ("hash", "hash", fhirdatatypes.FHIRBase64Binary, False, None, False),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
+            ("creation", "creation", fhirdatatypes.FHIRDateTime, False, None, False),
         ])
         return js
 

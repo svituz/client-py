@@ -32,6 +32,8 @@ class InvoiceTests(unittest.TestCase):
     def implInvoice1(self, inst):
         self.assertEqual(inst.date.value, FHIRDateTime("2017-01-25T08:00:00+01:00").value)
         self.assertEqual(inst.date.as_json(), "2017-01-25T08:00:00+01:00")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://myHospital.org/Invoices").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://myHospital.org/Invoices")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("654321").value)
@@ -62,4 +64,4 @@ class InvoiceTests(unittest.TestCase):
         self.assertEqual(inst.totalNet.value, 40)
 
 
-from fhirclient.models.fhirdatatypes import FHIRDateTime, FHIRUri, FHIRString, FHIRCode
+from fhirclient.models.fhirdatatypes import FHIRDateTime, FHIRString, FHIRUri, FHIRCode

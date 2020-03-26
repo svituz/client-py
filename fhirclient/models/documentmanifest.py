@@ -24,71 +24,71 @@ class DocumentManifest(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.author = None
-        """ Who and/or what authored the DocumentManifest.
-        List of `FHIRReference` items (represented as `dict` in JSON). """
-        
-        self.content = None
-        """ Items in manifest.
-        List of `FHIRReference` items (represented as `dict` in JSON). """
-        
-        self.created = None
-        """ When this document manifest created.
-        Type `FHIRDateTime` (represented as `str` in JSON). """
-        
-        self.description = None
-        """ Human-readable description (title).
-        Type `FHIRString` (represented as `str` in JSON). """
+        self.masterIdentifier = None
+        """ Unique Identifier for the set of documents.
+        Type `Identifier` (represented as `dict` in JSON). """
         
         self.identifier = None
         """ Other identifiers for the manifest.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.masterIdentifier = None
-        """ Unique Identifier for the set of documents.
-        Type `Identifier` (represented as `dict` in JSON). """
+        self.status = None
+        """ current | superseded | entered-in-error.
+        Type `FHIRCode` (represented as `str` in JSON). """
+        
+        self.type = None
+        """ Kind of document set.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.subject = None
+        """ The subject of the set of documents.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.created = None
+        """ When this document manifest created.
+        Type `FHIRDateTime` (represented as `str` in JSON). """
+        
+        self.author = None
+        """ Who and/or what authored the DocumentManifest.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.recipient = None
         """ Intended to get notified about this set of documents.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+        
+        self.source = None
+        """ The source system/application/software.
+        Type `FHIRUri` (represented as `str` in JSON). """
+        
+        self.description = None
+        """ Human-readable description (title).
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.content = None
+        """ Items in manifest.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
         self.related = None
         """ Related things.
         List of `DocumentManifestRelated` items (represented as `dict` in JSON). """
         
-        self.source = None
-        """ The source system/application/software.
-        Type `FHIRUri` (represented as `str` in JSON). """
-        
-        self.status = None
-        """ current | superseded | entered-in-error.
-        Type `FHIRCode` (represented as `str` in JSON). """
-        
-        self.subject = None
-        """ The subject of the set of documents.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-        
-        self.type = None
-        """ Kind of document set.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
         super(DocumentManifest, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DocumentManifest, self).elementProperties()
         js.extend([
-            ("author", "author", fhirreference.FHIRReference, True, None, False),
-            ("content", "content", fhirreference.FHIRReference, True, None, True),
-            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("masterIdentifier", "masterIdentifier", identifier.Identifier, False, None, False),
-            ("recipient", "recipient", fhirreference.FHIRReference, True, None, False),
-            ("related", "related", DocumentManifestRelated, True, None, False),
-            ("source", "source", fhirdatatypes.FHIRUri, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
             ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
+            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("author", "author", fhirreference.FHIRReference, True, None, False),
+            ("recipient", "recipient", fhirreference.FHIRReference, True, None, False),
+            ("source", "source", fhirdatatypes.FHIRUri, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
+            ("content", "content", fhirreference.FHIRReference, True, None, True),
+            ("related", "related", DocumentManifestRelated, True, None, False),
         ])
         return js
 
@@ -101,8 +101,6 @@ class DocumentManifestRelated(backboneelement.BackboneElement):
     
     Related identifiers or resources associated with the DocumentManifest.
     """
-    
-    resource_type = "DocumentManifestRelated"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

@@ -24,21 +24,17 @@ class EnrollmentRequest(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.candidate = None
-        """ The subject to be enrolled.
-        Type `FHIRReference` (represented as `dict` in JSON). """
+        self.identifier = None
+        """ Business Identifier.
+        List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.coverage = None
-        """ Insurance information.
-        Type `FHIRReference` (represented as `dict` in JSON). """
+        self.status = None
+        """ active | cancelled | draft | entered-in-error.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.created = None
         """ Creation date.
         Type `FHIRDateTime` (represented as `str` in JSON). """
-        
-        self.identifier = None
-        """ Business Identifier.
-        List of `Identifier` items (represented as `dict` in JSON). """
         
         self.insurer = None
         """ Target.
@@ -48,22 +44,26 @@ class EnrollmentRequest(domainresource.DomainResource):
         """ Responsible practitioner.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.status = None
-        """ active | cancelled | draft | entered-in-error.
-        Type `FHIRCode` (represented as `str` in JSON). """
+        self.candidate = None
+        """ The subject to be enrolled.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.coverage = None
+        """ Insurance information.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(EnrollmentRequest, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(EnrollmentRequest, self).elementProperties()
         js.extend([
-            ("candidate", "candidate", fhirreference.FHIRReference, False, None, False),
-            ("coverage", "coverage", fhirreference.FHIRReference, False, None, False),
-            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
+            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, False),
             ("insurer", "insurer", fhirreference.FHIRReference, False, None, False),
             ("provider", "provider", fhirreference.FHIRReference, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
+            ("candidate", "candidate", fhirreference.FHIRReference, False, None, False),
+            ("coverage", "coverage", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 

@@ -21,6 +21,14 @@ class Substance(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.identifier = None
+        """ Unique identifier.
+        List of `Identifier` items (represented as `dict` in JSON). """
+        
+        self.status = None
+        """ active | inactive | entered-in-error.
+        Type `FHIRCode` (represented as `str` in JSON). """
+        
         self.category = None
         """ What class/type of substance this is.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
@@ -33,34 +41,26 @@ class Substance(domainresource.DomainResource):
         """ Textual description of the substance, comments.
         Type `FHIRString` (represented as `str` in JSON). """
         
-        self.identifier = None
-        """ Unique identifier.
-        List of `Identifier` items (represented as `dict` in JSON). """
-        
-        self.ingredient = None
-        """ Composition information about the substance.
-        List of `SubstanceIngredient` items (represented as `dict` in JSON). """
-        
         self.instance = None
         """ If this describes a specific package/container of the substance.
         List of `SubstanceInstance` items (represented as `dict` in JSON). """
         
-        self.status = None
-        """ active | inactive | entered-in-error.
-        Type `FHIRCode` (represented as `str` in JSON). """
+        self.ingredient = None
+        """ Composition information about the substance.
+        List of `SubstanceIngredient` items (represented as `dict` in JSON). """
         
         super(Substance, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Substance, self).elementProperties()
         js.extend([
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
             ("category", "category", codeableconcept.CodeableConcept, True, None, False),
             ("code", "code", codeableconcept.CodeableConcept, False, None, True),
             ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("ingredient", "ingredient", SubstanceIngredient, True, None, False),
             ("instance", "instance", SubstanceInstance, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
+            ("ingredient", "ingredient", SubstanceIngredient, True, None, False),
         ])
         return js
 
@@ -73,8 +73,6 @@ class SubstanceIngredient(backboneelement.BackboneElement):
     
     A substance can be composed of other substances.
     """
-    
-    resource_type = "SubstanceIngredient"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -117,8 +115,6 @@ class SubstanceInstance(backboneelement.BackboneElement):
     package/container of the substance: an instance.
     """
     
-    resource_type = "SubstanceInstance"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -127,13 +123,13 @@ class SubstanceInstance(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.expiry = None
-        """ When no longer valid to use.
-        Type `FHIRDateTime` (represented as `str` in JSON). """
-        
         self.identifier = None
         """ Identifier of the package/container.
         Type `Identifier` (represented as `dict` in JSON). """
+        
+        self.expiry = None
+        """ When no longer valid to use.
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.quantity = None
         """ Amount of substance in the package.
@@ -144,8 +140,8 @@ class SubstanceInstance(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SubstanceInstance, self).elementProperties()
         js.extend([
-            ("expiry", "expiry", fhirdatatypes.FHIRDateTime, False, None, False),
             ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("expiry", "expiry", fhirdatatypes.FHIRDateTime, False, None, False),
             ("quantity", "quantity", quantity.Quantity, False, None, False),
         ])
         return js

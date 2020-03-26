@@ -28,74 +28,31 @@ class ChargeItemDefinition(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.applicability = None
-        """ Whether or not the billing code is applicable.
-        List of `ChargeItemDefinitionApplicability` items (represented as `dict` in JSON). """
-        
-        self.approvalDate = None
-        """ When the charge item definition was approved by publisher.
-        Type `FHIRDate` (represented as `str` in JSON). """
-        
-        self.code = None
-        """ Billing codes or product types this definition applies to.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.contact = None
-        """ Contact details for the publisher.
-        List of `ContactDetail` items (represented as `dict` in JSON). """
-        
-        self.copyright = None
-        """ Use and/or publishing restrictions.
-        Type `FHIRMarkdown` (represented as `str` in JSON). """
-        
-        self.date = None
-        """ Date last changed.
-        Type `FHIRDateTime` (represented as `str` in JSON). """
-        
-        self.derivedFromUri = None
-        """ Underlying externally-defined charge item definition.
-        List of `FHIRUri` items (represented as `str` in JSON). """
-        
-        self.description = None
-        """ Natural language description of the charge item definition.
-        Type `FHIRMarkdown` (represented as `str` in JSON). """
-        
-        self.effectivePeriod = None
-        """ When the charge item definition is expected to be used.
-        Type `Period` (represented as `dict` in JSON). """
-        
-        self.experimental = None
-        """ For testing purposes, not real usage.
-        Type `bool`. """
+        self.url = None
+        """ Canonical identifier for this charge item definition, represented
+        as a URI (globally unique).
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Additional identifier for the charge item definition.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.instance = None
-        """ Instances this definition applies to.
-        List of `FHIRReference` items (represented as `dict` in JSON). """
+        self.version = None
+        """ Business version of the charge item definition.
+        Type `FHIRString` (represented as `str` in JSON). """
         
-        self.jurisdiction = None
-        """ Intended jurisdiction for charge item definition (if applicable).
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        self.title = None
+        """ Name for this charge item definition (human friendly).
+        Type `FHIRString` (represented as `str` in JSON). """
         
-        self.lastReviewDate = None
-        """ When the charge item definition was last reviewed.
-        Type `FHIRDate` (represented as `str` in JSON). """
+        self.derivedFromUri = None
+        """ Underlying externally-defined charge item definition.
+        List of `FHIRUri` items (represented as `str` in JSON). """
         
         self.partOf = None
         """ A larger definition of which this particular definition is a
         component or step.
         List of `FHIRCanonical` items (represented as `str` in JSON). """
-        
-        self.propertyGroup = None
-        """ Group of properties which are applicable under the same conditions.
-        List of `ChargeItemDefinitionPropertyGroup` items (represented as `dict` in JSON). """
-        
-        self.publisher = None
-        """ Name of the publisher (organization or individual).
-        Type `FHIRString` (represented as `str` in JSON). """
         
         self.replaces = None
         """ Completed or terminated request(s) whose function is taken by this
@@ -106,51 +63,94 @@ class ChargeItemDefinition(domainresource.DomainResource):
         """ draft | active | retired | unknown.
         Type `FHIRCode` (represented as `str` in JSON). """
         
-        self.title = None
-        """ Name for this charge item definition (human friendly).
+        self.experimental = None
+        """ For testing purposes, not real usage.
+        Type `bool`. """
+        
+        self.date = None
+        """ Date last changed.
+        Type `FHIRDateTime` (represented as `str` in JSON). """
+        
+        self.publisher = None
+        """ Name of the publisher (organization or individual).
         Type `FHIRString` (represented as `str` in JSON). """
         
-        self.url = None
-        """ Canonical identifier for this charge item definition, represented
-        as a URI (globally unique).
-        Type `FHIRUri` (represented as `str` in JSON). """
+        self.contact = None
+        """ Contact details for the publisher.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
+        
+        self.description = None
+        """ Natural language description of the charge item definition.
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.useContext = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
-        self.version = None
-        """ Business version of the charge item definition.
-        Type `FHIRString` (represented as `str` in JSON). """
+        self.jurisdiction = None
+        """ Intended jurisdiction for charge item definition (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.copyright = None
+        """ Use and/or publishing restrictions.
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
+        
+        self.approvalDate = None
+        """ When the charge item definition was approved by publisher.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.lastReviewDate = None
+        """ When the charge item definition was last reviewed.
+        Type `FHIRDate` (represented as `str` in JSON). """
+        
+        self.effectivePeriod = None
+        """ When the charge item definition is expected to be used.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        self.code = None
+        """ Billing codes or product types this definition applies to.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.instance = None
+        """ Instances this definition applies to.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+        
+        self.applicability = None
+        """ Whether or not the billing code is applicable.
+        List of `ChargeItemDefinitionApplicability` items (represented as `dict` in JSON). """
+        
+        self.propertyGroup = None
+        """ Group of properties which are applicable under the same conditions.
+        List of `ChargeItemDefinitionPropertyGroup` items (represented as `dict` in JSON). """
         
         super(ChargeItemDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ChargeItemDefinition, self).elementProperties()
         js.extend([
-            ("applicability", "applicability", ChargeItemDefinitionApplicability, True, None, False),
-            ("approvalDate", "approvalDate", fhirdatatypes.FHIRDate, False, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("derivedFromUri", "derivedFromUri", fhirdatatypes.FHIRUri, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
-            ("experimental", "experimental", bool, False, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, True),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("instance", "instance", fhirreference.FHIRReference, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("lastReviewDate", "lastReviewDate", fhirdatatypes.FHIRDate, False, None, False),
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
+            ("derivedFromUri", "derivedFromUri", fhirdatatypes.FHIRUri, True, None, False),
             ("partOf", "partOf", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("propertyGroup", "propertyGroup", ChargeItemDefinitionPropertyGroup, True, None, False),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
             ("replaces", "replaces", fhirdatatypes.FHIRCanonical, True, None, False),
             ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, True),
+            ("experimental", "experimental", bool, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
             ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("approvalDate", "approvalDate", fhirdatatypes.FHIRDate, False, None, False),
+            ("lastReviewDate", "lastReviewDate", fhirdatatypes.FHIRDate, False, None, False),
+            ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("instance", "instance", fhirreference.FHIRReference, True, None, False),
+            ("applicability", "applicability", ChargeItemDefinitionApplicability, True, None, False),
+            ("propertyGroup", "propertyGroup", ChargeItemDefinitionPropertyGroup, True, None, False),
         ])
         return js
 
@@ -164,8 +164,6 @@ class ChargeItemDefinitionApplicability(backboneelement.BackboneElement):
     Expressions that describe applicability criteria for the billing code.
     """
     
-    resource_type = "ChargeItemDefinitionApplicability"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -178,12 +176,12 @@ class ChargeItemDefinitionApplicability(backboneelement.BackboneElement):
         """ Natural language description of the condition.
         Type `FHIRString` (represented as `str` in JSON). """
         
-        self.expression = None
-        """ Boolean-valued expression.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
         self.language = None
         """ Language of the expression.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.expression = None
+        """ Boolean-valued expression.
         Type `FHIRString` (represented as `str` in JSON). """
         
         super(ChargeItemDefinitionApplicability, self).__init__(jsondict=jsondict, strict=strict)
@@ -192,8 +190,8 @@ class ChargeItemDefinitionApplicability(backboneelement.BackboneElement):
         js = super(ChargeItemDefinitionApplicability, self).elementProperties()
         js.extend([
             ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("expression", "expression", fhirdatatypes.FHIRString, False, None, False),
             ("language", "language", fhirdatatypes.FHIRString, False, None, False),
+            ("expression", "expression", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
 
@@ -207,8 +205,6 @@ class ChargeItemDefinitionPropertyGroup(backboneelement.BackboneElement):
     applicability rules are established for the group, then all properties
     always apply.
     """
-    
-    resource_type = "ChargeItemDefinitionPropertyGroup"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -250,8 +246,6 @@ class ChargeItemDefinitionPropertyGroupPriceComponent(backboneelement.BackboneEl
     of the Invoice of how the prices have been calculated.
     """
     
-    resource_type = "ChargeItemDefinitionPropertyGroupPriceComponent"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -260,9 +254,9 @@ class ChargeItemDefinitionPropertyGroupPriceComponent(backboneelement.BackboneEl
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.amount = None
-        """ Monetary amount associated with this component.
-        Type `Money` (represented as `dict` in JSON). """
+        self.type = None
+        """ base | surcharge | deduction | discount | tax | informational.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.code = None
         """ Code identifying the specific component.
@@ -272,19 +266,19 @@ class ChargeItemDefinitionPropertyGroupPriceComponent(backboneelement.BackboneEl
         """ Factor used for calculating this component.
         Type `float`. """
         
-        self.type = None
-        """ base | surcharge | deduction | discount | tax | informational.
-        Type `FHIRCode` (represented as `str` in JSON). """
+        self.amount = None
+        """ Monetary amount associated with this component.
+        Type `Money` (represented as `dict` in JSON). """
         
         super(ChargeItemDefinitionPropertyGroupPriceComponent, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ChargeItemDefinitionPropertyGroupPriceComponent, self).elementProperties()
         js.extend([
-            ("amount", "amount", money.Money, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
             ("code", "code", codeableconcept.CodeableConcept, False, None, False),
             ("factor", "factor", float, False, None, False),
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
+            ("amount", "amount", money.Money, False, None, False),
         ])
         return js
 

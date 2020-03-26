@@ -36,6 +36,8 @@ class ObservationDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].display.as_json(), "Glucose [Moles/volume] in Blood")
         self.assertEqual(inst.code.coding[0].system.value, FHIRUri("http://loinc.org").value)
         self.assertEqual(inst.code.coding[0].system.as_json(), "http://loinc.org")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)

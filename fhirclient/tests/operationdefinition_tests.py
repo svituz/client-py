@@ -46,6 +46,8 @@ class OperationDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.date.as_json(), "2015-08-04")
         self.assertEqual(inst.description.value, FHIRMarkdown("Limited implementation of the Populate Questionnaire implementation").value)
         self.assertEqual(inst.description.as_json(), "Limited implementation of the Populate Questionnaire implementation")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertTrue(inst.instance)
         self.assertEqual(inst.jurisdiction[0].coding[0].code.value, FHIRCode("GB").value)
         self.assertEqual(inst.jurisdiction[0].coding[0].code.as_json(), "GB")

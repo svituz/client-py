@@ -17,8 +17,6 @@ class SubstanceAmount(backboneelement.BackboneElement):
     ID.
     """
     
-    resource_type = "SubstanceAmount"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -48,10 +46,6 @@ class SubstanceAmount(backboneelement.BackboneElement):
         be captured in this field.
         Type `FHIRString` (represented as `str` in JSON). """
         
-        self.amountText = None
-        """ A textual comment on a numeric value.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
         self.amountType = None
         """ Most elements that require a quantitative value will also have a
         field called amount type. Amount type should always be specified
@@ -62,6 +56,10 @@ class SubstanceAmount(backboneelement.BackboneElement):
         effort should be made to use same the amount type for all related
         definitional elements.
         Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.amountText = None
+        """ A textual comment on a numeric value.
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.referenceRange = None
         """ Reference range of possible or expected values.
@@ -75,8 +73,8 @@ class SubstanceAmount(backboneelement.BackboneElement):
             ("amountQuantity", "amountQuantity", quantity.Quantity, False, "amount", False),
             ("amountRange", "amountRange", range.Range, False, "amount", False),
             ("amountString", "amountString", fhirdatatypes.FHIRString, False, "amount", False),
-            ("amountText", "amountText", fhirdatatypes.FHIRString, False, None, False),
             ("amountType", "amountType", codeableconcept.CodeableConcept, False, None, False),
+            ("amountText", "amountText", fhirdatatypes.FHIRString, False, None, False),
             ("referenceRange", "referenceRange", SubstanceAmountReferenceRange, False, None, False),
         ])
         return js
@@ -89,8 +87,6 @@ class SubstanceAmountReferenceRange(element.Element):
     """ Reference range of possible or expected values.
     """
     
-    resource_type = "SubstanceAmountReferenceRange"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -99,12 +95,12 @@ class SubstanceAmountReferenceRange(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.highLimit = None
-        """ Upper limit possible or expected.
-        Type `Quantity` (represented as `dict` in JSON). """
-        
         self.lowLimit = None
         """ Lower limit possible or expected.
+        Type `Quantity` (represented as `dict` in JSON). """
+        
+        self.highLimit = None
+        """ Upper limit possible or expected.
         Type `Quantity` (represented as `dict` in JSON). """
         
         super(SubstanceAmountReferenceRange, self).__init__(jsondict=jsondict, strict=strict)
@@ -112,8 +108,8 @@ class SubstanceAmountReferenceRange(element.Element):
     def elementProperties(self):
         js = super(SubstanceAmountReferenceRange, self).elementProperties()
         js.extend([
-            ("highLimit", "highLimit", quantity.Quantity, False, None, False),
             ("lowLimit", "lowLimit", quantity.Quantity, False, None, False),
+            ("highLimit", "highLimit", quantity.Quantity, False, None, False),
         ])
         return js
 

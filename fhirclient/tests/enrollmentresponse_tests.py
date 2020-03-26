@@ -34,6 +34,8 @@ class EnrollmentResponseTests(unittest.TestCase):
         self.assertEqual(inst.created.as_json(), "2014-08-16")
         self.assertEqual(inst.disposition.value, FHIRString("Dependant added to policy.").value)
         self.assertEqual(inst.disposition.as_json(), "Dependant added to policy.")
+        self.assertEqual(inst.id.value, FHIRString("ER2500").value)
+        self.assertEqual(inst.id.as_json(), "ER2500")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://www.BenefitsInc.com/fhir/enrollmentresponse").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://www.BenefitsInc.com/fhir/enrollmentresponse")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("781234").value)

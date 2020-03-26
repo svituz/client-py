@@ -42,6 +42,8 @@ class ClinicalImpressionTests(unittest.TestCase):
         self.assertEqual(inst.finding[0].itemCodeableConcept.coding[0].code.as_json(), "850.0")
         self.assertEqual(inst.finding[0].itemCodeableConcept.coding[0].system.value, FHIRUri("http://hl7.org/fhir/sid/icd-9").value)
         self.assertEqual(inst.finding[0].itemCodeableConcept.coding[0].system.as_json(), "http://hl7.org/fhir/sid/icd-9")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("12345").value)
         self.assertEqual(inst.identifier[0].value.as_json(), "12345")
         self.assertEqual(inst.investigation[0].code.text.value, FHIRString("Initial Examination").value)

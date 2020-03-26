@@ -26,80 +26,89 @@ class CodeSystem(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.caseSensitive = None
-        """ If code comparison is case sensitive.
-        Type `bool`. """
-        
-        self.compositional = None
-        """ If code system defines a compositional grammar.
-        Type `bool`. """
-        
-        self.concept = None
-        """ Concepts in the code system.
-        List of `CodeSystemConcept` items (represented as `dict` in JSON). """
-        
-        self.contact = None
-        """ Contact details for the publisher.
-        List of `ContactDetail` items (represented as `dict` in JSON). """
-        
-        self.content = None
-        """ not-present | example | fragment | complete | supplement.
-        Type `FHIRCode` (represented as `str` in JSON). """
-        
-        self.copyright = None
-        """ Use and/or publishing restrictions.
-        Type `FHIRMarkdown` (represented as `str` in JSON). """
-        
-        self.count = None
-        """ Total concepts in the code system.
-        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
-        
-        self.date = None
-        """ Date last changed.
-        Type `FHIRDateTime` (represented as `str` in JSON). """
-        
-        self.description = None
-        """ Natural language description of the code system.
-        Type `FHIRMarkdown` (represented as `str` in JSON). """
-        
-        self.experimental = None
-        """ For testing purposes, not real usage.
-        Type `bool`. """
-        
-        self.filter = None
-        """ Filter that can be used in a value set.
-        List of `CodeSystemFilter` items (represented as `dict` in JSON). """
-        
-        self.hierarchyMeaning = None
-        """ grouped-by | is-a | part-of | classified-with.
-        Type `FHIRCode` (represented as `str` in JSON). """
+        self.url = None
+        """ Canonical identifier for this code system, represented as a URI
+        (globally unique) (Coding.system).
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Additional identifier for the code system (business identifier).
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.jurisdiction = None
-        """ Intended jurisdiction for code system (if applicable).
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        self.version = None
+        """ Business version of the code system (Coding.version).
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.name = None
         """ Name for this code system (computer friendly).
         Type `FHIRString` (represented as `str` in JSON). """
         
-        self.property = None
-        """ Additional information supplied about each concept.
-        List of `CodeSystemProperty` items (represented as `dict` in JSON). """
+        self.title = None
+        """ Name for this code system (human friendly).
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.status = None
+        """ draft | active | retired | unknown.
+        Type `FHIRCode` (represented as `str` in JSON). """
+        
+        self.experimental = None
+        """ For testing purposes, not real usage.
+        Type `bool`. """
+        
+        self.date = None
+        """ Date last changed.
+        Type `FHIRDateTime` (represented as `str` in JSON). """
         
         self.publisher = None
         """ Name of the publisher (organization or individual).
         Type `FHIRString` (represented as `str` in JSON). """
         
+        self.contact = None
+        """ Contact details for the publisher.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
+        
+        self.description = None
+        """ Natural language description of the code system.
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
+        
+        self.useContext = None
+        """ The context that the content is intended to support.
+        List of `UsageContext` items (represented as `dict` in JSON). """
+        
+        self.jurisdiction = None
+        """ Intended jurisdiction for code system (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
         self.purpose = None
         """ Why this code system is defined.
         Type `FHIRMarkdown` (represented as `str` in JSON). """
         
-        self.status = None
-        """ draft | active | retired | unknown.
+        self.copyright = None
+        """ Use and/or publishing restrictions.
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
+        
+        self.caseSensitive = None
+        """ If code comparison is case sensitive.
+        Type `bool`. """
+        
+        self.valueSet = None
+        """ Canonical reference to the value set with entire code system.
+        Type `FHIRCanonical` (represented as `str` in JSON). """
+        
+        self.hierarchyMeaning = None
+        """ grouped-by | is-a | part-of | classified-with.
+        Type `FHIRCode` (represented as `str` in JSON). """
+        
+        self.compositional = None
+        """ If code system defines a compositional grammar.
+        Type `bool`. """
+        
+        self.versionNeeded = None
+        """ If definitions are not stable.
+        Type `bool`. """
+        
+        self.content = None
+        """ not-present | example | fragment | complete | supplement.
         Type `FHIRCode` (represented as `str` in JSON). """
         
         self.supplements = None
@@ -107,62 +116,53 @@ class CodeSystem(domainresource.DomainResource):
         to.
         Type `FHIRCanonical` (represented as `str` in JSON). """
         
-        self.title = None
-        """ Name for this code system (human friendly).
-        Type `FHIRString` (represented as `str` in JSON). """
+        self.count = None
+        """ Total concepts in the code system.
+        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
         
-        self.url = None
-        """ Canonical identifier for this code system, represented as a URI
-        (globally unique) (Coding.system).
-        Type `FHIRUri` (represented as `str` in JSON). """
+        self.filter = None
+        """ Filter that can be used in a value set.
+        List of `CodeSystemFilter` items (represented as `dict` in JSON). """
         
-        self.useContext = None
-        """ The context that the content is intended to support.
-        List of `UsageContext` items (represented as `dict` in JSON). """
+        self.property = None
+        """ Additional information supplied about each concept.
+        List of `CodeSystemProperty` items (represented as `dict` in JSON). """
         
-        self.valueSet = None
-        """ Canonical reference to the value set with entire code system.
-        Type `FHIRCanonical` (represented as `str` in JSON). """
-        
-        self.version = None
-        """ Business version of the code system (Coding.version).
-        Type `FHIRString` (represented as `str` in JSON). """
-        
-        self.versionNeeded = None
-        """ If definitions are not stable.
-        Type `bool`. """
+        self.concept = None
+        """ Concepts in the code system.
+        List of `CodeSystemConcept` items (represented as `dict` in JSON). """
         
         super(CodeSystem, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CodeSystem, self).elementProperties()
         js.extend([
-            ("caseSensitive", "caseSensitive", bool, False, None, False),
-            ("compositional", "compositional", bool, False, None, False),
-            ("concept", "concept", CodeSystemConcept, True, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("content", "content", fhirdatatypes.FHIRCode, False, None, True),
-            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("count", "count", fhirdatatypes.FHIRUnsignedInt, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("experimental", "experimental", bool, False, None, False),
-            ("filter", "filter", CodeSystemFilter, True, None, False),
-            ("hierarchyMeaning", "hierarchyMeaning", fhirdatatypes.FHIRCode, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("property", "property", CodeSystemProperty, True, None, False),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("supplements", "supplements", fhirdatatypes.FHIRCanonical, False, None, False),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
             ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("valueSet", "valueSet", fhirdatatypes.FHIRCanonical, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("version", "version", fhirdatatypes.FHIRString, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
+            ("experimental", "experimental", bool, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("caseSensitive", "caseSensitive", bool, False, None, False),
+            ("valueSet", "valueSet", fhirdatatypes.FHIRCanonical, False, None, False),
+            ("hierarchyMeaning", "hierarchyMeaning", fhirdatatypes.FHIRCode, False, None, False),
+            ("compositional", "compositional", bool, False, None, False),
             ("versionNeeded", "versionNeeded", bool, False, None, False),
+            ("content", "content", fhirdatatypes.FHIRCode, False, None, True),
+            ("supplements", "supplements", fhirdatatypes.FHIRCanonical, False, None, False),
+            ("count", "count", fhirdatatypes.FHIRUnsignedInt, False, None, False),
+            ("filter", "filter", CodeSystemFilter, True, None, False),
+            ("property", "property", CodeSystemProperty, True, None, False),
+            ("concept", "concept", CodeSystemConcept, True, None, False),
         ])
         return js
 
@@ -178,8 +178,6 @@ class CodeSystemConcept(backboneelement.BackboneElement):
     what the meanings of the hierarchical relationships are.
     """
     
-    resource_type = "CodeSystemConcept"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -192,9 +190,9 @@ class CodeSystemConcept(backboneelement.BackboneElement):
         """ Code that identifies concept.
         Type `FHIRCode` (represented as `str` in JSON). """
         
-        self.concept = None
-        """ Child Concepts (is-a/contains/categorizes).
-        List of `CodeSystemConcept` items (represented as `dict` in JSON). """
+        self.display = None
+        """ Text to display to the user.
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.definition = None
         """ Formal definition.
@@ -204,13 +202,13 @@ class CodeSystemConcept(backboneelement.BackboneElement):
         """ Additional representations for the concept.
         List of `CodeSystemConceptDesignation` items (represented as `dict` in JSON). """
         
-        self.display = None
-        """ Text to display to the user.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
         self.property = None
         """ Property value for the concept.
         List of `CodeSystemConceptProperty` items (represented as `dict` in JSON). """
+        
+        self.concept = None
+        """ Child Concepts (is-a/contains/categorizes).
+        List of `CodeSystemConcept` items (represented as `dict` in JSON). """
         
         super(CodeSystemConcept, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -218,11 +216,11 @@ class CodeSystemConcept(backboneelement.BackboneElement):
         js = super(CodeSystemConcept, self).elementProperties()
         js.extend([
             ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
-            ("concept", "concept", CodeSystemConcept, True, None, False),
+            ("display", "display", fhirdatatypes.FHIRString, False, None, False),
             ("definition", "definition", fhirdatatypes.FHIRString, False, None, False),
             ("designation", "designation", CodeSystemConceptDesignation, True, None, False),
-            ("display", "display", fhirdatatypes.FHIRString, False, None, False),
             ("property", "property", CodeSystemConceptProperty, True, None, False),
+            ("concept", "concept", CodeSystemConcept, True, None, False),
         ])
         return js
 
@@ -235,8 +233,6 @@ class CodeSystemConceptDesignation(backboneelement.BackboneElement):
     Additional representations for the concept - other languages, aliases,
     specialized purposes, used for particular purposes, etc.
     """
-    
-    resource_type = "CodeSystemConceptDesignation"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -278,8 +274,6 @@ class CodeSystemConceptProperty(backboneelement.BackboneElement):
     A property value for this concept.
     """
     
-    resource_type = "CodeSystemConceptProperty"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -292,10 +286,6 @@ class CodeSystemConceptProperty(backboneelement.BackboneElement):
         """ Reference to CodeSystem.property.code.
         Type `FHIRCode` (represented as `str` in JSON). """
         
-        self.valueBoolean = None
-        """ Value of the property for this concept.
-        Type `bool`. """
-        
         self.valueCode = None
         """ Value of the property for this concept.
         Type `FHIRCode` (represented as `str` in JSON). """
@@ -303,6 +293,18 @@ class CodeSystemConceptProperty(backboneelement.BackboneElement):
         self.valueCoding = None
         """ Value of the property for this concept.
         Type `Coding` (represented as `dict` in JSON). """
+        
+        self.valueString = None
+        """ Value of the property for this concept.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.valueInteger = None
+        """ Value of the property for this concept.
+        Type `int`. """
+        
+        self.valueBoolean = None
+        """ Value of the property for this concept.
+        Type `bool`. """
         
         self.valueDateTime = None
         """ Value of the property for this concept.
@@ -312,27 +314,19 @@ class CodeSystemConceptProperty(backboneelement.BackboneElement):
         """ Value of the property for this concept.
         Type `float`. """
         
-        self.valueInteger = None
-        """ Value of the property for this concept.
-        Type `int`. """
-        
-        self.valueString = None
-        """ Value of the property for this concept.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
         super(CodeSystemConceptProperty, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CodeSystemConceptProperty, self).elementProperties()
         js.extend([
             ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
-            ("valueBoolean", "valueBoolean", bool, False, "value", True),
             ("valueCode", "valueCode", fhirdatatypes.FHIRCode, False, "value", True),
             ("valueCoding", "valueCoding", coding.Coding, False, "value", True),
+            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", True),
+            ("valueInteger", "valueInteger", int, False, "value", True),
+            ("valueBoolean", "valueBoolean", bool, False, "value", True),
             ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", True),
             ("valueDecimal", "valueDecimal", float, False, "value", True),
-            ("valueInteger", "valueInteger", int, False, "value", True),
-            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", True),
         ])
         return js
 
@@ -345,8 +339,6 @@ class CodeSystemFilter(backboneelement.BackboneElement):
     A filter that can be used in a value set compose statement when selecting
     concepts using a filter.
     """
-    
-    resource_type = "CodeSystemFilter"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -395,8 +387,6 @@ class CodeSystemProperty(backboneelement.BackboneElement):
     can be provided about a concept.
     """
     
-    resource_type = "CodeSystemProperty"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -410,6 +400,10 @@ class CodeSystemProperty(backboneelement.BackboneElement):
         operations.
         Type `FHIRCode` (represented as `str` in JSON). """
         
+        self.uri = None
+        """ Formal identifier for the property.
+        Type `FHIRUri` (represented as `str` in JSON). """
+        
         self.description = None
         """ Why the property is defined, and/or what it conveys.
         Type `FHIRString` (represented as `str` in JSON). """
@@ -418,19 +412,15 @@ class CodeSystemProperty(backboneelement.BackboneElement):
         """ code | Coding | string | integer | boolean | dateTime | decimal.
         Type `FHIRCode` (represented as `str` in JSON). """
         
-        self.uri = None
-        """ Formal identifier for the property.
-        Type `FHIRUri` (represented as `str` in JSON). """
-        
         super(CodeSystemProperty, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(CodeSystemProperty, self).elementProperties()
         js.extend([
             ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
+            ("uri", "uri", fhirdatatypes.FHIRUri, False, None, False),
             ("description", "description", fhirdatatypes.FHIRString, False, None, False),
             ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("uri", "uri", fhirdatatypes.FHIRUri, False, None, False),
         ])
         return js
 

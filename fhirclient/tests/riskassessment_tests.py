@@ -36,6 +36,8 @@ class RiskAssessmentTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].display.as_json(), "Assessment of risk for disease (procedure)")
         self.assertEqual(inst.code.coding[0].system.value, FHIRUri("http://browser.ihtsdotools.org/").value)
         self.assertEqual(inst.code.coding[0].system.as_json(), "http://browser.ihtsdotools.org/")
+        self.assertEqual(inst.id.value, FHIRString("breastcancer-risk").value)
+        self.assertEqual(inst.id.as_json(), "breastcancer-risk")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://example.org").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://example.org")
         self.assertEqual(inst.identifier[0].use.value, FHIRCode("official").value)
@@ -68,6 +70,8 @@ class RiskAssessmentTests(unittest.TestCase):
         self.implRiskAssessment2(inst2)
 
     def implRiskAssessment2(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("cardiac").value)
+        self.assertEqual(inst.id.as_json(), "cardiac")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://example.org").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://example.org")
         self.assertEqual(inst.identifier[0].use.value, FHIRCode("official").value)
@@ -115,6 +119,8 @@ class RiskAssessmentTests(unittest.TestCase):
         self.implRiskAssessment3(inst2)
 
     def implRiskAssessment3(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("genetic").value)
+        self.assertEqual(inst.id.as_json(), "genetic")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)
@@ -272,6 +278,8 @@ class RiskAssessmentTests(unittest.TestCase):
         self.implRiskAssessment4(inst2)
 
     def implRiskAssessment4(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("prognosis").value)
+        self.assertEqual(inst.id.as_json(), "prognosis")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)
@@ -308,6 +316,10 @@ class RiskAssessmentTests(unittest.TestCase):
         self.implRiskAssessment5(inst2)
 
     def implRiskAssessment5(self, inst):
+        self.assertEqual(inst.contained[0].id.value, FHIRString("group1").value)
+        self.assertEqual(inst.contained[0].id.as_json(), "group1")
+        self.assertEqual(inst.id.value, FHIRString("population").value)
+        self.assertEqual(inst.id.as_json(), "population")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)

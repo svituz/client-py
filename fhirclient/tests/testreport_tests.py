@@ -30,6 +30,8 @@ class TestReportTests(unittest.TestCase):
         self.implTestReport1(inst2)
 
     def implTestReport1(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("testreport-example").value)
+        self.assertEqual(inst.id.as_json(), "testreport-example")
         self.assertEqual(inst.identifier.system.value, FHIRUri("urn:ietf:rfc:3986").value)
         self.assertEqual(inst.identifier.system.as_json(), "urn:ietf:rfc:3986")
         self.assertEqual(inst.identifier.value.value, FHIRString("urn:oid:1.3.6.1.4.1.21367.2005.3.7.9878").value)
@@ -153,6 +155,8 @@ class TestReportTests(unittest.TestCase):
         self.assertEqual(inst.test[0].action[9].assert_fhir.result.as_json(), "pass")
         self.assertEqual(inst.test[0].description.value, FHIRString("Read a Patient and validate response.").value)
         self.assertEqual(inst.test[0].description.as_json(), "Read a Patient and validate response.")
+        self.assertEqual(inst.test[0].id.value, FHIRString("01-ReadPatient").value)
+        self.assertEqual(inst.test[0].id.as_json(), "01-ReadPatient")
         self.assertEqual(inst.test[0].name.value, FHIRString("Read Patient").value)
         self.assertEqual(inst.test[0].name.as_json(), "Read Patient")
         self.assertEqual(inst.tester.value, FHIRString("HL7 Execution Engine").value)
@@ -161,4 +165,4 @@ class TestReportTests(unittest.TestCase):
         self.assertEqual(inst.text.status.as_json(), "generated")
 
 
-from fhirclient.models.fhirdatatypes import FHIRUri, FHIRString, FHIRDateTime, FHIRCode, FHIRMarkdown
+from fhirclient.models.fhirdatatypes import FHIRString, FHIRUri, FHIRDateTime, FHIRCode, FHIRMarkdown

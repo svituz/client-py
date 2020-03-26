@@ -30,6 +30,8 @@ class CatalogEntryTests(unittest.TestCase):
         self.implCatalogEntry1(inst2)
 
     def implCatalogEntry1(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://example.com/identifier").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://example.com/identifier")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("123").value)
@@ -49,4 +51,4 @@ class CatalogEntryTests(unittest.TestCase):
         self.assertEqual(inst.type.text.as_json(), "Medication")
 
 
-from fhirclient.models.fhirdatatypes import FHIRUri, FHIRString, FHIRCode
+from fhirclient.models.fhirdatatypes import FHIRString, FHIRUri, FHIRCode

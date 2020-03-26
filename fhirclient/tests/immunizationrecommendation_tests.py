@@ -32,6 +32,8 @@ class ImmunizationRecommendationTests(unittest.TestCase):
     def implImmunizationRecommendation1(self, inst):
         self.assertEqual(inst.date.value, FHIRDateTime("2015-02-09T11:04:15.817-05:00").value)
         self.assertEqual(inst.date.as_json(), "2015-02-09T11:04:15.817-05:00")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("urn:ietf:rfc:3986").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "urn:ietf:rfc:3986")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("urn:oid:1.3.6.1.4.1.21367.2005.3.7.1235").value)
@@ -100,6 +102,8 @@ class ImmunizationRecommendationTests(unittest.TestCase):
     def implImmunizationRecommendation2(self, inst):
         self.assertEqual(inst.date.value, FHIRDateTime("2015-02-09T11:04:15.817-05:00").value)
         self.assertEqual(inst.date.as_json(), "2015-02-09T11:04:15.817-05:00")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("urn:ietf:rfc:3986").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "urn:ietf:rfc:3986")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("urn:oid:1.3.6.1.4.1.21367.2005.3.7.1235").value)
@@ -154,4 +158,4 @@ class ImmunizationRecommendationTests(unittest.TestCase):
         self.assertEqual(inst.text.status.as_json(), "generated")
 
 
-from fhirclient.models.fhirdatatypes import FHIRDateTime, FHIRUri, FHIRString, FHIRCode, FHIRPositiveInt
+from fhirclient.models.fhirdatatypes import FHIRDateTime, FHIRString, FHIRUri, FHIRCode, FHIRPositiveInt

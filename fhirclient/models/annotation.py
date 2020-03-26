@@ -14,8 +14,6 @@ class Annotation(element.Element):
     and when.
     """
     
-    resource_type = "Annotation"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -32,13 +30,13 @@ class Annotation(element.Element):
         """ Individual responsible for the annotation.
         Type `FHIRString` (represented as `str` in JSON). """
         
-        self.text = None
-        """ The annotation  - text content (as markdown).
-        Type `FHIRMarkdown` (represented as `str` in JSON). """
-        
         self.time = None
         """ When the annotation was made.
         Type `FHIRDateTime` (represented as `str` in JSON). """
+        
+        self.text = None
+        """ The annotation  - text content (as markdown).
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         super(Annotation, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -47,8 +45,8 @@ class Annotation(element.Element):
         js.extend([
             ("authorReference", "authorReference", fhirreference.FHIRReference, False, "author", False),
             ("authorString", "authorString", fhirdatatypes.FHIRString, False, "author", False),
-            ("text", "text", fhirdatatypes.FHIRMarkdown, False, None, True),
             ("time", "time", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("text", "text", fhirdatatypes.FHIRMarkdown, False, None, True),
         ])
         return js
 

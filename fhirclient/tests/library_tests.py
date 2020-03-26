@@ -34,6 +34,8 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(inst.date.as_json(), "2017-03-10")
         self.assertEqual(inst.description.value, FHIRMarkdown("Artifacts required for implementation of Zika Virus Management").value)
         self.assertEqual(inst.description.as_json(), "Artifacts required for implementation of Zika Virus Management")
+        self.assertEqual(inst.id.value, FHIRString("composition-example").value)
+        self.assertEqual(inst.id.as_json(), "composition-example")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://example.org").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://example.org")
         self.assertEqual(inst.identifier[0].use.value, FHIRCode("official").value)
@@ -112,6 +114,8 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(inst.date.as_json(), "2015-07-22")
         self.assertEqual(inst.description.value, FHIRMarkdown("Common Logic for adherence to Chlamydia Screening guidelines").value)
         self.assertEqual(inst.description.as_json(), "Common Logic for adherence to Chlamydia Screening guidelines")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.identifier[0].use.value, FHIRCode("official").value)
         self.assertEqual(inst.identifier[0].use.as_json(), "official")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("ChalmydiaScreening_Common").value)
@@ -161,6 +165,8 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(inst.description.value, FHIRMarkdown("FHIR Helpers").value)
         self.assertEqual(inst.description.as_json(), "FHIR Helpers")
         self.assertTrue(inst.experimental)
+        self.assertEqual(inst.id.value, FHIRString("library-fhir-helpers-predecessor").value)
+        self.assertEqual(inst.id.as_json(), "library-fhir-helpers-predecessor")
         self.assertEqual(inst.identifier[0].use.value, FHIRCode("official").value)
         self.assertEqual(inst.identifier[0].use.as_json(), "official")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("FHIRHelpers").value)
@@ -287,6 +293,8 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(inst.date.as_json(), "2015-07-22")
         self.assertEqual(inst.description.value, FHIRMarkdown("Logic for CMS 146: Appropriate Testing for Children with Pharyngitis").value)
         self.assertEqual(inst.description.as_json(), "Logic for CMS 146: Appropriate Testing for Children with Pharyngitis")
+        self.assertEqual(inst.id.value, FHIRString("library-cms146-example").value)
+        self.assertEqual(inst.id.as_json(), "library-cms146-example")
         self.assertEqual(inst.identifier[0].use.value, FHIRCode("official").value)
         self.assertEqual(inst.identifier[0].use.as_json(), "official")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("CMS146").value)
@@ -313,4 +321,4 @@ class LibraryTests(unittest.TestCase):
         self.assertEqual(inst.version.as_json(), "2.0.0")
 
 
-from fhirclient.models.fhirdatatypes import FHIRDateTime, FHIRMarkdown, FHIRUri, FHIRCode, FHIRString, FHIRCanonical, FHIRUrl
+from fhirclient.models.fhirdatatypes import FHIRDateTime, FHIRMarkdown, FHIRString, FHIRUri, FHIRCode, FHIRCanonical, FHIRUrl

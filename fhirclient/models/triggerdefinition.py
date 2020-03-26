@@ -14,8 +14,6 @@ class TriggerDefinition(element.Element):
     data events, or periodic, as determined by the type element.
     """
     
-    resource_type = "TriggerDefinition"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -24,17 +22,22 @@ class TriggerDefinition(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.condition = None
-        """ Whether the event triggers (boolean expression).
-        Type `Expression` (represented as `dict` in JSON). """
-        
-        self.data = None
-        """ Triggering data of the event (multiple = 'and').
-        List of `DataRequirement` items (represented as `dict` in JSON). """
+        self.type = None
+        """ named-event | periodic | data-changed | data-added | data-modified
+        | data-removed | data-accessed | data-access-ended.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.name = None
         """ Name or URI that identifies the event.
         Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.timingTiming = None
+        """ Timing of the event.
+        Type `Timing` (represented as `dict` in JSON). """
+        
+        self.timingReference = None
+        """ Timing of the event.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.timingDate = None
         """ Timing of the event.
@@ -44,32 +47,27 @@ class TriggerDefinition(element.Element):
         """ Timing of the event.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.timingReference = None
-        """ Timing of the event.
-        Type `FHIRReference` (represented as `dict` in JSON). """
+        self.data = None
+        """ Triggering data of the event (multiple = 'and').
+        List of `DataRequirement` items (represented as `dict` in JSON). """
         
-        self.timingTiming = None
-        """ Timing of the event.
-        Type `Timing` (represented as `dict` in JSON). """
-        
-        self.type = None
-        """ named-event | periodic | data-changed | data-added | data-modified
-        | data-removed | data-accessed | data-access-ended.
-        Type `FHIRCode` (represented as `str` in JSON). """
+        self.condition = None
+        """ Whether the event triggers (boolean expression).
+        Type `Expression` (represented as `dict` in JSON). """
         
         super(TriggerDefinition, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TriggerDefinition, self).elementProperties()
         js.extend([
-            ("condition", "condition", expression.Expression, False, None, False),
-            ("data", "data", datarequirement.DataRequirement, True, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
             ("name", "name", fhirdatatypes.FHIRString, False, None, False),
+            ("timingTiming", "timingTiming", timing.Timing, False, "timing", False),
+            ("timingReference", "timingReference", fhirreference.FHIRReference, False, "timing", False),
             ("timingDate", "timingDate", fhirdatatypes.FHIRDate, False, "timing", False),
             ("timingDateTime", "timingDateTime", fhirdatatypes.FHIRDateTime, False, "timing", False),
-            ("timingReference", "timingReference", fhirreference.FHIRReference, False, "timing", False),
-            ("timingTiming", "timingTiming", timing.Timing, False, "timing", False),
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
+            ("data", "data", datarequirement.DataRequirement, True, None, False),
+            ("condition", "condition", expression.Expression, False, None, False),
         ])
         return js
 

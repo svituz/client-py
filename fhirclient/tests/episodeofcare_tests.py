@@ -38,6 +38,8 @@ class EpisodeOfCareTests(unittest.TestCase):
         self.assertEqual(inst.diagnosis[0].role.coding[0].display.as_json(), "Chief complaint")
         self.assertEqual(inst.diagnosis[0].role.coding[0].system.value, FHIRUri("http://terminology.hl7.org/CodeSystem/diagnosis-role").value)
         self.assertEqual(inst.diagnosis[0].role.coding[0].system.as_json(), "http://terminology.hl7.org/CodeSystem/diagnosis-role")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://example.org/sampleepisodeofcare-identifier").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://example.org/sampleepisodeofcare-identifier")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("123").value)

@@ -59,8 +59,6 @@ class LinkageItem(backboneelement.BackboneElement):
     collection of linked items.
     """
     
-    resource_type = "LinkageItem"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -69,21 +67,21 @@ class LinkageItem(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.resource = None
-        """ Resource being linked.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-        
         self.type = None
         """ source | alternate | historical.
         Type `FHIRCode` (represented as `str` in JSON). """
+        
+        self.resource = None
+        """ Resource being linked.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(LinkageItem, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(LinkageItem, self).elementProperties()
         js.extend([
-            ("resource", "resource", fhirreference.FHIRReference, False, None, True),
             ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
+            ("resource", "resource", fhirreference.FHIRReference, False, None, True),
         ])
         return js
 

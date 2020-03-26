@@ -62,6 +62,8 @@ class ExampleScenarioTests(unittest.TestCase):
         self.assertEqual(inst.actor[3].name.as_json(), "MAR / EHR")
         self.assertEqual(inst.actor[3].type.value, FHIRCode("entity").value)
         self.assertEqual(inst.actor[3].type.as_json(), "entity")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.instance[0].description.value, FHIRMarkdown("The initial prescription which describes \"medication X, 3 times per day\" - the exact scheduling is not   in the initial prescription (it is left for the care teams to decide on the schedule).").value)
         self.assertEqual(inst.instance[0].description.as_json(), "The initial prescription which describes \"medication X, 3 times per day\" - the exact scheduling is not   in the initial prescription (it is left for the care teams to decide on the schedule).")
         self.assertEqual(inst.instance[0].name.value, FHIRString("Initial Prescription").value)

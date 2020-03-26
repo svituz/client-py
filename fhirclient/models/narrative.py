@@ -15,8 +15,6 @@ class Narrative(element.Element):
     and business information for the resource.
     """
     
-    resource_type = "Narrative"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -25,21 +23,21 @@ class Narrative(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.div = None
-        """ Limited xhtml content.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
         self.status = None
         """ generated | extensions | additional | empty.
         Type `FHIRCode` (represented as `str` in JSON). """
+        
+        self.div = None
+        """ Limited xhtml content.
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(Narrative, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Narrative, self).elementProperties()
         js.extend([
-            ("div", "div", fhirdatatypes.FHIRString, False, None, True),
             ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
+            ("div", "div", fhirdatatypes.FHIRString, False, None, True),
         ])
         return js
 

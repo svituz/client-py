@@ -43,6 +43,8 @@ class CompartmentDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.description.value, FHIRMarkdown("The set of resources associated with a particular Device (example with Communication and CommunicationRequest resourses only).").value)
         self.assertEqual(inst.description.as_json(), "The set of resources associated with a particular Device (example with Communication and CommunicationRequest resourses only).")
         self.assertTrue(inst.experimental)
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.name.value, FHIRString("EXAMPLE").value)
         self.assertEqual(inst.name.as_json(), "EXAMPLE")
         self.assertEqual(inst.publisher.value, FHIRString("Health Level Seven International (FHIR Infrastructure)").value)

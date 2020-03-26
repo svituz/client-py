@@ -25,24 +25,24 @@ class Basic(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.author = None
-        """ Who created.
-        Type `FHIRReference` (represented as `dict` in JSON). """
+        self.identifier = None
+        """ Business identifier.
+        List of `Identifier` items (represented as `dict` in JSON). """
         
         self.code = None
         """ Kind of Resource.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.subject = None
+        """ Identifies the focus of this resource.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
         self.created = None
         """ When created.
         Type `FHIRDate` (represented as `str` in JSON). """
         
-        self.identifier = None
-        """ Business identifier.
-        List of `Identifier` items (represented as `dict` in JSON). """
-        
-        self.subject = None
-        """ Identifies the focus of this resource.
+        self.author = None
+        """ Who created.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         super(Basic, self).__init__(jsondict=jsondict, strict=strict)
@@ -50,11 +50,11 @@ class Basic(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Basic, self).elementProperties()
         js.extend([
-            ("author", "author", fhirreference.FHIRReference, False, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("created", "created", fhirdatatypes.FHIRDate, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
             ("subject", "subject", fhirreference.FHIRReference, False, None, False),
+            ("created", "created", fhirdatatypes.FHIRDate, False, None, False),
+            ("author", "author", fhirreference.FHIRReference, False, None, False),
         ])
         return js
 

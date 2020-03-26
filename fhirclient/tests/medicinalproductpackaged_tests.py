@@ -38,6 +38,8 @@ class MedicinalProductPackagedTests(unittest.TestCase):
         self.assertEqual(inst.batchIdentifier[0].outerPackaging.value.as_json(), "AAF5699")
         self.assertEqual(inst.description.value, FHIRString("ALU-PVC/PVDC BLISTERS. CARTONS OF 10 FILM-COATED TABLETS. ").value)
         self.assertEqual(inst.description.as_json(), "ALU-PVC/PVDC BLISTERS. CARTONS OF 10 FILM-COATED TABLETS. ")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://ema.europa.eu/example/pcid").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://ema.europa.eu/example/pcid")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("{PCID}").value)

@@ -40,6 +40,8 @@ class MedicinalProductContraindicationTests(unittest.TestCase):
         self.assertEqual(inst.disease.coding[0].system.as_json(), "http://ema.europa.eu/example/contraindicationsasdisease-symptom-procedure")
         self.assertEqual(inst.disease.text.value, FHIRString("Hepatic disease associated with coagulopathy and clinically relevant bleeding risk").value)
         self.assertEqual(inst.disease.text.as_json(), "Hepatic disease associated with coagulopathy and clinically relevant bleeding risk")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)

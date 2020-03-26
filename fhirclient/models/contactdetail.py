@@ -13,8 +13,6 @@ class ContactDetail(element.Element):
     Specifies contact information for a person or organization.
     """
     
-    resource_type = "ContactDetail"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         

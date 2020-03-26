@@ -34,6 +34,8 @@ class MedicinalProductInteractionTests(unittest.TestCase):
         self.assertEqual(inst.effect.coding[0].code.as_json(), "Increasedplasmaconcentrations")
         self.assertEqual(inst.effect.coding[0].system.value, FHIRUri("http://ema.europa.eu/example/interactionseffect").value)
         self.assertEqual(inst.effect.coding[0].system.as_json(), "http://ema.europa.eu/example/interactionseffect")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.interactant[0].itemCodeableConcept.coding[0].code.value, FHIRCode("ketoconazole").value)
         self.assertEqual(inst.interactant[0].itemCodeableConcept.coding[0].code.as_json(), "ketoconazole")
         self.assertEqual(inst.interactant[0].itemCodeableConcept.coding[0].system.value, FHIRUri("http://ema.europa.eu/example/interactant").value)

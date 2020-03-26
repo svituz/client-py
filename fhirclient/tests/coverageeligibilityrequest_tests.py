@@ -32,6 +32,8 @@ class CoverageEligibilityRequestTests(unittest.TestCase):
     def implCoverageEligibilityRequest1(self, inst):
         self.assertEqual(inst.created.value, FHIRDateTime("2014-08-16").value)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
+        self.assertEqual(inst.id.value, FHIRString("52346").value)
+        self.assertEqual(inst.id.as_json(), "52346")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://happyvalley.com/coverageelegibilityrequest").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://happyvalley.com/coverageelegibilityrequest")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("52346").value)
@@ -79,6 +81,8 @@ class CoverageEligibilityRequestTests(unittest.TestCase):
     def implCoverageEligibilityRequest2(self, inst):
         self.assertEqual(inst.created.value, FHIRDateTime("2014-08-16").value)
         self.assertEqual(inst.created.as_json(), "2014-08-16")
+        self.assertEqual(inst.id.value, FHIRString("52345").value)
+        self.assertEqual(inst.id.as_json(), "52345")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://happyvalley.com/coverageelegibilityrequest").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://happyvalley.com/coverageelegibilityrequest")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("52345").value)
@@ -102,4 +106,4 @@ class CoverageEligibilityRequestTests(unittest.TestCase):
         self.assertEqual(inst.text.status.as_json(), "generated")
 
 
-from fhirclient.models.fhirdatatypes import FHIRDateTime, FHIRUri, FHIRString, FHIRCode, FHIRDate
+from fhirclient.models.fhirdatatypes import FHIRDateTime, FHIRString, FHIRUri, FHIRCode, FHIRDate

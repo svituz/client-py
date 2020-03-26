@@ -27,46 +27,46 @@ class Subscription(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.channel = None
-        """ The channel on which to report matches to the criteria.
-        Type `SubscriptionChannel` (represented as `dict` in JSON). """
+        self.status = None
+        """ requested | active | error | off.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.contact = None
         """ Contact details for source (e.g. troubleshooting).
         List of `ContactPoint` items (represented as `dict` in JSON). """
         
-        self.criteria = None
-        """ Rule for server push.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
         self.end = None
         """ When to automatically delete the subscription.
         Type `FHIRInstant` (represented as `str` in JSON). """
-        
-        self.error = None
-        """ Latest error note.
-        Type `FHIRString` (represented as `str` in JSON). """
         
         self.reason = None
         """ Description of why this subscription was created.
         Type `FHIRString` (represented as `str` in JSON). """
         
-        self.status = None
-        """ requested | active | error | off.
-        Type `FHIRCode` (represented as `str` in JSON). """
+        self.criteria = None
+        """ Rule for server push.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.error = None
+        """ Latest error note.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.channel = None
+        """ The channel on which to report matches to the criteria.
+        Type `SubscriptionChannel` (represented as `dict` in JSON). """
         
         super(Subscription, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Subscription, self).elementProperties()
         js.extend([
-            ("channel", "channel", SubscriptionChannel, False, None, True),
-            ("contact", "contact", contactpoint.ContactPoint, True, None, False),
-            ("criteria", "criteria", fhirdatatypes.FHIRString, False, None, True),
-            ("end", "end", fhirdatatypes.FHIRInstant, False, None, False),
-            ("error", "error", fhirdatatypes.FHIRString, False, None, False),
-            ("reason", "reason", fhirdatatypes.FHIRString, False, None, True),
             ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
+            ("contact", "contact", contactpoint.ContactPoint, True, None, False),
+            ("end", "end", fhirdatatypes.FHIRInstant, False, None, False),
+            ("reason", "reason", fhirdatatypes.FHIRString, False, None, True),
+            ("criteria", "criteria", fhirdatatypes.FHIRString, False, None, True),
+            ("error", "error", fhirdatatypes.FHIRString, False, None, False),
+            ("channel", "channel", SubscriptionChannel, False, None, True),
         ])
         return js
 
@@ -81,8 +81,6 @@ class SubscriptionChannel(backboneelement.BackboneElement):
     the criteria.
     """
     
-    resource_type = "SubscriptionChannel"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -91,31 +89,31 @@ class SubscriptionChannel(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.type = None
+        """ rest-hook | websocket | email | sms | message.
+        Type `FHIRCode` (represented as `str` in JSON). """
+        
         self.endpoint = None
         """ Where the channel points to.
         Type `FHIRUrl` (represented as `str` in JSON). """
-        
-        self.header = None
-        """ Usage depends on the channel type.
-        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.payload = None
         """ MIME type to send, or omit for no payload.
         Type `FHIRCode` (represented as `str` in JSON). """
         
-        self.type = None
-        """ rest-hook | websocket | email | sms | message.
-        Type `FHIRCode` (represented as `str` in JSON). """
+        self.header = None
+        """ Usage depends on the channel type.
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         super(SubscriptionChannel, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(SubscriptionChannel, self).elementProperties()
         js.extend([
-            ("endpoint", "endpoint", fhirdatatypes.FHIRUrl, False, None, False),
-            ("header", "header", fhirdatatypes.FHIRString, True, None, False),
-            ("payload", "payload", fhirdatatypes.FHIRCode, False, None, False),
             ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
+            ("endpoint", "endpoint", fhirdatatypes.FHIRUrl, False, None, False),
+            ("payload", "payload", fhirdatatypes.FHIRCode, False, None, False),
+            ("header", "header", fhirdatatypes.FHIRString, True, None, False),
         ])
         return js
 

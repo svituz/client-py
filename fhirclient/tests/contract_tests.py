@@ -30,6 +30,8 @@ class ContractTests(unittest.TestCase):
         self.implContract1(inst2)
 
     def implContract1(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("C-123").value)
+        self.assertEqual(inst.id.as_json(), "C-123")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://happyvalley.com/contract").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://happyvalley.com/contract")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("12347").value)
@@ -93,6 +95,8 @@ class ContractTests(unittest.TestCase):
     def implContract2(self, inst):
         self.assertEqual(inst.friendly[0].contentAttachment.title.value, FHIRString("The terms of the consent in friendly consumer speak.").value)
         self.assertEqual(inst.friendly[0].contentAttachment.title.as_json(), "The terms of the consent in friendly consumer speak.")
+        self.assertEqual(inst.id.value, FHIRString("pcd-example-notLabs").value)
+        self.assertEqual(inst.id.as_json(), "pcd-example-notLabs")
         self.assertEqual(inst.issued.value, FHIRDateTime("2014-08-17").value)
         self.assertEqual(inst.issued.as_json(), "2014-08-17")
         self.assertEqual(inst.legal[0].contentAttachment.title.value, FHIRString("The terms of the consent in lawyer speak.").value)
@@ -151,6 +155,8 @@ class ContractTests(unittest.TestCase):
     def implContract3(self, inst):
         self.assertEqual(inst.applies.start.value, FHIRDateTime("2017-01-01").value)
         self.assertEqual(inst.applies.start.as_json(), "2017-01-01")
+        self.assertEqual(inst.id.value, FHIRString("INS-101").value)
+        self.assertEqual(inst.id.as_json(), "INS-101")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://xyz-insurance.com/forms").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://xyz-insurance.com/forms")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("YCSCWLN(01-2017)").value)
@@ -236,6 +242,8 @@ class ContractTests(unittest.TestCase):
     def implContract4(self, inst):
         self.assertEqual(inst.friendly[0].contentAttachment.title.value, FHIRString("The terms of the consent in friendly consumer speak.").value)
         self.assertEqual(inst.friendly[0].contentAttachment.title.as_json(), "The terms of the consent in friendly consumer speak.")
+        self.assertEqual(inst.id.value, FHIRString("pcd-example-notThem").value)
+        self.assertEqual(inst.id.as_json(), "pcd-example-notThem")
         self.assertEqual(inst.issued.value, FHIRDateTime("2015-11-18").value)
         self.assertEqual(inst.issued.as_json(), "2015-11-18")
         self.assertEqual(inst.legal[0].contentAttachment.title.value, FHIRString("The terms of the consent in lawyer speak.").value)
@@ -291,6 +299,8 @@ class ContractTests(unittest.TestCase):
     def implContract5(self, inst):
         self.assertEqual(inst.friendly[0].contentAttachment.title.value, FHIRString("The terms of the consent in friendly consumer speak.").value)
         self.assertEqual(inst.friendly[0].contentAttachment.title.as_json(), "The terms of the consent in friendly consumer speak.")
+        self.assertEqual(inst.id.value, FHIRString("pcd-example-notOrg").value)
+        self.assertEqual(inst.id.as_json(), "pcd-example-notOrg")
         self.assertEqual(inst.issued.value, FHIRDateTime("2015-11-18").value)
         self.assertEqual(inst.issued.as_json(), "2015-11-18")
         self.assertEqual(inst.legal[0].contentAttachment.title.value, FHIRString("The terms of the consent in lawyer speak.").value)
@@ -335,6 +345,8 @@ class ContractTests(unittest.TestCase):
     def implContract6(self, inst):
         self.assertEqual(inst.friendly[0].contentAttachment.title.value, FHIRString("The terms of the consent in friendly consumer speak.").value)
         self.assertEqual(inst.friendly[0].contentAttachment.title.as_json(), "The terms of the consent in friendly consumer speak.")
+        self.assertEqual(inst.id.value, FHIRString("pcd-example-notAuthor").value)
+        self.assertEqual(inst.id.as_json(), "pcd-example-notAuthor")
         self.assertEqual(inst.issued.value, FHIRDateTime("2015-11-18").value)
         self.assertEqual(inst.issued.as_json(), "2015-11-18")
         self.assertEqual(inst.legal[0].contentAttachment.title.value, FHIRString("The terms of the consent in lawyer speak.").value)
@@ -383,6 +395,8 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(inst.contentDerivative.coding[0].code.as_json(), "registration")
         self.assertEqual(inst.contentDerivative.coding[0].system.value, FHIRUri("http://terminology.hl7.org/CodeSystem/contract-content-derivative").value)
         self.assertEqual(inst.contentDerivative.coding[0].system.as_json(), "http://terminology.hl7.org/CodeSystem/contract-content-derivative")
+        self.assertEqual(inst.id.value, FHIRString("C-2121").value)
+        self.assertEqual(inst.id.as_json(), "C-2121")
         self.assertEqual(inst.issued.value, FHIRDateTime("2013-11-01T21:18:27-04:00").value)
         self.assertEqual(inst.issued.as_json(), "2013-11-01T21:18:27-04:00")
         self.assertEqual(inst.legal[0].contentAttachment.contentType.value, FHIRCode("application/pdf").value)
@@ -483,6 +497,8 @@ class ContractTests(unittest.TestCase):
     def implContract8(self, inst):
         self.assertEqual(inst.friendly[0].contentAttachment.title.value, FHIRString("The terms of the consent in friendly consumer speak.").value)
         self.assertEqual(inst.friendly[0].contentAttachment.title.as_json(), "The terms of the consent in friendly consumer speak.")
+        self.assertEqual(inst.id.value, FHIRString("pcd-example-notThis").value)
+        self.assertEqual(inst.id.as_json(), "pcd-example-notThis")
         self.assertEqual(inst.issued.value, FHIRDateTime("2015-11-18").value)
         self.assertEqual(inst.issued.as_json(), "2015-11-18")
         self.assertEqual(inst.legal[0].contentAttachment.title.value, FHIRString("The terms of the consent in lawyer speak.").value)
@@ -523,4 +539,4 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(inst.type.coding[0].system.as_json(), "http://loinc.org")
 
 
-from fhirclient.models.fhirdatatypes import FHIRUri, FHIRString, FHIRCode, FHIRUrl, FHIRDateTime, FHIRInstant, FHIRId
+from fhirclient.models.fhirdatatypes import FHIRString, FHIRUri, FHIRCode, FHIRUrl, FHIRDateTime, FHIRInstant, FHIRId

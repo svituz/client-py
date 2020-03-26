@@ -40,6 +40,8 @@ class MessageHeaderTests(unittest.TestCase):
         self.assertEqual(inst.eventCoding.code.as_json(), "admin-notify")
         self.assertEqual(inst.eventCoding.system.value, FHIRUri("http://example.org/fhir/message-events").value)
         self.assertEqual(inst.eventCoding.system.as_json(), "http://example.org/fhir/message-events")
+        self.assertEqual(inst.id.value, FHIRString("1cbdfb97-5859-48a4-8301-d54eab818d68").value)
+        self.assertEqual(inst.id.as_json(), "1cbdfb97-5859-48a4-8301-d54eab818d68")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)

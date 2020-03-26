@@ -14,8 +14,6 @@ class Contributor(element.Element):
     editors, reviewers, and endorsers.
     """
     
-    resource_type = "Contributor"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -24,26 +22,26 @@ class Contributor(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.contact = None
-        """ Contact details of the contributor.
-        List of `ContactDetail` items (represented as `dict` in JSON). """
+        self.type = None
+        """ author | editor | reviewer | endorser.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.name = None
         """ Who contributed the content.
         Type `FHIRString` (represented as `str` in JSON). """
         
-        self.type = None
-        """ author | editor | reviewer | endorser.
-        Type `FHIRCode` (represented as `str` in JSON). """
+        self.contact = None
+        """ Contact details of the contributor.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
         
         super(Contributor, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Contributor, self).elementProperties()
         js.extend([
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
             ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
         ])
         return js
 

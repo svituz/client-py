@@ -14,8 +14,6 @@ class DataRequirement(element.Element):
     and optional code or date-based filters of the data.
     """
     
-    resource_type = "DataRequirement"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -23,6 +21,29 @@ class DataRequirement(element.Element):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
+        
+        self.type = None
+        """ The type of the required data.
+        Type `FHIRCode` (represented as `str` in JSON). """
+        
+        self.profile = None
+        """ The profile of the required data.
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
+        
+        self.subjectCodeableConcept = None
+        """ E.g. Patient, Practitioner, RelatedPerson, Organization, Location,
+        Device.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.subjectReference = None
+        """ E.g. Patient, Practitioner, RelatedPerson, Organization, Location,
+        Device.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.mustSupport = None
+        """ Indicates specific structure elements that are referenced by the
+        knowledge module.
+        List of `FHIRString` items (represented as `str` in JSON). """
         
         self.codeFilter = None
         """ What codes are expected.
@@ -36,47 +57,24 @@ class DataRequirement(element.Element):
         """ Number of results.
         Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
-        self.mustSupport = None
-        """ Indicates specific structure elements that are referenced by the
-        knowledge module.
-        List of `FHIRString` items (represented as `str` in JSON). """
-        
-        self.profile = None
-        """ The profile of the required data.
-        List of `FHIRCanonical` items (represented as `str` in JSON). """
-        
         self.sort = None
         """ Order of the results.
         List of `DataRequirementSort` items (represented as `dict` in JSON). """
-        
-        self.subjectCodeableConcept = None
-        """ E.g. Patient, Practitioner, RelatedPerson, Organization, Location,
-        Device.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.subjectReference = None
-        """ E.g. Patient, Practitioner, RelatedPerson, Organization, Location,
-        Device.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-        
-        self.type = None
-        """ The type of the required data.
-        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(DataRequirement, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DataRequirement, self).elementProperties()
         js.extend([
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
+            ("profile", "profile", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False),
+            ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False),
+            ("mustSupport", "mustSupport", fhirdatatypes.FHIRString, True, None, False),
             ("codeFilter", "codeFilter", DataRequirementCodeFilter, True, None, False),
             ("dateFilter", "dateFilter", DataRequirementDateFilter, True, None, False),
             ("limit", "limit", fhirdatatypes.FHIRPositiveInt, False, None, False),
-            ("mustSupport", "mustSupport", fhirdatatypes.FHIRString, True, None, False),
-            ("profile", "profile", fhirdatatypes.FHIRCanonical, True, None, False),
             ("sort", "sort", DataRequirementSort, True, None, False),
-            ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False),
-            ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False),
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
 
@@ -92,8 +90,6 @@ class DataRequirementCodeFilter(element.Element):
     AND'ed, not OR'ed.
     """
     
-    resource_type = "DataRequirementCodeFilter"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -101,10 +97,6 @@ class DataRequirementCodeFilter(element.Element):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
-        
-        self.code = None
-        """ What code is expected.
-        List of `Coding` items (represented as `dict` in JSON). """
         
         self.path = None
         """ A code-valued attribute to filter on.
@@ -118,15 +110,19 @@ class DataRequirementCodeFilter(element.Element):
         """ Valueset for the filter.
         Type `FHIRCanonical` (represented as `str` in JSON). """
         
+        self.code = None
+        """ What code is expected.
+        List of `Coding` items (represented as `dict` in JSON). """
+        
         super(DataRequirementCodeFilter, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DataRequirementCodeFilter, self).elementProperties()
         js.extend([
-            ("code", "code", coding.Coding, True, None, False),
             ("path", "path", fhirdatatypes.FHIRString, False, None, False),
             ("searchParam", "searchParam", fhirdatatypes.FHIRString, False, None, False),
             ("valueSet", "valueSet", fhirdatatypes.FHIRCanonical, False, None, False),
+            ("code", "code", coding.Coding, True, None, False),
         ])
         return js
 
@@ -140,8 +136,6 @@ class DataRequirementDateFilter(element.Element):
     applicable date range for specific elements. Each date filter specifies an
     additional constraint on the data, i.e. date filters are AND'ed, not OR'ed.
     """
-    
-    resource_type = "DataRequirementDateFilter"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -163,13 +157,13 @@ class DataRequirementDateFilter(element.Element):
         """ The value of the filter, as a Period, DateTime, or Duration value.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.valueDuration = None
-        """ The value of the filter, as a Period, DateTime, or Duration value.
-        Type `Duration` (represented as `dict` in JSON). """
-        
         self.valuePeriod = None
         """ The value of the filter, as a Period, DateTime, or Duration value.
         Type `Period` (represented as `dict` in JSON). """
+        
+        self.valueDuration = None
+        """ The value of the filter, as a Period, DateTime, or Duration value.
+        Type `Duration` (represented as `dict` in JSON). """
         
         super(DataRequirementDateFilter, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -179,8 +173,8 @@ class DataRequirementDateFilter(element.Element):
             ("path", "path", fhirdatatypes.FHIRString, False, None, False),
             ("searchParam", "searchParam", fhirdatatypes.FHIRString, False, None, False),
             ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", False),
-            ("valueDuration", "valueDuration", duration.Duration, False, "value", False),
             ("valuePeriod", "valuePeriod", period.Period, False, "value", False),
+            ("valueDuration", "valueDuration", duration.Duration, False, "value", False),
         ])
         return js
 
@@ -193,8 +187,6 @@ class DataRequirementSort(element.Element):
     Specifies the order of the results to be returned.
     """
     
-    resource_type = "DataRequirementSort"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -203,21 +195,21 @@ class DataRequirementSort(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.direction = None
-        """ ascending | descending.
-        Type `FHIRCode` (represented as `str` in JSON). """
-        
         self.path = None
         """ The name of the attribute to perform the sort.
         Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.direction = None
+        """ ascending | descending.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(DataRequirementSort, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(DataRequirementSort, self).elementProperties()
         js.extend([
-            ("direction", "direction", fhirdatatypes.FHIRCode, False, None, True),
             ("path", "path", fhirdatatypes.FHIRString, False, None, True),
+            ("direction", "direction", fhirdatatypes.FHIRCode, False, None, True),
         ])
         return js
 

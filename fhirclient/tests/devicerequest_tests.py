@@ -30,6 +30,8 @@ class DeviceRequestTests(unittest.TestCase):
         self.implDeviceRequest1(inst2)
 
     def implDeviceRequest1(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.intent.value, FHIRCode("original-order").value)
         self.assertEqual(inst.intent.as_json(), "original-order")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
@@ -64,6 +66,8 @@ class DeviceRequestTests(unittest.TestCase):
         self.assertEqual(inst.codeCodeableConcept.text.as_json(), "Insulin delivery device panel")
         self.assertEqual(inst.groupIdentifier.value.value, FHIRString("ip_request1").value)
         self.assertEqual(inst.groupIdentifier.value.as_json(), "ip_request1")
+        self.assertEqual(inst.id.value, FHIRString("insulinpump").value)
+        self.assertEqual(inst.id.as_json(), "insulinpump")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("ip_request1.1").value)
         self.assertEqual(inst.identifier[0].value.as_json(), "ip_request1.1")
         self.assertEqual(inst.instantiatesCanonical[0].value, FHIRCanonical("http://motivemi.com/artifacts/PlanDefinition/low-suicide-risk-order-set").value)
@@ -94,4 +98,4 @@ class DeviceRequestTests(unittest.TestCase):
         self.assertEqual(inst.text.status.as_json(), "generated")
 
 
-from fhirclient.models.fhirdatatypes import FHIRCode, FHIRString, FHIRUri, FHIRDateTime, FHIRCanonical, FHIRMarkdown
+from fhirclient.models.fhirdatatypes import FHIRString, FHIRCode, FHIRUri, FHIRDateTime, FHIRCanonical, FHIRMarkdown

@@ -30,6 +30,8 @@ class DeviceDefinitionTests(unittest.TestCase):
         self.implDeviceDefinition1(inst2)
 
     def implDeviceDefinition1(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("0").value)
         self.assertEqual(inst.identifier[0].value.as_json(), "0")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)

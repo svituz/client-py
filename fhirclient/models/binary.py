@@ -29,14 +29,14 @@ class Binary(resource.Resource):
         """ MimeType of the binary content.
         Type `FHIRCode` (represented as `str` in JSON). """
         
-        self.data = None
-        """ The actual content.
-        Type `FHIRBase64Binary` (represented as `str` in JSON). """
-        
         self.securityContext = None
         """ Identifies another resource to use as proxy when enforcing access
         control.
         Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.data = None
+        """ The actual content.
+        Type `FHIRBase64Binary` (represented as `str` in JSON). """
         
         super(Binary, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -44,8 +44,8 @@ class Binary(resource.Resource):
         js = super(Binary, self).elementProperties()
         js.extend([
             ("contentType", "contentType", fhirdatatypes.FHIRCode, False, None, True),
-            ("data", "data", fhirdatatypes.FHIRBase64Binary, False, None, False),
             ("securityContext", "securityContext", fhirreference.FHIRReference, False, None, False),
+            ("data", "data", fhirdatatypes.FHIRBase64Binary, False, None, False),
         ])
         return js
 

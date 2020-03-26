@@ -43,6 +43,8 @@ class MessageDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.eventCoding.system.value, FHIRUri("http://example.org/fhir/message-events").value)
         self.assertEqual(inst.eventCoding.system.as_json(), "http://example.org/fhir/message-events")
         self.assertTrue(inst.experimental)
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.name.value, FHIRString("EXAMPLE").value)
         self.assertEqual(inst.name.as_json(), "EXAMPLE")
         self.assertEqual(inst.publisher.value, FHIRString("Health Level Seven, Int'l").value)

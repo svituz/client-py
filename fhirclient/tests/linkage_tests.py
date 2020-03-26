@@ -30,6 +30,8 @@ class LinkageTests(unittest.TestCase):
         self.implLinkage1(inst2)
 
     def implLinkage1(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.item[0].type.value, FHIRCode("source").value)
         self.assertEqual(inst.item[0].type.as_json(), "source")
         self.assertEqual(inst.item[1].type.value, FHIRCode("alternate").value)
@@ -44,4 +46,4 @@ class LinkageTests(unittest.TestCase):
         self.assertEqual(inst.text.status.as_json(), "generated")
 
 
-from fhirclient.models.fhirdatatypes import FHIRCode, FHIRString, FHIRUri
+from fhirclient.models.fhirdatatypes import FHIRString, FHIRCode, FHIRUri

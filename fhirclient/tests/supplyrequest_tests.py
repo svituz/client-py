@@ -36,6 +36,8 @@ class SupplyRequestTests(unittest.TestCase):
         self.assertEqual(inst.category.coding[0].code.as_json(), "central")
         self.assertEqual(inst.category.coding[0].display.value, FHIRString("Central Stock Resupply").value)
         self.assertEqual(inst.category.coding[0].display.as_json(), "Central Stock Resupply")
+        self.assertEqual(inst.id.value, FHIRString("simpleorder").value)
+        self.assertEqual(inst.id.as_json(), "simpleorder")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("Order10284").value)
         self.assertEqual(inst.identifier[0].value.as_json(), "Order10284")
         self.assertEqual(inst.itemCodeableConcept.coding[0].code.value, FHIRCode("BlueTubes").value)

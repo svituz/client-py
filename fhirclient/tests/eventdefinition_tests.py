@@ -30,6 +30,8 @@ class EventDefinitionTests(unittest.TestCase):
         self.implEventDefinition1(inst2)
 
     def implEventDefinition1(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)
@@ -56,4 +58,4 @@ class EventDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.trigger[0].type.as_json(), "named-event")
 
 
-from fhirclient.models.fhirdatatypes import FHIRCode, FHIRString, FHIRUri, FHIRMarkdown
+from fhirclient.models.fhirdatatypes import FHIRString, FHIRCode, FHIRUri, FHIRMarkdown

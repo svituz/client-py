@@ -30,6 +30,8 @@ class ImagingStudyTests(unittest.TestCase):
         self.implImagingStudy1(inst2)
 
     def implImagingStudy1(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("example-xr").value)
+        self.assertEqual(inst.id.as_json(), "example-xr")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("urn:dicom:uid").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "urn:dicom:uid")
         self.assertEqual(inst.identifier[0].use.value, FHIRCode("official").value)
@@ -148,6 +150,8 @@ class ImagingStudyTests(unittest.TestCase):
         self.implImagingStudy2(inst2)
 
     def implImagingStudy2(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("urn:dicom:uid").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "urn:dicom:uid")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045").value)
@@ -198,4 +202,4 @@ class ImagingStudyTests(unittest.TestCase):
         self.assertEqual(inst.text.status.as_json(), "generated")
 
 
-from fhirclient.models.fhirdatatypes import FHIRUri, FHIRCode, FHIRString, FHIRMarkdown, FHIRUnsignedInt, FHIRId, FHIRDateTime
+from fhirclient.models.fhirdatatypes import FHIRString, FHIRUri, FHIRCode, FHIRMarkdown, FHIRUnsignedInt, FHIRId, FHIRDateTime

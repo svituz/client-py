@@ -13,8 +13,6 @@ class MarketingStatus(backboneelement.BackboneElement):
     available.
     """
     
-    resource_type = "MarketingStatus"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -29,6 +27,20 @@ class MarketingStatus(backboneelement.BackboneElement):
         alpha-2 code elements.
         Type `CodeableConcept` (represented as `dict` in JSON). """
         
+        self.jurisdiction = None
+        """ Where a Medicines Regulatory Agency has granted a marketing
+        authorisation for which specific provisions within a jurisdiction
+        apply, the jurisdiction can be specified using an appropriate
+        controlled terminology The controlled term and the controlled term
+        identifier shall be specified.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.status = None
+        """ This attribute provides information on the status of the marketing
+        of the medicinal product See ISO/TS 20443 for more information and
+        examples.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.dateRange = None
         """ The date when the Medicinal Product is placed on the market by the
         Marketing Authorisation Holder (or where applicable, the
@@ -38,14 +50,6 @@ class MarketingStatus(backboneelement.BackboneElement):
         market” refers to the release of the Medicinal Product into the
         distribution chain.
         Type `Period` (represented as `dict` in JSON). """
-        
-        self.jurisdiction = None
-        """ Where a Medicines Regulatory Agency has granted a marketing
-        authorisation for which specific provisions within a jurisdiction
-        apply, the jurisdiction can be specified using an appropriate
-        controlled terminology The controlled term and the controlled term
-        identifier shall be specified.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.restoreDate = None
         """ The date when the Medicinal Product is placed on the market by the
@@ -57,22 +61,16 @@ class MarketingStatus(backboneelement.BackboneElement):
         distribution chain.
         Type `FHIRDateTime` (represented as `str` in JSON). """
         
-        self.status = None
-        """ This attribute provides information on the status of the marketing
-        of the medicinal product See ISO/TS 20443 for more information and
-        examples.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
         super(MarketingStatus, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MarketingStatus, self).elementProperties()
         js.extend([
             ("country", "country", codeableconcept.CodeableConcept, False, None, True),
-            ("dateRange", "dateRange", period.Period, False, None, True),
             ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, False, None, False),
-            ("restoreDate", "restoreDate", fhirdatatypes.FHIRDateTime, False, None, False),
             ("status", "status", codeableconcept.CodeableConcept, False, None, True),
+            ("dateRange", "dateRange", period.Period, False, None, True),
+            ("restoreDate", "restoreDate", fhirdatatypes.FHIRDateTime, False, None, False),
         ])
         return js
 

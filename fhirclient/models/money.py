@@ -11,8 +11,6 @@ class Money(element.Element):
     """ An amount of economic utility in some recognized currency.
     """
     
-    resource_type = "Money"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -21,21 +19,21 @@ class Money(element.Element):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.currency = None
-        """ ISO 4217 Currency Code.
-        Type `FHIRCode` (represented as `str` in JSON). """
-        
         self.value = None
         """ Numerical value (with implicit precision).
         Type `float`. """
+        
+        self.currency = None
+        """ ISO 4217 Currency Code.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(Money, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Money, self).elementProperties()
         js.extend([
-            ("currency", "currency", fhirdatatypes.FHIRCode, False, None, False),
             ("value", "value", float, False, None, False),
+            ("currency", "currency", fhirdatatypes.FHIRCode, False, None, False),
         ])
         return js
 

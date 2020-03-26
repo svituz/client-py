@@ -26,18 +26,38 @@ class Organization(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.identifier = None
+        """ Identifies this organization  across multiple systems.
+        List of `Identifier` items (represented as `dict` in JSON). """
+        
         self.active = None
         """ Whether the organization's record is still in active use.
         Type `bool`. """
         
-        self.address = None
-        """ An address for the organization.
-        List of `Address` items (represented as `dict` in JSON). """
+        self.type = None
+        """ Kind of organization.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.name = None
+        """ Name used for the organization.
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.alias = None
         """ A list of alternate names that the organization is known as, or was
         known as in the past.
         List of `FHIRString` items (represented as `str` in JSON). """
+        
+        self.telecom = None
+        """ A contact detail for the organization.
+        List of `ContactPoint` items (represented as `dict` in JSON). """
+        
+        self.address = None
+        """ An address for the organization.
+        List of `Address` items (represented as `dict` in JSON). """
+        
+        self.partOf = None
+        """ The organization of which this organization forms a part.
+        Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.contact = None
         """ Contact for the organization for a certain purpose.
@@ -48,41 +68,21 @@ class Organization(domainresource.DomainResource):
         organization.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.identifier = None
-        """ Identifies this organization  across multiple systems.
-        List of `Identifier` items (represented as `dict` in JSON). """
-        
-        self.name = None
-        """ Name used for the organization.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
-        self.partOf = None
-        """ The organization of which this organization forms a part.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-        
-        self.telecom = None
-        """ A contact detail for the organization.
-        List of `ContactPoint` items (represented as `dict` in JSON). """
-        
-        self.type = None
-        """ Kind of organization.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
         super(Organization, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Organization, self).elementProperties()
         js.extend([
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("active", "active", bool, False, None, False),
-            ("address", "address", address.Address, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
             ("alias", "alias", fhirdatatypes.FHIRString, True, None, False),
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
+            ("address", "address", address.Address, True, None, False),
+            ("partOf", "partOf", fhirreference.FHIRReference, False, None, False),
             ("contact", "contact", OrganizationContact, True, None, False),
             ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("partOf", "partOf", fhirreference.FHIRReference, False, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 
@@ -94,8 +94,6 @@ class OrganizationContact(backboneelement.BackboneElement):
     """ Contact for the organization for a certain purpose.
     """
     
-    resource_type = "OrganizationContact"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -104,31 +102,31 @@ class OrganizationContact(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.address = None
-        """ Visiting or postal addresses for the contact.
-        Type `Address` (represented as `dict` in JSON). """
+        self.purpose = None
+        """ The type of contact.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
         
         self.name = None
         """ A name associated with the contact.
         Type `HumanName` (represented as `dict` in JSON). """
         
-        self.purpose = None
-        """ The type of contact.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
         self.telecom = None
         """ Contact details (telephone, email, etc.)  for a contact.
         List of `ContactPoint` items (represented as `dict` in JSON). """
+        
+        self.address = None
+        """ Visiting or postal addresses for the contact.
+        Type `Address` (represented as `dict` in JSON). """
         
         super(OrganizationContact, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(OrganizationContact, self).elementProperties()
         js.extend([
-            ("address", "address", address.Address, False, None, False),
-            ("name", "name", humanname.HumanName, False, None, False),
             ("purpose", "purpose", codeableconcept.CodeableConcept, False, None, False),
+            ("name", "name", humanname.HumanName, False, None, False),
             ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
+            ("address", "address", address.Address, False, None, False),
         ])
         return js
 

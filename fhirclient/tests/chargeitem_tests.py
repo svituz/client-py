@@ -39,6 +39,8 @@ class ChargeItemTests(unittest.TestCase):
         self.assertEqual(inst.enteredDate.value, FHIRDateTime("2017-01-25T23:55:04+01:00").value)
         self.assertEqual(inst.enteredDate.as_json(), "2017-01-25T23:55:04+01:00")
         self.assertEqual(inst.factorOverride, 0.8)
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://myHospital.org/ChargeItems").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://myHospital.org/ChargeItems")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("654321").value)

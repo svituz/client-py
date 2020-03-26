@@ -81,6 +81,8 @@ class ImplementationGuideTests(unittest.TestCase):
         self.assertEqual(inst.global_fhir[0].profile.as_json(), "http://hl7.org/fhir/us/core/StructureDefinition/patient")
         self.assertEqual(inst.global_fhir[0].type.value, FHIRCode("Patient").value)
         self.assertEqual(inst.global_fhir[0].type.as_json(), "Patient")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.jurisdiction[0].coding[0].code.value, FHIRCode("US").value)
         self.assertEqual(inst.jurisdiction[0].coding[0].code.as_json(), "US")
         self.assertEqual(inst.jurisdiction[0].coding[0].system.value, FHIRUri("urn:iso:std:iso:3166").value)

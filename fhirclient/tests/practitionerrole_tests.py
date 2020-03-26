@@ -59,6 +59,8 @@ class PractitionerRoleTests(unittest.TestCase):
         self.assertEqual(inst.code[0].coding[0].code.as_json(), "RP")
         self.assertEqual(inst.code[0].coding[0].system.value, FHIRUri("http://terminology.hl7.org/CodeSystem/v2-0286").value)
         self.assertEqual(inst.code[0].coding[0].system.as_json(), "http://terminology.hl7.org/CodeSystem/v2-0286")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://www.acme.org/practitioners").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://www.acme.org/practitioners")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("23").value)

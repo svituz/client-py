@@ -46,6 +46,8 @@ class AllergyIntoleranceTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].system.as_json(), "http://snomed.info/sct")
         self.assertEqual(inst.criticality.value, FHIRCode("high").value)
         self.assertEqual(inst.criticality.as_json(), "high")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://acme.com/ids/patients/risks").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://acme.com/ids/patients/risks")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("49476534").value)

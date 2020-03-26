@@ -14,8 +14,6 @@ class MetadataResource(domainresource.DomainResource):
     resources.
     """
     
-    resource_type = "MetadataResource"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -24,72 +22,72 @@ class MetadataResource(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.contact = None
-        """ Contact details for the publisher.
-        List of `ContactDetail` items (represented as `dict` in JSON). """
+        self.url = None
+        """ Canonical identifier for this metadata resource, represented as a
+        URI (globally unique).
+        Type `FHIRUri` (represented as `str` in JSON). """
         
-        self.date = None
-        """ Date last changed.
-        Type `FHIRDateTime` (represented as `str` in JSON). """
-        
-        self.description = None
-        """ Natural language description of the metadata resource.
-        Type `FHIRMarkdown` (represented as `str` in JSON). """
-        
-        self.experimental = None
-        """ For testing purposes, not real usage.
-        Type `bool`. """
-        
-        self.jurisdiction = None
-        """ Intended jurisdiction for metadata resource (if applicable).
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        self.version = None
+        """ Business version of the metadata resource.
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.name = None
         """ Name for this metadata resource (computer friendly).
         Type `FHIRString` (represented as `str` in JSON). """
         
-        self.publisher = None
-        """ Name of the publisher (organization or individual).
+        self.title = None
+        """ Name for this metadata resource (human friendly).
         Type `FHIRString` (represented as `str` in JSON). """
         
         self.status = None
         """ draft | active | retired | unknown.
         Type `FHIRCode` (represented as `str` in JSON). """
         
-        self.title = None
-        """ Name for this metadata resource (human friendly).
+        self.experimental = None
+        """ For testing purposes, not real usage.
+        Type `bool`. """
+        
+        self.date = None
+        """ Date last changed.
+        Type `FHIRDateTime` (represented as `str` in JSON). """
+        
+        self.publisher = None
+        """ Name of the publisher (organization or individual).
         Type `FHIRString` (represented as `str` in JSON). """
         
-        self.url = None
-        """ Canonical identifier for this metadata resource, represented as a
-        URI (globally unique).
-        Type `FHIRUri` (represented as `str` in JSON). """
+        self.contact = None
+        """ Contact details for the publisher.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
+        
+        self.description = None
+        """ Natural language description of the metadata resource.
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.useContext = None
         """ The context that the content is intended to support.
         List of `UsageContext` items (represented as `dict` in JSON). """
         
-        self.version = None
-        """ Business version of the metadata resource.
-        Type `FHIRString` (represented as `str` in JSON). """
+        self.jurisdiction = None
+        """ Intended jurisdiction for metadata resource (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         super(MetadataResource, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(MetadataResource, self).elementProperties()
         js.extend([
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("experimental", "experimental", bool, False, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
             ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
             ("version", "version", fhirdatatypes.FHIRString, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
+            ("experimental", "experimental", bool, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 

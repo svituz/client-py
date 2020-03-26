@@ -51,6 +51,8 @@ class ParametersTests(unittest.TestCase):
         self.assertEqual(inst.parameter[1].part[1].valueCode.as_json(), "top")
         self.assertEqual(inst.parameter[2].name.value, FHIRString("patient").value)
         self.assertEqual(inst.parameter[2].name.as_json(), "patient")
+        self.assertEqual(inst.parameter[2].resource.id.value, FHIRString("example").value)
+        self.assertEqual(inst.parameter[2].resource.id.as_json(), "example")
 
 
 from fhirclient.models.fhirdatatypes import FHIRCode, FHIRString, FHIRUri

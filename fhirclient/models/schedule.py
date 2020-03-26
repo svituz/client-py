@@ -22,25 +22,13 @@ class Schedule(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.active = None
-        """ Whether this schedule is in active use.
-        Type `bool`. """
-        
-        self.actor = None
-        """ Resource(s) that availability information is being provided for.
-        List of `FHIRReference` items (represented as `dict` in JSON). """
-        
-        self.comment = None
-        """ Comments on availability.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
         self.identifier = None
         """ External Ids for this item.
         List of `Identifier` items (represented as `dict` in JSON). """
         
-        self.planningHorizon = None
-        """ Period of time covered by schedule.
-        Type `Period` (represented as `dict` in JSON). """
+        self.active = None
+        """ Whether this schedule is in active use.
+        Type `bool`. """
         
         self.serviceCategory = None
         """ High-level category.
@@ -54,19 +42,31 @@ class Schedule(domainresource.DomainResource):
         """ Type of specialty needed.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
+        self.actor = None
+        """ Resource(s) that availability information is being provided for.
+        List of `FHIRReference` items (represented as `dict` in JSON). """
+        
+        self.planningHorizon = None
+        """ Period of time covered by schedule.
+        Type `Period` (represented as `dict` in JSON). """
+        
+        self.comment = None
+        """ Comments on availability.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
         super(Schedule, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(Schedule, self).elementProperties()
         js.extend([
-            ("active", "active", bool, False, None, False),
-            ("actor", "actor", fhirreference.FHIRReference, True, None, True),
-            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("planningHorizon", "planningHorizon", period.Period, False, None, False),
+            ("active", "active", bool, False, None, False),
             ("serviceCategory", "serviceCategory", codeableconcept.CodeableConcept, True, None, False),
             ("serviceType", "serviceType", codeableconcept.CodeableConcept, True, None, False),
             ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False),
+            ("actor", "actor", fhirreference.FHIRReference, True, None, True),
+            ("planningHorizon", "planningHorizon", period.Period, False, None, False),
+            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
 

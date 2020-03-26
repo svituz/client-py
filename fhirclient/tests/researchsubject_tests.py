@@ -30,6 +30,8 @@ class ResearchSubjectTests(unittest.TestCase):
         self.implResearchSubject1(inst2)
 
     def implResearchSubject1(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://example.org/studysubjectids").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://example.org/studysubjectids")
         self.assertEqual(inst.identifier[0].type.text.value, FHIRString("Subject id").value)
@@ -50,4 +52,4 @@ class ResearchSubjectTests(unittest.TestCase):
         self.assertEqual(inst.text.status.as_json(), "generated")
 
 
-from fhirclient.models.fhirdatatypes import FHIRUri, FHIRString, FHIRCode
+from fhirclient.models.fhirdatatypes import FHIRString, FHIRUri, FHIRCode

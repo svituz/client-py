@@ -34,6 +34,8 @@ class VisionPrescriptionTests(unittest.TestCase):
         self.assertEqual(inst.created.as_json(), "2014-06-15")
         self.assertEqual(inst.dateWritten.value, FHIRDateTime("2014-06-15").value)
         self.assertEqual(inst.dateWritten.as_json(), "2014-06-15")
+        self.assertEqual(inst.id.value, FHIRString("33123").value)
+        self.assertEqual(inst.id.as_json(), "33123")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://www.happysight.com/prescription").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://www.happysight.com/prescription")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("15013").value)
@@ -88,6 +90,8 @@ class VisionPrescriptionTests(unittest.TestCase):
         self.assertEqual(inst.created.as_json(), "2014-06-15")
         self.assertEqual(inst.dateWritten.value, FHIRDateTime("2014-06-15").value)
         self.assertEqual(inst.dateWritten.as_json(), "2014-06-15")
+        self.assertEqual(inst.id.value, FHIRString("33124").value)
+        self.assertEqual(inst.id.as_json(), "33124")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://www.happysight.com/prescription").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://www.happysight.com/prescription")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("15014").value)
@@ -156,4 +160,4 @@ class VisionPrescriptionTests(unittest.TestCase):
         self.assertEqual(inst.text.status.as_json(), "generated")
 
 
-from fhirclient.models.fhirdatatypes import FHIRDateTime, FHIRUri, FHIRString, FHIRCode, FHIRMarkdown
+from fhirclient.models.fhirdatatypes import FHIRDateTime, FHIRString, FHIRUri, FHIRCode, FHIRMarkdown

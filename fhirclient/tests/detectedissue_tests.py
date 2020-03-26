@@ -30,6 +30,8 @@ class DetectedIssueTests(unittest.TestCase):
         self.implDetectedIssue1(inst2)
 
     def implDetectedIssue1(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("lab").value)
+        self.assertEqual(inst.id.as_json(), "lab")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)
@@ -62,6 +64,8 @@ class DetectedIssueTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].system.as_json(), "http://terminology.hl7.org/CodeSystem/v3-ActCode")
         self.assertEqual(inst.detail.value, FHIRString("Similar test was performed within the past 14 days").value)
         self.assertEqual(inst.detail.as_json(), "Similar test was performed within the past 14 days")
+        self.assertEqual(inst.id.value, FHIRString("duplicate").value)
+        self.assertEqual(inst.id.as_json(), "duplicate")
         self.assertEqual(inst.identifiedDateTime.value, FHIRDateTime("2013-05-08").value)
         self.assertEqual(inst.identifiedDateTime.as_json(), "2013-05-08")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://example.org").value)
@@ -94,6 +98,8 @@ class DetectedIssueTests(unittest.TestCase):
         self.implDetectedIssue3(inst2)
 
     def implDetectedIssue3(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("allergy").value)
+        self.assertEqual(inst.id.as_json(), "allergy")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)
@@ -124,6 +130,8 @@ class DetectedIssueTests(unittest.TestCase):
         self.assertEqual(inst.code.coding[0].display.as_json(), "Drug Interaction Alert")
         self.assertEqual(inst.code.coding[0].system.value, FHIRUri("http://terminology.hl7.org/CodeSystem/v3-ActCode").value)
         self.assertEqual(inst.code.coding[0].system.as_json(), "http://terminology.hl7.org/CodeSystem/v3-ActCode")
+        self.assertEqual(inst.id.value, FHIRString("ddi").value)
+        self.assertEqual(inst.id.as_json(), "ddi")
         self.assertEqual(inst.identifiedDateTime.value, FHIRDateTime("2014-01-05").value)
         self.assertEqual(inst.identifiedDateTime.as_json(), "2014-01-05")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
@@ -150,4 +158,4 @@ class DetectedIssueTests(unittest.TestCase):
         self.assertEqual(inst.text.status.as_json(), "generated")
 
 
-from fhirclient.models.fhirdatatypes import FHIRCode, FHIRString, FHIRUri, FHIRDateTime
+from fhirclient.models.fhirdatatypes import FHIRString, FHIRCode, FHIRUri, FHIRDateTime

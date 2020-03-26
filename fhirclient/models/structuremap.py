@@ -22,102 +22,102 @@ class StructureMap(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.contact = None
-        """ Contact details for the publisher.
-        List of `ContactDetail` items (represented as `dict` in JSON). """
-        
-        self.copyright = None
-        """ Use and/or publishing restrictions.
-        Type `FHIRMarkdown` (represented as `str` in JSON). """
-        
-        self.date = None
-        """ Date last changed.
-        Type `FHIRDateTime` (represented as `str` in JSON). """
-        
-        self.description = None
-        """ Natural language description of the structure map.
-        Type `FHIRMarkdown` (represented as `str` in JSON). """
-        
-        self.experimental = None
-        """ For testing purposes, not real usage.
-        Type `bool`. """
-        
-        self.group = None
-        """ Named sections for reader convenience.
-        List of `StructureMapGroup` items (represented as `dict` in JSON). """
-        
-        self.identifier = None
-        """ Additional identifier for the structure map.
-        List of `Identifier` items (represented as `dict` in JSON). """
-        
-        self.import_fhir = None
-        """ Other maps used by this map (canonical URLs).
-        List of `FHIRCanonical` items (represented as `str` in JSON). """
-        
-        self.jurisdiction = None
-        """ Intended jurisdiction for structure map (if applicable).
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
-        self.name = None
-        """ Name for this structure map (computer friendly).
-        Type `FHIRString` (represented as `str` in JSON). """
-        
-        self.publisher = None
-        """ Name of the publisher (organization or individual).
-        Type `FHIRString` (represented as `str` in JSON). """
-        
-        self.purpose = None
-        """ Why this structure map is defined.
-        Type `FHIRMarkdown` (represented as `str` in JSON). """
-        
-        self.status = None
-        """ draft | active | retired | unknown.
-        Type `FHIRCode` (represented as `str` in JSON). """
-        
-        self.structure = None
-        """ Structure Definition used by this map.
-        List of `StructureMapStructure` items (represented as `dict` in JSON). """
-        
-        self.title = None
-        """ Name for this structure map (human friendly).
-        Type `FHIRString` (represented as `str` in JSON). """
-        
         self.url = None
         """ Canonical identifier for this structure map, represented as a URI
         (globally unique).
         Type `FHIRUri` (represented as `str` in JSON). """
         
-        self.useContext = None
-        """ The context that the content is intended to support.
-        List of `UsageContext` items (represented as `dict` in JSON). """
+        self.identifier = None
+        """ Additional identifier for the structure map.
+        List of `Identifier` items (represented as `dict` in JSON). """
         
         self.version = None
         """ Business version of the structure map.
         Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.name = None
+        """ Name for this structure map (computer friendly).
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.title = None
+        """ Name for this structure map (human friendly).
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.status = None
+        """ draft | active | retired | unknown.
+        Type `FHIRCode` (represented as `str` in JSON). """
+        
+        self.experimental = None
+        """ For testing purposes, not real usage.
+        Type `bool`. """
+        
+        self.date = None
+        """ Date last changed.
+        Type `FHIRDateTime` (represented as `str` in JSON). """
+        
+        self.publisher = None
+        """ Name of the publisher (organization or individual).
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.contact = None
+        """ Contact details for the publisher.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
+        
+        self.description = None
+        """ Natural language description of the structure map.
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
+        
+        self.useContext = None
+        """ The context that the content is intended to support.
+        List of `UsageContext` items (represented as `dict` in JSON). """
+        
+        self.jurisdiction = None
+        """ Intended jurisdiction for structure map (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.purpose = None
+        """ Why this structure map is defined.
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
+        
+        self.copyright = None
+        """ Use and/or publishing restrictions.
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
+        
+        self.structure = None
+        """ Structure Definition used by this map.
+        List of `StructureMapStructure` items (represented as `dict` in JSON). """
+        
+        self.import_fhir = None
+        """ Other maps used by this map (canonical URLs).
+        List of `FHIRCanonical` items (represented as `str` in JSON). """
+        
+        self.group = None
+        """ Named sections for reader convenience.
+        List of `StructureMapGroup` items (represented as `dict` in JSON). """
         
         super(StructureMap, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureMap, self).elementProperties()
         js.extend([
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("experimental", "experimental", bool, False, None, False),
-            ("group", "group", StructureMapGroup, True, None, True),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("import_fhir", "import", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("structure", "structure", StructureMapStructure, True, None, False),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
             ("url", "url", fhirdatatypes.FHIRUri, False, None, True),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("version", "version", fhirdatatypes.FHIRString, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
+            ("experimental", "experimental", bool, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("structure", "structure", StructureMapStructure, True, None, False),
+            ("import_fhir", "import", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("group", "group", StructureMapGroup, True, None, True),
         ])
         return js
 
@@ -132,8 +132,6 @@ class StructureMapGroup(backboneelement.BackboneElement):
     maintenance.
     """
     
-    resource_type = "StructureMapGroup"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -142,41 +140,41 @@ class StructureMapGroup(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.documentation = None
-        """ Additional description/explanation for group.
-        Type `FHIRString` (represented as `str` in JSON). """
+        self.name = None
+        """ Human-readable label.
+        Type `FHIRId` (represented as `str` in JSON). """
         
         self.extends = None
         """ Another group that this group adds rules to.
         Type `FHIRId` (represented as `str` in JSON). """
         
+        self.typeMode = None
+        """ none | types | type-and-types.
+        Type `FHIRCode` (represented as `str` in JSON). """
+        
+        self.documentation = None
+        """ Additional description/explanation for group.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
         self.input = None
         """ Named instance provided when invoking the map.
         List of `StructureMapGroupInput` items (represented as `dict` in JSON). """
         
-        self.name = None
-        """ Human-readable label.
-        Type `FHIRId` (represented as `str` in JSON). """
-        
         self.rule = None
         """ Transform Rule from source to target.
         List of `StructureMapGroupRule` items (represented as `dict` in JSON). """
-        
-        self.typeMode = None
-        """ none | types | type-and-types.
-        Type `FHIRCode` (represented as `str` in JSON). """
         
         super(StructureMapGroup, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureMapGroup, self).elementProperties()
         js.extend([
-            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False),
-            ("extends", "extends", fhirdatatypes.FHIRId, False, None, False),
-            ("input", "input", StructureMapGroupInput, True, None, True),
             ("name", "name", fhirdatatypes.FHIRId, False, None, True),
-            ("rule", "rule", StructureMapGroupRule, True, None, True),
+            ("extends", "extends", fhirdatatypes.FHIRId, False, None, False),
             ("typeMode", "typeMode", fhirdatatypes.FHIRCode, False, None, True),
+            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False),
+            ("input", "input", StructureMapGroupInput, True, None, True),
+            ("rule", "rule", StructureMapGroupRule, True, None, True),
         ])
         return js
 
@@ -190,8 +188,6 @@ class StructureMapGroupInput(backboneelement.BackboneElement):
     the mapping is invoked.
     """
     
-    resource_type = "StructureMapGroupInput"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -199,14 +195,6 @@ class StructureMapGroupInput(backboneelement.BackboneElement):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
-        
-        self.documentation = None
-        """ Documentation for this instance of data.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
-        self.mode = None
-        """ source | target.
-        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.name = None
         """ Name for this instance of data.
@@ -216,15 +204,23 @@ class StructureMapGroupInput(backboneelement.BackboneElement):
         """ Type for this instance of data.
         Type `FHIRString` (represented as `str` in JSON). """
         
+        self.mode = None
+        """ source | target.
+        Type `FHIRCode` (represented as `str` in JSON). """
+        
+        self.documentation = None
+        """ Documentation for this instance of data.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
         super(StructureMapGroupInput, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureMapGroupInput, self).elementProperties()
         js.extend([
-            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False),
-            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, True),
             ("name", "name", fhirdatatypes.FHIRId, False, None, True),
             ("type", "type", fhirdatatypes.FHIRString, False, None, False),
+            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, True),
+            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
 
@@ -235,8 +231,6 @@ class StructureMapGroupRule(backboneelement.BackboneElement):
     """ Transform Rule from source to target.
     """
     
-    resource_type = "StructureMapGroupRule"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -245,21 +239,9 @@ class StructureMapGroupRule(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.dependent = None
-        """ Which other rules to apply in the context of this rule.
-        List of `StructureMapGroupRuleDependent` items (represented as `dict` in JSON). """
-        
-        self.documentation = None
-        """ Documentation for this instance of data.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
         self.name = None
         """ Name of the rule for internal references.
         Type `FHIRId` (represented as `str` in JSON). """
-        
-        self.rule = None
-        """ Rules contained in this rule.
-        List of `StructureMapGroupRule` items (represented as `dict` in JSON). """
         
         self.source = None
         """ Source inputs to the mapping.
@@ -269,17 +251,29 @@ class StructureMapGroupRule(backboneelement.BackboneElement):
         """ Content to create because of this mapping rule.
         List of `StructureMapGroupRuleTarget` items (represented as `dict` in JSON). """
         
+        self.rule = None
+        """ Rules contained in this rule.
+        List of `StructureMapGroupRule` items (represented as `dict` in JSON). """
+        
+        self.dependent = None
+        """ Which other rules to apply in the context of this rule.
+        List of `StructureMapGroupRuleDependent` items (represented as `dict` in JSON). """
+        
+        self.documentation = None
+        """ Documentation for this instance of data.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
         super(StructureMapGroupRule, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureMapGroupRule, self).elementProperties()
         js.extend([
-            ("dependent", "dependent", StructureMapGroupRuleDependent, True, None, False),
-            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False),
             ("name", "name", fhirdatatypes.FHIRId, False, None, True),
-            ("rule", "rule", StructureMapGroupRule, True, None, False),
             ("source", "source", StructureMapGroupRuleSource, True, None, True),
             ("target", "target", StructureMapGroupRuleTarget, True, None, False),
+            ("rule", "rule", StructureMapGroupRule, True, None, False),
+            ("dependent", "dependent", StructureMapGroupRuleDependent, True, None, False),
+            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
 
@@ -289,8 +283,6 @@ class StructureMapGroupRule(backboneelement.BackboneElement):
 class StructureMapGroupRuleDependent(backboneelement.BackboneElement):
     """ Which other rules to apply in the context of this rule.
     """
-    
-    resource_type = "StructureMapGroupRuleDependent"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -325,8 +317,6 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
     """ Source inputs to the mapping.
     """
     
-    resource_type = "StructureMapGroupRuleSource"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -335,34 +325,21 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.check = None
-        """ FHIRPath expression  - must be true or the mapping engine throws an
-        error instead of completing.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
-        self.condition = None
-        """ FHIRPath expression  - must be true or the rule does not apply.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
         self.context = None
         """ Type or variable this rule applies to.
         Type `FHIRId` (represented as `str` in JSON). """
         
-        self.defaultValueAddress = None
-        """ Default value if no value exists.
-        Type `Address` (represented as `dict` in JSON). """
+        self.min = None
+        """ Specified minimum cardinality.
+        Type `int`. """
         
-        self.defaultValueAge = None
-        """ Default value if no value exists.
-        Type `Age` (represented as `dict` in JSON). """
+        self.max = None
+        """ Specified maximum cardinality (number or *).
+        Type `FHIRString` (represented as `str` in JSON). """
         
-        self.defaultValueAnnotation = None
-        """ Default value if no value exists.
-        Type `Annotation` (represented as `dict` in JSON). """
-        
-        self.defaultValueAttachment = None
-        """ Default value if no value exists.
-        Type `Attachment` (represented as `dict` in JSON). """
+        self.type = None
+        """ Rule only applies if source has this type.
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.defaultValueBase64Binary = None
         """ Default value if no value exists.
@@ -380,34 +357,6 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         """ Default value if no value exists.
         Type `FHIRCode` (represented as `str` in JSON). """
         
-        self.defaultValueCodeableConcept = None
-        """ Default value if no value exists.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.defaultValueCoding = None
-        """ Default value if no value exists.
-        Type `Coding` (represented as `dict` in JSON). """
-        
-        self.defaultValueContactDetail = None
-        """ Default value if no value exists.
-        Type `ContactDetail` (represented as `dict` in JSON). """
-        
-        self.defaultValueContactPoint = None
-        """ Default value if no value exists.
-        Type `ContactPoint` (represented as `dict` in JSON). """
-        
-        self.defaultValueContributor = None
-        """ Default value if no value exists.
-        Type `Contributor` (represented as `dict` in JSON). """
-        
-        self.defaultValueCount = None
-        """ Default value if no value exists.
-        Type `Count` (represented as `dict` in JSON). """
-        
-        self.defaultValueDataRequirement = None
-        """ Default value if no value exists.
-        Type `DataRequirement` (represented as `dict` in JSON). """
-        
         self.defaultValueDate = None
         """ Default value if no value exists.
         Type `FHIRDate` (represented as `str` in JSON). """
@@ -420,33 +369,9 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         """ Default value if no value exists.
         Type `float`. """
         
-        self.defaultValueDistance = None
-        """ Default value if no value exists.
-        Type `Distance` (represented as `dict` in JSON). """
-        
-        self.defaultValueDosage = None
-        """ Default value if no value exists.
-        Type `Dosage` (represented as `dict` in JSON). """
-        
-        self.defaultValueDuration = None
-        """ Default value if no value exists.
-        Type `Duration` (represented as `dict` in JSON). """
-        
-        self.defaultValueExpression = None
-        """ Default value if no value exists.
-        Type `Expression` (represented as `dict` in JSON). """
-        
-        self.defaultValueHumanName = None
-        """ Default value if no value exists.
-        Type `HumanName` (represented as `dict` in JSON). """
-        
         self.defaultValueId = None
         """ Default value if no value exists.
         Type `FHIRId` (represented as `str` in JSON). """
-        
-        self.defaultValueIdentifier = None
-        """ Default value if no value exists.
-        Type `Identifier` (represented as `dict` in JSON). """
         
         self.defaultValueInstant = None
         """ Default value if no value exists.
@@ -460,29 +385,93 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         """ Default value if no value exists.
         Type `FHIRMarkdown` (represented as `str` in JSON). """
         
-        self.defaultValueMeta = None
+        self.defaultValueOid = None
         """ Default value if no value exists.
-        Type `Meta` (represented as `dict` in JSON). """
+        Type `FHIROid` (represented as `str` in JSON). """
+        
+        self.defaultValuePositiveInt = None
+        """ Default value if no value exists.
+        Type `FHIRPositiveInt` (represented as `int` in JSON). """
+        
+        self.defaultValueString = None
+        """ Default value if no value exists.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.defaultValueTime = None
+        """ Default value if no value exists.
+        Type `FHIRTime` (represented as `str` in JSON). """
+        
+        self.defaultValueUnsignedInt = None
+        """ Default value if no value exists.
+        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
+        
+        self.defaultValueUri = None
+        """ Default value if no value exists.
+        Type `FHIRUri` (represented as `str` in JSON). """
+        
+        self.defaultValueUrl = None
+        """ Default value if no value exists.
+        Type `FHIRUrl` (represented as `str` in JSON). """
+        
+        self.defaultValueUuid = None
+        """ Default value if no value exists.
+        Type `FHIRUuid` (represented as `str` in JSON). """
+        
+        self.defaultValueAddress = None
+        """ Default value if no value exists.
+        Type `Address` (represented as `dict` in JSON). """
+        
+        self.defaultValueAge = None
+        """ Default value if no value exists.
+        Type `Age` (represented as `dict` in JSON). """
+        
+        self.defaultValueAnnotation = None
+        """ Default value if no value exists.
+        Type `Annotation` (represented as `dict` in JSON). """
+        
+        self.defaultValueAttachment = None
+        """ Default value if no value exists.
+        Type `Attachment` (represented as `dict` in JSON). """
+        
+        self.defaultValueCodeableConcept = None
+        """ Default value if no value exists.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.defaultValueCoding = None
+        """ Default value if no value exists.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.defaultValueContactPoint = None
+        """ Default value if no value exists.
+        Type `ContactPoint` (represented as `dict` in JSON). """
+        
+        self.defaultValueCount = None
+        """ Default value if no value exists.
+        Type `Count` (represented as `dict` in JSON). """
+        
+        self.defaultValueDistance = None
+        """ Default value if no value exists.
+        Type `Distance` (represented as `dict` in JSON). """
+        
+        self.defaultValueDuration = None
+        """ Default value if no value exists.
+        Type `Duration` (represented as `dict` in JSON). """
+        
+        self.defaultValueHumanName = None
+        """ Default value if no value exists.
+        Type `HumanName` (represented as `dict` in JSON). """
+        
+        self.defaultValueIdentifier = None
+        """ Default value if no value exists.
+        Type `Identifier` (represented as `dict` in JSON). """
         
         self.defaultValueMoney = None
         """ Default value if no value exists.
         Type `Money` (represented as `dict` in JSON). """
         
-        self.defaultValueOid = None
-        """ Default value if no value exists.
-        Type `FHIROid` (represented as `str` in JSON). """
-        
-        self.defaultValueParameterDefinition = None
-        """ Default value if no value exists.
-        Type `ParameterDefinition` (represented as `dict` in JSON). """
-        
         self.defaultValuePeriod = None
         """ Default value if no value exists.
         Type `Period` (represented as `dict` in JSON). """
-        
-        self.defaultValuePositiveInt = None
-        """ Default value if no value exists.
-        Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.defaultValueQuantity = None
         """ Default value if no value exists.
@@ -500,10 +489,6 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         """ Default value if no value exists.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
-        self.defaultValueRelatedArtifact = None
-        """ Default value if no value exists.
-        Type `RelatedArtifact` (represented as `dict` in JSON). """
-        
         self.defaultValueSampledData = None
         """ Default value if no value exists.
         Type `SampledData` (represented as `dict` in JSON). """
@@ -512,41 +497,49 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         """ Default value if no value exists.
         Type `Signature` (represented as `dict` in JSON). """
         
-        self.defaultValueString = None
-        """ Default value if no value exists.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
-        self.defaultValueTime = None
-        """ Default value if no value exists.
-        Type `FHIRTime` (represented as `str` in JSON). """
-        
         self.defaultValueTiming = None
         """ Default value if no value exists.
         Type `Timing` (represented as `dict` in JSON). """
+        
+        self.defaultValueContactDetail = None
+        """ Default value if no value exists.
+        Type `ContactDetail` (represented as `dict` in JSON). """
+        
+        self.defaultValueContributor = None
+        """ Default value if no value exists.
+        Type `Contributor` (represented as `dict` in JSON). """
+        
+        self.defaultValueDataRequirement = None
+        """ Default value if no value exists.
+        Type `DataRequirement` (represented as `dict` in JSON). """
+        
+        self.defaultValueExpression = None
+        """ Default value if no value exists.
+        Type `Expression` (represented as `dict` in JSON). """
+        
+        self.defaultValueParameterDefinition = None
+        """ Default value if no value exists.
+        Type `ParameterDefinition` (represented as `dict` in JSON). """
+        
+        self.defaultValueRelatedArtifact = None
+        """ Default value if no value exists.
+        Type `RelatedArtifact` (represented as `dict` in JSON). """
         
         self.defaultValueTriggerDefinition = None
         """ Default value if no value exists.
         Type `TriggerDefinition` (represented as `dict` in JSON). """
         
-        self.defaultValueUnsignedInt = None
-        """ Default value if no value exists.
-        Type `FHIRUnsignedInt` (represented as `int` in JSON). """
-        
-        self.defaultValueUri = None
-        """ Default value if no value exists.
-        Type `FHIRUri` (represented as `str` in JSON). """
-        
-        self.defaultValueUrl = None
-        """ Default value if no value exists.
-        Type `FHIRUrl` (represented as `str` in JSON). """
-        
         self.defaultValueUsageContext = None
         """ Default value if no value exists.
         Type `UsageContext` (represented as `dict` in JSON). """
         
-        self.defaultValueUuid = None
+        self.defaultValueDosage = None
         """ Default value if no value exists.
-        Type `FHIRUuid` (represented as `str` in JSON). """
+        Type `Dosage` (represented as `dict` in JSON). """
+        
+        self.defaultValueMeta = None
+        """ Default value if no value exists.
+        Type `Meta` (represented as `dict` in JSON). """
         
         self.element = None
         """ Optional field for this source.
@@ -556,91 +549,88 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
         """ first | not_first | last | not_last | only_one.
         Type `FHIRCode` (represented as `str` in JSON). """
         
-        self.logMessage = None
-        """ Message to put in log if source exists (FHIRPath).
-        Type `FHIRString` (represented as `str` in JSON). """
-        
-        self.max = None
-        """ Specified maximum cardinality (number or *).
-        Type `FHIRString` (represented as `str` in JSON). """
-        
-        self.min = None
-        """ Specified minimum cardinality.
-        Type `int`. """
-        
-        self.type = None
-        """ Rule only applies if source has this type.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
         self.variable = None
         """ Named context for field, if a field is specified.
         Type `FHIRId` (represented as `str` in JSON). """
+        
+        self.condition = None
+        """ FHIRPath expression  - must be true or the rule does not apply.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.check = None
+        """ FHIRPath expression  - must be true or the mapping engine throws an
+        error instead of completing.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.logMessage = None
+        """ Message to put in log if source exists (FHIRPath).
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(StructureMapGroupRuleSource, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureMapGroupRuleSource, self).elementProperties()
         js.extend([
-            ("check", "check", fhirdatatypes.FHIRString, False, None, False),
-            ("condition", "condition", fhirdatatypes.FHIRString, False, None, False),
             ("context", "context", fhirdatatypes.FHIRId, False, None, True),
-            ("defaultValueAddress", "defaultValueAddress", address.Address, False, "defaultValue", False),
-            ("defaultValueAge", "defaultValueAge", age.Age, False, "defaultValue", False),
-            ("defaultValueAnnotation", "defaultValueAnnotation", annotation.Annotation, False, "defaultValue", False),
-            ("defaultValueAttachment", "defaultValueAttachment", attachment.Attachment, False, "defaultValue", False),
+            ("min", "min", int, False, None, False),
+            ("max", "max", fhirdatatypes.FHIRString, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRString, False, None, False),
             ("defaultValueBase64Binary", "defaultValueBase64Binary", fhirdatatypes.FHIRBase64Binary, False, "defaultValue", False),
             ("defaultValueBoolean", "defaultValueBoolean", bool, False, "defaultValue", False),
             ("defaultValueCanonical", "defaultValueCanonical", fhirdatatypes.FHIRCanonical, False, "defaultValue", False),
             ("defaultValueCode", "defaultValueCode", fhirdatatypes.FHIRCode, False, "defaultValue", False),
-            ("defaultValueCodeableConcept", "defaultValueCodeableConcept", codeableconcept.CodeableConcept, False, "defaultValue", False),
-            ("defaultValueCoding", "defaultValueCoding", coding.Coding, False, "defaultValue", False),
-            ("defaultValueContactDetail", "defaultValueContactDetail", contactdetail.ContactDetail, False, "defaultValue", False),
-            ("defaultValueContactPoint", "defaultValueContactPoint", contactpoint.ContactPoint, False, "defaultValue", False),
-            ("defaultValueContributor", "defaultValueContributor", contributor.Contributor, False, "defaultValue", False),
-            ("defaultValueCount", "defaultValueCount", count.Count, False, "defaultValue", False),
-            ("defaultValueDataRequirement", "defaultValueDataRequirement", datarequirement.DataRequirement, False, "defaultValue", False),
             ("defaultValueDate", "defaultValueDate", fhirdatatypes.FHIRDate, False, "defaultValue", False),
             ("defaultValueDateTime", "defaultValueDateTime", fhirdatatypes.FHIRDateTime, False, "defaultValue", False),
             ("defaultValueDecimal", "defaultValueDecimal", float, False, "defaultValue", False),
-            ("defaultValueDistance", "defaultValueDistance", distance.Distance, False, "defaultValue", False),
-            ("defaultValueDosage", "defaultValueDosage", dosage.Dosage, False, "defaultValue", False),
-            ("defaultValueDuration", "defaultValueDuration", duration.Duration, False, "defaultValue", False),
-            ("defaultValueExpression", "defaultValueExpression", expression.Expression, False, "defaultValue", False),
-            ("defaultValueHumanName", "defaultValueHumanName", humanname.HumanName, False, "defaultValue", False),
             ("defaultValueId", "defaultValueId", fhirdatatypes.FHIRId, False, "defaultValue", False),
-            ("defaultValueIdentifier", "defaultValueIdentifier", identifier.Identifier, False, "defaultValue", False),
             ("defaultValueInstant", "defaultValueInstant", fhirdatatypes.FHIRInstant, False, "defaultValue", False),
             ("defaultValueInteger", "defaultValueInteger", int, False, "defaultValue", False),
             ("defaultValueMarkdown", "defaultValueMarkdown", fhirdatatypes.FHIRMarkdown, False, "defaultValue", False),
-            ("defaultValueMeta", "defaultValueMeta", meta.Meta, False, "defaultValue", False),
-            ("defaultValueMoney", "defaultValueMoney", money.Money, False, "defaultValue", False),
             ("defaultValueOid", "defaultValueOid", fhirdatatypes.FHIROid, False, "defaultValue", False),
-            ("defaultValueParameterDefinition", "defaultValueParameterDefinition", parameterdefinition.ParameterDefinition, False, "defaultValue", False),
-            ("defaultValuePeriod", "defaultValuePeriod", period.Period, False, "defaultValue", False),
             ("defaultValuePositiveInt", "defaultValuePositiveInt", fhirdatatypes.FHIRPositiveInt, False, "defaultValue", False),
+            ("defaultValueString", "defaultValueString", fhirdatatypes.FHIRString, False, "defaultValue", False),
+            ("defaultValueTime", "defaultValueTime", fhirdatatypes.FHIRTime, False, "defaultValue", False),
+            ("defaultValueUnsignedInt", "defaultValueUnsignedInt", fhirdatatypes.FHIRUnsignedInt, False, "defaultValue", False),
+            ("defaultValueUri", "defaultValueUri", fhirdatatypes.FHIRUri, False, "defaultValue", False),
+            ("defaultValueUrl", "defaultValueUrl", fhirdatatypes.FHIRUrl, False, "defaultValue", False),
+            ("defaultValueUuid", "defaultValueUuid", fhirdatatypes.FHIRUuid, False, "defaultValue", False),
+            ("defaultValueAddress", "defaultValueAddress", address.Address, False, "defaultValue", False),
+            ("defaultValueAge", "defaultValueAge", age.Age, False, "defaultValue", False),
+            ("defaultValueAnnotation", "defaultValueAnnotation", annotation.Annotation, False, "defaultValue", False),
+            ("defaultValueAttachment", "defaultValueAttachment", attachment.Attachment, False, "defaultValue", False),
+            ("defaultValueCodeableConcept", "defaultValueCodeableConcept", codeableconcept.CodeableConcept, False, "defaultValue", False),
+            ("defaultValueCoding", "defaultValueCoding", coding.Coding, False, "defaultValue", False),
+            ("defaultValueContactPoint", "defaultValueContactPoint", contactpoint.ContactPoint, False, "defaultValue", False),
+            ("defaultValueCount", "defaultValueCount", count.Count, False, "defaultValue", False),
+            ("defaultValueDistance", "defaultValueDistance", distance.Distance, False, "defaultValue", False),
+            ("defaultValueDuration", "defaultValueDuration", duration.Duration, False, "defaultValue", False),
+            ("defaultValueHumanName", "defaultValueHumanName", humanname.HumanName, False, "defaultValue", False),
+            ("defaultValueIdentifier", "defaultValueIdentifier", identifier.Identifier, False, "defaultValue", False),
+            ("defaultValueMoney", "defaultValueMoney", money.Money, False, "defaultValue", False),
+            ("defaultValuePeriod", "defaultValuePeriod", period.Period, False, "defaultValue", False),
             ("defaultValueQuantity", "defaultValueQuantity", quantity.Quantity, False, "defaultValue", False),
             ("defaultValueRange", "defaultValueRange", range.Range, False, "defaultValue", False),
             ("defaultValueRatio", "defaultValueRatio", ratio.Ratio, False, "defaultValue", False),
             ("defaultValueReference", "defaultValueReference", fhirreference.FHIRReference, False, "defaultValue", False),
-            ("defaultValueRelatedArtifact", "defaultValueRelatedArtifact", relatedartifact.RelatedArtifact, False, "defaultValue", False),
             ("defaultValueSampledData", "defaultValueSampledData", sampleddata.SampledData, False, "defaultValue", False),
             ("defaultValueSignature", "defaultValueSignature", signature.Signature, False, "defaultValue", False),
-            ("defaultValueString", "defaultValueString", fhirdatatypes.FHIRString, False, "defaultValue", False),
-            ("defaultValueTime", "defaultValueTime", fhirdatatypes.FHIRTime, False, "defaultValue", False),
             ("defaultValueTiming", "defaultValueTiming", timing.Timing, False, "defaultValue", False),
+            ("defaultValueContactDetail", "defaultValueContactDetail", contactdetail.ContactDetail, False, "defaultValue", False),
+            ("defaultValueContributor", "defaultValueContributor", contributor.Contributor, False, "defaultValue", False),
+            ("defaultValueDataRequirement", "defaultValueDataRequirement", datarequirement.DataRequirement, False, "defaultValue", False),
+            ("defaultValueExpression", "defaultValueExpression", expression.Expression, False, "defaultValue", False),
+            ("defaultValueParameterDefinition", "defaultValueParameterDefinition", parameterdefinition.ParameterDefinition, False, "defaultValue", False),
+            ("defaultValueRelatedArtifact", "defaultValueRelatedArtifact", relatedartifact.RelatedArtifact, False, "defaultValue", False),
             ("defaultValueTriggerDefinition", "defaultValueTriggerDefinition", triggerdefinition.TriggerDefinition, False, "defaultValue", False),
-            ("defaultValueUnsignedInt", "defaultValueUnsignedInt", fhirdatatypes.FHIRUnsignedInt, False, "defaultValue", False),
-            ("defaultValueUri", "defaultValueUri", fhirdatatypes.FHIRUri, False, "defaultValue", False),
-            ("defaultValueUrl", "defaultValueUrl", fhirdatatypes.FHIRUrl, False, "defaultValue", False),
             ("defaultValueUsageContext", "defaultValueUsageContext", usagecontext.UsageContext, False, "defaultValue", False),
-            ("defaultValueUuid", "defaultValueUuid", fhirdatatypes.FHIRUuid, False, "defaultValue", False),
+            ("defaultValueDosage", "defaultValueDosage", dosage.Dosage, False, "defaultValue", False),
+            ("defaultValueMeta", "defaultValueMeta", meta.Meta, False, "defaultValue", False),
             ("element", "element", fhirdatatypes.FHIRString, False, None, False),
             ("listMode", "listMode", fhirdatatypes.FHIRCode, False, None, False),
-            ("logMessage", "logMessage", fhirdatatypes.FHIRString, False, None, False),
-            ("max", "max", fhirdatatypes.FHIRString, False, None, False),
-            ("min", "min", int, False, None, False),
-            ("type", "type", fhirdatatypes.FHIRString, False, None, False),
             ("variable", "variable", fhirdatatypes.FHIRId, False, None, False),
+            ("condition", "condition", fhirdatatypes.FHIRString, False, None, False),
+            ("check", "check", fhirdatatypes.FHIRString, False, None, False),
+            ("logMessage", "logMessage", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
 
@@ -650,8 +640,6 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
 class StructureMapGroupRuleTarget(backboneelement.BackboneElement):
     """ Content to create because of this mapping rule.
     """
-    
-    resource_type = "StructureMapGroupRuleTarget"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -673,6 +661,10 @@ class StructureMapGroupRuleTarget(backboneelement.BackboneElement):
         """ Field to create in the context.
         Type `FHIRString` (represented as `str` in JSON). """
         
+        self.variable = None
+        """ Named context for field, if desired, and a field is specified.
+        Type `FHIRId` (represented as `str` in JSON). """
+        
         self.listMode = None
         """ first | share | last | collate.
         List of `FHIRCode` items (represented as `str` in JSON). """
@@ -681,17 +673,13 @@ class StructureMapGroupRuleTarget(backboneelement.BackboneElement):
         """ Internal rule reference for shared list items.
         Type `FHIRId` (represented as `str` in JSON). """
         
-        self.parameter = None
-        """ Parameters to the transform.
-        List of `StructureMapGroupRuleTargetParameter` items (represented as `dict` in JSON). """
-        
         self.transform = None
         """ create | copy +.
         Type `FHIRCode` (represented as `str` in JSON). """
         
-        self.variable = None
-        """ Named context for field, if desired, and a field is specified.
-        Type `FHIRId` (represented as `str` in JSON). """
+        self.parameter = None
+        """ Parameters to the transform.
+        List of `StructureMapGroupRuleTargetParameter` items (represented as `dict` in JSON). """
         
         super(StructureMapGroupRuleTarget, self).__init__(jsondict=jsondict, strict=strict)
     
@@ -701,11 +689,11 @@ class StructureMapGroupRuleTarget(backboneelement.BackboneElement):
             ("context", "context", fhirdatatypes.FHIRId, False, None, False),
             ("contextType", "contextType", fhirdatatypes.FHIRCode, False, None, False),
             ("element", "element", fhirdatatypes.FHIRString, False, None, False),
+            ("variable", "variable", fhirdatatypes.FHIRId, False, None, False),
             ("listMode", "listMode", fhirdatatypes.FHIRCode, True, None, False),
             ("listRuleId", "listRuleId", fhirdatatypes.FHIRId, False, None, False),
-            ("parameter", "parameter", StructureMapGroupRuleTargetParameter, True, None, False),
             ("transform", "transform", fhirdatatypes.FHIRCode, False, None, False),
-            ("variable", "variable", fhirdatatypes.FHIRId, False, None, False),
+            ("parameter", "parameter", StructureMapGroupRuleTargetParameter, True, None, False),
         ])
         return js
 
@@ -716,8 +704,6 @@ class StructureMapGroupRuleTargetParameter(backboneelement.BackboneElement):
     """ Parameters to the transform.
     """
     
-    resource_type = "StructureMapGroupRuleTargetParameter"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -726,36 +712,36 @@ class StructureMapGroupRuleTargetParameter(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.valueBoolean = None
-        """ Parameter value - variable or literal.
-        Type `bool`. """
-        
-        self.valueDecimal = None
-        """ Parameter value - variable or literal.
-        Type `float`. """
-        
         self.valueId = None
         """ Parameter value - variable or literal.
         Type `FHIRId` (represented as `str` in JSON). """
+        
+        self.valueString = None
+        """ Parameter value - variable or literal.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.valueBoolean = None
+        """ Parameter value - variable or literal.
+        Type `bool`. """
         
         self.valueInteger = None
         """ Parameter value - variable or literal.
         Type `int`. """
         
-        self.valueString = None
+        self.valueDecimal = None
         """ Parameter value - variable or literal.
-        Type `FHIRString` (represented as `str` in JSON). """
+        Type `float`. """
         
         super(StructureMapGroupRuleTargetParameter, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureMapGroupRuleTargetParameter, self).elementProperties()
         js.extend([
-            ("valueBoolean", "valueBoolean", bool, False, "value", True),
-            ("valueDecimal", "valueDecimal", float, False, "value", True),
             ("valueId", "valueId", fhirdatatypes.FHIRId, False, "value", True),
-            ("valueInteger", "valueInteger", int, False, "value", True),
             ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", True),
+            ("valueBoolean", "valueBoolean", bool, False, "value", True),
+            ("valueInteger", "valueInteger", int, False, "value", True),
+            ("valueDecimal", "valueDecimal", float, False, "value", True),
         ])
         return js
 
@@ -769,8 +755,6 @@ class StructureMapStructure(backboneelement.BackboneElement):
     describe instances that are converted, or the instances that are produced.
     """
     
-    resource_type = "StructureMapStructure"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -778,6 +762,14 @@ class StructureMapStructure(backboneelement.BackboneElement):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
+        
+        self.url = None
+        """ Canonical reference to structure definition.
+        Type `FHIRCanonical` (represented as `str` in JSON). """
+        
+        self.mode = None
+        """ source | queried | target | produced.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.alias = None
         """ Name for type in this map.
@@ -787,23 +779,15 @@ class StructureMapStructure(backboneelement.BackboneElement):
         """ Documentation on use of structure.
         Type `FHIRString` (represented as `str` in JSON). """
         
-        self.mode = None
-        """ source | queried | target | produced.
-        Type `FHIRCode` (represented as `str` in JSON). """
-        
-        self.url = None
-        """ Canonical reference to structure definition.
-        Type `FHIRCanonical` (represented as `str` in JSON). """
-        
         super(StructureMapStructure, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(StructureMapStructure, self).elementProperties()
         js.extend([
+            ("url", "url", fhirdatatypes.FHIRCanonical, False, None, True),
+            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, True),
             ("alias", "alias", fhirdatatypes.FHIRString, False, None, False),
             ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False),
-            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, True),
-            ("url", "url", fhirdatatypes.FHIRCanonical, False, None, True),
         ])
         return js
 

@@ -30,6 +30,8 @@ class SupplyDeliveryTests(unittest.TestCase):
         self.implSupplyDelivery1(inst2)
 
     def implSupplyDelivery1(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("simpledelivery").value)
+        self.assertEqual(inst.id.as_json(), "simpledelivery")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("Order10284").value)
         self.assertEqual(inst.identifier[0].value.as_json(), "Order10284")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
@@ -67,6 +69,8 @@ class SupplyDeliveryTests(unittest.TestCase):
         self.implSupplyDelivery2(inst2)
 
     def implSupplyDelivery2(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("pumpdelivery").value)
+        self.assertEqual(inst.id.as_json(), "pumpdelivery")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("98398459409").value)
         self.assertEqual(inst.identifier[0].value.as_json(), "98398459409")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)

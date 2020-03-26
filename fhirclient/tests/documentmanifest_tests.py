@@ -30,10 +30,14 @@ class DocumentManifestTests(unittest.TestCase):
         self.implDocumentManifest1(inst2)
 
     def implDocumentManifest1(self, inst):
+        self.assertEqual(inst.contained[0].id.value, FHIRString("a1").value)
+        self.assertEqual(inst.contained[0].id.as_json(), "a1")
         self.assertEqual(inst.created.value, FHIRDateTime("2004-12-25T23:50:50-05:00").value)
         self.assertEqual(inst.created.as_json(), "2004-12-25T23:50:50-05:00")
         self.assertEqual(inst.description.value, FHIRString("Physical").value)
         self.assertEqual(inst.description.as_json(), "Physical")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://example.org/documents").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://example.org/documents")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("23425234234-2347").value)
@@ -64,4 +68,4 @@ class DocumentManifestTests(unittest.TestCase):
         self.assertEqual(inst.type.text.as_json(), "History and Physical")
 
 
-from fhirclient.models.fhirdatatypes import FHIRDateTime, FHIRString, FHIRUri, FHIRCode
+from fhirclient.models.fhirdatatypes import FHIRString, FHIRDateTime, FHIRUri, FHIRCode

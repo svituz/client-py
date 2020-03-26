@@ -38,6 +38,8 @@ class GraphDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.date.as_json(), "2015-08-04")
         self.assertEqual(inst.description.value, FHIRMarkdown("Specify to include list references when generating a document using the $document operation").value)
         self.assertEqual(inst.description.as_json(), "Specify to include list references when generating a document using the $document operation")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.link[0].description.value, FHIRString("Link to List").value)
         self.assertEqual(inst.link[0].description.as_json(), "Link to List")
         self.assertEqual(inst.link[0].path.value, FHIRString("Composition.section.entry").value)

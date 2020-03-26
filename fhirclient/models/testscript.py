@@ -24,135 +24,135 @@ class TestScript(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.contact = None
-        """ Contact details for the publisher.
-        List of `ContactDetail` items (represented as `dict` in JSON). """
-        
-        self.copyright = None
-        """ Use and/or publishing restrictions.
-        Type `FHIRMarkdown` (represented as `str` in JSON). """
-        
-        self.date = None
-        """ Date last changed.
-        Type `FHIRDateTime` (represented as `str` in JSON). """
-        
-        self.description = None
-        """ Natural language description of the test script.
-        Type `FHIRMarkdown` (represented as `str` in JSON). """
-        
-        self.destination = None
-        """ An abstract server representing a destination or receiver in a
-        message exchange.
-        List of `TestScriptDestination` items (represented as `dict` in JSON). """
-        
-        self.experimental = None
-        """ For testing purposes, not real usage.
-        Type `bool`. """
-        
-        self.fixture = None
-        """ Fixture in the test script - by reference (uri).
-        List of `TestScriptFixture` items (represented as `dict` in JSON). """
+        self.url = None
+        """ Canonical identifier for this test script, represented as a URI
+        (globally unique).
+        Type `FHIRUri` (represented as `str` in JSON). """
         
         self.identifier = None
         """ Additional identifier for the test script.
         Type `Identifier` (represented as `dict` in JSON). """
         
-        self.jurisdiction = None
-        """ Intended jurisdiction for test script (if applicable).
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
-        self.metadata = None
-        """ Required capability that is assumed to function correctly on the
-        FHIR server being tested.
-        Type `TestScriptMetadata` (represented as `dict` in JSON). """
+        self.version = None
+        """ Business version of the test script.
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.name = None
         """ Name for this test script (computer friendly).
         Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.title = None
+        """ Name for this test script (human friendly).
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.status = None
+        """ draft | active | retired | unknown.
+        Type `FHIRCode` (represented as `str` in JSON). """
+        
+        self.experimental = None
+        """ For testing purposes, not real usage.
+        Type `bool`. """
+        
+        self.date = None
+        """ Date last changed.
+        Type `FHIRDateTime` (represented as `str` in JSON). """
+        
+        self.publisher = None
+        """ Name of the publisher (organization or individual).
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.contact = None
+        """ Contact details for the publisher.
+        List of `ContactDetail` items (represented as `dict` in JSON). """
+        
+        self.description = None
+        """ Natural language description of the test script.
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
+        
+        self.useContext = None
+        """ The context that the content is intended to support.
+        List of `UsageContext` items (represented as `dict` in JSON). """
+        
+        self.jurisdiction = None
+        """ Intended jurisdiction for test script (if applicable).
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.purpose = None
+        """ Why this test script is defined.
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
+        
+        self.copyright = None
+        """ Use and/or publishing restrictions.
+        Type `FHIRMarkdown` (represented as `str` in JSON). """
         
         self.origin = None
         """ An abstract server representing a client or sender in a message
         exchange.
         List of `TestScriptOrigin` items (represented as `dict` in JSON). """
         
+        self.destination = None
+        """ An abstract server representing a destination or receiver in a
+        message exchange.
+        List of `TestScriptDestination` items (represented as `dict` in JSON). """
+        
+        self.metadata = None
+        """ Required capability that is assumed to function correctly on the
+        FHIR server being tested.
+        Type `TestScriptMetadata` (represented as `dict` in JSON). """
+        
+        self.fixture = None
+        """ Fixture in the test script - by reference (uri).
+        List of `TestScriptFixture` items (represented as `dict` in JSON). """
+        
         self.profile = None
         """ Reference of the validation profile.
         List of `FHIRReference` items (represented as `dict` in JSON). """
-        
-        self.publisher = None
-        """ Name of the publisher (organization or individual).
-        Type `FHIRString` (represented as `str` in JSON). """
-        
-        self.purpose = None
-        """ Why this test script is defined.
-        Type `FHIRMarkdown` (represented as `str` in JSON). """
-        
-        self.setup = None
-        """ A series of required setup operations before tests are executed.
-        Type `TestScriptSetup` (represented as `dict` in JSON). """
-        
-        self.status = None
-        """ draft | active | retired | unknown.
-        Type `FHIRCode` (represented as `str` in JSON). """
-        
-        self.teardown = None
-        """ A series of required clean up steps.
-        Type `TestScriptTeardown` (represented as `dict` in JSON). """
-        
-        self.test = None
-        """ A test in this script.
-        List of `TestScriptTest` items (represented as `dict` in JSON). """
-        
-        self.title = None
-        """ Name for this test script (human friendly).
-        Type `FHIRString` (represented as `str` in JSON). """
-        
-        self.url = None
-        """ Canonical identifier for this test script, represented as a URI
-        (globally unique).
-        Type `FHIRUri` (represented as `str` in JSON). """
-        
-        self.useContext = None
-        """ The context that the content is intended to support.
-        List of `UsageContext` items (represented as `dict` in JSON). """
         
         self.variable = None
         """ Placeholder for evaluated elements.
         List of `TestScriptVariable` items (represented as `dict` in JSON). """
         
-        self.version = None
-        """ Business version of the test script.
-        Type `FHIRString` (represented as `str` in JSON). """
+        self.setup = None
+        """ A series of required setup operations before tests are executed.
+        Type `TestScriptSetup` (represented as `dict` in JSON). """
+        
+        self.test = None
+        """ A test in this script.
+        List of `TestScriptTest` items (represented as `dict` in JSON). """
+        
+        self.teardown = None
+        """ A series of required clean up steps.
+        Type `TestScriptTeardown` (represented as `dict` in JSON). """
         
         super(TestScript, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScript, self).elementProperties()
         js.extend([
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("destination", "destination", TestScriptDestination, True, None, False),
-            ("experimental", "experimental", bool, False, None, False),
-            ("fixture", "fixture", TestScriptFixture, True, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("metadata", "metadata", TestScriptMetadata, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
-            ("origin", "origin", TestScriptOrigin, True, None, False),
-            ("profile", "profile", fhirreference.FHIRReference, True, None, False),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("setup", "setup", TestScriptSetup, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("teardown", "teardown", TestScriptTeardown, False, None, False),
-            ("test", "test", TestScriptTest, True, None, False),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
             ("url", "url", fhirdatatypes.FHIRUri, False, None, True),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("variable", "variable", TestScriptVariable, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False),
             ("version", "version", fhirdatatypes.FHIRString, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
+            ("experimental", "experimental", bool, False, None, False),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("origin", "origin", TestScriptOrigin, True, None, False),
+            ("destination", "destination", TestScriptDestination, True, None, False),
+            ("metadata", "metadata", TestScriptMetadata, False, None, False),
+            ("fixture", "fixture", TestScriptFixture, True, None, False),
+            ("profile", "profile", fhirreference.FHIRReference, True, None, False),
+            ("variable", "variable", TestScriptVariable, True, None, False),
+            ("setup", "setup", TestScriptSetup, False, None, False),
+            ("test", "test", TestScriptTest, True, None, False),
+            ("teardown", "teardown", TestScriptTeardown, False, None, False),
         ])
         return js
 
@@ -167,8 +167,6 @@ class TestScriptDestination(backboneelement.BackboneElement):
     An abstract server used in operations within this test script in the
     destination element.
     """
-    
-    resource_type = "TestScriptDestination"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -206,8 +204,6 @@ class TestScriptFixture(backboneelement.BackboneElement):
     Fixture in the test script - by reference (uri). All fixtures are required
     for the test script to execute.
     """
-    
-    resource_type = "TestScriptFixture"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -251,8 +247,6 @@ class TestScriptMetadata(backboneelement.BackboneElement):
     the FHIR server being tested.
     """
     
-    resource_type = "TestScriptMetadata"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -261,22 +255,22 @@ class TestScriptMetadata(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.link = None
+        """ Links to the FHIR specification.
+        List of `TestScriptMetadataLink` items (represented as `dict` in JSON). """
+        
         self.capability = None
         """ Capabilities  that are assumed to function correctly on the FHIR
         server being tested.
         List of `TestScriptMetadataCapability` items (represented as `dict` in JSON). """
-        
-        self.link = None
-        """ Links to the FHIR specification.
-        List of `TestScriptMetadataLink` items (represented as `dict` in JSON). """
         
         super(TestScriptMetadata, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptMetadata, self).elementProperties()
         js.extend([
-            ("capability", "capability", TestScriptMetadataCapability, True, None, True),
             ("link", "link", TestScriptMetadataLink, True, None, False),
+            ("capability", "capability", TestScriptMetadataCapability, True, None, True),
         ])
         return js
 
@@ -291,8 +285,6 @@ class TestScriptMetadataCapability(backboneelement.BackboneElement):
     FHIR server being tested.
     """
     
-    resource_type = "TestScriptMetadataCapability"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -300,26 +292,6 @@ class TestScriptMetadataCapability(backboneelement.BackboneElement):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
-        
-        self.capabilities = None
-        """ Required Capability Statement.
-        Type `FHIRCanonical` (represented as `str` in JSON). """
-        
-        self.description = None
-        """ The expected capabilities of the server.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
-        self.destination = None
-        """ Which server these requirements apply to.
-        Type `int`. """
-        
-        self.link = None
-        """ Links to the FHIR specification.
-        List of `FHIRUri` items (represented as `str` in JSON). """
-        
-        self.origin = None
-        """ Which origin server these requirements apply to.
-        List of `int` items. """
         
         self.required = None
         """ Are the capabilities required?.
@@ -329,18 +301,38 @@ class TestScriptMetadataCapability(backboneelement.BackboneElement):
         """ Are the capabilities validated?.
         Type `bool`. """
         
+        self.description = None
+        """ The expected capabilities of the server.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.origin = None
+        """ Which origin server these requirements apply to.
+        List of `int` items. """
+        
+        self.destination = None
+        """ Which server these requirements apply to.
+        Type `int`. """
+        
+        self.link = None
+        """ Links to the FHIR specification.
+        List of `FHIRUri` items (represented as `str` in JSON). """
+        
+        self.capabilities = None
+        """ Required Capability Statement.
+        Type `FHIRCanonical` (represented as `str` in JSON). """
+        
         super(TestScriptMetadataCapability, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptMetadataCapability, self).elementProperties()
         js.extend([
-            ("capabilities", "capabilities", fhirdatatypes.FHIRCanonical, False, None, True),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("destination", "destination", int, False, None, False),
-            ("link", "link", fhirdatatypes.FHIRUri, True, None, False),
-            ("origin", "origin", int, True, None, False),
             ("required", "required", bool, False, None, True),
             ("validated", "validated", bool, False, None, True),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
+            ("origin", "origin", int, True, None, False),
+            ("destination", "destination", int, False, None, False),
+            ("link", "link", fhirdatatypes.FHIRUri, True, None, False),
+            ("capabilities", "capabilities", fhirdatatypes.FHIRCanonical, False, None, True),
         ])
         return js
 
@@ -353,8 +345,6 @@ class TestScriptMetadataLink(backboneelement.BackboneElement):
     A link to the FHIR specification that this test is covering.
     """
     
-    resource_type = "TestScriptMetadataLink"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -363,21 +353,21 @@ class TestScriptMetadataLink(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.description = None
-        """ Short description.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
         self.url = None
         """ URL to the specification.
         Type `FHIRUri` (represented as `str` in JSON). """
+        
+        self.description = None
+        """ Short description.
+        Type `FHIRString` (represented as `str` in JSON). """
         
         super(TestScriptMetadataLink, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptMetadataLink, self).elementProperties()
         js.extend([
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
             ("url", "url", fhirdatatypes.FHIRUri, False, None, True),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
 
@@ -390,8 +380,6 @@ class TestScriptOrigin(backboneelement.BackboneElement):
     An abstract server used in operations within this test script in the origin
     element.
     """
-    
-    resource_type = "TestScriptOrigin"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -426,8 +414,6 @@ class TestScriptSetup(backboneelement.BackboneElement):
     """ A series of required setup operations before tests are executed.
     """
     
-    resource_type = "TestScriptSetup"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -458,8 +444,6 @@ class TestScriptSetupAction(backboneelement.BackboneElement):
     Action would contain either an operation or an assertion.
     """
     
-    resource_type = "TestScriptSetupAction"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -468,21 +452,21 @@ class TestScriptSetupAction(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.assert_fhir = None
-        """ The assertion to perform.
-        Type `TestScriptSetupActionAssert` (represented as `dict` in JSON). """
-        
         self.operation = None
         """ The setup operation to perform.
         Type `TestScriptSetupActionOperation` (represented as `dict` in JSON). """
+        
+        self.assert_fhir = None
+        """ The assertion to perform.
+        Type `TestScriptSetupActionAssert` (represented as `dict` in JSON). """
         
         super(TestScriptSetupAction, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptSetupAction, self).elementProperties()
         js.extend([
-            ("assert_fhir", "assert", TestScriptSetupActionAssert, False, None, False),
             ("operation", "operation", TestScriptSetupActionOperation, False, None, False),
+            ("assert_fhir", "assert", TestScriptSetupActionAssert, False, None, False),
         ])
         return js
 
@@ -496,8 +480,6 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
     under test behaves appropriately.
     """
     
-    resource_type = "TestScriptSetupActionAssert"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -506,12 +488,24 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.compareToSourceExpression = None
-        """ The FHIRPath expression to evaluate against the source fixture.
+        self.label = None
+        """ Tracking/logging assertion label.
         Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.description = None
+        """ Tracking/reporting assertion description.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.direction = None
+        """ response | request.
+        Type `FHIRCode` (represented as `str` in JSON). """
         
         self.compareToSourceId = None
         """ Id of the source fixture to be evaluated.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.compareToSourceExpression = None
+        """ The FHIRPath expression to evaluate against the source fixture.
         Type `FHIRString` (represented as `str` in JSON). """
         
         self.compareToSourcePath = None
@@ -522,24 +516,12 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
         """ Mime type to compare against the 'Content-Type' header.
         Type `FHIRCode` (represented as `str` in JSON). """
         
-        self.description = None
-        """ Tracking/reporting assertion description.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
-        self.direction = None
-        """ response | request.
-        Type `FHIRCode` (represented as `str` in JSON). """
-        
         self.expression = None
         """ The FHIRPath expression to be evaluated.
         Type `FHIRString` (represented as `str` in JSON). """
         
         self.headerField = None
         """ HTTP header field name.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
-        self.label = None
-        """ Tracking/logging assertion label.
         Type `FHIRString` (represented as `str` in JSON). """
         
         self.minimumId = None
@@ -602,15 +584,15 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptSetupActionAssert, self).elementProperties()
         js.extend([
-            ("compareToSourceExpression", "compareToSourceExpression", fhirdatatypes.FHIRString, False, None, False),
-            ("compareToSourceId", "compareToSourceId", fhirdatatypes.FHIRString, False, None, False),
-            ("compareToSourcePath", "compareToSourcePath", fhirdatatypes.FHIRString, False, None, False),
-            ("contentType", "contentType", fhirdatatypes.FHIRCode, False, None, False),
+            ("label", "label", fhirdatatypes.FHIRString, False, None, False),
             ("description", "description", fhirdatatypes.FHIRString, False, None, False),
             ("direction", "direction", fhirdatatypes.FHIRCode, False, None, False),
+            ("compareToSourceId", "compareToSourceId", fhirdatatypes.FHIRString, False, None, False),
+            ("compareToSourceExpression", "compareToSourceExpression", fhirdatatypes.FHIRString, False, None, False),
+            ("compareToSourcePath", "compareToSourcePath", fhirdatatypes.FHIRString, False, None, False),
+            ("contentType", "contentType", fhirdatatypes.FHIRCode, False, None, False),
             ("expression", "expression", fhirdatatypes.FHIRString, False, None, False),
             ("headerField", "headerField", fhirdatatypes.FHIRString, False, None, False),
-            ("label", "label", fhirdatatypes.FHIRString, False, None, False),
             ("minimumId", "minimumId", fhirdatatypes.FHIRString, False, None, False),
             ("navigationLinks", "navigationLinks", bool, False, None, False),
             ("operator", "operator", fhirdatatypes.FHIRCode, False, None, False),
@@ -636,8 +618,6 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
     The operation to perform.
     """
     
-    resource_type = "TestScriptSetupActionOperation"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -645,6 +625,22 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
+        
+        self.type = None
+        """ The operation code type that will be executed.
+        Type `Coding` (represented as `dict` in JSON). """
+        
+        self.resource = None
+        """ Resource type.
+        Type `FHIRCode` (represented as `str` in JSON). """
+        
+        self.label = None
+        """ Tracking/logging operation label.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
+        self.description = None
+        """ Tracking/reporting operation description.
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.accept = None
         """ Mime type to accept in the payload of the response, with charset
@@ -655,10 +651,6 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
         """ Mime type of the request payload contents, with charset etc..
         Type `FHIRCode` (represented as `str` in JSON). """
         
-        self.description = None
-        """ Tracking/reporting operation description.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
         self.destination = None
         """ Server responding to the request.
         Type `int`. """
@@ -666,10 +658,6 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
         self.encodeRequestUrl = None
         """ Whether or not to send the request url in encoded format.
         Type `bool`. """
-        
-        self.label = None
-        """ Tracking/logging operation label.
-        Type `FHIRString` (represented as `str` in JSON). """
         
         self.method = None
         """ delete | get | options | patch | post | put | head.
@@ -691,10 +679,6 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
         """ Fixture Id of mapped request.
         Type `FHIRId` (represented as `str` in JSON). """
         
-        self.resource = None
-        """ Resource type.
-        Type `FHIRCode` (represented as `str` in JSON). """
-        
         self.responseId = None
         """ Fixture Id of mapped response.
         Type `FHIRId` (represented as `str` in JSON). """
@@ -708,10 +692,6 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
         GET requests.
         Type `FHIRId` (represented as `str` in JSON). """
         
-        self.type = None
-        """ The operation code type that will be executed.
-        Type `Coding` (represented as `dict` in JSON). """
-        
         self.url = None
         """ Request URL.
         Type `FHIRString` (represented as `str` in JSON). """
@@ -721,22 +701,22 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptSetupActionOperation, self).elementProperties()
         js.extend([
+            ("type", "type", coding.Coding, False, None, False),
+            ("resource", "resource", fhirdatatypes.FHIRCode, False, None, False),
+            ("label", "label", fhirdatatypes.FHIRString, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
             ("accept", "accept", fhirdatatypes.FHIRCode, False, None, False),
             ("contentType", "contentType", fhirdatatypes.FHIRCode, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
             ("destination", "destination", int, False, None, False),
             ("encodeRequestUrl", "encodeRequestUrl", bool, False, None, True),
-            ("label", "label", fhirdatatypes.FHIRString, False, None, False),
             ("method", "method", fhirdatatypes.FHIRCode, False, None, False),
             ("origin", "origin", int, False, None, False),
             ("params", "params", fhirdatatypes.FHIRString, False, None, False),
             ("requestHeader", "requestHeader", TestScriptSetupActionOperationRequestHeader, True, None, False),
             ("requestId", "requestId", fhirdatatypes.FHIRId, False, None, False),
-            ("resource", "resource", fhirdatatypes.FHIRCode, False, None, False),
             ("responseId", "responseId", fhirdatatypes.FHIRId, False, None, False),
             ("sourceId", "sourceId", fhirdatatypes.FHIRId, False, None, False),
             ("targetId", "targetId", fhirdatatypes.FHIRId, False, None, False),
-            ("type", "type", coding.Coding, False, None, False),
             ("url", "url", fhirdatatypes.FHIRString, False, None, False),
         ])
         return js
@@ -749,8 +729,6 @@ class TestScriptSetupActionOperationRequestHeader(backboneelement.BackboneElemen
     
     Header elements would be used to set HTTP headers.
     """
-    
-    resource_type = "TestScriptSetupActionOperationRequestHeader"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
@@ -788,8 +766,6 @@ class TestScriptTeardown(backboneelement.BackboneElement):
     executed (successfully or otherwise).
     """
     
-    resource_type = "TestScriptTeardown"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -820,8 +796,6 @@ class TestScriptTeardownAction(backboneelement.BackboneElement):
     The teardown action will only contain an operation.
     """
     
-    resource_type = "TestScriptTeardownAction"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -850,8 +824,6 @@ class TestScriptTest(backboneelement.BackboneElement):
     """ A test in this script.
     """
     
-    resource_type = "TestScriptTest"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -860,26 +832,26 @@ class TestScriptTest(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.action = None
-        """ A test operation or assert to perform.
-        List of `TestScriptTestAction` items (represented as `dict` in JSON). """
+        self.name = None
+        """ Tracking/logging name of this test.
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.description = None
         """ Tracking/reporting short description of the test.
         Type `FHIRString` (represented as `str` in JSON). """
         
-        self.name = None
-        """ Tracking/logging name of this test.
-        Type `FHIRString` (represented as `str` in JSON). """
+        self.action = None
+        """ A test operation or assert to perform.
+        List of `TestScriptTestAction` items (represented as `dict` in JSON). """
         
         super(TestScriptTest, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptTest, self).elementProperties()
         js.extend([
-            ("action", "action", TestScriptTestAction, True, None, True),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
             ("name", "name", fhirdatatypes.FHIRString, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
+            ("action", "action", TestScriptTestAction, True, None, True),
         ])
         return js
 
@@ -892,8 +864,6 @@ class TestScriptTestAction(backboneelement.BackboneElement):
     Action would contain either an operation or an assertion.
     """
     
-    resource_type = "TestScriptTestAction"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -902,21 +872,21 @@ class TestScriptTestAction(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.assert_fhir = None
-        """ The setup assertion to perform.
-        Type `TestScriptSetupActionAssert` (represented as `dict` in JSON). """
-        
         self.operation = None
         """ The setup operation to perform.
         Type `TestScriptSetupActionOperation` (represented as `dict` in JSON). """
+        
+        self.assert_fhir = None
+        """ The setup assertion to perform.
+        Type `TestScriptSetupActionAssert` (represented as `dict` in JSON). """
         
         super(TestScriptTestAction, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(TestScriptTestAction, self).elementProperties()
         js.extend([
-            ("assert_fhir", "assert", TestScriptSetupActionAssert, False, None, False),
             ("operation", "operation", TestScriptSetupActionOperation, False, None, False),
+            ("assert_fhir", "assert", TestScriptSetupActionAssert, False, None, False),
         ])
         return js
 
@@ -930,8 +900,6 @@ class TestScriptVariable(backboneelement.BackboneElement):
     field value in the response headers.
     """
     
-    resource_type = "TestScriptVariable"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -939,6 +907,10 @@ class TestScriptVariable(backboneelement.BackboneElement):
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
+        
+        self.name = None
+        """ Descriptive name for this variable.
+        Type `FHIRString` (represented as `str` in JSON). """
         
         self.defaultValue = None
         """ Default, hard-coded, or user-defined value for this variable.
@@ -960,10 +932,6 @@ class TestScriptVariable(backboneelement.BackboneElement):
         """ Hint help text for default value to enter.
         Type `FHIRString` (represented as `str` in JSON). """
         
-        self.name = None
-        """ Descriptive name for this variable.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
         self.path = None
         """ XPath or JSONPath against the fixture body.
         Type `FHIRString` (represented as `str` in JSON). """
@@ -977,12 +945,12 @@ class TestScriptVariable(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptVariable, self).elementProperties()
         js.extend([
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
             ("defaultValue", "defaultValue", fhirdatatypes.FHIRString, False, None, False),
             ("description", "description", fhirdatatypes.FHIRString, False, None, False),
             ("expression", "expression", fhirdatatypes.FHIRString, False, None, False),
             ("headerField", "headerField", fhirdatatypes.FHIRString, False, None, False),
             ("hint", "hint", fhirdatatypes.FHIRString, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
             ("path", "path", fhirdatatypes.FHIRString, False, None, False),
             ("sourceId", "sourceId", fhirdatatypes.FHIRId, False, None, False),
         ])

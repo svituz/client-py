@@ -104,6 +104,8 @@ class CoverageTests(unittest.TestCase):
         self.assertEqual(inst.class_fhir[9].value.as_json(), "M35PT")
         self.assertEqual(inst.dependent.value, FHIRString("0").value)
         self.assertEqual(inst.dependent.as_json(), "0")
+        self.assertEqual(inst.id.value, FHIRString("9876B1").value)
+        self.assertEqual(inst.id.as_json(), "9876B1")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://benefitsinc.com/certificate").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://benefitsinc.com/certificate")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("12345").value)
@@ -185,6 +187,8 @@ class CoverageTests(unittest.TestCase):
         self.assertEqual(inst.costToBeneficiary[0].valueMoney.value, 20.0)
         self.assertEqual(inst.dependent.value, FHIRString("1").value)
         self.assertEqual(inst.dependent.as_json(), "1")
+        self.assertEqual(inst.id.value, FHIRString("7546D").value)
+        self.assertEqual(inst.id.as_json(), "7546D")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://xyz.com/codes/identifier").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://xyz.com/codes/identifier")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("AB98761").value)
@@ -231,6 +235,8 @@ class CoverageTests(unittest.TestCase):
         self.implCoverage3(inst2)
 
     def implCoverage3(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("7547E").value)
+        self.assertEqual(inst.id.as_json(), "7547E")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://ehic.com/insurer/123456789/member").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://ehic.com/insurer/123456789/member")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("A123456780").value)
@@ -269,6 +275,8 @@ class CoverageTests(unittest.TestCase):
         self.implCoverage4(inst2)
 
     def implCoverage4(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("SP1234").value)
+        self.assertEqual(inst.id.as_json(), "SP1234")
         self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://hospitalx.com/selfpayagreement").value)
         self.assertEqual(inst.identifier[0].system.as_json(), "http://hospitalx.com/selfpayagreement")
         self.assertEqual(inst.identifier[0].value.value, FHIRString("SP12345678").value)

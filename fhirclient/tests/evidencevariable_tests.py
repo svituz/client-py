@@ -32,6 +32,8 @@ class EvidenceVariableTests(unittest.TestCase):
     def implEvidenceVariable1(self, inst):
         self.assertEqual(inst.characteristic[0].definitionCodeableConcept.text.value, FHIRString("Diabetic patients over 65").value)
         self.assertEqual(inst.characteristic[0].definitionCodeableConcept.text.as_json(), "Diabetic patients over 65")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)

@@ -43,6 +43,8 @@ class TerminologyCapabilitiesTests(unittest.TestCase):
         self.assertEqual(inst.description.value, FHIRMarkdown("This is the FHIR capability statement for the main EHR at ACME for the private interface - it does not describe the public interface").value)
         self.assertEqual(inst.description.as_json(), "This is the FHIR capability statement for the main EHR at ACME for the private interface - it does not describe the public interface")
         self.assertTrue(inst.experimental)
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.implementation.description.value, FHIRString("Acme Terminology Server").value)
         self.assertEqual(inst.implementation.description.as_json(), "Acme Terminology Server")
         self.assertEqual(inst.implementation.url.value, FHIRUrl("http://example.org/tx").value)

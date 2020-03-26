@@ -32,6 +32,8 @@ class BinaryTests(unittest.TestCase):
     def implBinary1(self, inst):
         self.assertEqual(inst.contentType.value, FHIRCode("application/pdf").value)
         self.assertEqual(inst.contentType.as_json(), "application/pdf")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)

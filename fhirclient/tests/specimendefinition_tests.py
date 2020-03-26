@@ -30,6 +30,8 @@ class SpecimenDefinitionTests(unittest.TestCase):
         self.implSpecimenDefinition1(inst2)
 
     def implSpecimenDefinition1(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("2364").value)
+        self.assertEqual(inst.id.as_json(), "2364")
         self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
         self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
         self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)
@@ -226,4 +228,4 @@ class SpecimenDefinitionTests(unittest.TestCase):
         self.assertEqual(inst.typeTested[1].type.coding[0].system.as_json(), "http://snomed.info/sct")
 
 
-from fhirclient.models.fhirdatatypes import FHIRCode, FHIRString, FHIRUri
+from fhirclient.models.fhirdatatypes import FHIRString, FHIRCode, FHIRUri

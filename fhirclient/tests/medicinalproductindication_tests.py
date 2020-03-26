@@ -38,6 +38,8 @@ class MedicinalProductIndicationTests(unittest.TestCase):
         self.assertEqual(inst.diseaseSymptomProcedure.coding[0].code.as_json(), "Venousthromboembolismprophylaxis")
         self.assertEqual(inst.diseaseSymptomProcedure.coding[0].system.value, FHIRUri("http://ema.europa.eu/example/indicationasdisease-symptom-procedure").value)
         self.assertEqual(inst.diseaseSymptomProcedure.coding[0].system.as_json(), "http://ema.europa.eu/example/indicationasdisease-symptom-procedure")
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.intendedEffect.coding[0].code.value, FHIRCode("PRYLX").value)
         self.assertEqual(inst.intendedEffect.coding[0].code.as_json(), "PRYLX")
         self.assertEqual(inst.intendedEffect.coding[0].system.value, FHIRUri("http://ema.europa.eu/example/intendedeffect").value)

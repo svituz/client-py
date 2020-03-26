@@ -24,20 +24,20 @@ class ImmunizationRecommendation(domainresource.DomainResource):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
-        self.authority = None
-        """ Who is responsible for protocol.
-        Type `FHIRReference` (represented as `dict` in JSON). """
-        
-        self.date = None
-        """ Date recommendation(s) created.
-        Type `FHIRDateTime` (represented as `str` in JSON). """
-        
         self.identifier = None
         """ Business identifier.
         List of `Identifier` items (represented as `dict` in JSON). """
         
         self.patient = None
         """ Who this profile is for.
+        Type `FHIRReference` (represented as `dict` in JSON). """
+        
+        self.date = None
+        """ Date recommendation(s) created.
+        Type `FHIRDateTime` (represented as `str` in JSON). """
+        
+        self.authority = None
+        """ Who is responsible for protocol.
         Type `FHIRReference` (represented as `dict` in JSON). """
         
         self.recommendation = None
@@ -49,10 +49,10 @@ class ImmunizationRecommendation(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ImmunizationRecommendation, self).elementProperties()
         js.extend([
-            ("authority", "authority", fhirreference.FHIRReference, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, True),
             ("identifier", "identifier", identifier.Identifier, True, None, False),
             ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, True),
+            ("authority", "authority", fhirreference.FHIRReference, False, None, False),
             ("recommendation", "recommendation", ImmunizationRecommendationRecommendation, True, None, True),
         ])
         return js
@@ -65,8 +65,6 @@ class ImmunizationRecommendationRecommendation(backboneelement.BackboneElement):
     """ Vaccine administration recommendations.
     """
     
-    resource_type = "ImmunizationRecommendationRecommendation"
-    
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.
         
@@ -75,8 +73,24 @@ class ImmunizationRecommendationRecommendation(backboneelement.BackboneElement):
         :param bool strict: If True (the default), invalid variables will raise a TypeError
         """
         
+        self.vaccineCode = None
+        """ Vaccine  or vaccine group recommendation applies to.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.targetDisease = None
+        """ Disease to be immunized against.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
         self.contraindicatedVaccineCode = None
         """ Vaccine which is contraindicated to fulfill the recommendation.
+        List of `CodeableConcept` items (represented as `dict` in JSON). """
+        
+        self.forecastStatus = None
+        """ Vaccine recommendation status.
+        Type `CodeableConcept` (represented as `dict` in JSON). """
+        
+        self.forecastReason = None
+        """ Vaccine administration status reason.
         List of `CodeableConcept` items (represented as `dict` in JSON). """
         
         self.dateCriterion = None
@@ -87,24 +101,16 @@ class ImmunizationRecommendationRecommendation(backboneelement.BackboneElement):
         """ Protocol details.
         Type `FHIRString` (represented as `str` in JSON). """
         
+        self.series = None
+        """ Name of vaccination series.
+        Type `FHIRString` (represented as `str` in JSON). """
+        
         self.doseNumberPositiveInt = None
         """ Recommended dose number within series.
         Type `FHIRPositiveInt` (represented as `int` in JSON). """
         
         self.doseNumberString = None
         """ Recommended dose number within series.
-        Type `FHIRString` (represented as `str` in JSON). """
-        
-        self.forecastReason = None
-        """ Vaccine administration status reason.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
-        self.forecastStatus = None
-        """ Vaccine recommendation status.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.series = None
-        """ Name of vaccination series.
         Type `FHIRString` (represented as `str` in JSON). """
         
         self.seriesDosesPositiveInt = None
@@ -123,33 +129,25 @@ class ImmunizationRecommendationRecommendation(backboneelement.BackboneElement):
         """ Patient observations supporting recommendation.
         List of `FHIRReference` items (represented as `dict` in JSON). """
         
-        self.targetDisease = None
-        """ Disease to be immunized against.
-        Type `CodeableConcept` (represented as `dict` in JSON). """
-        
-        self.vaccineCode = None
-        """ Vaccine  or vaccine group recommendation applies to.
-        List of `CodeableConcept` items (represented as `dict` in JSON). """
-        
         super(ImmunizationRecommendationRecommendation, self).__init__(jsondict=jsondict, strict=strict)
     
     def elementProperties(self):
         js = super(ImmunizationRecommendationRecommendation, self).elementProperties()
         js.extend([
+            ("vaccineCode", "vaccineCode", codeableconcept.CodeableConcept, True, None, False),
+            ("targetDisease", "targetDisease", codeableconcept.CodeableConcept, False, None, False),
             ("contraindicatedVaccineCode", "contraindicatedVaccineCode", codeableconcept.CodeableConcept, True, None, False),
+            ("forecastStatus", "forecastStatus", codeableconcept.CodeableConcept, False, None, True),
+            ("forecastReason", "forecastReason", codeableconcept.CodeableConcept, True, None, False),
             ("dateCriterion", "dateCriterion", ImmunizationRecommendationRecommendationDateCriterion, True, None, False),
             ("description", "description", fhirdatatypes.FHIRString, False, None, False),
+            ("series", "series", fhirdatatypes.FHIRString, False, None, False),
             ("doseNumberPositiveInt", "doseNumberPositiveInt", fhirdatatypes.FHIRPositiveInt, False, "doseNumber", False),
             ("doseNumberString", "doseNumberString", fhirdatatypes.FHIRString, False, "doseNumber", False),
-            ("forecastReason", "forecastReason", codeableconcept.CodeableConcept, True, None, False),
-            ("forecastStatus", "forecastStatus", codeableconcept.CodeableConcept, False, None, True),
-            ("series", "series", fhirdatatypes.FHIRString, False, None, False),
             ("seriesDosesPositiveInt", "seriesDosesPositiveInt", fhirdatatypes.FHIRPositiveInt, False, "seriesDoses", False),
             ("seriesDosesString", "seriesDosesString", fhirdatatypes.FHIRString, False, "seriesDoses", False),
             ("supportingImmunization", "supportingImmunization", fhirreference.FHIRReference, True, None, False),
             ("supportingPatientInformation", "supportingPatientInformation", fhirreference.FHIRReference, True, None, False),
-            ("targetDisease", "targetDisease", codeableconcept.CodeableConcept, False, None, False),
-            ("vaccineCode", "vaccineCode", codeableconcept.CodeableConcept, True, None, False),
         ])
         return js
 
@@ -162,8 +160,6 @@ class ImmunizationRecommendationRecommendationDateCriterion(backboneelement.Back
     Vaccine date recommendations.  For example, earliest date to administer,
     latest date to administer, etc.
     """
-    
-    resource_type = "ImmunizationRecommendationRecommendationDateCriterion"
     
     def __init__(self, jsondict=None, strict=True):
         """ Initialize all valid properties.

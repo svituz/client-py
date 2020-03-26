@@ -30,6 +30,8 @@ class MedicinalProductManufacturedTests(unittest.TestCase):
         self.implMedicinalProductManufactured1(inst2)
 
     def implMedicinalProductManufactured1(self, inst):
+        self.assertEqual(inst.id.value, FHIRString("example").value)
+        self.assertEqual(inst.id.as_json(), "example")
         self.assertEqual(inst.manufacturedDoseForm.coding[0].code.value, FHIRCode("Film-coatedtablet").value)
         self.assertEqual(inst.manufacturedDoseForm.coding[0].code.as_json(), "Film-coatedtablet")
         self.assertEqual(inst.manufacturedDoseForm.coding[0].system.value, FHIRUri("http://ema.europa.eu/example/manufactureddoseform").value)
@@ -57,4 +59,4 @@ class MedicinalProductManufacturedTests(unittest.TestCase):
         self.assertEqual(inst.unitOfPresentation.coding[0].system.as_json(), "http://ema.europa.eu/example/unitofpresentation")
 
 
-from fhirclient.models.fhirdatatypes import FHIRCode, FHIRUri, FHIRString
+from fhirclient.models.fhirdatatypes import FHIRString, FHIRCode, FHIRUri
