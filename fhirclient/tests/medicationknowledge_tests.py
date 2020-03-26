@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.1-9346c8cc45 on 2020-03-25.
+#  Generated from FHIR 4.0.1-9346c8cc45 on 2020-03-26.
 #  2020, SMART Health IT.
 
 
@@ -30,33 +30,33 @@ class MedicationKnowledgeTests(unittest.TestCase):
         self.implMedicationKnowledge1(inst2)
 
     def implMedicationKnowledge1(self, inst):
-        self.assertEqual(inst.amount.unit.value, FHIRString('mg/ml').value)
-        self.assertEqual(inst.amount.unit.as_json(), 'mg/ml')
+        self.assertEqual(inst.amount.unit.value, FHIRString("mg/ml").value)
+        self.assertEqual(inst.amount.unit.as_json(), "mg/ml")
         self.assertEqual(inst.amount.value, 50)
-        self.assertEqual(inst.code.coding[0].code.value, FHIRCode('0069-2587-10').value)
-        self.assertEqual(inst.code.coding[0].code.as_json(), '0069-2587-10')
-        self.assertEqual(inst.code.coding[0].display.value, FHIRString('Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)').value)
-        self.assertEqual(inst.code.coding[0].display.as_json(), 'Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)')
-        self.assertEqual(inst.code.coding[0].system.value, FHIRUri('http://hl7.org/fhir/sid/ndc').value)
-        self.assertEqual(inst.code.coding[0].system.as_json(), 'http://hl7.org/fhir/sid/ndc')
-        self.assertEqual(inst.doseForm.coding[0].code.value, FHIRCode('385219001').value)
-        self.assertEqual(inst.doseForm.coding[0].code.as_json(), '385219001')
-        self.assertEqual(inst.doseForm.coding[0].display.value, FHIRString('Injection Solution (qualifier value)').value)
-        self.assertEqual(inst.doseForm.coding[0].display.as_json(), 'Injection Solution (qualifier value)')
-        self.assertEqual(inst.doseForm.coding[0].system.value, FHIRUri('http://snomed.info/sct').value)
-        self.assertEqual(inst.doseForm.coding[0].system.as_json(), 'http://snomed.info/sct')
-        self.assertEqual(inst.meta.tag[0].code.value, FHIRCode('HTEST').value)
-        self.assertEqual(inst.meta.tag[0].code.as_json(), 'HTEST')
-        self.assertEqual(inst.meta.tag[0].display.value, FHIRString('test health data').value)
-        self.assertEqual(inst.meta.tag[0].display.as_json(), 'test health data')
-        self.assertEqual(inst.meta.tag[0].system.value, FHIRUri('http://terminology.hl7.org/CodeSystem/v3-ActReason').value)
-        self.assertEqual(inst.meta.tag[0].system.as_json(), 'http://terminology.hl7.org/CodeSystem/v3-ActReason')
-        self.assertEqual(inst.status.value, FHIRCode('active').value)
-        self.assertEqual(inst.status.as_json(), 'active')
-        self.assertEqual(inst.synonym[0].value, FHIRString('Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)').value)
-        self.assertEqual(inst.synonym[0].as_json(), 'Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)')
-        self.assertEqual(inst.text.status.value, FHIRCode('generated').value)
-        self.assertEqual(inst.text.status.as_json(), 'generated')
+        self.assertEqual(inst.code.coding[0].code.value, FHIRCode("0069-2587-10").value)
+        self.assertEqual(inst.code.coding[0].code.as_json(), "0069-2587-10")
+        self.assertEqual(inst.code.coding[0].display.value, FHIRString("Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)").value)
+        self.assertEqual(inst.code.coding[0].display.as_json(), "Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)")
+        self.assertEqual(inst.code.coding[0].system.value, FHIRUri("http://hl7.org/fhir/sid/ndc").value)
+        self.assertEqual(inst.code.coding[0].system.as_json(), "http://hl7.org/fhir/sid/ndc")
+        self.assertEqual(inst.doseForm.coding[0].code.value, FHIRCode("385219001").value)
+        self.assertEqual(inst.doseForm.coding[0].code.as_json(), "385219001")
+        self.assertEqual(inst.doseForm.coding[0].display.value, FHIRString("Injection Solution (qualifier value)").value)
+        self.assertEqual(inst.doseForm.coding[0].display.as_json(), "Injection Solution (qualifier value)")
+        self.assertEqual(inst.doseForm.coding[0].system.value, FHIRUri("http://snomed.info/sct").value)
+        self.assertEqual(inst.doseForm.coding[0].system.as_json(), "http://snomed.info/sct")
+        self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
+        self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
+        self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)
+        self.assertEqual(inst.meta.tag[0].display.as_json(), "test health data")
+        self.assertEqual(inst.meta.tag[0].system.value, FHIRUri("http://terminology.hl7.org/CodeSystem/v3-ActReason").value)
+        self.assertEqual(inst.meta.tag[0].system.as_json(), "http://terminology.hl7.org/CodeSystem/v3-ActReason")
+        self.assertEqual(inst.status.value, FHIRCode("active").value)
+        self.assertEqual(inst.status.as_json(), "active")
+        self.assertEqual(inst.synonym[0].value, FHIRString("Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)").value)
+        self.assertEqual(inst.synonym[0].as_json(), "Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)")
+        self.assertEqual(inst.text.status.value, FHIRCode("generated").value)
+        self.assertEqual(inst.text.status.as_json(), "generated")
 
 
 from fhirclient.models.fhirdatatypes import FHIRString, FHIRCode, FHIRUri

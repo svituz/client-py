@@ -46,19 +46,17 @@ class {{ class.name }}Tests(unittest.TestCase):
         {%- else %}
         self.assertFalse(inst.{{ onetest.path }})
         {%- endif %}
-        {%- else %}{% if onetest.klass.name in datatypes %}
+    {%- else %}{% if onetest.klass.name in datatypes %}
         {%- if onetest.klass.name not in used_datatypes %}
         {%- set _ = used_datatypes.append(onetest.klass.name) %}
         {%- endif %}
-
         {%- if onetest.klass.name in ["FHIRPositiveInt", "FHIRUnsignedInt"] %}
         self.assertEqual(inst.{{onetest.path}}.value, {{onetest.klass.name}}('{{ onetest.value }}').value)
         self.assertEqual(inst.{{ onetest.path }}.as_json(), {{ onetest.value }})
         {%- else %}
-        self.assertEqual(inst.{{onetest.path}}.value, {{onetest.klass.name}}('{{ onetest.value|escape }}').value)
-        self.assertEqual(inst.{{ onetest.path }}.as_json(), '{{ onetest.value|escape }}')
+        self.assertEqual(inst.{{onetest.path}}.value, {{onetest.klass.name}}("{{ onetest.value|replace('\\n', '\\\\n')|replace('"', '\\"') }}").value)
+        self.assertEqual(inst.{{ onetest.path }}.as_json(), "{{ onetest.value|replace('\\n', '\\\\n')|replace('"', '\\"') }}")
         {%- endif %}
-
         {%- if onetest.klass.name in ["FHIRDate", "FHIRDatetime", "FHIRInstant", "FHIRTime"] %}
         self.assertEqual(inst.{{ onetest.path }}.date, {{ onetest.klass.name }}('{{ onetest.value }}').date)
         {%- endif %}

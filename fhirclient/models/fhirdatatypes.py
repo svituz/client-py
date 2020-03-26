@@ -1,3 +1,5 @@
+import base64
+import binascii
 import logging
 import re
 
@@ -37,13 +39,16 @@ class FHIRAbstractDatatype(object):
         if hasattr(self, 'regex'):
             match = re.fullmatch(self.regex, self.value)
             if match is None:
-                raise ValueError(f'Invalid value. Should match {self.regex}')
+                raise ValueError(f'Invalid value {self.value} for type {self.__class__}. Should match {self.regex}')
 
 
 class FHIRString(FHIRAbstractDatatype):
     def __init__(self, value):
-        self.regex = re.compile(r'[ \r\n\t\S]{1,1048576}')
         super(FHIRString, self).__init__(value)
+
+    def validate_value(self):
+        if len(self.value) > 1048576:
+            raise ValueError(f'Invalid value {self.value} for type {self.__class__}. Value too long')
 
 
 class FHIRUri(FHIRAbstractDatatype):
@@ -70,8 +75,13 @@ FHIRCanonical = FHIRUri
 
 class FHIRBase64Binary(FHIRAbstractDatatype):
     def __init__(self, value):
-        self.regex = re.compile(r'(\s*([0-9a-zA-Z\+\=]){4}\s*)+')
         super(FHIRBase64Binary, self).__init__(value)
+
+    def validate_value(self):
+        try:
+            base64.b64decode(self.value.replace(" ", ""), validate=True)
+        except binascii.Error:
+            raise ValueError("Invalid Base64 string")
 
 
 class BaseFHIRTime(FHIRAbstractDatatype):
@@ -83,8 +93,8 @@ class BaseFHIRTime(FHIRAbstractDatatype):
         self.date = None
         if self.value is not None:
             if not isinstance(self.value, six.string_types):
-                raise TypeError('Expecting string when initializing {}, but got {}'
-                                .format(type(self), type(self.value)))
+                raise TypeError(f'Invalid value {self.value} for type {self.__class__}. '
+                                f'Expecting string when initializing but got {type(self.value)}')
 
         # # check the value matches the regex
         # try:
@@ -132,8 +142,8 @@ class FHIRInstant(BaseFHIRTime):
         self.regex = r'([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))'
         self.parser = isodate.parse_datetime
         self.renderer = isodate.datetime_isoformat
-        self.error_message = 'Invalid value. It must be an ISO8601 datetetime with  ' \
-                             'at least precision to seconds and time zone'
+        self.error_message = f'Invalid value {value} for type {type(self)}. ' \
+                             f'It must be an ISO8601 datetetime with at least precision to seconds and time zone'
         super(FHIRInstant, self).__init__(value)
 
 
@@ -142,7 +152,7 @@ class FHIRDate(BaseFHIRTime):
         self.regex = r'([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?'
         self.parser = isodate.parse_date
         self.renderer = isodate.date_isoformat
-        self.error_message = 'Invalid value. It must be an ISO8601 date'
+        self.error_message = f'Invalid value {value} for type {type(self)}. It must be an ISO8601 date'
         super(FHIRDate, self).__init__(value)
 
 
@@ -151,7 +161,8 @@ class FHIRDateTime(BaseFHIRTime):
         self.regex = r'([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?'
         self.parser = [isodate.parse_datetime, isodate.parse_date]
         self.renderer = [isodate.datetime_isoformat, isodate.date_isoformat]
-        self.error_message = 'Invalid value. It must be an ISO8601 datetime with time zone'
+        self.error_message = f'Invalid value {value} for type {type(self)}. ' \
+                             f'It must be an ISO8601 datetime with time zone'
         super(FHIRDateTime, self).__init__(value)
 
 
@@ -160,7 +171,7 @@ class FHIRTime(BaseFHIRTime):
         self.regex = r'([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?'
         self.parser = isodate.parse_time
         self.renderer = isodate.time_isoformat
-        self.error_message = 'Invalid value. Should be an ISO8601 time with  ' \
+        self.error_message = f'Invalid value {value} for type {type(self)}. It must be an ISO8601 time with  ' \
                              'at least precision to seconds'
         super(FHIRTime, self).__init__(value)
 
@@ -201,7 +212,7 @@ class FHIRUnsignedInt(FHIRAbstractDatatype):
 
     def validate_value(self):
         if self.value < 0:
-            raise ValueError('Invalid Value. It must be greater than 0')
+            raise ValueError(f'Invalid value {self.value} for type {type(self)}. It must be greater than 0')
 
 
 class FHIRPositiveInt(FHIRAbstractDatatype):
@@ -212,4 +223,4 @@ class FHIRPositiveInt(FHIRAbstractDatatype):
 
     def validate_value(self):
         if self.value < 1:
-            raise ValueError('Invalid Value. It must be greater than 1')
+            raise ValueError(f'Invalid value {self.value} for type {type(self)}. It must be greater than 1')

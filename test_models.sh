@@ -17,8 +17,8 @@ fi
 
 #python -m unittest discover ./models '*_tests.py'		# ImportError
 tests=(fhirclient/tests/*_tests.py)
-#tests=(fhirclient/tests/account_tests.py)
-#tests=(fhirclient/tests/visionprescription_tests.py)
+#tests=(fhirclient/tests/valueset_tests.py)
+#tests=(fhirclient/models_old/valueset_tests.py)
 
 # shellcheck disable=SC2068
 python -m unittest ${tests[@]}

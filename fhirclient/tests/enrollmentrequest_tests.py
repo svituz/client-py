@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.1-9346c8cc45 on 2020-03-25.
+#  Generated from FHIR 4.0.1-9346c8cc45 on 2020-03-26.
 #  2020, SMART Health IT.
 
 
@@ -30,24 +30,24 @@ class EnrollmentRequestTests(unittest.TestCase):
         self.implEnrollmentRequest1(inst2)
 
     def implEnrollmentRequest1(self, inst):
-        self.assertEqual(inst.created.value, FHIRDateTime('2014-08-16').value)
-        self.assertEqual(inst.created.as_json(), '2014-08-16')
-        self.assertEqual(inst.identifier[0].system.value, FHIRUri('http://happyvalley.com/enrollmentrequest').value)
-        self.assertEqual(inst.identifier[0].system.as_json(), 'http://happyvalley.com/enrollmentrequest')
-        self.assertEqual(inst.identifier[0].value.value, FHIRString('EN22345').value)
-        self.assertEqual(inst.identifier[0].value.as_json(), 'EN22345')
-        self.assertEqual(inst.meta.tag[0].code.value, FHIRCode('HTEST').value)
-        self.assertEqual(inst.meta.tag[0].code.as_json(), 'HTEST')
-        self.assertEqual(inst.meta.tag[0].display.value, FHIRString('test health data').value)
-        self.assertEqual(inst.meta.tag[0].display.as_json(), 'test health data')
-        self.assertEqual(inst.meta.tag[0].system.value, FHIRUri('http://terminology.hl7.org/CodeSystem/v3-ActReason').value)
-        self.assertEqual(inst.meta.tag[0].system.as_json(), 'http://terminology.hl7.org/CodeSystem/v3-ActReason')
-        self.assertEqual(inst.status.value, FHIRCode('active').value)
-        self.assertEqual(inst.status.as_json(), 'active')
-        self.assertEqual(inst.text.div.value, FHIRString('<div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the EnrollmentRequest.</div>').value)
-        self.assertEqual(inst.text.div.as_json(), '<div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the EnrollmentRequest.</div>')
-        self.assertEqual(inst.text.status.value, FHIRCode('generated').value)
-        self.assertEqual(inst.text.status.as_json(), 'generated')
+        self.assertEqual(inst.created.value, FHIRDateTime("2014-08-16").value)
+        self.assertEqual(inst.created.as_json(), "2014-08-16")
+        self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://happyvalley.com/enrollmentrequest").value)
+        self.assertEqual(inst.identifier[0].system.as_json(), "http://happyvalley.com/enrollmentrequest")
+        self.assertEqual(inst.identifier[0].value.value, FHIRString("EN22345").value)
+        self.assertEqual(inst.identifier[0].value.as_json(), "EN22345")
+        self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
+        self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
+        self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)
+        self.assertEqual(inst.meta.tag[0].display.as_json(), "test health data")
+        self.assertEqual(inst.meta.tag[0].system.value, FHIRUri("http://terminology.hl7.org/CodeSystem/v3-ActReason").value)
+        self.assertEqual(inst.meta.tag[0].system.as_json(), "http://terminology.hl7.org/CodeSystem/v3-ActReason")
+        self.assertEqual(inst.status.value, FHIRCode("active").value)
+        self.assertEqual(inst.status.as_json(), "active")
+        self.assertEqual(inst.text.div.value, FHIRString("<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the EnrollmentRequest.</div>").value)
+        self.assertEqual(inst.text.div.as_json(), "<div xmlns=\"http://www.w3.org/1999/xhtml\">A human-readable rendering of the EnrollmentRequest.</div>")
+        self.assertEqual(inst.text.status.value, FHIRCode("generated").value)
+        self.assertEqual(inst.text.status.as_json(), "generated")
 
 
 from fhirclient.models.fhirdatatypes import FHIRDateTime, FHIRUri, FHIRString, FHIRCode

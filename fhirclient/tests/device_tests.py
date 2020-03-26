@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.1-9346c8cc45 on 2020-03-25.
+#  Generated from FHIR 4.0.1-9346c8cc45 on 2020-03-26.
 #  2020, SMART Health IT.
 
 
@@ -30,20 +30,20 @@ class DeviceTests(unittest.TestCase):
         self.implDevice1(inst2)
 
     def implDevice1(self, inst):
-        self.assertEqual(inst.identifier[0].system.value, FHIRUri('http://goodcare.org/devices/id').value)
-        self.assertEqual(inst.identifier[0].system.as_json(), 'http://goodcare.org/devices/id')
-        self.assertEqual(inst.identifier[0].value.value, FHIRString('345675').value)
-        self.assertEqual(inst.identifier[0].value.as_json(), '345675')
-        self.assertEqual(inst.meta.tag[0].code.value, FHIRCode('HTEST').value)
-        self.assertEqual(inst.meta.tag[0].code.as_json(), 'HTEST')
-        self.assertEqual(inst.meta.tag[0].display.value, FHIRString('test health data').value)
-        self.assertEqual(inst.meta.tag[0].display.as_json(), 'test health data')
-        self.assertEqual(inst.meta.tag[0].system.value, FHIRUri('http://terminology.hl7.org/CodeSystem/v3-ActReason').value)
-        self.assertEqual(inst.meta.tag[0].system.as_json(), 'http://terminology.hl7.org/CodeSystem/v3-ActReason')
-        self.assertEqual(inst.text.div.value, FHIRString('<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: example</p><p><b>identifier</b>: 345675</p></div>').value)
-        self.assertEqual(inst.text.div.as_json(), '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: example</p><p><b>identifier</b>: 345675</p></div>')
-        self.assertEqual(inst.text.status.value, FHIRCode('generated').value)
-        self.assertEqual(inst.text.status.as_json(), 'generated')
+        self.assertEqual(inst.identifier[0].system.value, FHIRUri("http://goodcare.org/devices/id").value)
+        self.assertEqual(inst.identifier[0].system.as_json(), "http://goodcare.org/devices/id")
+        self.assertEqual(inst.identifier[0].value.value, FHIRString("345675").value)
+        self.assertEqual(inst.identifier[0].value.as_json(), "345675")
+        self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
+        self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
+        self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)
+        self.assertEqual(inst.meta.tag[0].display.as_json(), "test health data")
+        self.assertEqual(inst.meta.tag[0].system.value, FHIRUri("http://terminology.hl7.org/CodeSystem/v3-ActReason").value)
+        self.assertEqual(inst.meta.tag[0].system.as_json(), "http://terminology.hl7.org/CodeSystem/v3-ActReason")
+        self.assertEqual(inst.text.div.value, FHIRString("<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: example</p><p><b>identifier</b>: 345675</p></div>").value)
+        self.assertEqual(inst.text.div.as_json(), "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: example</p><p><b>identifier</b>: 345675</p></div>")
+        self.assertEqual(inst.text.status.value, FHIRCode("generated").value)
+        self.assertEqual(inst.text.status.as_json(), "generated")
 
     def testDevice2(self):
         inst = self.instantiate_from('device-example-f001-feedingtube.json')
@@ -56,22 +56,22 @@ class DeviceTests(unittest.TestCase):
         self.implDevice2(inst2)
 
     def implDevice2(self, inst):
-        self.assertEqual(inst.identifier[0].system.value, FHIRUri('http:/goodhealthhospital/identifier/devices').value)
-        self.assertEqual(inst.identifier[0].system.as_json(), 'http:/goodhealthhospital/identifier/devices')
-        self.assertEqual(inst.identifier[0].value.value, FHIRString('12345').value)
-        self.assertEqual(inst.identifier[0].value.as_json(), '12345')
-        self.assertEqual(inst.meta.tag[0].code.value, FHIRCode('HTEST').value)
-        self.assertEqual(inst.meta.tag[0].code.as_json(), 'HTEST')
-        self.assertEqual(inst.meta.tag[0].display.value, FHIRString('test health data').value)
-        self.assertEqual(inst.meta.tag[0].display.as_json(), 'test health data')
-        self.assertEqual(inst.meta.tag[0].system.value, FHIRUri('http://terminology.hl7.org/CodeSystem/v3-ActReason').value)
-        self.assertEqual(inst.meta.tag[0].system.as_json(), 'http://terminology.hl7.org/CodeSystem/v3-ActReason')
-        self.assertEqual(inst.status.value, FHIRCode('active').value)
-        self.assertEqual(inst.status.as_json(), 'active')
-        self.assertEqual(inst.text.div.value, FHIRString('<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: f001</p><p><b>identifier</b>: 12345</p><p><b>status</b>: active</p></div>').value)
-        self.assertEqual(inst.text.div.as_json(), '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: f001</p><p><b>identifier</b>: 12345</p><p><b>status</b>: active</p></div>')
-        self.assertEqual(inst.text.status.value, FHIRCode('generated').value)
-        self.assertEqual(inst.text.status.as_json(), 'generated')
+        self.assertEqual(inst.identifier[0].system.value, FHIRUri("http:/goodhealthhospital/identifier/devices").value)
+        self.assertEqual(inst.identifier[0].system.as_json(), "http:/goodhealthhospital/identifier/devices")
+        self.assertEqual(inst.identifier[0].value.value, FHIRString("12345").value)
+        self.assertEqual(inst.identifier[0].value.as_json(), "12345")
+        self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
+        self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
+        self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)
+        self.assertEqual(inst.meta.tag[0].display.as_json(), "test health data")
+        self.assertEqual(inst.meta.tag[0].system.value, FHIRUri("http://terminology.hl7.org/CodeSystem/v3-ActReason").value)
+        self.assertEqual(inst.meta.tag[0].system.as_json(), "http://terminology.hl7.org/CodeSystem/v3-ActReason")
+        self.assertEqual(inst.status.value, FHIRCode("active").value)
+        self.assertEqual(inst.status.as_json(), "active")
+        self.assertEqual(inst.text.div.value, FHIRString("<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: f001</p><p><b>identifier</b>: 12345</p><p><b>status</b>: active</p></div>").value)
+        self.assertEqual(inst.text.div.as_json(), "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: f001</p><p><b>identifier</b>: 12345</p><p><b>status</b>: active</p></div>")
+        self.assertEqual(inst.text.status.value, FHIRCode("generated").value)
+        self.assertEqual(inst.text.status.as_json(), "generated")
 
 
 from fhirclient.models.fhirdatatypes import FHIRUri, FHIRString, FHIRCode

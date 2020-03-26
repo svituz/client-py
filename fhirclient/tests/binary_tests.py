@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR 4.0.1-9346c8cc45 on 2020-03-25.
+#  Generated from FHIR 4.0.1-9346c8cc45 on 2020-03-26.
 #  2020, SMART Health IT.
 
 
@@ -30,14 +30,14 @@ class BinaryTests(unittest.TestCase):
         self.implBinary1(inst2)
 
     def implBinary1(self, inst):
-        self.assertEqual(inst.contentType.value, FHIRCode('application/pdf').value)
-        self.assertEqual(inst.contentType.as_json(), 'application/pdf')
-        self.assertEqual(inst.meta.tag[0].code.value, FHIRCode('HTEST').value)
-        self.assertEqual(inst.meta.tag[0].code.as_json(), 'HTEST')
-        self.assertEqual(inst.meta.tag[0].display.value, FHIRString('test health data').value)
-        self.assertEqual(inst.meta.tag[0].display.as_json(), 'test health data')
-        self.assertEqual(inst.meta.tag[0].system.value, FHIRUri('http://terminology.hl7.org/CodeSystem/v3-ActReason').value)
-        self.assertEqual(inst.meta.tag[0].system.as_json(), 'http://terminology.hl7.org/CodeSystem/v3-ActReason')
+        self.assertEqual(inst.contentType.value, FHIRCode("application/pdf").value)
+        self.assertEqual(inst.contentType.as_json(), "application/pdf")
+        self.assertEqual(inst.meta.tag[0].code.value, FHIRCode("HTEST").value)
+        self.assertEqual(inst.meta.tag[0].code.as_json(), "HTEST")
+        self.assertEqual(inst.meta.tag[0].display.value, FHIRString("test health data").value)
+        self.assertEqual(inst.meta.tag[0].display.as_json(), "test health data")
+        self.assertEqual(inst.meta.tag[0].system.value, FHIRUri("http://terminology.hl7.org/CodeSystem/v3-ActReason").value)
+        self.assertEqual(inst.meta.tag[0].system.as_json(), "http://terminology.hl7.org/CodeSystem/v3-ActReason")
 
 
 from fhirclient.models.fhirdatatypes import FHIRCode, FHIRString, FHIRUri
