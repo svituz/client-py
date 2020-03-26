@@ -61,8 +61,8 @@ class FHIRUrl(FHIRAbstractDatatype):
     def __init__(self, value):
         # taken from Django and changed the protocol part
         self.regex = re.compile(
-            r'^(?:[a-z]+)s?://'  # set any possible protocol since FHIR spec says it can be lot of protocols  
-            r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|'  # domain
+            r'^(?:[a-z]+)s?:(?://)?'  # set any possible protocol since FHIR spec says it can be lot of protocols  
+            r'(?:(?:[A-Z0-9](?:[A-Z0-9-@]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|'  # domain
             r'localhost|'  # localhost...
             r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})'  # ...or ip
             r'(?::\d+)?'  # optional port
