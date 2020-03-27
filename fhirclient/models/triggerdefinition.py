@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class TriggerDefinition(element.Element):
     """ Defines an expected trigger for a module.
@@ -60,42 +60,28 @@ class TriggerDefinition(element.Element):
     def elementProperties(self):
         js = super(TriggerDefinition, self).elementProperties()
         js.extend([
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("timingTiming", "timingTiming", timing.Timing, False, "timing", False),
-            ("timingReference", "timingReference", fhirreference.FHIRReference, False, "timing", False),
-            ("timingDate", "timingDate", fhirdatatypes.FHIRDate, False, "timing", False),
-            ("timingDateTime", "timingDateTime", fhirdatatypes.FHIRDateTime, False, "timing", False),
-            ("data", "data", datarequirement.DataRequirement, True, None, False),
-            ("condition", "condition", expression.Expression, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, triggertype.TriggerType), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("timingTiming", "timingTiming", timing.Timing, False, "timing", False, None), 
+            ("timingReference", "timingReference", fhirreference.FHIRReference, False, "timing", False, None), 
+            ("timingDate", "timingDate", fhirdatatypes.FHIRDate, False, "timing", False, None), 
+            ("timingDateTime", "timingDateTime", fhirdatatypes.FHIRDateTime, False, "timing", False, None), 
+            ("data", "data", datarequirement.DataRequirement, True, None, False, None), 
+            ("condition", "condition", expression.Expression, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import datarequirement
-except ImportError:
-    datarequirement = sys.modules[__package__ + '.datarequirement']
+from fhirclient.models import datarequirement
 
-try:
-    from . import expression
-except ImportError:
-    expression = sys.modules[__package__ + '.expression']
+from fhirclient.models import expression
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import timing
-except ImportError:
-    timing = sys.modules[__package__ + '.timing']
+from fhirclient.models import timing
+
+from fhirclient.codesystems import triggertype
 

@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class CatalogEntry(domainresource.DomainResource):
     """ An entry in a catalog.
@@ -83,25 +83,25 @@ class CatalogEntry(domainresource.DomainResource):
     def elementProperties(self):
         js = super(CatalogEntry, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("orderable", "orderable", bool, False, None, True),
-            ("referencedItem", "referencedItem", fhirreference.FHIRReference, False, None, True),
-            ("additionalIdentifier", "additionalIdentifier", identifier.Identifier, True, None, False),
-            ("classification", "classification", codeableconcept.CodeableConcept, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
-            ("validityPeriod", "validityPeriod", period.Period, False, None, False),
-            ("validTo", "validTo", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("lastUpdated", "lastUpdated", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("additionalCharacteristic", "additionalCharacteristic", codeableconcept.CodeableConcept, True, None, False),
-            ("additionalClassification", "additionalClassification", codeableconcept.CodeableConcept, True, None, False),
-            ("relatedEntry", "relatedEntry", CatalogEntryRelatedEntry, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("orderable", "orderable", bool, False, None, True, None), 
+            ("referencedItem", "referencedItem", fhirreference.FHIRReference, False, None, True, None), 
+            ("additionalIdentifier", "additionalIdentifier", identifier.Identifier, True, None, False, None), 
+            ("classification", "classification", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, False, publicationstatus.PublicationStatus), 
+            ("validityPeriod", "validityPeriod", period.Period, False, None, False, None), 
+            ("validTo", "validTo", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("lastUpdated", "lastUpdated", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("additionalCharacteristic", "additionalCharacteristic", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("additionalClassification", "additionalClassification", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("relatedEntry", "relatedEntry", CatalogEntryRelatedEntry, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class CatalogEntryRelatedEntry(backboneelement.BackboneElement):
     """ An item that this catalog entry is related to.
@@ -131,36 +131,24 @@ class CatalogEntryRelatedEntry(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CatalogEntryRelatedEntry, self).elementProperties()
         js.extend([
-            ("relationtype", "relationtype", fhirdatatypes.FHIRCode, False, None, True),
-            ("item", "item", fhirreference.FHIRReference, False, None, True),
+            ("relationtype", "relationtype", fhirdatatypes.FHIRCode, False, None, True, catalogentryrelationtype.CatalogEntryRelationType), 
+            ("item", "item", fhirreference.FHIRReference, False, None, True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.codesystems import catalogentryrelationtype
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
+
+from fhirclient.models import period
+
+from fhirclient.codesystems import publicationstatus
 

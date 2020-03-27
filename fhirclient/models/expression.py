@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class Expression(element.Element):
     """ An expression that can be used to generate a value.
@@ -48,19 +48,15 @@ class Expression(element.Element):
     def elementProperties(self):
         js = super(Expression, self).elementProperties()
         js.extend([
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRId, False, None, False),
-            ("language", "language", fhirdatatypes.FHIRCode, False, None, True),
-            ("expression", "expression", fhirdatatypes.FHIRString, False, None, False),
-            ("reference", "reference", fhirdatatypes.FHIRUri, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRId, False, None, False, None), 
+            ("language", "language", fhirdatatypes.FHIRCode, False, None, True, None), 
+            ("expression", "expression", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("reference", "reference", fhirdatatypes.FHIRUri, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 

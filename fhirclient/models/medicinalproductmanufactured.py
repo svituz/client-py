@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class MedicinalProductManufactured(domainresource.DomainResource):
     """ The manufactured item as contained in the packaged medicinal product.
@@ -57,36 +57,23 @@ class MedicinalProductManufactured(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MedicinalProductManufactured, self).elementProperties()
         js.extend([
-            ("manufacturedDoseForm", "manufacturedDoseForm", codeableconcept.CodeableConcept, False, None, True),
-            ("unitOfPresentation", "unitOfPresentation", codeableconcept.CodeableConcept, False, None, False),
-            ("quantity", "quantity", quantity.Quantity, False, None, True),
-            ("manufacturer", "manufacturer", fhirreference.FHIRReference, True, None, False),
-            ("ingredient", "ingredient", fhirreference.FHIRReference, True, None, False),
-            ("physicalCharacteristics", "physicalCharacteristics", prodcharacteristic.ProdCharacteristic, False, None, False),
-            ("otherCharacteristics", "otherCharacteristics", codeableconcept.CodeableConcept, True, None, False),
+            ("manufacturedDoseForm", "manufacturedDoseForm", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("unitOfPresentation", "unitOfPresentation", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("quantity", "quantity", quantity.Quantity, False, None, True, None), 
+            ("manufacturer", "manufacturer", fhirreference.FHIRReference, True, None, False, None), 
+            ("ingredient", "ingredient", fhirreference.FHIRReference, True, None, False, None), 
+            ("physicalCharacteristics", "physicalCharacteristics", prodcharacteristic.ProdCharacteristic, False, None, False, None), 
+            ("otherCharacteristics", "otherCharacteristics", codeableconcept.CodeableConcept, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import prodcharacteristic
-except ImportError:
-    prodcharacteristic = sys.modules[__package__ + '.prodcharacteristic']
+from fhirclient.models import prodcharacteristic
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import quantity
 

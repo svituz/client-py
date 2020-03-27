@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class TerminologyCapabilities(domainresource.DomainResource):
     """ A statement of system capabilities.
@@ -132,36 +132,36 @@ class TerminologyCapabilities(domainresource.DomainResource):
     def elementProperties(self):
         js = super(TerminologyCapabilities, self).elementProperties()
         js.extend([
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("experimental", "experimental", bool, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, True),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("kind", "kind", fhirdatatypes.FHIRCode, False, None, True),
-            ("software", "software", TerminologyCapabilitiesSoftware, False, None, False),
-            ("implementation", "implementation", TerminologyCapabilitiesImplementation, False, None, False),
-            ("lockedDate", "lockedDate", bool, False, None, False),
-            ("codeSystem", "codeSystem", TerminologyCapabilitiesCodeSystem, True, None, False),
-            ("expansion", "expansion", TerminologyCapabilitiesExpansion, False, None, False),
-            ("codeSearch", "codeSearch", fhirdatatypes.FHIRCode, False, None, False),
-            ("validateCode", "validateCode", TerminologyCapabilitiesValidateCode, False, None, False),
-            ("translation", "translation", TerminologyCapabilitiesTranslation, False, None, False),
-            ("closure", "closure", TerminologyCapabilitiesClosure, False, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, publicationstatus.PublicationStatus), 
+            ("experimental", "experimental", bool, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, True, None), 
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False, None), 
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("kind", "kind", fhirdatatypes.FHIRCode, False, None, True, capabilitystatementkind.CapabilityStatementKind), 
+            ("software", "software", TerminologyCapabilitiesSoftware, False, None, False, None), 
+            ("implementation", "implementation", TerminologyCapabilitiesImplementation, False, None, False, None), 
+            ("lockedDate", "lockedDate", bool, False, None, False, None), 
+            ("codeSystem", "codeSystem", TerminologyCapabilitiesCodeSystem, True, None, False, None), 
+            ("expansion", "expansion", TerminologyCapabilitiesExpansion, False, None, False, None), 
+            ("codeSearch", "codeSearch", fhirdatatypes.FHIRCode, False, None, False, codesearchsupport.CodeSearchSupport), 
+            ("validateCode", "validateCode", TerminologyCapabilitiesValidateCode, False, None, False, None), 
+            ("translation", "translation", TerminologyCapabilitiesTranslation, False, None, False, None), 
+            ("closure", "closure", TerminologyCapabilitiesClosure, False, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class TerminologyCapabilitiesClosure(backboneelement.BackboneElement):
     """ Information about the [ConceptMap/$closure](conceptmap-operation-
@@ -187,7 +187,7 @@ class TerminologyCapabilitiesClosure(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TerminologyCapabilitiesClosure, self).elementProperties()
         js.extend([
-            ("translation", "translation", bool, False, None, False),
+            ("translation", "translation", bool, False, None, False, None), 
         ])
         return js
 
@@ -227,9 +227,9 @@ class TerminologyCapabilitiesCodeSystem(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TerminologyCapabilitiesCodeSystem, self).elementProperties()
         js.extend([
-            ("uri", "uri", fhirdatatypes.FHIRCanonical, False, None, False),
-            ("version", "version", TerminologyCapabilitiesCodeSystemVersion, True, None, False),
-            ("subsumption", "subsumption", bool, False, None, False),
+            ("uri", "uri", fhirdatatypes.FHIRCanonical, False, None, False, None), 
+            ("version", "version", TerminologyCapabilitiesCodeSystemVersion, True, None, False, None), 
+            ("subsumption", "subsumption", bool, False, None, False, None), 
         ])
         return js
 
@@ -279,12 +279,12 @@ class TerminologyCapabilitiesCodeSystemVersion(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TerminologyCapabilitiesCodeSystemVersion, self).elementProperties()
         js.extend([
-            ("code", "code", fhirdatatypes.FHIRString, False, None, False),
-            ("isDefault", "isDefault", bool, False, None, False),
-            ("compositional", "compositional", bool, False, None, False),
-            ("language", "language", fhirdatatypes.FHIRCode, True, None, False),
-            ("filter", "filter", TerminologyCapabilitiesCodeSystemVersionFilter, True, None, False),
-            ("property", "property", fhirdatatypes.FHIRCode, True, None, False),
+            ("code", "code", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("isDefault", "isDefault", bool, False, None, False, None), 
+            ("compositional", "compositional", bool, False, None, False, None), 
+            ("language", "language", fhirdatatypes.FHIRCode, True, None, False, None), 
+            ("filter", "filter", TerminologyCapabilitiesCodeSystemVersionFilter, True, None, False, None), 
+            ("property", "property", fhirdatatypes.FHIRCode, True, None, False, None), 
         ])
         return js
 
@@ -316,8 +316,8 @@ class TerminologyCapabilitiesCodeSystemVersionFilter(backboneelement.BackboneEle
     def elementProperties(self):
         js = super(TerminologyCapabilitiesCodeSystemVersionFilter, self).elementProperties()
         js.extend([
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
-            ("op", "op", fhirdatatypes.FHIRCode, True, None, True),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True, None), 
+            ("op", "op", fhirdatatypes.FHIRCode, True, None, True, None), 
         ])
         return js
 
@@ -362,11 +362,11 @@ class TerminologyCapabilitiesExpansion(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TerminologyCapabilitiesExpansion, self).elementProperties()
         js.extend([
-            ("hierarchical", "hierarchical", bool, False, None, False),
-            ("paging", "paging", bool, False, None, False),
-            ("incomplete", "incomplete", bool, False, None, False),
-            ("parameter", "parameter", TerminologyCapabilitiesExpansionParameter, True, None, False),
-            ("textFilter", "textFilter", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("hierarchical", "hierarchical", bool, False, None, False, None), 
+            ("paging", "paging", bool, False, None, False, None), 
+            ("incomplete", "incomplete", bool, False, None, False, None), 
+            ("parameter", "parameter", TerminologyCapabilitiesExpansionParameter, True, None, False, None), 
+            ("textFilter", "textFilter", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
         ])
         return js
 
@@ -398,8 +398,8 @@ class TerminologyCapabilitiesExpansionParameter(backboneelement.BackboneElement)
     def elementProperties(self):
         js = super(TerminologyCapabilitiesExpansionParameter, self).elementProperties()
         js.extend([
-            ("name", "name", fhirdatatypes.FHIRCode, False, None, True),
-            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRCode, False, None, True, None), 
+            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -435,8 +435,8 @@ class TerminologyCapabilitiesImplementation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TerminologyCapabilitiesImplementation, self).elementProperties()
         js.extend([
-            ("description", "description", fhirdatatypes.FHIRString, False, None, True),
-            ("url", "url", fhirdatatypes.FHIRUrl, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("url", "url", fhirdatatypes.FHIRUrl, False, None, False, None), 
         ])
         return js
 
@@ -472,8 +472,8 @@ class TerminologyCapabilitiesSoftware(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TerminologyCapabilitiesSoftware, self).elementProperties()
         js.extend([
-            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -502,7 +502,7 @@ class TerminologyCapabilitiesTranslation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TerminologyCapabilitiesTranslation, self).elementProperties()
         js.extend([
-            ("needsMap", "needsMap", bool, False, None, True),
+            ("needsMap", "needsMap", bool, False, None, True, None), 
         ])
         return js
 
@@ -531,30 +531,23 @@ class TerminologyCapabilitiesValidateCode(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TerminologyCapabilitiesValidateCode, self).elementProperties()
         js.extend([
-            ("translations", "translations", bool, False, None, True),
+            ("translations", "translations", bool, False, None, True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.codesystems import capabilitystatementkind
 
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import codesearchsupport
 
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from fhirclient.models import contactdetail
+
+from fhirclient.models import fhirdatatypes
+
+from fhirclient.codesystems import publicationstatus
+
+from fhirclient.models import usagecontext
 

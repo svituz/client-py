@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class Ratio(element.Element):
     """ A ratio of two Quantity values - a numerator and a denominator.
@@ -35,16 +35,12 @@ class Ratio(element.Element):
     def elementProperties(self):
         js = super(Ratio, self).elementProperties()
         js.extend([
-            ("numerator", "numerator", quantity.Quantity, False, None, False),
-            ("denominator", "denominator", quantity.Quantity, False, None, False),
+            ("numerator", "numerator", quantity.Quantity, False, None, False, None), 
+            ("denominator", "denominator", quantity.Quantity, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import quantity
 

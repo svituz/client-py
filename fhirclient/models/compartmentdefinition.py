@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class CompartmentDefinition(domainresource.DomainResource):
     """ Compartment Definition for a resource.
@@ -86,26 +86,26 @@ class CompartmentDefinition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(CompartmentDefinition, self).elementProperties()
         js.extend([
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, True),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("experimental", "experimental", bool, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
-            ("search", "search", bool, False, None, True),
-            ("resource", "resource", CompartmentDefinitionResource, True, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, True, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, publicationstatus.PublicationStatus), 
+            ("experimental", "experimental", bool, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False, None), 
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True, compartmenttype.CompartmentType), 
+            ("search", "search", bool, False, None, True, None), 
+            ("resource", "resource", CompartmentDefinitionResource, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class CompartmentDefinitionResource(backboneelement.BackboneElement):
     """ How a resource is related to the compartment.
@@ -138,27 +138,23 @@ class CompartmentDefinitionResource(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CompartmentDefinitionResource, self).elementProperties()
         js.extend([
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
-            ("param", "param", fhirdatatypes.FHIRString, True, None, False),
-            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True, resourcetype.ResourceType), 
+            ("param", "param", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.codesystems import compartmenttype
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import contactdetail
 
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from fhirclient.models import fhirdatatypes
+
+from fhirclient.codesystems import publicationstatus
+
+from fhirclient.codesystems import resourcetype
+
+from fhirclient.models import usagecontext
 

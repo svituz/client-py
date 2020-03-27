@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class Coding(element.Element):
     """ A reference to a code defined by a terminology system.
@@ -44,19 +44,15 @@ class Coding(element.Element):
     def elementProperties(self):
         js = super(Coding, self).elementProperties()
         js.extend([
-            ("system", "system", fhirdatatypes.FHIRUri, False, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, False),
-            ("display", "display", fhirdatatypes.FHIRString, False, None, False),
-            ("userSelected", "userSelected", bool, False, None, False),
+            ("system", "system", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("display", "display", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("userSelected", "userSelected", bool, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 

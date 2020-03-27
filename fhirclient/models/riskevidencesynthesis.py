@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class RiskEvidenceSynthesis(domainresource.DomainResource):
     """ A quantified estimate of risk based on a body of evidence.
@@ -156,43 +156,43 @@ class RiskEvidenceSynthesis(domainresource.DomainResource):
     def elementProperties(self):
         js = super(RiskEvidenceSynthesis, self).elementProperties()
         js.extend([
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("approvalDate", "approvalDate", fhirdatatypes.FHIRDate, False, None, False),
-            ("lastReviewDate", "lastReviewDate", fhirdatatypes.FHIRDate, False, None, False),
-            ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
-            ("topic", "topic", codeableconcept.CodeableConcept, True, None, False),
-            ("author", "author", contactdetail.ContactDetail, True, None, False),
-            ("editor", "editor", contactdetail.ContactDetail, True, None, False),
-            ("reviewer", "reviewer", contactdetail.ContactDetail, True, None, False),
-            ("endorser", "endorser", contactdetail.ContactDetail, True, None, False),
-            ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False),
-            ("synthesisType", "synthesisType", codeableconcept.CodeableConcept, False, None, False),
-            ("studyType", "studyType", codeableconcept.CodeableConcept, False, None, False),
-            ("population", "population", fhirreference.FHIRReference, False, None, True),
-            ("exposure", "exposure", fhirreference.FHIRReference, False, None, False),
-            ("outcome", "outcome", fhirreference.FHIRReference, False, None, True),
-            ("sampleSize", "sampleSize", RiskEvidenceSynthesisSampleSize, False, None, False),
-            ("riskEstimate", "riskEstimate", RiskEvidenceSynthesisRiskEstimate, False, None, False),
-            ("certainty", "certainty", RiskEvidenceSynthesisCertainty, True, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, publicationstatus.PublicationStatus), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False, None), 
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("approvalDate", "approvalDate", fhirdatatypes.FHIRDate, False, None, False, None), 
+            ("lastReviewDate", "lastReviewDate", fhirdatatypes.FHIRDate, False, None, False, None), 
+            ("effectivePeriod", "effectivePeriod", period.Period, False, None, False, None), 
+            ("topic", "topic", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("author", "author", contactdetail.ContactDetail, True, None, False, None), 
+            ("editor", "editor", contactdetail.ContactDetail, True, None, False, None), 
+            ("reviewer", "reviewer", contactdetail.ContactDetail, True, None, False, None), 
+            ("endorser", "endorser", contactdetail.ContactDetail, True, None, False, None), 
+            ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False, None), 
+            ("synthesisType", "synthesisType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("studyType", "studyType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("population", "population", fhirreference.FHIRReference, False, None, True, None), 
+            ("exposure", "exposure", fhirreference.FHIRReference, False, None, False, None), 
+            ("outcome", "outcome", fhirreference.FHIRReference, False, None, True, None), 
+            ("sampleSize", "sampleSize", RiskEvidenceSynthesisSampleSize, False, None, False, None), 
+            ("riskEstimate", "riskEstimate", RiskEvidenceSynthesisRiskEstimate, False, None, False, None), 
+            ("certainty", "certainty", RiskEvidenceSynthesisCertainty, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class RiskEvidenceSynthesisCertainty(backboneelement.BackboneElement):
     """ How certain is the risk.
@@ -225,9 +225,9 @@ class RiskEvidenceSynthesisCertainty(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(RiskEvidenceSynthesisCertainty, self).elementProperties()
         js.extend([
-            ("rating", "rating", codeableconcept.CodeableConcept, True, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
-            ("certaintySubcomponent", "certaintySubcomponent", RiskEvidenceSynthesisCertaintyCertaintySubcomponent, True, None, False),
+            ("rating", "rating", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
+            ("certaintySubcomponent", "certaintySubcomponent", RiskEvidenceSynthesisCertaintyCertaintySubcomponent, True, None, False, None), 
         ])
         return js
 
@@ -265,9 +265,9 @@ class RiskEvidenceSynthesisCertaintyCertaintySubcomponent(backboneelement.Backbo
     def elementProperties(self):
         js = super(RiskEvidenceSynthesisCertaintyCertaintySubcomponent, self).elementProperties()
         js.extend([
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("rating", "rating", codeableconcept.CodeableConcept, True, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("rating", "rating", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
         ])
         return js
 
@@ -321,13 +321,13 @@ class RiskEvidenceSynthesisRiskEstimate(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(RiskEvidenceSynthesisRiskEstimate, self).elementProperties()
         js.extend([
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("value", "value", float, False, None, False),
-            ("unitOfMeasure", "unitOfMeasure", codeableconcept.CodeableConcept, False, None, False),
-            ("denominatorCount", "denominatorCount", int, False, None, False),
-            ("numeratorCount", "numeratorCount", int, False, None, False),
-            ("precisionEstimate", "precisionEstimate", RiskEvidenceSynthesisRiskEstimatePrecisionEstimate, True, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("value", "value", float, False, None, False, None), 
+            ("unitOfMeasure", "unitOfMeasure", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("denominatorCount", "denominatorCount", int, False, None, False, None), 
+            ("numeratorCount", "numeratorCount", int, False, None, False, None), 
+            ("precisionEstimate", "precisionEstimate", RiskEvidenceSynthesisRiskEstimatePrecisionEstimate, True, None, False, None), 
         ])
         return js
 
@@ -369,10 +369,10 @@ class RiskEvidenceSynthesisRiskEstimatePrecisionEstimate(backboneelement.Backbon
     def elementProperties(self):
         js = super(RiskEvidenceSynthesisRiskEstimatePrecisionEstimate, self).elementProperties()
         js.extend([
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("level", "level", float, False, None, False),
-            ("from_fhir", "from", float, False, None, False),
-            ("to", "to", float, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("level", "level", float, False, None, False, None), 
+            ("from_fhir", "from", float, False, None, False, None), 
+            ("to", "to", float, False, None, False, None), 
         ])
         return js
 
@@ -410,57 +410,31 @@ class RiskEvidenceSynthesisSampleSize(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(RiskEvidenceSynthesisSampleSize, self).elementProperties()
         js.extend([
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("numberOfStudies", "numberOfStudies", int, False, None, False),
-            ("numberOfParticipants", "numberOfParticipants", int, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("numberOfStudies", "numberOfStudies", int, False, None, False, None), 
+            ("numberOfParticipants", "numberOfParticipants", int, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.models import contactdetail
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import period
 
-try:
-    from . import relatedartifact
-except ImportError:
-    relatedartifact = sys.modules[__package__ + '.relatedartifact']
+from fhirclient.codesystems import publicationstatus
 
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from fhirclient.models import relatedartifact
+
+from fhirclient.models import usagecontext
 

@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class AuditEvent(domainresource.DomainResource):
     """ Event record kept for security purposes.
@@ -74,23 +74,23 @@ class AuditEvent(domainresource.DomainResource):
     def elementProperties(self):
         js = super(AuditEvent, self).elementProperties()
         js.extend([
-            ("type", "type", coding.Coding, False, None, True),
-            ("subtype", "subtype", coding.Coding, True, None, False),
-            ("action", "action", fhirdatatypes.FHIRCode, False, None, False),
-            ("period", "period", period.Period, False, None, False),
-            ("recorded", "recorded", fhirdatatypes.FHIRInstant, False, None, True),
-            ("outcome", "outcome", fhirdatatypes.FHIRCode, False, None, False),
-            ("outcomeDesc", "outcomeDesc", fhirdatatypes.FHIRString, False, None, False),
-            ("purposeOfEvent", "purposeOfEvent", codeableconcept.CodeableConcept, True, None, False),
-            ("agent", "agent", AuditEventAgent, True, None, True),
-            ("source", "source", AuditEventSource, False, None, True),
-            ("entity", "entity", AuditEventEntity, True, None, False),
+            ("type", "type", coding.Coding, False, None, True, None), 
+            ("subtype", "subtype", coding.Coding, True, None, False, None), 
+            ("action", "action", fhirdatatypes.FHIRCode, False, None, False, auditeventaction.AuditEventAction), 
+            ("period", "period", period.Period, False, None, False, None), 
+            ("recorded", "recorded", fhirdatatypes.FHIRInstant, False, None, True, None), 
+            ("outcome", "outcome", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("outcomeDesc", "outcomeDesc", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("purposeOfEvent", "purposeOfEvent", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("agent", "agent", AuditEventAgent, True, None, True, None), 
+            ("source", "source", AuditEventSource, False, None, True, None), 
+            ("entity", "entity", AuditEventEntity, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class AuditEventAgent(backboneelement.BackboneElement):
     """ Actor involved in the event.
@@ -155,17 +155,17 @@ class AuditEventAgent(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(AuditEventAgent, self).elementProperties()
         js.extend([
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("role", "role", codeableconcept.CodeableConcept, True, None, False),
-            ("who", "who", fhirreference.FHIRReference, False, None, False),
-            ("altId", "altId", fhirdatatypes.FHIRString, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("requestor", "requestor", bool, False, None, True),
-            ("location", "location", fhirreference.FHIRReference, False, None, False),
-            ("policy", "policy", fhirdatatypes.FHIRUri, True, None, False),
-            ("media", "media", coding.Coding, False, None, False),
-            ("network", "network", AuditEventAgentNetwork, False, None, False),
-            ("purposeOfUse", "purposeOfUse", codeableconcept.CodeableConcept, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("role", "role", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("who", "who", fhirreference.FHIRReference, False, None, False, None), 
+            ("altId", "altId", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("requestor", "requestor", bool, False, None, True, None), 
+            ("location", "location", fhirreference.FHIRReference, False, None, False, None), 
+            ("policy", "policy", fhirdatatypes.FHIRUri, True, None, False, None), 
+            ("media", "media", coding.Coding, False, None, False, None), 
+            ("network", "network", AuditEventAgentNetwork, False, None, False, None), 
+            ("purposeOfUse", "purposeOfUse", codeableconcept.CodeableConcept, True, None, False, None), 
         ])
         return js
 
@@ -200,8 +200,8 @@ class AuditEventAgentNetwork(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(AuditEventAgentNetwork, self).elementProperties()
         js.extend([
-            ("address", "address", fhirdatatypes.FHIRString, False, None, False),
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, False),
+            ("address", "address", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, False, None), 
         ])
         return js
 
@@ -263,15 +263,15 @@ class AuditEventEntity(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(AuditEventEntity, self).elementProperties()
         js.extend([
-            ("what", "what", fhirreference.FHIRReference, False, None, False),
-            ("type", "type", coding.Coding, False, None, False),
-            ("role", "role", coding.Coding, False, None, False),
-            ("lifecycle", "lifecycle", coding.Coding, False, None, False),
-            ("securityLabel", "securityLabel", coding.Coding, True, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("query", "query", fhirdatatypes.FHIRBase64Binary, False, None, False),
-            ("detail", "detail", AuditEventEntityDetail, True, None, False),
+            ("what", "what", fhirreference.FHIRReference, False, None, False, None), 
+            ("type", "type", coding.Coding, False, None, False, None), 
+            ("role", "role", coding.Coding, False, None, False, None), 
+            ("lifecycle", "lifecycle", coding.Coding, False, None, False, None), 
+            ("securityLabel", "securityLabel", coding.Coding, True, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("query", "query", fhirdatatypes.FHIRBase64Binary, False, None, False, None), 
+            ("detail", "detail", AuditEventEntityDetail, True, None, False, None), 
         ])
         return js
 
@@ -309,9 +309,9 @@ class AuditEventEntityDetail(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(AuditEventEntityDetail, self).elementProperties()
         js.extend([
-            ("type", "type", fhirdatatypes.FHIRString, False, None, True),
-            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", True),
-            ("valueBase64Binary", "valueBase64Binary", fhirdatatypes.FHIRBase64Binary, False, "value", True),
+            ("type", "type", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", True, None), 
+            ("valueBase64Binary", "valueBase64Binary", fhirdatatypes.FHIRBase64Binary, False, "value", True, None), 
         ])
         return js
 
@@ -349,37 +349,23 @@ class AuditEventSource(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(AuditEventSource, self).elementProperties()
         js.extend([
-            ("site", "site", fhirdatatypes.FHIRString, False, None, False),
-            ("observer", "observer", fhirreference.FHIRReference, False, None, True),
-            ("type", "type", coding.Coding, True, None, False),
+            ("site", "site", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("observer", "observer", fhirreference.FHIRReference, False, None, True, None), 
+            ("type", "type", coding.Coding, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.codesystems import auditeventaction
 
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import coding
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import fhirreference
+
+from fhirclient.models import period
 

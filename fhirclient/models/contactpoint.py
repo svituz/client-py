@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class ContactPoint(element.Element):
     """ Details of a Technology mediated contact point (phone, fax, email, etc.).
@@ -47,24 +47,21 @@ class ContactPoint(element.Element):
     def elementProperties(self):
         js = super(ContactPoint, self).elementProperties()
         js.extend([
-            ("system", "system", fhirdatatypes.FHIRCode, False, None, False),
-            ("value", "value", fhirdatatypes.FHIRString, False, None, False),
-            ("use", "use", fhirdatatypes.FHIRCode, False, None, False),
-            ("rank", "rank", fhirdatatypes.FHIRPositiveInt, False, None, False),
-            ("period", "period", period.Period, False, None, False),
+            ("system", "system", fhirdatatypes.FHIRCode, False, None, False, contactpointsystem.ContactPointSystem), 
+            ("value", "value", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("use", "use", fhirdatatypes.FHIRCode, False, None, False, contactpointuse.ContactPointUse), 
+            ("rank", "rank", fhirdatatypes.FHIRPositiveInt, False, None, False, None), 
+            ("period", "period", period.Period, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import contactpointsystem
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.codesystems import contactpointuse
+
+from fhirclient.models import fhirdatatypes
+
+from fhirclient.models import period
 

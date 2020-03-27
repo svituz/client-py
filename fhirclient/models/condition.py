@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Condition(domainresource.DomainResource):
     """ Detailed information about conditions, problems or diagnoses.
@@ -130,37 +130,37 @@ class Condition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Condition, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("clinicalStatus", "clinicalStatus", codeableconcept.CodeableConcept, False, None, False),
-            ("verificationStatus", "verificationStatus", codeableconcept.CodeableConcept, False, None, False),
-            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
-            ("severity", "severity", codeableconcept.CodeableConcept, False, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("bodySite", "bodySite", codeableconcept.CodeableConcept, True, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("onsetDateTime", "onsetDateTime", fhirdatatypes.FHIRDateTime, False, "onset", False),
-            ("onsetAge", "onsetAge", age.Age, False, "onset", False),
-            ("onsetPeriod", "onsetPeriod", period.Period, False, "onset", False),
-            ("onsetRange", "onsetRange", range.Range, False, "onset", False),
-            ("onsetString", "onsetString", fhirdatatypes.FHIRString, False, "onset", False),
-            ("abatementDateTime", "abatementDateTime", fhirdatatypes.FHIRDateTime, False, "abatement", False),
-            ("abatementAge", "abatementAge", age.Age, False, "abatement", False),
-            ("abatementPeriod", "abatementPeriod", period.Period, False, "abatement", False),
-            ("abatementRange", "abatementRange", range.Range, False, "abatement", False),
-            ("abatementString", "abatementString", fhirdatatypes.FHIRString, False, "abatement", False),
-            ("recordedDate", "recordedDate", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("recorder", "recorder", fhirreference.FHIRReference, False, None, False),
-            ("asserter", "asserter", fhirreference.FHIRReference, False, None, False),
-            ("stage", "stage", ConditionStage, True, None, False),
-            ("evidence", "evidence", ConditionEvidence, True, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("clinicalStatus", "clinicalStatus", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("verificationStatus", "verificationStatus", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("severity", "severity", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True, None), 
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False, None), 
+            ("onsetDateTime", "onsetDateTime", fhirdatatypes.FHIRDateTime, False, "onset", False, None), 
+            ("onsetAge", "onsetAge", age.Age, False, "onset", False, None), 
+            ("onsetPeriod", "onsetPeriod", period.Period, False, "onset", False, None), 
+            ("onsetRange", "onsetRange", range.Range, False, "onset", False, None), 
+            ("onsetString", "onsetString", fhirdatatypes.FHIRString, False, "onset", False, None), 
+            ("abatementDateTime", "abatementDateTime", fhirdatatypes.FHIRDateTime, False, "abatement", False, None), 
+            ("abatementAge", "abatementAge", age.Age, False, "abatement", False, None), 
+            ("abatementPeriod", "abatementPeriod", period.Period, False, "abatement", False, None), 
+            ("abatementRange", "abatementRange", range.Range, False, "abatement", False, None), 
+            ("abatementString", "abatementString", fhirdatatypes.FHIRString, False, "abatement", False, None), 
+            ("recordedDate", "recordedDate", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("recorder", "recorder", fhirreference.FHIRReference, False, None, False, None), 
+            ("asserter", "asserter", fhirreference.FHIRReference, False, None, False, None), 
+            ("stage", "stage", ConditionStage, True, None, False, None), 
+            ("evidence", "evidence", ConditionEvidence, True, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ConditionEvidence(backboneelement.BackboneElement):
     """ Supporting evidence.
@@ -191,8 +191,8 @@ class ConditionEvidence(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConditionEvidence, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, True, None, False),
-            ("detail", "detail", fhirreference.FHIRReference, True, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("detail", "detail", fhirreference.FHIRReference, True, None, False, None), 
         ])
         return js
 
@@ -231,52 +231,27 @@ class ConditionStage(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConditionStage, self).elementProperties()
         js.extend([
-            ("summary", "summary", codeableconcept.CodeableConcept, False, None, False),
-            ("assessment", "assessment", fhirreference.FHIRReference, True, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("summary", "summary", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("assessment", "assessment", fhirreference.FHIRReference, True, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import age
-except ImportError:
-    age = sys.modules[__package__ + '.age']
+from fhirclient.models import age
 
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import period
 
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from fhirclient.models import range
 

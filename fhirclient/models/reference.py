@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class Reference(element.Element):
     """ A reference from one resource to another.
@@ -40,23 +40,16 @@ class Reference(element.Element):
     def elementProperties(self):
         js = super(Reference, self).elementProperties()
         js.extend([
-            ("reference", "reference", fhirdatatypes.FHIRString, False, None, False),
-            ("type", "type", fhirdatatypes.FHIRUri, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("display", "display", fhirdatatypes.FHIRString, False, None, False),
+            ("reference", "reference", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("type", "type", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("identifier", "identifier", identifier.Identifier, False, None, False, None), 
+            ("display", "display", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 

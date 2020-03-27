@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class EventDefinition(domainresource.DomainResource):
     """ A description of when an event can occur.
@@ -146,83 +146,57 @@ class EventDefinition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(EventDefinition, self).elementProperties()
         js.extend([
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("subtitle", "subtitle", fhirdatatypes.FHIRString, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("experimental", "experimental", bool, False, None, False),
-            ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False),
-            ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("usage", "usage", fhirdatatypes.FHIRString, False, None, False),
-            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("approvalDate", "approvalDate", fhirdatatypes.FHIRDate, False, None, False),
-            ("lastReviewDate", "lastReviewDate", fhirdatatypes.FHIRDate, False, None, False),
-            ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
-            ("topic", "topic", codeableconcept.CodeableConcept, True, None, False),
-            ("author", "author", contactdetail.ContactDetail, True, None, False),
-            ("editor", "editor", contactdetail.ContactDetail, True, None, False),
-            ("reviewer", "reviewer", contactdetail.ContactDetail, True, None, False),
-            ("endorser", "endorser", contactdetail.ContactDetail, True, None, False),
-            ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False),
-            ("trigger", "trigger", triggerdefinition.TriggerDefinition, True, None, True),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("subtitle", "subtitle", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, publicationstatus.PublicationStatus), 
+            ("experimental", "experimental", bool, False, None, False, None), 
+            ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False, None), 
+            ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False, None), 
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("usage", "usage", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("approvalDate", "approvalDate", fhirdatatypes.FHIRDate, False, None, False, None), 
+            ("lastReviewDate", "lastReviewDate", fhirdatatypes.FHIRDate, False, None, False, None), 
+            ("effectivePeriod", "effectivePeriod", period.Period, False, None, False, None), 
+            ("topic", "topic", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("author", "author", contactdetail.ContactDetail, True, None, False, None), 
+            ("editor", "editor", contactdetail.ContactDetail, True, None, False, None), 
+            ("reviewer", "reviewer", contactdetail.ContactDetail, True, None, False, None), 
+            ("endorser", "endorser", contactdetail.ContactDetail, True, None, False, None), 
+            ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False, None), 
+            ("trigger", "trigger", triggerdefinition.TriggerDefinition, True, None, True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.models import contactdetail
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import period
 
-try:
-    from . import relatedartifact
-except ImportError:
-    relatedartifact = sys.modules[__package__ + '.relatedartifact']
+from fhirclient.codesystems import publicationstatus
 
-try:
-    from . import triggerdefinition
-except ImportError:
-    triggerdefinition = sys.modules[__package__ + '.triggerdefinition']
+from fhirclient.models import relatedartifact
 
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from fhirclient.models import triggerdefinition
+
+from fhirclient.models import usagecontext
 

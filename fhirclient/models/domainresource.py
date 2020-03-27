@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import resource
+from fhirclient.models import resource
 
 class DomainResource(resource.Resource):
     """ A resource with narrative, extensions, and contained resources.
@@ -44,23 +44,16 @@ class DomainResource(resource.Resource):
     def elementProperties(self):
         js = super(DomainResource, self).elementProperties()
         js.extend([
-            ("text", "text", narrative.Narrative, False, None, False),
-            ("contained", "contained", resource.Resource, True, None, False),
-            ("extension", "extension", extension.Extension, True, None, False),
-            ("modifierExtension", "modifierExtension", extension.Extension, True, None, False),
+            ("text", "text", narrative.Narrative, False, None, False, None), 
+            ("contained", "contained", resource.Resource, True, None, False, None), 
+            ("extension", "extension", extension.Extension, True, None, False, None), 
+            ("modifierExtension", "modifierExtension", extension.Extension, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import extension
-except ImportError:
-    extension = sys.modules[__package__ + '.extension']
+from fhirclient.models import extension
 
-try:
-    from . import narrative
-except ImportError:
-    narrative = sys.modules[__package__ + '.narrative']
+from fhirclient.models import narrative
 

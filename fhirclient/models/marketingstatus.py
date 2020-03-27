@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class MarketingStatus(backboneelement.BackboneElement):
     """ The marketing status describes the date when a medicinal product is
@@ -66,29 +66,19 @@ class MarketingStatus(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MarketingStatus, self).elementProperties()
         js.extend([
-            ("country", "country", codeableconcept.CodeableConcept, False, None, True),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, False, None, False),
-            ("status", "status", codeableconcept.CodeableConcept, False, None, True),
-            ("dateRange", "dateRange", period.Period, False, None, True),
-            ("restoreDate", "restoreDate", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("country", "country", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("status", "status", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("dateRange", "dateRange", period.Period, False, None, True, None), 
+            ("restoreDate", "restoreDate", fhirdatatypes.FHIRDateTime, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import period
 

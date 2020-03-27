@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class MessageHeader(domainresource.DomainResource):
     """ A resource that describes a message that is exchanged between systems.
@@ -82,24 +82,24 @@ class MessageHeader(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MessageHeader, self).elementProperties()
         js.extend([
-            ("eventCoding", "eventCoding", coding.Coding, False, "event", True),
-            ("eventUri", "eventUri", fhirdatatypes.FHIRUri, False, "event", True),
-            ("destination", "destination", MessageHeaderDestination, True, None, False),
-            ("sender", "sender", fhirreference.FHIRReference, False, None, False),
-            ("enterer", "enterer", fhirreference.FHIRReference, False, None, False),
-            ("author", "author", fhirreference.FHIRReference, False, None, False),
-            ("source", "source", MessageHeaderSource, False, None, True),
-            ("responsible", "responsible", fhirreference.FHIRReference, False, None, False),
-            ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
-            ("response", "response", MessageHeaderResponse, False, None, False),
-            ("focus", "focus", fhirreference.FHIRReference, True, None, False),
-            ("definition", "definition", fhirdatatypes.FHIRCanonical, False, None, False),
+            ("eventCoding", "eventCoding", coding.Coding, False, "event", True, None), 
+            ("eventUri", "eventUri", fhirdatatypes.FHIRUri, False, "event", True, None), 
+            ("destination", "destination", MessageHeaderDestination, True, None, False, None), 
+            ("sender", "sender", fhirreference.FHIRReference, False, None, False, None), 
+            ("enterer", "enterer", fhirreference.FHIRReference, False, None, False, None), 
+            ("author", "author", fhirreference.FHIRReference, False, None, False, None), 
+            ("source", "source", MessageHeaderSource, False, None, True, None), 
+            ("responsible", "responsible", fhirreference.FHIRReference, False, None, False, None), 
+            ("reason", "reason", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("response", "response", MessageHeaderResponse, False, None, False, None), 
+            ("focus", "focus", fhirreference.FHIRReference, True, None, False, None), 
+            ("definition", "definition", fhirdatatypes.FHIRCanonical, False, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class MessageHeaderDestination(backboneelement.BackboneElement):
     """ Message destination application(s).
@@ -136,10 +136,10 @@ class MessageHeaderDestination(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MessageHeaderDestination, self).elementProperties()
         js.extend([
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("target", "target", fhirreference.FHIRReference, False, None, False),
-            ("endpoint", "endpoint", fhirdatatypes.FHIRUrl, False, None, True),
-            ("receiver", "receiver", fhirreference.FHIRReference, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("target", "target", fhirreference.FHIRReference, False, None, False, None), 
+            ("endpoint", "endpoint", fhirdatatypes.FHIRUrl, False, None, True, None), 
+            ("receiver", "receiver", fhirreference.FHIRReference, False, None, False, None), 
         ])
         return js
 
@@ -178,9 +178,9 @@ class MessageHeaderResponse(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MessageHeaderResponse, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", fhirdatatypes.FHIRId, False, None, True),
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
-            ("details", "details", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", fhirdatatypes.FHIRId, False, None, True, None), 
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True, responsetype.ResponseType), 
+            ("details", "details", fhirreference.FHIRReference, False, None, False, None), 
         ])
         return js
 
@@ -226,39 +226,25 @@ class MessageHeaderSource(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MessageHeaderSource, self).elementProperties()
         js.extend([
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("software", "software", fhirdatatypes.FHIRString, False, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("contact", "contact", contactpoint.ContactPoint, False, None, False),
-            ("endpoint", "endpoint", fhirdatatypes.FHIRUrl, False, None, True),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("software", "software", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("contact", "contact", contactpoint.ContactPoint, False, None, False, None), 
+            ("endpoint", "endpoint", fhirdatatypes.FHIRUrl, False, None, True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
+from fhirclient.models import coding
 
-try:
-    from . import contactpoint
-except ImportError:
-    contactpoint = sys.modules[__package__ + '.contactpoint']
+from fhirclient.models import contactpoint
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
+
+from fhirclient.codesystems import responsetype
 

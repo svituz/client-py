@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class GraphDefinition(domainresource.DomainResource):
     """ Definition of a graph of resources.
@@ -91,27 +91,27 @@ class GraphDefinition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(GraphDefinition, self).elementProperties()
         js.extend([
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("experimental", "experimental", bool, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("start", "start", fhirdatatypes.FHIRCode, False, None, True),
-            ("profile", "profile", fhirdatatypes.FHIRCanonical, False, None, False),
-            ("link", "link", GraphDefinitionLink, True, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, publicationstatus.PublicationStatus), 
+            ("experimental", "experimental", bool, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False, None), 
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("start", "start", fhirdatatypes.FHIRCode, False, None, True, resourcetype.ResourceType), 
+            ("profile", "profile", fhirdatatypes.FHIRCanonical, False, None, False, None), 
+            ("link", "link", GraphDefinitionLink, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class GraphDefinitionLink(backboneelement.BackboneElement):
     """ Links this graph makes rules about.
@@ -154,12 +154,12 @@ class GraphDefinitionLink(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(GraphDefinitionLink, self).elementProperties()
         js.extend([
-            ("path", "path", fhirdatatypes.FHIRString, False, None, False),
-            ("sliceName", "sliceName", fhirdatatypes.FHIRString, False, None, False),
-            ("min", "min", int, False, None, False),
-            ("max", "max", fhirdatatypes.FHIRString, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("target", "target", GraphDefinitionLinkTarget, True, None, False),
+            ("path", "path", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("sliceName", "sliceName", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("min", "min", int, False, None, False, None), 
+            ("max", "max", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("target", "target", GraphDefinitionLinkTarget, True, None, False, None), 
         ])
         return js
 
@@ -203,11 +203,11 @@ class GraphDefinitionLinkTarget(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(GraphDefinitionLinkTarget, self).elementProperties()
         js.extend([
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("params", "params", fhirdatatypes.FHIRString, False, None, False),
-            ("profile", "profile", fhirdatatypes.FHIRCanonical, False, None, False),
-            ("compartment", "compartment", GraphDefinitionLinkTargetCompartment, True, None, False),
-            ("link", "link", GraphDefinitionLink, True, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, resourcetype.ResourceType), 
+            ("params", "params", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("profile", "profile", fhirdatatypes.FHIRCanonical, False, None, False, None), 
+            ("compartment", "compartment", GraphDefinitionLinkTargetCompartment, True, None, False, None), 
+            ("link", "link", GraphDefinitionLink, True, None, False, None), 
         ])
         return js
 
@@ -251,34 +251,31 @@ class GraphDefinitionLinkTargetCompartment(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(GraphDefinitionLinkTargetCompartment, self).elementProperties()
         js.extend([
-            ("use", "use", fhirdatatypes.FHIRCode, False, None, True),
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
-            ("rule", "rule", fhirdatatypes.FHIRCode, False, None, True),
-            ("expression", "expression", fhirdatatypes.FHIRString, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
+            ("use", "use", fhirdatatypes.FHIRCode, False, None, True, graphcompartmentuse.GraphCompartmentUse), 
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True, compartmenttype.CompartmentType), 
+            ("rule", "rule", fhirdatatypes.FHIRCode, False, None, True, graphcompartmentrule.GraphCompartmentRule), 
+            ("expression", "expression", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.codesystems import compartmenttype
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import contactdetail
 
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from fhirclient.models import fhirdatatypes
+
+from fhirclient.codesystems import graphcompartmentrule
+
+from fhirclient.codesystems import graphcompartmentuse
+
+from fhirclient.codesystems import publicationstatus
+
+from fhirclient.codesystems import resourcetype
+
+from fhirclient.models import usagecontext
 

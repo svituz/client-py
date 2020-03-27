@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class HealthcareService(domainresource.DomainResource):
     """ The details of a healthcare service available at a location.
@@ -125,36 +125,36 @@ class HealthcareService(domainresource.DomainResource):
     def elementProperties(self):
         js = super(HealthcareService, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("active", "active", bool, False, None, False),
-            ("providedBy", "providedBy", fhirreference.FHIRReference, False, None, False),
-            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
-            ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False),
-            ("location", "location", fhirreference.FHIRReference, True, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False),
-            ("extraDetails", "extraDetails", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("photo", "photo", attachment.Attachment, False, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
-            ("coverageArea", "coverageArea", fhirreference.FHIRReference, True, None, False),
-            ("serviceProvisionCode", "serviceProvisionCode", codeableconcept.CodeableConcept, True, None, False),
-            ("eligibility", "eligibility", HealthcareServiceEligibility, True, None, False),
-            ("program", "program", codeableconcept.CodeableConcept, True, None, False),
-            ("characteristic", "characteristic", codeableconcept.CodeableConcept, True, None, False),
-            ("communication", "communication", codeableconcept.CodeableConcept, True, None, False),
-            ("referralMethod", "referralMethod", codeableconcept.CodeableConcept, True, None, False),
-            ("appointmentRequired", "appointmentRequired", bool, False, None, False),
-            ("availableTime", "availableTime", HealthcareServiceAvailableTime, True, None, False),
-            ("notAvailable", "notAvailable", HealthcareServiceNotAvailable, True, None, False),
-            ("availabilityExceptions", "availabilityExceptions", fhirdatatypes.FHIRString, False, None, False),
-            ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("active", "active", bool, False, None, False, None), 
+            ("providedBy", "providedBy", fhirreference.FHIRReference, False, None, False, None), 
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("location", "location", fhirreference.FHIRReference, True, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("extraDetails", "extraDetails", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("photo", "photo", attachment.Attachment, False, None, False, None), 
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False, None), 
+            ("coverageArea", "coverageArea", fhirreference.FHIRReference, True, None, False, None), 
+            ("serviceProvisionCode", "serviceProvisionCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("eligibility", "eligibility", HealthcareServiceEligibility, True, None, False, None), 
+            ("program", "program", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("characteristic", "characteristic", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("communication", "communication", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("referralMethod", "referralMethod", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("appointmentRequired", "appointmentRequired", bool, False, None, False, None), 
+            ("availableTime", "availableTime", HealthcareServiceAvailableTime, True, None, False, None), 
+            ("notAvailable", "notAvailable", HealthcareServiceNotAvailable, True, None, False, None), 
+            ("availabilityExceptions", "availabilityExceptions", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class HealthcareServiceAvailableTime(backboneelement.BackboneElement):
     """ Times the Service Site is available.
@@ -191,10 +191,10 @@ class HealthcareServiceAvailableTime(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(HealthcareServiceAvailableTime, self).elementProperties()
         js.extend([
-            ("daysOfWeek", "daysOfWeek", fhirdatatypes.FHIRCode, True, None, False),
-            ("allDay", "allDay", bool, False, None, False),
-            ("availableStartTime", "availableStartTime", fhirdatatypes.FHIRTime, False, None, False),
-            ("availableEndTime", "availableEndTime", fhirdatatypes.FHIRTime, False, None, False),
+            ("daysOfWeek", "daysOfWeek", fhirdatatypes.FHIRCode, True, None, False, daysofweek.DaysOfWeek), 
+            ("allDay", "allDay", bool, False, None, False, None), 
+            ("availableStartTime", "availableStartTime", fhirdatatypes.FHIRTime, False, None, False, None), 
+            ("availableEndTime", "availableEndTime", fhirdatatypes.FHIRTime, False, None, False, None), 
         ])
         return js
 
@@ -229,8 +229,8 @@ class HealthcareServiceEligibility(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(HealthcareServiceEligibility, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("comment", "comment", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("comment", "comment", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
         ])
         return js
 
@@ -265,46 +265,26 @@ class HealthcareServiceNotAvailable(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(HealthcareServiceNotAvailable, self).elementProperties()
         js.extend([
-            ("description", "description", fhirdatatypes.FHIRString, False, None, True),
-            ("during", "during", period.Period, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("during", "during", period.Period, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
+from fhirclient.models import attachment
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import contactpoint
-except ImportError:
-    contactpoint = sys.modules[__package__ + '.contactpoint']
+from fhirclient.models import contactpoint
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import daysofweek
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
+
+from fhirclient.models import period
 

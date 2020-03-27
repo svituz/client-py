@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class DetectedIssue(domainresource.DomainResource):
     """ Clinical issue with action.
@@ -83,25 +83,25 @@ class DetectedIssue(domainresource.DomainResource):
     def elementProperties(self):
         js = super(DetectedIssue, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("severity", "severity", fhirdatatypes.FHIRCode, False, None, False),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, False),
-            ("identifiedDateTime", "identifiedDateTime", fhirdatatypes.FHIRDateTime, False, "identified", False),
-            ("identifiedPeriod", "identifiedPeriod", period.Period, False, "identified", False),
-            ("author", "author", fhirreference.FHIRReference, False, None, False),
-            ("implicated", "implicated", fhirreference.FHIRReference, True, None, False),
-            ("evidence", "evidence", DetectedIssueEvidence, True, None, False),
-            ("detail", "detail", fhirdatatypes.FHIRString, False, None, False),
-            ("reference", "reference", fhirdatatypes.FHIRUri, False, None, False),
-            ("mitigation", "mitigation", DetectedIssueMitigation, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, observationstatus.ObservationStatus), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("severity", "severity", fhirdatatypes.FHIRCode, False, None, False, detectedissueseverity.DetectedIssueSeverity), 
+            ("patient", "patient", fhirreference.FHIRReference, False, None, False, None), 
+            ("identifiedDateTime", "identifiedDateTime", fhirdatatypes.FHIRDateTime, False, "identified", False, None), 
+            ("identifiedPeriod", "identifiedPeriod", period.Period, False, "identified", False, None), 
+            ("author", "author", fhirreference.FHIRReference, False, None, False, None), 
+            ("implicated", "implicated", fhirreference.FHIRReference, True, None, False, None), 
+            ("evidence", "evidence", DetectedIssueEvidence, True, None, False, None), 
+            ("detail", "detail", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("reference", "reference", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("mitigation", "mitigation", DetectedIssueMitigation, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class DetectedIssueEvidence(backboneelement.BackboneElement):
     """ Supporting evidence.
@@ -131,8 +131,8 @@ class DetectedIssueEvidence(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(DetectedIssueEvidence, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, True, None, False),
-            ("detail", "detail", fhirreference.FHIRReference, True, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("detail", "detail", fhirreference.FHIRReference, True, None, False, None), 
         ])
         return js
 
@@ -173,37 +173,25 @@ class DetectedIssueMitigation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(DetectedIssueMitigation, self).elementProperties()
         js.extend([
-            ("action", "action", codeableconcept.CodeableConcept, False, None, True),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("author", "author", fhirreference.FHIRReference, False, None, False),
+            ("action", "action", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("author", "author", fhirreference.FHIRReference, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import detectedissueseverity
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
+
+from fhirclient.codesystems import observationstatus
+
+from fhirclient.models import period
 

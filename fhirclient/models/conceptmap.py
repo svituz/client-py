@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class ConceptMap(domainresource.DomainResource):
     """ A map from one set of concepts to one or more other concepts.
@@ -113,32 +113,32 @@ class ConceptMap(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ConceptMap, self).elementProperties()
         js.extend([
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("experimental", "experimental", bool, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("sourceUri", "sourceUri", fhirdatatypes.FHIRUri, False, "source", False),
-            ("sourceCanonical", "sourceCanonical", fhirdatatypes.FHIRCanonical, False, "source", False),
-            ("targetUri", "targetUri", fhirdatatypes.FHIRUri, False, "target", False),
-            ("targetCanonical", "targetCanonical", fhirdatatypes.FHIRCanonical, False, "target", False),
-            ("group", "group", ConceptMapGroup, True, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("identifier", "identifier", identifier.Identifier, False, None, False, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, publicationstatus.PublicationStatus), 
+            ("experimental", "experimental", bool, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False, None), 
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("sourceUri", "sourceUri", fhirdatatypes.FHIRUri, False, "source", False, None), 
+            ("sourceCanonical", "sourceCanonical", fhirdatatypes.FHIRCanonical, False, "source", False, None), 
+            ("targetUri", "targetUri", fhirdatatypes.FHIRUri, False, "target", False, None), 
+            ("targetCanonical", "targetCanonical", fhirdatatypes.FHIRCanonical, False, "target", False, None), 
+            ("group", "group", ConceptMapGroup, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ConceptMapGroup(backboneelement.BackboneElement):
     """ Same source and target systems.
@@ -183,12 +183,12 @@ class ConceptMapGroup(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConceptMapGroup, self).elementProperties()
         js.extend([
-            ("source", "source", fhirdatatypes.FHIRUri, False, None, False),
-            ("sourceVersion", "sourceVersion", fhirdatatypes.FHIRString, False, None, False),
-            ("target", "target", fhirdatatypes.FHIRUri, False, None, False),
-            ("targetVersion", "targetVersion", fhirdatatypes.FHIRString, False, None, False),
-            ("element", "element", ConceptMapGroupElement, True, None, True),
-            ("unmapped", "unmapped", ConceptMapGroupUnmapped, False, None, False),
+            ("source", "source", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("sourceVersion", "sourceVersion", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("target", "target", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("targetVersion", "targetVersion", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("element", "element", ConceptMapGroupElement, True, None, True, None), 
+            ("unmapped", "unmapped", ConceptMapGroupUnmapped, False, None, False, None), 
         ])
         return js
 
@@ -227,9 +227,9 @@ class ConceptMapGroupElement(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConceptMapGroupElement, self).elementProperties()
         js.extend([
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, False),
-            ("display", "display", fhirdatatypes.FHIRString, False, None, False),
-            ("target", "target", ConceptMapGroupElementTarget, True, None, False),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("display", "display", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("target", "target", ConceptMapGroupElementTarget, True, None, False, None), 
         ])
         return js
 
@@ -280,12 +280,12 @@ class ConceptMapGroupElementTarget(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConceptMapGroupElementTarget, self).elementProperties()
         js.extend([
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, False),
-            ("display", "display", fhirdatatypes.FHIRString, False, None, False),
-            ("equivalence", "equivalence", fhirdatatypes.FHIRCode, False, None, True),
-            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False),
-            ("dependsOn", "dependsOn", ConceptMapGroupElementTargetDependsOn, True, None, False),
-            ("product", "product", ConceptMapGroupElementTargetDependsOn, True, None, False),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("display", "display", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("equivalence", "equivalence", fhirdatatypes.FHIRCode, False, None, True, conceptmapequivalence.ConceptMapEquivalence), 
+            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("dependsOn", "dependsOn", ConceptMapGroupElementTargetDependsOn, True, None, False, None), 
+            ("product", "product", ConceptMapGroupElementTargetDependsOn, True, None, False, None), 
         ])
         return js
 
@@ -329,10 +329,10 @@ class ConceptMapGroupElementTargetDependsOn(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConceptMapGroupElementTargetDependsOn, self).elementProperties()
         js.extend([
-            ("property", "property", fhirdatatypes.FHIRUri, False, None, True),
-            ("system", "system", fhirdatatypes.FHIRCanonical, False, None, False),
-            ("value", "value", fhirdatatypes.FHIRString, False, None, True),
-            ("display", "display", fhirdatatypes.FHIRString, False, None, False),
+            ("property", "property", fhirdatatypes.FHIRUri, False, None, True, None), 
+            ("system", "system", fhirdatatypes.FHIRCanonical, False, None, False, None), 
+            ("value", "value", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("display", "display", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -377,38 +377,28 @@ class ConceptMapGroupUnmapped(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConceptMapGroupUnmapped, self).elementProperties()
         js.extend([
-            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, True),
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, False),
-            ("display", "display", fhirdatatypes.FHIRString, False, None, False),
-            ("url", "url", fhirdatatypes.FHIRCanonical, False, None, False),
+            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, True, conceptmapgroupunmappedmode.ConceptMapGroupUnmappedMode), 
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("display", "display", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("url", "url", fhirdatatypes.FHIRCanonical, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.codesystems import conceptmapequivalence
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import conceptmapgroupunmappedmode
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import contactdetail
 
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from fhirclient.models import fhirdatatypes
+
+from fhirclient.models import identifier
+
+from fhirclient.codesystems import publicationstatus
+
+from fhirclient.models import usagecontext
 

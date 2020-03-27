@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Person(domainresource.DomainResource):
     """ A generic person record.
@@ -69,22 +69,22 @@ class Person(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Person, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("name", "name", humanname.HumanName, True, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
-            ("gender", "gender", fhirdatatypes.FHIRCode, False, None, False),
-            ("birthDate", "birthDate", fhirdatatypes.FHIRDate, False, None, False),
-            ("address", "address", address.Address, True, None, False),
-            ("photo", "photo", attachment.Attachment, False, None, False),
-            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False),
-            ("active", "active", bool, False, None, False),
-            ("link", "link", PersonLink, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("name", "name", humanname.HumanName, True, None, False, None), 
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False, None), 
+            ("gender", "gender", fhirdatatypes.FHIRCode, False, None, False, administrativegender.AdministrativeGender), 
+            ("birthDate", "birthDate", fhirdatatypes.FHIRDate, False, None, False, None), 
+            ("address", "address", address.Address, True, None, False, None), 
+            ("photo", "photo", attachment.Attachment, False, None, False, None), 
+            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False, None), 
+            ("active", "active", bool, False, None, False, None), 
+            ("link", "link", PersonLink, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class PersonLink(backboneelement.BackboneElement):
     """ Link to a resource that concerns the same actual person.
@@ -111,46 +111,28 @@ class PersonLink(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PersonLink, self).elementProperties()
         js.extend([
-            ("target", "target", fhirreference.FHIRReference, False, None, True),
-            ("assurance", "assurance", fhirdatatypes.FHIRCode, False, None, False),
+            ("target", "target", fhirreference.FHIRReference, False, None, True, None), 
+            ("assurance", "assurance", fhirdatatypes.FHIRCode, False, None, False, identityassurancelevel.IdentityAssuranceLevel), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import address
-except ImportError:
-    address = sys.modules[__package__ + '.address']
+from fhirclient.models import address
 
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
+from fhirclient.codesystems import administrativegender
 
-try:
-    from . import contactpoint
-except ImportError:
-    contactpoint = sys.modules[__package__ + '.contactpoint']
+from fhirclient.models import attachment
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import contactpoint
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import humanname
-except ImportError:
-    humanname = sys.modules[__package__ + '.humanname']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import humanname
+
+from fhirclient.models import identifier
+
+from fhirclient.codesystems import identityassurancelevel
 

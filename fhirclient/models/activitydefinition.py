@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class ActivityDefinition(domainresource.DomainResource):
     """ The definition of a specific activity to be taken, independent of any
@@ -245,65 +245,65 @@ class ActivityDefinition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ActivityDefinition, self).elementProperties()
         js.extend([
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("subtitle", "subtitle", fhirdatatypes.FHIRString, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("experimental", "experimental", bool, False, None, False),
-            ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False),
-            ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("usage", "usage", fhirdatatypes.FHIRString, False, None, False),
-            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("approvalDate", "approvalDate", fhirdatatypes.FHIRDate, False, None, False),
-            ("lastReviewDate", "lastReviewDate", fhirdatatypes.FHIRDate, False, None, False),
-            ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
-            ("topic", "topic", codeableconcept.CodeableConcept, True, None, False),
-            ("author", "author", contactdetail.ContactDetail, True, None, False),
-            ("editor", "editor", contactdetail.ContactDetail, True, None, False),
-            ("reviewer", "reviewer", contactdetail.ContactDetail, True, None, False),
-            ("endorser", "endorser", contactdetail.ContactDetail, True, None, False),
-            ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False),
-            ("library", "library", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("kind", "kind", fhirdatatypes.FHIRCode, False, None, False),
-            ("profile", "profile", fhirdatatypes.FHIRCanonical, False, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("intent", "intent", fhirdatatypes.FHIRCode, False, None, False),
-            ("priority", "priority", fhirdatatypes.FHIRCode, False, None, False),
-            ("doNotPerform", "doNotPerform", bool, False, None, False),
-            ("timingTiming", "timingTiming", timing.Timing, False, "timing", False),
-            ("timingDateTime", "timingDateTime", fhirdatatypes.FHIRDateTime, False, "timing", False),
-            ("timingAge", "timingAge", age.Age, False, "timing", False),
-            ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
-            ("timingRange", "timingRange", range.Range, False, "timing", False),
-            ("timingDuration", "timingDuration", duration.Duration, False, "timing", False),
-            ("location", "location", fhirreference.FHIRReference, False, None, False),
-            ("participant", "participant", ActivityDefinitionParticipant, True, None, False),
-            ("productReference", "productReference", fhirreference.FHIRReference, False, "product", False),
-            ("productCodeableConcept", "productCodeableConcept", codeableconcept.CodeableConcept, False, "product", False),
-            ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("dosage", "dosage", dosage.Dosage, True, None, False),
-            ("bodySite", "bodySite", codeableconcept.CodeableConcept, True, None, False),
-            ("specimenRequirement", "specimenRequirement", fhirreference.FHIRReference, True, None, False),
-            ("observationRequirement", "observationRequirement", fhirreference.FHIRReference, True, None, False),
-            ("observationResultRequirement", "observationResultRequirement", fhirreference.FHIRReference, True, None, False),
-            ("transform", "transform", fhirdatatypes.FHIRCanonical, False, None, False),
-            ("dynamicValue", "dynamicValue", ActivityDefinitionDynamicValue, True, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("subtitle", "subtitle", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, publicationstatus.PublicationStatus), 
+            ("experimental", "experimental", bool, False, None, False, None), 
+            ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False, None), 
+            ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False, None), 
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("usage", "usage", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("approvalDate", "approvalDate", fhirdatatypes.FHIRDate, False, None, False, None), 
+            ("lastReviewDate", "lastReviewDate", fhirdatatypes.FHIRDate, False, None, False, None), 
+            ("effectivePeriod", "effectivePeriod", period.Period, False, None, False, None), 
+            ("topic", "topic", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("author", "author", contactdetail.ContactDetail, True, None, False, None), 
+            ("editor", "editor", contactdetail.ContactDetail, True, None, False, None), 
+            ("reviewer", "reviewer", contactdetail.ContactDetail, True, None, False, None), 
+            ("endorser", "endorser", contactdetail.ContactDetail, True, None, False, None), 
+            ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False, None), 
+            ("library", "library", fhirdatatypes.FHIRCanonical, True, None, False, None), 
+            ("kind", "kind", fhirdatatypes.FHIRCode, False, None, False, requestresourcetype.RequestResourceType), 
+            ("profile", "profile", fhirdatatypes.FHIRCanonical, False, None, False, None), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("intent", "intent", fhirdatatypes.FHIRCode, False, None, False, requestintent.RequestIntent), 
+            ("priority", "priority", fhirdatatypes.FHIRCode, False, None, False, requestpriority.RequestPriority), 
+            ("doNotPerform", "doNotPerform", bool, False, None, False, None), 
+            ("timingTiming", "timingTiming", timing.Timing, False, "timing", False, None), 
+            ("timingDateTime", "timingDateTime", fhirdatatypes.FHIRDateTime, False, "timing", False, None), 
+            ("timingAge", "timingAge", age.Age, False, "timing", False, None), 
+            ("timingPeriod", "timingPeriod", period.Period, False, "timing", False, None), 
+            ("timingRange", "timingRange", range.Range, False, "timing", False, None), 
+            ("timingDuration", "timingDuration", duration.Duration, False, "timing", False, None), 
+            ("location", "location", fhirreference.FHIRReference, False, None, False, None), 
+            ("participant", "participant", ActivityDefinitionParticipant, True, None, False, None), 
+            ("productReference", "productReference", fhirreference.FHIRReference, False, "product", False, None), 
+            ("productCodeableConcept", "productCodeableConcept", codeableconcept.CodeableConcept, False, "product", False, None), 
+            ("quantity", "quantity", quantity.Quantity, False, None, False, None), 
+            ("dosage", "dosage", dosage.Dosage, True, None, False, None), 
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("specimenRequirement", "specimenRequirement", fhirreference.FHIRReference, True, None, False, None), 
+            ("observationRequirement", "observationRequirement", fhirreference.FHIRReference, True, None, False, None), 
+            ("observationResultRequirement", "observationResultRequirement", fhirreference.FHIRReference, True, None, False, None), 
+            ("transform", "transform", fhirdatatypes.FHIRCanonical, False, None, False, None), 
+            ("dynamicValue", "dynamicValue", ActivityDefinitionDynamicValue, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ActivityDefinitionDynamicValue(backboneelement.BackboneElement):
     """ Dynamic aspects of the definition.
@@ -336,8 +336,8 @@ class ActivityDefinitionDynamicValue(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ActivityDefinitionDynamicValue, self).elementProperties()
         js.extend([
-            ("path", "path", fhirdatatypes.FHIRString, False, None, True),
-            ("expression", "expression", expression.Expression, False, None, True),
+            ("path", "path", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("expression", "expression", expression.Expression, False, None, True, None), 
         ])
         return js
 
@@ -371,86 +371,50 @@ class ActivityDefinitionParticipant(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ActivityDefinitionParticipant, self).elementProperties()
         js.extend([
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("role", "role", codeableconcept.CodeableConcept, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, actionparticipanttype.ActionParticipantType), 
+            ("role", "role", codeableconcept.CodeableConcept, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import age
-except ImportError:
-    age = sys.modules[__package__ + '.age']
+from fhirclient.codesystems import actionparticipanttype
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import age
 
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import dosage
-except ImportError:
-    dosage = sys.modules[__package__ + '.dosage']
+from fhirclient.models import contactdetail
 
-try:
-    from . import duration
-except ImportError:
-    duration = sys.modules[__package__ + '.duration']
+from fhirclient.models import dosage
 
-try:
-    from . import expression
-except ImportError:
-    expression = sys.modules[__package__ + '.expression']
+from fhirclient.models import duration
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import expression
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import period
 
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from fhirclient.codesystems import publicationstatus
 
-try:
-    from . import relatedartifact
-except ImportError:
-    relatedartifact = sys.modules[__package__ + '.relatedartifact']
+from fhirclient.models import quantity
 
-try:
-    from . import timing
-except ImportError:
-    timing = sys.modules[__package__ + '.timing']
+from fhirclient.models import range
 
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from fhirclient.models import relatedartifact
+
+from fhirclient.codesystems import requestintent
+
+from fhirclient.codesystems import requestpriority
+
+from fhirclient.codesystems import requestresourcetype
+
+from fhirclient.models import timing
+
+from fhirclient.models import usagecontext
 

@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class DocumentManifest(domainresource.DomainResource):
     """ A list that defines a set of documents.
@@ -77,24 +77,24 @@ class DocumentManifest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(DocumentManifest, self).elementProperties()
         js.extend([
-            ("masterIdentifier", "masterIdentifier", identifier.Identifier, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("author", "author", fhirreference.FHIRReference, True, None, False),
-            ("recipient", "recipient", fhirreference.FHIRReference, True, None, False),
-            ("source", "source", fhirdatatypes.FHIRUri, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("content", "content", fhirreference.FHIRReference, True, None, True),
-            ("related", "related", DocumentManifestRelated, True, None, False),
+            ("masterIdentifier", "masterIdentifier", identifier.Identifier, False, None, False, None), 
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, documentreferencestatus.DocumentReferenceStatus), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False, None), 
+            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("author", "author", fhirreference.FHIRReference, True, None, False, None), 
+            ("recipient", "recipient", fhirreference.FHIRReference, True, None, False, None), 
+            ("source", "source", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("content", "content", fhirreference.FHIRReference, True, None, True, None), 
+            ("related", "related", DocumentManifestRelated, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class DocumentManifestRelated(backboneelement.BackboneElement):
     """ Related things.
@@ -123,31 +123,20 @@ class DocumentManifestRelated(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(DocumentManifestRelated, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("ref", "ref", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False, None), 
+            ("ref", "ref", fhirreference.FHIRReference, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import documentreferencestatus
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
+
+from fhirclient.models import identifier
 

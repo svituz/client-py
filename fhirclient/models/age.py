@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import quantity
+from fhirclient.models import quantity
 
 class Age(quantity.Quantity):
     """ A duration of time during which an organism (or a process) has existed.

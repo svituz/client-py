@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class ServiceRequest(domainresource.DomainResource):
     """ A request for a service to be performed.
@@ -183,97 +183,72 @@ class ServiceRequest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ServiceRequest, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False),
-            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
-            ("replaces", "replaces", fhirreference.FHIRReference, True, None, False),
-            ("requisition", "requisition", identifier.Identifier, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("intent", "intent", fhirdatatypes.FHIRCode, False, None, True),
-            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
-            ("priority", "priority", fhirdatatypes.FHIRCode, False, None, False),
-            ("doNotPerform", "doNotPerform", bool, False, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("orderDetail", "orderDetail", codeableconcept.CodeableConcept, True, None, False),
-            ("quantityQuantity", "quantityQuantity", quantity.Quantity, False, "quantity", False),
-            ("quantityRatio", "quantityRatio", ratio.Ratio, False, "quantity", False),
-            ("quantityRange", "quantityRange", range.Range, False, "quantity", False),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("occurrenceDateTime", "occurrenceDateTime", fhirdatatypes.FHIRDateTime, False, "occurrence", False),
-            ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
-            ("occurrenceTiming", "occurrenceTiming", timing.Timing, False, "occurrence", False),
-            ("asNeededBoolean", "asNeededBoolean", bool, False, "asNeeded", False),
-            ("asNeededCodeableConcept", "asNeededCodeableConcept", codeableconcept.CodeableConcept, False, "asNeeded", False),
-            ("authoredOn", "authoredOn", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("requester", "requester", fhirreference.FHIRReference, False, None, False),
-            ("performerType", "performerType", codeableconcept.CodeableConcept, False, None, False),
-            ("performer", "performer", fhirreference.FHIRReference, True, None, False),
-            ("locationCode", "locationCode", codeableconcept.CodeableConcept, True, None, False),
-            ("locationReference", "locationReference", fhirreference.FHIRReference, True, None, False),
-            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("insurance", "insurance", fhirreference.FHIRReference, True, None, False),
-            ("supportingInfo", "supportingInfo", fhirreference.FHIRReference, True, None, False),
-            ("specimen", "specimen", fhirreference.FHIRReference, True, None, False),
-            ("bodySite", "bodySite", codeableconcept.CodeableConcept, True, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
-            ("patientInstruction", "patientInstruction", fhirdatatypes.FHIRString, False, None, False),
-            ("relevantHistory", "relevantHistory", fhirreference.FHIRReference, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False, None), 
+            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False, None), 
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False, None), 
+            ("replaces", "replaces", fhirreference.FHIRReference, True, None, False, None), 
+            ("requisition", "requisition", identifier.Identifier, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, requeststatus.RequestStatus), 
+            ("intent", "intent", fhirdatatypes.FHIRCode, False, None, True, requestintent.RequestIntent), 
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("priority", "priority", fhirdatatypes.FHIRCode, False, None, False, requestpriority.RequestPriority), 
+            ("doNotPerform", "doNotPerform", bool, False, None, False, None), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("orderDetail", "orderDetail", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("quantityQuantity", "quantityQuantity", quantity.Quantity, False, "quantity", False, None), 
+            ("quantityRatio", "quantityRatio", ratio.Ratio, False, "quantity", False, None), 
+            ("quantityRange", "quantityRange", range.Range, False, "quantity", False, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True, None), 
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False, None), 
+            ("occurrenceDateTime", "occurrenceDateTime", fhirdatatypes.FHIRDateTime, False, "occurrence", False, None), 
+            ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False, None), 
+            ("occurrenceTiming", "occurrenceTiming", timing.Timing, False, "occurrence", False, None), 
+            ("asNeededBoolean", "asNeededBoolean", bool, False, "asNeeded", False, None), 
+            ("asNeededCodeableConcept", "asNeededCodeableConcept", codeableconcept.CodeableConcept, False, "asNeeded", False, None), 
+            ("authoredOn", "authoredOn", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("requester", "requester", fhirreference.FHIRReference, False, None, False, None), 
+            ("performerType", "performerType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("performer", "performer", fhirreference.FHIRReference, True, None, False, None), 
+            ("locationCode", "locationCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("locationReference", "locationReference", fhirreference.FHIRReference, True, None, False, None), 
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False, None), 
+            ("insurance", "insurance", fhirreference.FHIRReference, True, None, False, None), 
+            ("supportingInfo", "supportingInfo", fhirreference.FHIRReference, True, None, False, None), 
+            ("specimen", "specimen", fhirreference.FHIRReference, True, None, False, None), 
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
+            ("patientInstruction", "patientInstruction", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("relevantHistory", "relevantHistory", fhirreference.FHIRReference, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import period
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import quantity
 
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from fhirclient.models import range
 
-try:
-    from . import ratio
-except ImportError:
-    ratio = sys.modules[__package__ + '.ratio']
+from fhirclient.models import ratio
 
-try:
-    from . import timing
-except ImportError:
-    timing = sys.modules[__package__ + '.timing']
+from fhirclient.codesystems import requestintent
+
+from fhirclient.codesystems import requestpriority
+
+from fhirclient.codesystems import requeststatus
+
+from fhirclient.models import timing
 

@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class DataRequirement(element.Element):
     """ Describes a required data item.
@@ -66,15 +66,15 @@ class DataRequirement(element.Element):
     def elementProperties(self):
         js = super(DataRequirement, self).elementProperties()
         js.extend([
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("profile", "profile", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False),
-            ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False),
-            ("mustSupport", "mustSupport", fhirdatatypes.FHIRString, True, None, False),
-            ("codeFilter", "codeFilter", DataRequirementCodeFilter, True, None, False),
-            ("dateFilter", "dateFilter", DataRequirementDateFilter, True, None, False),
-            ("limit", "limit", fhirdatatypes.FHIRPositiveInt, False, None, False),
-            ("sort", "sort", DataRequirementSort, True, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, None), 
+            ("profile", "profile", fhirdatatypes.FHIRCanonical, True, None, False, None), 
+            ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False, None), 
+            ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False, None), 
+            ("mustSupport", "mustSupport", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("codeFilter", "codeFilter", DataRequirementCodeFilter, True, None, False, None), 
+            ("dateFilter", "dateFilter", DataRequirementDateFilter, True, None, False, None), 
+            ("limit", "limit", fhirdatatypes.FHIRPositiveInt, False, None, False, None), 
+            ("sort", "sort", DataRequirementSort, True, None, False, None), 
         ])
         return js
 
@@ -119,10 +119,10 @@ class DataRequirementCodeFilter(element.Element):
     def elementProperties(self):
         js = super(DataRequirementCodeFilter, self).elementProperties()
         js.extend([
-            ("path", "path", fhirdatatypes.FHIRString, False, None, False),
-            ("searchParam", "searchParam", fhirdatatypes.FHIRString, False, None, False),
-            ("valueSet", "valueSet", fhirdatatypes.FHIRCanonical, False, None, False),
-            ("code", "code", coding.Coding, True, None, False),
+            ("path", "path", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("searchParam", "searchParam", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("valueSet", "valueSet", fhirdatatypes.FHIRCanonical, False, None, False, None), 
+            ("code", "code", coding.Coding, True, None, False, None), 
         ])
         return js
 
@@ -170,11 +170,11 @@ class DataRequirementDateFilter(element.Element):
     def elementProperties(self):
         js = super(DataRequirementDateFilter, self).elementProperties()
         js.extend([
-            ("path", "path", fhirdatatypes.FHIRString, False, None, False),
-            ("searchParam", "searchParam", fhirdatatypes.FHIRString, False, None, False),
-            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", False),
-            ("valuePeriod", "valuePeriod", period.Period, False, "value", False),
-            ("valueDuration", "valueDuration", duration.Duration, False, "value", False),
+            ("path", "path", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("searchParam", "searchParam", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", False, None), 
+            ("valuePeriod", "valuePeriod", period.Period, False, "value", False, None), 
+            ("valueDuration", "valueDuration", duration.Duration, False, "value", False, None), 
         ])
         return js
 
@@ -208,41 +208,24 @@ class DataRequirementSort(element.Element):
     def elementProperties(self):
         js = super(DataRequirementSort, self).elementProperties()
         js.extend([
-            ("path", "path", fhirdatatypes.FHIRString, False, None, True),
-            ("direction", "direction", fhirdatatypes.FHIRCode, False, None, True),
+            ("path", "path", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("direction", "direction", fhirdatatypes.FHIRCode, False, None, True, sortdirection.SortDirection), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
+from fhirclient.models import coding
 
-try:
-    from . import duration
-except ImportError:
-    duration = sys.modules[__package__ + '.duration']
+from fhirclient.models import duration
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import period
+
+from fhirclient.codesystems import sortdirection
 

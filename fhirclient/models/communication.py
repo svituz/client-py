@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Communication(domainresource.DomainResource):
     """ A record of information transmitted from a sender to a receiver.
@@ -123,35 +123,35 @@ class Communication(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Communication, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False),
-            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
-            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
-            ("inResponseTo", "inResponseTo", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False),
-            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
-            ("priority", "priority", fhirdatatypes.FHIRCode, False, None, False),
-            ("medium", "medium", codeableconcept.CodeableConcept, True, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("topic", "topic", codeableconcept.CodeableConcept, False, None, False),
-            ("about", "about", fhirreference.FHIRReference, True, None, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("sent", "sent", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("received", "received", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("recipient", "recipient", fhirreference.FHIRReference, True, None, False),
-            ("sender", "sender", fhirreference.FHIRReference, False, None, False),
-            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("payload", "payload", CommunicationPayload, True, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False, None), 
+            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False, None), 
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False, None), 
+            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False, None), 
+            ("inResponseTo", "inResponseTo", fhirreference.FHIRReference, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, eventstatus.EventStatus), 
+            ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("priority", "priority", fhirdatatypes.FHIRCode, False, None, False, requestpriority.RequestPriority), 
+            ("medium", "medium", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False, None), 
+            ("topic", "topic", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("about", "about", fhirreference.FHIRReference, True, None, False, None), 
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False, None), 
+            ("sent", "sent", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("received", "received", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("recipient", "recipient", fhirreference.FHIRReference, True, None, False, None), 
+            ("sender", "sender", fhirreference.FHIRReference, False, None, False, None), 
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False, None), 
+            ("payload", "payload", CommunicationPayload, True, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class CommunicationPayload(backboneelement.BackboneElement):
     """ Message payload.
@@ -184,42 +184,27 @@ class CommunicationPayload(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CommunicationPayload, self).elementProperties()
         js.extend([
-            ("contentString", "contentString", fhirdatatypes.FHIRString, False, "content", True),
-            ("contentAttachment", "contentAttachment", attachment.Attachment, False, "content", True),
-            ("contentReference", "contentReference", fhirreference.FHIRReference, False, "content", True),
+            ("contentString", "contentString", fhirdatatypes.FHIRString, False, "content", True, None), 
+            ("contentAttachment", "contentAttachment", attachment.Attachment, False, "content", True, None), 
+            ("contentReference", "contentReference", fhirreference.FHIRReference, False, "content", True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
+from fhirclient.models import attachment
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import eventstatus
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
+
+from fhirclient.models import identifier
+
+from fhirclient.codesystems import requestpriority
 

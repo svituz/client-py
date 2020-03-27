@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class CodeSystem(domainresource.DomainResource):
     """ Declares the existence of and describes a code system or code system
@@ -137,38 +137,38 @@ class CodeSystem(domainresource.DomainResource):
     def elementProperties(self):
         js = super(CodeSystem, self).elementProperties()
         js.extend([
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("experimental", "experimental", bool, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("caseSensitive", "caseSensitive", bool, False, None, False),
-            ("valueSet", "valueSet", fhirdatatypes.FHIRCanonical, False, None, False),
-            ("hierarchyMeaning", "hierarchyMeaning", fhirdatatypes.FHIRCode, False, None, False),
-            ("compositional", "compositional", bool, False, None, False),
-            ("versionNeeded", "versionNeeded", bool, False, None, False),
-            ("content", "content", fhirdatatypes.FHIRCode, False, None, True),
-            ("supplements", "supplements", fhirdatatypes.FHIRCanonical, False, None, False),
-            ("count", "count", fhirdatatypes.FHIRUnsignedInt, False, None, False),
-            ("filter", "filter", CodeSystemFilter, True, None, False),
-            ("property", "property", CodeSystemProperty, True, None, False),
-            ("concept", "concept", CodeSystemConcept, True, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, publicationstatus.PublicationStatus), 
+            ("experimental", "experimental", bool, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False, None), 
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("caseSensitive", "caseSensitive", bool, False, None, False, None), 
+            ("valueSet", "valueSet", fhirdatatypes.FHIRCanonical, False, None, False, None), 
+            ("hierarchyMeaning", "hierarchyMeaning", fhirdatatypes.FHIRCode, False, None, False, codesystemhierarchymeaning.CodeSystemHierarchyMeaning), 
+            ("compositional", "compositional", bool, False, None, False, None), 
+            ("versionNeeded", "versionNeeded", bool, False, None, False, None), 
+            ("content", "content", fhirdatatypes.FHIRCode, False, None, True, codesystemcontentmode.CodeSystemContentMode), 
+            ("supplements", "supplements", fhirdatatypes.FHIRCanonical, False, None, False, None), 
+            ("count", "count", fhirdatatypes.FHIRUnsignedInt, False, None, False, None), 
+            ("filter", "filter", CodeSystemFilter, True, None, False, None), 
+            ("property", "property", CodeSystemProperty, True, None, False, None), 
+            ("concept", "concept", CodeSystemConcept, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class CodeSystemConcept(backboneelement.BackboneElement):
     """ Concepts in the code system.
@@ -215,12 +215,12 @@ class CodeSystemConcept(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CodeSystemConcept, self).elementProperties()
         js.extend([
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
-            ("display", "display", fhirdatatypes.FHIRString, False, None, False),
-            ("definition", "definition", fhirdatatypes.FHIRString, False, None, False),
-            ("designation", "designation", CodeSystemConceptDesignation, True, None, False),
-            ("property", "property", CodeSystemConceptProperty, True, None, False),
-            ("concept", "concept", CodeSystemConcept, True, None, False),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True, None), 
+            ("display", "display", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("definition", "definition", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("designation", "designation", CodeSystemConceptDesignation, True, None, False, None), 
+            ("property", "property", CodeSystemConceptProperty, True, None, False, None), 
+            ("concept", "concept", CodeSystemConcept, True, None, False, None), 
         ])
         return js
 
@@ -259,9 +259,9 @@ class CodeSystemConceptDesignation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CodeSystemConceptDesignation, self).elementProperties()
         js.extend([
-            ("language", "language", fhirdatatypes.FHIRCode, False, None, False),
-            ("use", "use", coding.Coding, False, None, False),
-            ("value", "value", fhirdatatypes.FHIRString, False, None, True),
+            ("language", "language", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("use", "use", coding.Coding, False, None, False, None), 
+            ("value", "value", fhirdatatypes.FHIRString, False, None, True, None), 
         ])
         return js
 
@@ -319,14 +319,14 @@ class CodeSystemConceptProperty(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CodeSystemConceptProperty, self).elementProperties()
         js.extend([
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
-            ("valueCode", "valueCode", fhirdatatypes.FHIRCode, False, "value", True),
-            ("valueCoding", "valueCoding", coding.Coding, False, "value", True),
-            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", True),
-            ("valueInteger", "valueInteger", int, False, "value", True),
-            ("valueBoolean", "valueBoolean", bool, False, "value", True),
-            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", True),
-            ("valueDecimal", "valueDecimal", float, False, "value", True),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True, None), 
+            ("valueCode", "valueCode", fhirdatatypes.FHIRCode, False, "value", True, None), 
+            ("valueCoding", "valueCoding", coding.Coding, False, "value", True, None), 
+            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", True, None), 
+            ("valueInteger", "valueInteger", int, False, "value", True, None), 
+            ("valueBoolean", "valueBoolean", bool, False, "value", True, None), 
+            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", True, None), 
+            ("valueDecimal", "valueDecimal", float, False, "value", True, None), 
         ])
         return js
 
@@ -370,10 +370,10 @@ class CodeSystemFilter(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CodeSystemFilter, self).elementProperties()
         js.extend([
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("operator", "operator", fhirdatatypes.FHIRCode, True, None, True),
-            ("value", "value", fhirdatatypes.FHIRString, False, None, True),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("operator", "operator", fhirdatatypes.FHIRCode, True, None, True, filteroperator.FilterOperator), 
+            ("value", "value", fhirdatatypes.FHIRString, False, None, True, None), 
         ])
         return js
 
@@ -417,43 +417,34 @@ class CodeSystemProperty(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CodeSystemProperty, self).elementProperties()
         js.extend([
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
-            ("uri", "uri", fhirdatatypes.FHIRUri, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True, None), 
+            ("uri", "uri", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, propertytype.PropertyType), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
+from fhirclient.codesystems import codesystemcontentmode
 
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.codesystems import codesystemhierarchymeaning
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import coding
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import contactdetail
 
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from fhirclient.models import fhirdatatypes
+
+from fhirclient.codesystems import filteroperator
+
+from fhirclient.models import identifier
+
+from fhirclient.codesystems import propertytype
+
+from fhirclient.codesystems import publicationstatus
+
+from fhirclient.models import usagecontext
 

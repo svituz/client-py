@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class CareTeam(domainresource.DomainResource):
     """ Planned participants in the coordination and delivery of care for a patient
@@ -82,25 +82,25 @@ class CareTeam(domainresource.DomainResource):
     def elementProperties(self):
         js = super(CareTeam, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
-            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("period", "period", period.Period, False, None, False),
-            ("participant", "participant", CareTeamParticipant, True, None, False),
-            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, True, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, False, careteamstatus.CareTeamStatus), 
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False, None), 
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False, None), 
+            ("period", "period", period.Period, False, None, False, None), 
+            ("participant", "participant", CareTeamParticipant, True, None, False, None), 
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False, None), 
+            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, True, None, False, None), 
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class CareTeamParticipant(backboneelement.BackboneElement):
     """ Members of the team.
@@ -138,48 +138,28 @@ class CareTeamParticipant(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CareTeamParticipant, self).elementProperties()
         js.extend([
-            ("role", "role", codeableconcept.CodeableConcept, True, None, False),
-            ("member", "member", fhirreference.FHIRReference, False, None, False),
-            ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
-            ("period", "period", period.Period, False, None, False),
+            ("role", "role", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("member", "member", fhirreference.FHIRReference, False, None, False, None), 
+            ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False, None), 
+            ("period", "period", period.Period, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.codesystems import careteamstatus
 
-try:
-    from . import contactpoint
-except ImportError:
-    contactpoint = sys.modules[__package__ + '.contactpoint']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import contactpoint
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
+
+from fhirclient.models import period
 

@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class SupplyRequest(domainresource.DomainResource):
     """ Request for a medication, substance or device.
@@ -101,30 +101,30 @@ class SupplyRequest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(SupplyRequest, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
-            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
-            ("priority", "priority", fhirdatatypes.FHIRCode, False, None, False),
-            ("itemCodeableConcept", "itemCodeableConcept", codeableconcept.CodeableConcept, False, "item", True),
-            ("itemReference", "itemReference", fhirreference.FHIRReference, False, "item", True),
-            ("quantity", "quantity", quantity.Quantity, False, None, True),
-            ("parameter", "parameter", SupplyRequestParameter, True, None, False),
-            ("occurrenceDateTime", "occurrenceDateTime", fhirdatatypes.FHIRDateTime, False, "occurrence", False),
-            ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
-            ("occurrenceTiming", "occurrenceTiming", timing.Timing, False, "occurrence", False),
-            ("authoredOn", "authoredOn", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("requester", "requester", fhirreference.FHIRReference, False, None, False),
-            ("supplier", "supplier", fhirreference.FHIRReference, True, None, False),
-            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("deliverFrom", "deliverFrom", fhirreference.FHIRReference, False, None, False),
-            ("deliverTo", "deliverTo", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, False, supplyrequeststatus.SupplyRequestStatus), 
+            ("category", "category", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("priority", "priority", fhirdatatypes.FHIRCode, False, None, False, requestpriority.RequestPriority), 
+            ("itemCodeableConcept", "itemCodeableConcept", codeableconcept.CodeableConcept, False, "item", True, None), 
+            ("itemReference", "itemReference", fhirreference.FHIRReference, False, "item", True, None), 
+            ("quantity", "quantity", quantity.Quantity, False, None, True, None), 
+            ("parameter", "parameter", SupplyRequestParameter, True, None, False, None), 
+            ("occurrenceDateTime", "occurrenceDateTime", fhirdatatypes.FHIRDateTime, False, "occurrence", False, None), 
+            ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False, None), 
+            ("occurrenceTiming", "occurrenceTiming", timing.Timing, False, "occurrence", False, None), 
+            ("authoredOn", "authoredOn", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("requester", "requester", fhirreference.FHIRReference, False, None, False, None), 
+            ("supplier", "supplier", fhirreference.FHIRReference, True, None, False, None), 
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False, None), 
+            ("deliverFrom", "deliverFrom", fhirreference.FHIRReference, False, None, False, None), 
+            ("deliverTo", "deliverTo", fhirreference.FHIRReference, False, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class SupplyRequestParameter(backboneelement.BackboneElement):
     """ Ordered item details.
@@ -166,54 +166,33 @@ class SupplyRequestParameter(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SupplyRequestParameter, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", False),
-            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
-            ("valueRange", "valueRange", range.Range, False, "value", False),
-            ("valueBoolean", "valueBoolean", bool, False, "value", False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", False, None), 
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False, None), 
+            ("valueRange", "valueRange", range.Range, False, "value", False, None), 
+            ("valueBoolean", "valueBoolean", bool, False, "value", False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import period
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import quantity
 
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from fhirclient.models import range
 
-try:
-    from . import timing
-except ImportError:
-    timing = sys.modules[__package__ + '.timing']
+from fhirclient.codesystems import requestpriority
+
+from fhirclient.codesystems import supplyrequeststatus
+
+from fhirclient.models import timing
 

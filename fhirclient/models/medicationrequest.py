@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class MedicationRequest(domainresource.DomainResource):
     """ Ordering of medication for patient or group.
@@ -172,46 +172,46 @@ class MedicationRequest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MedicationRequest, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False),
-            ("intent", "intent", fhirdatatypes.FHIRCode, False, None, True),
-            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
-            ("priority", "priority", fhirdatatypes.FHIRCode, False, None, False),
-            ("doNotPerform", "doNotPerform", bool, False, None, False),
-            ("reportedBoolean", "reportedBoolean", bool, False, "reported", False),
-            ("reportedReference", "reportedReference", fhirreference.FHIRReference, False, "reported", False),
-            ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", True),
-            ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
-            ("authoredOn", "authoredOn", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("requester", "requester", fhirreference.FHIRReference, False, None, False),
-            ("performer", "performer", fhirreference.FHIRReference, False, None, False),
-            ("performerType", "performerType", codeableconcept.CodeableConcept, False, None, False),
-            ("recorder", "recorder", fhirreference.FHIRReference, False, None, False),
-            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False),
-            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
-            ("groupIdentifier", "groupIdentifier", identifier.Identifier, False, None, False),
-            ("courseOfTherapyType", "courseOfTherapyType", codeableconcept.CodeableConcept, False, None, False),
-            ("insurance", "insurance", fhirreference.FHIRReference, True, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
-            ("dosageInstruction", "dosageInstruction", dosage.Dosage, True, None, False),
-            ("dispenseRequest", "dispenseRequest", MedicationRequestDispenseRequest, False, None, False),
-            ("substitution", "substitution", MedicationRequestSubstitution, False, None, False),
-            ("priorPrescription", "priorPrescription", fhirreference.FHIRReference, False, None, False),
-            ("detectedIssue", "detectedIssue", fhirreference.FHIRReference, True, None, False),
-            ("eventHistory", "eventHistory", fhirreference.FHIRReference, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, medicationrequeststatus.MedicationrequestStatus), 
+            ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("intent", "intent", fhirdatatypes.FHIRCode, False, None, True, medicationrequestintent.MedicationRequestIntent), 
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("priority", "priority", fhirdatatypes.FHIRCode, False, None, False, requestpriority.RequestPriority), 
+            ("doNotPerform", "doNotPerform", bool, False, None, False, None), 
+            ("reportedBoolean", "reportedBoolean", bool, False, "reported", False, None), 
+            ("reportedReference", "reportedReference", fhirreference.FHIRReference, False, "reported", False, None), 
+            ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", True, None), 
+            ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True, None), 
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False, None), 
+            ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False, None), 
+            ("authoredOn", "authoredOn", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("requester", "requester", fhirreference.FHIRReference, False, None, False, None), 
+            ("performer", "performer", fhirreference.FHIRReference, False, None, False, None), 
+            ("performerType", "performerType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("recorder", "recorder", fhirreference.FHIRReference, False, None, False, None), 
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False, None), 
+            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False, None), 
+            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False, None), 
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False, None), 
+            ("groupIdentifier", "groupIdentifier", identifier.Identifier, False, None, False, None), 
+            ("courseOfTherapyType", "courseOfTherapyType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("insurance", "insurance", fhirreference.FHIRReference, True, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
+            ("dosageInstruction", "dosageInstruction", dosage.Dosage, True, None, False, None), 
+            ("dispenseRequest", "dispenseRequest", MedicationRequestDispenseRequest, False, None, False, None), 
+            ("substitution", "substitution", MedicationRequestSubstitution, False, None, False, None), 
+            ("priorPrescription", "priorPrescription", fhirreference.FHIRReference, False, None, False, None), 
+            ("detectedIssue", "detectedIssue", fhirreference.FHIRReference, True, None, False, None), 
+            ("eventHistory", "eventHistory", fhirreference.FHIRReference, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class MedicationRequestDispenseRequest(backboneelement.BackboneElement):
     """ Medication supply authorization.
@@ -265,13 +265,13 @@ class MedicationRequestDispenseRequest(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicationRequestDispenseRequest, self).elementProperties()
         js.extend([
-            ("initialFill", "initialFill", MedicationRequestDispenseRequestInitialFill, False, None, False),
-            ("dispenseInterval", "dispenseInterval", duration.Duration, False, None, False),
-            ("validityPeriod", "validityPeriod", period.Period, False, None, False),
-            ("numberOfRepeatsAllowed", "numberOfRepeatsAllowed", fhirdatatypes.FHIRUnsignedInt, False, None, False),
-            ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("expectedSupplyDuration", "expectedSupplyDuration", duration.Duration, False, None, False),
-            ("performer", "performer", fhirreference.FHIRReference, False, None, False),
+            ("initialFill", "initialFill", MedicationRequestDispenseRequestInitialFill, False, None, False, None), 
+            ("dispenseInterval", "dispenseInterval", duration.Duration, False, None, False, None), 
+            ("validityPeriod", "validityPeriod", period.Period, False, None, False, None), 
+            ("numberOfRepeatsAllowed", "numberOfRepeatsAllowed", fhirdatatypes.FHIRUnsignedInt, False, None, False, None), 
+            ("quantity", "quantity", quantity.Quantity, False, None, False, None), 
+            ("expectedSupplyDuration", "expectedSupplyDuration", duration.Duration, False, None, False, None), 
+            ("performer", "performer", fhirreference.FHIRReference, False, None, False, None), 
         ])
         return js
 
@@ -306,8 +306,8 @@ class MedicationRequestDispenseRequestInitialFill(backboneelement.BackboneElemen
     def elementProperties(self):
         js = super(MedicationRequestDispenseRequestInitialFill, self).elementProperties()
         js.extend([
-            ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("duration", "duration", duration.Duration, False, None, False),
+            ("quantity", "quantity", quantity.Quantity, False, None, False, None), 
+            ("duration", "duration", duration.Duration, False, None, False, None), 
         ])
         return js
 
@@ -348,57 +348,35 @@ class MedicationRequestSubstitution(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicationRequestSubstitution, self).elementProperties()
         js.extend([
-            ("allowedBoolean", "allowedBoolean", bool, False, "allowed", True),
-            ("allowedCodeableConcept", "allowedCodeableConcept", codeableconcept.CodeableConcept, False, "allowed", True),
-            ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
+            ("allowedBoolean", "allowedBoolean", bool, False, "allowed", True, None), 
+            ("allowedCodeableConcept", "allowedCodeableConcept", codeableconcept.CodeableConcept, False, "allowed", True, None), 
+            ("reason", "reason", codeableconcept.CodeableConcept, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import dosage
-except ImportError:
-    dosage = sys.modules[__package__ + '.dosage']
+from fhirclient.models import dosage
 
-try:
-    from . import duration
-except ImportError:
-    duration = sys.modules[__package__ + '.duration']
+from fhirclient.models import duration
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.codesystems import medicationrequestintent
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.codesystems import medicationrequeststatus
+
+from fhirclient.models import period
+
+from fhirclient.models import quantity
+
+from fhirclient.codesystems import requestpriority
 

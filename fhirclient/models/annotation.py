@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class Annotation(element.Element):
     """ Text node with attribution.
@@ -43,23 +43,16 @@ class Annotation(element.Element):
     def elementProperties(self):
         js = super(Annotation, self).elementProperties()
         js.extend([
-            ("authorReference", "authorReference", fhirreference.FHIRReference, False, "author", False),
-            ("authorString", "authorString", fhirdatatypes.FHIRString, False, "author", False),
-            ("time", "time", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("text", "text", fhirdatatypes.FHIRMarkdown, False, None, True),
+            ("authorReference", "authorReference", fhirreference.FHIRReference, False, "author", False, None), 
+            ("authorString", "authorString", fhirdatatypes.FHIRString, False, "author", False, None), 
+            ("time", "time", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("text", "text", fhirdatatypes.FHIRMarkdown, False, None, True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 

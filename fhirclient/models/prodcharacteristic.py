@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ProdCharacteristic(backboneelement.BackboneElement):
     """ The marketing status describes the date when a medicinal product is
@@ -95,40 +95,27 @@ class ProdCharacteristic(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ProdCharacteristic, self).elementProperties()
         js.extend([
-            ("height", "height", quantity.Quantity, False, None, False),
-            ("width", "width", quantity.Quantity, False, None, False),
-            ("depth", "depth", quantity.Quantity, False, None, False),
-            ("weight", "weight", quantity.Quantity, False, None, False),
-            ("nominalVolume", "nominalVolume", quantity.Quantity, False, None, False),
-            ("externalDiameter", "externalDiameter", quantity.Quantity, False, None, False),
-            ("shape", "shape", fhirdatatypes.FHIRString, False, None, False),
-            ("color", "color", fhirdatatypes.FHIRString, True, None, False),
-            ("imprint", "imprint", fhirdatatypes.FHIRString, True, None, False),
-            ("image", "image", attachment.Attachment, True, None, False),
-            ("scoring", "scoring", codeableconcept.CodeableConcept, False, None, False),
+            ("height", "height", quantity.Quantity, False, None, False, None), 
+            ("width", "width", quantity.Quantity, False, None, False, None), 
+            ("depth", "depth", quantity.Quantity, False, None, False, None), 
+            ("weight", "weight", quantity.Quantity, False, None, False, None), 
+            ("nominalVolume", "nominalVolume", quantity.Quantity, False, None, False, None), 
+            ("externalDiameter", "externalDiameter", quantity.Quantity, False, None, False, None), 
+            ("shape", "shape", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("color", "color", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("imprint", "imprint", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("image", "image", attachment.Attachment, True, None, False, None), 
+            ("scoring", "scoring", codeableconcept.CodeableConcept, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
+from fhirclient.models import attachment
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import quantity
 

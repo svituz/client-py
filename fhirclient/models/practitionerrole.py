@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class PractitionerRole(domainresource.DomainResource):
     """ Roles/organizations the practitioner is associated with.
@@ -89,26 +89,26 @@ class PractitionerRole(domainresource.DomainResource):
     def elementProperties(self):
         js = super(PractitionerRole, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("active", "active", bool, False, None, False),
-            ("period", "period", period.Period, False, None, False),
-            ("practitioner", "practitioner", fhirreference.FHIRReference, False, None, False),
-            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, True, None, False),
-            ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False),
-            ("location", "location", fhirreference.FHIRReference, True, None, False),
-            ("healthcareService", "healthcareService", fhirreference.FHIRReference, True, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
-            ("availableTime", "availableTime", PractitionerRoleAvailableTime, True, None, False),
-            ("notAvailable", "notAvailable", PractitionerRoleNotAvailable, True, None, False),
-            ("availabilityExceptions", "availabilityExceptions", fhirdatatypes.FHIRString, False, None, False),
-            ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("active", "active", bool, False, None, False, None), 
+            ("period", "period", period.Period, False, None, False, None), 
+            ("practitioner", "practitioner", fhirreference.FHIRReference, False, None, False, None), 
+            ("organization", "organization", fhirreference.FHIRReference, False, None, False, None), 
+            ("code", "code", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("location", "location", fhirreference.FHIRReference, True, None, False, None), 
+            ("healthcareService", "healthcareService", fhirreference.FHIRReference, True, None, False, None), 
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False, None), 
+            ("availableTime", "availableTime", PractitionerRoleAvailableTime, True, None, False, None), 
+            ("notAvailable", "notAvailable", PractitionerRoleNotAvailable, True, None, False, None), 
+            ("availabilityExceptions", "availabilityExceptions", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class PractitionerRoleAvailableTime(backboneelement.BackboneElement):
     """ Times the Service Site is available.
@@ -146,10 +146,10 @@ class PractitionerRoleAvailableTime(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PractitionerRoleAvailableTime, self).elementProperties()
         js.extend([
-            ("daysOfWeek", "daysOfWeek", fhirdatatypes.FHIRCode, True, None, False),
-            ("allDay", "allDay", bool, False, None, False),
-            ("availableStartTime", "availableStartTime", fhirdatatypes.FHIRTime, False, None, False),
-            ("availableEndTime", "availableEndTime", fhirdatatypes.FHIRTime, False, None, False),
+            ("daysOfWeek", "daysOfWeek", fhirdatatypes.FHIRCode, True, None, False, daysofweek.DaysOfWeek), 
+            ("allDay", "allDay", bool, False, None, False, None), 
+            ("availableStartTime", "availableStartTime", fhirdatatypes.FHIRTime, False, None, False, None), 
+            ("availableEndTime", "availableEndTime", fhirdatatypes.FHIRTime, False, None, False, None), 
         ])
         return js
 
@@ -184,41 +184,24 @@ class PractitionerRoleNotAvailable(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PractitionerRoleNotAvailable, self).elementProperties()
         js.extend([
-            ("description", "description", fhirdatatypes.FHIRString, False, None, True),
-            ("during", "during", period.Period, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("during", "during", period.Period, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import contactpoint
-except ImportError:
-    contactpoint = sys.modules[__package__ + '.contactpoint']
+from fhirclient.models import contactpoint
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import daysofweek
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
+
+from fhirclient.models import period
 

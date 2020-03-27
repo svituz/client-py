@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Patient(domainresource.DomainResource):
     """ Information about an individual or animal receiving health care services.
@@ -103,30 +103,30 @@ class Patient(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Patient, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("active", "active", bool, False, None, False),
-            ("name", "name", humanname.HumanName, True, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
-            ("gender", "gender", fhirdatatypes.FHIRCode, False, None, False),
-            ("birthDate", "birthDate", fhirdatatypes.FHIRDate, False, None, False),
-            ("deceasedBoolean", "deceasedBoolean", bool, False, "deceased", False),
-            ("deceasedDateTime", "deceasedDateTime", fhirdatatypes.FHIRDateTime, False, "deceased", False),
-            ("address", "address", address.Address, True, None, False),
-            ("maritalStatus", "maritalStatus", codeableconcept.CodeableConcept, False, None, False),
-            ("multipleBirthBoolean", "multipleBirthBoolean", bool, False, "multipleBirth", False),
-            ("multipleBirthInteger", "multipleBirthInteger", int, False, "multipleBirth", False),
-            ("photo", "photo", attachment.Attachment, True, None, False),
-            ("contact", "contact", PatientContact, True, None, False),
-            ("communication", "communication", PatientCommunication, True, None, False),
-            ("generalPractitioner", "generalPractitioner", fhirreference.FHIRReference, True, None, False),
-            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False),
-            ("link", "link", PatientLink, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("active", "active", bool, False, None, False, None), 
+            ("name", "name", humanname.HumanName, True, None, False, None), 
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False, None), 
+            ("gender", "gender", fhirdatatypes.FHIRCode, False, None, False, administrativegender.AdministrativeGender), 
+            ("birthDate", "birthDate", fhirdatatypes.FHIRDate, False, None, False, None), 
+            ("deceasedBoolean", "deceasedBoolean", bool, False, "deceased", False, None), 
+            ("deceasedDateTime", "deceasedDateTime", fhirdatatypes.FHIRDateTime, False, "deceased", False, None), 
+            ("address", "address", address.Address, True, None, False, None), 
+            ("maritalStatus", "maritalStatus", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("multipleBirthBoolean", "multipleBirthBoolean", bool, False, "multipleBirth", False, None), 
+            ("multipleBirthInteger", "multipleBirthInteger", int, False, "multipleBirth", False, None), 
+            ("photo", "photo", attachment.Attachment, True, None, False, None), 
+            ("contact", "contact", PatientContact, True, None, False, None), 
+            ("communication", "communication", PatientCommunication, True, None, False, None), 
+            ("generalPractitioner", "generalPractitioner", fhirreference.FHIRReference, True, None, False, None), 
+            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False, None), 
+            ("link", "link", PatientLink, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class PatientCommunication(backboneelement.BackboneElement):
     """ A language which may be used to communicate with the patient about his or
@@ -155,8 +155,8 @@ class PatientCommunication(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PatientCommunication, self).elementProperties()
         js.extend([
-            ("language", "language", codeableconcept.CodeableConcept, False, None, True),
-            ("preferred", "preferred", bool, False, None, False),
+            ("language", "language", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("preferred", "preferred", bool, False, None, False, None), 
         ])
         return js
 
@@ -209,13 +209,13 @@ class PatientContact(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PatientContact, self).elementProperties()
         js.extend([
-            ("relationship", "relationship", codeableconcept.CodeableConcept, True, None, False),
-            ("name", "name", humanname.HumanName, False, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
-            ("address", "address", address.Address, False, None, False),
-            ("gender", "gender", fhirdatatypes.FHIRCode, False, None, False),
-            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
-            ("period", "period", period.Period, False, None, False),
+            ("relationship", "relationship", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("name", "name", humanname.HumanName, False, None, False, None), 
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False, None), 
+            ("address", "address", address.Address, False, None, False, None), 
+            ("gender", "gender", fhirdatatypes.FHIRCode, False, None, False, administrativegender.AdministrativeGender), 
+            ("organization", "organization", fhirreference.FHIRReference, False, None, False, None), 
+            ("period", "period", period.Period, False, None, False, None), 
         ])
         return js
 
@@ -250,56 +250,32 @@ class PatientLink(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PatientLink, self).elementProperties()
         js.extend([
-            ("other", "other", fhirreference.FHIRReference, False, None, True),
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
+            ("other", "other", fhirreference.FHIRReference, False, None, True, None), 
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, linktype.LinkType), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import address
-except ImportError:
-    address = sys.modules[__package__ + '.address']
+from fhirclient.models import address
 
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
+from fhirclient.codesystems import administrativegender
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import attachment
 
-try:
-    from . import contactpoint
-except ImportError:
-    contactpoint = sys.modules[__package__ + '.contactpoint']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import contactpoint
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import humanname
-except ImportError:
-    humanname = sys.modules[__package__ + '.humanname']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import humanname
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
+
+from fhirclient.codesystems import linktype
+
+from fhirclient.models import period
 

@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class ObservationDefinition(domainresource.DomainResource):
     """ Definition of an observation.
@@ -86,25 +86,25 @@ class ObservationDefinition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ObservationDefinition, self).elementProperties()
         js.extend([
-            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("permittedDataType", "permittedDataType", fhirdatatypes.FHIRCode, True, None, False),
-            ("multipleResultsAllowed", "multipleResultsAllowed", bool, False, None, False),
-            ("method", "method", codeableconcept.CodeableConcept, False, None, False),
-            ("preferredReportName", "preferredReportName", fhirdatatypes.FHIRString, False, None, False),
-            ("quantitativeDetails", "quantitativeDetails", ObservationDefinitionQuantitativeDetails, False, None, False),
-            ("qualifiedInterval", "qualifiedInterval", ObservationDefinitionQualifiedInterval, True, None, False),
-            ("validCodedValueSet", "validCodedValueSet", fhirreference.FHIRReference, False, None, False),
-            ("normalCodedValueSet", "normalCodedValueSet", fhirreference.FHIRReference, False, None, False),
-            ("abnormalCodedValueSet", "abnormalCodedValueSet", fhirreference.FHIRReference, False, None, False),
-            ("criticalCodedValueSet", "criticalCodedValueSet", fhirreference.FHIRReference, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("permittedDataType", "permittedDataType", fhirdatatypes.FHIRCode, True, None, False, observationdatatype.ObservationDataType), 
+            ("multipleResultsAllowed", "multipleResultsAllowed", bool, False, None, False, None), 
+            ("method", "method", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("preferredReportName", "preferredReportName", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("quantitativeDetails", "quantitativeDetails", ObservationDefinitionQuantitativeDetails, False, None, False, None), 
+            ("qualifiedInterval", "qualifiedInterval", ObservationDefinitionQualifiedInterval, True, None, False, None), 
+            ("validCodedValueSet", "validCodedValueSet", fhirreference.FHIRReference, False, None, False, None), 
+            ("normalCodedValueSet", "normalCodedValueSet", fhirreference.FHIRReference, False, None, False, None), 
+            ("abnormalCodedValueSet", "abnormalCodedValueSet", fhirreference.FHIRReference, False, None, False, None), 
+            ("criticalCodedValueSet", "criticalCodedValueSet", fhirreference.FHIRReference, False, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ObservationDefinitionQualifiedInterval(backboneelement.BackboneElement):
     """ Qualified range for continuous and ordinal observation results.
@@ -158,14 +158,14 @@ class ObservationDefinitionQualifiedInterval(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ObservationDefinitionQualifiedInterval, self).elementProperties()
         js.extend([
-            ("category", "category", fhirdatatypes.FHIRCode, False, None, False),
-            ("range", "range", range.Range, False, None, False),
-            ("context", "context", codeableconcept.CodeableConcept, False, None, False),
-            ("appliesTo", "appliesTo", codeableconcept.CodeableConcept, True, None, False),
-            ("gender", "gender", fhirdatatypes.FHIRCode, False, None, False),
-            ("age", "age", range.Range, False, None, False),
-            ("gestationalAge", "gestationalAge", range.Range, False, None, False),
-            ("condition", "condition", fhirdatatypes.FHIRString, False, None, False),
+            ("category", "category", fhirdatatypes.FHIRCode, False, None, False, observationrangecategory.ObservationRangeCategory), 
+            ("range", "range", range.Range, False, None, False, None), 
+            ("context", "context", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("appliesTo", "appliesTo", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("gender", "gender", fhirdatatypes.FHIRCode, False, None, False, administrativegender.AdministrativeGender), 
+            ("age", "age", range.Range, False, None, False, None), 
+            ("gestationalAge", "gestationalAge", range.Range, False, None, False, None), 
+            ("condition", "condition", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -207,38 +207,28 @@ class ObservationDefinitionQuantitativeDetails(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ObservationDefinitionQuantitativeDetails, self).elementProperties()
         js.extend([
-            ("customaryUnit", "customaryUnit", codeableconcept.CodeableConcept, False, None, False),
-            ("unit", "unit", codeableconcept.CodeableConcept, False, None, False),
-            ("conversionFactor", "conversionFactor", float, False, None, False),
-            ("decimalPrecision", "decimalPrecision", int, False, None, False),
+            ("customaryUnit", "customaryUnit", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("unit", "unit", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("conversionFactor", "conversionFactor", float, False, None, False, None), 
+            ("decimalPrecision", "decimalPrecision", int, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.codesystems import administrativegender
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
 
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from fhirclient.models import identifier
+
+from fhirclient.codesystems import observationdatatype
+
+from fhirclient.codesystems import observationrangecategory
+
+from fhirclient.models import range
 

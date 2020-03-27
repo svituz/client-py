@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class Meta(element.Element):
     """ Metadata about a resource.
@@ -52,25 +52,18 @@ class Meta(element.Element):
     def elementProperties(self):
         js = super(Meta, self).elementProperties()
         js.extend([
-            ("versionId", "versionId", fhirdatatypes.FHIRId, False, None, False),
-            ("lastUpdated", "lastUpdated", fhirdatatypes.FHIRInstant, False, None, False),
-            ("source", "source", fhirdatatypes.FHIRUri, False, None, False),
-            ("profile", "profile", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("security", "security", coding.Coding, True, None, False),
-            ("tag", "tag", coding.Coding, True, None, False),
+            ("versionId", "versionId", fhirdatatypes.FHIRId, False, None, False, None), 
+            ("lastUpdated", "lastUpdated", fhirdatatypes.FHIRInstant, False, None, False, None), 
+            ("source", "source", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("profile", "profile", fhirdatatypes.FHIRCanonical, True, None, False, None), 
+            ("security", "security", coding.Coding, True, None, False, None), 
+            ("tag", "tag", coding.Coding, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
+from fhirclient.models import coding
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 

@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class Narrative(element.Element):
     """ Human-readable summary of the resource (essential clinical and business
@@ -36,16 +36,14 @@ class Narrative(element.Element):
     def elementProperties(self):
         js = super(Narrative, self).elementProperties()
         js.extend([
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("div", "div", fhirdatatypes.FHIRString, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, narrativestatus.NarrativeStatus), 
+            ("div", "div", fhirdatatypes.FHIRString, False, None, True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
+
+from fhirclient.codesystems import narrativestatus
 

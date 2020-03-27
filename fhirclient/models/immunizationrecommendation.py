@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class ImmunizationRecommendation(domainresource.DomainResource):
     """ Guidance or advice relating to an immunization.
@@ -49,17 +49,17 @@ class ImmunizationRecommendation(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ImmunizationRecommendation, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, True),
-            ("authority", "authority", fhirreference.FHIRReference, False, None, False),
-            ("recommendation", "recommendation", ImmunizationRecommendationRecommendation, True, None, True),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, True, None), 
+            ("authority", "authority", fhirreference.FHIRReference, False, None, False, None), 
+            ("recommendation", "recommendation", ImmunizationRecommendationRecommendation, True, None, True, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ImmunizationRecommendationRecommendation(backboneelement.BackboneElement):
     """ Vaccine administration recommendations.
@@ -134,20 +134,20 @@ class ImmunizationRecommendationRecommendation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImmunizationRecommendationRecommendation, self).elementProperties()
         js.extend([
-            ("vaccineCode", "vaccineCode", codeableconcept.CodeableConcept, True, None, False),
-            ("targetDisease", "targetDisease", codeableconcept.CodeableConcept, False, None, False),
-            ("contraindicatedVaccineCode", "contraindicatedVaccineCode", codeableconcept.CodeableConcept, True, None, False),
-            ("forecastStatus", "forecastStatus", codeableconcept.CodeableConcept, False, None, True),
-            ("forecastReason", "forecastReason", codeableconcept.CodeableConcept, True, None, False),
-            ("dateCriterion", "dateCriterion", ImmunizationRecommendationRecommendationDateCriterion, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("series", "series", fhirdatatypes.FHIRString, False, None, False),
-            ("doseNumberPositiveInt", "doseNumberPositiveInt", fhirdatatypes.FHIRPositiveInt, False, "doseNumber", False),
-            ("doseNumberString", "doseNumberString", fhirdatatypes.FHIRString, False, "doseNumber", False),
-            ("seriesDosesPositiveInt", "seriesDosesPositiveInt", fhirdatatypes.FHIRPositiveInt, False, "seriesDoses", False),
-            ("seriesDosesString", "seriesDosesString", fhirdatatypes.FHIRString, False, "seriesDoses", False),
-            ("supportingImmunization", "supportingImmunization", fhirreference.FHIRReference, True, None, False),
-            ("supportingPatientInformation", "supportingPatientInformation", fhirreference.FHIRReference, True, None, False),
+            ("vaccineCode", "vaccineCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("targetDisease", "targetDisease", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("contraindicatedVaccineCode", "contraindicatedVaccineCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("forecastStatus", "forecastStatus", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("forecastReason", "forecastReason", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("dateCriterion", "dateCriterion", ImmunizationRecommendationRecommendationDateCriterion, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("series", "series", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("doseNumberPositiveInt", "doseNumberPositiveInt", fhirdatatypes.FHIRPositiveInt, False, "doseNumber", False, None), 
+            ("doseNumberString", "doseNumberString", fhirdatatypes.FHIRString, False, "doseNumber", False, None), 
+            ("seriesDosesPositiveInt", "seriesDosesPositiveInt", fhirdatatypes.FHIRPositiveInt, False, "seriesDoses", False, None), 
+            ("seriesDosesString", "seriesDosesString", fhirdatatypes.FHIRString, False, "seriesDoses", False, None), 
+            ("supportingImmunization", "supportingImmunization", fhirreference.FHIRReference, True, None, False, None), 
+            ("supportingPatientInformation", "supportingPatientInformation", fhirreference.FHIRReference, True, None, False, None), 
         ])
         return js
 
@@ -182,31 +182,18 @@ class ImmunizationRecommendationRecommendationDateCriterion(backboneelement.Back
     def elementProperties(self):
         js = super(ImmunizationRecommendationRecommendationDateCriterion, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("value", "value", fhirdatatypes.FHIRDateTime, False, None, True),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("value", "value", fhirdatatypes.FHIRDateTime, False, None, True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 

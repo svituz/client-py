@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Subscription(domainresource.DomainResource):
     """ Server push subscription criteria.
@@ -60,19 +60,19 @@ class Subscription(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Subscription, self).elementProperties()
         js.extend([
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("contact", "contact", contactpoint.ContactPoint, True, None, False),
-            ("end", "end", fhirdatatypes.FHIRInstant, False, None, False),
-            ("reason", "reason", fhirdatatypes.FHIRString, False, None, True),
-            ("criteria", "criteria", fhirdatatypes.FHIRString, False, None, True),
-            ("error", "error", fhirdatatypes.FHIRString, False, None, False),
-            ("channel", "channel", SubscriptionChannel, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, subscriptionstatus.SubscriptionStatus), 
+            ("contact", "contact", contactpoint.ContactPoint, True, None, False, None), 
+            ("end", "end", fhirdatatypes.FHIRInstant, False, None, False, None), 
+            ("reason", "reason", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("criteria", "criteria", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("error", "error", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("channel", "channel", SubscriptionChannel, False, None, True, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class SubscriptionChannel(backboneelement.BackboneElement):
     """ The channel on which to report matches to the criteria.
@@ -110,23 +110,20 @@ class SubscriptionChannel(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SubscriptionChannel, self).elementProperties()
         js.extend([
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("endpoint", "endpoint", fhirdatatypes.FHIRUrl, False, None, False),
-            ("payload", "payload", fhirdatatypes.FHIRCode, False, None, False),
-            ("header", "header", fhirdatatypes.FHIRString, True, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, subscriptionchanneltype.SubscriptionChannelType), 
+            ("endpoint", "endpoint", fhirdatatypes.FHIRUrl, False, None, False, None), 
+            ("payload", "payload", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("header", "header", fhirdatatypes.FHIRString, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import contactpoint
-except ImportError:
-    contactpoint = sys.modules[__package__ + '.contactpoint']
+from fhirclient.models import contactpoint
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
+
+from fhirclient.codesystems import subscriptionchanneltype
+
+from fhirclient.codesystems import subscriptionstatus
 

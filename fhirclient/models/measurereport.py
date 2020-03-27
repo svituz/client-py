@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class MeasureReport(domainresource.DomainResource):
     """ Results of a measure evaluation.
@@ -74,23 +74,23 @@ class MeasureReport(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MeasureReport, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("measure", "measure", fhirdatatypes.FHIRCanonical, False, None, True),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("reporter", "reporter", fhirreference.FHIRReference, False, None, False),
-            ("period", "period", period.Period, False, None, True),
-            ("improvementNotation", "improvementNotation", codeableconcept.CodeableConcept, False, None, False),
-            ("group", "group", MeasureReportGroup, True, None, False),
-            ("evaluatedResource", "evaluatedResource", fhirreference.FHIRReference, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, measurereportstatus.MeasureReportStatus), 
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, measurereporttype.MeasureReportType), 
+            ("measure", "measure", fhirdatatypes.FHIRCanonical, False, None, True, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("reporter", "reporter", fhirreference.FHIRReference, False, None, False, None), 
+            ("period", "period", period.Period, False, None, True, None), 
+            ("improvementNotation", "improvementNotation", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("group", "group", MeasureReportGroup, True, None, False, None), 
+            ("evaluatedResource", "evaluatedResource", fhirreference.FHIRReference, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class MeasureReportGroup(backboneelement.BackboneElement):
     """ Measure results for each group.
@@ -128,10 +128,10 @@ class MeasureReportGroup(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MeasureReportGroup, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("population", "population", MeasureReportGroupPopulation, True, None, False),
-            ("measureScore", "measureScore", quantity.Quantity, False, None, False),
-            ("stratifier", "stratifier", MeasureReportGroupStratifier, True, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("population", "population", MeasureReportGroupPopulation, True, None, False, None), 
+            ("measureScore", "measureScore", quantity.Quantity, False, None, False, None), 
+            ("stratifier", "stratifier", MeasureReportGroupStratifier, True, None, False, None), 
         ])
         return js
 
@@ -172,9 +172,9 @@ class MeasureReportGroupPopulation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MeasureReportGroupPopulation, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("count", "count", int, False, None, False),
-            ("subjectResults", "subjectResults", fhirreference.FHIRReference, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("count", "count", int, False, None, False, None), 
+            ("subjectResults", "subjectResults", fhirreference.FHIRReference, False, None, False, None), 
         ])
         return js
 
@@ -210,8 +210,8 @@ class MeasureReportGroupStratifier(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MeasureReportGroupStratifier, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, True, None, False),
-            ("stratum", "stratum", MeasureReportGroupStratifierStratum, True, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("stratum", "stratum", MeasureReportGroupStratifierStratum, True, None, False, None), 
         ])
         return js
 
@@ -256,10 +256,10 @@ class MeasureReportGroupStratifierStratum(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MeasureReportGroupStratifierStratum, self).elementProperties()
         js.extend([
-            ("value", "value", codeableconcept.CodeableConcept, False, None, False),
-            ("component", "component", MeasureReportGroupStratifierStratumComponent, True, None, False),
-            ("population", "population", MeasureReportGroupStratifierStratumPopulation, True, None, False),
-            ("measureScore", "measureScore", quantity.Quantity, False, None, False),
+            ("value", "value", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("component", "component", MeasureReportGroupStratifierStratumComponent, True, None, False, None), 
+            ("population", "population", MeasureReportGroupStratifierStratumPopulation, True, None, False, None), 
+            ("measureScore", "measureScore", quantity.Quantity, False, None, False, None), 
         ])
         return js
 
@@ -293,8 +293,8 @@ class MeasureReportGroupStratifierStratumComponent(backboneelement.BackboneEleme
     def elementProperties(self):
         js = super(MeasureReportGroupStratifierStratumComponent, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("value", "value", codeableconcept.CodeableConcept, False, None, True),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("value", "value", codeableconcept.CodeableConcept, False, None, True, None), 
         ])
         return js
 
@@ -335,42 +335,27 @@ class MeasureReportGroupStratifierStratumPopulation(backboneelement.BackboneElem
     def elementProperties(self):
         js = super(MeasureReportGroupStratifierStratumPopulation, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("count", "count", int, False, None, False),
-            ("subjectResults", "subjectResults", fhirreference.FHIRReference, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("count", "count", int, False, None, False, None), 
+            ("subjectResults", "subjectResults", fhirreference.FHIRReference, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.codesystems import measurereportstatus
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.codesystems import measurereporttype
+
+from fhirclient.models import period
+
+from fhirclient.models import quantity
 

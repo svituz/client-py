@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class DeviceUseStatement(domainresource.DomainResource):
     """ Record of use of a device.
@@ -89,59 +89,39 @@ class DeviceUseStatement(domainresource.DomainResource):
     def elementProperties(self):
         js = super(DeviceUseStatement, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
-            ("derivedFrom", "derivedFrom", fhirreference.FHIRReference, True, None, False),
-            ("timingTiming", "timingTiming", timing.Timing, False, "timing", False),
-            ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
-            ("timingDateTime", "timingDateTime", fhirdatatypes.FHIRDateTime, False, "timing", False),
-            ("recordedOn", "recordedOn", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("source", "source", fhirreference.FHIRReference, False, None, False),
-            ("device", "device", fhirreference.FHIRReference, False, None, True),
-            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, deviceusestatementstatus.DeviceUseStatementStatus), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True, None), 
+            ("derivedFrom", "derivedFrom", fhirreference.FHIRReference, True, None, False, None), 
+            ("timingTiming", "timingTiming", timing.Timing, False, "timing", False, None), 
+            ("timingPeriod", "timingPeriod", period.Period, False, "timing", False, None), 
+            ("timingDateTime", "timingDateTime", fhirdatatypes.FHIRDateTime, False, "timing", False, None), 
+            ("recordedOn", "recordedOn", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("source", "source", fhirreference.FHIRReference, False, None, False, None), 
+            ("device", "device", fhirreference.FHIRReference, False, None, True, None), 
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False, None), 
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import deviceusestatementstatus
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
 
-try:
-    from . import timing
-except ImportError:
-    timing = sys.modules[__package__ + '.timing']
+from fhirclient.models import period
+
+from fhirclient.models import timing
 

@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class RelatedArtifact(element.Element):
     """ Related artifacts for a knowledge resource.
@@ -56,26 +56,21 @@ class RelatedArtifact(element.Element):
     def elementProperties(self):
         js = super(RelatedArtifact, self).elementProperties()
         js.extend([
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("label", "label", fhirdatatypes.FHIRString, False, None, False),
-            ("display", "display", fhirdatatypes.FHIRString, False, None, False),
-            ("citation", "citation", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("url", "url", fhirdatatypes.FHIRUrl, False, None, False),
-            ("document", "document", attachment.Attachment, False, None, False),
-            ("resource", "resource", fhirdatatypes.FHIRCanonical, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, relatedartifacttype.RelatedArtifactType), 
+            ("label", "label", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("display", "display", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("citation", "citation", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("url", "url", fhirdatatypes.FHIRUrl, False, None, False, None), 
+            ("document", "document", attachment.Attachment, False, None, False, None), 
+            ("resource", "resource", fhirdatatypes.FHIRCanonical, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
+from fhirclient.models import attachment
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
+
+from fhirclient.codesystems import relatedartifacttype
 

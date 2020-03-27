@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import fhirabstractresource
+from fhirclient.models import fhirabstractresource
 
 class Resource(fhirabstractresource.FHIRAbstractResource):
     """ Base Resource.
@@ -44,23 +44,16 @@ class Resource(fhirabstractresource.FHIRAbstractResource):
     def elementProperties(self):
         js = super(Resource, self).elementProperties()
         js.extend([
-            ("id", "id", fhirdatatypes.FHIRString, False, None, False),
-            ("meta", "meta", meta.Meta, False, None, False),
-            ("implicitRules", "implicitRules", fhirdatatypes.FHIRUri, False, None, False),
-            ("language", "language", fhirdatatypes.FHIRCode, False, None, False),
+            ("id", "id", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("meta", "meta", meta.Meta, False, None, False, None), 
+            ("implicitRules", "implicitRules", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("language", "language", fhirdatatypes.FHIRCode, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import meta
-except ImportError:
-    meta = sys.modules[__package__ + '.meta']
+from fhirclient.models import meta
 

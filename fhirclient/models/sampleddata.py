@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class SampledData(element.Element):
     """ A series of measurements taken by a device.
@@ -55,26 +55,19 @@ class SampledData(element.Element):
     def elementProperties(self):
         js = super(SampledData, self).elementProperties()
         js.extend([
-            ("origin", "origin", quantity.Quantity, False, None, True),
-            ("period", "period", float, False, None, True),
-            ("factor", "factor", float, False, None, False),
-            ("lowerLimit", "lowerLimit", float, False, None, False),
-            ("upperLimit", "upperLimit", float, False, None, False),
-            ("dimensions", "dimensions", fhirdatatypes.FHIRPositiveInt, False, None, True),
-            ("data", "data", fhirdatatypes.FHIRString, False, None, False),
+            ("origin", "origin", quantity.Quantity, False, None, True, None), 
+            ("period", "period", float, False, None, True, None), 
+            ("factor", "factor", float, False, None, False, None), 
+            ("lowerLimit", "lowerLimit", float, False, None, False, None), 
+            ("upperLimit", "upperLimit", float, False, None, False, None), 
+            ("dimensions", "dimensions", fhirdatatypes.FHIRPositiveInt, False, None, True, None), 
+            ("data", "data", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import quantity
 

@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Procedure(domainresource.DomainResource):
     """ An action that is being or was performed on a patient.
@@ -159,44 +159,44 @@ class Procedure(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Procedure, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False),
-            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
-            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False),
-            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("performedDateTime", "performedDateTime", fhirdatatypes.FHIRDateTime, False, "performed", False),
-            ("performedPeriod", "performedPeriod", period.Period, False, "performed", False),
-            ("performedString", "performedString", fhirdatatypes.FHIRString, False, "performed", False),
-            ("performedAge", "performedAge", age.Age, False, "performed", False),
-            ("performedRange", "performedRange", range.Range, False, "performed", False),
-            ("recorder", "recorder", fhirreference.FHIRReference, False, None, False),
-            ("asserter", "asserter", fhirreference.FHIRReference, False, None, False),
-            ("performer", "performer", ProcedurePerformer, True, None, False),
-            ("location", "location", fhirreference.FHIRReference, False, None, False),
-            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("bodySite", "bodySite", codeableconcept.CodeableConcept, True, None, False),
-            ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
-            ("report", "report", fhirreference.FHIRReference, True, None, False),
-            ("complication", "complication", codeableconcept.CodeableConcept, True, None, False),
-            ("complicationDetail", "complicationDetail", fhirreference.FHIRReference, True, None, False),
-            ("followUp", "followUp", codeableconcept.CodeableConcept, True, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
-            ("focalDevice", "focalDevice", ProcedureFocalDevice, True, None, False),
-            ("usedReference", "usedReference", fhirreference.FHIRReference, True, None, False),
-            ("usedCode", "usedCode", codeableconcept.CodeableConcept, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False, None), 
+            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False, None), 
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False, None), 
+            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, eventstatus.EventStatus), 
+            ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("category", "category", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True, None), 
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False, None), 
+            ("performedDateTime", "performedDateTime", fhirdatatypes.FHIRDateTime, False, "performed", False, None), 
+            ("performedPeriod", "performedPeriod", period.Period, False, "performed", False, None), 
+            ("performedString", "performedString", fhirdatatypes.FHIRString, False, "performed", False, None), 
+            ("performedAge", "performedAge", age.Age, False, "performed", False, None), 
+            ("performedRange", "performedRange", range.Range, False, "performed", False, None), 
+            ("recorder", "recorder", fhirreference.FHIRReference, False, None, False, None), 
+            ("asserter", "asserter", fhirreference.FHIRReference, False, None, False, None), 
+            ("performer", "performer", ProcedurePerformer, True, None, False, None), 
+            ("location", "location", fhirreference.FHIRReference, False, None, False, None), 
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False, None), 
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("report", "report", fhirreference.FHIRReference, True, None, False, None), 
+            ("complication", "complication", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("complicationDetail", "complicationDetail", fhirreference.FHIRReference, True, None, False, None), 
+            ("followUp", "followUp", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
+            ("focalDevice", "focalDevice", ProcedureFocalDevice, True, None, False, None), 
+            ("usedReference", "usedReference", fhirreference.FHIRReference, True, None, False, None), 
+            ("usedCode", "usedCode", codeableconcept.CodeableConcept, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ProcedureFocalDevice(backboneelement.BackboneElement):
     """ Manipulated, implanted, or removed device.
@@ -227,8 +227,8 @@ class ProcedureFocalDevice(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ProcedureFocalDevice, self).elementProperties()
         js.extend([
-            ("action", "action", codeableconcept.CodeableConcept, False, None, False),
-            ("manipulated", "manipulated", fhirreference.FHIRReference, False, None, True),
+            ("action", "action", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("manipulated", "manipulated", fhirreference.FHIRReference, False, None, True, None), 
         ])
         return js
 
@@ -266,52 +266,29 @@ class ProcedurePerformer(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ProcedurePerformer, self).elementProperties()
         js.extend([
-            ("function", "function", codeableconcept.CodeableConcept, False, None, False),
-            ("actor", "actor", fhirreference.FHIRReference, False, None, True),
-            ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
+            ("function", "function", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("actor", "actor", fhirreference.FHIRReference, False, None, True, None), 
+            ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import age
-except ImportError:
-    age = sys.modules[__package__ + '.age']
+from fhirclient.models import age
 
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import eventstatus
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
 
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from fhirclient.models import period
+
+from fhirclient.models import range
 

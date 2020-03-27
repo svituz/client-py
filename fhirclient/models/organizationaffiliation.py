@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class OrganizationAffiliation(domainresource.DomainResource):
     """ Defines an affiliation/assotiation/relationship between 2 distinct
@@ -82,46 +82,30 @@ class OrganizationAffiliation(domainresource.DomainResource):
     def elementProperties(self):
         js = super(OrganizationAffiliation, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("active", "active", bool, False, None, False),
-            ("period", "period", period.Period, False, None, False),
-            ("organization", "organization", fhirreference.FHIRReference, False, None, False),
-            ("participatingOrganization", "participatingOrganization", fhirreference.FHIRReference, False, None, False),
-            ("network", "network", fhirreference.FHIRReference, True, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, True, None, False),
-            ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False),
-            ("location", "location", fhirreference.FHIRReference, True, None, False),
-            ("healthcareService", "healthcareService", fhirreference.FHIRReference, True, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
-            ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("active", "active", bool, False, None, False, None), 
+            ("period", "period", period.Period, False, None, False, None), 
+            ("organization", "organization", fhirreference.FHIRReference, False, None, False, None), 
+            ("participatingOrganization", "participatingOrganization", fhirreference.FHIRReference, False, None, False, None), 
+            ("network", "network", fhirreference.FHIRReference, True, None, False, None), 
+            ("code", "code", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("location", "location", fhirreference.FHIRReference, True, None, False, None), 
+            ("healthcareService", "healthcareService", fhirreference.FHIRReference, True, None, False, None), 
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False, None), 
+            ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import contactpoint
-except ImportError:
-    contactpoint = sys.modules[__package__ + '.contactpoint']
+from fhirclient.models import contactpoint
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import period
 

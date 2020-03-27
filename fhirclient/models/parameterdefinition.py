@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class ParameterDefinition(element.Element):
     """ Definition of a parameter to a module.
@@ -57,21 +57,19 @@ class ParameterDefinition(element.Element):
     def elementProperties(self):
         js = super(ParameterDefinition, self).elementProperties()
         js.extend([
-            ("name", "name", fhirdatatypes.FHIRCode, False, None, False),
-            ("use", "use", fhirdatatypes.FHIRCode, False, None, True),
-            ("min", "min", int, False, None, False),
-            ("max", "max", fhirdatatypes.FHIRString, False, None, False),
-            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False),
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("profile", "profile", fhirdatatypes.FHIRCanonical, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("use", "use", fhirdatatypes.FHIRCode, False, None, True, operationparameteruse.OperationParameterUse), 
+            ("min", "min", int, False, None, False, None), 
+            ("max", "max", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, None), 
+            ("profile", "profile", fhirdatatypes.FHIRCanonical, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
+
+from fhirclient.codesystems import operationparameteruse
 

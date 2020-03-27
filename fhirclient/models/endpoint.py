@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Endpoint(domainresource.DomainResource):
     """ The technical details of an endpoint that can be used for electronic
@@ -78,55 +78,35 @@ class Endpoint(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Endpoint, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("connectionType", "connectionType", coding.Coding, False, None, True),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False),
-            ("contact", "contact", contactpoint.ContactPoint, True, None, False),
-            ("period", "period", period.Period, False, None, False),
-            ("payloadType", "payloadType", codeableconcept.CodeableConcept, True, None, True),
-            ("payloadMimeType", "payloadMimeType", fhirdatatypes.FHIRCode, True, None, False),
-            ("address", "address", fhirdatatypes.FHIRUrl, False, None, True),
-            ("header", "header", fhirdatatypes.FHIRString, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, endpointstatus.EndpointStatus), 
+            ("connectionType", "connectionType", coding.Coding, False, None, True, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False, None), 
+            ("contact", "contact", contactpoint.ContactPoint, True, None, False, None), 
+            ("period", "period", period.Period, False, None, False, None), 
+            ("payloadType", "payloadType", codeableconcept.CodeableConcept, True, None, True, None), 
+            ("payloadMimeType", "payloadMimeType", fhirdatatypes.FHIRCode, True, None, False, None), 
+            ("address", "address", fhirdatatypes.FHIRUrl, False, None, True, None), 
+            ("header", "header", fhirdatatypes.FHIRString, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
+from fhirclient.models import coding
 
-try:
-    from . import contactpoint
-except ImportError:
-    contactpoint = sys.modules[__package__ + '.contactpoint']
+from fhirclient.models import contactpoint
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import endpointstatus
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
+
+from fhirclient.models import period
 

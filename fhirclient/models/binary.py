@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import resource
+from fhirclient.models import resource
 
 class Binary(resource.Resource):
     """ Pure binary content defined by a format other than FHIR.
@@ -43,22 +43,15 @@ class Binary(resource.Resource):
     def elementProperties(self):
         js = super(Binary, self).elementProperties()
         js.extend([
-            ("contentType", "contentType", fhirdatatypes.FHIRCode, False, None, True),
-            ("securityContext", "securityContext", fhirreference.FHIRReference, False, None, False),
-            ("data", "data", fhirdatatypes.FHIRBase64Binary, False, None, False),
+            ("contentType", "contentType", fhirdatatypes.FHIRCode, False, None, True, None), 
+            ("securityContext", "securityContext", fhirreference.FHIRReference, False, None, False, None), 
+            ("data", "data", fhirdatatypes.FHIRBase64Binary, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 

@@ -159,7 +159,7 @@ class FHIRAbstractBase(object):
         valid = set(['resourceType'])
         found = set()
         nonoptionals = set()
-        for name, jsname, typ, is_list, of_many, not_optional in self.elementProperties():
+        for name, jsname, typ, is_list, of_many, not_optional, codesystem in self.elementProperties():
             valid.add(jsname)
             if of_many is not None:
                 valid.add(of_many)
@@ -242,7 +242,7 @@ class FHIRAbstractBase(object):
         # JSONify all registered properties
         found = set()
         nonoptionals = set()
-        for name, jsname, typ, is_list, of_many, not_optional in self.elementProperties():
+        for name, jsname, typ, is_list, of_many, not_optional, codeset in self.elementProperties():
             if not_optional:
                 nonoptionals.add(of_many or jsname)
             

@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Location(domainresource.DomainResource):
     """ Details and position information for a physical place.
@@ -102,29 +102,29 @@ class Location(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Location, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
-            ("operationalStatus", "operationalStatus", coding.Coding, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("alias", "alias", fhirdatatypes.FHIRString, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
-            ("address", "address", address.Address, False, None, False),
-            ("physicalType", "physicalType", codeableconcept.CodeableConcept, False, None, False),
-            ("position", "position", LocationPosition, False, None, False),
-            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False),
-            ("partOf", "partOf", fhirreference.FHIRReference, False, None, False),
-            ("hoursOfOperation", "hoursOfOperation", LocationHoursOfOperation, True, None, False),
-            ("availabilityExceptions", "availabilityExceptions", fhirdatatypes.FHIRString, False, None, False),
-            ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, False, locationstatus.LocationStatus), 
+            ("operationalStatus", "operationalStatus", coding.Coding, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("alias", "alias", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, False, locationmode.LocationMode), 
+            ("type", "type", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False, None), 
+            ("address", "address", address.Address, False, None, False, None), 
+            ("physicalType", "physicalType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("position", "position", LocationPosition, False, None, False, None), 
+            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False, None), 
+            ("partOf", "partOf", fhirreference.FHIRReference, False, None, False, None), 
+            ("hoursOfOperation", "hoursOfOperation", LocationHoursOfOperation, True, None, False, None), 
+            ("availabilityExceptions", "availabilityExceptions", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class LocationHoursOfOperation(backboneelement.BackboneElement):
     """ What days/times during a week is this location usually open.
@@ -159,10 +159,10 @@ class LocationHoursOfOperation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(LocationHoursOfOperation, self).elementProperties()
         js.extend([
-            ("daysOfWeek", "daysOfWeek", fhirdatatypes.FHIRCode, True, None, False),
-            ("allDay", "allDay", bool, False, None, False),
-            ("openingTime", "openingTime", fhirdatatypes.FHIRTime, False, None, False),
-            ("closingTime", "closingTime", fhirdatatypes.FHIRTime, False, None, False),
+            ("daysOfWeek", "daysOfWeek", fhirdatatypes.FHIRCode, True, None, False, daysofweek.DaysOfWeek), 
+            ("allDay", "allDay", bool, False, None, False, None), 
+            ("openingTime", "openingTime", fhirdatatypes.FHIRTime, False, None, False, None), 
+            ("closingTime", "closingTime", fhirdatatypes.FHIRTime, False, None, False, None), 
         ])
         return js
 
@@ -201,47 +201,31 @@ class LocationPosition(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(LocationPosition, self).elementProperties()
         js.extend([
-            ("longitude", "longitude", float, False, None, True),
-            ("latitude", "latitude", float, False, None, True),
-            ("altitude", "altitude", float, False, None, False),
+            ("longitude", "longitude", float, False, None, True, None), 
+            ("latitude", "latitude", float, False, None, True, None), 
+            ("altitude", "altitude", float, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import address
-except ImportError:
-    address = sys.modules[__package__ + '.address']
+from fhirclient.models import address
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
+from fhirclient.models import coding
 
-try:
-    from . import contactpoint
-except ImportError:
-    contactpoint = sys.modules[__package__ + '.contactpoint']
+from fhirclient.models import contactpoint
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import daysofweek
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
+
+from fhirclient.models import identifier
+
+from fhirclient.codesystems import locationmode
+
+from fhirclient.codesystems import locationstatus
 

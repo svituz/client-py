@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Consent(domainresource.DomainResource):
     """ A healthcare consumer's  choices to permit or deny recipients or roles to
@@ -87,26 +87,26 @@ class Consent(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Consent, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("scope", "scope", codeableconcept.CodeableConcept, False, None, True),
-            ("category", "category", codeableconcept.CodeableConcept, True, None, True),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, False),
-            ("dateTime", "dateTime", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("performer", "performer", fhirreference.FHIRReference, True, None, False),
-            ("organization", "organization", fhirreference.FHIRReference, True, None, False),
-            ("sourceAttachment", "sourceAttachment", attachment.Attachment, False, "source", False),
-            ("sourceReference", "sourceReference", fhirreference.FHIRReference, False, "source", False),
-            ("policy", "policy", ConsentPolicy, True, None, False),
-            ("policyRule", "policyRule", codeableconcept.CodeableConcept, False, None, False),
-            ("verification", "verification", ConsentVerification, True, None, False),
-            ("provision", "provision", ConsentProvision, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, consentstate.ConsentState), 
+            ("scope", "scope", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("category", "category", codeableconcept.CodeableConcept, True, None, True, None), 
+            ("patient", "patient", fhirreference.FHIRReference, False, None, False, None), 
+            ("dateTime", "dateTime", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("performer", "performer", fhirreference.FHIRReference, True, None, False, None), 
+            ("organization", "organization", fhirreference.FHIRReference, True, None, False, None), 
+            ("sourceAttachment", "sourceAttachment", attachment.Attachment, False, "source", False, None), 
+            ("sourceReference", "sourceReference", fhirreference.FHIRReference, False, "source", False, None), 
+            ("policy", "policy", ConsentPolicy, True, None, False, None), 
+            ("policyRule", "policyRule", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("verification", "verification", ConsentVerification, True, None, False, None), 
+            ("provision", "provision", ConsentProvision, False, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ConsentPolicy(backboneelement.BackboneElement):
     """ Policies covered by this consent.
@@ -137,8 +137,8 @@ class ConsentPolicy(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConsentPolicy, self).elementProperties()
         js.extend([
-            ("authority", "authority", fhirdatatypes.FHIRUri, False, None, False),
-            ("uri", "uri", fhirdatatypes.FHIRUri, False, None, False),
+            ("authority", "authority", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("uri", "uri", fhirdatatypes.FHIRUri, False, None, False, None), 
         ])
         return js
 
@@ -209,17 +209,17 @@ class ConsentProvision(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConsentProvision, self).elementProperties()
         js.extend([
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, False),
-            ("period", "period", period.Period, False, None, False),
-            ("actor", "actor", ConsentProvisionActor, True, None, False),
-            ("action", "action", codeableconcept.CodeableConcept, True, None, False),
-            ("securityLabel", "securityLabel", coding.Coding, True, None, False),
-            ("purpose", "purpose", coding.Coding, True, None, False),
-            ("class_fhir", "class", coding.Coding, True, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, True, None, False),
-            ("dataPeriod", "dataPeriod", period.Period, False, None, False),
-            ("data", "data", ConsentProvisionData, True, None, False),
-            ("provision", "provision", ConsentProvision, True, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, False, consentprovisiontype.ConsentProvisionType), 
+            ("period", "period", period.Period, False, None, False, None), 
+            ("actor", "actor", ConsentProvisionActor, True, None, False, None), 
+            ("action", "action", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("securityLabel", "securityLabel", coding.Coding, True, None, False, None), 
+            ("purpose", "purpose", coding.Coding, True, None, False, None), 
+            ("class_fhir", "class", coding.Coding, True, None, False, None), 
+            ("code", "code", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("dataPeriod", "dataPeriod", period.Period, False, None, False, None), 
+            ("data", "data", ConsentProvisionData, True, None, False, None), 
+            ("provision", "provision", ConsentProvision, True, None, False, None), 
         ])
         return js
 
@@ -254,8 +254,8 @@ class ConsentProvisionActor(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConsentProvisionActor, self).elementProperties()
         js.extend([
-            ("role", "role", codeableconcept.CodeableConcept, False, None, True),
-            ("reference", "reference", fhirreference.FHIRReference, False, None, True),
+            ("role", "role", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("reference", "reference", fhirreference.FHIRReference, False, None, True, None), 
         ])
         return js
 
@@ -289,8 +289,8 @@ class ConsentProvisionData(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConsentProvisionData, self).elementProperties()
         js.extend([
-            ("meaning", "meaning", fhirdatatypes.FHIRCode, False, None, True),
-            ("reference", "reference", fhirreference.FHIRReference, False, None, True),
+            ("meaning", "meaning", fhirdatatypes.FHIRCode, False, None, True, consentdatameaning.ConsentDataMeaning), 
+            ("reference", "reference", fhirreference.FHIRReference, False, None, True, None), 
         ])
         return js
 
@@ -329,47 +329,31 @@ class ConsentVerification(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ConsentVerification, self).elementProperties()
         js.extend([
-            ("verified", "verified", bool, False, None, True),
-            ("verifiedWith", "verifiedWith", fhirreference.FHIRReference, False, None, False),
-            ("verificationDate", "verificationDate", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("verified", "verified", bool, False, None, True, None), 
+            ("verifiedWith", "verifiedWith", fhirreference.FHIRReference, False, None, False, None), 
+            ("verificationDate", "verificationDate", fhirdatatypes.FHIRDateTime, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
+from fhirclient.models import attachment
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
+from fhirclient.models import coding
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import consentdatameaning
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.codesystems import consentprovisiontype
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.codesystems import consentstate
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import fhirdatatypes
+
+from fhirclient.models import fhirreference
+
+from fhirclient.models import identifier
+
+from fhirclient.models import period
 

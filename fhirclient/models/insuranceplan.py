@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class InsurancePlan(domainresource.DomainResource):
     """ Details of a Health Insurance product/plan provided by an organization.
@@ -82,26 +82,26 @@ class InsurancePlan(domainresource.DomainResource):
     def elementProperties(self):
         js = super(InsurancePlan, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("alias", "alias", fhirdatatypes.FHIRString, True, None, False),
-            ("period", "period", period.Period, False, None, False),
-            ("ownedBy", "ownedBy", fhirreference.FHIRReference, False, None, False),
-            ("administeredBy", "administeredBy", fhirreference.FHIRReference, False, None, False),
-            ("coverageArea", "coverageArea", fhirreference.FHIRReference, True, None, False),
-            ("contact", "contact", InsurancePlanContact, True, None, False),
-            ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False),
-            ("network", "network", fhirreference.FHIRReference, True, None, False),
-            ("coverage", "coverage", InsurancePlanCoverage, True, None, False),
-            ("plan", "plan", InsurancePlanPlan, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, False, publicationstatus.PublicationStatus), 
+            ("type", "type", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("alias", "alias", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("period", "period", period.Period, False, None, False, None), 
+            ("ownedBy", "ownedBy", fhirreference.FHIRReference, False, None, False, None), 
+            ("administeredBy", "administeredBy", fhirreference.FHIRReference, False, None, False, None), 
+            ("coverageArea", "coverageArea", fhirreference.FHIRReference, True, None, False, None), 
+            ("contact", "contact", InsurancePlanContact, True, None, False, None), 
+            ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False, None), 
+            ("network", "network", fhirreference.FHIRReference, True, None, False, None), 
+            ("coverage", "coverage", InsurancePlanCoverage, True, None, False, None), 
+            ("plan", "plan", InsurancePlanPlan, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class InsurancePlanContact(backboneelement.BackboneElement):
     """ Contact for the product.
@@ -138,10 +138,10 @@ class InsurancePlanContact(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(InsurancePlanContact, self).elementProperties()
         js.extend([
-            ("purpose", "purpose", codeableconcept.CodeableConcept, False, None, False),
-            ("name", "name", humanname.HumanName, False, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
-            ("address", "address", address.Address, False, None, False),
+            ("purpose", "purpose", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("name", "name", humanname.HumanName, False, None, False, None), 
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False, None), 
+            ("address", "address", address.Address, False, None, False, None), 
         ])
         return js
 
@@ -179,9 +179,9 @@ class InsurancePlanCoverage(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(InsurancePlanCoverage, self).elementProperties()
         js.extend([
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
-            ("network", "network", fhirreference.FHIRReference, True, None, False),
-            ("benefit", "benefit", InsurancePlanCoverageBenefit, True, None, True),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("network", "network", fhirreference.FHIRReference, True, None, False, None), 
+            ("benefit", "benefit", InsurancePlanCoverageBenefit, True, None, True, None), 
         ])
         return js
 
@@ -219,9 +219,9 @@ class InsurancePlanCoverageBenefit(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(InsurancePlanCoverageBenefit, self).elementProperties()
         js.extend([
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
-            ("requirement", "requirement", fhirdatatypes.FHIRString, False, None, False),
-            ("limit", "limit", InsurancePlanCoverageBenefitLimit, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("requirement", "requirement", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("limit", "limit", InsurancePlanCoverageBenefitLimit, True, None, False, None), 
         ])
         return js
 
@@ -255,8 +255,8 @@ class InsurancePlanCoverageBenefitLimit(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(InsurancePlanCoverageBenefitLimit, self).elementProperties()
         js.extend([
-            ("value", "value", quantity.Quantity, False, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("value", "value", quantity.Quantity, False, None, False, None), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
         ])
         return js
 
@@ -306,12 +306,12 @@ class InsurancePlanPlan(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(InsurancePlanPlan, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("coverageArea", "coverageArea", fhirreference.FHIRReference, True, None, False),
-            ("network", "network", fhirreference.FHIRReference, True, None, False),
-            ("generalCost", "generalCost", InsurancePlanPlanGeneralCost, True, None, False),
-            ("specificCost", "specificCost", InsurancePlanPlanSpecificCost, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("coverageArea", "coverageArea", fhirreference.FHIRReference, True, None, False, None), 
+            ("network", "network", fhirreference.FHIRReference, True, None, False, None), 
+            ("generalCost", "generalCost", InsurancePlanPlanGeneralCost, True, None, False, None), 
+            ("specificCost", "specificCost", InsurancePlanPlanSpecificCost, True, None, False, None), 
         ])
         return js
 
@@ -353,10 +353,10 @@ class InsurancePlanPlanGeneralCost(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(InsurancePlanPlanGeneralCost, self).elementProperties()
         js.extend([
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("groupSize", "groupSize", fhirdatatypes.FHIRPositiveInt, False, None, False),
-            ("cost", "cost", money.Money, False, None, False),
-            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("groupSize", "groupSize", fhirdatatypes.FHIRPositiveInt, False, None, False, None), 
+            ("cost", "cost", money.Money, False, None, False, None), 
+            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -390,8 +390,8 @@ class InsurancePlanPlanSpecificCost(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(InsurancePlanPlanSpecificCost, self).elementProperties()
         js.extend([
-            ("category", "category", codeableconcept.CodeableConcept, False, None, True),
-            ("benefit", "benefit", InsurancePlanPlanSpecificCostBenefit, True, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("benefit", "benefit", InsurancePlanPlanSpecificCostBenefit, True, None, False, None), 
         ])
         return js
 
@@ -425,8 +425,8 @@ class InsurancePlanPlanSpecificCostBenefit(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(InsurancePlanPlanSpecificCostBenefit, self).elementProperties()
         js.extend([
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
-            ("cost", "cost", InsurancePlanPlanSpecificCostBenefitCost, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("cost", "cost", InsurancePlanPlanSpecificCostBenefitCost, True, None, False, None), 
         ])
         return js
 
@@ -468,63 +468,34 @@ class InsurancePlanPlanSpecificCostBenefitCost(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(InsurancePlanPlanSpecificCostBenefitCost, self).elementProperties()
         js.extend([
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
-            ("applicability", "applicability", codeableconcept.CodeableConcept, False, None, False),
-            ("qualifiers", "qualifiers", codeableconcept.CodeableConcept, True, None, False),
-            ("value", "value", quantity.Quantity, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("applicability", "applicability", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("qualifiers", "qualifiers", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("value", "value", quantity.Quantity, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import address
-except ImportError:
-    address = sys.modules[__package__ + '.address']
+from fhirclient.models import address
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import contactpoint
-except ImportError:
-    contactpoint = sys.modules[__package__ + '.contactpoint']
+from fhirclient.models import contactpoint
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import humanname
-except ImportError:
-    humanname = sys.modules[__package__ + '.humanname']
+from fhirclient.models import humanname
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import money
-except ImportError:
-    money = sys.modules[__package__ + '.money']
+from fhirclient.models import money
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import period
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.codesystems import publicationstatus
+
+from fhirclient.models import quantity
 

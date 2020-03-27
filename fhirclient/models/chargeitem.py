@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class ChargeItem(domainresource.DomainResource):
     """ Item containing charge code(s) associated with the provision of healthcare
@@ -151,41 +151,41 @@ class ChargeItem(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ChargeItem, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("definitionUri", "definitionUri", fhirdatatypes.FHIRUri, True, None, False),
-            ("definitionCanonical", "definitionCanonical", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
-            ("context", "context", fhirreference.FHIRReference, False, None, False),
-            ("occurrenceDateTime", "occurrenceDateTime", fhirdatatypes.FHIRDateTime, False, "occurrence", False),
-            ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
-            ("occurrenceTiming", "occurrenceTiming", timing.Timing, False, "occurrence", False),
-            ("performer", "performer", ChargeItemPerformer, True, None, False),
-            ("performingOrganization", "performingOrganization", fhirreference.FHIRReference, False, None, False),
-            ("requestingOrganization", "requestingOrganization", fhirreference.FHIRReference, False, None, False),
-            ("costCenter", "costCenter", fhirreference.FHIRReference, False, None, False),
-            ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("bodysite", "bodysite", codeableconcept.CodeableConcept, True, None, False),
-            ("factorOverride", "factorOverride", float, False, None, False),
-            ("priceOverride", "priceOverride", money.Money, False, None, False),
-            ("overrideReason", "overrideReason", fhirdatatypes.FHIRString, False, None, False),
-            ("enterer", "enterer", fhirreference.FHIRReference, False, None, False),
-            ("enteredDate", "enteredDate", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
-            ("service", "service", fhirreference.FHIRReference, True, None, False),
-            ("productReference", "productReference", fhirreference.FHIRReference, False, "product", False),
-            ("productCodeableConcept", "productCodeableConcept", codeableconcept.CodeableConcept, False, "product", False),
-            ("account", "account", fhirreference.FHIRReference, True, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
-            ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("definitionUri", "definitionUri", fhirdatatypes.FHIRUri, True, None, False, None), 
+            ("definitionCanonical", "definitionCanonical", fhirdatatypes.FHIRCanonical, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, chargeitemstatus.ChargeItemStatus), 
+            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False, None), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True, None), 
+            ("context", "context", fhirreference.FHIRReference, False, None, False, None), 
+            ("occurrenceDateTime", "occurrenceDateTime", fhirdatatypes.FHIRDateTime, False, "occurrence", False, None), 
+            ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False, None), 
+            ("occurrenceTiming", "occurrenceTiming", timing.Timing, False, "occurrence", False, None), 
+            ("performer", "performer", ChargeItemPerformer, True, None, False, None), 
+            ("performingOrganization", "performingOrganization", fhirreference.FHIRReference, False, None, False, None), 
+            ("requestingOrganization", "requestingOrganization", fhirreference.FHIRReference, False, None, False, None), 
+            ("costCenter", "costCenter", fhirreference.FHIRReference, False, None, False, None), 
+            ("quantity", "quantity", quantity.Quantity, False, None, False, None), 
+            ("bodysite", "bodysite", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("factorOverride", "factorOverride", float, False, None, False, None), 
+            ("priceOverride", "priceOverride", money.Money, False, None, False, None), 
+            ("overrideReason", "overrideReason", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("enterer", "enterer", fhirreference.FHIRReference, False, None, False, None), 
+            ("enteredDate", "enteredDate", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("reason", "reason", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("service", "service", fhirreference.FHIRReference, True, None, False, None), 
+            ("productReference", "productReference", fhirreference.FHIRReference, False, "product", False, None), 
+            ("productCodeableConcept", "productCodeableConcept", codeableconcept.CodeableConcept, False, "product", False, None), 
+            ("account", "account", fhirreference.FHIRReference, True, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
+            ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ChargeItemPerformer(backboneelement.BackboneElement):
     """ Who performed charged service.
@@ -214,56 +214,30 @@ class ChargeItemPerformer(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ChargeItemPerformer, self).elementProperties()
         js.extend([
-            ("function", "function", codeableconcept.CodeableConcept, False, None, False),
-            ("actor", "actor", fhirreference.FHIRReference, False, None, True),
+            ("function", "function", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("actor", "actor", fhirreference.FHIRReference, False, None, True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.codesystems import chargeitemstatus
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
 
-try:
-    from . import money
-except ImportError:
-    money = sys.modules[__package__ + '.money']
+from fhirclient.models import identifier
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import money
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import period
 
-try:
-    from . import timing
-except ImportError:
-    timing = sys.modules[__package__ + '.timing']
+from fhirclient.models import quantity
+
+from fhirclient.models import timing
 

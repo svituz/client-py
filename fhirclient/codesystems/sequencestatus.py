@@ -1,0 +1,23 @@
+#
+#  CodeSystems.py
+#  client-py
+#
+#  Generated from FHIR 4.0.1-9346c8cc45
+#  2020, SMART Health IT.
+#
+#  THIS HAS BEEN ADAPTED FROM Swift Enums WITHOUT EVER BEING IMPLEMENTED IN
+#  Python, FOR DEMONSTRATION PURPOSES ONLY.
+#
+
+class SequenceStatus(object):
+    """ Codes providing the status of the variant test result.
+    URL: http://terminology.hl7.org/CodeSystem/variant-state
+    ValueSet: http://hl7.org/fhir/ValueSet/variant-state
+    """
+    """the variant is detected."""
+    POSITIVE = "positive"
+    """no variant is detected."""
+    NEGATIVE = "negative"
+    """result of the variant is missing."""
+    ABSENT = "absent"
+    allowed_values = ['POSITIVE', 'NEGATIVE', 'ABSENT']

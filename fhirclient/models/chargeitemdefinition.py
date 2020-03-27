@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class ChargeItemDefinition(domainresource.DomainResource):
     """ Definition of properties and rules about how the price and the
@@ -128,35 +128,35 @@ class ChargeItemDefinition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ChargeItemDefinition, self).elementProperties()
         js.extend([
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, True),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("derivedFromUri", "derivedFromUri", fhirdatatypes.FHIRUri, True, None, False),
-            ("partOf", "partOf", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("replaces", "replaces", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("experimental", "experimental", bool, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("approvalDate", "approvalDate", fhirdatatypes.FHIRDate, False, None, False),
-            ("lastReviewDate", "lastReviewDate", fhirdatatypes.FHIRDate, False, None, False),
-            ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("instance", "instance", fhirreference.FHIRReference, True, None, False),
-            ("applicability", "applicability", ChargeItemDefinitionApplicability, True, None, False),
-            ("propertyGroup", "propertyGroup", ChargeItemDefinitionPropertyGroup, True, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, True, None), 
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("derivedFromUri", "derivedFromUri", fhirdatatypes.FHIRUri, True, None, False, None), 
+            ("partOf", "partOf", fhirdatatypes.FHIRCanonical, True, None, False, None), 
+            ("replaces", "replaces", fhirdatatypes.FHIRCanonical, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, publicationstatus.PublicationStatus), 
+            ("experimental", "experimental", bool, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False, None), 
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("approvalDate", "approvalDate", fhirdatatypes.FHIRDate, False, None, False, None), 
+            ("lastReviewDate", "lastReviewDate", fhirdatatypes.FHIRDate, False, None, False, None), 
+            ("effectivePeriod", "effectivePeriod", period.Period, False, None, False, None), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("instance", "instance", fhirreference.FHIRReference, True, None, False, None), 
+            ("applicability", "applicability", ChargeItemDefinitionApplicability, True, None, False, None), 
+            ("propertyGroup", "propertyGroup", ChargeItemDefinitionPropertyGroup, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ChargeItemDefinitionApplicability(backboneelement.BackboneElement):
     """ Whether or not the billing code is applicable.
@@ -189,9 +189,9 @@ class ChargeItemDefinitionApplicability(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ChargeItemDefinitionApplicability, self).elementProperties()
         js.extend([
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("language", "language", fhirdatatypes.FHIRString, False, None, False),
-            ("expression", "expression", fhirdatatypes.FHIRString, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("language", "language", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("expression", "expression", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -227,8 +227,8 @@ class ChargeItemDefinitionPropertyGroup(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ChargeItemDefinitionPropertyGroup, self).elementProperties()
         js.extend([
-            ("applicability", "applicability", ChargeItemDefinitionApplicability, True, None, False),
-            ("priceComponent", "priceComponent", ChargeItemDefinitionPropertyGroupPriceComponent, True, None, False),
+            ("applicability", "applicability", ChargeItemDefinitionApplicability, True, None, False, None), 
+            ("priceComponent", "priceComponent", ChargeItemDefinitionPropertyGroupPriceComponent, True, None, False, None), 
         ])
         return js
 
@@ -275,53 +275,32 @@ class ChargeItemDefinitionPropertyGroupPriceComponent(backboneelement.BackboneEl
     def elementProperties(self):
         js = super(ChargeItemDefinitionPropertyGroupPriceComponent, self).elementProperties()
         js.extend([
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("factor", "factor", float, False, None, False),
-            ("amount", "amount", money.Money, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, invoicepricecomponenttype.InvoicePriceComponentType), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("factor", "factor", float, False, None, False, None), 
+            ("amount", "amount", money.Money, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.models import contactdetail
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import money
-except ImportError:
-    money = sys.modules[__package__ + '.money']
+from fhirclient.codesystems import invoicepricecomponenttype
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import money
 
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from fhirclient.models import period
+
+from fhirclient.codesystems import publicationstatus
+
+from fhirclient.models import usagecontext
 

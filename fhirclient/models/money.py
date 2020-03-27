@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class Money(element.Element):
     """ An amount of economic utility in some recognized currency.
@@ -32,16 +32,12 @@ class Money(element.Element):
     def elementProperties(self):
         js = super(Money, self).elementProperties()
         js.extend([
-            ("value", "value", float, False, None, False),
-            ("currency", "currency", fhirdatatypes.FHIRCode, False, None, False),
+            ("value", "value", float, False, None, False, None), 
+            ("currency", "currency", fhirdatatypes.FHIRCode, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 

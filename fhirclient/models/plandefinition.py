@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class PlanDefinition(domainresource.DomainResource):
     """ The definition of a plan for a series of actions, independent of any
@@ -161,44 +161,44 @@ class PlanDefinition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(PlanDefinition, self).elementProperties()
         js.extend([
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("subtitle", "subtitle", fhirdatatypes.FHIRString, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("experimental", "experimental", bool, False, None, False),
-            ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False),
-            ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("usage", "usage", fhirdatatypes.FHIRString, False, None, False),
-            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("approvalDate", "approvalDate", fhirdatatypes.FHIRDate, False, None, False),
-            ("lastReviewDate", "lastReviewDate", fhirdatatypes.FHIRDate, False, None, False),
-            ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
-            ("topic", "topic", codeableconcept.CodeableConcept, True, None, False),
-            ("author", "author", contactdetail.ContactDetail, True, None, False),
-            ("editor", "editor", contactdetail.ContactDetail, True, None, False),
-            ("reviewer", "reviewer", contactdetail.ContactDetail, True, None, False),
-            ("endorser", "endorser", contactdetail.ContactDetail, True, None, False),
-            ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False),
-            ("library", "library", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("goal", "goal", PlanDefinitionGoal, True, None, False),
-            ("action", "action", PlanDefinitionAction, True, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("subtitle", "subtitle", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, publicationstatus.PublicationStatus), 
+            ("experimental", "experimental", bool, False, None, False, None), 
+            ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False, None), 
+            ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False, None), 
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("usage", "usage", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("approvalDate", "approvalDate", fhirdatatypes.FHIRDate, False, None, False, None), 
+            ("lastReviewDate", "lastReviewDate", fhirdatatypes.FHIRDate, False, None, False, None), 
+            ("effectivePeriod", "effectivePeriod", period.Period, False, None, False, None), 
+            ("topic", "topic", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("author", "author", contactdetail.ContactDetail, True, None, False, None), 
+            ("editor", "editor", contactdetail.ContactDetail, True, None, False, None), 
+            ("reviewer", "reviewer", contactdetail.ContactDetail, True, None, False, None), 
+            ("endorser", "endorser", contactdetail.ContactDetail, True, None, False, None), 
+            ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False, None), 
+            ("library", "library", fhirdatatypes.FHIRCanonical, True, None, False, None), 
+            ("goal", "goal", PlanDefinitionGoal, True, None, False, None), 
+            ("action", "action", PlanDefinitionAction, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class PlanDefinitionAction(backboneelement.BackboneElement):
     """ Action defined by the plan.
@@ -356,40 +356,40 @@ class PlanDefinitionAction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PlanDefinitionAction, self).elementProperties()
         js.extend([
-            ("prefix", "prefix", fhirdatatypes.FHIRString, False, None, False),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("textEquivalent", "textEquivalent", fhirdatatypes.FHIRString, False, None, False),
-            ("priority", "priority", fhirdatatypes.FHIRCode, False, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, True, None, False),
-            ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
-            ("documentation", "documentation", relatedartifact.RelatedArtifact, True, None, False),
-            ("goalId", "goalId", fhirdatatypes.FHIRId, True, None, False),
-            ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False),
-            ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False),
-            ("trigger", "trigger", triggerdefinition.TriggerDefinition, True, None, False),
-            ("condition", "condition", PlanDefinitionActionCondition, True, None, False),
-            ("input", "input", datarequirement.DataRequirement, True, None, False),
-            ("output", "output", datarequirement.DataRequirement, True, None, False),
-            ("relatedAction", "relatedAction", PlanDefinitionActionRelatedAction, True, None, False),
-            ("timingDateTime", "timingDateTime", fhirdatatypes.FHIRDateTime, False, "timing", False),
-            ("timingAge", "timingAge", age.Age, False, "timing", False),
-            ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
-            ("timingDuration", "timingDuration", duration.Duration, False, "timing", False),
-            ("timingRange", "timingRange", range.Range, False, "timing", False),
-            ("timingTiming", "timingTiming", timing.Timing, False, "timing", False),
-            ("participant", "participant", PlanDefinitionActionParticipant, True, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("groupingBehavior", "groupingBehavior", fhirdatatypes.FHIRCode, False, None, False),
-            ("selectionBehavior", "selectionBehavior", fhirdatatypes.FHIRCode, False, None, False),
-            ("requiredBehavior", "requiredBehavior", fhirdatatypes.FHIRCode, False, None, False),
-            ("precheckBehavior", "precheckBehavior", fhirdatatypes.FHIRCode, False, None, False),
-            ("cardinalityBehavior", "cardinalityBehavior", fhirdatatypes.FHIRCode, False, None, False),
-            ("definitionCanonical", "definitionCanonical", fhirdatatypes.FHIRCanonical, False, "definition", False),
-            ("definitionUri", "definitionUri", fhirdatatypes.FHIRUri, False, "definition", False),
-            ("transform", "transform", fhirdatatypes.FHIRCanonical, False, None, False),
-            ("dynamicValue", "dynamicValue", PlanDefinitionActionDynamicValue, True, None, False),
-            ("action", "action", PlanDefinitionAction, True, None, False),
+            ("prefix", "prefix", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("textEquivalent", "textEquivalent", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("priority", "priority", fhirdatatypes.FHIRCode, False, None, False, requestpriority.RequestPriority), 
+            ("code", "code", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("reason", "reason", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("documentation", "documentation", relatedartifact.RelatedArtifact, True, None, False, None), 
+            ("goalId", "goalId", fhirdatatypes.FHIRId, True, None, False, None), 
+            ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False, None), 
+            ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False, None), 
+            ("trigger", "trigger", triggerdefinition.TriggerDefinition, True, None, False, None), 
+            ("condition", "condition", PlanDefinitionActionCondition, True, None, False, None), 
+            ("input", "input", datarequirement.DataRequirement, True, None, False, None), 
+            ("output", "output", datarequirement.DataRequirement, True, None, False, None), 
+            ("relatedAction", "relatedAction", PlanDefinitionActionRelatedAction, True, None, False, None), 
+            ("timingDateTime", "timingDateTime", fhirdatatypes.FHIRDateTime, False, "timing", False, None), 
+            ("timingAge", "timingAge", age.Age, False, "timing", False, None), 
+            ("timingPeriod", "timingPeriod", period.Period, False, "timing", False, None), 
+            ("timingDuration", "timingDuration", duration.Duration, False, "timing", False, None), 
+            ("timingRange", "timingRange", range.Range, False, "timing", False, None), 
+            ("timingTiming", "timingTiming", timing.Timing, False, "timing", False, None), 
+            ("participant", "participant", PlanDefinitionActionParticipant, True, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("groupingBehavior", "groupingBehavior", fhirdatatypes.FHIRCode, False, None, False, actiongroupingbehavior.ActionGroupingBehavior), 
+            ("selectionBehavior", "selectionBehavior", fhirdatatypes.FHIRCode, False, None, False, actionselectionbehavior.ActionSelectionBehavior), 
+            ("requiredBehavior", "requiredBehavior", fhirdatatypes.FHIRCode, False, None, False, actionrequiredbehavior.ActionRequiredBehavior), 
+            ("precheckBehavior", "precheckBehavior", fhirdatatypes.FHIRCode, False, None, False, actionprecheckbehavior.ActionPrecheckBehavior), 
+            ("cardinalityBehavior", "cardinalityBehavior", fhirdatatypes.FHIRCode, False, None, False, actioncardinalitybehavior.ActionCardinalityBehavior), 
+            ("definitionCanonical", "definitionCanonical", fhirdatatypes.FHIRCanonical, False, "definition", False, None), 
+            ("definitionUri", "definitionUri", fhirdatatypes.FHIRUri, False, "definition", False, None), 
+            ("transform", "transform", fhirdatatypes.FHIRCanonical, False, None, False, None), 
+            ("dynamicValue", "dynamicValue", PlanDefinitionActionDynamicValue, True, None, False, None), 
+            ("action", "action", PlanDefinitionAction, True, None, False, None), 
         ])
         return js
 
@@ -424,8 +424,8 @@ class PlanDefinitionActionCondition(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PlanDefinitionActionCondition, self).elementProperties()
         js.extend([
-            ("kind", "kind", fhirdatatypes.FHIRCode, False, None, True),
-            ("expression", "expression", expression.Expression, False, None, False),
+            ("kind", "kind", fhirdatatypes.FHIRCode, False, None, True, actionconditionkind.ActionConditionKind), 
+            ("expression", "expression", expression.Expression, False, None, False, None), 
         ])
         return js
 
@@ -463,8 +463,8 @@ class PlanDefinitionActionDynamicValue(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PlanDefinitionActionDynamicValue, self).elementProperties()
         js.extend([
-            ("path", "path", fhirdatatypes.FHIRString, False, None, False),
-            ("expression", "expression", expression.Expression, False, None, False),
+            ("path", "path", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("expression", "expression", expression.Expression, False, None, False, None), 
         ])
         return js
 
@@ -498,8 +498,8 @@ class PlanDefinitionActionParticipant(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PlanDefinitionActionParticipant, self).elementProperties()
         js.extend([
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("role", "role", codeableconcept.CodeableConcept, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, actionparticipanttype.ActionParticipantType), 
+            ("role", "role", codeableconcept.CodeableConcept, False, None, False, None), 
         ])
         return js
 
@@ -543,10 +543,10 @@ class PlanDefinitionActionRelatedAction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PlanDefinitionActionRelatedAction, self).elementProperties()
         js.extend([
-            ("actionId", "actionId", fhirdatatypes.FHIRId, False, None, True),
-            ("relationship", "relationship", fhirdatatypes.FHIRCode, False, None, True),
-            ("offsetDuration", "offsetDuration", duration.Duration, False, "offset", False),
-            ("offsetRange", "offsetRange", range.Range, False, "offset", False),
+            ("actionId", "actionId", fhirdatatypes.FHIRId, False, None, True, None), 
+            ("relationship", "relationship", fhirdatatypes.FHIRCode, False, None, True, actionrelationshiptype.ActionRelationshipType), 
+            ("offsetDuration", "offsetDuration", duration.Duration, False, "offset", False, None), 
+            ("offsetRange", "offsetRange", range.Range, False, "offset", False, None), 
         ])
         return js
 
@@ -603,13 +603,13 @@ class PlanDefinitionGoal(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PlanDefinitionGoal, self).elementProperties()
         js.extend([
-            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
-            ("description", "description", codeableconcept.CodeableConcept, False, None, True),
-            ("priority", "priority", codeableconcept.CodeableConcept, False, None, False),
-            ("start", "start", codeableconcept.CodeableConcept, False, None, False),
-            ("addresses", "addresses", codeableconcept.CodeableConcept, True, None, False),
-            ("documentation", "documentation", relatedartifact.RelatedArtifact, True, None, False),
-            ("target", "target", PlanDefinitionGoalTarget, True, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("description", "description", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("priority", "priority", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("start", "start", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("addresses", "addresses", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("documentation", "documentation", relatedartifact.RelatedArtifact, True, None, False, None), 
+            ("target", "target", PlanDefinitionGoalTarget, True, None, False, None), 
         ])
         return js
 
@@ -655,94 +655,65 @@ class PlanDefinitionGoalTarget(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PlanDefinitionGoalTarget, self).elementProperties()
         js.extend([
-            ("measure", "measure", codeableconcept.CodeableConcept, False, None, False),
-            ("detailQuantity", "detailQuantity", quantity.Quantity, False, "detail", False),
-            ("detailRange", "detailRange", range.Range, False, "detail", False),
-            ("detailCodeableConcept", "detailCodeableConcept", codeableconcept.CodeableConcept, False, "detail", False),
-            ("due", "due", duration.Duration, False, None, False),
+            ("measure", "measure", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("detailQuantity", "detailQuantity", quantity.Quantity, False, "detail", False, None), 
+            ("detailRange", "detailRange", range.Range, False, "detail", False, None), 
+            ("detailCodeableConcept", "detailCodeableConcept", codeableconcept.CodeableConcept, False, "detail", False, None), 
+            ("due", "due", duration.Duration, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import age
-except ImportError:
-    age = sys.modules[__package__ + '.age']
+from fhirclient.codesystems import actioncardinalitybehavior
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.codesystems import actionconditionkind
 
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.codesystems import actiongroupingbehavior
 
-try:
-    from . import datarequirement
-except ImportError:
-    datarequirement = sys.modules[__package__ + '.datarequirement']
+from fhirclient.codesystems import actionparticipanttype
 
-try:
-    from . import duration
-except ImportError:
-    duration = sys.modules[__package__ + '.duration']
+from fhirclient.codesystems import actionprecheckbehavior
 
-try:
-    from . import expression
-except ImportError:
-    expression = sys.modules[__package__ + '.expression']
+from fhirclient.codesystems import actionrelationshiptype
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import actionrequiredbehavior
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.codesystems import actionselectionbehavior
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import age
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import contactdetail
 
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from fhirclient.models import datarequirement
 
-try:
-    from . import relatedartifact
-except ImportError:
-    relatedartifact = sys.modules[__package__ + '.relatedartifact']
+from fhirclient.models import duration
 
-try:
-    from . import timing
-except ImportError:
-    timing = sys.modules[__package__ + '.timing']
+from fhirclient.models import expression
 
-try:
-    from . import triggerdefinition
-except ImportError:
-    triggerdefinition = sys.modules[__package__ + '.triggerdefinition']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from fhirclient.models import fhirreference
+
+from fhirclient.models import identifier
+
+from fhirclient.models import period
+
+from fhirclient.codesystems import publicationstatus
+
+from fhirclient.models import quantity
+
+from fhirclient.models import range
+
+from fhirclient.models import relatedartifact
+
+from fhirclient.codesystems import requestpriority
+
+from fhirclient.models import timing
+
+from fhirclient.models import triggerdefinition
+
+from fhirclient.models import usagecontext
 

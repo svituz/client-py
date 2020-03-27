@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import resource
+from fhirclient.models import resource
 
 class Bundle(resource.Resource):
     """ Contains a collection of resources.
@@ -57,19 +57,19 @@ class Bundle(resource.Resource):
     def elementProperties(self):
         js = super(Bundle, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("timestamp", "timestamp", fhirdatatypes.FHIRInstant, False, None, False),
-            ("total", "total", fhirdatatypes.FHIRUnsignedInt, False, None, False),
-            ("link", "link", BundleLink, True, None, False),
-            ("entry", "entry", BundleEntry, True, None, False),
-            ("signature", "signature", signature.Signature, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False, None), 
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, bundletype.BundleType), 
+            ("timestamp", "timestamp", fhirdatatypes.FHIRInstant, False, None, False, None), 
+            ("total", "total", fhirdatatypes.FHIRUnsignedInt, False, None, False, None), 
+            ("link", "link", BundleLink, True, None, False, None), 
+            ("entry", "entry", BundleEntry, True, None, False, None), 
+            ("signature", "signature", signature.Signature, False, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class BundleEntry(backboneelement.BackboneElement):
     """ Entry in the bundle - will have a resource or information.
@@ -115,12 +115,12 @@ class BundleEntry(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(BundleEntry, self).elementProperties()
         js.extend([
-            ("link", "link", BundleLink, True, None, False),
-            ("fullUrl", "fullUrl", fhirdatatypes.FHIRUri, False, None, False),
-            ("resource", "resource", resource.Resource, False, None, False),
-            ("search", "search", BundleEntrySearch, False, None, False),
-            ("request", "request", BundleEntryRequest, False, None, False),
-            ("response", "response", BundleEntryResponse, False, None, False),
+            ("link", "link", BundleLink, True, None, False, None), 
+            ("fullUrl", "fullUrl", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("resource", "resource", resource.Resource, False, None, False, None), 
+            ("search", "search", BundleEntrySearch, False, None, False, None), 
+            ("request", "request", BundleEntryRequest, False, None, False, None), 
+            ("response", "response", BundleEntryResponse, False, None, False, None), 
         ])
         return js
 
@@ -172,12 +172,12 @@ class BundleEntryRequest(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(BundleEntryRequest, self).elementProperties()
         js.extend([
-            ("method", "method", fhirdatatypes.FHIRCode, False, None, True),
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, True),
-            ("ifNoneMatch", "ifNoneMatch", fhirdatatypes.FHIRString, False, None, False),
-            ("ifModifiedSince", "ifModifiedSince", fhirdatatypes.FHIRInstant, False, None, False),
-            ("ifMatch", "ifMatch", fhirdatatypes.FHIRString, False, None, False),
-            ("ifNoneExist", "ifNoneExist", fhirdatatypes.FHIRString, False, None, False),
+            ("method", "method", fhirdatatypes.FHIRCode, False, None, True, httpverb.HTTPVerb), 
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, True, None), 
+            ("ifNoneMatch", "ifNoneMatch", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("ifModifiedSince", "ifModifiedSince", fhirdatatypes.FHIRInstant, False, None, False, None), 
+            ("ifMatch", "ifMatch", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("ifNoneExist", "ifNoneExist", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -225,11 +225,11 @@ class BundleEntryResponse(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(BundleEntryResponse, self).elementProperties()
         js.extend([
-            ("status", "status", fhirdatatypes.FHIRString, False, None, True),
-            ("location", "location", fhirdatatypes.FHIRUri, False, None, False),
-            ("etag", "etag", fhirdatatypes.FHIRString, False, None, False),
-            ("lastModified", "lastModified", fhirdatatypes.FHIRInstant, False, None, False),
-            ("outcome", "outcome", resource.Resource, False, None, False),
+            ("status", "status", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("location", "location", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("etag", "etag", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("lastModified", "lastModified", fhirdatatypes.FHIRInstant, False, None, False, None), 
+            ("outcome", "outcome", resource.Resource, False, None, False, None), 
         ])
         return js
 
@@ -264,8 +264,8 @@ class BundleEntrySearch(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(BundleEntrySearch, self).elementProperties()
         js.extend([
-            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, False),
-            ("score", "score", float, False, None, False),
+            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, False, searchentrymode.SearchEntryMode), 
+            ("score", "score", float, False, None, False, None), 
         ])
         return js
 
@@ -300,26 +300,22 @@ class BundleLink(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(BundleLink, self).elementProperties()
         js.extend([
-            ("relation", "relation", fhirdatatypes.FHIRString, False, None, True),
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, True),
+            ("relation", "relation", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import bundletype
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import signature
-except ImportError:
-    signature = sys.modules[__package__ + '.signature']
+from fhirclient.codesystems import httpverb
+
+from fhirclient.models import identifier
+
+from fhirclient.codesystems import searchentrymode
+
+from fhirclient.models import signature
 

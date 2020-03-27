@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class RelatedPerson(domainresource.DomainResource):
     """ A person that is related to a patient, but who is not a direct target of
@@ -80,24 +80,24 @@ class RelatedPerson(domainresource.DomainResource):
     def elementProperties(self):
         js = super(RelatedPerson, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("active", "active", bool, False, None, False),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
-            ("relationship", "relationship", codeableconcept.CodeableConcept, True, None, False),
-            ("name", "name", humanname.HumanName, True, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
-            ("gender", "gender", fhirdatatypes.FHIRCode, False, None, False),
-            ("birthDate", "birthDate", fhirdatatypes.FHIRDate, False, None, False),
-            ("address", "address", address.Address, True, None, False),
-            ("photo", "photo", attachment.Attachment, True, None, False),
-            ("period", "period", period.Period, False, None, False),
-            ("communication", "communication", RelatedPersonCommunication, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("active", "active", bool, False, None, False, None), 
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True, None), 
+            ("relationship", "relationship", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("name", "name", humanname.HumanName, True, None, False, None), 
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False, None), 
+            ("gender", "gender", fhirdatatypes.FHIRCode, False, None, False, administrativegender.AdministrativeGender), 
+            ("birthDate", "birthDate", fhirdatatypes.FHIRDate, False, None, False, None), 
+            ("address", "address", address.Address, True, None, False, None), 
+            ("photo", "photo", attachment.Attachment, True, None, False, None), 
+            ("period", "period", period.Period, False, None, False, None), 
+            ("communication", "communication", RelatedPersonCommunication, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class RelatedPersonCommunication(backboneelement.BackboneElement):
     """ A language which may be used to communicate with about the patient's health.
@@ -125,56 +125,30 @@ class RelatedPersonCommunication(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(RelatedPersonCommunication, self).elementProperties()
         js.extend([
-            ("language", "language", codeableconcept.CodeableConcept, False, None, True),
-            ("preferred", "preferred", bool, False, None, False),
+            ("language", "language", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("preferred", "preferred", bool, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import address
-except ImportError:
-    address = sys.modules[__package__ + '.address']
+from fhirclient.models import address
 
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
+from fhirclient.codesystems import administrativegender
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import attachment
 
-try:
-    from . import contactpoint
-except ImportError:
-    contactpoint = sys.modules[__package__ + '.contactpoint']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import contactpoint
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import humanname
-except ImportError:
-    humanname = sys.modules[__package__ + '.humanname']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import humanname
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
+
+from fhirclient.models import period
 

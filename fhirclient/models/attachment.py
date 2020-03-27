@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class Attachment(element.Element):
     """ Content in a format defined elsewhere.
@@ -58,22 +58,18 @@ class Attachment(element.Element):
     def elementProperties(self):
         js = super(Attachment, self).elementProperties()
         js.extend([
-            ("contentType", "contentType", fhirdatatypes.FHIRCode, False, None, False),
-            ("language", "language", fhirdatatypes.FHIRCode, False, None, False),
-            ("data", "data", fhirdatatypes.FHIRBase64Binary, False, None, False),
-            ("url", "url", fhirdatatypes.FHIRUrl, False, None, False),
-            ("size", "size", fhirdatatypes.FHIRUnsignedInt, False, None, False),
-            ("hash", "hash", fhirdatatypes.FHIRBase64Binary, False, None, False),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("creation", "creation", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("contentType", "contentType", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("language", "language", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("data", "data", fhirdatatypes.FHIRBase64Binary, False, None, False, None), 
+            ("url", "url", fhirdatatypes.FHIRUrl, False, None, False, None), 
+            ("size", "size", fhirdatatypes.FHIRUnsignedInt, False, None, False, None), 
+            ("hash", "hash", fhirdatatypes.FHIRBase64Binary, False, None, False, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("creation", "creation", fhirdatatypes.FHIRDateTime, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 

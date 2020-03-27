@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class ImplementationGuide(domainresource.DomainResource):
     """ A set of rules about how FHIR is used.
@@ -112,32 +112,32 @@ class ImplementationGuide(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ImplementationGuide, self).elementProperties()
         js.extend([
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, True),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("experimental", "experimental", bool, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("packageId", "packageId", fhirdatatypes.FHIRId, False, None, True),
-            ("license", "license", fhirdatatypes.FHIRCode, False, None, False),
-            ("fhirVersion", "fhirVersion", fhirdatatypes.FHIRCode, True, None, True),
-            ("dependsOn", "dependsOn", ImplementationGuideDependsOn, True, None, False),
-            ("global_fhir", "global", ImplementationGuideGlobal, True, None, False),
-            ("definition", "definition", ImplementationGuideDefinition, False, None, False),
-            ("manifest", "manifest", ImplementationGuideManifest, False, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, True, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, publicationstatus.PublicationStatus), 
+            ("experimental", "experimental", bool, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False, None), 
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("packageId", "packageId", fhirdatatypes.FHIRId, False, None, True, None), 
+            ("license", "license", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("fhirVersion", "fhirVersion", fhirdatatypes.FHIRCode, True, None, True, None), 
+            ("dependsOn", "dependsOn", ImplementationGuideDependsOn, True, None, False, None), 
+            ("global_fhir", "global", ImplementationGuideGlobal, True, None, False, None), 
+            ("definition", "definition", ImplementationGuideDefinition, False, None, False, None), 
+            ("manifest", "manifest", ImplementationGuideManifest, False, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ImplementationGuideDefinition(backboneelement.BackboneElement):
     """ Information needed to build the IG.
@@ -179,11 +179,11 @@ class ImplementationGuideDefinition(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImplementationGuideDefinition, self).elementProperties()
         js.extend([
-            ("grouping", "grouping", ImplementationGuideDefinitionGrouping, True, None, False),
-            ("resource", "resource", ImplementationGuideDefinitionResource, True, None, True),
-            ("page", "page", ImplementationGuideDefinitionPage, False, None, False),
-            ("parameter", "parameter", ImplementationGuideDefinitionParameter, True, None, False),
-            ("template", "template", ImplementationGuideDefinitionTemplate, True, None, False),
+            ("grouping", "grouping", ImplementationGuideDefinitionGrouping, True, None, False, None), 
+            ("resource", "resource", ImplementationGuideDefinitionResource, True, None, True, None), 
+            ("page", "page", ImplementationGuideDefinitionPage, False, None, False, None), 
+            ("parameter", "parameter", ImplementationGuideDefinitionParameter, True, None, False, None), 
+            ("template", "template", ImplementationGuideDefinitionTemplate, True, None, False, None), 
         ])
         return js
 
@@ -218,8 +218,8 @@ class ImplementationGuideDefinitionGrouping(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImplementationGuideDefinitionGrouping, self).elementProperties()
         js.extend([
-            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -266,11 +266,11 @@ class ImplementationGuideDefinitionPage(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImplementationGuideDefinitionPage, self).elementProperties()
         js.extend([
-            ("nameUrl", "nameUrl", fhirdatatypes.FHIRUrl, False, "name", True),
-            ("nameReference", "nameReference", fhirreference.FHIRReference, False, "name", True),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, True),
-            ("generation", "generation", fhirdatatypes.FHIRCode, False, None, True),
-            ("page", "page", ImplementationGuideDefinitionPage, True, None, False),
+            ("nameUrl", "nameUrl", fhirdatatypes.FHIRUrl, False, "name", True, None), 
+            ("nameReference", "nameReference", fhirreference.FHIRReference, False, "name", True, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("generation", "generation", fhirdatatypes.FHIRCode, False, None, True, guidepagegeneration.GuidePageGeneration), 
+            ("page", "page", ImplementationGuideDefinitionPage, True, None, False, None), 
         ])
         return js
 
@@ -304,8 +304,8 @@ class ImplementationGuideDefinitionParameter(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImplementationGuideDefinitionParameter, self).elementProperties()
         js.extend([
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
-            ("value", "value", fhirdatatypes.FHIRString, False, None, True),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True, guideparametercode.GuideParameterCode), 
+            ("value", "value", fhirdatatypes.FHIRString, False, None, True, None), 
         ])
         return js
 
@@ -362,13 +362,13 @@ class ImplementationGuideDefinitionResource(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImplementationGuideDefinitionResource, self).elementProperties()
         js.extend([
-            ("reference", "reference", fhirreference.FHIRReference, False, None, True),
-            ("fhirVersion", "fhirVersion", fhirdatatypes.FHIRCode, True, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("exampleBoolean", "exampleBoolean", bool, False, "example", False),
-            ("exampleCanonical", "exampleCanonical", fhirdatatypes.FHIRCanonical, False, "example", False),
-            ("groupingId", "groupingId", fhirdatatypes.FHIRId, False, None, False),
+            ("reference", "reference", fhirreference.FHIRReference, False, None, True, None), 
+            ("fhirVersion", "fhirVersion", fhirdatatypes.FHIRCode, True, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("exampleBoolean", "exampleBoolean", bool, False, "example", False, None), 
+            ("exampleCanonical", "exampleCanonical", fhirdatatypes.FHIRCanonical, False, "example", False, None), 
+            ("groupingId", "groupingId", fhirdatatypes.FHIRId, False, None, False, None), 
         ])
         return js
 
@@ -404,9 +404,9 @@ class ImplementationGuideDefinitionTemplate(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImplementationGuideDefinitionTemplate, self).elementProperties()
         js.extend([
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
-            ("source", "source", fhirdatatypes.FHIRString, False, None, True),
-            ("scope", "scope", fhirdatatypes.FHIRString, False, None, False),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True, None), 
+            ("source", "source", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("scope", "scope", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -446,9 +446,9 @@ class ImplementationGuideDependsOn(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImplementationGuideDependsOn, self).elementProperties()
         js.extend([
-            ("uri", "uri", fhirdatatypes.FHIRCanonical, False, None, True),
-            ("packageId", "packageId", fhirdatatypes.FHIRId, False, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
+            ("uri", "uri", fhirdatatypes.FHIRCanonical, False, None, True, None), 
+            ("packageId", "packageId", fhirdatatypes.FHIRId, False, None, False, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -483,8 +483,8 @@ class ImplementationGuideGlobal(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImplementationGuideGlobal, self).elementProperties()
         js.extend([
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("profile", "profile", fhirdatatypes.FHIRCanonical, False, None, True),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, resourcetype.ResourceType), 
+            ("profile", "profile", fhirdatatypes.FHIRCanonical, False, None, True, None), 
         ])
         return js
 
@@ -531,11 +531,11 @@ class ImplementationGuideManifest(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImplementationGuideManifest, self).elementProperties()
         js.extend([
-            ("rendering", "rendering", fhirdatatypes.FHIRUrl, False, None, False),
-            ("resource", "resource", ImplementationGuideManifestResource, True, None, True),
-            ("page", "page", ImplementationGuideManifestPage, True, None, False),
-            ("image", "image", fhirdatatypes.FHIRString, True, None, False),
-            ("other", "other", fhirdatatypes.FHIRString, True, None, False),
+            ("rendering", "rendering", fhirdatatypes.FHIRUrl, False, None, False, None), 
+            ("resource", "resource", ImplementationGuideManifestResource, True, None, True, None), 
+            ("page", "page", ImplementationGuideManifestPage, True, None, False, None), 
+            ("image", "image", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("other", "other", fhirdatatypes.FHIRString, True, None, False, None), 
         ])
         return js
 
@@ -573,9 +573,9 @@ class ImplementationGuideManifestPage(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImplementationGuideManifestPage, self).elementProperties()
         js.extend([
-            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("anchor", "anchor", fhirdatatypes.FHIRString, True, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("anchor", "anchor", fhirdatatypes.FHIRString, True, None, False, None), 
         ])
         return js
 
@@ -620,38 +620,30 @@ class ImplementationGuideManifestResource(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImplementationGuideManifestResource, self).elementProperties()
         js.extend([
-            ("reference", "reference", fhirreference.FHIRReference, False, None, True),
-            ("exampleBoolean", "exampleBoolean", bool, False, "example", False),
-            ("exampleCanonical", "exampleCanonical", fhirdatatypes.FHIRCanonical, False, "example", False),
-            ("relativePath", "relativePath", fhirdatatypes.FHIRUrl, False, None, False),
+            ("reference", "reference", fhirreference.FHIRReference, False, None, True, None), 
+            ("exampleBoolean", "exampleBoolean", bool, False, "example", False, None), 
+            ("exampleCanonical", "exampleCanonical", fhirdatatypes.FHIRCanonical, False, "example", False, None), 
+            ("relativePath", "relativePath", fhirdatatypes.FHIRUrl, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.models import contactdetail
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from fhirclient.codesystems import guidepagegeneration
+
+from fhirclient.codesystems import guideparametercode
+
+from fhirclient.codesystems import publicationstatus
+
+from fhirclient.codesystems import resourcetype
+
+from fhirclient.models import usagecontext
 

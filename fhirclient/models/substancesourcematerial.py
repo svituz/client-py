@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class SubstanceSourceMaterial(domainresource.DomainResource):
     """ Source material shall capture information on the taxonomic and anatomical
@@ -118,25 +118,25 @@ class SubstanceSourceMaterial(domainresource.DomainResource):
     def elementProperties(self):
         js = super(SubstanceSourceMaterial, self).elementProperties()
         js.extend([
-            ("sourceMaterialClass", "sourceMaterialClass", codeableconcept.CodeableConcept, False, None, False),
-            ("sourceMaterialType", "sourceMaterialType", codeableconcept.CodeableConcept, False, None, False),
-            ("sourceMaterialState", "sourceMaterialState", codeableconcept.CodeableConcept, False, None, False),
-            ("organismId", "organismId", identifier.Identifier, False, None, False),
-            ("organismName", "organismName", fhirdatatypes.FHIRString, False, None, False),
-            ("parentSubstanceId", "parentSubstanceId", identifier.Identifier, True, None, False),
-            ("parentSubstanceName", "parentSubstanceName", fhirdatatypes.FHIRString, True, None, False),
-            ("countryOfOrigin", "countryOfOrigin", codeableconcept.CodeableConcept, True, None, False),
-            ("geographicalLocation", "geographicalLocation", fhirdatatypes.FHIRString, True, None, False),
-            ("developmentStage", "developmentStage", codeableconcept.CodeableConcept, False, None, False),
-            ("fractionDescription", "fractionDescription", SubstanceSourceMaterialFractionDescription, True, None, False),
-            ("organism", "organism", SubstanceSourceMaterialOrganism, False, None, False),
-            ("partDescription", "partDescription", SubstanceSourceMaterialPartDescription, True, None, False),
+            ("sourceMaterialClass", "sourceMaterialClass", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("sourceMaterialType", "sourceMaterialType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("sourceMaterialState", "sourceMaterialState", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("organismId", "organismId", identifier.Identifier, False, None, False, None), 
+            ("organismName", "organismName", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("parentSubstanceId", "parentSubstanceId", identifier.Identifier, True, None, False, None), 
+            ("parentSubstanceName", "parentSubstanceName", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("countryOfOrigin", "countryOfOrigin", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("geographicalLocation", "geographicalLocation", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("developmentStage", "developmentStage", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("fractionDescription", "fractionDescription", SubstanceSourceMaterialFractionDescription, True, None, False, None), 
+            ("organism", "organism", SubstanceSourceMaterialOrganism, False, None, False, None), 
+            ("partDescription", "partDescription", SubstanceSourceMaterialPartDescription, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class SubstanceSourceMaterialFractionDescription(backboneelement.BackboneElement):
     """ Many complex materials are fractions of parts of plants, animals, or
@@ -174,8 +174,8 @@ class SubstanceSourceMaterialFractionDescription(backboneelement.BackboneElement
     def elementProperties(self):
         js = super(SubstanceSourceMaterialFractionDescription, self).elementProperties()
         js.extend([
-            ("fraction", "fraction", fhirdatatypes.FHIRString, False, None, False),
-            ("materialType", "materialType", codeableconcept.CodeableConcept, False, None, False),
+            ("fraction", "fraction", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("materialType", "materialType", codeableconcept.CodeableConcept, False, None, False, None), 
         ])
         return js
 
@@ -241,14 +241,14 @@ class SubstanceSourceMaterialOrganism(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SubstanceSourceMaterialOrganism, self).elementProperties()
         js.extend([
-            ("family", "family", codeableconcept.CodeableConcept, False, None, False),
-            ("genus", "genus", codeableconcept.CodeableConcept, False, None, False),
-            ("species", "species", codeableconcept.CodeableConcept, False, None, False),
-            ("intraspecificType", "intraspecificType", codeableconcept.CodeableConcept, False, None, False),
-            ("intraspecificDescription", "intraspecificDescription", fhirdatatypes.FHIRString, False, None, False),
-            ("author", "author", SubstanceSourceMaterialOrganismAuthor, True, None, False),
-            ("hybrid", "hybrid", SubstanceSourceMaterialOrganismHybrid, False, None, False),
-            ("organismGeneral", "organismGeneral", SubstanceSourceMaterialOrganismOrganismGeneral, False, None, False),
+            ("family", "family", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("genus", "genus", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("species", "species", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("intraspecificType", "intraspecificType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("intraspecificDescription", "intraspecificDescription", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("author", "author", SubstanceSourceMaterialOrganismAuthor, True, None, False, None), 
+            ("hybrid", "hybrid", SubstanceSourceMaterialOrganismHybrid, False, None, False, None), 
+            ("organismGeneral", "organismGeneral", SubstanceSourceMaterialOrganismOrganismGeneral, False, None, False, None), 
         ])
         return js
 
@@ -287,8 +287,8 @@ class SubstanceSourceMaterialOrganismAuthor(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SubstanceSourceMaterialOrganismAuthor, self).elementProperties()
         js.extend([
-            ("authorType", "authorType", codeableconcept.CodeableConcept, False, None, False),
-            ("authorDescription", "authorDescription", fhirdatatypes.FHIRString, False, None, False),
+            ("authorType", "authorType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("authorDescription", "authorDescription", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -340,11 +340,11 @@ class SubstanceSourceMaterialOrganismHybrid(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SubstanceSourceMaterialOrganismHybrid, self).elementProperties()
         js.extend([
-            ("maternalOrganismId", "maternalOrganismId", fhirdatatypes.FHIRString, False, None, False),
-            ("maternalOrganismName", "maternalOrganismName", fhirdatatypes.FHIRString, False, None, False),
-            ("paternalOrganismId", "paternalOrganismId", fhirdatatypes.FHIRString, False, None, False),
-            ("paternalOrganismName", "paternalOrganismName", fhirdatatypes.FHIRString, False, None, False),
-            ("hybridType", "hybridType", codeableconcept.CodeableConcept, False, None, False),
+            ("maternalOrganismId", "maternalOrganismId", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("maternalOrganismName", "maternalOrganismName", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("paternalOrganismId", "paternalOrganismId", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("paternalOrganismName", "paternalOrganismName", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("hybridType", "hybridType", codeableconcept.CodeableConcept, False, None, False, None), 
         ])
         return js
 
@@ -384,10 +384,10 @@ class SubstanceSourceMaterialOrganismOrganismGeneral(backboneelement.BackboneEle
     def elementProperties(self):
         js = super(SubstanceSourceMaterialOrganismOrganismGeneral, self).elementProperties()
         js.extend([
-            ("kingdom", "kingdom", codeableconcept.CodeableConcept, False, None, False),
-            ("phylum", "phylum", codeableconcept.CodeableConcept, False, None, False),
-            ("class_fhir", "class", codeableconcept.CodeableConcept, False, None, False),
-            ("order", "order", codeableconcept.CodeableConcept, False, None, False),
+            ("kingdom", "kingdom", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("phylum", "phylum", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("class_fhir", "class", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("order", "order", codeableconcept.CodeableConcept, False, None, False, None), 
         ])
         return js
 
@@ -421,26 +421,16 @@ class SubstanceSourceMaterialPartDescription(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SubstanceSourceMaterialPartDescription, self).elementProperties()
         js.extend([
-            ("part", "part", codeableconcept.CodeableConcept, False, None, False),
-            ("partLocation", "partLocation", codeableconcept.CodeableConcept, False, None, False),
+            ("part", "part", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("partLocation", "partLocation", codeableconcept.CodeableConcept, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 

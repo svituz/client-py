@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class MedicinalProductContraindication(domainresource.DomainResource):
     """ MedicinalProductContraindication.
@@ -59,19 +59,19 @@ class MedicinalProductContraindication(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MedicinalProductContraindication, self).elementProperties()
         js.extend([
-            ("subject", "subject", fhirreference.FHIRReference, True, None, False),
-            ("disease", "disease", codeableconcept.CodeableConcept, False, None, False),
-            ("diseaseStatus", "diseaseStatus", codeableconcept.CodeableConcept, False, None, False),
-            ("comorbidity", "comorbidity", codeableconcept.CodeableConcept, True, None, False),
-            ("therapeuticIndication", "therapeuticIndication", fhirreference.FHIRReference, True, None, False),
-            ("otherTherapy", "otherTherapy", MedicinalProductContraindicationOtherTherapy, True, None, False),
-            ("population", "population", population.Population, True, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, True, None, False, None), 
+            ("disease", "disease", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("diseaseStatus", "diseaseStatus", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("comorbidity", "comorbidity", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("therapeuticIndication", "therapeuticIndication", fhirreference.FHIRReference, True, None, False, None), 
+            ("otherTherapy", "otherTherapy", MedicinalProductContraindicationOtherTherapy, True, None, False, None), 
+            ("population", "population", population.Population, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class MedicinalProductContraindicationOtherTherapy(backboneelement.BackboneElement):
     """ Information about the use of the medicinal product in relation to other
@@ -108,27 +108,17 @@ class MedicinalProductContraindicationOtherTherapy(backboneelement.BackboneEleme
     def elementProperties(self):
         js = super(MedicinalProductContraindicationOtherTherapy, self).elementProperties()
         js.extend([
-            ("therapyRelationshipType", "therapyRelationshipType", codeableconcept.CodeableConcept, False, None, True),
-            ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", True),
-            ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True),
+            ("therapyRelationshipType", "therapyRelationshipType", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", True, None), 
+            ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import population
-except ImportError:
-    population = sys.modules[__package__ + '.population']
+from fhirclient.models import population
 

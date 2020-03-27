@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class ContactDetail(element.Element):
     """ Contact information.
@@ -34,21 +34,14 @@ class ContactDetail(element.Element):
     def elementProperties(self):
         js = super(ContactDetail, self).elementProperties()
         js.extend([
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import contactpoint
-except ImportError:
-    contactpoint = sys.modules[__package__ + '.contactpoint']
+from fhirclient.models import contactpoint
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 

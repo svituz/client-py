@@ -9,7 +9,7 @@ import os
 import io
 import unittest
 import json
-from fhirclient.models import {{ class.module }}
+from {{ class.base_module }} import {{ class.module }}
 
 {%- set datatypes = ['FHIRBase64Binary', 'FHIRCanonical', 'FHIRCode', 'FHIRDate', 'FHIRDateTime', 'FHIRId', 'FHIRInstant', 'FHIRMarkdown', 'FHIROid', 'FHIRPositiveInt', 'FHIRTime', 'FHIRUnsignedInt', 'FHIRUri', 'FHIRUrl', 'FHIRUuid', 'FHIRString'] %}
 {%- set used_datatypes = [] %}

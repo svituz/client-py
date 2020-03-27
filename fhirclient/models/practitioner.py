@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Practitioner(domainresource.DomainResource):
     """ A person with a  formal responsibility in the provisioning of healthcare or
@@ -72,22 +72,22 @@ class Practitioner(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Practitioner, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("active", "active", bool, False, None, False),
-            ("name", "name", humanname.HumanName, True, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
-            ("address", "address", address.Address, True, None, False),
-            ("gender", "gender", fhirdatatypes.FHIRCode, False, None, False),
-            ("birthDate", "birthDate", fhirdatatypes.FHIRDate, False, None, False),
-            ("photo", "photo", attachment.Attachment, True, None, False),
-            ("qualification", "qualification", PractitionerQualification, True, None, False),
-            ("communication", "communication", codeableconcept.CodeableConcept, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("active", "active", bool, False, None, False, None), 
+            ("name", "name", humanname.HumanName, True, None, False, None), 
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False, None), 
+            ("address", "address", address.Address, True, None, False, None), 
+            ("gender", "gender", fhirdatatypes.FHIRCode, False, None, False, administrativegender.AdministrativeGender), 
+            ("birthDate", "birthDate", fhirdatatypes.FHIRDate, False, None, False, None), 
+            ("photo", "photo", attachment.Attachment, True, None, False, None), 
+            ("qualification", "qualification", PractitionerQualification, True, None, False, None), 
+            ("communication", "communication", codeableconcept.CodeableConcept, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class PractitionerQualification(backboneelement.BackboneElement):
     """ Certification, licenses, or training pertaining to the provision of care.
@@ -127,58 +127,32 @@ class PractitionerQualification(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PractitionerQualification, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("period", "period", period.Period, False, None, False),
-            ("issuer", "issuer", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("period", "period", period.Period, False, None, False, None), 
+            ("issuer", "issuer", fhirreference.FHIRReference, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import address
-except ImportError:
-    address = sys.modules[__package__ + '.address']
+from fhirclient.models import address
 
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
+from fhirclient.codesystems import administrativegender
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import attachment
 
-try:
-    from . import contactpoint
-except ImportError:
-    contactpoint = sys.modules[__package__ + '.contactpoint']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import contactpoint
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import humanname
-except ImportError:
-    humanname = sys.modules[__package__ + '.humanname']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import humanname
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
+
+from fhirclient.models import period
 

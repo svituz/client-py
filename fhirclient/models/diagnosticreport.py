@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class DiagnosticReport(domainresource.DomainResource):
     """ A Diagnostic report - a combination of request information, atomic results,
@@ -110,31 +110,31 @@ class DiagnosticReport(domainresource.DomainResource):
     def elementProperties(self):
         js = super(DiagnosticReport, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("effectiveDateTime", "effectiveDateTime", fhirdatatypes.FHIRDateTime, False, "effective", False),
-            ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", False),
-            ("issued", "issued", fhirdatatypes.FHIRInstant, False, None, False),
-            ("performer", "performer", fhirreference.FHIRReference, True, None, False),
-            ("resultsInterpreter", "resultsInterpreter", fhirreference.FHIRReference, True, None, False),
-            ("specimen", "specimen", fhirreference.FHIRReference, True, None, False),
-            ("result", "result", fhirreference.FHIRReference, True, None, False),
-            ("imagingStudy", "imagingStudy", fhirreference.FHIRReference, True, None, False),
-            ("media", "media", DiagnosticReportMedia, True, None, False),
-            ("conclusion", "conclusion", fhirdatatypes.FHIRString, False, None, False),
-            ("conclusionCode", "conclusionCode", codeableconcept.CodeableConcept, True, None, False),
-            ("presentedForm", "presentedForm", attachment.Attachment, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, diagnosticreportstatus.DiagnosticReportStatus), 
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False, None), 
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False, None), 
+            ("effectiveDateTime", "effectiveDateTime", fhirdatatypes.FHIRDateTime, False, "effective", False, None), 
+            ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", False, None), 
+            ("issued", "issued", fhirdatatypes.FHIRInstant, False, None, False, None), 
+            ("performer", "performer", fhirreference.FHIRReference, True, None, False, None), 
+            ("resultsInterpreter", "resultsInterpreter", fhirreference.FHIRReference, True, None, False, None), 
+            ("specimen", "specimen", fhirreference.FHIRReference, True, None, False, None), 
+            ("result", "result", fhirreference.FHIRReference, True, None, False, None), 
+            ("imagingStudy", "imagingStudy", fhirreference.FHIRReference, True, None, False, None), 
+            ("media", "media", DiagnosticReportMedia, True, None, False, None), 
+            ("conclusion", "conclusion", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("conclusionCode", "conclusionCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("presentedForm", "presentedForm", attachment.Attachment, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class DiagnosticReportMedia(backboneelement.BackboneElement):
     """ Key images associated with this report.
@@ -165,41 +165,24 @@ class DiagnosticReportMedia(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(DiagnosticReportMedia, self).elementProperties()
         js.extend([
-            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False),
-            ("link", "link", fhirreference.FHIRReference, False, None, True),
+            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("link", "link", fhirreference.FHIRReference, False, None, True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
+from fhirclient.models import attachment
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import diagnosticreportstatus
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
+
+from fhirclient.models import period
 

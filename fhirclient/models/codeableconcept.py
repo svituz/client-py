@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class CodeableConcept(element.Element):
     """ Concept - reference to a terminology or just  text.
@@ -35,21 +35,14 @@ class CodeableConcept(element.Element):
     def elementProperties(self):
         js = super(CodeableConcept, self).elementProperties()
         js.extend([
-            ("coding", "coding", coding.Coding, True, None, False),
-            ("text", "text", fhirdatatypes.FHIRString, False, None, False),
+            ("coding", "coding", coding.Coding, True, None, False, None), 
+            ("text", "text", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
+from fhirclient.models import coding
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 

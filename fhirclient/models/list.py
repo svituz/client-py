@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class List(domainresource.DomainResource):
     """ A list is a curated collection of resources.
@@ -78,25 +78,25 @@ class List(domainresource.DomainResource):
     def elementProperties(self):
         js = super(List, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, True),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("source", "source", fhirreference.FHIRReference, False, None, False),
-            ("orderedBy", "orderedBy", codeableconcept.CodeableConcept, False, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
-            ("entry", "entry", ListEntry, True, None, False),
-            ("emptyReason", "emptyReason", codeableconcept.CodeableConcept, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, liststatus.ListStatus), 
+            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, True, listmode.ListMode), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False, None), 
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("source", "source", fhirreference.FHIRReference, False, None, False, None), 
+            ("orderedBy", "orderedBy", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
+            ("entry", "entry", ListEntry, True, None, False, None), 
+            ("emptyReason", "emptyReason", codeableconcept.CodeableConcept, False, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ListEntry(backboneelement.BackboneElement):
     """ Entries in the list.
@@ -133,38 +133,26 @@ class ListEntry(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ListEntry, self).elementProperties()
         js.extend([
-            ("flag", "flag", codeableconcept.CodeableConcept, False, None, False),
-            ("deleted", "deleted", bool, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("item", "item", fhirreference.FHIRReference, False, None, True),
+            ("flag", "flag", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("deleted", "deleted", bool, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("item", "item", fhirreference.FHIRReference, False, None, True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
+
+from fhirclient.codesystems import listmode
+
+from fhirclient.codesystems import liststatus
 

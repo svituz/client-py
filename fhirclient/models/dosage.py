@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class Dosage(backboneelement.BackboneElement):
     """ How the medication is/was taken or should be taken.
@@ -84,26 +84,26 @@ class Dosage(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(Dosage, self).elementProperties()
         js.extend([
-            ("sequence", "sequence", int, False, None, False),
-            ("text", "text", fhirdatatypes.FHIRString, False, None, False),
-            ("additionalInstruction", "additionalInstruction", codeableconcept.CodeableConcept, True, None, False),
-            ("patientInstruction", "patientInstruction", fhirdatatypes.FHIRString, False, None, False),
-            ("timing", "timing", timing.Timing, False, None, False),
-            ("asNeededBoolean", "asNeededBoolean", bool, False, "asNeeded", False),
-            ("asNeededCodeableConcept", "asNeededCodeableConcept", codeableconcept.CodeableConcept, False, "asNeeded", False),
-            ("site", "site", codeableconcept.CodeableConcept, False, None, False),
-            ("route", "route", codeableconcept.CodeableConcept, False, None, False),
-            ("method", "method", codeableconcept.CodeableConcept, False, None, False),
-            ("doseAndRate", "doseAndRate", DosageDoseAndRate, True, None, False),
-            ("maxDosePerPeriod", "maxDosePerPeriod", ratio.Ratio, False, None, False),
-            ("maxDosePerAdministration", "maxDosePerAdministration", quantity.Quantity, False, None, False),
-            ("maxDosePerLifetime", "maxDosePerLifetime", quantity.Quantity, False, None, False),
+            ("sequence", "sequence", int, False, None, False, None), 
+            ("text", "text", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("additionalInstruction", "additionalInstruction", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("patientInstruction", "patientInstruction", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("timing", "timing", timing.Timing, False, None, False, None), 
+            ("asNeededBoolean", "asNeededBoolean", bool, False, "asNeeded", False, None), 
+            ("asNeededCodeableConcept", "asNeededCodeableConcept", codeableconcept.CodeableConcept, False, "asNeeded", False, None), 
+            ("site", "site", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("route", "route", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("method", "method", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("doseAndRate", "doseAndRate", DosageDoseAndRate, True, None, False, None), 
+            ("maxDosePerPeriod", "maxDosePerPeriod", ratio.Ratio, False, None, False, None), 
+            ("maxDosePerAdministration", "maxDosePerAdministration", quantity.Quantity, False, None, False, None), 
+            ("maxDosePerLifetime", "maxDosePerLifetime", quantity.Quantity, False, None, False, None), 
         ])
         return js
 
 
 
-from . import element
+from fhirclient.models import element
 
 class DosageDoseAndRate(element.Element):
     """ Amount of medication administered.
@@ -148,45 +148,26 @@ class DosageDoseAndRate(element.Element):
     def elementProperties(self):
         js = super(DosageDoseAndRate, self).elementProperties()
         js.extend([
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("doseRange", "doseRange", range.Range, False, "dose", False),
-            ("doseQuantity", "doseQuantity", quantity.Quantity, False, "dose", False),
-            ("rateRatio", "rateRatio", ratio.Ratio, False, "rate", False),
-            ("rateRange", "rateRange", range.Range, False, "rate", False),
-            ("rateQuantity", "rateQuantity", quantity.Quantity, False, "rate", False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("doseRange", "doseRange", range.Range, False, "dose", False, None), 
+            ("doseQuantity", "doseQuantity", quantity.Quantity, False, "dose", False, None), 
+            ("rateRatio", "rateRatio", ratio.Ratio, False, "rate", False, None), 
+            ("rateRange", "rateRange", range.Range, False, "rate", False, None), 
+            ("rateQuantity", "rateQuantity", quantity.Quantity, False, "rate", False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import quantity
 
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from fhirclient.models import range
 
-try:
-    from . import ratio
-except ImportError:
-    ratio = sys.modules[__package__ + '.ratio']
+from fhirclient.models import ratio
 
-try:
-    from . import timing
-except ImportError:
-    timing = sys.modules[__package__ + '.timing']
+from fhirclient.models import timing
 

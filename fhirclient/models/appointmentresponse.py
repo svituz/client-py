@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class AppointmentResponse(domainresource.DomainResource):
     """ A reply to an appointment request for a patient and/or practitioner(s),
@@ -59,37 +59,26 @@ class AppointmentResponse(domainresource.DomainResource):
     def elementProperties(self):
         js = super(AppointmentResponse, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("appointment", "appointment", fhirreference.FHIRReference, False, None, True),
-            ("start", "start", fhirdatatypes.FHIRInstant, False, None, False),
-            ("end", "end", fhirdatatypes.FHIRInstant, False, None, False),
-            ("participantType", "participantType", codeableconcept.CodeableConcept, True, None, False),
-            ("actor", "actor", fhirreference.FHIRReference, False, None, False),
-            ("participantStatus", "participantStatus", fhirdatatypes.FHIRCode, False, None, True),
-            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("appointment", "appointment", fhirreference.FHIRReference, False, None, True, None), 
+            ("start", "start", fhirdatatypes.FHIRInstant, False, None, False, None), 
+            ("end", "end", fhirdatatypes.FHIRInstant, False, None, False, None), 
+            ("participantType", "participantType", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("actor", "actor", fhirreference.FHIRReference, False, None, False, None), 
+            ("participantStatus", "participantStatus", fhirdatatypes.FHIRCode, False, None, True, participationstatus.ParticipationStatus), 
+            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
+
+from fhirclient.codesystems import participationstatus
 

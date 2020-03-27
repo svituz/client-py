@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Schedule(domainresource.DomainResource):
     """ A container for slots of time that may be available for booking
@@ -59,42 +59,26 @@ class Schedule(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Schedule, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("active", "active", bool, False, None, False),
-            ("serviceCategory", "serviceCategory", codeableconcept.CodeableConcept, True, None, False),
-            ("serviceType", "serviceType", codeableconcept.CodeableConcept, True, None, False),
-            ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False),
-            ("actor", "actor", fhirreference.FHIRReference, True, None, True),
-            ("planningHorizon", "planningHorizon", period.Period, False, None, False),
-            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("active", "active", bool, False, None, False, None), 
+            ("serviceCategory", "serviceCategory", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("serviceType", "serviceType", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("actor", "actor", fhirreference.FHIRReference, True, None, True, None), 
+            ("planningHorizon", "planningHorizon", period.Period, False, None, False, None), 
+            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import period
 

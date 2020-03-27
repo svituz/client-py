@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class Period(element.Element):
     """ Time range defined by start and end date/time.
@@ -34,16 +34,12 @@ class Period(element.Element):
     def elementProperties(self):
         js = super(Period, self).elementProperties()
         js.extend([
-            ("start", "start", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("end", "end", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("start", "start", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("end", "end", fhirdatatypes.FHIRDateTime, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 

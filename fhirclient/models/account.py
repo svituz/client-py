@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Account(domainresource.DomainResource):
     """ Tracks balance, charges, for patient or cost center.
@@ -75,23 +75,23 @@ class Account(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Account, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, True, None, False),
-            ("servicePeriod", "servicePeriod", period.Period, False, None, False),
-            ("coverage", "coverage", AccountCoverage, True, None, False),
-            ("owner", "owner", fhirreference.FHIRReference, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("guarantor", "guarantor", AccountGuarantor, True, None, False),
-            ("partOf", "partOf", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, accountstatus.AccountStatus), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("subject", "subject", fhirreference.FHIRReference, True, None, False, None), 
+            ("servicePeriod", "servicePeriod", period.Period, False, None, False, None), 
+            ("coverage", "coverage", AccountCoverage, True, None, False, None), 
+            ("owner", "owner", fhirreference.FHIRReference, False, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("guarantor", "guarantor", AccountGuarantor, True, None, False, None), 
+            ("partOf", "partOf", fhirreference.FHIRReference, False, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class AccountCoverage(backboneelement.BackboneElement):
     """ The party(s) that are responsible for covering the payment of this account,
@@ -120,8 +120,8 @@ class AccountCoverage(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(AccountCoverage, self).elementProperties()
         js.extend([
-            ("coverage", "coverage", fhirreference.FHIRReference, False, None, True),
-            ("priority", "priority", fhirdatatypes.FHIRPositiveInt, False, None, False),
+            ("coverage", "coverage", fhirreference.FHIRReference, False, None, True, None), 
+            ("priority", "priority", fhirdatatypes.FHIRPositiveInt, False, None, False, None), 
         ])
         return js
 
@@ -160,37 +160,23 @@ class AccountGuarantor(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(AccountGuarantor, self).elementProperties()
         js.extend([
-            ("party", "party", fhirreference.FHIRReference, False, None, True),
-            ("onHold", "onHold", bool, False, None, False),
-            ("period", "period", period.Period, False, None, False),
+            ("party", "party", fhirreference.FHIRReference, False, None, True, None), 
+            ("onHold", "onHold", bool, False, None, False, None), 
+            ("period", "period", period.Period, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.codesystems import accountstatus
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
+
+from fhirclient.models import period
 

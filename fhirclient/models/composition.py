@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Composition(domainresource.DomainResource):
     """ A set of resources composed into a single coherent clinical statement with
@@ -97,27 +97,27 @@ class Composition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Composition, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
-            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, True),
-            ("author", "author", fhirreference.FHIRReference, True, None, True),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, True),
-            ("confidentiality", "confidentiality", fhirdatatypes.FHIRCode, False, None, False),
-            ("attester", "attester", CompositionAttester, True, None, False),
-            ("custodian", "custodian", fhirreference.FHIRReference, False, None, False),
-            ("relatesTo", "relatesTo", CompositionRelatesTo, True, None, False),
-            ("event", "event", CompositionEvent, True, None, False),
-            ("section", "section", CompositionSection, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, compositionstatus.CompositionStatus), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False, None), 
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, True, None), 
+            ("author", "author", fhirreference.FHIRReference, True, None, True, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("confidentiality", "confidentiality", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("attester", "attester", CompositionAttester, True, None, False, None), 
+            ("custodian", "custodian", fhirreference.FHIRReference, False, None, False, None), 
+            ("relatesTo", "relatesTo", CompositionRelatesTo, True, None, False, None), 
+            ("event", "event", CompositionEvent, True, None, False, None), 
+            ("section", "section", CompositionSection, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class CompositionAttester(backboneelement.BackboneElement):
     """ Attests to accuracy of composition.
@@ -150,9 +150,9 @@ class CompositionAttester(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CompositionAttester, self).elementProperties()
         js.extend([
-            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, True),
-            ("time", "time", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("party", "party", fhirreference.FHIRReference, False, None, False),
+            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, True, compositionattestationmode.CompositionAttestationMode), 
+            ("time", "time", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("party", "party", fhirreference.FHIRReference, False, None, False, None), 
         ])
         return js
 
@@ -191,9 +191,9 @@ class CompositionEvent(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CompositionEvent, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, True, None, False),
-            ("period", "period", period.Period, False, None, False),
-            ("detail", "detail", fhirreference.FHIRReference, True, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("period", "period", period.Period, False, None, False, None), 
+            ("detail", "detail", fhirreference.FHIRReference, True, None, False, None), 
         ])
         return js
 
@@ -232,9 +232,9 @@ class CompositionRelatesTo(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CompositionRelatesTo, self).elementProperties()
         js.extend([
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
-            ("targetIdentifier", "targetIdentifier", identifier.Identifier, False, "target", True),
-            ("targetReference", "targetReference", fhirreference.FHIRReference, False, "target", True),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True, documentrelationshiptype.DocumentRelationshipType), 
+            ("targetIdentifier", "targetIdentifier", identifier.Identifier, False, "target", True, None), 
+            ("targetReference", "targetReference", fhirreference.FHIRReference, False, "target", True, None), 
         ])
         return js
 
@@ -301,49 +301,38 @@ class CompositionSection(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CompositionSection, self).elementProperties()
         js.extend([
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("author", "author", fhirreference.FHIRReference, True, None, False),
-            ("focus", "focus", fhirreference.FHIRReference, False, None, False),
-            ("text", "text", narrative.Narrative, False, None, False),
-            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, False),
-            ("orderedBy", "orderedBy", codeableconcept.CodeableConcept, False, None, False),
-            ("entry", "entry", fhirreference.FHIRReference, True, None, False),
-            ("emptyReason", "emptyReason", codeableconcept.CodeableConcept, False, None, False),
-            ("section", "section", CompositionSection, True, None, False),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("author", "author", fhirreference.FHIRReference, True, None, False, None), 
+            ("focus", "focus", fhirreference.FHIRReference, False, None, False, None), 
+            ("text", "text", narrative.Narrative, False, None, False, None), 
+            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, False, listmode.ListMode), 
+            ("orderedBy", "orderedBy", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("entry", "entry", fhirreference.FHIRReference, True, None, False, None), 
+            ("emptyReason", "emptyReason", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("section", "section", CompositionSection, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import compositionattestationmode
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.codesystems import compositionstatus
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.codesystems import documentrelationshiptype
 
-try:
-    from . import narrative
-except ImportError:
-    narrative = sys.modules[__package__ + '.narrative']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import fhirreference
+
+from fhirclient.models import identifier
+
+from fhirclient.codesystems import listmode
+
+from fhirclient.models import narrative
+
+from fhirclient.models import period
 

@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class MedicinalProduct(domainresource.DomainResource):
     """ Detailed definition of a medicinal product, typically for uses other than
@@ -116,32 +116,32 @@ class MedicinalProduct(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MedicinalProduct, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("domain", "domain", coding.Coding, False, None, False),
-            ("combinedPharmaceuticalDoseForm", "combinedPharmaceuticalDoseForm", codeableconcept.CodeableConcept, False, None, False),
-            ("legalStatusOfSupply", "legalStatusOfSupply", codeableconcept.CodeableConcept, False, None, False),
-            ("additionalMonitoringIndicator", "additionalMonitoringIndicator", codeableconcept.CodeableConcept, False, None, False),
-            ("specialMeasures", "specialMeasures", fhirdatatypes.FHIRString, True, None, False),
-            ("paediatricUseIndicator", "paediatricUseIndicator", codeableconcept.CodeableConcept, False, None, False),
-            ("productClassification", "productClassification", codeableconcept.CodeableConcept, True, None, False),
-            ("marketingStatus", "marketingStatus", marketingstatus.MarketingStatus, True, None, False),
-            ("pharmaceuticalProduct", "pharmaceuticalProduct", fhirreference.FHIRReference, True, None, False),
-            ("packagedMedicinalProduct", "packagedMedicinalProduct", fhirreference.FHIRReference, True, None, False),
-            ("attachedDocument", "attachedDocument", fhirreference.FHIRReference, True, None, False),
-            ("masterFile", "masterFile", fhirreference.FHIRReference, True, None, False),
-            ("contact", "contact", fhirreference.FHIRReference, True, None, False),
-            ("clinicalTrial", "clinicalTrial", fhirreference.FHIRReference, True, None, False),
-            ("name", "name", MedicinalProductName, True, None, True),
-            ("crossReference", "crossReference", identifier.Identifier, True, None, False),
-            ("manufacturingBusinessOperation", "manufacturingBusinessOperation", MedicinalProductManufacturingBusinessOperation, True, None, False),
-            ("specialDesignation", "specialDesignation", MedicinalProductSpecialDesignation, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("domain", "domain", coding.Coding, False, None, False, None), 
+            ("combinedPharmaceuticalDoseForm", "combinedPharmaceuticalDoseForm", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("legalStatusOfSupply", "legalStatusOfSupply", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("additionalMonitoringIndicator", "additionalMonitoringIndicator", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("specialMeasures", "specialMeasures", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("paediatricUseIndicator", "paediatricUseIndicator", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("productClassification", "productClassification", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("marketingStatus", "marketingStatus", marketingstatus.MarketingStatus, True, None, False, None), 
+            ("pharmaceuticalProduct", "pharmaceuticalProduct", fhirreference.FHIRReference, True, None, False, None), 
+            ("packagedMedicinalProduct", "packagedMedicinalProduct", fhirreference.FHIRReference, True, None, False, None), 
+            ("attachedDocument", "attachedDocument", fhirreference.FHIRReference, True, None, False, None), 
+            ("masterFile", "masterFile", fhirreference.FHIRReference, True, None, False, None), 
+            ("contact", "contact", fhirreference.FHIRReference, True, None, False, None), 
+            ("clinicalTrial", "clinicalTrial", fhirreference.FHIRReference, True, None, False, None), 
+            ("name", "name", MedicinalProductName, True, None, True, None), 
+            ("crossReference", "crossReference", identifier.Identifier, True, None, False, None), 
+            ("manufacturingBusinessOperation", "manufacturingBusinessOperation", MedicinalProductManufacturingBusinessOperation, True, None, False, None), 
+            ("specialDesignation", "specialDesignation", MedicinalProductSpecialDesignation, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class MedicinalProductManufacturingBusinessOperation(backboneelement.BackboneElement):
     """ An operation applied to the product, for manufacturing or adminsitrative
@@ -185,12 +185,12 @@ class MedicinalProductManufacturingBusinessOperation(backboneelement.BackboneEle
     def elementProperties(self):
         js = super(MedicinalProductManufacturingBusinessOperation, self).elementProperties()
         js.extend([
-            ("operationType", "operationType", codeableconcept.CodeableConcept, False, None, False),
-            ("authorisationReferenceNumber", "authorisationReferenceNumber", identifier.Identifier, False, None, False),
-            ("effectiveDate", "effectiveDate", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("confidentialityIndicator", "confidentialityIndicator", codeableconcept.CodeableConcept, False, None, False),
-            ("manufacturer", "manufacturer", fhirreference.FHIRReference, True, None, False),
-            ("regulator", "regulator", fhirreference.FHIRReference, False, None, False),
+            ("operationType", "operationType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("authorisationReferenceNumber", "authorisationReferenceNumber", identifier.Identifier, False, None, False, None), 
+            ("effectiveDate", "effectiveDate", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("confidentialityIndicator", "confidentialityIndicator", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("manufacturer", "manufacturer", fhirreference.FHIRReference, True, None, False, None), 
+            ("regulator", "regulator", fhirreference.FHIRReference, False, None, False, None), 
         ])
         return js
 
@@ -226,9 +226,9 @@ class MedicinalProductName(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicinalProductName, self).elementProperties()
         js.extend([
-            ("productName", "productName", fhirdatatypes.FHIRString, False, None, True),
-            ("namePart", "namePart", MedicinalProductNameNamePart, True, None, False),
-            ("countryLanguage", "countryLanguage", MedicinalProductNameCountryLanguage, True, None, False),
+            ("productName", "productName", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("namePart", "namePart", MedicinalProductNameNamePart, True, None, False, None), 
+            ("countryLanguage", "countryLanguage", MedicinalProductNameCountryLanguage, True, None, False, None), 
         ])
         return js
 
@@ -264,9 +264,9 @@ class MedicinalProductNameCountryLanguage(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicinalProductNameCountryLanguage, self).elementProperties()
         js.extend([
-            ("country", "country", codeableconcept.CodeableConcept, False, None, True),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, False, None, False),
-            ("language", "language", codeableconcept.CodeableConcept, False, None, True),
+            ("country", "country", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("language", "language", codeableconcept.CodeableConcept, False, None, True, None), 
         ])
         return js
 
@@ -298,8 +298,8 @@ class MedicinalProductNameNamePart(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicinalProductNameNamePart, self).elementProperties()
         js.extend([
-            ("part", "part", fhirdatatypes.FHIRString, False, None, True),
-            ("type", "type", coding.Coding, False, None, True),
+            ("part", "part", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("type", "type", coding.Coding, False, None, True, None), 
         ])
         return js
 
@@ -356,47 +356,28 @@ class MedicinalProductSpecialDesignation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicinalProductSpecialDesignation, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("intendedUse", "intendedUse", codeableconcept.CodeableConcept, False, None, False),
-            ("indicationCodeableConcept", "indicationCodeableConcept", codeableconcept.CodeableConcept, False, "indication", False),
-            ("indicationReference", "indicationReference", fhirreference.FHIRReference, False, "indication", False),
-            ("status", "status", codeableconcept.CodeableConcept, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("species", "species", codeableconcept.CodeableConcept, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("intendedUse", "intendedUse", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("indicationCodeableConcept", "indicationCodeableConcept", codeableconcept.CodeableConcept, False, "indication", False, None), 
+            ("indicationReference", "indicationReference", fhirreference.FHIRReference, False, "indication", False, None), 
+            ("status", "status", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("species", "species", codeableconcept.CodeableConcept, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
+from fhirclient.models import coding
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import marketingstatus
-except ImportError:
-    marketingstatus = sys.modules[__package__ + '.marketingstatus']
+from fhirclient.models import marketingstatus
 

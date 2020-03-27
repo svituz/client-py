@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class OperationDefinition(domainresource.DomainResource):
     """ Definition of an operation or a named query.
@@ -134,38 +134,38 @@ class OperationDefinition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(OperationDefinition, self).elementProperties()
         js.extend([
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("kind", "kind", fhirdatatypes.FHIRCode, False, None, True),
-            ("experimental", "experimental", bool, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("affectsState", "affectsState", bool, False, None, False),
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
-            ("comment", "comment", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("base", "base", fhirdatatypes.FHIRCanonical, False, None, False),
-            ("resource", "resource", fhirdatatypes.FHIRCode, True, None, False),
-            ("system", "system", bool, False, None, True),
-            ("type", "type", bool, False, None, True),
-            ("instance", "instance", bool, False, None, True),
-            ("inputProfile", "inputProfile", fhirdatatypes.FHIRCanonical, False, None, False),
-            ("outputProfile", "outputProfile", fhirdatatypes.FHIRCanonical, False, None, False),
-            ("parameter", "parameter", OperationDefinitionParameter, True, None, False),
-            ("overload", "overload", OperationDefinitionOverload, True, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, publicationstatus.PublicationStatus), 
+            ("kind", "kind", fhirdatatypes.FHIRCode, False, None, True, operationkind.OperationKind), 
+            ("experimental", "experimental", bool, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False, None), 
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("affectsState", "affectsState", bool, False, None, False, None), 
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True, None), 
+            ("comment", "comment", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("base", "base", fhirdatatypes.FHIRCanonical, False, None, False, None), 
+            ("resource", "resource", fhirdatatypes.FHIRCode, True, None, False, resourcetype.ResourceType), 
+            ("system", "system", bool, False, None, True, None), 
+            ("type", "type", bool, False, None, True, None), 
+            ("instance", "instance", bool, False, None, True, None), 
+            ("inputProfile", "inputProfile", fhirdatatypes.FHIRCanonical, False, None, False, None), 
+            ("outputProfile", "outputProfile", fhirdatatypes.FHIRCanonical, False, None, False, None), 
+            ("parameter", "parameter", OperationDefinitionParameter, True, None, False, None), 
+            ("overload", "overload", OperationDefinitionOverload, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class OperationDefinitionOverload(backboneelement.BackboneElement):
     """ Define overloaded variants for when  generating code.
@@ -196,8 +196,8 @@ class OperationDefinitionOverload(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(OperationDefinitionOverload, self).elementProperties()
         js.extend([
-            ("parameterName", "parameterName", fhirdatatypes.FHIRString, True, None, False),
-            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False),
+            ("parameterName", "parameterName", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -268,17 +268,17 @@ class OperationDefinitionParameter(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(OperationDefinitionParameter, self).elementProperties()
         js.extend([
-            ("name", "name", fhirdatatypes.FHIRCode, False, None, True),
-            ("use", "use", fhirdatatypes.FHIRCode, False, None, True),
-            ("min", "min", int, False, None, True),
-            ("max", "max", fhirdatatypes.FHIRString, False, None, True),
-            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False),
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, False),
-            ("targetProfile", "targetProfile", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("searchType", "searchType", fhirdatatypes.FHIRCode, False, None, False),
-            ("binding", "binding", OperationDefinitionParameterBinding, False, None, False),
-            ("referencedFrom", "referencedFrom", OperationDefinitionParameterReferencedFrom, True, None, False),
-            ("part", "part", OperationDefinitionParameter, True, None, False),
+            ("name", "name", fhirdatatypes.FHIRCode, False, None, True, None), 
+            ("use", "use", fhirdatatypes.FHIRCode, False, None, True, operationparameteruse.OperationParameterUse), 
+            ("min", "min", int, False, None, True, None), 
+            ("max", "max", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("targetProfile", "targetProfile", fhirdatatypes.FHIRCanonical, True, None, False, None), 
+            ("searchType", "searchType", fhirdatatypes.FHIRCode, False, None, False, searchparamtype.SearchParamType), 
+            ("binding", "binding", OperationDefinitionParameterBinding, False, None, False, None), 
+            ("referencedFrom", "referencedFrom", OperationDefinitionParameterReferencedFrom, True, None, False, None), 
+            ("part", "part", OperationDefinitionParameter, True, None, False, None), 
         ])
         return js
 
@@ -313,8 +313,8 @@ class OperationDefinitionParameterBinding(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(OperationDefinitionParameterBinding, self).elementProperties()
         js.extend([
-            ("strength", "strength", fhirdatatypes.FHIRCode, False, None, True),
-            ("valueSet", "valueSet", fhirdatatypes.FHIRCanonical, False, None, True),
+            ("strength", "strength", fhirdatatypes.FHIRCode, False, None, True, bindingstrength.BindingStrength), 
+            ("valueSet", "valueSet", fhirdatatypes.FHIRCanonical, False, None, True, None), 
         ])
         return js
 
@@ -349,31 +349,30 @@ class OperationDefinitionParameterReferencedFrom(backboneelement.BackboneElement
     def elementProperties(self):
         js = super(OperationDefinitionParameterReferencedFrom, self).elementProperties()
         js.extend([
-            ("source", "source", fhirdatatypes.FHIRString, False, None, True),
-            ("sourceId", "sourceId", fhirdatatypes.FHIRString, False, None, False),
+            ("source", "source", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("sourceId", "sourceId", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.codesystems import bindingstrength
 
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import contactdetail
 
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from fhirclient.models import fhirdatatypes
+
+from fhirclient.codesystems import operationkind
+
+from fhirclient.codesystems import operationparameteruse
+
+from fhirclient.codesystems import publicationstatus
+
+from fhirclient.codesystems import resourcetype
+
+from fhirclient.codesystems import searchparamtype
+
+from fhirclient.models import usagecontext
 

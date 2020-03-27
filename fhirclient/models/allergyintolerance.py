@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class AllergyIntolerance(domainresource.DomainResource):
     """ Allergy or Intolerance (generally: Risk of adverse reaction to a substance).
@@ -109,32 +109,32 @@ class AllergyIntolerance(domainresource.DomainResource):
     def elementProperties(self):
         js = super(AllergyIntolerance, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("clinicalStatus", "clinicalStatus", codeableconcept.CodeableConcept, False, None, False),
-            ("verificationStatus", "verificationStatus", codeableconcept.CodeableConcept, False, None, False),
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, False),
-            ("category", "category", fhirdatatypes.FHIRCode, True, None, False),
-            ("criticality", "criticality", fhirdatatypes.FHIRCode, False, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("onsetDateTime", "onsetDateTime", fhirdatatypes.FHIRDateTime, False, "onset", False),
-            ("onsetAge", "onsetAge", age.Age, False, "onset", False),
-            ("onsetPeriod", "onsetPeriod", period.Period, False, "onset", False),
-            ("onsetRange", "onsetRange", range.Range, False, "onset", False),
-            ("onsetString", "onsetString", fhirdatatypes.FHIRString, False, "onset", False),
-            ("recordedDate", "recordedDate", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("recorder", "recorder", fhirreference.FHIRReference, False, None, False),
-            ("asserter", "asserter", fhirreference.FHIRReference, False, None, False),
-            ("lastOccurrence", "lastOccurrence", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
-            ("reaction", "reaction", AllergyIntoleranceReaction, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("clinicalStatus", "clinicalStatus", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("verificationStatus", "verificationStatus", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, False, allergyintolerancetype.AllergyIntoleranceType), 
+            ("category", "category", fhirdatatypes.FHIRCode, True, None, False, allergyintolerancecategory.AllergyIntoleranceCategory), 
+            ("criticality", "criticality", fhirdatatypes.FHIRCode, False, None, False, allergyintolerancecriticality.AllergyIntoleranceCriticality), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True, None), 
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False, None), 
+            ("onsetDateTime", "onsetDateTime", fhirdatatypes.FHIRDateTime, False, "onset", False, None), 
+            ("onsetAge", "onsetAge", age.Age, False, "onset", False, None), 
+            ("onsetPeriod", "onsetPeriod", period.Period, False, "onset", False, None), 
+            ("onsetRange", "onsetRange", range.Range, False, "onset", False, None), 
+            ("onsetString", "onsetString", fhirdatatypes.FHIRString, False, "onset", False, None), 
+            ("recordedDate", "recordedDate", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("recorder", "recorder", fhirreference.FHIRReference, False, None, False, None), 
+            ("asserter", "asserter", fhirreference.FHIRReference, False, None, False, None), 
+            ("lastOccurrence", "lastOccurrence", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
+            ("reaction", "reaction", AllergyIntoleranceReaction, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class AllergyIntoleranceReaction(backboneelement.BackboneElement):
     """ Adverse Reaction Events linked to exposure to substance.
@@ -185,56 +185,39 @@ class AllergyIntoleranceReaction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(AllergyIntoleranceReaction, self).elementProperties()
         js.extend([
-            ("substance", "substance", codeableconcept.CodeableConcept, False, None, False),
-            ("manifestation", "manifestation", codeableconcept.CodeableConcept, True, None, True),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("onset", "onset", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("severity", "severity", fhirdatatypes.FHIRCode, False, None, False),
-            ("exposureRoute", "exposureRoute", codeableconcept.CodeableConcept, False, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
+            ("substance", "substance", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("manifestation", "manifestation", codeableconcept.CodeableConcept, True, None, True, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("onset", "onset", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("severity", "severity", fhirdatatypes.FHIRCode, False, None, False, allergyintoleranceseverity.AllergyIntoleranceSeverity), 
+            ("exposureRoute", "exposureRoute", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import age
-except ImportError:
-    age = sys.modules[__package__ + '.age']
+from fhirclient.models import age
 
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.codesystems import allergyintolerancecategory
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.codesystems import allergyintolerancecriticality
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import allergyintoleranceseverity
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.codesystems import allergyintolerancetype
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import annotation
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from fhirclient.models import fhirdatatypes
+
+from fhirclient.models import fhirreference
+
+from fhirclient.models import identifier
+
+from fhirclient.models import period
+
+from fhirclient.models import range
 

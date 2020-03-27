@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class VerificationResult(domainresource.DomainResource):
     """ Describes validation requirements, source(s), status and dates for one or
@@ -87,26 +87,26 @@ class VerificationResult(domainresource.DomainResource):
     def elementProperties(self):
         js = super(VerificationResult, self).elementProperties()
         js.extend([
-            ("target", "target", fhirreference.FHIRReference, True, None, False),
-            ("targetLocation", "targetLocation", fhirdatatypes.FHIRString, True, None, False),
-            ("need", "need", codeableconcept.CodeableConcept, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("statusDate", "statusDate", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("validationType", "validationType", codeableconcept.CodeableConcept, False, None, False),
-            ("validationProcess", "validationProcess", codeableconcept.CodeableConcept, True, None, False),
-            ("frequency", "frequency", timing.Timing, False, None, False),
-            ("lastPerformed", "lastPerformed", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("nextScheduled", "nextScheduled", fhirdatatypes.FHIRDate, False, None, False),
-            ("failureAction", "failureAction", codeableconcept.CodeableConcept, False, None, False),
-            ("primarySource", "primarySource", VerificationResultPrimarySource, True, None, False),
-            ("attestation", "attestation", VerificationResultAttestation, False, None, False),
-            ("validator", "validator", VerificationResultValidator, True, None, False),
+            ("target", "target", fhirreference.FHIRReference, True, None, False, None), 
+            ("targetLocation", "targetLocation", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("need", "need", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, status.Status), 
+            ("statusDate", "statusDate", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("validationType", "validationType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("validationProcess", "validationProcess", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("frequency", "frequency", timing.Timing, False, None, False, None), 
+            ("lastPerformed", "lastPerformed", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("nextScheduled", "nextScheduled", fhirdatatypes.FHIRDate, False, None, False, None), 
+            ("failureAction", "failureAction", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("primarySource", "primarySource", VerificationResultPrimarySource, True, None, False, None), 
+            ("attestation", "attestation", VerificationResultAttestation, False, None, False, None), 
+            ("validator", "validator", VerificationResultValidator, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class VerificationResultAttestation(backboneelement.BackboneElement):
     """ Information about the entity attesting to information.
@@ -160,14 +160,14 @@ class VerificationResultAttestation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(VerificationResultAttestation, self).elementProperties()
         js.extend([
-            ("who", "who", fhirreference.FHIRReference, False, None, False),
-            ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
-            ("communicationMethod", "communicationMethod", codeableconcept.CodeableConcept, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDate, False, None, False),
-            ("sourceIdentityCertificate", "sourceIdentityCertificate", fhirdatatypes.FHIRString, False, None, False),
-            ("proxyIdentityCertificate", "proxyIdentityCertificate", fhirdatatypes.FHIRString, False, None, False),
-            ("proxySignature", "proxySignature", signature.Signature, False, None, False),
-            ("sourceSignature", "sourceSignature", signature.Signature, False, None, False),
+            ("who", "who", fhirreference.FHIRReference, False, None, False, None), 
+            ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False, None), 
+            ("communicationMethod", "communicationMethod", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDate, False, None, False, None), 
+            ("sourceIdentityCertificate", "sourceIdentityCertificate", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("proxyIdentityCertificate", "proxyIdentityCertificate", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("proxySignature", "proxySignature", signature.Signature, False, None, False, None), 
+            ("sourceSignature", "sourceSignature", signature.Signature, False, None, False, None), 
         ])
         return js
 
@@ -222,13 +222,13 @@ class VerificationResultPrimarySource(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(VerificationResultPrimarySource, self).elementProperties()
         js.extend([
-            ("who", "who", fhirreference.FHIRReference, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
-            ("communicationMethod", "communicationMethod", codeableconcept.CodeableConcept, True, None, False),
-            ("validationStatus", "validationStatus", codeableconcept.CodeableConcept, False, None, False),
-            ("validationDate", "validationDate", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("canPushUpdates", "canPushUpdates", codeableconcept.CodeableConcept, False, None, False),
-            ("pushTypeAvailable", "pushTypeAvailable", codeableconcept.CodeableConcept, True, None, False),
+            ("who", "who", fhirreference.FHIRReference, False, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("communicationMethod", "communicationMethod", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("validationStatus", "validationStatus", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("validationDate", "validationDate", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("canPushUpdates", "canPushUpdates", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("pushTypeAvailable", "pushTypeAvailable", codeableconcept.CodeableConcept, True, None, False, None), 
         ])
         return js
 
@@ -264,37 +264,23 @@ class VerificationResultValidator(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(VerificationResultValidator, self).elementProperties()
         js.extend([
-            ("organization", "organization", fhirreference.FHIRReference, False, None, True),
-            ("identityCertificate", "identityCertificate", fhirdatatypes.FHIRString, False, None, False),
-            ("attestationSignature", "attestationSignature", signature.Signature, False, None, False),
+            ("organization", "organization", fhirreference.FHIRReference, False, None, True, None), 
+            ("identityCertificate", "identityCertificate", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("attestationSignature", "attestationSignature", signature.Signature, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import signature
-except ImportError:
-    signature = sys.modules[__package__ + '.signature']
+from fhirclient.models import signature
 
-try:
-    from . import timing
-except ImportError:
-    timing = sys.modules[__package__ + '.timing']
+from fhirclient.codesystems import status
+
+from fhirclient.models import timing
 

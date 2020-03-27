@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Coverage(domainresource.DomainResource):
     """ Insurance or medical plan or a payment agreement.
@@ -97,29 +97,29 @@ class Coverage(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Coverage, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("policyHolder", "policyHolder", fhirreference.FHIRReference, False, None, False),
-            ("subscriber", "subscriber", fhirreference.FHIRReference, False, None, False),
-            ("subscriberId", "subscriberId", fhirdatatypes.FHIRString, False, None, False),
-            ("beneficiary", "beneficiary", fhirreference.FHIRReference, False, None, True),
-            ("dependent", "dependent", fhirdatatypes.FHIRString, False, None, False),
-            ("relationship", "relationship", codeableconcept.CodeableConcept, False, None, False),
-            ("period", "period", period.Period, False, None, False),
-            ("payor", "payor", fhirreference.FHIRReference, True, None, True),
-            ("class_fhir", "class", CoverageClass, True, None, False),
-            ("order", "order", fhirdatatypes.FHIRPositiveInt, False, None, False),
-            ("network", "network", fhirdatatypes.FHIRString, False, None, False),
-            ("costToBeneficiary", "costToBeneficiary", CoverageCostToBeneficiary, True, None, False),
-            ("subrogation", "subrogation", bool, False, None, False),
-            ("contract", "contract", fhirreference.FHIRReference, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, financialresourcestatuscodes.FinancialResourceStatusCodes), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("policyHolder", "policyHolder", fhirreference.FHIRReference, False, None, False, None), 
+            ("subscriber", "subscriber", fhirreference.FHIRReference, False, None, False, None), 
+            ("subscriberId", "subscriberId", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("beneficiary", "beneficiary", fhirreference.FHIRReference, False, None, True, None), 
+            ("dependent", "dependent", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("relationship", "relationship", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("period", "period", period.Period, False, None, False, None), 
+            ("payor", "payor", fhirreference.FHIRReference, True, None, True, None), 
+            ("class_fhir", "class", CoverageClass, True, None, False, None), 
+            ("order", "order", fhirdatatypes.FHIRPositiveInt, False, None, False, None), 
+            ("network", "network", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("costToBeneficiary", "costToBeneficiary", CoverageCostToBeneficiary, True, None, False, None), 
+            ("subrogation", "subrogation", bool, False, None, False, None), 
+            ("contract", "contract", fhirreference.FHIRReference, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class CoverageClass(backboneelement.BackboneElement):
     """ Additional coverage classifications.
@@ -152,9 +152,9 @@ class CoverageClass(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CoverageClass, self).elementProperties()
         js.extend([
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
-            ("value", "value", fhirdatatypes.FHIRString, False, None, True),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("value", "value", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -198,10 +198,10 @@ class CoverageCostToBeneficiary(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CoverageCostToBeneficiary, self).elementProperties()
         js.extend([
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", True),
-            ("valueMoney", "valueMoney", money.Money, False, "value", True),
-            ("exception", "exception", CoverageCostToBeneficiaryException, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", True, None), 
+            ("valueMoney", "valueMoney", money.Money, False, "value", True, None), 
+            ("exception", "exception", CoverageCostToBeneficiaryException, True, None, False, None), 
         ])
         return js
 
@@ -236,46 +236,26 @@ class CoverageCostToBeneficiaryException(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CoverageCostToBeneficiaryException, self).elementProperties()
         js.extend([
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
-            ("period", "period", period.Period, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("period", "period", period.Period, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.codesystems import financialresourcestatuscodes
 
-try:
-    from . import money
-except ImportError:
-    money = sys.modules[__package__ + '.money']
+from fhirclient.models import identifier
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import money
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import period
+
+from fhirclient.models import quantity
 

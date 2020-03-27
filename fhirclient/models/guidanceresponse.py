@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class GuidanceResponse(domainresource.DomainResource):
     """ The formal response to a guidance request.
@@ -99,56 +99,39 @@ class GuidanceResponse(domainresource.DomainResource):
     def elementProperties(self):
         js = super(GuidanceResponse, self).elementProperties()
         js.extend([
-            ("requestIdentifier", "requestIdentifier", identifier.Identifier, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("moduleUri", "moduleUri", fhirdatatypes.FHIRUri, False, "module", True),
-            ("moduleCanonical", "moduleCanonical", fhirdatatypes.FHIRCanonical, False, "module", True),
-            ("moduleCodeableConcept", "moduleCodeableConcept", codeableconcept.CodeableConcept, False, "module", True),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("occurrenceDateTime", "occurrenceDateTime", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("performer", "performer", fhirreference.FHIRReference, False, None, False),
-            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
-            ("evaluationMessage", "evaluationMessage", fhirreference.FHIRReference, True, None, False),
-            ("outputParameters", "outputParameters", fhirreference.FHIRReference, False, None, False),
-            ("result", "result", fhirreference.FHIRReference, False, None, False),
-            ("dataRequirement", "dataRequirement", datarequirement.DataRequirement, True, None, False),
+            ("requestIdentifier", "requestIdentifier", identifier.Identifier, False, None, False, None), 
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("moduleUri", "moduleUri", fhirdatatypes.FHIRUri, False, "module", True, None), 
+            ("moduleCanonical", "moduleCanonical", fhirdatatypes.FHIRCanonical, False, "module", True, None), 
+            ("moduleCodeableConcept", "moduleCodeableConcept", codeableconcept.CodeableConcept, False, "module", True, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, guidanceresponsestatus.GuidanceResponseStatus), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False, None), 
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False, None), 
+            ("occurrenceDateTime", "occurrenceDateTime", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("performer", "performer", fhirreference.FHIRReference, False, None, False, None), 
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
+            ("evaluationMessage", "evaluationMessage", fhirreference.FHIRReference, True, None, False, None), 
+            ("outputParameters", "outputParameters", fhirreference.FHIRReference, False, None, False, None), 
+            ("result", "result", fhirreference.FHIRReference, False, None, False, None), 
+            ("dataRequirement", "dataRequirement", datarequirement.DataRequirement, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import datarequirement
-except ImportError:
-    datarequirement = sys.modules[__package__ + '.datarequirement']
+from fhirclient.models import datarequirement
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.codesystems import guidanceresponsestatus
+
+from fhirclient.models import identifier
 

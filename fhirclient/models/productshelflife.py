@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ProductShelfLife(backboneelement.BackboneElement):
     """ The shelf-life and storage information for a medicinal product item or
@@ -53,28 +53,18 @@ class ProductShelfLife(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ProductShelfLife, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
-            ("period", "period", quantity.Quantity, False, None, True),
-            ("specialPrecautionsForStorage", "specialPrecautionsForStorage", codeableconcept.CodeableConcept, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("period", "period", quantity.Quantity, False, None, True, None), 
+            ("specialPrecautionsForStorage", "specialPrecautionsForStorage", codeableconcept.CodeableConcept, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import quantity
 

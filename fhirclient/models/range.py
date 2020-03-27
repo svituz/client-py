@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class Range(element.Element):
     """ Set of values bounded by low and high.
@@ -34,16 +34,12 @@ class Range(element.Element):
     def elementProperties(self):
         js = super(Range, self).elementProperties()
         js.extend([
-            ("low", "low", quantity.Quantity, False, None, False),
-            ("high", "high", quantity.Quantity, False, None, False),
+            ("low", "low", quantity.Quantity, False, None, False, None), 
+            ("high", "high", quantity.Quantity, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import quantity
 

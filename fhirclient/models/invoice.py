@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Invoice(domainresource.DomainResource):
     """ Invoice containing ChargeItems from an Account.
@@ -93,28 +93,28 @@ class Invoice(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Invoice, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("cancelledReason", "cancelledReason", fhirdatatypes.FHIRString, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("recipient", "recipient", fhirreference.FHIRReference, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("participant", "participant", InvoiceParticipant, True, None, False),
-            ("issuer", "issuer", fhirreference.FHIRReference, False, None, False),
-            ("account", "account", fhirreference.FHIRReference, False, None, False),
-            ("lineItem", "lineItem", InvoiceLineItem, True, None, False),
-            ("totalPriceComponent", "totalPriceComponent", InvoiceLineItemPriceComponent, True, None, False),
-            ("totalNet", "totalNet", money.Money, False, None, False),
-            ("totalGross", "totalGross", money.Money, False, None, False),
-            ("paymentTerms", "paymentTerms", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, invoicestatus.InvoiceStatus), 
+            ("cancelledReason", "cancelledReason", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False, None), 
+            ("recipient", "recipient", fhirreference.FHIRReference, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("participant", "participant", InvoiceParticipant, True, None, False, None), 
+            ("issuer", "issuer", fhirreference.FHIRReference, False, None, False, None), 
+            ("account", "account", fhirreference.FHIRReference, False, None, False, None), 
+            ("lineItem", "lineItem", InvoiceLineItem, True, None, False, None), 
+            ("totalPriceComponent", "totalPriceComponent", InvoiceLineItemPriceComponent, True, None, False, None), 
+            ("totalNet", "totalNet", money.Money, False, None, False, None), 
+            ("totalGross", "totalGross", money.Money, False, None, False, None), 
+            ("paymentTerms", "paymentTerms", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class InvoiceLineItem(backboneelement.BackboneElement):
     """ Line items of this Invoice.
@@ -155,10 +155,10 @@ class InvoiceLineItem(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(InvoiceLineItem, self).elementProperties()
         js.extend([
-            ("sequence", "sequence", fhirdatatypes.FHIRPositiveInt, False, None, False),
-            ("chargeItemReference", "chargeItemReference", fhirreference.FHIRReference, False, "chargeItem", True),
-            ("chargeItemCodeableConcept", "chargeItemCodeableConcept", codeableconcept.CodeableConcept, False, "chargeItem", True),
-            ("priceComponent", "priceComponent", InvoiceLineItemPriceComponent, True, None, False),
+            ("sequence", "sequence", fhirdatatypes.FHIRPositiveInt, False, None, False, None), 
+            ("chargeItemReference", "chargeItemReference", fhirreference.FHIRReference, False, "chargeItem", True, None), 
+            ("chargeItemCodeableConcept", "chargeItemCodeableConcept", codeableconcept.CodeableConcept, False, "chargeItem", True, None), 
+            ("priceComponent", "priceComponent", InvoiceLineItemPriceComponent, True, None, False, None), 
         ])
         return js
 
@@ -205,10 +205,10 @@ class InvoiceLineItemPriceComponent(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(InvoiceLineItemPriceComponent, self).elementProperties()
         js.extend([
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("factor", "factor", float, False, None, False),
-            ("amount", "amount", money.Money, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, invoicepricecomponenttype.InvoicePriceComponentType), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("factor", "factor", float, False, None, False, None), 
+            ("amount", "amount", money.Money, False, None, False, None), 
         ])
         return js
 
@@ -242,41 +242,26 @@ class InvoiceParticipant(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(InvoiceParticipant, self).elementProperties()
         js.extend([
-            ("role", "role", codeableconcept.CodeableConcept, False, None, False),
-            ("actor", "actor", fhirreference.FHIRReference, False, None, True),
+            ("role", "role", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("actor", "actor", fhirreference.FHIRReference, False, None, True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import money
-except ImportError:
-    money = sys.modules[__package__ + '.money']
+from fhirclient.codesystems import invoicepricecomponenttype
+
+from fhirclient.codesystems import invoicestatus
+
+from fhirclient.models import money
 

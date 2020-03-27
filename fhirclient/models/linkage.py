@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Linkage(domainresource.DomainResource):
     """ Links records for 'same' item.
@@ -41,15 +41,15 @@ class Linkage(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Linkage, self).elementProperties()
         js.extend([
-            ("active", "active", bool, False, None, False),
-            ("author", "author", fhirreference.FHIRReference, False, None, False),
-            ("item", "item", LinkageItem, True, None, True),
+            ("active", "active", bool, False, None, False, None), 
+            ("author", "author", fhirreference.FHIRReference, False, None, False, None), 
+            ("item", "item", LinkageItem, True, None, True, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class LinkageItem(backboneelement.BackboneElement):
     """ Item to be linked.
@@ -80,21 +80,16 @@ class LinkageItem(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(LinkageItem, self).elementProperties()
         js.extend([
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("resource", "resource", fhirreference.FHIRReference, False, None, True),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, linkagetype.LinkageType), 
+            ("resource", "resource", fhirreference.FHIRReference, False, None, True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
+
+from fhirclient.codesystems import linkagetype
 

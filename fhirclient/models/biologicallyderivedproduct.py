@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class BiologicallyDerivedProduct(domainresource.DomainResource):
     """ A material substance originating from a biological entity.
@@ -74,23 +74,23 @@ class BiologicallyDerivedProduct(domainresource.DomainResource):
     def elementProperties(self):
         js = super(BiologicallyDerivedProduct, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("productCategory", "productCategory", fhirdatatypes.FHIRCode, False, None, False),
-            ("productCode", "productCode", codeableconcept.CodeableConcept, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
-            ("request", "request", fhirreference.FHIRReference, True, None, False),
-            ("quantity", "quantity", int, False, None, False),
-            ("parent", "parent", fhirreference.FHIRReference, True, None, False),
-            ("collection", "collection", BiologicallyDerivedProductCollection, False, None, False),
-            ("processing", "processing", BiologicallyDerivedProductProcessing, True, None, False),
-            ("manipulation", "manipulation", BiologicallyDerivedProductManipulation, False, None, False),
-            ("storage", "storage", BiologicallyDerivedProductStorage, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("productCategory", "productCategory", fhirdatatypes.FHIRCode, False, None, False, biologicallyderivedproductcategory.BiologicallyDerivedProductCategory), 
+            ("productCode", "productCode", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, False, biologicallyderivedproductstatus.BiologicallyDerivedProductStatus), 
+            ("request", "request", fhirreference.FHIRReference, True, None, False, None), 
+            ("quantity", "quantity", int, False, None, False, None), 
+            ("parent", "parent", fhirreference.FHIRReference, True, None, False, None), 
+            ("collection", "collection", BiologicallyDerivedProductCollection, False, None, False, None), 
+            ("processing", "processing", BiologicallyDerivedProductProcessing, True, None, False, None), 
+            ("manipulation", "manipulation", BiologicallyDerivedProductManipulation, False, None, False, None), 
+            ("storage", "storage", BiologicallyDerivedProductStorage, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class BiologicallyDerivedProductCollection(backboneelement.BackboneElement):
     """ How this product was collected.
@@ -125,10 +125,10 @@ class BiologicallyDerivedProductCollection(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(BiologicallyDerivedProductCollection, self).elementProperties()
         js.extend([
-            ("collector", "collector", fhirreference.FHIRReference, False, None, False),
-            ("source", "source", fhirreference.FHIRReference, False, None, False),
-            ("collectedDateTime", "collectedDateTime", fhirdatatypes.FHIRDateTime, False, "collected", False),
-            ("collectedPeriod", "collectedPeriod", period.Period, False, "collected", False),
+            ("collector", "collector", fhirreference.FHIRReference, False, None, False, None), 
+            ("source", "source", fhirreference.FHIRReference, False, None, False, None), 
+            ("collectedDateTime", "collectedDateTime", fhirdatatypes.FHIRDateTime, False, "collected", False, None), 
+            ("collectedPeriod", "collectedPeriod", period.Period, False, "collected", False, None), 
         ])
         return js
 
@@ -168,9 +168,9 @@ class BiologicallyDerivedProductManipulation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(BiologicallyDerivedProductManipulation, self).elementProperties()
         js.extend([
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("timeDateTime", "timeDateTime", fhirdatatypes.FHIRDateTime, False, "time", False),
-            ("timePeriod", "timePeriod", period.Period, False, "time", False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("timeDateTime", "timeDateTime", fhirdatatypes.FHIRDateTime, False, "time", False, None), 
+            ("timePeriod", "timePeriod", period.Period, False, "time", False, None), 
         ])
         return js
 
@@ -218,11 +218,11 @@ class BiologicallyDerivedProductProcessing(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(BiologicallyDerivedProductProcessing, self).elementProperties()
         js.extend([
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("procedure", "procedure", codeableconcept.CodeableConcept, False, None, False),
-            ("additive", "additive", fhirreference.FHIRReference, False, None, False),
-            ("timeDateTime", "timeDateTime", fhirdatatypes.FHIRDateTime, False, "time", False),
-            ("timePeriod", "timePeriod", period.Period, False, "time", False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("procedure", "procedure", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("additive", "additive", fhirreference.FHIRReference, False, None, False, None), 
+            ("timeDateTime", "timeDateTime", fhirdatatypes.FHIRDateTime, False, "time", False, None), 
+            ("timePeriod", "timePeriod", period.Period, False, "time", False, None), 
         ])
         return js
 
@@ -262,38 +262,28 @@ class BiologicallyDerivedProductStorage(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(BiologicallyDerivedProductStorage, self).elementProperties()
         js.extend([
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("temperature", "temperature", float, False, None, False),
-            ("scale", "scale", fhirdatatypes.FHIRCode, False, None, False),
-            ("duration", "duration", period.Period, False, None, False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("temperature", "temperature", float, False, None, False, None), 
+            ("scale", "scale", fhirdatatypes.FHIRCode, False, None, False, biologicallyderivedproductstoragescale.BiologicallyDerivedProductStorageScale), 
+            ("duration", "duration", period.Period, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.codesystems import biologicallyderivedproductcategory
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import biologicallyderivedproductstatus
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.codesystems import biologicallyderivedproductstoragescale
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import fhirdatatypes
+
+from fhirclient.models import fhirreference
+
+from fhirclient.models import identifier
+
+from fhirclient.models import period
 

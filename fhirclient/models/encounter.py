@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Encounter(domainresource.DomainResource):
     """ An interaction during which services are provided to the patient.
@@ -123,35 +123,35 @@ class Encounter(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Encounter, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("statusHistory", "statusHistory", EncounterStatusHistory, True, None, False),
-            ("class_fhir", "class", coding.Coding, False, None, True),
-            ("classHistory", "classHistory", EncounterClassHistory, True, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
-            ("serviceType", "serviceType", codeableconcept.CodeableConcept, False, None, False),
-            ("priority", "priority", codeableconcept.CodeableConcept, False, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("episodeOfCare", "episodeOfCare", fhirreference.FHIRReference, True, None, False),
-            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
-            ("participant", "participant", EncounterParticipant, True, None, False),
-            ("appointment", "appointment", fhirreference.FHIRReference, True, None, False),
-            ("period", "period", period.Period, False, None, False),
-            ("length", "length", duration.Duration, False, None, False),
-            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("diagnosis", "diagnosis", EncounterDiagnosis, True, None, False),
-            ("account", "account", fhirreference.FHIRReference, True, None, False),
-            ("hospitalization", "hospitalization", EncounterHospitalization, False, None, False),
-            ("location", "location", EncounterLocation, True, None, False),
-            ("serviceProvider", "serviceProvider", fhirreference.FHIRReference, False, None, False),
-            ("partOf", "partOf", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, encounterstatus.EncounterStatus), 
+            ("statusHistory", "statusHistory", EncounterStatusHistory, True, None, False, None), 
+            ("class_fhir", "class", coding.Coding, False, None, True, None), 
+            ("classHistory", "classHistory", EncounterClassHistory, True, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("serviceType", "serviceType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("priority", "priority", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False, None), 
+            ("episodeOfCare", "episodeOfCare", fhirreference.FHIRReference, True, None, False, None), 
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False, None), 
+            ("participant", "participant", EncounterParticipant, True, None, False, None), 
+            ("appointment", "appointment", fhirreference.FHIRReference, True, None, False, None), 
+            ("period", "period", period.Period, False, None, False, None), 
+            ("length", "length", duration.Duration, False, None, False, None), 
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False, None), 
+            ("diagnosis", "diagnosis", EncounterDiagnosis, True, None, False, None), 
+            ("account", "account", fhirreference.FHIRReference, True, None, False, None), 
+            ("hospitalization", "hospitalization", EncounterHospitalization, False, None, False, None), 
+            ("location", "location", EncounterLocation, True, None, False, None), 
+            ("serviceProvider", "serviceProvider", fhirreference.FHIRReference, False, None, False, None), 
+            ("partOf", "partOf", fhirreference.FHIRReference, False, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class EncounterClassHistory(backboneelement.BackboneElement):
     """ List of past encounter classes.
@@ -186,8 +186,8 @@ class EncounterClassHistory(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(EncounterClassHistory, self).elementProperties()
         js.extend([
-            ("class_fhir", "class", coding.Coding, False, None, True),
-            ("period", "period", period.Period, False, None, True),
+            ("class_fhir", "class", coding.Coding, False, None, True, None), 
+            ("period", "period", period.Period, False, None, True, None), 
         ])
         return js
 
@@ -224,9 +224,9 @@ class EncounterDiagnosis(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(EncounterDiagnosis, self).elementProperties()
         js.extend([
-            ("condition", "condition", fhirreference.FHIRReference, False, None, True),
-            ("use", "use", codeableconcept.CodeableConcept, False, None, False),
-            ("rank", "rank", fhirdatatypes.FHIRPositiveInt, False, None, False),
+            ("condition", "condition", fhirreference.FHIRReference, False, None, True, None), 
+            ("use", "use", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("rank", "rank", fhirdatatypes.FHIRPositiveInt, False, None, False, None), 
         ])
         return js
 
@@ -288,15 +288,15 @@ class EncounterHospitalization(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(EncounterHospitalization, self).elementProperties()
         js.extend([
-            ("preAdmissionIdentifier", "preAdmissionIdentifier", identifier.Identifier, False, None, False),
-            ("origin", "origin", fhirreference.FHIRReference, False, None, False),
-            ("admitSource", "admitSource", codeableconcept.CodeableConcept, False, None, False),
-            ("reAdmission", "reAdmission", codeableconcept.CodeableConcept, False, None, False),
-            ("dietPreference", "dietPreference", codeableconcept.CodeableConcept, True, None, False),
-            ("specialCourtesy", "specialCourtesy", codeableconcept.CodeableConcept, True, None, False),
-            ("specialArrangement", "specialArrangement", codeableconcept.CodeableConcept, True, None, False),
-            ("destination", "destination", fhirreference.FHIRReference, False, None, False),
-            ("dischargeDisposition", "dischargeDisposition", codeableconcept.CodeableConcept, False, None, False),
+            ("preAdmissionIdentifier", "preAdmissionIdentifier", identifier.Identifier, False, None, False, None), 
+            ("origin", "origin", fhirreference.FHIRReference, False, None, False, None), 
+            ("admitSource", "admitSource", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("reAdmission", "reAdmission", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("dietPreference", "dietPreference", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("specialCourtesy", "specialCourtesy", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("specialArrangement", "specialArrangement", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("destination", "destination", fhirreference.FHIRReference, False, None, False, None), 
+            ("dischargeDisposition", "dischargeDisposition", codeableconcept.CodeableConcept, False, None, False, None), 
         ])
         return js
 
@@ -339,10 +339,10 @@ class EncounterLocation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(EncounterLocation, self).elementProperties()
         js.extend([
-            ("location", "location", fhirreference.FHIRReference, False, None, True),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
-            ("physicalType", "physicalType", codeableconcept.CodeableConcept, False, None, False),
-            ("period", "period", period.Period, False, None, False),
+            ("location", "location", fhirreference.FHIRReference, False, None, True, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, False, encounterlocationstatus.EncounterLocationStatus), 
+            ("physicalType", "physicalType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("period", "period", period.Period, False, None, False, None), 
         ])
         return js
 
@@ -381,9 +381,9 @@ class EncounterParticipant(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(EncounterParticipant, self).elementProperties()
         js.extend([
-            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
-            ("period", "period", period.Period, False, None, False),
-            ("individual", "individual", fhirreference.FHIRReference, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("period", "period", period.Period, False, None, False, None), 
+            ("individual", "individual", fhirreference.FHIRReference, False, None, False, None), 
         ])
         return js
 
@@ -420,46 +420,28 @@ class EncounterStatusHistory(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(EncounterStatusHistory, self).elementProperties()
         js.extend([
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("period", "period", period.Period, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, encounterstatus.EncounterStatus), 
+            ("period", "period", period.Period, False, None, True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
+from fhirclient.models import coding
 
-try:
-    from . import duration
-except ImportError:
-    duration = sys.modules[__package__ + '.duration']
+from fhirclient.models import duration
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import encounterlocationstatus
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.codesystems import encounterstatus
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import fhirreference
+
+from fhirclient.models import identifier
+
+from fhirclient.models import period
 

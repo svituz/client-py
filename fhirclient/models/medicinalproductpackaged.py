@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class MedicinalProductPackaged(domainresource.DomainResource):
     """ A medicinal product in a container or package.
@@ -64,21 +64,21 @@ class MedicinalProductPackaged(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MedicinalProductPackaged, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("legalStatusOfSupply", "legalStatusOfSupply", codeableconcept.CodeableConcept, False, None, False),
-            ("marketingStatus", "marketingStatus", marketingstatus.MarketingStatus, True, None, False),
-            ("marketingAuthorization", "marketingAuthorization", fhirreference.FHIRReference, False, None, False),
-            ("manufacturer", "manufacturer", fhirreference.FHIRReference, True, None, False),
-            ("batchIdentifier", "batchIdentifier", MedicinalProductPackagedBatchIdentifier, True, None, False),
-            ("packageItem", "packageItem", MedicinalProductPackagedPackageItem, True, None, True),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("subject", "subject", fhirreference.FHIRReference, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("legalStatusOfSupply", "legalStatusOfSupply", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("marketingStatus", "marketingStatus", marketingstatus.MarketingStatus, True, None, False, None), 
+            ("marketingAuthorization", "marketingAuthorization", fhirreference.FHIRReference, False, None, False, None), 
+            ("manufacturer", "manufacturer", fhirreference.FHIRReference, True, None, False, None), 
+            ("batchIdentifier", "batchIdentifier", MedicinalProductPackagedBatchIdentifier, True, None, False, None), 
+            ("packageItem", "packageItem", MedicinalProductPackagedPackageItem, True, None, True, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class MedicinalProductPackagedBatchIdentifier(backboneelement.BackboneElement):
     """ Batch numbering.
@@ -106,8 +106,8 @@ class MedicinalProductPackagedBatchIdentifier(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicinalProductPackagedBatchIdentifier, self).elementProperties()
         js.extend([
-            ("outerPackaging", "outerPackaging", identifier.Identifier, False, None, True),
-            ("immediatePackaging", "immediatePackaging", identifier.Identifier, False, None, False),
+            ("outerPackaging", "outerPackaging", identifier.Identifier, False, None, True, None), 
+            ("immediatePackaging", "immediatePackaging", identifier.Identifier, False, None, False, None), 
         ])
         return js
 
@@ -182,61 +182,36 @@ class MedicinalProductPackagedPackageItem(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicinalProductPackagedPackageItem, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
-            ("quantity", "quantity", quantity.Quantity, False, None, True),
-            ("material", "material", codeableconcept.CodeableConcept, True, None, False),
-            ("alternateMaterial", "alternateMaterial", codeableconcept.CodeableConcept, True, None, False),
-            ("device", "device", fhirreference.FHIRReference, True, None, False),
-            ("manufacturedItem", "manufacturedItem", fhirreference.FHIRReference, True, None, False),
-            ("packageItem", "packageItem", MedicinalProductPackagedPackageItem, True, None, False),
-            ("physicalCharacteristics", "physicalCharacteristics", prodcharacteristic.ProdCharacteristic, False, None, False),
-            ("otherCharacteristics", "otherCharacteristics", codeableconcept.CodeableConcept, True, None, False),
-            ("shelfLifeStorage", "shelfLifeStorage", productshelflife.ProductShelfLife, True, None, False),
-            ("manufacturer", "manufacturer", fhirreference.FHIRReference, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("quantity", "quantity", quantity.Quantity, False, None, True, None), 
+            ("material", "material", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("alternateMaterial", "alternateMaterial", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("device", "device", fhirreference.FHIRReference, True, None, False, None), 
+            ("manufacturedItem", "manufacturedItem", fhirreference.FHIRReference, True, None, False, None), 
+            ("packageItem", "packageItem", MedicinalProductPackagedPackageItem, True, None, False, None), 
+            ("physicalCharacteristics", "physicalCharacteristics", prodcharacteristic.ProdCharacteristic, False, None, False, None), 
+            ("otherCharacteristics", "otherCharacteristics", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("shelfLifeStorage", "shelfLifeStorage", productshelflife.ProductShelfLife, True, None, False, None), 
+            ("manufacturer", "manufacturer", fhirreference.FHIRReference, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import marketingstatus
-except ImportError:
-    marketingstatus = sys.modules[__package__ + '.marketingstatus']
+from fhirclient.models import marketingstatus
 
-try:
-    from . import prodcharacteristic
-except ImportError:
-    prodcharacteristic = sys.modules[__package__ + '.prodcharacteristic']
+from fhirclient.models import prodcharacteristic
 
-try:
-    from . import productshelflife
-except ImportError:
-    productshelflife = sys.modules[__package__ + '.productshelflife']
+from fhirclient.models import productshelflife
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import quantity
 

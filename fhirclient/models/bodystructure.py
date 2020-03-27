@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class BodyStructure(domainresource.DomainResource):
     """ Specific and identified anatomical structure.
@@ -62,42 +62,26 @@ class BodyStructure(domainresource.DomainResource):
     def elementProperties(self):
         js = super(BodyStructure, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("active", "active", bool, False, None, False),
-            ("morphology", "morphology", codeableconcept.CodeableConcept, False, None, False),
-            ("location", "location", codeableconcept.CodeableConcept, False, None, False),
-            ("locationQualifier", "locationQualifier", codeableconcept.CodeableConcept, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("image", "image", attachment.Attachment, True, None, False),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("active", "active", bool, False, None, False, None), 
+            ("morphology", "morphology", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("location", "location", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("locationQualifier", "locationQualifier", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("image", "image", attachment.Attachment, True, None, False, None), 
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
+from fhirclient.models import attachment
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 

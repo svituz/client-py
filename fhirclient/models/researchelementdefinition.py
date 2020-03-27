@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class ResearchElementDefinition(domainresource.DomainResource):
     """ A population, intervention, or exposure definition.
@@ -170,46 +170,46 @@ class ResearchElementDefinition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ResearchElementDefinition, self).elementProperties()
         js.extend([
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("shortTitle", "shortTitle", fhirdatatypes.FHIRString, False, None, False),
-            ("subtitle", "subtitle", fhirdatatypes.FHIRString, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("experimental", "experimental", bool, False, None, False),
-            ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False),
-            ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("comment", "comment", fhirdatatypes.FHIRString, True, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("usage", "usage", fhirdatatypes.FHIRString, False, None, False),
-            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("approvalDate", "approvalDate", fhirdatatypes.FHIRDate, False, None, False),
-            ("lastReviewDate", "lastReviewDate", fhirdatatypes.FHIRDate, False, None, False),
-            ("effectivePeriod", "effectivePeriod", period.Period, False, None, False),
-            ("topic", "topic", codeableconcept.CodeableConcept, True, None, False),
-            ("author", "author", contactdetail.ContactDetail, True, None, False),
-            ("editor", "editor", contactdetail.ContactDetail, True, None, False),
-            ("reviewer", "reviewer", contactdetail.ContactDetail, True, None, False),
-            ("endorser", "endorser", contactdetail.ContactDetail, True, None, False),
-            ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False),
-            ("library", "library", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("variableType", "variableType", fhirdatatypes.FHIRCode, False, None, False),
-            ("characteristic", "characteristic", ResearchElementDefinitionCharacteristic, True, None, True),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("shortTitle", "shortTitle", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("subtitle", "subtitle", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, publicationstatus.PublicationStatus), 
+            ("experimental", "experimental", bool, False, None, False, None), 
+            ("subjectCodeableConcept", "subjectCodeableConcept", codeableconcept.CodeableConcept, False, "subject", False, None), 
+            ("subjectReference", "subjectReference", fhirreference.FHIRReference, False, "subject", False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("comment", "comment", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False, None), 
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("usage", "usage", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("approvalDate", "approvalDate", fhirdatatypes.FHIRDate, False, None, False, None), 
+            ("lastReviewDate", "lastReviewDate", fhirdatatypes.FHIRDate, False, None, False, None), 
+            ("effectivePeriod", "effectivePeriod", period.Period, False, None, False, None), 
+            ("topic", "topic", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("author", "author", contactdetail.ContactDetail, True, None, False, None), 
+            ("editor", "editor", contactdetail.ContactDetail, True, None, False, None), 
+            ("reviewer", "reviewer", contactdetail.ContactDetail, True, None, False, None), 
+            ("endorser", "endorser", contactdetail.ContactDetail, True, None, False, None), 
+            ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False, None), 
+            ("library", "library", fhirdatatypes.FHIRCanonical, True, None, False, None), 
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, researchelementtype.ResearchElementType), 
+            ("variableType", "variableType", fhirdatatypes.FHIRCode, False, None, False, evidencevariabletype.EvidenceVariableType), 
+            ("characteristic", "characteristic", ResearchElementDefinitionCharacteristic, True, None, True, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ResearchElementDefinitionCharacteristic(backboneelement.BackboneElement):
     """ What defines the members of the research element.
@@ -317,90 +317,61 @@ class ResearchElementDefinitionCharacteristic(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ResearchElementDefinitionCharacteristic, self).elementProperties()
         js.extend([
-            ("definitionCodeableConcept", "definitionCodeableConcept", codeableconcept.CodeableConcept, False, "definition", True),
-            ("definitionCanonical", "definitionCanonical", fhirdatatypes.FHIRCanonical, False, "definition", True),
-            ("definitionExpression", "definitionExpression", expression.Expression, False, "definition", True),
-            ("definitionDataRequirement", "definitionDataRequirement", datarequirement.DataRequirement, False, "definition", True),
-            ("usageContext", "usageContext", usagecontext.UsageContext, True, None, False),
-            ("exclude", "exclude", bool, False, None, False),
-            ("unitOfMeasure", "unitOfMeasure", codeableconcept.CodeableConcept, False, None, False),
-            ("studyEffectiveDescription", "studyEffectiveDescription", fhirdatatypes.FHIRString, False, None, False),
-            ("studyEffectiveDateTime", "studyEffectiveDateTime", fhirdatatypes.FHIRDateTime, False, "studyEffective", False),
-            ("studyEffectivePeriod", "studyEffectivePeriod", period.Period, False, "studyEffective", False),
-            ("studyEffectiveDuration", "studyEffectiveDuration", duration.Duration, False, "studyEffective", False),
-            ("studyEffectiveTiming", "studyEffectiveTiming", timing.Timing, False, "studyEffective", False),
-            ("studyEffectiveTimeFromStart", "studyEffectiveTimeFromStart", duration.Duration, False, None, False),
-            ("studyEffectiveGroupMeasure", "studyEffectiveGroupMeasure", fhirdatatypes.FHIRCode, False, None, False),
-            ("participantEffectiveDescription", "participantEffectiveDescription", fhirdatatypes.FHIRString, False, None, False),
-            ("participantEffectiveDateTime", "participantEffectiveDateTime", fhirdatatypes.FHIRDateTime, False, "participantEffective", False),
-            ("participantEffectivePeriod", "participantEffectivePeriod", period.Period, False, "participantEffective", False),
-            ("participantEffectiveDuration", "participantEffectiveDuration", duration.Duration, False, "participantEffective", False),
-            ("participantEffectiveTiming", "participantEffectiveTiming", timing.Timing, False, "participantEffective", False),
-            ("participantEffectiveTimeFromStart", "participantEffectiveTimeFromStart", duration.Duration, False, None, False),
-            ("participantEffectiveGroupMeasure", "participantEffectiveGroupMeasure", fhirdatatypes.FHIRCode, False, None, False),
+            ("definitionCodeableConcept", "definitionCodeableConcept", codeableconcept.CodeableConcept, False, "definition", True, None), 
+            ("definitionCanonical", "definitionCanonical", fhirdatatypes.FHIRCanonical, False, "definition", True, None), 
+            ("definitionExpression", "definitionExpression", expression.Expression, False, "definition", True, None), 
+            ("definitionDataRequirement", "definitionDataRequirement", datarequirement.DataRequirement, False, "definition", True, None), 
+            ("usageContext", "usageContext", usagecontext.UsageContext, True, None, False, None), 
+            ("exclude", "exclude", bool, False, None, False, None), 
+            ("unitOfMeasure", "unitOfMeasure", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("studyEffectiveDescription", "studyEffectiveDescription", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("studyEffectiveDateTime", "studyEffectiveDateTime", fhirdatatypes.FHIRDateTime, False, "studyEffective", False, None), 
+            ("studyEffectivePeriod", "studyEffectivePeriod", period.Period, False, "studyEffective", False, None), 
+            ("studyEffectiveDuration", "studyEffectiveDuration", duration.Duration, False, "studyEffective", False, None), 
+            ("studyEffectiveTiming", "studyEffectiveTiming", timing.Timing, False, "studyEffective", False, None), 
+            ("studyEffectiveTimeFromStart", "studyEffectiveTimeFromStart", duration.Duration, False, None, False, None), 
+            ("studyEffectiveGroupMeasure", "studyEffectiveGroupMeasure", fhirdatatypes.FHIRCode, False, None, False, groupmeasure.GroupMeasure), 
+            ("participantEffectiveDescription", "participantEffectiveDescription", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("participantEffectiveDateTime", "participantEffectiveDateTime", fhirdatatypes.FHIRDateTime, False, "participantEffective", False, None), 
+            ("participantEffectivePeriod", "participantEffectivePeriod", period.Period, False, "participantEffective", False, None), 
+            ("participantEffectiveDuration", "participantEffectiveDuration", duration.Duration, False, "participantEffective", False, None), 
+            ("participantEffectiveTiming", "participantEffectiveTiming", timing.Timing, False, "participantEffective", False, None), 
+            ("participantEffectiveTimeFromStart", "participantEffectiveTimeFromStart", duration.Duration, False, None, False, None), 
+            ("participantEffectiveGroupMeasure", "participantEffectiveGroupMeasure", fhirdatatypes.FHIRCode, False, None, False, groupmeasure.GroupMeasure), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.models import contactdetail
 
-try:
-    from . import datarequirement
-except ImportError:
-    datarequirement = sys.modules[__package__ + '.datarequirement']
+from fhirclient.models import datarequirement
 
-try:
-    from . import duration
-except ImportError:
-    duration = sys.modules[__package__ + '.duration']
+from fhirclient.models import duration
 
-try:
-    from . import expression
-except ImportError:
-    expression = sys.modules[__package__ + '.expression']
+from fhirclient.codesystems import evidencevariabletype
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import expression
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.codesystems import groupmeasure
 
-try:
-    from . import relatedartifact
-except ImportError:
-    relatedartifact = sys.modules[__package__ + '.relatedartifact']
+from fhirclient.models import identifier
 
-try:
-    from . import timing
-except ImportError:
-    timing = sys.modules[__package__ + '.timing']
+from fhirclient.models import period
 
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from fhirclient.codesystems import publicationstatus
+
+from fhirclient.models import relatedartifact
+
+from fhirclient.codesystems import researchelementtype
+
+from fhirclient.models import timing
+
+from fhirclient.models import usagecontext
 

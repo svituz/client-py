@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import resource
+from fhirclient.models import resource
 
 class Parameters(resource.Resource):
     """ Operation Request or Response.
@@ -34,13 +34,13 @@ class Parameters(resource.Resource):
     def elementProperties(self):
         js = super(Parameters, self).elementProperties()
         js.extend([
-            ("parameter", "parameter", ParametersParameter, True, None, False),
+            ("parameter", "parameter", ParametersParameter, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ParametersParameter(backboneelement.BackboneElement):
     """ Operation Parameter.
@@ -273,222 +273,125 @@ class ParametersParameter(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ParametersParameter, self).elementProperties()
         js.extend([
-            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
-            ("valueBase64Binary", "valueBase64Binary", fhirdatatypes.FHIRBase64Binary, False, "value", False),
-            ("valueBoolean", "valueBoolean", bool, False, "value", False),
-            ("valueCanonical", "valueCanonical", fhirdatatypes.FHIRCanonical, False, "value", False),
-            ("valueCode", "valueCode", fhirdatatypes.FHIRCode, False, "value", False),
-            ("valueDate", "valueDate", fhirdatatypes.FHIRDate, False, "value", False),
-            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", False),
-            ("valueDecimal", "valueDecimal", float, False, "value", False),
-            ("valueId", "valueId", fhirdatatypes.FHIRId, False, "value", False),
-            ("valueInstant", "valueInstant", fhirdatatypes.FHIRInstant, False, "value", False),
-            ("valueInteger", "valueInteger", int, False, "value", False),
-            ("valueMarkdown", "valueMarkdown", fhirdatatypes.FHIRMarkdown, False, "value", False),
-            ("valueOid", "valueOid", fhirdatatypes.FHIROid, False, "value", False),
-            ("valuePositiveInt", "valuePositiveInt", fhirdatatypes.FHIRPositiveInt, False, "value", False),
-            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", False),
-            ("valueTime", "valueTime", fhirdatatypes.FHIRTime, False, "value", False),
-            ("valueUnsignedInt", "valueUnsignedInt", fhirdatatypes.FHIRUnsignedInt, False, "value", False),
-            ("valueUri", "valueUri", fhirdatatypes.FHIRUri, False, "value", False),
-            ("valueUrl", "valueUrl", fhirdatatypes.FHIRUrl, False, "value", False),
-            ("valueUuid", "valueUuid", fhirdatatypes.FHIRUuid, False, "value", False),
-            ("valueAddress", "valueAddress", address.Address, False, "value", False),
-            ("valueAge", "valueAge", age.Age, False, "value", False),
-            ("valueAnnotation", "valueAnnotation", annotation.Annotation, False, "value", False),
-            ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", False),
-            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", False),
-            ("valueCoding", "valueCoding", coding.Coding, False, "value", False),
-            ("valueContactPoint", "valueContactPoint", contactpoint.ContactPoint, False, "value", False),
-            ("valueCount", "valueCount", count.Count, False, "value", False),
-            ("valueDistance", "valueDistance", distance.Distance, False, "value", False),
-            ("valueDuration", "valueDuration", duration.Duration, False, "value", False),
-            ("valueHumanName", "valueHumanName", humanname.HumanName, False, "value", False),
-            ("valueIdentifier", "valueIdentifier", identifier.Identifier, False, "value", False),
-            ("valueMoney", "valueMoney", money.Money, False, "value", False),
-            ("valuePeriod", "valuePeriod", period.Period, False, "value", False),
-            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
-            ("valueRange", "valueRange", range.Range, False, "value", False),
-            ("valueRatio", "valueRatio", ratio.Ratio, False, "value", False),
-            ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", False),
-            ("valueSampledData", "valueSampledData", sampleddata.SampledData, False, "value", False),
-            ("valueSignature", "valueSignature", signature.Signature, False, "value", False),
-            ("valueTiming", "valueTiming", timing.Timing, False, "value", False),
-            ("valueContactDetail", "valueContactDetail", contactdetail.ContactDetail, False, "value", False),
-            ("valueContributor", "valueContributor", contributor.Contributor, False, "value", False),
-            ("valueDataRequirement", "valueDataRequirement", datarequirement.DataRequirement, False, "value", False),
-            ("valueExpression", "valueExpression", expression.Expression, False, "value", False),
-            ("valueParameterDefinition", "valueParameterDefinition", parameterdefinition.ParameterDefinition, False, "value", False),
-            ("valueRelatedArtifact", "valueRelatedArtifact", relatedartifact.RelatedArtifact, False, "value", False),
-            ("valueTriggerDefinition", "valueTriggerDefinition", triggerdefinition.TriggerDefinition, False, "value", False),
-            ("valueUsageContext", "valueUsageContext", usagecontext.UsageContext, False, "value", False),
-            ("valueDosage", "valueDosage", dosage.Dosage, False, "value", False),
-            ("valueMeta", "valueMeta", meta.Meta, False, "value", False),
-            ("resource", "resource", resource.Resource, False, None, False),
-            ("part", "part", ParametersParameter, True, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("valueBase64Binary", "valueBase64Binary", fhirdatatypes.FHIRBase64Binary, False, "value", False, None), 
+            ("valueBoolean", "valueBoolean", bool, False, "value", False, None), 
+            ("valueCanonical", "valueCanonical", fhirdatatypes.FHIRCanonical, False, "value", False, None), 
+            ("valueCode", "valueCode", fhirdatatypes.FHIRCode, False, "value", False, None), 
+            ("valueDate", "valueDate", fhirdatatypes.FHIRDate, False, "value", False, None), 
+            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", False, None), 
+            ("valueDecimal", "valueDecimal", float, False, "value", False, None), 
+            ("valueId", "valueId", fhirdatatypes.FHIRId, False, "value", False, None), 
+            ("valueInstant", "valueInstant", fhirdatatypes.FHIRInstant, False, "value", False, None), 
+            ("valueInteger", "valueInteger", int, False, "value", False, None), 
+            ("valueMarkdown", "valueMarkdown", fhirdatatypes.FHIRMarkdown, False, "value", False, None), 
+            ("valueOid", "valueOid", fhirdatatypes.FHIROid, False, "value", False, None), 
+            ("valuePositiveInt", "valuePositiveInt", fhirdatatypes.FHIRPositiveInt, False, "value", False, None), 
+            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", False, None), 
+            ("valueTime", "valueTime", fhirdatatypes.FHIRTime, False, "value", False, None), 
+            ("valueUnsignedInt", "valueUnsignedInt", fhirdatatypes.FHIRUnsignedInt, False, "value", False, None), 
+            ("valueUri", "valueUri", fhirdatatypes.FHIRUri, False, "value", False, None), 
+            ("valueUrl", "valueUrl", fhirdatatypes.FHIRUrl, False, "value", False, None), 
+            ("valueUuid", "valueUuid", fhirdatatypes.FHIRUuid, False, "value", False, None), 
+            ("valueAddress", "valueAddress", address.Address, False, "value", False, None), 
+            ("valueAge", "valueAge", age.Age, False, "value", False, None), 
+            ("valueAnnotation", "valueAnnotation", annotation.Annotation, False, "value", False, None), 
+            ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", False, None), 
+            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", False, None), 
+            ("valueCoding", "valueCoding", coding.Coding, False, "value", False, None), 
+            ("valueContactPoint", "valueContactPoint", contactpoint.ContactPoint, False, "value", False, None), 
+            ("valueCount", "valueCount", count.Count, False, "value", False, None), 
+            ("valueDistance", "valueDistance", distance.Distance, False, "value", False, None), 
+            ("valueDuration", "valueDuration", duration.Duration, False, "value", False, None), 
+            ("valueHumanName", "valueHumanName", humanname.HumanName, False, "value", False, None), 
+            ("valueIdentifier", "valueIdentifier", identifier.Identifier, False, "value", False, None), 
+            ("valueMoney", "valueMoney", money.Money, False, "value", False, None), 
+            ("valuePeriod", "valuePeriod", period.Period, False, "value", False, None), 
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False, None), 
+            ("valueRange", "valueRange", range.Range, False, "value", False, None), 
+            ("valueRatio", "valueRatio", ratio.Ratio, False, "value", False, None), 
+            ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", False, None), 
+            ("valueSampledData", "valueSampledData", sampleddata.SampledData, False, "value", False, None), 
+            ("valueSignature", "valueSignature", signature.Signature, False, "value", False, None), 
+            ("valueTiming", "valueTiming", timing.Timing, False, "value", False, None), 
+            ("valueContactDetail", "valueContactDetail", contactdetail.ContactDetail, False, "value", False, None), 
+            ("valueContributor", "valueContributor", contributor.Contributor, False, "value", False, None), 
+            ("valueDataRequirement", "valueDataRequirement", datarequirement.DataRequirement, False, "value", False, None), 
+            ("valueExpression", "valueExpression", expression.Expression, False, "value", False, None), 
+            ("valueParameterDefinition", "valueParameterDefinition", parameterdefinition.ParameterDefinition, False, "value", False, None), 
+            ("valueRelatedArtifact", "valueRelatedArtifact", relatedartifact.RelatedArtifact, False, "value", False, None), 
+            ("valueTriggerDefinition", "valueTriggerDefinition", triggerdefinition.TriggerDefinition, False, "value", False, None), 
+            ("valueUsageContext", "valueUsageContext", usagecontext.UsageContext, False, "value", False, None), 
+            ("valueDosage", "valueDosage", dosage.Dosage, False, "value", False, None), 
+            ("valueMeta", "valueMeta", meta.Meta, False, "value", False, None), 
+            ("resource", "resource", resource.Resource, False, None, False, None), 
+            ("part", "part", ParametersParameter, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import address
-except ImportError:
-    address = sys.modules[__package__ + '.address']
+from fhirclient.models import address
 
-try:
-    from . import age
-except ImportError:
-    age = sys.modules[__package__ + '.age']
+from fhirclient.models import age
 
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
+from fhirclient.models import attachment
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
+from fhirclient.models import coding
 
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.models import contactdetail
 
-try:
-    from . import contactpoint
-except ImportError:
-    contactpoint = sys.modules[__package__ + '.contactpoint']
+from fhirclient.models import contactpoint
 
-try:
-    from . import contributor
-except ImportError:
-    contributor = sys.modules[__package__ + '.contributor']
+from fhirclient.models import contributor
 
-try:
-    from . import count
-except ImportError:
-    count = sys.modules[__package__ + '.count']
+from fhirclient.models import count
 
-try:
-    from . import datarequirement
-except ImportError:
-    datarequirement = sys.modules[__package__ + '.datarequirement']
+from fhirclient.models import datarequirement
 
-try:
-    from . import distance
-except ImportError:
-    distance = sys.modules[__package__ + '.distance']
+from fhirclient.models import distance
 
-try:
-    from . import dosage
-except ImportError:
-    dosage = sys.modules[__package__ + '.dosage']
+from fhirclient.models import dosage
 
-try:
-    from . import duration
-except ImportError:
-    duration = sys.modules[__package__ + '.duration']
+from fhirclient.models import duration
 
-try:
-    from . import expression
-except ImportError:
-    expression = sys.modules[__package__ + '.expression']
+from fhirclient.models import expression
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import humanname
-except ImportError:
-    humanname = sys.modules[__package__ + '.humanname']
+from fhirclient.models import humanname
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import meta
-except ImportError:
-    meta = sys.modules[__package__ + '.meta']
+from fhirclient.models import meta
 
-try:
-    from . import money
-except ImportError:
-    money = sys.modules[__package__ + '.money']
+from fhirclient.models import money
 
-try:
-    from . import parameterdefinition
-except ImportError:
-    parameterdefinition = sys.modules[__package__ + '.parameterdefinition']
+from fhirclient.models import parameterdefinition
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import period
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import quantity
 
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from fhirclient.models import range
 
-try:
-    from . import ratio
-except ImportError:
-    ratio = sys.modules[__package__ + '.ratio']
+from fhirclient.models import ratio
 
-try:
-    from . import relatedartifact
-except ImportError:
-    relatedartifact = sys.modules[__package__ + '.relatedartifact']
+from fhirclient.models import relatedartifact
 
-try:
-    from . import sampleddata
-except ImportError:
-    sampleddata = sys.modules[__package__ + '.sampleddata']
+from fhirclient.models import sampleddata
 
-try:
-    from . import signature
-except ImportError:
-    signature = sys.modules[__package__ + '.signature']
+from fhirclient.models import signature
 
-try:
-    from . import timing
-except ImportError:
-    timing = sys.modules[__package__ + '.timing']
+from fhirclient.models import timing
 
-try:
-    from . import triggerdefinition
-except ImportError:
-    triggerdefinition = sys.modules[__package__ + '.triggerdefinition']
+from fhirclient.models import triggerdefinition
 
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from fhirclient.models import usagecontext
 

@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Basic(domainresource.DomainResource):
     """ Resource for non-supported content.
@@ -50,34 +50,21 @@ class Basic(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Basic, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("created", "created", fhirdatatypes.FHIRDate, False, None, False),
-            ("author", "author", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False, None), 
+            ("created", "created", fhirdatatypes.FHIRDate, False, None, False, None), 
+            ("author", "author", fhirreference.FHIRReference, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 

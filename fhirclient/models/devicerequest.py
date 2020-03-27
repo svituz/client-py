@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class DeviceRequest(domainresource.DomainResource):
     """ Medical device request.
@@ -140,39 +140,39 @@ class DeviceRequest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(DeviceRequest, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False),
-            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
-            ("priorRequest", "priorRequest", fhirreference.FHIRReference, True, None, False),
-            ("groupIdentifier", "groupIdentifier", identifier.Identifier, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
-            ("intent", "intent", fhirdatatypes.FHIRCode, False, None, True),
-            ("priority", "priority", fhirdatatypes.FHIRCode, False, None, False),
-            ("codeReference", "codeReference", fhirreference.FHIRReference, False, "code", True),
-            ("codeCodeableConcept", "codeCodeableConcept", codeableconcept.CodeableConcept, False, "code", True),
-            ("parameter", "parameter", DeviceRequestParameter, True, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("occurrenceDateTime", "occurrenceDateTime", fhirdatatypes.FHIRDateTime, False, "occurrence", False),
-            ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
-            ("occurrenceTiming", "occurrenceTiming", timing.Timing, False, "occurrence", False),
-            ("authoredOn", "authoredOn", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("requester", "requester", fhirreference.FHIRReference, False, None, False),
-            ("performerType", "performerType", codeableconcept.CodeableConcept, False, None, False),
-            ("performer", "performer", fhirreference.FHIRReference, False, None, False),
-            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("insurance", "insurance", fhirreference.FHIRReference, True, None, False),
-            ("supportingInfo", "supportingInfo", fhirreference.FHIRReference, True, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
-            ("relevantHistory", "relevantHistory", fhirreference.FHIRReference, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False, None), 
+            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False, None), 
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False, None), 
+            ("priorRequest", "priorRequest", fhirreference.FHIRReference, True, None, False, None), 
+            ("groupIdentifier", "groupIdentifier", identifier.Identifier, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, False, requeststatus.RequestStatus), 
+            ("intent", "intent", fhirdatatypes.FHIRCode, False, None, True, requestintent.RequestIntent), 
+            ("priority", "priority", fhirdatatypes.FHIRCode, False, None, False, requestpriority.RequestPriority), 
+            ("codeReference", "codeReference", fhirreference.FHIRReference, False, "code", True, None), 
+            ("codeCodeableConcept", "codeCodeableConcept", codeableconcept.CodeableConcept, False, "code", True, None), 
+            ("parameter", "parameter", DeviceRequestParameter, True, None, False, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True, None), 
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False, None), 
+            ("occurrenceDateTime", "occurrenceDateTime", fhirdatatypes.FHIRDateTime, False, "occurrence", False, None), 
+            ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False, None), 
+            ("occurrenceTiming", "occurrenceTiming", timing.Timing, False, "occurrence", False, None), 
+            ("authoredOn", "authoredOn", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("requester", "requester", fhirreference.FHIRReference, False, None, False, None), 
+            ("performerType", "performerType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("performer", "performer", fhirreference.FHIRReference, False, None, False, None), 
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False, None), 
+            ("insurance", "insurance", fhirreference.FHIRReference, True, None, False, None), 
+            ("supportingInfo", "supportingInfo", fhirreference.FHIRReference, True, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
+            ("relevantHistory", "relevantHistory", fhirreference.FHIRReference, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class DeviceRequestParameter(backboneelement.BackboneElement):
     """ Device details.
@@ -214,59 +214,37 @@ class DeviceRequestParameter(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(DeviceRequestParameter, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", False),
-            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
-            ("valueRange", "valueRange", range.Range, False, "value", False),
-            ("valueBoolean", "valueBoolean", bool, False, "value", False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", False, None), 
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False, None), 
+            ("valueRange", "valueRange", range.Range, False, "value", False, None), 
+            ("valueBoolean", "valueBoolean", bool, False, "value", False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import period
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import quantity
 
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from fhirclient.models import range
 
-try:
-    from . import timing
-except ImportError:
-    timing = sys.modules[__package__ + '.timing']
+from fhirclient.codesystems import requestintent
+
+from fhirclient.codesystems import requestpriority
+
+from fhirclient.codesystems import requeststatus
+
+from fhirclient.models import timing
 

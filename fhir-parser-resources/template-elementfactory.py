@@ -19,7 +19,7 @@ class FHIRElementFactory(object):
         """
         {%- for klass in classes %}{% if klass.resource_type %}
         if "{{ klass.resource_type }}" == resource_type:
-            from . import {{ klass.module }}
+            from {{ klass.base_module }} import {{ klass.module }}
             return {{ klass.module }}.{{ klass.name }}(jsondict)
         {%- endif %}{% endfor %}
         from . import element

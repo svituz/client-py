@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class NamingSystem(domainresource.DomainResource):
     """ System of unique identification.
@@ -82,25 +82,25 @@ class NamingSystem(domainresource.DomainResource):
     def elementProperties(self):
         js = super(NamingSystem, self).elementProperties()
         js.extend([
-            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("kind", "kind", fhirdatatypes.FHIRCode, False, None, True),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, True),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("responsible", "responsible", fhirdatatypes.FHIRString, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("usage", "usage", fhirdatatypes.FHIRString, False, None, False),
-            ("uniqueId", "uniqueId", NamingSystemUniqueId, True, None, True),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, publicationstatus.PublicationStatus), 
+            ("kind", "kind", fhirdatatypes.FHIRCode, False, None, True, namingsystemtype.NamingSystemType), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, True, None), 
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False, None), 
+            ("responsible", "responsible", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False, None), 
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("usage", "usage", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("uniqueId", "uniqueId", NamingSystemUniqueId, True, None, True, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class NamingSystemUniqueId(backboneelement.BackboneElement):
     """ Unique identifiers used for system.
@@ -142,39 +142,29 @@ class NamingSystemUniqueId(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(NamingSystemUniqueId, self).elementProperties()
         js.extend([
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("value", "value", fhirdatatypes.FHIRString, False, None, True),
-            ("preferred", "preferred", bool, False, None, False),
-            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False),
-            ("period", "period", period.Period, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, namingsystemidentifiertype.NamingSystemIdentifierType), 
+            ("value", "value", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("preferred", "preferred", bool, False, None, False, None), 
+            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("period", "period", period.Period, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.models import contactdetail
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.codesystems import namingsystemidentifiertype
 
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from fhirclient.codesystems import namingsystemtype
+
+from fhirclient.models import period
+
+from fhirclient.codesystems import publicationstatus
+
+from fhirclient.models import usagecontext
 

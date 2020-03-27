@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class ImagingStudy(domainresource.DomainResource):
     """ A set of images produced in single study (one or more series of references
@@ -113,32 +113,32 @@ class ImagingStudy(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ImagingStudy, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("modality", "modality", coding.Coding, True, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("started", "started", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
-            ("referrer", "referrer", fhirreference.FHIRReference, False, None, False),
-            ("interpreter", "interpreter", fhirreference.FHIRReference, True, None, False),
-            ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False),
-            ("numberOfSeries", "numberOfSeries", fhirdatatypes.FHIRUnsignedInt, False, None, False),
-            ("numberOfInstances", "numberOfInstances", fhirdatatypes.FHIRUnsignedInt, False, None, False),
-            ("procedureReference", "procedureReference", fhirreference.FHIRReference, False, None, False),
-            ("procedureCode", "procedureCode", codeableconcept.CodeableConcept, True, None, False),
-            ("location", "location", fhirreference.FHIRReference, False, None, False),
-            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("series", "series", ImagingStudySeries, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, imagingstudystatus.ImagingStudyStatus), 
+            ("modality", "modality", coding.Coding, True, None, False, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True, None), 
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False, None), 
+            ("started", "started", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False, None), 
+            ("referrer", "referrer", fhirreference.FHIRReference, False, None, False, None), 
+            ("interpreter", "interpreter", fhirreference.FHIRReference, True, None, False, None), 
+            ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False, None), 
+            ("numberOfSeries", "numberOfSeries", fhirdatatypes.FHIRUnsignedInt, False, None, False, None), 
+            ("numberOfInstances", "numberOfInstances", fhirdatatypes.FHIRUnsignedInt, False, None, False, None), 
+            ("procedureReference", "procedureReference", fhirreference.FHIRReference, False, None, False, None), 
+            ("procedureCode", "procedureCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("location", "location", fhirreference.FHIRReference, False, None, False, None), 
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("series", "series", ImagingStudySeries, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ImagingStudySeries(backboneelement.BackboneElement):
     """ Each study has one or more series of instances.
@@ -207,18 +207,18 @@ class ImagingStudySeries(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImagingStudySeries, self).elementProperties()
         js.extend([
-            ("uid", "uid", fhirdatatypes.FHIRId, False, None, True),
-            ("number", "number", fhirdatatypes.FHIRUnsignedInt, False, None, False),
-            ("modality", "modality", coding.Coding, False, None, True),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("numberOfInstances", "numberOfInstances", fhirdatatypes.FHIRUnsignedInt, False, None, False),
-            ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False),
-            ("bodySite", "bodySite", coding.Coding, False, None, False),
-            ("laterality", "laterality", coding.Coding, False, None, False),
-            ("specimen", "specimen", fhirreference.FHIRReference, True, None, False),
-            ("started", "started", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("performer", "performer", ImagingStudySeriesPerformer, True, None, False),
-            ("instance", "instance", ImagingStudySeriesInstance, True, None, False),
+            ("uid", "uid", fhirdatatypes.FHIRId, False, None, True, None), 
+            ("number", "number", fhirdatatypes.FHIRUnsignedInt, False, None, False, None), 
+            ("modality", "modality", coding.Coding, False, None, True, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("numberOfInstances", "numberOfInstances", fhirdatatypes.FHIRUnsignedInt, False, None, False, None), 
+            ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False, None), 
+            ("bodySite", "bodySite", coding.Coding, False, None, False, None), 
+            ("laterality", "laterality", coding.Coding, False, None, False, None), 
+            ("specimen", "specimen", fhirreference.FHIRReference, True, None, False, None), 
+            ("started", "started", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("performer", "performer", ImagingStudySeriesPerformer, True, None, False, None), 
+            ("instance", "instance", ImagingStudySeriesInstance, True, None, False, None), 
         ])
         return js
 
@@ -261,10 +261,10 @@ class ImagingStudySeriesInstance(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImagingStudySeriesInstance, self).elementProperties()
         js.extend([
-            ("uid", "uid", fhirdatatypes.FHIRId, False, None, True),
-            ("sopClass", "sopClass", coding.Coding, False, None, True),
-            ("number", "number", fhirdatatypes.FHIRUnsignedInt, False, None, False),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
+            ("uid", "uid", fhirdatatypes.FHIRId, False, None, True, None), 
+            ("sopClass", "sopClass", coding.Coding, False, None, True, None), 
+            ("number", "number", fhirdatatypes.FHIRUnsignedInt, False, None, False, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -298,41 +298,24 @@ class ImagingStudySeriesPerformer(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ImagingStudySeriesPerformer, self).elementProperties()
         js.extend([
-            ("function", "function", codeableconcept.CodeableConcept, False, None, False),
-            ("actor", "actor", fhirreference.FHIRReference, False, None, True),
+            ("function", "function", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("actor", "actor", fhirreference.FHIRReference, False, None, True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
+from fhirclient.models import coding
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
+
+from fhirclient.codesystems import imagingstudystatus
 

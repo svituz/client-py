@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class RequestGroup(domainresource.DomainResource):
     """ A group of related requests.
@@ -103,30 +103,30 @@ class RequestGroup(domainresource.DomainResource):
     def elementProperties(self):
         js = super(RequestGroup, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False),
-            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
-            ("replaces", "replaces", fhirreference.FHIRReference, True, None, False),
-            ("groupIdentifier", "groupIdentifier", identifier.Identifier, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("intent", "intent", fhirdatatypes.FHIRCode, False, None, True),
-            ("priority", "priority", fhirdatatypes.FHIRCode, False, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("authoredOn", "authoredOn", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("author", "author", fhirreference.FHIRReference, False, None, False),
-            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
-            ("action", "action", RequestGroupAction, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False, None), 
+            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False, None), 
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False, None), 
+            ("replaces", "replaces", fhirreference.FHIRReference, True, None, False, None), 
+            ("groupIdentifier", "groupIdentifier", identifier.Identifier, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, requeststatus.RequestStatus), 
+            ("intent", "intent", fhirdatatypes.FHIRCode, False, None, True, requestintent.RequestIntent), 
+            ("priority", "priority", fhirdatatypes.FHIRCode, False, None, False, requestpriority.RequestPriority), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False, None), 
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False, None), 
+            ("authoredOn", "authoredOn", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("author", "author", fhirreference.FHIRReference, False, None, False, None), 
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
+            ("action", "action", RequestGroupAction, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class RequestGroupAction(backboneelement.BackboneElement):
     """ Proposed actions, if any.
@@ -244,30 +244,30 @@ class RequestGroupAction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(RequestGroupAction, self).elementProperties()
         js.extend([
-            ("prefix", "prefix", fhirdatatypes.FHIRString, False, None, False),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("textEquivalent", "textEquivalent", fhirdatatypes.FHIRString, False, None, False),
-            ("priority", "priority", fhirdatatypes.FHIRCode, False, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, True, None, False),
-            ("documentation", "documentation", relatedartifact.RelatedArtifact, True, None, False),
-            ("condition", "condition", RequestGroupActionCondition, True, None, False),
-            ("relatedAction", "relatedAction", RequestGroupActionRelatedAction, True, None, False),
-            ("timingDateTime", "timingDateTime", fhirdatatypes.FHIRDateTime, False, "timing", False),
-            ("timingAge", "timingAge", age.Age, False, "timing", False),
-            ("timingPeriod", "timingPeriod", period.Period, False, "timing", False),
-            ("timingDuration", "timingDuration", duration.Duration, False, "timing", False),
-            ("timingRange", "timingRange", range.Range, False, "timing", False),
-            ("timingTiming", "timingTiming", timing.Timing, False, "timing", False),
-            ("participant", "participant", fhirreference.FHIRReference, True, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("groupingBehavior", "groupingBehavior", fhirdatatypes.FHIRCode, False, None, False),
-            ("selectionBehavior", "selectionBehavior", fhirdatatypes.FHIRCode, False, None, False),
-            ("requiredBehavior", "requiredBehavior", fhirdatatypes.FHIRCode, False, None, False),
-            ("precheckBehavior", "precheckBehavior", fhirdatatypes.FHIRCode, False, None, False),
-            ("cardinalityBehavior", "cardinalityBehavior", fhirdatatypes.FHIRCode, False, None, False),
-            ("resource", "resource", fhirreference.FHIRReference, False, None, False),
-            ("action", "action", RequestGroupAction, True, None, False),
+            ("prefix", "prefix", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("textEquivalent", "textEquivalent", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("priority", "priority", fhirdatatypes.FHIRCode, False, None, False, requestpriority.RequestPriority), 
+            ("code", "code", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("documentation", "documentation", relatedartifact.RelatedArtifact, True, None, False, None), 
+            ("condition", "condition", RequestGroupActionCondition, True, None, False, None), 
+            ("relatedAction", "relatedAction", RequestGroupActionRelatedAction, True, None, False, None), 
+            ("timingDateTime", "timingDateTime", fhirdatatypes.FHIRDateTime, False, "timing", False, None), 
+            ("timingAge", "timingAge", age.Age, False, "timing", False, None), 
+            ("timingPeriod", "timingPeriod", period.Period, False, "timing", False, None), 
+            ("timingDuration", "timingDuration", duration.Duration, False, "timing", False, None), 
+            ("timingRange", "timingRange", range.Range, False, "timing", False, None), 
+            ("timingTiming", "timingTiming", timing.Timing, False, "timing", False, None), 
+            ("participant", "participant", fhirreference.FHIRReference, True, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("groupingBehavior", "groupingBehavior", fhirdatatypes.FHIRCode, False, None, False, actiongroupingbehavior.ActionGroupingBehavior), 
+            ("selectionBehavior", "selectionBehavior", fhirdatatypes.FHIRCode, False, None, False, actionselectionbehavior.ActionSelectionBehavior), 
+            ("requiredBehavior", "requiredBehavior", fhirdatatypes.FHIRCode, False, None, False, actionrequiredbehavior.ActionRequiredBehavior), 
+            ("precheckBehavior", "precheckBehavior", fhirdatatypes.FHIRCode, False, None, False, actionprecheckbehavior.ActionPrecheckBehavior), 
+            ("cardinalityBehavior", "cardinalityBehavior", fhirdatatypes.FHIRCode, False, None, False, actioncardinalitybehavior.ActionCardinalityBehavior), 
+            ("resource", "resource", fhirreference.FHIRReference, False, None, False, None), 
+            ("action", "action", RequestGroupAction, True, None, False, None), 
         ])
         return js
 
@@ -302,8 +302,8 @@ class RequestGroupActionCondition(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(RequestGroupActionCondition, self).elementProperties()
         js.extend([
-            ("kind", "kind", fhirdatatypes.FHIRCode, False, None, True),
-            ("expression", "expression", expression.Expression, False, None, False),
+            ("kind", "kind", fhirdatatypes.FHIRCode, False, None, True, actionconditionkind.ActionConditionKind), 
+            ("expression", "expression", expression.Expression, False, None, False, None), 
         ])
         return js
 
@@ -347,73 +347,56 @@ class RequestGroupActionRelatedAction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(RequestGroupActionRelatedAction, self).elementProperties()
         js.extend([
-            ("actionId", "actionId", fhirdatatypes.FHIRId, False, None, True),
-            ("relationship", "relationship", fhirdatatypes.FHIRCode, False, None, True),
-            ("offsetDuration", "offsetDuration", duration.Duration, False, "offset", False),
-            ("offsetRange", "offsetRange", range.Range, False, "offset", False),
+            ("actionId", "actionId", fhirdatatypes.FHIRId, False, None, True, None), 
+            ("relationship", "relationship", fhirdatatypes.FHIRCode, False, None, True, actionrelationshiptype.ActionRelationshipType), 
+            ("offsetDuration", "offsetDuration", duration.Duration, False, "offset", False, None), 
+            ("offsetRange", "offsetRange", range.Range, False, "offset", False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import age
-except ImportError:
-    age = sys.modules[__package__ + '.age']
+from fhirclient.codesystems import actioncardinalitybehavior
 
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.codesystems import actionconditionkind
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.codesystems import actiongroupingbehavior
 
-try:
-    from . import duration
-except ImportError:
-    duration = sys.modules[__package__ + '.duration']
+from fhirclient.codesystems import actionprecheckbehavior
 
-try:
-    from . import expression
-except ImportError:
-    expression = sys.modules[__package__ + '.expression']
+from fhirclient.codesystems import actionrelationshiptype
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import actionrequiredbehavior
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.codesystems import actionselectionbehavior
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import age
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import annotation
 
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import relatedartifact
-except ImportError:
-    relatedartifact = sys.modules[__package__ + '.relatedartifact']
+from fhirclient.models import duration
 
-try:
-    from . import timing
-except ImportError:
-    timing = sys.modules[__package__ + '.timing']
+from fhirclient.models import expression
+
+from fhirclient.models import fhirdatatypes
+
+from fhirclient.models import fhirreference
+
+from fhirclient.models import identifier
+
+from fhirclient.models import period
+
+from fhirclient.models import range
+
+from fhirclient.models import relatedartifact
+
+from fhirclient.codesystems import requestintent
+
+from fhirclient.codesystems import requestpriority
+
+from fhirclient.codesystems import requeststatus
+
+from fhirclient.models import timing
 

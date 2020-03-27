@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Group(domainresource.DomainResource):
     """ Group of multiple entities.
@@ -71,22 +71,22 @@ class Group(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Group, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("active", "active", bool, False, None, False),
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("actual", "actual", bool, False, None, True),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("quantity", "quantity", fhirdatatypes.FHIRUnsignedInt, False, None, False),
-            ("managingEntity", "managingEntity", fhirreference.FHIRReference, False, None, False),
-            ("characteristic", "characteristic", GroupCharacteristic, True, None, False),
-            ("member", "member", GroupMember, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("active", "active", bool, False, None, False, None), 
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, grouptype.GroupType), 
+            ("actual", "actual", bool, False, None, True, None), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("quantity", "quantity", fhirdatatypes.FHIRUnsignedInt, False, None, False, None), 
+            ("managingEntity", "managingEntity", fhirreference.FHIRReference, False, None, False, None), 
+            ("characteristic", "characteristic", GroupCharacteristic, True, None, False, None), 
+            ("member", "member", GroupMember, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class GroupCharacteristic(backboneelement.BackboneElement):
     """ Include / Exclude group members by Trait.
@@ -140,14 +140,14 @@ class GroupCharacteristic(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(GroupCharacteristic, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", True),
-            ("valueBoolean", "valueBoolean", bool, False, "value", True),
-            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", True),
-            ("valueRange", "valueRange", range.Range, False, "value", True),
-            ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", True),
-            ("exclude", "exclude", bool, False, None, True),
-            ("period", "period", period.Period, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", True, None), 
+            ("valueBoolean", "valueBoolean", bool, False, "value", True, None), 
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", True, None), 
+            ("valueRange", "valueRange", range.Range, False, "value", True, None), 
+            ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", True, None), 
+            ("exclude", "exclude", bool, False, None, True, None), 
+            ("period", "period", period.Period, False, None, False, None), 
         ])
         return js
 
@@ -185,47 +185,27 @@ class GroupMember(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(GroupMember, self).elementProperties()
         js.extend([
-            ("entity", "entity", fhirreference.FHIRReference, False, None, True),
-            ("period", "period", period.Period, False, None, False),
-            ("inactive", "inactive", bool, False, None, False),
+            ("entity", "entity", fhirreference.FHIRReference, False, None, True, None), 
+            ("period", "period", period.Period, False, None, False, None), 
+            ("inactive", "inactive", bool, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.codesystems import grouptype
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import period
 
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from fhirclient.models import quantity
+
+from fhirclient.models import range
 

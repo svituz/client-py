@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class UsageContext(element.Element):
     """ Describes the context of use for a conformance or knowledge resource.
@@ -49,39 +49,23 @@ class UsageContext(element.Element):
     def elementProperties(self):
         js = super(UsageContext, self).elementProperties()
         js.extend([
-            ("code", "code", coding.Coding, False, None, True),
-            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", True),
-            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", True),
-            ("valueRange", "valueRange", range.Range, False, "value", True),
-            ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", True),
+            ("code", "code", coding.Coding, False, None, True, None), 
+            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", True, None), 
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", True, None), 
+            ("valueRange", "valueRange", range.Range, False, "value", True, None), 
+            ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
+from fhirclient.models import coding
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import quantity
 
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from fhirclient.models import range
 

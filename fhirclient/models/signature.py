@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class Signature(element.Element):
     """ A Signature - XML DigSig, JWS, Graphical image of signature, etc..
@@ -58,31 +58,21 @@ class Signature(element.Element):
     def elementProperties(self):
         js = super(Signature, self).elementProperties()
         js.extend([
-            ("type", "type", coding.Coding, True, None, True),
-            ("when", "when", fhirdatatypes.FHIRInstant, False, None, True),
-            ("who", "who", fhirreference.FHIRReference, False, None, True),
-            ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
-            ("targetFormat", "targetFormat", fhirdatatypes.FHIRCode, False, None, False),
-            ("sigFormat", "sigFormat", fhirdatatypes.FHIRCode, False, None, False),
-            ("data", "data", fhirdatatypes.FHIRBase64Binary, False, None, False),
+            ("type", "type", coding.Coding, True, None, True, None), 
+            ("when", "when", fhirdatatypes.FHIRInstant, False, None, True, None), 
+            ("who", "who", fhirreference.FHIRReference, False, None, True, None), 
+            ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False, None), 
+            ("targetFormat", "targetFormat", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("sigFormat", "sigFormat", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("data", "data", fhirdatatypes.FHIRBase64Binary, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
+from fhirclient.models import coding
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 

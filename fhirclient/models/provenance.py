@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Provenance(domainresource.DomainResource):
     """ Who, What, When for a set of resources.
@@ -81,23 +81,23 @@ class Provenance(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Provenance, self).elementProperties()
         js.extend([
-            ("target", "target", fhirreference.FHIRReference, True, None, True),
-            ("occurredPeriod", "occurredPeriod", period.Period, False, "occurred", False),
-            ("occurredDateTime", "occurredDateTime", fhirdatatypes.FHIRDateTime, False, "occurred", False),
-            ("recorded", "recorded", fhirdatatypes.FHIRInstant, False, None, True),
-            ("policy", "policy", fhirdatatypes.FHIRUri, True, None, False),
-            ("location", "location", fhirreference.FHIRReference, False, None, False),
-            ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
-            ("activity", "activity", codeableconcept.CodeableConcept, False, None, False),
-            ("agent", "agent", ProvenanceAgent, True, None, True),
-            ("entity", "entity", ProvenanceEntity, True, None, False),
-            ("signature", "signature", signature.Signature, True, None, False),
+            ("target", "target", fhirreference.FHIRReference, True, None, True, None), 
+            ("occurredPeriod", "occurredPeriod", period.Period, False, "occurred", False, None), 
+            ("occurredDateTime", "occurredDateTime", fhirdatatypes.FHIRDateTime, False, "occurred", False, None), 
+            ("recorded", "recorded", fhirdatatypes.FHIRInstant, False, None, True, None), 
+            ("policy", "policy", fhirdatatypes.FHIRUri, True, None, False, None), 
+            ("location", "location", fhirreference.FHIRReference, False, None, False, None), 
+            ("reason", "reason", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("activity", "activity", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("agent", "agent", ProvenanceAgent, True, None, True, None), 
+            ("entity", "entity", ProvenanceEntity, True, None, False, None), 
+            ("signature", "signature", signature.Signature, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ProvenanceAgent(backboneelement.BackboneElement):
     """ Actor involved.
@@ -135,10 +135,10 @@ class ProvenanceAgent(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ProvenanceAgent, self).elementProperties()
         js.extend([
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("role", "role", codeableconcept.CodeableConcept, True, None, False),
-            ("who", "who", fhirreference.FHIRReference, False, None, True),
-            ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("role", "role", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("who", "who", fhirreference.FHIRReference, False, None, True, None), 
+            ("onBehalfOf", "onBehalfOf", fhirreference.FHIRReference, False, None, False, None), 
         ])
         return js
 
@@ -174,37 +174,23 @@ class ProvenanceEntity(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ProvenanceEntity, self).elementProperties()
         js.extend([
-            ("role", "role", fhirdatatypes.FHIRCode, False, None, True),
-            ("what", "what", fhirreference.FHIRReference, False, None, True),
-            ("agent", "agent", ProvenanceAgent, True, None, False),
+            ("role", "role", fhirdatatypes.FHIRCode, False, None, True, provenanceentityrole.ProvenanceEntityRole), 
+            ("what", "what", fhirreference.FHIRReference, False, None, True, None), 
+            ("agent", "agent", ProvenanceAgent, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import period
 
-try:
-    from . import signature
-except ImportError:
-    signature = sys.modules[__package__ + '.signature']
+from fhirclient.codesystems import provenanceentityrole
+
+from fhirclient.models import signature
 

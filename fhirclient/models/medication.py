@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Medication(domainresource.DomainResource):
     """ Definition of a Medication.
@@ -62,20 +62,20 @@ class Medication(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Medication, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
-            ("manufacturer", "manufacturer", fhirreference.FHIRReference, False, None, False),
-            ("form", "form", codeableconcept.CodeableConcept, False, None, False),
-            ("amount", "amount", ratio.Ratio, False, None, False),
-            ("ingredient", "ingredient", MedicationIngredient, True, None, False),
-            ("batch", "batch", MedicationBatch, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, False, medicationstatuscodes.MedicationStatusCodes), 
+            ("manufacturer", "manufacturer", fhirreference.FHIRReference, False, None, False, None), 
+            ("form", "form", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("amount", "amount", ratio.Ratio, False, None, False, None), 
+            ("ingredient", "ingredient", MedicationIngredient, True, None, False, None), 
+            ("batch", "batch", MedicationBatch, False, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class MedicationBatch(backboneelement.BackboneElement):
     """ Details about packaged medications.
@@ -104,8 +104,8 @@ class MedicationBatch(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicationBatch, self).elementProperties()
         js.extend([
-            ("lotNumber", "lotNumber", fhirdatatypes.FHIRString, False, None, False),
-            ("expirationDate", "expirationDate", fhirdatatypes.FHIRDateTime, False, None, False),
+            ("lotNumber", "lotNumber", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("expirationDate", "expirationDate", fhirdatatypes.FHIRDateTime, False, None, False, None), 
         ])
         return js
 
@@ -147,38 +147,24 @@ class MedicationIngredient(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicationIngredient, self).elementProperties()
         js.extend([
-            ("itemCodeableConcept", "itemCodeableConcept", codeableconcept.CodeableConcept, False, "item", True),
-            ("itemReference", "itemReference", fhirreference.FHIRReference, False, "item", True),
-            ("isActive", "isActive", bool, False, None, False),
-            ("strength", "strength", ratio.Ratio, False, None, False),
+            ("itemCodeableConcept", "itemCodeableConcept", codeableconcept.CodeableConcept, False, "item", True, None), 
+            ("itemReference", "itemReference", fhirreference.FHIRReference, False, "item", True, None), 
+            ("isActive", "isActive", bool, False, None, False, None), 
+            ("strength", "strength", ratio.Ratio, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import ratio
-except ImportError:
-    ratio = sys.modules[__package__ + '.ratio']
+from fhirclient.codesystems import medicationstatuscodes
+
+from fhirclient.models import ratio
 

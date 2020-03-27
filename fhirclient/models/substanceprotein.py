@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class SubstanceProtein(domainresource.DomainResource):
     """ A SubstanceProtein is defined as a single unit of a linear amino acid
@@ -68,16 +68,16 @@ class SubstanceProtein(domainresource.DomainResource):
     def elementProperties(self):
         js = super(SubstanceProtein, self).elementProperties()
         js.extend([
-            ("sequenceType", "sequenceType", codeableconcept.CodeableConcept, False, None, False),
-            ("numberOfSubunits", "numberOfSubunits", int, False, None, False),
-            ("disulfideLinkage", "disulfideLinkage", fhirdatatypes.FHIRString, True, None, False),
-            ("subunit", "subunit", SubstanceProteinSubunit, True, None, False),
+            ("sequenceType", "sequenceType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("numberOfSubunits", "numberOfSubunits", int, False, None, False, None), 
+            ("disulfideLinkage", "disulfideLinkage", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("subunit", "subunit", SubstanceProteinSubunit, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class SubstanceProteinSubunit(backboneelement.BackboneElement):
     """ This subclause refers to the description of each subunit constituting the
@@ -155,37 +155,24 @@ class SubstanceProteinSubunit(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SubstanceProteinSubunit, self).elementProperties()
         js.extend([
-            ("subunit", "subunit", int, False, None, False),
-            ("sequence", "sequence", fhirdatatypes.FHIRString, False, None, False),
-            ("length", "length", int, False, None, False),
-            ("sequenceAttachment", "sequenceAttachment", attachment.Attachment, False, None, False),
-            ("nTerminalModificationId", "nTerminalModificationId", identifier.Identifier, False, None, False),
-            ("nTerminalModification", "nTerminalModification", fhirdatatypes.FHIRString, False, None, False),
-            ("cTerminalModificationId", "cTerminalModificationId", identifier.Identifier, False, None, False),
-            ("cTerminalModification", "cTerminalModification", fhirdatatypes.FHIRString, False, None, False),
+            ("subunit", "subunit", int, False, None, False, None), 
+            ("sequence", "sequence", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("length", "length", int, False, None, False, None), 
+            ("sequenceAttachment", "sequenceAttachment", attachment.Attachment, False, None, False, None), 
+            ("nTerminalModificationId", "nTerminalModificationId", identifier.Identifier, False, None, False, None), 
+            ("nTerminalModification", "nTerminalModification", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("cTerminalModificationId", "cTerminalModificationId", identifier.Identifier, False, None, False, None), 
+            ("cTerminalModification", "cTerminalModification", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
+from fhirclient.models import attachment
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 

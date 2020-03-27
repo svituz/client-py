@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class SpecimenDefinition(domainresource.DomainResource):
     """ Kind of specimen.
@@ -52,18 +52,18 @@ class SpecimenDefinition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(SpecimenDefinition, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("typeCollected", "typeCollected", codeableconcept.CodeableConcept, False, None, False),
-            ("patientPreparation", "patientPreparation", codeableconcept.CodeableConcept, True, None, False),
-            ("timeAspect", "timeAspect", fhirdatatypes.FHIRString, False, None, False),
-            ("collection", "collection", codeableconcept.CodeableConcept, True, None, False),
-            ("typeTested", "typeTested", SpecimenDefinitionTypeTested, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False, None), 
+            ("typeCollected", "typeCollected", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("patientPreparation", "patientPreparation", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("timeAspect", "timeAspect", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("collection", "collection", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("typeTested", "typeTested", SpecimenDefinitionTypeTested, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class SpecimenDefinitionTypeTested(backboneelement.BackboneElement):
     """ Specimen in container intended for testing by lab.
@@ -116,14 +116,14 @@ class SpecimenDefinitionTypeTested(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SpecimenDefinitionTypeTested, self).elementProperties()
         js.extend([
-            ("isDerived", "isDerived", bool, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("preference", "preference", fhirdatatypes.FHIRCode, False, None, True),
-            ("container", "container", SpecimenDefinitionTypeTestedContainer, False, None, False),
-            ("requirement", "requirement", fhirdatatypes.FHIRString, False, None, False),
-            ("retentionTime", "retentionTime", duration.Duration, False, None, False),
-            ("rejectionCriterion", "rejectionCriterion", codeableconcept.CodeableConcept, True, None, False),
-            ("handling", "handling", SpecimenDefinitionTypeTestedHandling, True, None, False),
+            ("isDerived", "isDerived", bool, False, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("preference", "preference", fhirdatatypes.FHIRCode, False, None, True, specimencontainedpreference.SpecimenContainedPreference), 
+            ("container", "container", SpecimenDefinitionTypeTestedContainer, False, None, False, None), 
+            ("requirement", "requirement", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("retentionTime", "retentionTime", duration.Duration, False, None, False, None), 
+            ("rejectionCriterion", "rejectionCriterion", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("handling", "handling", SpecimenDefinitionTypeTestedHandling, True, None, False, None), 
         ])
         return js
 
@@ -183,15 +183,15 @@ class SpecimenDefinitionTypeTestedContainer(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SpecimenDefinitionTypeTestedContainer, self).elementProperties()
         js.extend([
-            ("material", "material", codeableconcept.CodeableConcept, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("cap", "cap", codeableconcept.CodeableConcept, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("capacity", "capacity", quantity.Quantity, False, None, False),
-            ("minimumVolumeQuantity", "minimumVolumeQuantity", quantity.Quantity, False, "minimumVolume", False),
-            ("minimumVolumeString", "minimumVolumeString", fhirdatatypes.FHIRString, False, "minimumVolume", False),
-            ("additive", "additive", SpecimenDefinitionTypeTestedContainerAdditive, True, None, False),
-            ("preparation", "preparation", fhirdatatypes.FHIRString, False, None, False),
+            ("material", "material", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("cap", "cap", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("capacity", "capacity", quantity.Quantity, False, None, False, None), 
+            ("minimumVolumeQuantity", "minimumVolumeQuantity", quantity.Quantity, False, "minimumVolume", False, None), 
+            ("minimumVolumeString", "minimumVolumeString", fhirdatatypes.FHIRString, False, "minimumVolume", False, None), 
+            ("additive", "additive", SpecimenDefinitionTypeTestedContainerAdditive, True, None, False, None), 
+            ("preparation", "preparation", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -226,8 +226,8 @@ class SpecimenDefinitionTypeTestedContainerAdditive(backboneelement.BackboneElem
     def elementProperties(self):
         js = super(SpecimenDefinitionTypeTestedContainerAdditive, self).elementProperties()
         js.extend([
-            ("additiveCodeableConcept", "additiveCodeableConcept", codeableconcept.CodeableConcept, False, "additive", True),
-            ("additiveReference", "additiveReference", fhirreference.FHIRReference, False, "additive", True),
+            ("additiveCodeableConcept", "additiveCodeableConcept", codeableconcept.CodeableConcept, False, "additive", True, None), 
+            ("additiveReference", "additiveReference", fhirreference.FHIRReference, False, "additive", True, None), 
         ])
         return js
 
@@ -270,48 +270,28 @@ class SpecimenDefinitionTypeTestedHandling(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SpecimenDefinitionTypeTestedHandling, self).elementProperties()
         js.extend([
-            ("temperatureQualifier", "temperatureQualifier", codeableconcept.CodeableConcept, False, None, False),
-            ("temperatureRange", "temperatureRange", range.Range, False, None, False),
-            ("maxDuration", "maxDuration", duration.Duration, False, None, False),
-            ("instruction", "instruction", fhirdatatypes.FHIRString, False, None, False),
+            ("temperatureQualifier", "temperatureQualifier", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("temperatureRange", "temperatureRange", range.Range, False, None, False, None), 
+            ("maxDuration", "maxDuration", duration.Duration, False, None, False, None), 
+            ("instruction", "instruction", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import duration
-except ImportError:
-    duration = sys.modules[__package__ + '.duration']
+from fhirclient.models import duration
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import quantity
 
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from fhirclient.models import range
+
+from fhirclient.codesystems import specimencontainedpreference
 

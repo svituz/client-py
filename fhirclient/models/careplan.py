@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class CarePlan(domainresource.DomainResource):
     """ Healthcare plan for patient or group.
@@ -123,35 +123,35 @@ class CarePlan(domainresource.DomainResource):
     def elementProperties(self):
         js = super(CarePlan, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False),
-            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
-            ("replaces", "replaces", fhirreference.FHIRReference, True, None, False),
-            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("intent", "intent", fhirdatatypes.FHIRCode, False, None, True),
-            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("period", "period", period.Period, False, None, False),
-            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("author", "author", fhirreference.FHIRReference, False, None, False),
-            ("contributor", "contributor", fhirreference.FHIRReference, True, None, False),
-            ("careTeam", "careTeam", fhirreference.FHIRReference, True, None, False),
-            ("addresses", "addresses", fhirreference.FHIRReference, True, None, False),
-            ("supportingInfo", "supportingInfo", fhirreference.FHIRReference, True, None, False),
-            ("goal", "goal", fhirreference.FHIRReference, True, None, False),
-            ("activity", "activity", CarePlanActivity, True, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False, None), 
+            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False, None), 
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False, None), 
+            ("replaces", "replaces", fhirreference.FHIRReference, True, None, False, None), 
+            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, requeststatus.RequestStatus), 
+            ("intent", "intent", fhirdatatypes.FHIRCode, False, None, True, requestintent.RequestIntent), 
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True, None), 
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False, None), 
+            ("period", "period", period.Period, False, None, False, None), 
+            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("author", "author", fhirreference.FHIRReference, False, None, False, None), 
+            ("contributor", "contributor", fhirreference.FHIRReference, True, None, False, None), 
+            ("careTeam", "careTeam", fhirreference.FHIRReference, True, None, False, None), 
+            ("addresses", "addresses", fhirreference.FHIRReference, True, None, False, None), 
+            ("supportingInfo", "supportingInfo", fhirreference.FHIRReference, True, None, False, None), 
+            ("goal", "goal", fhirreference.FHIRReference, True, None, False, None), 
+            ("activity", "activity", CarePlanActivity, True, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class CarePlanActivity(backboneelement.BackboneElement):
     """ Action to occur as part of plan.
@@ -194,11 +194,11 @@ class CarePlanActivity(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CarePlanActivity, self).elementProperties()
         js.extend([
-            ("outcomeCodeableConcept", "outcomeCodeableConcept", codeableconcept.CodeableConcept, True, None, False),
-            ("outcomeReference", "outcomeReference", fhirreference.FHIRReference, True, None, False),
-            ("progress", "progress", annotation.Annotation, True, None, False),
-            ("reference", "reference", fhirreference.FHIRReference, False, None, False),
-            ("detail", "detail", CarePlanActivityDetail, False, None, False),
+            ("outcomeCodeableConcept", "outcomeCodeableConcept", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("outcomeReference", "outcomeReference", fhirreference.FHIRReference, True, None, False, None), 
+            ("progress", "progress", annotation.Annotation, True, None, False, None), 
+            ("reference", "reference", fhirreference.FHIRReference, False, None, False, None), 
+            ("detail", "detail", CarePlanActivityDetail, False, None, False, None), 
         ])
         return js
 
@@ -309,69 +309,52 @@ class CarePlanActivityDetail(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(CarePlanActivityDetail, self).elementProperties()
         js.extend([
-            ("kind", "kind", fhirdatatypes.FHIRCode, False, None, False),
-            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("goal", "goal", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False),
-            ("doNotPerform", "doNotPerform", bool, False, None, False),
-            ("scheduledTiming", "scheduledTiming", timing.Timing, False, "scheduled", False),
-            ("scheduledPeriod", "scheduledPeriod", period.Period, False, "scheduled", False),
-            ("scheduledString", "scheduledString", fhirdatatypes.FHIRString, False, "scheduled", False),
-            ("location", "location", fhirreference.FHIRReference, False, None, False),
-            ("performer", "performer", fhirreference.FHIRReference, True, None, False),
-            ("productCodeableConcept", "productCodeableConcept", codeableconcept.CodeableConcept, False, "product", False),
-            ("productReference", "productReference", fhirreference.FHIRReference, False, "product", False),
-            ("dailyAmount", "dailyAmount", quantity.Quantity, False, None, False),
-            ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
+            ("kind", "kind", fhirdatatypes.FHIRCode, False, None, False, resourcetype.ResourceType), 
+            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False, None), 
+            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False, None), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False, None), 
+            ("goal", "goal", fhirreference.FHIRReference, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, careplanactivitystatus.CarePlanActivityStatus), 
+            ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("doNotPerform", "doNotPerform", bool, False, None, False, None), 
+            ("scheduledTiming", "scheduledTiming", timing.Timing, False, "scheduled", False, None), 
+            ("scheduledPeriod", "scheduledPeriod", period.Period, False, "scheduled", False, None), 
+            ("scheduledString", "scheduledString", fhirdatatypes.FHIRString, False, "scheduled", False, None), 
+            ("location", "location", fhirreference.FHIRReference, False, None, False, None), 
+            ("performer", "performer", fhirreference.FHIRReference, True, None, False, None), 
+            ("productCodeableConcept", "productCodeableConcept", codeableconcept.CodeableConcept, False, "product", False, None), 
+            ("productReference", "productReference", fhirreference.FHIRReference, False, "product", False, None), 
+            ("dailyAmount", "dailyAmount", quantity.Quantity, False, None, False, None), 
+            ("quantity", "quantity", quantity.Quantity, False, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.codesystems import careplanactivitystatus
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import period
 
-try:
-    from . import timing
-except ImportError:
-    timing = sys.modules[__package__ + '.timing']
+from fhirclient.models import quantity
+
+from fhirclient.codesystems import requestintent
+
+from fhirclient.codesystems import requeststatus
+
+from fhirclient.codesystems import resourcetype
+
+from fhirclient.models import timing
 

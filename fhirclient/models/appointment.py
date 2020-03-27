@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Appointment(domainresource.DomainResource):
     """ A booking of a healthcare event among patient(s), practitioner(s), related
@@ -122,34 +122,34 @@ class Appointment(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Appointment, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("cancelationReason", "cancelationReason", codeableconcept.CodeableConcept, False, None, False),
-            ("serviceCategory", "serviceCategory", codeableconcept.CodeableConcept, True, None, False),
-            ("serviceType", "serviceType", codeableconcept.CodeableConcept, True, None, False),
-            ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False),
-            ("appointmentType", "appointmentType", codeableconcept.CodeableConcept, False, None, False),
-            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("priority", "priority", fhirdatatypes.FHIRUnsignedInt, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
-            ("start", "start", fhirdatatypes.FHIRInstant, False, None, False),
-            ("end", "end", fhirdatatypes.FHIRInstant, False, None, False),
-            ("minutesDuration", "minutesDuration", fhirdatatypes.FHIRPositiveInt, False, None, False),
-            ("slot", "slot", fhirreference.FHIRReference, True, None, False),
-            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False),
-            ("patientInstruction", "patientInstruction", fhirdatatypes.FHIRString, False, None, False),
-            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
-            ("participant", "participant", AppointmentParticipant, True, None, True),
-            ("requestedPeriod", "requestedPeriod", period.Period, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, appointmentstatus.AppointmentStatus), 
+            ("cancelationReason", "cancelationReason", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("serviceCategory", "serviceCategory", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("serviceType", "serviceType", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("appointmentType", "appointmentType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False, None), 
+            ("priority", "priority", fhirdatatypes.FHIRUnsignedInt, False, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False, None), 
+            ("start", "start", fhirdatatypes.FHIRInstant, False, None, False, None), 
+            ("end", "end", fhirdatatypes.FHIRInstant, False, None, False, None), 
+            ("minutesDuration", "minutesDuration", fhirdatatypes.FHIRPositiveInt, False, None, False, None), 
+            ("slot", "slot", fhirreference.FHIRReference, True, None, False, None), 
+            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("patientInstruction", "patientInstruction", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False, None), 
+            ("participant", "participant", AppointmentParticipant, True, None, True, None), 
+            ("requestedPeriod", "requestedPeriod", period.Period, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class AppointmentParticipant(backboneelement.BackboneElement):
     """ Participants involved in appointment.
@@ -190,39 +190,29 @@ class AppointmentParticipant(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(AppointmentParticipant, self).elementProperties()
         js.extend([
-            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
-            ("actor", "actor", fhirreference.FHIRReference, False, None, False),
-            ("required", "required", fhirdatatypes.FHIRCode, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("period", "period", period.Period, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("actor", "actor", fhirreference.FHIRReference, False, None, False, None), 
+            ("required", "required", fhirdatatypes.FHIRCode, False, None, False, participantrequired.ParticipantRequired), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, participationstatus.ParticipationStatus), 
+            ("period", "period", period.Period, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.codesystems import appointmentstatus
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
+
+from fhirclient.codesystems import participantrequired
+
+from fhirclient.codesystems import participationstatus
+
+from fhirclient.models import period
 

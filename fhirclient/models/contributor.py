@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class Contributor(element.Element):
     """ Contributor information.
@@ -39,22 +39,17 @@ class Contributor(element.Element):
     def elementProperties(self):
         js = super(Contributor, self).elementProperties()
         js.extend([
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, contributortype.ContributorType), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.models import contactdetail
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import contributortype
+
+from fhirclient.models import fhirdatatypes
 

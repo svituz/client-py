@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class StructureDefinition(domainresource.DomainResource):
     """ Structural Definition.
@@ -139,39 +139,39 @@ class StructureDefinition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(StructureDefinition, self).elementProperties()
         js.extend([
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, True),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("experimental", "experimental", bool, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("keyword", "keyword", coding.Coding, True, None, False),
-            ("fhirVersion", "fhirVersion", fhirdatatypes.FHIRCode, False, None, False),
-            ("mapping", "mapping", StructureDefinitionMapping, True, None, False),
-            ("kind", "kind", fhirdatatypes.FHIRCode, False, None, True),
-            ("abstract", "abstract", bool, False, None, True),
-            ("context", "context", StructureDefinitionContext, True, None, False),
-            ("contextInvariant", "contextInvariant", fhirdatatypes.FHIRString, True, None, False),
-            ("type", "type", fhirdatatypes.FHIRUri, False, None, True),
-            ("baseDefinition", "baseDefinition", fhirdatatypes.FHIRCanonical, False, None, False),
-            ("derivation", "derivation", fhirdatatypes.FHIRCode, False, None, False),
-            ("snapshot", "snapshot", StructureDefinitionSnapshot, False, None, False),
-            ("differential", "differential", StructureDefinitionDifferential, False, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, True, None), 
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, publicationstatus.PublicationStatus), 
+            ("experimental", "experimental", bool, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False, None), 
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("keyword", "keyword", coding.Coding, True, None, False, None), 
+            ("fhirVersion", "fhirVersion", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("mapping", "mapping", StructureDefinitionMapping, True, None, False, None), 
+            ("kind", "kind", fhirdatatypes.FHIRCode, False, None, True, structuredefinitionkind.StructureDefinitionKind), 
+            ("abstract", "abstract", bool, False, None, True, None), 
+            ("context", "context", StructureDefinitionContext, True, None, False, None), 
+            ("contextInvariant", "contextInvariant", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("type", "type", fhirdatatypes.FHIRUri, False, None, True, None), 
+            ("baseDefinition", "baseDefinition", fhirdatatypes.FHIRCanonical, False, None, False, None), 
+            ("derivation", "derivation", fhirdatatypes.FHIRCode, False, None, False, typederivationrule.TypeDerivationRule), 
+            ("snapshot", "snapshot", StructureDefinitionSnapshot, False, None, False, None), 
+            ("differential", "differential", StructureDefinitionDifferential, False, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class StructureDefinitionContext(backboneelement.BackboneElement):
     """ If an extension, where it can be used in instances.
@@ -201,8 +201,8 @@ class StructureDefinitionContext(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(StructureDefinitionContext, self).elementProperties()
         js.extend([
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("expression", "expression", fhirdatatypes.FHIRString, False, None, True),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, extensioncontexttype.ExtensionContextType), 
+            ("expression", "expression", fhirdatatypes.FHIRString, False, None, True, None), 
         ])
         return js
 
@@ -233,7 +233,7 @@ class StructureDefinitionDifferential(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(StructureDefinitionDifferential, self).elementProperties()
         js.extend([
-            ("element", "element", elementdefinition.ElementDefinition, True, None, True),
+            ("element", "element", elementdefinition.ElementDefinition, True, None, True, None), 
         ])
         return js
 
@@ -275,10 +275,10 @@ class StructureDefinitionMapping(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(StructureDefinitionMapping, self).elementProperties()
         js.extend([
-            ("identity", "identity", fhirdatatypes.FHIRId, False, None, True),
-            ("uri", "uri", fhirdatatypes.FHIRUri, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False),
+            ("identity", "identity", fhirdatatypes.FHIRId, False, None, True, None), 
+            ("uri", "uri", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -309,45 +309,31 @@ class StructureDefinitionSnapshot(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(StructureDefinitionSnapshot, self).elementProperties()
         js.extend([
-            ("element", "element", elementdefinition.ElementDefinition, True, None, True),
+            ("element", "element", elementdefinition.ElementDefinition, True, None, True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
+from fhirclient.models import coding
 
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.models import contactdetail
 
-try:
-    from . import elementdefinition
-except ImportError:
-    elementdefinition = sys.modules[__package__ + '.elementdefinition']
+from fhirclient.models import elementdefinition
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import extensioncontexttype
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from fhirclient.models import identifier
+
+from fhirclient.codesystems import publicationstatus
+
+from fhirclient.codesystems import structuredefinitionkind
+
+from fhirclient.codesystems import typederivationrule
+
+from fhirclient.models import usagecontext
 

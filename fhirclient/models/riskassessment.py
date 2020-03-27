@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class RiskAssessment(domainresource.DomainResource):
     """ Potential outcomes for a subject with likelihood.
@@ -101,30 +101,30 @@ class RiskAssessment(domainresource.DomainResource):
     def elementProperties(self):
         js = super(RiskAssessment, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("basedOn", "basedOn", fhirreference.FHIRReference, False, None, False),
-            ("parent", "parent", fhirreference.FHIRReference, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("method", "method", codeableconcept.CodeableConcept, False, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("occurrenceDateTime", "occurrenceDateTime", fhirdatatypes.FHIRDateTime, False, "occurrence", False),
-            ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
-            ("condition", "condition", fhirreference.FHIRReference, False, None, False),
-            ("performer", "performer", fhirreference.FHIRReference, False, None, False),
-            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("basis", "basis", fhirreference.FHIRReference, True, None, False),
-            ("prediction", "prediction", RiskAssessmentPrediction, True, None, False),
-            ("mitigation", "mitigation", fhirdatatypes.FHIRString, False, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("basedOn", "basedOn", fhirreference.FHIRReference, False, None, False, None), 
+            ("parent", "parent", fhirreference.FHIRReference, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, observationstatus.ObservationStatus), 
+            ("method", "method", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True, None), 
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False, None), 
+            ("occurrenceDateTime", "occurrenceDateTime", fhirdatatypes.FHIRDateTime, False, "occurrence", False, None), 
+            ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False, None), 
+            ("condition", "condition", fhirreference.FHIRReference, False, None, False, None), 
+            ("performer", "performer", fhirreference.FHIRReference, False, None, False, None), 
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False, None), 
+            ("basis", "basis", fhirreference.FHIRReference, True, None, False, None), 
+            ("prediction", "prediction", RiskAssessmentPrediction, True, None, False, None), 
+            ("mitigation", "mitigation", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class RiskAssessmentPrediction(backboneelement.BackboneElement):
     """ Outcome predicted.
@@ -177,52 +177,32 @@ class RiskAssessmentPrediction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(RiskAssessmentPrediction, self).elementProperties()
         js.extend([
-            ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
-            ("probabilityDecimal", "probabilityDecimal", float, False, "probability", False),
-            ("probabilityRange", "probabilityRange", range.Range, False, "probability", False),
-            ("qualitativeRisk", "qualitativeRisk", codeableconcept.CodeableConcept, False, None, False),
-            ("relativeRisk", "relativeRisk", float, False, None, False),
-            ("whenPeriod", "whenPeriod", period.Period, False, "when", False),
-            ("whenRange", "whenRange", range.Range, False, "when", False),
-            ("rationale", "rationale", fhirdatatypes.FHIRString, False, None, False),
+            ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("probabilityDecimal", "probabilityDecimal", float, False, "probability", False, None), 
+            ("probabilityRange", "probabilityRange", range.Range, False, "probability", False, None), 
+            ("qualitativeRisk", "qualitativeRisk", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("relativeRisk", "relativeRisk", float, False, None, False, None), 
+            ("whenPeriod", "whenPeriod", period.Period, False, "when", False, None), 
+            ("whenRange", "whenRange", range.Range, False, "when", False, None), 
+            ("rationale", "rationale", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.codesystems import observationstatus
 
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from fhirclient.models import period
+
+from fhirclient.models import range
 

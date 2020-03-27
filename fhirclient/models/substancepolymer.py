@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class SubstancePolymer(domainresource.DomainResource):
     """ Todo.
@@ -50,18 +50,18 @@ class SubstancePolymer(domainresource.DomainResource):
     def elementProperties(self):
         js = super(SubstancePolymer, self).elementProperties()
         js.extend([
-            ("class_fhir", "class", codeableconcept.CodeableConcept, False, None, False),
-            ("geometry", "geometry", codeableconcept.CodeableConcept, False, None, False),
-            ("copolymerConnectivity", "copolymerConnectivity", codeableconcept.CodeableConcept, True, None, False),
-            ("modification", "modification", fhirdatatypes.FHIRString, True, None, False),
-            ("monomerSet", "monomerSet", SubstancePolymerMonomerSet, True, None, False),
-            ("repeat", "repeat", SubstancePolymerRepeat, True, None, False),
+            ("class_fhir", "class", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("geometry", "geometry", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("copolymerConnectivity", "copolymerConnectivity", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("modification", "modification", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("monomerSet", "monomerSet", SubstancePolymerMonomerSet, True, None, False, None), 
+            ("repeat", "repeat", SubstancePolymerRepeat, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class SubstancePolymerMonomerSet(backboneelement.BackboneElement):
     """ Todo.
@@ -88,8 +88,8 @@ class SubstancePolymerMonomerSet(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SubstancePolymerMonomerSet, self).elementProperties()
         js.extend([
-            ("ratioType", "ratioType", codeableconcept.CodeableConcept, False, None, False),
-            ("startingMaterial", "startingMaterial", SubstancePolymerMonomerSetStartingMaterial, True, None, False),
+            ("ratioType", "ratioType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("startingMaterial", "startingMaterial", SubstancePolymerMonomerSetStartingMaterial, True, None, False, None), 
         ])
         return js
 
@@ -129,10 +129,10 @@ class SubstancePolymerMonomerSetStartingMaterial(backboneelement.BackboneElement
     def elementProperties(self):
         js = super(SubstancePolymerMonomerSetStartingMaterial, self).elementProperties()
         js.extend([
-            ("material", "material", codeableconcept.CodeableConcept, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("isDefining", "isDefining", bool, False, None, False),
-            ("amount", "amount", substanceamount.SubstanceAmount, False, None, False),
+            ("material", "material", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("isDefining", "isDefining", bool, False, None, False, None), 
+            ("amount", "amount", substanceamount.SubstanceAmount, False, None, False, None), 
         ])
         return js
 
@@ -172,10 +172,10 @@ class SubstancePolymerRepeat(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SubstancePolymerRepeat, self).elementProperties()
         js.extend([
-            ("numberOfUnits", "numberOfUnits", int, False, None, False),
-            ("averageMolecularFormula", "averageMolecularFormula", fhirdatatypes.FHIRString, False, None, False),
-            ("repeatUnitAmountType", "repeatUnitAmountType", codeableconcept.CodeableConcept, False, None, False),
-            ("repeatUnit", "repeatUnit", SubstancePolymerRepeatRepeatUnit, True, None, False),
+            ("numberOfUnits", "numberOfUnits", int, False, None, False, None), 
+            ("averageMolecularFormula", "averageMolecularFormula", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("repeatUnitAmountType", "repeatUnitAmountType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("repeatUnit", "repeatUnit", SubstancePolymerRepeatRepeatUnit, True, None, False, None), 
         ])
         return js
 
@@ -219,11 +219,11 @@ class SubstancePolymerRepeatRepeatUnit(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SubstancePolymerRepeatRepeatUnit, self).elementProperties()
         js.extend([
-            ("orientationOfPolymerisation", "orientationOfPolymerisation", codeableconcept.CodeableConcept, False, None, False),
-            ("repeatUnit", "repeatUnit", fhirdatatypes.FHIRString, False, None, False),
-            ("amount", "amount", substanceamount.SubstanceAmount, False, None, False),
-            ("degreeOfPolymerisation", "degreeOfPolymerisation", SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation, True, None, False),
-            ("structuralRepresentation", "structuralRepresentation", SubstancePolymerRepeatRepeatUnitStructuralRepresentation, True, None, False),
+            ("orientationOfPolymerisation", "orientationOfPolymerisation", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("repeatUnit", "repeatUnit", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("amount", "amount", substanceamount.SubstanceAmount, False, None, False, None), 
+            ("degreeOfPolymerisation", "degreeOfPolymerisation", SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation, True, None, False, None), 
+            ("structuralRepresentation", "structuralRepresentation", SubstancePolymerRepeatRepeatUnitStructuralRepresentation, True, None, False, None), 
         ])
         return js
 
@@ -255,8 +255,8 @@ class SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation(backboneelement.Bac
     def elementProperties(self):
         js = super(SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisation, self).elementProperties()
         js.extend([
-            ("degree", "degree", codeableconcept.CodeableConcept, False, None, False),
-            ("amount", "amount", substanceamount.SubstanceAmount, False, None, False),
+            ("degree", "degree", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("amount", "amount", substanceamount.SubstanceAmount, False, None, False, None), 
         ])
         return js
 
@@ -292,32 +292,19 @@ class SubstancePolymerRepeatRepeatUnitStructuralRepresentation(backboneelement.B
     def elementProperties(self):
         js = super(SubstancePolymerRepeatRepeatUnitStructuralRepresentation, self).elementProperties()
         js.extend([
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("representation", "representation", fhirdatatypes.FHIRString, False, None, False),
-            ("attachment", "attachment", attachment.Attachment, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("representation", "representation", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("attachment", "attachment", attachment.Attachment, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
+from fhirclient.models import attachment
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import substanceamount
-except ImportError:
-    substanceamount = sys.modules[__package__ + '.substanceamount']
+from fhirclient.models import substanceamount
 

@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Media(domainresource.DomainResource):
     """ A photo, video, or audio recording acquired or used in healthcare. The
@@ -120,67 +120,47 @@ class Media(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Media, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
-            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("modality", "modality", codeableconcept.CodeableConcept, False, None, False),
-            ("view", "view", codeableconcept.CodeableConcept, False, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("createdDateTime", "createdDateTime", fhirdatatypes.FHIRDateTime, False, "created", False),
-            ("createdPeriod", "createdPeriod", period.Period, False, "created", False),
-            ("issued", "issued", fhirdatatypes.FHIRInstant, False, None, False),
-            ("operator", "operator", fhirreference.FHIRReference, False, None, False),
-            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
-            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False),
-            ("deviceName", "deviceName", fhirdatatypes.FHIRString, False, None, False),
-            ("device", "device", fhirreference.FHIRReference, False, None, False),
-            ("height", "height", fhirdatatypes.FHIRPositiveInt, False, None, False),
-            ("width", "width", fhirdatatypes.FHIRPositiveInt, False, None, False),
-            ("frames", "frames", fhirdatatypes.FHIRPositiveInt, False, None, False),
-            ("duration", "duration", float, False, None, False),
-            ("content", "content", attachment.Attachment, False, None, True),
-            ("note", "note", annotation.Annotation, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False, None), 
+            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, eventstatus.EventStatus), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("modality", "modality", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("view", "view", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False, None), 
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False, None), 
+            ("createdDateTime", "createdDateTime", fhirdatatypes.FHIRDateTime, False, "created", False, None), 
+            ("createdPeriod", "createdPeriod", period.Period, False, "created", False, None), 
+            ("issued", "issued", fhirdatatypes.FHIRInstant, False, None, False, None), 
+            ("operator", "operator", fhirreference.FHIRReference, False, None, False, None), 
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("deviceName", "deviceName", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("device", "device", fhirreference.FHIRReference, False, None, False, None), 
+            ("height", "height", fhirdatatypes.FHIRPositiveInt, False, None, False, None), 
+            ("width", "width", fhirdatatypes.FHIRPositiveInt, False, None, False, None), 
+            ("frames", "frames", fhirdatatypes.FHIRPositiveInt, False, None, False, None), 
+            ("duration", "duration", float, False, None, False, None), 
+            ("content", "content", attachment.Attachment, False, None, True, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
+from fhirclient.models import attachment
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import eventstatus
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
+
+from fhirclient.models import period
 

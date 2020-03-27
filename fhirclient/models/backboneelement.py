@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class BackboneElement(element.Element):
     """ Base for elements defined inside a resource.
@@ -31,15 +31,11 @@ class BackboneElement(element.Element):
     def elementProperties(self):
         js = super(BackboneElement, self).elementProperties()
         js.extend([
-            ("modifierExtension", "modifierExtension", extension.Extension, True, None, False),
+            ("modifierExtension", "modifierExtension", extension.Extension, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import extension
-except ImportError:
-    extension = sys.modules[__package__ + '.extension']
+from fhirclient.models import extension
 

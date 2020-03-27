@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class SubstanceAmount(backboneelement.BackboneElement):
     """ Chemical substances are a single substance type whose primary defining
@@ -70,18 +70,18 @@ class SubstanceAmount(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SubstanceAmount, self).elementProperties()
         js.extend([
-            ("amountQuantity", "amountQuantity", quantity.Quantity, False, "amount", False),
-            ("amountRange", "amountRange", range.Range, False, "amount", False),
-            ("amountString", "amountString", fhirdatatypes.FHIRString, False, "amount", False),
-            ("amountType", "amountType", codeableconcept.CodeableConcept, False, None, False),
-            ("amountText", "amountText", fhirdatatypes.FHIRString, False, None, False),
-            ("referenceRange", "referenceRange", SubstanceAmountReferenceRange, False, None, False),
+            ("amountQuantity", "amountQuantity", quantity.Quantity, False, "amount", False, None), 
+            ("amountRange", "amountRange", range.Range, False, "amount", False, None), 
+            ("amountString", "amountString", fhirdatatypes.FHIRString, False, "amount", False, None), 
+            ("amountType", "amountType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("amountText", "amountText", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("referenceRange", "referenceRange", SubstanceAmountReferenceRange, False, None, False, None), 
         ])
         return js
 
 
 
-from . import element
+from fhirclient.models import element
 
 class SubstanceAmountReferenceRange(element.Element):
     """ Reference range of possible or expected values.
@@ -108,31 +108,18 @@ class SubstanceAmountReferenceRange(element.Element):
     def elementProperties(self):
         js = super(SubstanceAmountReferenceRange, self).elementProperties()
         js.extend([
-            ("lowLimit", "lowLimit", quantity.Quantity, False, None, False),
-            ("highLimit", "highLimit", quantity.Quantity, False, None, False),
+            ("lowLimit", "lowLimit", quantity.Quantity, False, None, False, None), 
+            ("highLimit", "highLimit", quantity.Quantity, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import quantity
 
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from fhirclient.models import range
 

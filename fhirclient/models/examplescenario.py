@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class ExampleScenario(domainresource.DomainResource):
     """ Example of workflow instance.
@@ -95,29 +95,29 @@ class ExampleScenario(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ExampleScenario, self).elementProperties()
         js.extend([
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("experimental", "experimental", bool, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("actor", "actor", ExampleScenarioActor, True, None, False),
-            ("instance", "instance", ExampleScenarioInstance, True, None, False),
-            ("process", "process", ExampleScenarioProcess, True, None, False),
-            ("workflow", "workflow", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, publicationstatus.PublicationStatus), 
+            ("experimental", "experimental", bool, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False, None), 
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False, None), 
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("actor", "actor", ExampleScenarioActor, True, None, False, None), 
+            ("instance", "instance", ExampleScenarioInstance, True, None, False, None), 
+            ("process", "process", ExampleScenarioProcess, True, None, False, None), 
+            ("workflow", "workflow", fhirdatatypes.FHIRCanonical, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ExampleScenarioActor(backboneelement.BackboneElement):
     """ Actor participating in the resource.
@@ -152,10 +152,10 @@ class ExampleScenarioActor(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ExampleScenarioActor, self).elementProperties()
         js.extend([
-            ("actorId", "actorId", fhirdatatypes.FHIRString, False, None, True),
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("actorId", "actorId", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, examplescenarioactortype.ExampleScenarioActorType), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
         ])
         return js
 
@@ -203,12 +203,12 @@ class ExampleScenarioInstance(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ExampleScenarioInstance, self).elementProperties()
         js.extend([
-            ("resourceId", "resourceId", fhirdatatypes.FHIRString, False, None, True),
-            ("resourceType", "resourceType", fhirdatatypes.FHIRCode, False, None, True),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("version", "version", ExampleScenarioInstanceVersion, True, None, False),
-            ("containedInstance", "containedInstance", ExampleScenarioInstanceContainedInstance, True, None, False),
+            ("resourceId", "resourceId", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("resourceType", "resourceType", fhirdatatypes.FHIRCode, False, None, True, resourcetype.ResourceType), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("version", "version", ExampleScenarioInstanceVersion, True, None, False, None), 
+            ("containedInstance", "containedInstance", ExampleScenarioInstanceContainedInstance, True, None, False, None), 
         ])
         return js
 
@@ -243,8 +243,8 @@ class ExampleScenarioInstanceContainedInstance(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ExampleScenarioInstanceContainedInstance, self).elementProperties()
         js.extend([
-            ("resourceId", "resourceId", fhirdatatypes.FHIRString, False, None, True),
-            ("versionId", "versionId", fhirdatatypes.FHIRString, False, None, False),
+            ("resourceId", "resourceId", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("versionId", "versionId", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -276,8 +276,8 @@ class ExampleScenarioInstanceVersion(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ExampleScenarioInstanceVersion, self).elementProperties()
         js.extend([
-            ("versionId", "versionId", fhirdatatypes.FHIRString, False, None, True),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, True),
+            ("versionId", "versionId", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, True, None), 
         ])
         return js
 
@@ -321,11 +321,11 @@ class ExampleScenarioProcess(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ExampleScenarioProcess, self).elementProperties()
         js.extend([
-            ("title", "title", fhirdatatypes.FHIRString, False, None, True),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("preConditions", "preConditions", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("postConditions", "postConditions", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("step", "step", ExampleScenarioProcessStep, True, None, False),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("preConditions", "preConditions", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("postConditions", "postConditions", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("step", "step", ExampleScenarioProcessStep, True, None, False, None), 
         ])
         return js
 
@@ -365,10 +365,10 @@ class ExampleScenarioProcessStep(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ExampleScenarioProcessStep, self).elementProperties()
         js.extend([
-            ("process", "process", ExampleScenarioProcess, True, None, False),
-            ("pause", "pause", bool, False, None, False),
-            ("operation", "operation", ExampleScenarioProcessStepOperation, False, None, False),
-            ("alternative", "alternative", ExampleScenarioProcessStepAlternative, True, None, False),
+            ("process", "process", ExampleScenarioProcess, True, None, False, None), 
+            ("pause", "pause", bool, False, None, False, None), 
+            ("operation", "operation", ExampleScenarioProcessStepOperation, False, None, False, None), 
+            ("alternative", "alternative", ExampleScenarioProcessStepAlternative, True, None, False, None), 
         ])
         return js
 
@@ -407,9 +407,9 @@ class ExampleScenarioProcessStepAlternative(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ExampleScenarioProcessStepAlternative, self).elementProperties()
         js.extend([
-            ("title", "title", fhirdatatypes.FHIRString, False, None, True),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("step", "step", ExampleScenarioProcessStep, True, None, False),
+            ("title", "title", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("step", "step", ExampleScenarioProcessStep, True, None, False, None), 
         ])
         return js
 
@@ -473,44 +473,34 @@ class ExampleScenarioProcessStepOperation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ExampleScenarioProcessStepOperation, self).elementProperties()
         js.extend([
-            ("number", "number", fhirdatatypes.FHIRString, False, None, True),
-            ("type", "type", fhirdatatypes.FHIRString, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("initiator", "initiator", fhirdatatypes.FHIRString, False, None, False),
-            ("receiver", "receiver", fhirdatatypes.FHIRString, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("initiatorActive", "initiatorActive", bool, False, None, False),
-            ("receiverActive", "receiverActive", bool, False, None, False),
-            ("request", "request", ExampleScenarioInstanceContainedInstance, False, None, False),
-            ("response", "response", ExampleScenarioInstanceContainedInstance, False, None, False),
+            ("number", "number", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("type", "type", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("initiator", "initiator", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("receiver", "receiver", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("initiatorActive", "initiatorActive", bool, False, None, False, None), 
+            ("receiverActive", "receiverActive", bool, False, None, False, None), 
+            ("request", "request", ExampleScenarioInstanceContainedInstance, False, None, False, None), 
+            ("response", "response", ExampleScenarioInstanceContainedInstance, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.models import contactdetail
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import examplescenarioactortype
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from fhirclient.models import identifier
+
+from fhirclient.codesystems import publicationstatus
+
+from fhirclient.codesystems import resourcetype
+
+from fhirclient.models import usagecontext
 

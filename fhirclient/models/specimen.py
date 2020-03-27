@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Specimen(domainresource.DomainResource):
     """ Sample for analysis.
@@ -82,25 +82,25 @@ class Specimen(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Specimen, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("accessionIdentifier", "accessionIdentifier", identifier.Identifier, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("receivedTime", "receivedTime", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("parent", "parent", fhirreference.FHIRReference, True, None, False),
-            ("request", "request", fhirreference.FHIRReference, True, None, False),
-            ("collection", "collection", SpecimenCollection, False, None, False),
-            ("processing", "processing", SpecimenProcessing, True, None, False),
-            ("container", "container", SpecimenContainer, True, None, False),
-            ("condition", "condition", codeableconcept.CodeableConcept, True, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("accessionIdentifier", "accessionIdentifier", identifier.Identifier, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, False, specimenstatus.SpecimenStatus), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False, None), 
+            ("receivedTime", "receivedTime", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("parent", "parent", fhirreference.FHIRReference, True, None, False, None), 
+            ("request", "request", fhirreference.FHIRReference, True, None, False, None), 
+            ("collection", "collection", SpecimenCollection, False, None, False, None), 
+            ("processing", "processing", SpecimenProcessing, True, None, False, None), 
+            ("container", "container", SpecimenContainer, True, None, False, None), 
+            ("condition", "condition", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class SpecimenCollection(backboneelement.BackboneElement):
     """ Collection details.
@@ -157,15 +157,15 @@ class SpecimenCollection(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SpecimenCollection, self).elementProperties()
         js.extend([
-            ("collector", "collector", fhirreference.FHIRReference, False, None, False),
-            ("collectedDateTime", "collectedDateTime", fhirdatatypes.FHIRDateTime, False, "collected", False),
-            ("collectedPeriod", "collectedPeriod", period.Period, False, "collected", False),
-            ("duration", "duration", duration.Duration, False, None, False),
-            ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("method", "method", codeableconcept.CodeableConcept, False, None, False),
-            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False),
-            ("fastingStatusCodeableConcept", "fastingStatusCodeableConcept", codeableconcept.CodeableConcept, False, "fastingStatus", False),
-            ("fastingStatusDuration", "fastingStatusDuration", duration.Duration, False, "fastingStatus", False),
+            ("collector", "collector", fhirreference.FHIRReference, False, None, False, None), 
+            ("collectedDateTime", "collectedDateTime", fhirdatatypes.FHIRDateTime, False, "collected", False, None), 
+            ("collectedPeriod", "collectedPeriod", period.Period, False, "collected", False, None), 
+            ("duration", "duration", duration.Duration, False, None, False, None), 
+            ("quantity", "quantity", quantity.Quantity, False, None, False, None), 
+            ("method", "method", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("fastingStatusCodeableConcept", "fastingStatusCodeableConcept", codeableconcept.CodeableConcept, False, "fastingStatus", False, None), 
+            ("fastingStatusDuration", "fastingStatusDuration", duration.Duration, False, "fastingStatus", False, None), 
         ])
         return js
 
@@ -220,13 +220,13 @@ class SpecimenContainer(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SpecimenContainer, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("capacity", "capacity", quantity.Quantity, False, None, False),
-            ("specimenQuantity", "specimenQuantity", quantity.Quantity, False, None, False),
-            ("additiveCodeableConcept", "additiveCodeableConcept", codeableconcept.CodeableConcept, False, "additive", False),
-            ("additiveReference", "additiveReference", fhirreference.FHIRReference, False, "additive", False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("capacity", "capacity", quantity.Quantity, False, None, False, None), 
+            ("specimenQuantity", "specimenQuantity", quantity.Quantity, False, None, False, None), 
+            ("additiveCodeableConcept", "additiveCodeableConcept", codeableconcept.CodeableConcept, False, "additive", False, None), 
+            ("additiveReference", "additiveReference", fhirreference.FHIRReference, False, "additive", False, None), 
         ])
         return js
 
@@ -272,54 +272,31 @@ class SpecimenProcessing(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SpecimenProcessing, self).elementProperties()
         js.extend([
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("procedure", "procedure", codeableconcept.CodeableConcept, False, None, False),
-            ("additive", "additive", fhirreference.FHIRReference, True, None, False),
-            ("timeDateTime", "timeDateTime", fhirdatatypes.FHIRDateTime, False, "time", False),
-            ("timePeriod", "timePeriod", period.Period, False, "time", False),
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("procedure", "procedure", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("additive", "additive", fhirreference.FHIRReference, True, None, False, None), 
+            ("timeDateTime", "timeDateTime", fhirdatatypes.FHIRDateTime, False, "time", False, None), 
+            ("timePeriod", "timePeriod", period.Period, False, "time", False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import duration
-except ImportError:
-    duration = sys.modules[__package__ + '.duration']
+from fhirclient.models import duration
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import period
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import quantity
+
+from fhirclient.codesystems import specimenstatus
 

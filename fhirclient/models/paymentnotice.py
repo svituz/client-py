@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class PaymentNotice(domainresource.DomainResource):
     """ PaymentNotice request.
@@ -77,46 +77,32 @@ class PaymentNotice(domainresource.DomainResource):
     def elementProperties(self):
         js = super(PaymentNotice, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("request", "request", fhirreference.FHIRReference, False, None, False),
-            ("response", "response", fhirreference.FHIRReference, False, None, False),
-            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, True),
-            ("provider", "provider", fhirreference.FHIRReference, False, None, False),
-            ("payment", "payment", fhirreference.FHIRReference, False, None, True),
-            ("paymentDate", "paymentDate", fhirdatatypes.FHIRDate, False, None, False),
-            ("payee", "payee", fhirreference.FHIRReference, False, None, False),
-            ("recipient", "recipient", fhirreference.FHIRReference, False, None, True),
-            ("amount", "amount", money.Money, False, None, True),
-            ("paymentStatus", "paymentStatus", codeableconcept.CodeableConcept, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, financialresourcestatuscodes.FinancialResourceStatusCodes), 
+            ("request", "request", fhirreference.FHIRReference, False, None, False, None), 
+            ("response", "response", fhirreference.FHIRReference, False, None, False, None), 
+            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, True, None), 
+            ("provider", "provider", fhirreference.FHIRReference, False, None, False, None), 
+            ("payment", "payment", fhirreference.FHIRReference, False, None, True, None), 
+            ("paymentDate", "paymentDate", fhirdatatypes.FHIRDate, False, None, False, None), 
+            ("payee", "payee", fhirreference.FHIRReference, False, None, False, None), 
+            ("recipient", "recipient", fhirreference.FHIRReference, False, None, True, None), 
+            ("amount", "amount", money.Money, False, None, True, None), 
+            ("paymentStatus", "paymentStatus", codeableconcept.CodeableConcept, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.codesystems import financialresourcestatuscodes
 
-try:
-    from . import money
-except ImportError:
-    money = sys.modules[__package__ + '.money']
+from fhirclient.models import identifier
+
+from fhirclient.models import money
 

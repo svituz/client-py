@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import quantity
+from fhirclient.models import quantity
 
 class Distance(quantity.Quantity):
     """ A length - a value with a unit that is a physical distance.

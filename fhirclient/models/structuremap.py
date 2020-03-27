@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class StructureMap(domainresource.DomainResource):
     """ A Map of relationships between 2 structures that can be used to transform
@@ -100,30 +100,30 @@ class StructureMap(domainresource.DomainResource):
     def elementProperties(self):
         js = super(StructureMap, self).elementProperties()
         js.extend([
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, True),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("experimental", "experimental", bool, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("structure", "structure", StructureMapStructure, True, None, False),
-            ("import_fhir", "import", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("group", "group", StructureMapGroup, True, None, True),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, True, None), 
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, publicationstatus.PublicationStatus), 
+            ("experimental", "experimental", bool, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False, None), 
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("structure", "structure", StructureMapStructure, True, None, False, None), 
+            ("import_fhir", "import", fhirdatatypes.FHIRCanonical, True, None, False, None), 
+            ("group", "group", StructureMapGroup, True, None, True, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class StructureMapGroup(backboneelement.BackboneElement):
     """ Named sections for reader convenience.
@@ -169,12 +169,12 @@ class StructureMapGroup(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(StructureMapGroup, self).elementProperties()
         js.extend([
-            ("name", "name", fhirdatatypes.FHIRId, False, None, True),
-            ("extends", "extends", fhirdatatypes.FHIRId, False, None, False),
-            ("typeMode", "typeMode", fhirdatatypes.FHIRCode, False, None, True),
-            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False),
-            ("input", "input", StructureMapGroupInput, True, None, True),
-            ("rule", "rule", StructureMapGroupRule, True, None, True),
+            ("name", "name", fhirdatatypes.FHIRId, False, None, True, None), 
+            ("extends", "extends", fhirdatatypes.FHIRId, False, None, False, None), 
+            ("typeMode", "typeMode", fhirdatatypes.FHIRCode, False, None, True, structuremapgrouptypemode.StructureMapGroupTypeMode), 
+            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("input", "input", StructureMapGroupInput, True, None, True, None), 
+            ("rule", "rule", StructureMapGroupRule, True, None, True, None), 
         ])
         return js
 
@@ -217,10 +217,10 @@ class StructureMapGroupInput(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(StructureMapGroupInput, self).elementProperties()
         js.extend([
-            ("name", "name", fhirdatatypes.FHIRId, False, None, True),
-            ("type", "type", fhirdatatypes.FHIRString, False, None, False),
-            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, True),
-            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRId, False, None, True, None), 
+            ("type", "type", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, True, structuremapinputmode.StructureMapInputMode), 
+            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -268,12 +268,12 @@ class StructureMapGroupRule(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(StructureMapGroupRule, self).elementProperties()
         js.extend([
-            ("name", "name", fhirdatatypes.FHIRId, False, None, True),
-            ("source", "source", StructureMapGroupRuleSource, True, None, True),
-            ("target", "target", StructureMapGroupRuleTarget, True, None, False),
-            ("rule", "rule", StructureMapGroupRule, True, None, False),
-            ("dependent", "dependent", StructureMapGroupRuleDependent, True, None, False),
-            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRId, False, None, True, None), 
+            ("source", "source", StructureMapGroupRuleSource, True, None, True, None), 
+            ("target", "target", StructureMapGroupRuleTarget, True, None, False, None), 
+            ("rule", "rule", StructureMapGroupRule, True, None, False, None), 
+            ("dependent", "dependent", StructureMapGroupRuleDependent, True, None, False, None), 
+            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -305,8 +305,8 @@ class StructureMapGroupRuleDependent(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(StructureMapGroupRuleDependent, self).elementProperties()
         js.extend([
-            ("name", "name", fhirdatatypes.FHIRId, False, None, True),
-            ("variable", "variable", fhirdatatypes.FHIRString, True, None, True),
+            ("name", "name", fhirdatatypes.FHIRId, False, None, True, None), 
+            ("variable", "variable", fhirdatatypes.FHIRString, True, None, True, None), 
         ])
         return js
 
@@ -571,66 +571,66 @@ class StructureMapGroupRuleSource(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(StructureMapGroupRuleSource, self).elementProperties()
         js.extend([
-            ("context", "context", fhirdatatypes.FHIRId, False, None, True),
-            ("min", "min", int, False, None, False),
-            ("max", "max", fhirdatatypes.FHIRString, False, None, False),
-            ("type", "type", fhirdatatypes.FHIRString, False, None, False),
-            ("defaultValueBase64Binary", "defaultValueBase64Binary", fhirdatatypes.FHIRBase64Binary, False, "defaultValue", False),
-            ("defaultValueBoolean", "defaultValueBoolean", bool, False, "defaultValue", False),
-            ("defaultValueCanonical", "defaultValueCanonical", fhirdatatypes.FHIRCanonical, False, "defaultValue", False),
-            ("defaultValueCode", "defaultValueCode", fhirdatatypes.FHIRCode, False, "defaultValue", False),
-            ("defaultValueDate", "defaultValueDate", fhirdatatypes.FHIRDate, False, "defaultValue", False),
-            ("defaultValueDateTime", "defaultValueDateTime", fhirdatatypes.FHIRDateTime, False, "defaultValue", False),
-            ("defaultValueDecimal", "defaultValueDecimal", float, False, "defaultValue", False),
-            ("defaultValueId", "defaultValueId", fhirdatatypes.FHIRId, False, "defaultValue", False),
-            ("defaultValueInstant", "defaultValueInstant", fhirdatatypes.FHIRInstant, False, "defaultValue", False),
-            ("defaultValueInteger", "defaultValueInteger", int, False, "defaultValue", False),
-            ("defaultValueMarkdown", "defaultValueMarkdown", fhirdatatypes.FHIRMarkdown, False, "defaultValue", False),
-            ("defaultValueOid", "defaultValueOid", fhirdatatypes.FHIROid, False, "defaultValue", False),
-            ("defaultValuePositiveInt", "defaultValuePositiveInt", fhirdatatypes.FHIRPositiveInt, False, "defaultValue", False),
-            ("defaultValueString", "defaultValueString", fhirdatatypes.FHIRString, False, "defaultValue", False),
-            ("defaultValueTime", "defaultValueTime", fhirdatatypes.FHIRTime, False, "defaultValue", False),
-            ("defaultValueUnsignedInt", "defaultValueUnsignedInt", fhirdatatypes.FHIRUnsignedInt, False, "defaultValue", False),
-            ("defaultValueUri", "defaultValueUri", fhirdatatypes.FHIRUri, False, "defaultValue", False),
-            ("defaultValueUrl", "defaultValueUrl", fhirdatatypes.FHIRUrl, False, "defaultValue", False),
-            ("defaultValueUuid", "defaultValueUuid", fhirdatatypes.FHIRUuid, False, "defaultValue", False),
-            ("defaultValueAddress", "defaultValueAddress", address.Address, False, "defaultValue", False),
-            ("defaultValueAge", "defaultValueAge", age.Age, False, "defaultValue", False),
-            ("defaultValueAnnotation", "defaultValueAnnotation", annotation.Annotation, False, "defaultValue", False),
-            ("defaultValueAttachment", "defaultValueAttachment", attachment.Attachment, False, "defaultValue", False),
-            ("defaultValueCodeableConcept", "defaultValueCodeableConcept", codeableconcept.CodeableConcept, False, "defaultValue", False),
-            ("defaultValueCoding", "defaultValueCoding", coding.Coding, False, "defaultValue", False),
-            ("defaultValueContactPoint", "defaultValueContactPoint", contactpoint.ContactPoint, False, "defaultValue", False),
-            ("defaultValueCount", "defaultValueCount", count.Count, False, "defaultValue", False),
-            ("defaultValueDistance", "defaultValueDistance", distance.Distance, False, "defaultValue", False),
-            ("defaultValueDuration", "defaultValueDuration", duration.Duration, False, "defaultValue", False),
-            ("defaultValueHumanName", "defaultValueHumanName", humanname.HumanName, False, "defaultValue", False),
-            ("defaultValueIdentifier", "defaultValueIdentifier", identifier.Identifier, False, "defaultValue", False),
-            ("defaultValueMoney", "defaultValueMoney", money.Money, False, "defaultValue", False),
-            ("defaultValuePeriod", "defaultValuePeriod", period.Period, False, "defaultValue", False),
-            ("defaultValueQuantity", "defaultValueQuantity", quantity.Quantity, False, "defaultValue", False),
-            ("defaultValueRange", "defaultValueRange", range.Range, False, "defaultValue", False),
-            ("defaultValueRatio", "defaultValueRatio", ratio.Ratio, False, "defaultValue", False),
-            ("defaultValueReference", "defaultValueReference", fhirreference.FHIRReference, False, "defaultValue", False),
-            ("defaultValueSampledData", "defaultValueSampledData", sampleddata.SampledData, False, "defaultValue", False),
-            ("defaultValueSignature", "defaultValueSignature", signature.Signature, False, "defaultValue", False),
-            ("defaultValueTiming", "defaultValueTiming", timing.Timing, False, "defaultValue", False),
-            ("defaultValueContactDetail", "defaultValueContactDetail", contactdetail.ContactDetail, False, "defaultValue", False),
-            ("defaultValueContributor", "defaultValueContributor", contributor.Contributor, False, "defaultValue", False),
-            ("defaultValueDataRequirement", "defaultValueDataRequirement", datarequirement.DataRequirement, False, "defaultValue", False),
-            ("defaultValueExpression", "defaultValueExpression", expression.Expression, False, "defaultValue", False),
-            ("defaultValueParameterDefinition", "defaultValueParameterDefinition", parameterdefinition.ParameterDefinition, False, "defaultValue", False),
-            ("defaultValueRelatedArtifact", "defaultValueRelatedArtifact", relatedartifact.RelatedArtifact, False, "defaultValue", False),
-            ("defaultValueTriggerDefinition", "defaultValueTriggerDefinition", triggerdefinition.TriggerDefinition, False, "defaultValue", False),
-            ("defaultValueUsageContext", "defaultValueUsageContext", usagecontext.UsageContext, False, "defaultValue", False),
-            ("defaultValueDosage", "defaultValueDosage", dosage.Dosage, False, "defaultValue", False),
-            ("defaultValueMeta", "defaultValueMeta", meta.Meta, False, "defaultValue", False),
-            ("element", "element", fhirdatatypes.FHIRString, False, None, False),
-            ("listMode", "listMode", fhirdatatypes.FHIRCode, False, None, False),
-            ("variable", "variable", fhirdatatypes.FHIRId, False, None, False),
-            ("condition", "condition", fhirdatatypes.FHIRString, False, None, False),
-            ("check", "check", fhirdatatypes.FHIRString, False, None, False),
-            ("logMessage", "logMessage", fhirdatatypes.FHIRString, False, None, False),
+            ("context", "context", fhirdatatypes.FHIRId, False, None, True, None), 
+            ("min", "min", int, False, None, False, None), 
+            ("max", "max", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("type", "type", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("defaultValueBase64Binary", "defaultValueBase64Binary", fhirdatatypes.FHIRBase64Binary, False, "defaultValue", False, None), 
+            ("defaultValueBoolean", "defaultValueBoolean", bool, False, "defaultValue", False, None), 
+            ("defaultValueCanonical", "defaultValueCanonical", fhirdatatypes.FHIRCanonical, False, "defaultValue", False, None), 
+            ("defaultValueCode", "defaultValueCode", fhirdatatypes.FHIRCode, False, "defaultValue", False, None), 
+            ("defaultValueDate", "defaultValueDate", fhirdatatypes.FHIRDate, False, "defaultValue", False, None), 
+            ("defaultValueDateTime", "defaultValueDateTime", fhirdatatypes.FHIRDateTime, False, "defaultValue", False, None), 
+            ("defaultValueDecimal", "defaultValueDecimal", float, False, "defaultValue", False, None), 
+            ("defaultValueId", "defaultValueId", fhirdatatypes.FHIRId, False, "defaultValue", False, None), 
+            ("defaultValueInstant", "defaultValueInstant", fhirdatatypes.FHIRInstant, False, "defaultValue", False, None), 
+            ("defaultValueInteger", "defaultValueInteger", int, False, "defaultValue", False, None), 
+            ("defaultValueMarkdown", "defaultValueMarkdown", fhirdatatypes.FHIRMarkdown, False, "defaultValue", False, None), 
+            ("defaultValueOid", "defaultValueOid", fhirdatatypes.FHIROid, False, "defaultValue", False, None), 
+            ("defaultValuePositiveInt", "defaultValuePositiveInt", fhirdatatypes.FHIRPositiveInt, False, "defaultValue", False, None), 
+            ("defaultValueString", "defaultValueString", fhirdatatypes.FHIRString, False, "defaultValue", False, None), 
+            ("defaultValueTime", "defaultValueTime", fhirdatatypes.FHIRTime, False, "defaultValue", False, None), 
+            ("defaultValueUnsignedInt", "defaultValueUnsignedInt", fhirdatatypes.FHIRUnsignedInt, False, "defaultValue", False, None), 
+            ("defaultValueUri", "defaultValueUri", fhirdatatypes.FHIRUri, False, "defaultValue", False, None), 
+            ("defaultValueUrl", "defaultValueUrl", fhirdatatypes.FHIRUrl, False, "defaultValue", False, None), 
+            ("defaultValueUuid", "defaultValueUuid", fhirdatatypes.FHIRUuid, False, "defaultValue", False, None), 
+            ("defaultValueAddress", "defaultValueAddress", address.Address, False, "defaultValue", False, None), 
+            ("defaultValueAge", "defaultValueAge", age.Age, False, "defaultValue", False, None), 
+            ("defaultValueAnnotation", "defaultValueAnnotation", annotation.Annotation, False, "defaultValue", False, None), 
+            ("defaultValueAttachment", "defaultValueAttachment", attachment.Attachment, False, "defaultValue", False, None), 
+            ("defaultValueCodeableConcept", "defaultValueCodeableConcept", codeableconcept.CodeableConcept, False, "defaultValue", False, None), 
+            ("defaultValueCoding", "defaultValueCoding", coding.Coding, False, "defaultValue", False, None), 
+            ("defaultValueContactPoint", "defaultValueContactPoint", contactpoint.ContactPoint, False, "defaultValue", False, None), 
+            ("defaultValueCount", "defaultValueCount", count.Count, False, "defaultValue", False, None), 
+            ("defaultValueDistance", "defaultValueDistance", distance.Distance, False, "defaultValue", False, None), 
+            ("defaultValueDuration", "defaultValueDuration", duration.Duration, False, "defaultValue", False, None), 
+            ("defaultValueHumanName", "defaultValueHumanName", humanname.HumanName, False, "defaultValue", False, None), 
+            ("defaultValueIdentifier", "defaultValueIdentifier", identifier.Identifier, False, "defaultValue", False, None), 
+            ("defaultValueMoney", "defaultValueMoney", money.Money, False, "defaultValue", False, None), 
+            ("defaultValuePeriod", "defaultValuePeriod", period.Period, False, "defaultValue", False, None), 
+            ("defaultValueQuantity", "defaultValueQuantity", quantity.Quantity, False, "defaultValue", False, None), 
+            ("defaultValueRange", "defaultValueRange", range.Range, False, "defaultValue", False, None), 
+            ("defaultValueRatio", "defaultValueRatio", ratio.Ratio, False, "defaultValue", False, None), 
+            ("defaultValueReference", "defaultValueReference", fhirreference.FHIRReference, False, "defaultValue", False, None), 
+            ("defaultValueSampledData", "defaultValueSampledData", sampleddata.SampledData, False, "defaultValue", False, None), 
+            ("defaultValueSignature", "defaultValueSignature", signature.Signature, False, "defaultValue", False, None), 
+            ("defaultValueTiming", "defaultValueTiming", timing.Timing, False, "defaultValue", False, None), 
+            ("defaultValueContactDetail", "defaultValueContactDetail", contactdetail.ContactDetail, False, "defaultValue", False, None), 
+            ("defaultValueContributor", "defaultValueContributor", contributor.Contributor, False, "defaultValue", False, None), 
+            ("defaultValueDataRequirement", "defaultValueDataRequirement", datarequirement.DataRequirement, False, "defaultValue", False, None), 
+            ("defaultValueExpression", "defaultValueExpression", expression.Expression, False, "defaultValue", False, None), 
+            ("defaultValueParameterDefinition", "defaultValueParameterDefinition", parameterdefinition.ParameterDefinition, False, "defaultValue", False, None), 
+            ("defaultValueRelatedArtifact", "defaultValueRelatedArtifact", relatedartifact.RelatedArtifact, False, "defaultValue", False, None), 
+            ("defaultValueTriggerDefinition", "defaultValueTriggerDefinition", triggerdefinition.TriggerDefinition, False, "defaultValue", False, None), 
+            ("defaultValueUsageContext", "defaultValueUsageContext", usagecontext.UsageContext, False, "defaultValue", False, None), 
+            ("defaultValueDosage", "defaultValueDosage", dosage.Dosage, False, "defaultValue", False, None), 
+            ("defaultValueMeta", "defaultValueMeta", meta.Meta, False, "defaultValue", False, None), 
+            ("element", "element", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("listMode", "listMode", fhirdatatypes.FHIRCode, False, None, False, structuremapsourcelistmode.StructureMapSourceListMode), 
+            ("variable", "variable", fhirdatatypes.FHIRId, False, None, False, None), 
+            ("condition", "condition", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("check", "check", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("logMessage", "logMessage", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -686,14 +686,14 @@ class StructureMapGroupRuleTarget(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(StructureMapGroupRuleTarget, self).elementProperties()
         js.extend([
-            ("context", "context", fhirdatatypes.FHIRId, False, None, False),
-            ("contextType", "contextType", fhirdatatypes.FHIRCode, False, None, False),
-            ("element", "element", fhirdatatypes.FHIRString, False, None, False),
-            ("variable", "variable", fhirdatatypes.FHIRId, False, None, False),
-            ("listMode", "listMode", fhirdatatypes.FHIRCode, True, None, False),
-            ("listRuleId", "listRuleId", fhirdatatypes.FHIRId, False, None, False),
-            ("transform", "transform", fhirdatatypes.FHIRCode, False, None, False),
-            ("parameter", "parameter", StructureMapGroupRuleTargetParameter, True, None, False),
+            ("context", "context", fhirdatatypes.FHIRId, False, None, False, None), 
+            ("contextType", "contextType", fhirdatatypes.FHIRCode, False, None, False, structuremapcontexttype.StructureMapContextType), 
+            ("element", "element", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("variable", "variable", fhirdatatypes.FHIRId, False, None, False, None), 
+            ("listMode", "listMode", fhirdatatypes.FHIRCode, True, None, False, structuremaptargetlistmode.StructureMapTargetListMode), 
+            ("listRuleId", "listRuleId", fhirdatatypes.FHIRId, False, None, False, None), 
+            ("transform", "transform", fhirdatatypes.FHIRCode, False, None, False, structuremaptransform.StructureMapTransform), 
+            ("parameter", "parameter", StructureMapGroupRuleTargetParameter, True, None, False, None), 
         ])
         return js
 
@@ -737,11 +737,11 @@ class StructureMapGroupRuleTargetParameter(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(StructureMapGroupRuleTargetParameter, self).elementProperties()
         js.extend([
-            ("valueId", "valueId", fhirdatatypes.FHIRId, False, "value", True),
-            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", True),
-            ("valueBoolean", "valueBoolean", bool, False, "value", True),
-            ("valueInteger", "valueInteger", int, False, "value", True),
-            ("valueDecimal", "valueDecimal", float, False, "value", True),
+            ("valueId", "valueId", fhirdatatypes.FHIRId, False, "value", True, None), 
+            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", True, None), 
+            ("valueBoolean", "valueBoolean", bool, False, "value", True, None), 
+            ("valueInteger", "valueInteger", int, False, "value", True, None), 
+            ("valueDecimal", "valueDecimal", float, False, "value", True, None), 
         ])
         return js
 
@@ -784,173 +784,92 @@ class StructureMapStructure(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(StructureMapStructure, self).elementProperties()
         js.extend([
-            ("url", "url", fhirdatatypes.FHIRCanonical, False, None, True),
-            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, True),
-            ("alias", "alias", fhirdatatypes.FHIRString, False, None, False),
-            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False),
+            ("url", "url", fhirdatatypes.FHIRCanonical, False, None, True, None), 
+            ("mode", "mode", fhirdatatypes.FHIRCode, False, None, True, structuremapmodelmode.StructureMapModelMode), 
+            ("alias", "alias", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("documentation", "documentation", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import address
-except ImportError:
-    address = sys.modules[__package__ + '.address']
+from fhirclient.models import address
 
-try:
-    from . import age
-except ImportError:
-    age = sys.modules[__package__ + '.age']
+from fhirclient.models import age
 
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
+from fhirclient.models import attachment
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
+from fhirclient.models import coding
 
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.models import contactdetail
 
-try:
-    from . import contactpoint
-except ImportError:
-    contactpoint = sys.modules[__package__ + '.contactpoint']
+from fhirclient.models import contactpoint
 
-try:
-    from . import contributor
-except ImportError:
-    contributor = sys.modules[__package__ + '.contributor']
+from fhirclient.models import contributor
 
-try:
-    from . import count
-except ImportError:
-    count = sys.modules[__package__ + '.count']
+from fhirclient.models import count
 
-try:
-    from . import datarequirement
-except ImportError:
-    datarequirement = sys.modules[__package__ + '.datarequirement']
+from fhirclient.models import datarequirement
 
-try:
-    from . import distance
-except ImportError:
-    distance = sys.modules[__package__ + '.distance']
+from fhirclient.models import distance
 
-try:
-    from . import dosage
-except ImportError:
-    dosage = sys.modules[__package__ + '.dosage']
+from fhirclient.models import dosage
 
-try:
-    from . import duration
-except ImportError:
-    duration = sys.modules[__package__ + '.duration']
+from fhirclient.models import duration
 
-try:
-    from . import expression
-except ImportError:
-    expression = sys.modules[__package__ + '.expression']
+from fhirclient.models import expression
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import humanname
-except ImportError:
-    humanname = sys.modules[__package__ + '.humanname']
+from fhirclient.models import humanname
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import meta
-except ImportError:
-    meta = sys.modules[__package__ + '.meta']
+from fhirclient.models import meta
 
-try:
-    from . import money
-except ImportError:
-    money = sys.modules[__package__ + '.money']
+from fhirclient.models import money
 
-try:
-    from . import parameterdefinition
-except ImportError:
-    parameterdefinition = sys.modules[__package__ + '.parameterdefinition']
+from fhirclient.models import parameterdefinition
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import period
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.codesystems import publicationstatus
 
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from fhirclient.models import quantity
 
-try:
-    from . import ratio
-except ImportError:
-    ratio = sys.modules[__package__ + '.ratio']
+from fhirclient.models import range
 
-try:
-    from . import relatedartifact
-except ImportError:
-    relatedartifact = sys.modules[__package__ + '.relatedartifact']
+from fhirclient.models import ratio
 
-try:
-    from . import sampleddata
-except ImportError:
-    sampleddata = sys.modules[__package__ + '.sampleddata']
+from fhirclient.models import relatedartifact
 
-try:
-    from . import signature
-except ImportError:
-    signature = sys.modules[__package__ + '.signature']
+from fhirclient.models import sampleddata
 
-try:
-    from . import timing
-except ImportError:
-    timing = sys.modules[__package__ + '.timing']
+from fhirclient.models import signature
 
-try:
-    from . import triggerdefinition
-except ImportError:
-    triggerdefinition = sys.modules[__package__ + '.triggerdefinition']
+from fhirclient.codesystems import structuremapcontexttype
 
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from fhirclient.codesystems import structuremapgrouptypemode
+
+from fhirclient.codesystems import structuremapinputmode
+
+from fhirclient.codesystems import structuremapmodelmode
+
+from fhirclient.codesystems import structuremapsourcelistmode
+
+from fhirclient.codesystems import structuremaptargetlistmode
+
+from fhirclient.codesystems import structuremaptransform
+
+from fhirclient.models import timing
+
+from fhirclient.models import triggerdefinition
+
+from fhirclient.models import usagecontext
 

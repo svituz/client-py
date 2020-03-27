@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Slot(domainresource.DomainResource):
     """ A slot of time on a schedule that may be available for booking appointments.
@@ -79,40 +79,29 @@ class Slot(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Slot, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("serviceCategory", "serviceCategory", codeableconcept.CodeableConcept, True, None, False),
-            ("serviceType", "serviceType", codeableconcept.CodeableConcept, True, None, False),
-            ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False),
-            ("appointmentType", "appointmentType", codeableconcept.CodeableConcept, False, None, False),
-            ("schedule", "schedule", fhirreference.FHIRReference, False, None, True),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("start", "start", fhirdatatypes.FHIRInstant, False, None, True),
-            ("end", "end", fhirdatatypes.FHIRInstant, False, None, True),
-            ("overbooked", "overbooked", bool, False, None, False),
-            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("serviceCategory", "serviceCategory", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("serviceType", "serviceType", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("specialty", "specialty", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("appointmentType", "appointmentType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("schedule", "schedule", fhirreference.FHIRReference, False, None, True, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, slotstatus.SlotStatus), 
+            ("start", "start", fhirdatatypes.FHIRInstant, False, None, True, None), 
+            ("end", "end", fhirdatatypes.FHIRInstant, False, None, True, None), 
+            ("overbooked", "overbooked", bool, False, None, False, None), 
+            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
+
+from fhirclient.codesystems import slotstatus
 

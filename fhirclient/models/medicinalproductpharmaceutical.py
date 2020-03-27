@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class MedicinalProductPharmaceutical(domainresource.DomainResource):
     """ A pharmaceutical product described in terms of its composition and dose
@@ -56,19 +56,19 @@ class MedicinalProductPharmaceutical(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MedicinalProductPharmaceutical, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("administrableDoseForm", "administrableDoseForm", codeableconcept.CodeableConcept, False, None, True),
-            ("unitOfPresentation", "unitOfPresentation", codeableconcept.CodeableConcept, False, None, False),
-            ("ingredient", "ingredient", fhirreference.FHIRReference, True, None, False),
-            ("device", "device", fhirreference.FHIRReference, True, None, False),
-            ("characteristics", "characteristics", MedicinalProductPharmaceuticalCharacteristics, True, None, False),
-            ("routeOfAdministration", "routeOfAdministration", MedicinalProductPharmaceuticalRouteOfAdministration, True, None, True),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("administrableDoseForm", "administrableDoseForm", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("unitOfPresentation", "unitOfPresentation", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("ingredient", "ingredient", fhirreference.FHIRReference, True, None, False, None), 
+            ("device", "device", fhirreference.FHIRReference, True, None, False, None), 
+            ("characteristics", "characteristics", MedicinalProductPharmaceuticalCharacteristics, True, None, False, None), 
+            ("routeOfAdministration", "routeOfAdministration", MedicinalProductPharmaceuticalRouteOfAdministration, True, None, True, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class MedicinalProductPharmaceuticalCharacteristics(backboneelement.BackboneElement):
     """ Characteristics e.g. a products onset of action.
@@ -95,8 +95,8 @@ class MedicinalProductPharmaceuticalCharacteristics(backboneelement.BackboneElem
     def elementProperties(self):
         js = super(MedicinalProductPharmaceuticalCharacteristics, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("status", "status", codeableconcept.CodeableConcept, False, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("status", "status", codeableconcept.CodeableConcept, False, None, False, None), 
         ])
         return js
 
@@ -158,13 +158,13 @@ class MedicinalProductPharmaceuticalRouteOfAdministration(backboneelement.Backbo
     def elementProperties(self):
         js = super(MedicinalProductPharmaceuticalRouteOfAdministration, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("firstDose", "firstDose", quantity.Quantity, False, None, False),
-            ("maxSingleDose", "maxSingleDose", quantity.Quantity, False, None, False),
-            ("maxDosePerDay", "maxDosePerDay", quantity.Quantity, False, None, False),
-            ("maxDosePerTreatmentPeriod", "maxDosePerTreatmentPeriod", ratio.Ratio, False, None, False),
-            ("maxTreatmentPeriod", "maxTreatmentPeriod", duration.Duration, False, None, False),
-            ("targetSpecies", "targetSpecies", MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies, True, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("firstDose", "firstDose", quantity.Quantity, False, None, False, None), 
+            ("maxSingleDose", "maxSingleDose", quantity.Quantity, False, None, False, None), 
+            ("maxDosePerDay", "maxDosePerDay", quantity.Quantity, False, None, False, None), 
+            ("maxDosePerTreatmentPeriod", "maxDosePerTreatmentPeriod", ratio.Ratio, False, None, False, None), 
+            ("maxTreatmentPeriod", "maxTreatmentPeriod", duration.Duration, False, None, False, None), 
+            ("targetSpecies", "targetSpecies", MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies, True, None, False, None), 
         ])
         return js
 
@@ -197,8 +197,8 @@ class MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies(backbonee
     def elementProperties(self):
         js = super(MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpecies, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("withdrawalPeriod", "withdrawalPeriod", MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawalPeriod, True, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("withdrawalPeriod", "withdrawalPeriod", MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawalPeriod, True, None, False, None), 
         ])
         return js
 
@@ -236,47 +236,25 @@ class MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawal
     def elementProperties(self):
         js = super(MedicinalProductPharmaceuticalRouteOfAdministrationTargetSpeciesWithdrawalPeriod, self).elementProperties()
         js.extend([
-            ("tissue", "tissue", codeableconcept.CodeableConcept, False, None, True),
-            ("value", "value", quantity.Quantity, False, None, True),
-            ("supportingInformation", "supportingInformation", fhirdatatypes.FHIRString, False, None, False),
+            ("tissue", "tissue", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("value", "value", quantity.Quantity, False, None, True, None), 
+            ("supportingInformation", "supportingInformation", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import duration
-except ImportError:
-    duration = sys.modules[__package__ + '.duration']
+from fhirclient.models import duration
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import quantity
 
-try:
-    from . import ratio
-except ImportError:
-    ratio = sys.modules[__package__ + '.ratio']
+from fhirclient.models import ratio
 

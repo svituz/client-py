@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class PaymentReconciliation(domainresource.DomainResource):
     """ PaymentReconciliation resource.
@@ -89,27 +89,27 @@ class PaymentReconciliation(domainresource.DomainResource):
     def elementProperties(self):
         js = super(PaymentReconciliation, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("period", "period", period.Period, False, None, False),
-            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, True),
-            ("paymentIssuer", "paymentIssuer", fhirreference.FHIRReference, False, None, False),
-            ("request", "request", fhirreference.FHIRReference, False, None, False),
-            ("requestor", "requestor", fhirreference.FHIRReference, False, None, False),
-            ("outcome", "outcome", fhirdatatypes.FHIRCode, False, None, False),
-            ("disposition", "disposition", fhirdatatypes.FHIRString, False, None, False),
-            ("paymentDate", "paymentDate", fhirdatatypes.FHIRDate, False, None, True),
-            ("paymentAmount", "paymentAmount", money.Money, False, None, True),
-            ("paymentIdentifier", "paymentIdentifier", identifier.Identifier, False, None, False),
-            ("detail", "detail", PaymentReconciliationDetail, True, None, False),
-            ("formCode", "formCode", codeableconcept.CodeableConcept, False, None, False),
-            ("processNote", "processNote", PaymentReconciliationProcessNote, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, financialresourcestatuscodes.FinancialResourceStatusCodes), 
+            ("period", "period", period.Period, False, None, False, None), 
+            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, True, None), 
+            ("paymentIssuer", "paymentIssuer", fhirreference.FHIRReference, False, None, False, None), 
+            ("request", "request", fhirreference.FHIRReference, False, None, False, None), 
+            ("requestor", "requestor", fhirreference.FHIRReference, False, None, False, None), 
+            ("outcome", "outcome", fhirdatatypes.FHIRCode, False, None, False, claimprocessingcodes.ClaimProcessingCodes), 
+            ("disposition", "disposition", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("paymentDate", "paymentDate", fhirdatatypes.FHIRDate, False, None, True, None), 
+            ("paymentAmount", "paymentAmount", money.Money, False, None, True, None), 
+            ("paymentIdentifier", "paymentIdentifier", identifier.Identifier, False, None, False, None), 
+            ("detail", "detail", PaymentReconciliationDetail, True, None, False, None), 
+            ("formCode", "formCode", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("processNote", "processNote", PaymentReconciliationProcessNote, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class PaymentReconciliationDetail(backboneelement.BackboneElement):
     """ Settlement particulars.
@@ -170,16 +170,16 @@ class PaymentReconciliationDetail(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PaymentReconciliationDetail, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("predecessor", "predecessor", identifier.Identifier, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
-            ("request", "request", fhirreference.FHIRReference, False, None, False),
-            ("submitter", "submitter", fhirreference.FHIRReference, False, None, False),
-            ("response", "response", fhirreference.FHIRReference, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDate, False, None, False),
-            ("responsible", "responsible", fhirreference.FHIRReference, False, None, False),
-            ("payee", "payee", fhirreference.FHIRReference, False, None, False),
-            ("amount", "amount", money.Money, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False, None), 
+            ("predecessor", "predecessor", identifier.Identifier, False, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("request", "request", fhirreference.FHIRReference, False, None, False, None), 
+            ("submitter", "submitter", fhirreference.FHIRReference, False, None, False, None), 
+            ("response", "response", fhirreference.FHIRReference, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDate, False, None, False, None), 
+            ("responsible", "responsible", fhirreference.FHIRReference, False, None, False, None), 
+            ("payee", "payee", fhirreference.FHIRReference, False, None, False, None), 
+            ("amount", "amount", money.Money, False, None, False, None), 
         ])
         return js
 
@@ -213,41 +213,28 @@ class PaymentReconciliationProcessNote(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(PaymentReconciliationProcessNote, self).elementProperties()
         js.extend([
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, False),
-            ("text", "text", fhirdatatypes.FHIRString, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, False, notetype.NoteType), 
+            ("text", "text", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.codesystems import claimprocessingcodes
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
 
-try:
-    from . import money
-except ImportError:
-    money = sys.modules[__package__ + '.money']
+from fhirclient.codesystems import financialresourcestatuscodes
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
+
+from fhirclient.models import money
+
+from fhirclient.codesystems import notetype
+
+from fhirclient.models import period
 

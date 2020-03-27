@@ -9,7 +9,7 @@
 
 
 {% if klass.superclass in imports and klass.superclass.module not in imported -%}
-from . import {{ klass.superclass.module }}
+from {{ klass.superclass.base_module }} import {{ klass.superclass.module }}
 {% set _ = imported.append(klass.superclass.module) %}{% endif -%}
 {% raw %}{% endraw %}
 class {{ klass.name }}({% if klass.superclass in imports %}{{ klass.superclass.module }}.{% endif -%}
@@ -59,7 +59,8 @@ class {{ klass.name }}({% if klass.superclass in imports %}{{ klass.superclass.m
             {%- if prop.module_name %} {{ prop.module_name }}.{% else %} {% endif %}{{ prop.class_name }}, {# #}
             {{- prop.is_array }},
             {%- if prop.one_of_many %} "{{ prop.one_of_many }}"{% else %} None{% endif %}, {# #}
-            {{- prop.nonoptional }}),
+            {{- prop.nonoptional }},
+            {%- if prop.valueset %} {{prop.valueset.module }}.{{ prop.valueset.name }}{% else %} None{% endif %}), {# #}
         {%- endfor %}
         ])
         return js
@@ -68,13 +69,9 @@ class {{ klass.name }}({% if klass.superclass in imports %}{{ klass.superclass.m
 {%- endfor %}
 
 {% if imports|length > 0 and imported|length != imports|length %}
-import sys
 {%- endif %}
 {%- for imp in imports %}{% if imp.module not in imported %}
-try:
-    from . import {{ imp.module }}
-except ImportError:
-    {{ imp.module }} = sys.modules[__package__ + '.{{ imp.module }}']
+from {{ imp.base_module }} import {{ imp.module }}
 {%  set _ = imported.append(imp.module) %}
 {%- endif %}{% endfor %}
 

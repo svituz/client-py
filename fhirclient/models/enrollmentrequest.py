@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class EnrollmentRequest(domainresource.DomainResource):
     """ Enroll in coverage.
@@ -57,31 +57,23 @@ class EnrollmentRequest(domainresource.DomainResource):
     def elementProperties(self):
         js = super(EnrollmentRequest, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
-            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("insurer", "insurer", fhirreference.FHIRReference, False, None, False),
-            ("provider", "provider", fhirreference.FHIRReference, False, None, False),
-            ("candidate", "candidate", fhirreference.FHIRReference, False, None, False),
-            ("coverage", "coverage", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, False, financialresourcestatuscodes.FinancialResourceStatusCodes), 
+            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("insurer", "insurer", fhirreference.FHIRReference, False, None, False, None), 
+            ("provider", "provider", fhirreference.FHIRReference, False, None, False, None), 
+            ("candidate", "candidate", fhirreference.FHIRReference, False, None, False, None), 
+            ("coverage", "coverage", fhirreference.FHIRReference, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.codesystems import financialresourcestatuscodes
+
+from fhirclient.models import identifier
 

@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class MedicinalProductIndication(domainresource.DomainResource):
     """ MedicinalProductIndication.
@@ -69,21 +69,21 @@ class MedicinalProductIndication(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MedicinalProductIndication, self).elementProperties()
         js.extend([
-            ("subject", "subject", fhirreference.FHIRReference, True, None, False),
-            ("diseaseSymptomProcedure", "diseaseSymptomProcedure", codeableconcept.CodeableConcept, False, None, False),
-            ("diseaseStatus", "diseaseStatus", codeableconcept.CodeableConcept, False, None, False),
-            ("comorbidity", "comorbidity", codeableconcept.CodeableConcept, True, None, False),
-            ("intendedEffect", "intendedEffect", codeableconcept.CodeableConcept, False, None, False),
-            ("duration", "duration", quantity.Quantity, False, None, False),
-            ("otherTherapy", "otherTherapy", MedicinalProductIndicationOtherTherapy, True, None, False),
-            ("undesirableEffect", "undesirableEffect", fhirreference.FHIRReference, True, None, False),
-            ("population", "population", population.Population, True, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, True, None, False, None), 
+            ("diseaseSymptomProcedure", "diseaseSymptomProcedure", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("diseaseStatus", "diseaseStatus", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("comorbidity", "comorbidity", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("intendedEffect", "intendedEffect", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("duration", "duration", quantity.Quantity, False, None, False, None), 
+            ("otherTherapy", "otherTherapy", MedicinalProductIndicationOtherTherapy, True, None, False, None), 
+            ("undesirableEffect", "undesirableEffect", fhirreference.FHIRReference, True, None, False, None), 
+            ("population", "population", population.Population, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class MedicinalProductIndicationOtherTherapy(backboneelement.BackboneElement):
     """ Information about the use of the medicinal product in relation to other
@@ -120,32 +120,19 @@ class MedicinalProductIndicationOtherTherapy(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicinalProductIndicationOtherTherapy, self).elementProperties()
         js.extend([
-            ("therapyRelationshipType", "therapyRelationshipType", codeableconcept.CodeableConcept, False, None, True),
-            ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", True),
-            ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True),
+            ("therapyRelationshipType", "therapyRelationshipType", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", True, None), 
+            ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import population
-except ImportError:
-    population = sys.modules[__package__ + '.population']
+from fhirclient.models import population
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import quantity
 

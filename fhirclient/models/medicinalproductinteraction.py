@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class MedicinalProductInteraction(domainresource.DomainResource):
     """ MedicinalProductInteraction.
@@ -59,19 +59,19 @@ class MedicinalProductInteraction(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MedicinalProductInteraction, self).elementProperties()
         js.extend([
-            ("subject", "subject", fhirreference.FHIRReference, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("interactant", "interactant", MedicinalProductInteractionInteractant, True, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("effect", "effect", codeableconcept.CodeableConcept, False, None, False),
-            ("incidence", "incidence", codeableconcept.CodeableConcept, False, None, False),
-            ("management", "management", codeableconcept.CodeableConcept, False, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("interactant", "interactant", MedicinalProductInteractionInteractant, True, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("effect", "effect", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("incidence", "incidence", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("management", "management", codeableconcept.CodeableConcept, False, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class MedicinalProductInteractionInteractant(backboneelement.BackboneElement):
     """ The specific medication, food or laboratory test that interacts.
@@ -98,26 +98,16 @@ class MedicinalProductInteractionInteractant(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicinalProductInteractionInteractant, self).elementProperties()
         js.extend([
-            ("itemReference", "itemReference", fhirreference.FHIRReference, False, "item", True),
-            ("itemCodeableConcept", "itemCodeableConcept", codeableconcept.CodeableConcept, False, "item", True),
+            ("itemReference", "itemReference", fhirreference.FHIRReference, False, "item", True, None), 
+            ("itemCodeableConcept", "itemCodeableConcept", codeableconcept.CodeableConcept, False, "item", True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 

@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class ResearchSubject(domainresource.DomainResource):
     """ Physical entity which is the primary unit of interest in the study.
@@ -63,37 +63,26 @@ class ResearchSubject(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ResearchSubject, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("period", "period", period.Period, False, None, False),
-            ("study", "study", fhirreference.FHIRReference, False, None, True),
-            ("individual", "individual", fhirreference.FHIRReference, False, None, True),
-            ("assignedArm", "assignedArm", fhirdatatypes.FHIRString, False, None, False),
-            ("actualArm", "actualArm", fhirdatatypes.FHIRString, False, None, False),
-            ("consent", "consent", fhirreference.FHIRReference, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, researchsubjectstatus.ResearchSubjectStatus), 
+            ("period", "period", period.Period, False, None, False, None), 
+            ("study", "study", fhirreference.FHIRReference, False, None, True, None), 
+            ("individual", "individual", fhirreference.FHIRReference, False, None, True, None), 
+            ("assignedArm", "assignedArm", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("actualArm", "actualArm", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("consent", "consent", fhirreference.FHIRReference, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import period
+
+from fhirclient.codesystems import researchsubjectstatus
 

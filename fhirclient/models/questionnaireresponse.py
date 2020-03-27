@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class QuestionnaireResponse(domainresource.DomainResource):
     """ A structured set of questions and their answers.
@@ -74,23 +74,23 @@ class QuestionnaireResponse(domainresource.DomainResource):
     def elementProperties(self):
         js = super(QuestionnaireResponse, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
-            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
-            ("questionnaire", "questionnaire", fhirdatatypes.FHIRCanonical, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("authored", "authored", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("author", "author", fhirreference.FHIRReference, False, None, False),
-            ("source", "source", fhirreference.FHIRReference, False, None, False),
-            ("item", "item", QuestionnaireResponseItem, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False, None), 
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False, None), 
+            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False, None), 
+            ("questionnaire", "questionnaire", fhirdatatypes.FHIRCanonical, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, questionnaireresponsestatus.QuestionnaireResponseStatus), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False, None), 
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False, None), 
+            ("authored", "authored", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("author", "author", fhirreference.FHIRReference, False, None, False, None), 
+            ("source", "source", fhirreference.FHIRReference, False, None, False, None), 
+            ("item", "item", QuestionnaireResponseItem, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class QuestionnaireResponseItem(backboneelement.BackboneElement):
     """ Groups and questions.
@@ -132,11 +132,11 @@ class QuestionnaireResponseItem(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(QuestionnaireResponseItem, self).elementProperties()
         js.extend([
-            ("linkId", "linkId", fhirdatatypes.FHIRString, False, None, True),
-            ("definition", "definition", fhirdatatypes.FHIRUri, False, None, False),
-            ("text", "text", fhirdatatypes.FHIRString, False, None, False),
-            ("answer", "answer", QuestionnaireResponseItemAnswer, True, None, False),
-            ("item", "item", QuestionnaireResponseItem, True, None, False),
+            ("linkId", "linkId", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("definition", "definition", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("text", "text", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("answer", "answer", QuestionnaireResponseItemAnswer, True, None, False, None), 
+            ("item", "item", QuestionnaireResponseItem, True, None, False, None), 
         ])
         return js
 
@@ -214,52 +214,35 @@ class QuestionnaireResponseItemAnswer(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(QuestionnaireResponseItemAnswer, self).elementProperties()
         js.extend([
-            ("valueBoolean", "valueBoolean", bool, False, "value", False),
-            ("valueDecimal", "valueDecimal", float, False, "value", False),
-            ("valueInteger", "valueInteger", int, False, "value", False),
-            ("valueDate", "valueDate", fhirdatatypes.FHIRDate, False, "value", False),
-            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", False),
-            ("valueTime", "valueTime", fhirdatatypes.FHIRTime, False, "value", False),
-            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", False),
-            ("valueUri", "valueUri", fhirdatatypes.FHIRUri, False, "value", False),
-            ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", False),
-            ("valueCoding", "valueCoding", coding.Coding, False, "value", False),
-            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
-            ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", False),
-            ("item", "item", QuestionnaireResponseItem, True, None, False),
+            ("valueBoolean", "valueBoolean", bool, False, "value", False, None), 
+            ("valueDecimal", "valueDecimal", float, False, "value", False, None), 
+            ("valueInteger", "valueInteger", int, False, "value", False, None), 
+            ("valueDate", "valueDate", fhirdatatypes.FHIRDate, False, "value", False, None), 
+            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", False, None), 
+            ("valueTime", "valueTime", fhirdatatypes.FHIRTime, False, "value", False, None), 
+            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", False, None), 
+            ("valueUri", "valueUri", fhirdatatypes.FHIRUri, False, "value", False, None), 
+            ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", False, None), 
+            ("valueCoding", "valueCoding", coding.Coding, False, "value", False, None), 
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False, None), 
+            ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", False, None), 
+            ("item", "item", QuestionnaireResponseItem, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
+from fhirclient.models import attachment
 
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
+from fhirclient.models import coding
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import quantity
+
+from fhirclient.codesystems import questionnaireresponsestatus
 

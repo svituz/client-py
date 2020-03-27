@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class MolecularSequence(domainresource.DomainResource):
     """ Information about a biological sequence.
@@ -96,28 +96,28 @@ class MolecularSequence(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MolecularSequence, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, False),
-            ("coordinateSystem", "coordinateSystem", int, False, None, True),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, False),
-            ("specimen", "specimen", fhirreference.FHIRReference, False, None, False),
-            ("device", "device", fhirreference.FHIRReference, False, None, False),
-            ("performer", "performer", fhirreference.FHIRReference, False, None, False),
-            ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("referenceSeq", "referenceSeq", MolecularSequenceReferenceSeq, False, None, False),
-            ("variant", "variant", MolecularSequenceVariant, True, None, False),
-            ("observedSeq", "observedSeq", fhirdatatypes.FHIRString, False, None, False),
-            ("quality", "quality", MolecularSequenceQuality, True, None, False),
-            ("readCoverage", "readCoverage", int, False, None, False),
-            ("repository", "repository", MolecularSequenceRepository, True, None, False),
-            ("pointer", "pointer", fhirreference.FHIRReference, True, None, False),
-            ("structureVariant", "structureVariant", MolecularSequenceStructureVariant, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, False, sequencetype.SequenceType), 
+            ("coordinateSystem", "coordinateSystem", int, False, None, True, None), 
+            ("patient", "patient", fhirreference.FHIRReference, False, None, False, None), 
+            ("specimen", "specimen", fhirreference.FHIRReference, False, None, False, None), 
+            ("device", "device", fhirreference.FHIRReference, False, None, False, None), 
+            ("performer", "performer", fhirreference.FHIRReference, False, None, False, None), 
+            ("quantity", "quantity", quantity.Quantity, False, None, False, None), 
+            ("referenceSeq", "referenceSeq", MolecularSequenceReferenceSeq, False, None, False, None), 
+            ("variant", "variant", MolecularSequenceVariant, True, None, False, None), 
+            ("observedSeq", "observedSeq", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("quality", "quality", MolecularSequenceQuality, True, None, False, None), 
+            ("readCoverage", "readCoverage", int, False, None, False, None), 
+            ("repository", "repository", MolecularSequenceRepository, True, None, False, None), 
+            ("pointer", "pointer", fhirreference.FHIRReference, True, None, False, None), 
+            ("structureVariant", "structureVariant", MolecularSequenceStructureVariant, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class MolecularSequenceQuality(backboneelement.BackboneElement):
     """ An set of value as quality of sequence.
@@ -201,21 +201,21 @@ class MolecularSequenceQuality(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MolecularSequenceQuality, self).elementProperties()
         js.extend([
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("standardSequence", "standardSequence", codeableconcept.CodeableConcept, False, None, False),
-            ("start", "start", int, False, None, False),
-            ("end", "end", int, False, None, False),
-            ("score", "score", quantity.Quantity, False, None, False),
-            ("method", "method", codeableconcept.CodeableConcept, False, None, False),
-            ("truthTP", "truthTP", float, False, None, False),
-            ("queryTP", "queryTP", float, False, None, False),
-            ("truthFN", "truthFN", float, False, None, False),
-            ("queryFP", "queryFP", float, False, None, False),
-            ("gtFP", "gtFP", float, False, None, False),
-            ("precision", "precision", float, False, None, False),
-            ("recall", "recall", float, False, None, False),
-            ("fScore", "fScore", float, False, None, False),
-            ("roc", "roc", MolecularSequenceQualityRoc, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, qualitytype.QualityType), 
+            ("standardSequence", "standardSequence", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("start", "start", int, False, None, False, None), 
+            ("end", "end", int, False, None, False, None), 
+            ("score", "score", quantity.Quantity, False, None, False, None), 
+            ("method", "method", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("truthTP", "truthTP", float, False, None, False, None), 
+            ("queryTP", "queryTP", float, False, None, False, None), 
+            ("truthFN", "truthFN", float, False, None, False, None), 
+            ("queryFP", "queryFP", float, False, None, False, None), 
+            ("gtFP", "gtFP", float, False, None, False, None), 
+            ("precision", "precision", float, False, None, False, None), 
+            ("recall", "recall", float, False, None, False, None), 
+            ("fScore", "fScore", float, False, None, False, None), 
+            ("roc", "roc", MolecularSequenceQualityRoc, False, None, False, None), 
         ])
         return js
 
@@ -270,13 +270,13 @@ class MolecularSequenceQualityRoc(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MolecularSequenceQualityRoc, self).elementProperties()
         js.extend([
-            ("score", "score", int, True, None, False),
-            ("numTP", "numTP", int, True, None, False),
-            ("numFP", "numFP", int, True, None, False),
-            ("numFN", "numFN", int, True, None, False),
-            ("precision", "precision", float, True, None, False),
-            ("sensitivity", "sensitivity", float, True, None, False),
-            ("fMeasure", "fMeasure", float, True, None, False),
+            ("score", "score", int, True, None, False, None), 
+            ("numTP", "numTP", int, True, None, False, None), 
+            ("numFP", "numFP", int, True, None, False, None), 
+            ("numFN", "numFN", int, True, None, False, None), 
+            ("precision", "precision", float, True, None, False, None), 
+            ("sensitivity", "sensitivity", float, True, None, False, None), 
+            ("fMeasure", "fMeasure", float, True, None, False, None), 
         ])
         return js
 
@@ -340,15 +340,15 @@ class MolecularSequenceReferenceSeq(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MolecularSequenceReferenceSeq, self).elementProperties()
         js.extend([
-            ("chromosome", "chromosome", codeableconcept.CodeableConcept, False, None, False),
-            ("genomeBuild", "genomeBuild", fhirdatatypes.FHIRString, False, None, False),
-            ("orientation", "orientation", fhirdatatypes.FHIRCode, False, None, False),
-            ("referenceSeqId", "referenceSeqId", codeableconcept.CodeableConcept, False, None, False),
-            ("referenceSeqPointer", "referenceSeqPointer", fhirreference.FHIRReference, False, None, False),
-            ("referenceSeqString", "referenceSeqString", fhirdatatypes.FHIRString, False, None, False),
-            ("strand", "strand", fhirdatatypes.FHIRCode, False, None, False),
-            ("windowStart", "windowStart", int, False, None, False),
-            ("windowEnd", "windowEnd", int, False, None, False),
+            ("chromosome", "chromosome", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("genomeBuild", "genomeBuild", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("orientation", "orientation", fhirdatatypes.FHIRCode, False, None, False, orientationtype.OrientationType), 
+            ("referenceSeqId", "referenceSeqId", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("referenceSeqPointer", "referenceSeqPointer", fhirreference.FHIRReference, False, None, False, None), 
+            ("referenceSeqString", "referenceSeqString", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("strand", "strand", fhirdatatypes.FHIRCode, False, None, False, strandtype.StrandType), 
+            ("windowStart", "windowStart", int, False, None, False, None), 
+            ("windowEnd", "windowEnd", int, False, None, False, None), 
         ])
         return js
 
@@ -400,12 +400,12 @@ class MolecularSequenceRepository(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MolecularSequenceRepository, self).elementProperties()
         js.extend([
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("datasetId", "datasetId", fhirdatatypes.FHIRString, False, None, False),
-            ("variantsetId", "variantsetId", fhirdatatypes.FHIRString, False, None, False),
-            ("readsetId", "readsetId", fhirdatatypes.FHIRString, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, repositorytype.RepositoryType), 
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("datasetId", "datasetId", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("variantsetId", "variantsetId", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("readsetId", "readsetId", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -451,11 +451,11 @@ class MolecularSequenceStructureVariant(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MolecularSequenceStructureVariant, self).elementProperties()
         js.extend([
-            ("variantType", "variantType", codeableconcept.CodeableConcept, False, None, False),
-            ("exact", "exact", bool, False, None, False),
-            ("length", "length", int, False, None, False),
-            ("outer", "outer", MolecularSequenceStructureVariantOuter, False, None, False),
-            ("inner", "inner", MolecularSequenceStructureVariantInner, False, None, False),
+            ("variantType", "variantType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("exact", "exact", bool, False, None, False, None), 
+            ("length", "length", int, False, None, False, None), 
+            ("outer", "outer", MolecularSequenceStructureVariantOuter, False, None, False, None), 
+            ("inner", "inner", MolecularSequenceStructureVariantInner, False, None, False, None), 
         ])
         return js
 
@@ -487,8 +487,8 @@ class MolecularSequenceStructureVariantInner(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MolecularSequenceStructureVariantInner, self).elementProperties()
         js.extend([
-            ("start", "start", int, False, None, False),
-            ("end", "end", int, False, None, False),
+            ("start", "start", int, False, None, False, None), 
+            ("end", "end", int, False, None, False, None), 
         ])
         return js
 
@@ -520,8 +520,8 @@ class MolecularSequenceStructureVariantOuter(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MolecularSequenceStructureVariantOuter, self).elementProperties()
         js.extend([
-            ("start", "start", int, False, None, False),
-            ("end", "end", int, False, None, False),
+            ("start", "start", int, False, None, False, None), 
+            ("end", "end", int, False, None, False, None), 
         ])
         return js
 
@@ -576,40 +576,34 @@ class MolecularSequenceVariant(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MolecularSequenceVariant, self).elementProperties()
         js.extend([
-            ("start", "start", int, False, None, False),
-            ("end", "end", int, False, None, False),
-            ("observedAllele", "observedAllele", fhirdatatypes.FHIRString, False, None, False),
-            ("referenceAllele", "referenceAllele", fhirdatatypes.FHIRString, False, None, False),
-            ("cigar", "cigar", fhirdatatypes.FHIRString, False, None, False),
-            ("variantPointer", "variantPointer", fhirreference.FHIRReference, False, None, False),
+            ("start", "start", int, False, None, False, None), 
+            ("end", "end", int, False, None, False, None), 
+            ("observedAllele", "observedAllele", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("referenceAllele", "referenceAllele", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("cigar", "cigar", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("variantPointer", "variantPointer", fhirreference.FHIRReference, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.codesystems import orientationtype
+
+from fhirclient.codesystems import qualitytype
+
+from fhirclient.models import quantity
+
+from fhirclient.codesystems import repositorytype
+
+from fhirclient.codesystems import sequencetype
+
+from fhirclient.codesystems import strandtype
 

@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class ValueSet(domainresource.DomainResource):
     """ A set of codes drawn from one or more code systems.
@@ -105,30 +105,30 @@ class ValueSet(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ValueSet, self).elementProperties()
         js.extend([
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("experimental", "experimental", bool, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("immutable", "immutable", bool, False, None, False),
-            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("compose", "compose", ValueSetCompose, False, None, False),
-            ("expansion", "expansion", ValueSetExpansion, False, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, publicationstatus.PublicationStatus), 
+            ("experimental", "experimental", bool, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False, None), 
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("immutable", "immutable", bool, False, None, False, None), 
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("compose", "compose", ValueSetCompose, False, None, False, None), 
+            ("expansion", "expansion", ValueSetExpansion, False, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ValueSetCompose(backboneelement.BackboneElement):
     """ Content logical definition of the value set (CLD).
@@ -167,10 +167,10 @@ class ValueSetCompose(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ValueSetCompose, self).elementProperties()
         js.extend([
-            ("lockedDate", "lockedDate", fhirdatatypes.FHIRDate, False, None, False),
-            ("inactive", "inactive", bool, False, None, False),
-            ("include", "include", ValueSetComposeInclude, True, None, True),
-            ("exclude", "exclude", ValueSetComposeInclude, True, None, False),
+            ("lockedDate", "lockedDate", fhirdatatypes.FHIRDate, False, None, False, None), 
+            ("inactive", "inactive", bool, False, None, False, None), 
+            ("include", "include", ValueSetComposeInclude, True, None, True, None), 
+            ("exclude", "exclude", ValueSetComposeInclude, True, None, False, None), 
         ])
         return js
 
@@ -214,11 +214,11 @@ class ValueSetComposeInclude(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ValueSetComposeInclude, self).elementProperties()
         js.extend([
-            ("system", "system", fhirdatatypes.FHIRUri, False, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("concept", "concept", ValueSetComposeIncludeConcept, True, None, False),
-            ("filter", "filter", ValueSetComposeIncludeFilter, True, None, False),
-            ("valueSet", "valueSet", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("system", "system", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("concept", "concept", ValueSetComposeIncludeConcept, True, None, False, None), 
+            ("filter", "filter", ValueSetComposeIncludeFilter, True, None, False, None), 
+            ("valueSet", "valueSet", fhirdatatypes.FHIRCanonical, True, None, False, None), 
         ])
         return js
 
@@ -256,9 +256,9 @@ class ValueSetComposeIncludeConcept(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ValueSetComposeIncludeConcept, self).elementProperties()
         js.extend([
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
-            ("display", "display", fhirdatatypes.FHIRString, False, None, False),
-            ("designation", "designation", ValueSetComposeIncludeConceptDesignation, True, None, False),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True, None), 
+            ("display", "display", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("designation", "designation", ValueSetComposeIncludeConceptDesignation, True, None, False, None), 
         ])
         return js
 
@@ -298,9 +298,9 @@ class ValueSetComposeIncludeConceptDesignation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ValueSetComposeIncludeConceptDesignation, self).elementProperties()
         js.extend([
-            ("language", "language", fhirdatatypes.FHIRCode, False, None, False),
-            ("use", "use", coding.Coding, False, None, False),
-            ("value", "value", fhirdatatypes.FHIRString, False, None, True),
+            ("language", "language", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("use", "use", coding.Coding, False, None, False, None), 
+            ("value", "value", fhirdatatypes.FHIRString, False, None, True, None), 
         ])
         return js
 
@@ -342,9 +342,9 @@ class ValueSetComposeIncludeFilter(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ValueSetComposeIncludeFilter, self).elementProperties()
         js.extend([
-            ("property", "property", fhirdatatypes.FHIRCode, False, None, True),
-            ("op", "op", fhirdatatypes.FHIRCode, False, None, True),
-            ("value", "value", fhirdatatypes.FHIRString, False, None, True),
+            ("property", "property", fhirdatatypes.FHIRCode, False, None, True, None), 
+            ("op", "op", fhirdatatypes.FHIRCode, False, None, True, filteroperator.FilterOperator), 
+            ("value", "value", fhirdatatypes.FHIRString, False, None, True, None), 
         ])
         return js
 
@@ -396,12 +396,12 @@ class ValueSetExpansion(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ValueSetExpansion, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", fhirdatatypes.FHIRUri, False, None, False),
-            ("timestamp", "timestamp", fhirdatatypes.FHIRDateTime, False, None, True),
-            ("total", "total", int, False, None, False),
-            ("offset", "offset", int, False, None, False),
-            ("parameter", "parameter", ValueSetExpansionParameter, True, None, False),
-            ("contains", "contains", ValueSetExpansionContains, True, None, False),
+            ("identifier", "identifier", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("timestamp", "timestamp", fhirdatatypes.FHIRDateTime, False, None, True, None), 
+            ("total", "total", int, False, None, False, None), 
+            ("offset", "offset", int, False, None, False, None), 
+            ("parameter", "parameter", ValueSetExpansionParameter, True, None, False, None), 
+            ("contains", "contains", ValueSetExpansionContains, True, None, False, None), 
         ])
         return js
 
@@ -459,14 +459,14 @@ class ValueSetExpansionContains(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ValueSetExpansionContains, self).elementProperties()
         js.extend([
-            ("system", "system", fhirdatatypes.FHIRUri, False, None, False),
-            ("abstract", "abstract", bool, False, None, False),
-            ("inactive", "inactive", bool, False, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, False),
-            ("display", "display", fhirdatatypes.FHIRString, False, None, False),
-            ("designation", "designation", ValueSetComposeIncludeConceptDesignation, True, None, False),
-            ("contains", "contains", ValueSetExpansionContains, True, None, False),
+            ("system", "system", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("abstract", "abstract", bool, False, None, False, None), 
+            ("inactive", "inactive", bool, False, None, False, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("display", "display", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("designation", "designation", ValueSetComposeIncludeConceptDesignation, True, None, False, None), 
+            ("contains", "contains", ValueSetExpansionContains, True, None, False, None), 
         ])
         return js
 
@@ -526,47 +526,32 @@ class ValueSetExpansionParameter(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ValueSetExpansionParameter, self).elementProperties()
         js.extend([
-            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
-            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", False),
-            ("valueBoolean", "valueBoolean", bool, False, "value", False),
-            ("valueInteger", "valueInteger", int, False, "value", False),
-            ("valueDecimal", "valueDecimal", float, False, "value", False),
-            ("valueUri", "valueUri", fhirdatatypes.FHIRUri, False, "value", False),
-            ("valueCode", "valueCode", fhirdatatypes.FHIRCode, False, "value", False),
-            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", False, None), 
+            ("valueBoolean", "valueBoolean", bool, False, "value", False, None), 
+            ("valueInteger", "valueInteger", int, False, "value", False, None), 
+            ("valueDecimal", "valueDecimal", float, False, "value", False, None), 
+            ("valueUri", "valueUri", fhirdatatypes.FHIRUri, False, "value", False, None), 
+            ("valueCode", "valueCode", fhirdatatypes.FHIRCode, False, "value", False, None), 
+            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
+from fhirclient.models import coding
 
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.models import contactdetail
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.codesystems import filteroperator
 
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from fhirclient.models import identifier
+
+from fhirclient.codesystems import publicationstatus
+
+from fhirclient.models import usagecontext
 

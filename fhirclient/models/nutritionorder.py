@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class NutritionOrder(domainresource.DomainResource):
     """ Diet, formula or nutritional supplement request.
@@ -101,29 +101,29 @@ class NutritionOrder(domainresource.DomainResource):
     def elementProperties(self):
         js = super(NutritionOrder, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False),
-            ("instantiates", "instantiates", fhirdatatypes.FHIRUri, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("intent", "intent", fhirdatatypes.FHIRCode, False, None, True),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("dateTime", "dateTime", fhirdatatypes.FHIRDateTime, False, None, True),
-            ("orderer", "orderer", fhirreference.FHIRReference, False, None, False),
-            ("allergyIntolerance", "allergyIntolerance", fhirreference.FHIRReference, True, None, False),
-            ("foodPreferenceModifier", "foodPreferenceModifier", codeableconcept.CodeableConcept, True, None, False),
-            ("excludeFoodModifier", "excludeFoodModifier", codeableconcept.CodeableConcept, True, None, False),
-            ("oralDiet", "oralDiet", NutritionOrderOralDiet, False, None, False),
-            ("supplement", "supplement", NutritionOrderSupplement, True, None, False),
-            ("enteralFormula", "enteralFormula", NutritionOrderEnteralFormula, False, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False, None), 
+            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False, None), 
+            ("instantiates", "instantiates", fhirdatatypes.FHIRUri, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, requeststatus.RequestStatus), 
+            ("intent", "intent", fhirdatatypes.FHIRCode, False, None, True, requestintent.RequestIntent), 
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True, None), 
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False, None), 
+            ("dateTime", "dateTime", fhirdatatypes.FHIRDateTime, False, None, True, None), 
+            ("orderer", "orderer", fhirreference.FHIRReference, False, None, False, None), 
+            ("allergyIntolerance", "allergyIntolerance", fhirreference.FHIRReference, True, None, False, None), 
+            ("foodPreferenceModifier", "foodPreferenceModifier", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("excludeFoodModifier", "excludeFoodModifier", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("oralDiet", "oralDiet", NutritionOrderOralDiet, False, None, False, None), 
+            ("supplement", "supplement", NutritionOrderSupplement, True, None, False, None), 
+            ("enteralFormula", "enteralFormula", NutritionOrderEnteralFormula, False, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class NutritionOrderEnteralFormula(backboneelement.BackboneElement):
     """ Enteral formula components.
@@ -181,15 +181,15 @@ class NutritionOrderEnteralFormula(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(NutritionOrderEnteralFormula, self).elementProperties()
         js.extend([
-            ("baseFormulaType", "baseFormulaType", codeableconcept.CodeableConcept, False, None, False),
-            ("baseFormulaProductName", "baseFormulaProductName", fhirdatatypes.FHIRString, False, None, False),
-            ("additiveType", "additiveType", codeableconcept.CodeableConcept, False, None, False),
-            ("additiveProductName", "additiveProductName", fhirdatatypes.FHIRString, False, None, False),
-            ("caloricDensity", "caloricDensity", quantity.Quantity, False, None, False),
-            ("routeofAdministration", "routeofAdministration", codeableconcept.CodeableConcept, False, None, False),
-            ("administration", "administration", NutritionOrderEnteralFormulaAdministration, True, None, False),
-            ("maxVolumeToDeliver", "maxVolumeToDeliver", quantity.Quantity, False, None, False),
-            ("administrationInstruction", "administrationInstruction", fhirdatatypes.FHIRString, False, None, False),
+            ("baseFormulaType", "baseFormulaType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("baseFormulaProductName", "baseFormulaProductName", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("additiveType", "additiveType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("additiveProductName", "additiveProductName", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("caloricDensity", "caloricDensity", quantity.Quantity, False, None, False, None), 
+            ("routeofAdministration", "routeofAdministration", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("administration", "administration", NutritionOrderEnteralFormulaAdministration, True, None, False, None), 
+            ("maxVolumeToDeliver", "maxVolumeToDeliver", quantity.Quantity, False, None, False, None), 
+            ("administrationInstruction", "administrationInstruction", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -234,10 +234,10 @@ class NutritionOrderEnteralFormulaAdministration(backboneelement.BackboneElement
     def elementProperties(self):
         js = super(NutritionOrderEnteralFormulaAdministration, self).elementProperties()
         js.extend([
-            ("schedule", "schedule", timing.Timing, False, None, False),
-            ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("rateQuantity", "rateQuantity", quantity.Quantity, False, "rate", False),
-            ("rateRatio", "rateRatio", ratio.Ratio, False, "rate", False),
+            ("schedule", "schedule", timing.Timing, False, None, False, None), 
+            ("quantity", "quantity", quantity.Quantity, False, None, False, None), 
+            ("rateQuantity", "rateQuantity", quantity.Quantity, False, "rate", False, None), 
+            ("rateRatio", "rateRatio", ratio.Ratio, False, "rate", False, None), 
         ])
         return js
 
@@ -289,12 +289,12 @@ class NutritionOrderOralDiet(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(NutritionOrderOralDiet, self).elementProperties()
         js.extend([
-            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
-            ("schedule", "schedule", timing.Timing, True, None, False),
-            ("nutrient", "nutrient", NutritionOrderOralDietNutrient, True, None, False),
-            ("texture", "texture", NutritionOrderOralDietTexture, True, None, False),
-            ("fluidConsistencyType", "fluidConsistencyType", codeableconcept.CodeableConcept, True, None, False),
-            ("instruction", "instruction", fhirdatatypes.FHIRString, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("schedule", "schedule", timing.Timing, True, None, False, None), 
+            ("nutrient", "nutrient", NutritionOrderOralDietNutrient, True, None, False, None), 
+            ("texture", "texture", NutritionOrderOralDietTexture, True, None, False, None), 
+            ("fluidConsistencyType", "fluidConsistencyType", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("instruction", "instruction", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -329,8 +329,8 @@ class NutritionOrderOralDietNutrient(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(NutritionOrderOralDietNutrient, self).elementProperties()
         js.extend([
-            ("modifier", "modifier", codeableconcept.CodeableConcept, False, None, False),
-            ("amount", "amount", quantity.Quantity, False, None, False),
+            ("modifier", "modifier", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("amount", "amount", quantity.Quantity, False, None, False, None), 
         ])
         return js
 
@@ -366,8 +366,8 @@ class NutritionOrderOralDietTexture(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(NutritionOrderOralDietTexture, self).elementProperties()
         js.extend([
-            ("modifier", "modifier", codeableconcept.CodeableConcept, False, None, False),
-            ("foodType", "foodType", codeableconcept.CodeableConcept, False, None, False),
+            ("modifier", "modifier", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("foodType", "foodType", codeableconcept.CodeableConcept, False, None, False, None), 
         ])
         return js
 
@@ -414,54 +414,33 @@ class NutritionOrderSupplement(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(NutritionOrderSupplement, self).elementProperties()
         js.extend([
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("productName", "productName", fhirdatatypes.FHIRString, False, None, False),
-            ("schedule", "schedule", timing.Timing, True, None, False),
-            ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("instruction", "instruction", fhirdatatypes.FHIRString, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("productName", "productName", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("schedule", "schedule", timing.Timing, True, None, False, None), 
+            ("quantity", "quantity", quantity.Quantity, False, None, False, None), 
+            ("instruction", "instruction", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import quantity
 
-try:
-    from . import ratio
-except ImportError:
-    ratio = sys.modules[__package__ + '.ratio']
+from fhirclient.models import ratio
 
-try:
-    from . import timing
-except ImportError:
-    timing = sys.modules[__package__ + '.timing']
+from fhirclient.codesystems import requestintent
+
+from fhirclient.codesystems import requeststatus
+
+from fhirclient.models import timing
 

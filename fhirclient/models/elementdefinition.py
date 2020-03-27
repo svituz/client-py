@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ElementDefinition(backboneelement.BackboneElement):
     """ Definition of an element in a resource or extension.
@@ -816,209 +816,209 @@ class ElementDefinition(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ElementDefinition, self).elementProperties()
         js.extend([
-            ("path", "path", fhirdatatypes.FHIRString, False, None, True),
-            ("representation", "representation", fhirdatatypes.FHIRCode, True, None, False),
-            ("sliceName", "sliceName", fhirdatatypes.FHIRString, False, None, False),
-            ("sliceIsConstraining", "sliceIsConstraining", bool, False, None, False),
-            ("label", "label", fhirdatatypes.FHIRString, False, None, False),
-            ("code", "code", coding.Coding, True, None, False),
-            ("slicing", "slicing", ElementDefinitionSlicing, False, None, False),
-            ("short", "short", fhirdatatypes.FHIRString, False, None, False),
-            ("definition", "definition", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("comment", "comment", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("requirements", "requirements", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("alias", "alias", fhirdatatypes.FHIRString, True, None, False),
-            ("min", "min", fhirdatatypes.FHIRUnsignedInt, False, None, False),
-            ("max", "max", fhirdatatypes.FHIRString, False, None, False),
-            ("base", "base", ElementDefinitionBase, False, None, False),
-            ("contentReference", "contentReference", fhirdatatypes.FHIRUri, False, None, False),
-            ("type", "type", ElementDefinitionType, True, None, False),
-            ("defaultValueBase64Binary", "defaultValueBase64Binary", fhirdatatypes.FHIRBase64Binary, False, "defaultValue", False),
-            ("defaultValueBoolean", "defaultValueBoolean", bool, False, "defaultValue", False),
-            ("defaultValueCanonical", "defaultValueCanonical", fhirdatatypes.FHIRCanonical, False, "defaultValue", False),
-            ("defaultValueCode", "defaultValueCode", fhirdatatypes.FHIRCode, False, "defaultValue", False),
-            ("defaultValueDate", "defaultValueDate", fhirdatatypes.FHIRDate, False, "defaultValue", False),
-            ("defaultValueDateTime", "defaultValueDateTime", fhirdatatypes.FHIRDateTime, False, "defaultValue", False),
-            ("defaultValueDecimal", "defaultValueDecimal", float, False, "defaultValue", False),
-            ("defaultValueId", "defaultValueId", fhirdatatypes.FHIRId, False, "defaultValue", False),
-            ("defaultValueInstant", "defaultValueInstant", fhirdatatypes.FHIRInstant, False, "defaultValue", False),
-            ("defaultValueInteger", "defaultValueInteger", int, False, "defaultValue", False),
-            ("defaultValueMarkdown", "defaultValueMarkdown", fhirdatatypes.FHIRMarkdown, False, "defaultValue", False),
-            ("defaultValueOid", "defaultValueOid", fhirdatatypes.FHIROid, False, "defaultValue", False),
-            ("defaultValuePositiveInt", "defaultValuePositiveInt", fhirdatatypes.FHIRPositiveInt, False, "defaultValue", False),
-            ("defaultValueString", "defaultValueString", fhirdatatypes.FHIRString, False, "defaultValue", False),
-            ("defaultValueTime", "defaultValueTime", fhirdatatypes.FHIRTime, False, "defaultValue", False),
-            ("defaultValueUnsignedInt", "defaultValueUnsignedInt", fhirdatatypes.FHIRUnsignedInt, False, "defaultValue", False),
-            ("defaultValueUri", "defaultValueUri", fhirdatatypes.FHIRUri, False, "defaultValue", False),
-            ("defaultValueUrl", "defaultValueUrl", fhirdatatypes.FHIRUrl, False, "defaultValue", False),
-            ("defaultValueUuid", "defaultValueUuid", fhirdatatypes.FHIRUuid, False, "defaultValue", False),
-            ("defaultValueAddress", "defaultValueAddress", address.Address, False, "defaultValue", False),
-            ("defaultValueAge", "defaultValueAge", age.Age, False, "defaultValue", False),
-            ("defaultValueAnnotation", "defaultValueAnnotation", annotation.Annotation, False, "defaultValue", False),
-            ("defaultValueAttachment", "defaultValueAttachment", attachment.Attachment, False, "defaultValue", False),
-            ("defaultValueCodeableConcept", "defaultValueCodeableConcept", codeableconcept.CodeableConcept, False, "defaultValue", False),
-            ("defaultValueCoding", "defaultValueCoding", coding.Coding, False, "defaultValue", False),
-            ("defaultValueContactPoint", "defaultValueContactPoint", contactpoint.ContactPoint, False, "defaultValue", False),
-            ("defaultValueCount", "defaultValueCount", count.Count, False, "defaultValue", False),
-            ("defaultValueDistance", "defaultValueDistance", distance.Distance, False, "defaultValue", False),
-            ("defaultValueDuration", "defaultValueDuration", duration.Duration, False, "defaultValue", False),
-            ("defaultValueHumanName", "defaultValueHumanName", humanname.HumanName, False, "defaultValue", False),
-            ("defaultValueIdentifier", "defaultValueIdentifier", identifier.Identifier, False, "defaultValue", False),
-            ("defaultValueMoney", "defaultValueMoney", money.Money, False, "defaultValue", False),
-            ("defaultValuePeriod", "defaultValuePeriod", period.Period, False, "defaultValue", False),
-            ("defaultValueQuantity", "defaultValueQuantity", quantity.Quantity, False, "defaultValue", False),
-            ("defaultValueRange", "defaultValueRange", range.Range, False, "defaultValue", False),
-            ("defaultValueRatio", "defaultValueRatio", ratio.Ratio, False, "defaultValue", False),
-            ("defaultValueReference", "defaultValueReference", fhirreference.FHIRReference, False, "defaultValue", False),
-            ("defaultValueSampledData", "defaultValueSampledData", sampleddata.SampledData, False, "defaultValue", False),
-            ("defaultValueSignature", "defaultValueSignature", signature.Signature, False, "defaultValue", False),
-            ("defaultValueTiming", "defaultValueTiming", timing.Timing, False, "defaultValue", False),
-            ("defaultValueContactDetail", "defaultValueContactDetail", contactdetail.ContactDetail, False, "defaultValue", False),
-            ("defaultValueContributor", "defaultValueContributor", contributor.Contributor, False, "defaultValue", False),
-            ("defaultValueDataRequirement", "defaultValueDataRequirement", datarequirement.DataRequirement, False, "defaultValue", False),
-            ("defaultValueExpression", "defaultValueExpression", expression.Expression, False, "defaultValue", False),
-            ("defaultValueParameterDefinition", "defaultValueParameterDefinition", parameterdefinition.ParameterDefinition, False, "defaultValue", False),
-            ("defaultValueRelatedArtifact", "defaultValueRelatedArtifact", relatedartifact.RelatedArtifact, False, "defaultValue", False),
-            ("defaultValueTriggerDefinition", "defaultValueTriggerDefinition", triggerdefinition.TriggerDefinition, False, "defaultValue", False),
-            ("defaultValueUsageContext", "defaultValueUsageContext", usagecontext.UsageContext, False, "defaultValue", False),
-            ("defaultValueDosage", "defaultValueDosage", dosage.Dosage, False, "defaultValue", False),
-            ("defaultValueMeta", "defaultValueMeta", meta.Meta, False, "defaultValue", False),
-            ("meaningWhenMissing", "meaningWhenMissing", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("orderMeaning", "orderMeaning", fhirdatatypes.FHIRString, False, None, False),
-            ("fixedBase64Binary", "fixedBase64Binary", fhirdatatypes.FHIRBase64Binary, False, "fixed", False),
-            ("fixedBoolean", "fixedBoolean", bool, False, "fixed", False),
-            ("fixedCanonical", "fixedCanonical", fhirdatatypes.FHIRCanonical, False, "fixed", False),
-            ("fixedCode", "fixedCode", fhirdatatypes.FHIRCode, False, "fixed", False),
-            ("fixedDate", "fixedDate", fhirdatatypes.FHIRDate, False, "fixed", False),
-            ("fixedDateTime", "fixedDateTime", fhirdatatypes.FHIRDateTime, False, "fixed", False),
-            ("fixedDecimal", "fixedDecimal", float, False, "fixed", False),
-            ("fixedId", "fixedId", fhirdatatypes.FHIRId, False, "fixed", False),
-            ("fixedInstant", "fixedInstant", fhirdatatypes.FHIRInstant, False, "fixed", False),
-            ("fixedInteger", "fixedInteger", int, False, "fixed", False),
-            ("fixedMarkdown", "fixedMarkdown", fhirdatatypes.FHIRMarkdown, False, "fixed", False),
-            ("fixedOid", "fixedOid", fhirdatatypes.FHIROid, False, "fixed", False),
-            ("fixedPositiveInt", "fixedPositiveInt", fhirdatatypes.FHIRPositiveInt, False, "fixed", False),
-            ("fixedString", "fixedString", fhirdatatypes.FHIRString, False, "fixed", False),
-            ("fixedTime", "fixedTime", fhirdatatypes.FHIRTime, False, "fixed", False),
-            ("fixedUnsignedInt", "fixedUnsignedInt", fhirdatatypes.FHIRUnsignedInt, False, "fixed", False),
-            ("fixedUri", "fixedUri", fhirdatatypes.FHIRUri, False, "fixed", False),
-            ("fixedUrl", "fixedUrl", fhirdatatypes.FHIRUrl, False, "fixed", False),
-            ("fixedUuid", "fixedUuid", fhirdatatypes.FHIRUuid, False, "fixed", False),
-            ("fixedAddress", "fixedAddress", address.Address, False, "fixed", False),
-            ("fixedAge", "fixedAge", age.Age, False, "fixed", False),
-            ("fixedAnnotation", "fixedAnnotation", annotation.Annotation, False, "fixed", False),
-            ("fixedAttachment", "fixedAttachment", attachment.Attachment, False, "fixed", False),
-            ("fixedCodeableConcept", "fixedCodeableConcept", codeableconcept.CodeableConcept, False, "fixed", False),
-            ("fixedCoding", "fixedCoding", coding.Coding, False, "fixed", False),
-            ("fixedContactPoint", "fixedContactPoint", contactpoint.ContactPoint, False, "fixed", False),
-            ("fixedCount", "fixedCount", count.Count, False, "fixed", False),
-            ("fixedDistance", "fixedDistance", distance.Distance, False, "fixed", False),
-            ("fixedDuration", "fixedDuration", duration.Duration, False, "fixed", False),
-            ("fixedHumanName", "fixedHumanName", humanname.HumanName, False, "fixed", False),
-            ("fixedIdentifier", "fixedIdentifier", identifier.Identifier, False, "fixed", False),
-            ("fixedMoney", "fixedMoney", money.Money, False, "fixed", False),
-            ("fixedPeriod", "fixedPeriod", period.Period, False, "fixed", False),
-            ("fixedQuantity", "fixedQuantity", quantity.Quantity, False, "fixed", False),
-            ("fixedRange", "fixedRange", range.Range, False, "fixed", False),
-            ("fixedRatio", "fixedRatio", ratio.Ratio, False, "fixed", False),
-            ("fixedReference", "fixedReference", fhirreference.FHIRReference, False, "fixed", False),
-            ("fixedSampledData", "fixedSampledData", sampleddata.SampledData, False, "fixed", False),
-            ("fixedSignature", "fixedSignature", signature.Signature, False, "fixed", False),
-            ("fixedTiming", "fixedTiming", timing.Timing, False, "fixed", False),
-            ("fixedContactDetail", "fixedContactDetail", contactdetail.ContactDetail, False, "fixed", False),
-            ("fixedContributor", "fixedContributor", contributor.Contributor, False, "fixed", False),
-            ("fixedDataRequirement", "fixedDataRequirement", datarequirement.DataRequirement, False, "fixed", False),
-            ("fixedExpression", "fixedExpression", expression.Expression, False, "fixed", False),
-            ("fixedParameterDefinition", "fixedParameterDefinition", parameterdefinition.ParameterDefinition, False, "fixed", False),
-            ("fixedRelatedArtifact", "fixedRelatedArtifact", relatedartifact.RelatedArtifact, False, "fixed", False),
-            ("fixedTriggerDefinition", "fixedTriggerDefinition", triggerdefinition.TriggerDefinition, False, "fixed", False),
-            ("fixedUsageContext", "fixedUsageContext", usagecontext.UsageContext, False, "fixed", False),
-            ("fixedDosage", "fixedDosage", dosage.Dosage, False, "fixed", False),
-            ("fixedMeta", "fixedMeta", meta.Meta, False, "fixed", False),
-            ("patternBase64Binary", "patternBase64Binary", fhirdatatypes.FHIRBase64Binary, False, "pattern", False),
-            ("patternBoolean", "patternBoolean", bool, False, "pattern", False),
-            ("patternCanonical", "patternCanonical", fhirdatatypes.FHIRCanonical, False, "pattern", False),
-            ("patternCode", "patternCode", fhirdatatypes.FHIRCode, False, "pattern", False),
-            ("patternDate", "patternDate", fhirdatatypes.FHIRDate, False, "pattern", False),
-            ("patternDateTime", "patternDateTime", fhirdatatypes.FHIRDateTime, False, "pattern", False),
-            ("patternDecimal", "patternDecimal", float, False, "pattern", False),
-            ("patternId", "patternId", fhirdatatypes.FHIRId, False, "pattern", False),
-            ("patternInstant", "patternInstant", fhirdatatypes.FHIRInstant, False, "pattern", False),
-            ("patternInteger", "patternInteger", int, False, "pattern", False),
-            ("patternMarkdown", "patternMarkdown", fhirdatatypes.FHIRMarkdown, False, "pattern", False),
-            ("patternOid", "patternOid", fhirdatatypes.FHIROid, False, "pattern", False),
-            ("patternPositiveInt", "patternPositiveInt", fhirdatatypes.FHIRPositiveInt, False, "pattern", False),
-            ("patternString", "patternString", fhirdatatypes.FHIRString, False, "pattern", False),
-            ("patternTime", "patternTime", fhirdatatypes.FHIRTime, False, "pattern", False),
-            ("patternUnsignedInt", "patternUnsignedInt", fhirdatatypes.FHIRUnsignedInt, False, "pattern", False),
-            ("patternUri", "patternUri", fhirdatatypes.FHIRUri, False, "pattern", False),
-            ("patternUrl", "patternUrl", fhirdatatypes.FHIRUrl, False, "pattern", False),
-            ("patternUuid", "patternUuid", fhirdatatypes.FHIRUuid, False, "pattern", False),
-            ("patternAddress", "patternAddress", address.Address, False, "pattern", False),
-            ("patternAge", "patternAge", age.Age, False, "pattern", False),
-            ("patternAnnotation", "patternAnnotation", annotation.Annotation, False, "pattern", False),
-            ("patternAttachment", "patternAttachment", attachment.Attachment, False, "pattern", False),
-            ("patternCodeableConcept", "patternCodeableConcept", codeableconcept.CodeableConcept, False, "pattern", False),
-            ("patternCoding", "patternCoding", coding.Coding, False, "pattern", False),
-            ("patternContactPoint", "patternContactPoint", contactpoint.ContactPoint, False, "pattern", False),
-            ("patternCount", "patternCount", count.Count, False, "pattern", False),
-            ("patternDistance", "patternDistance", distance.Distance, False, "pattern", False),
-            ("patternDuration", "patternDuration", duration.Duration, False, "pattern", False),
-            ("patternHumanName", "patternHumanName", humanname.HumanName, False, "pattern", False),
-            ("patternIdentifier", "patternIdentifier", identifier.Identifier, False, "pattern", False),
-            ("patternMoney", "patternMoney", money.Money, False, "pattern", False),
-            ("patternPeriod", "patternPeriod", period.Period, False, "pattern", False),
-            ("patternQuantity", "patternQuantity", quantity.Quantity, False, "pattern", False),
-            ("patternRange", "patternRange", range.Range, False, "pattern", False),
-            ("patternRatio", "patternRatio", ratio.Ratio, False, "pattern", False),
-            ("patternReference", "patternReference", fhirreference.FHIRReference, False, "pattern", False),
-            ("patternSampledData", "patternSampledData", sampleddata.SampledData, False, "pattern", False),
-            ("patternSignature", "patternSignature", signature.Signature, False, "pattern", False),
-            ("patternTiming", "patternTiming", timing.Timing, False, "pattern", False),
-            ("patternContactDetail", "patternContactDetail", contactdetail.ContactDetail, False, "pattern", False),
-            ("patternContributor", "patternContributor", contributor.Contributor, False, "pattern", False),
-            ("patternDataRequirement", "patternDataRequirement", datarequirement.DataRequirement, False, "pattern", False),
-            ("patternExpression", "patternExpression", expression.Expression, False, "pattern", False),
-            ("patternParameterDefinition", "patternParameterDefinition", parameterdefinition.ParameterDefinition, False, "pattern", False),
-            ("patternRelatedArtifact", "patternRelatedArtifact", relatedartifact.RelatedArtifact, False, "pattern", False),
-            ("patternTriggerDefinition", "patternTriggerDefinition", triggerdefinition.TriggerDefinition, False, "pattern", False),
-            ("patternUsageContext", "patternUsageContext", usagecontext.UsageContext, False, "pattern", False),
-            ("patternDosage", "patternDosage", dosage.Dosage, False, "pattern", False),
-            ("patternMeta", "patternMeta", meta.Meta, False, "pattern", False),
-            ("example", "example", ElementDefinitionExample, True, None, False),
-            ("minValueDate", "minValueDate", fhirdatatypes.FHIRDate, False, "minValue", False),
-            ("minValueDateTime", "minValueDateTime", fhirdatatypes.FHIRDateTime, False, "minValue", False),
-            ("minValueInstant", "minValueInstant", fhirdatatypes.FHIRInstant, False, "minValue", False),
-            ("minValueTime", "minValueTime", fhirdatatypes.FHIRTime, False, "minValue", False),
-            ("minValueDecimal", "minValueDecimal", float, False, "minValue", False),
-            ("minValueInteger", "minValueInteger", int, False, "minValue", False),
-            ("minValuePositiveInt", "minValuePositiveInt", fhirdatatypes.FHIRPositiveInt, False, "minValue", False),
-            ("minValueUnsignedInt", "minValueUnsignedInt", fhirdatatypes.FHIRUnsignedInt, False, "minValue", False),
-            ("minValueQuantity", "minValueQuantity", quantity.Quantity, False, "minValue", False),
-            ("maxValueDate", "maxValueDate", fhirdatatypes.FHIRDate, False, "maxValue", False),
-            ("maxValueDateTime", "maxValueDateTime", fhirdatatypes.FHIRDateTime, False, "maxValue", False),
-            ("maxValueInstant", "maxValueInstant", fhirdatatypes.FHIRInstant, False, "maxValue", False),
-            ("maxValueTime", "maxValueTime", fhirdatatypes.FHIRTime, False, "maxValue", False),
-            ("maxValueDecimal", "maxValueDecimal", float, False, "maxValue", False),
-            ("maxValueInteger", "maxValueInteger", int, False, "maxValue", False),
-            ("maxValuePositiveInt", "maxValuePositiveInt", fhirdatatypes.FHIRPositiveInt, False, "maxValue", False),
-            ("maxValueUnsignedInt", "maxValueUnsignedInt", fhirdatatypes.FHIRUnsignedInt, False, "maxValue", False),
-            ("maxValueQuantity", "maxValueQuantity", quantity.Quantity, False, "maxValue", False),
-            ("maxLength", "maxLength", int, False, None, False),
-            ("condition", "condition", fhirdatatypes.FHIRId, True, None, False),
-            ("constraint", "constraint", ElementDefinitionConstraint, True, None, False),
-            ("mustSupport", "mustSupport", bool, False, None, False),
-            ("isModifier", "isModifier", bool, False, None, False),
-            ("isModifierReason", "isModifierReason", fhirdatatypes.FHIRString, False, None, False),
-            ("isSummary", "isSummary", bool, False, None, False),
-            ("binding", "binding", ElementDefinitionBinding, False, None, False),
-            ("mapping", "mapping", ElementDefinitionMapping, True, None, False),
+            ("path", "path", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("representation", "representation", fhirdatatypes.FHIRCode, True, None, False, propertyrepresentation.PropertyRepresentation), 
+            ("sliceName", "sliceName", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("sliceIsConstraining", "sliceIsConstraining", bool, False, None, False, None), 
+            ("label", "label", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("code", "code", coding.Coding, True, None, False, None), 
+            ("slicing", "slicing", ElementDefinitionSlicing, False, None, False, None), 
+            ("short", "short", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("definition", "definition", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("comment", "comment", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("requirements", "requirements", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("alias", "alias", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("min", "min", fhirdatatypes.FHIRUnsignedInt, False, None, False, None), 
+            ("max", "max", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("base", "base", ElementDefinitionBase, False, None, False, None), 
+            ("contentReference", "contentReference", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("type", "type", ElementDefinitionType, True, None, False, None), 
+            ("defaultValueBase64Binary", "defaultValueBase64Binary", fhirdatatypes.FHIRBase64Binary, False, "defaultValue", False, None), 
+            ("defaultValueBoolean", "defaultValueBoolean", bool, False, "defaultValue", False, None), 
+            ("defaultValueCanonical", "defaultValueCanonical", fhirdatatypes.FHIRCanonical, False, "defaultValue", False, None), 
+            ("defaultValueCode", "defaultValueCode", fhirdatatypes.FHIRCode, False, "defaultValue", False, None), 
+            ("defaultValueDate", "defaultValueDate", fhirdatatypes.FHIRDate, False, "defaultValue", False, None), 
+            ("defaultValueDateTime", "defaultValueDateTime", fhirdatatypes.FHIRDateTime, False, "defaultValue", False, None), 
+            ("defaultValueDecimal", "defaultValueDecimal", float, False, "defaultValue", False, None), 
+            ("defaultValueId", "defaultValueId", fhirdatatypes.FHIRId, False, "defaultValue", False, None), 
+            ("defaultValueInstant", "defaultValueInstant", fhirdatatypes.FHIRInstant, False, "defaultValue", False, None), 
+            ("defaultValueInteger", "defaultValueInteger", int, False, "defaultValue", False, None), 
+            ("defaultValueMarkdown", "defaultValueMarkdown", fhirdatatypes.FHIRMarkdown, False, "defaultValue", False, None), 
+            ("defaultValueOid", "defaultValueOid", fhirdatatypes.FHIROid, False, "defaultValue", False, None), 
+            ("defaultValuePositiveInt", "defaultValuePositiveInt", fhirdatatypes.FHIRPositiveInt, False, "defaultValue", False, None), 
+            ("defaultValueString", "defaultValueString", fhirdatatypes.FHIRString, False, "defaultValue", False, None), 
+            ("defaultValueTime", "defaultValueTime", fhirdatatypes.FHIRTime, False, "defaultValue", False, None), 
+            ("defaultValueUnsignedInt", "defaultValueUnsignedInt", fhirdatatypes.FHIRUnsignedInt, False, "defaultValue", False, None), 
+            ("defaultValueUri", "defaultValueUri", fhirdatatypes.FHIRUri, False, "defaultValue", False, None), 
+            ("defaultValueUrl", "defaultValueUrl", fhirdatatypes.FHIRUrl, False, "defaultValue", False, None), 
+            ("defaultValueUuid", "defaultValueUuid", fhirdatatypes.FHIRUuid, False, "defaultValue", False, None), 
+            ("defaultValueAddress", "defaultValueAddress", address.Address, False, "defaultValue", False, None), 
+            ("defaultValueAge", "defaultValueAge", age.Age, False, "defaultValue", False, None), 
+            ("defaultValueAnnotation", "defaultValueAnnotation", annotation.Annotation, False, "defaultValue", False, None), 
+            ("defaultValueAttachment", "defaultValueAttachment", attachment.Attachment, False, "defaultValue", False, None), 
+            ("defaultValueCodeableConcept", "defaultValueCodeableConcept", codeableconcept.CodeableConcept, False, "defaultValue", False, None), 
+            ("defaultValueCoding", "defaultValueCoding", coding.Coding, False, "defaultValue", False, None), 
+            ("defaultValueContactPoint", "defaultValueContactPoint", contactpoint.ContactPoint, False, "defaultValue", False, None), 
+            ("defaultValueCount", "defaultValueCount", count.Count, False, "defaultValue", False, None), 
+            ("defaultValueDistance", "defaultValueDistance", distance.Distance, False, "defaultValue", False, None), 
+            ("defaultValueDuration", "defaultValueDuration", duration.Duration, False, "defaultValue", False, None), 
+            ("defaultValueHumanName", "defaultValueHumanName", humanname.HumanName, False, "defaultValue", False, None), 
+            ("defaultValueIdentifier", "defaultValueIdentifier", identifier.Identifier, False, "defaultValue", False, None), 
+            ("defaultValueMoney", "defaultValueMoney", money.Money, False, "defaultValue", False, None), 
+            ("defaultValuePeriod", "defaultValuePeriod", period.Period, False, "defaultValue", False, None), 
+            ("defaultValueQuantity", "defaultValueQuantity", quantity.Quantity, False, "defaultValue", False, None), 
+            ("defaultValueRange", "defaultValueRange", range.Range, False, "defaultValue", False, None), 
+            ("defaultValueRatio", "defaultValueRatio", ratio.Ratio, False, "defaultValue", False, None), 
+            ("defaultValueReference", "defaultValueReference", fhirreference.FHIRReference, False, "defaultValue", False, None), 
+            ("defaultValueSampledData", "defaultValueSampledData", sampleddata.SampledData, False, "defaultValue", False, None), 
+            ("defaultValueSignature", "defaultValueSignature", signature.Signature, False, "defaultValue", False, None), 
+            ("defaultValueTiming", "defaultValueTiming", timing.Timing, False, "defaultValue", False, None), 
+            ("defaultValueContactDetail", "defaultValueContactDetail", contactdetail.ContactDetail, False, "defaultValue", False, None), 
+            ("defaultValueContributor", "defaultValueContributor", contributor.Contributor, False, "defaultValue", False, None), 
+            ("defaultValueDataRequirement", "defaultValueDataRequirement", datarequirement.DataRequirement, False, "defaultValue", False, None), 
+            ("defaultValueExpression", "defaultValueExpression", expression.Expression, False, "defaultValue", False, None), 
+            ("defaultValueParameterDefinition", "defaultValueParameterDefinition", parameterdefinition.ParameterDefinition, False, "defaultValue", False, None), 
+            ("defaultValueRelatedArtifact", "defaultValueRelatedArtifact", relatedartifact.RelatedArtifact, False, "defaultValue", False, None), 
+            ("defaultValueTriggerDefinition", "defaultValueTriggerDefinition", triggerdefinition.TriggerDefinition, False, "defaultValue", False, None), 
+            ("defaultValueUsageContext", "defaultValueUsageContext", usagecontext.UsageContext, False, "defaultValue", False, None), 
+            ("defaultValueDosage", "defaultValueDosage", dosage.Dosage, False, "defaultValue", False, None), 
+            ("defaultValueMeta", "defaultValueMeta", meta.Meta, False, "defaultValue", False, None), 
+            ("meaningWhenMissing", "meaningWhenMissing", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("orderMeaning", "orderMeaning", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("fixedBase64Binary", "fixedBase64Binary", fhirdatatypes.FHIRBase64Binary, False, "fixed", False, None), 
+            ("fixedBoolean", "fixedBoolean", bool, False, "fixed", False, None), 
+            ("fixedCanonical", "fixedCanonical", fhirdatatypes.FHIRCanonical, False, "fixed", False, None), 
+            ("fixedCode", "fixedCode", fhirdatatypes.FHIRCode, False, "fixed", False, None), 
+            ("fixedDate", "fixedDate", fhirdatatypes.FHIRDate, False, "fixed", False, None), 
+            ("fixedDateTime", "fixedDateTime", fhirdatatypes.FHIRDateTime, False, "fixed", False, None), 
+            ("fixedDecimal", "fixedDecimal", float, False, "fixed", False, None), 
+            ("fixedId", "fixedId", fhirdatatypes.FHIRId, False, "fixed", False, None), 
+            ("fixedInstant", "fixedInstant", fhirdatatypes.FHIRInstant, False, "fixed", False, None), 
+            ("fixedInteger", "fixedInteger", int, False, "fixed", False, None), 
+            ("fixedMarkdown", "fixedMarkdown", fhirdatatypes.FHIRMarkdown, False, "fixed", False, None), 
+            ("fixedOid", "fixedOid", fhirdatatypes.FHIROid, False, "fixed", False, None), 
+            ("fixedPositiveInt", "fixedPositiveInt", fhirdatatypes.FHIRPositiveInt, False, "fixed", False, None), 
+            ("fixedString", "fixedString", fhirdatatypes.FHIRString, False, "fixed", False, None), 
+            ("fixedTime", "fixedTime", fhirdatatypes.FHIRTime, False, "fixed", False, None), 
+            ("fixedUnsignedInt", "fixedUnsignedInt", fhirdatatypes.FHIRUnsignedInt, False, "fixed", False, None), 
+            ("fixedUri", "fixedUri", fhirdatatypes.FHIRUri, False, "fixed", False, None), 
+            ("fixedUrl", "fixedUrl", fhirdatatypes.FHIRUrl, False, "fixed", False, None), 
+            ("fixedUuid", "fixedUuid", fhirdatatypes.FHIRUuid, False, "fixed", False, None), 
+            ("fixedAddress", "fixedAddress", address.Address, False, "fixed", False, None), 
+            ("fixedAge", "fixedAge", age.Age, False, "fixed", False, None), 
+            ("fixedAnnotation", "fixedAnnotation", annotation.Annotation, False, "fixed", False, None), 
+            ("fixedAttachment", "fixedAttachment", attachment.Attachment, False, "fixed", False, None), 
+            ("fixedCodeableConcept", "fixedCodeableConcept", codeableconcept.CodeableConcept, False, "fixed", False, None), 
+            ("fixedCoding", "fixedCoding", coding.Coding, False, "fixed", False, None), 
+            ("fixedContactPoint", "fixedContactPoint", contactpoint.ContactPoint, False, "fixed", False, None), 
+            ("fixedCount", "fixedCount", count.Count, False, "fixed", False, None), 
+            ("fixedDistance", "fixedDistance", distance.Distance, False, "fixed", False, None), 
+            ("fixedDuration", "fixedDuration", duration.Duration, False, "fixed", False, None), 
+            ("fixedHumanName", "fixedHumanName", humanname.HumanName, False, "fixed", False, None), 
+            ("fixedIdentifier", "fixedIdentifier", identifier.Identifier, False, "fixed", False, None), 
+            ("fixedMoney", "fixedMoney", money.Money, False, "fixed", False, None), 
+            ("fixedPeriod", "fixedPeriod", period.Period, False, "fixed", False, None), 
+            ("fixedQuantity", "fixedQuantity", quantity.Quantity, False, "fixed", False, None), 
+            ("fixedRange", "fixedRange", range.Range, False, "fixed", False, None), 
+            ("fixedRatio", "fixedRatio", ratio.Ratio, False, "fixed", False, None), 
+            ("fixedReference", "fixedReference", fhirreference.FHIRReference, False, "fixed", False, None), 
+            ("fixedSampledData", "fixedSampledData", sampleddata.SampledData, False, "fixed", False, None), 
+            ("fixedSignature", "fixedSignature", signature.Signature, False, "fixed", False, None), 
+            ("fixedTiming", "fixedTiming", timing.Timing, False, "fixed", False, None), 
+            ("fixedContactDetail", "fixedContactDetail", contactdetail.ContactDetail, False, "fixed", False, None), 
+            ("fixedContributor", "fixedContributor", contributor.Contributor, False, "fixed", False, None), 
+            ("fixedDataRequirement", "fixedDataRequirement", datarequirement.DataRequirement, False, "fixed", False, None), 
+            ("fixedExpression", "fixedExpression", expression.Expression, False, "fixed", False, None), 
+            ("fixedParameterDefinition", "fixedParameterDefinition", parameterdefinition.ParameterDefinition, False, "fixed", False, None), 
+            ("fixedRelatedArtifact", "fixedRelatedArtifact", relatedartifact.RelatedArtifact, False, "fixed", False, None), 
+            ("fixedTriggerDefinition", "fixedTriggerDefinition", triggerdefinition.TriggerDefinition, False, "fixed", False, None), 
+            ("fixedUsageContext", "fixedUsageContext", usagecontext.UsageContext, False, "fixed", False, None), 
+            ("fixedDosage", "fixedDosage", dosage.Dosage, False, "fixed", False, None), 
+            ("fixedMeta", "fixedMeta", meta.Meta, False, "fixed", False, None), 
+            ("patternBase64Binary", "patternBase64Binary", fhirdatatypes.FHIRBase64Binary, False, "pattern", False, None), 
+            ("patternBoolean", "patternBoolean", bool, False, "pattern", False, None), 
+            ("patternCanonical", "patternCanonical", fhirdatatypes.FHIRCanonical, False, "pattern", False, None), 
+            ("patternCode", "patternCode", fhirdatatypes.FHIRCode, False, "pattern", False, None), 
+            ("patternDate", "patternDate", fhirdatatypes.FHIRDate, False, "pattern", False, None), 
+            ("patternDateTime", "patternDateTime", fhirdatatypes.FHIRDateTime, False, "pattern", False, None), 
+            ("patternDecimal", "patternDecimal", float, False, "pattern", False, None), 
+            ("patternId", "patternId", fhirdatatypes.FHIRId, False, "pattern", False, None), 
+            ("patternInstant", "patternInstant", fhirdatatypes.FHIRInstant, False, "pattern", False, None), 
+            ("patternInteger", "patternInteger", int, False, "pattern", False, None), 
+            ("patternMarkdown", "patternMarkdown", fhirdatatypes.FHIRMarkdown, False, "pattern", False, None), 
+            ("patternOid", "patternOid", fhirdatatypes.FHIROid, False, "pattern", False, None), 
+            ("patternPositiveInt", "patternPositiveInt", fhirdatatypes.FHIRPositiveInt, False, "pattern", False, None), 
+            ("patternString", "patternString", fhirdatatypes.FHIRString, False, "pattern", False, None), 
+            ("patternTime", "patternTime", fhirdatatypes.FHIRTime, False, "pattern", False, None), 
+            ("patternUnsignedInt", "patternUnsignedInt", fhirdatatypes.FHIRUnsignedInt, False, "pattern", False, None), 
+            ("patternUri", "patternUri", fhirdatatypes.FHIRUri, False, "pattern", False, None), 
+            ("patternUrl", "patternUrl", fhirdatatypes.FHIRUrl, False, "pattern", False, None), 
+            ("patternUuid", "patternUuid", fhirdatatypes.FHIRUuid, False, "pattern", False, None), 
+            ("patternAddress", "patternAddress", address.Address, False, "pattern", False, None), 
+            ("patternAge", "patternAge", age.Age, False, "pattern", False, None), 
+            ("patternAnnotation", "patternAnnotation", annotation.Annotation, False, "pattern", False, None), 
+            ("patternAttachment", "patternAttachment", attachment.Attachment, False, "pattern", False, None), 
+            ("patternCodeableConcept", "patternCodeableConcept", codeableconcept.CodeableConcept, False, "pattern", False, None), 
+            ("patternCoding", "patternCoding", coding.Coding, False, "pattern", False, None), 
+            ("patternContactPoint", "patternContactPoint", contactpoint.ContactPoint, False, "pattern", False, None), 
+            ("patternCount", "patternCount", count.Count, False, "pattern", False, None), 
+            ("patternDistance", "patternDistance", distance.Distance, False, "pattern", False, None), 
+            ("patternDuration", "patternDuration", duration.Duration, False, "pattern", False, None), 
+            ("patternHumanName", "patternHumanName", humanname.HumanName, False, "pattern", False, None), 
+            ("patternIdentifier", "patternIdentifier", identifier.Identifier, False, "pattern", False, None), 
+            ("patternMoney", "patternMoney", money.Money, False, "pattern", False, None), 
+            ("patternPeriod", "patternPeriod", period.Period, False, "pattern", False, None), 
+            ("patternQuantity", "patternQuantity", quantity.Quantity, False, "pattern", False, None), 
+            ("patternRange", "patternRange", range.Range, False, "pattern", False, None), 
+            ("patternRatio", "patternRatio", ratio.Ratio, False, "pattern", False, None), 
+            ("patternReference", "patternReference", fhirreference.FHIRReference, False, "pattern", False, None), 
+            ("patternSampledData", "patternSampledData", sampleddata.SampledData, False, "pattern", False, None), 
+            ("patternSignature", "patternSignature", signature.Signature, False, "pattern", False, None), 
+            ("patternTiming", "patternTiming", timing.Timing, False, "pattern", False, None), 
+            ("patternContactDetail", "patternContactDetail", contactdetail.ContactDetail, False, "pattern", False, None), 
+            ("patternContributor", "patternContributor", contributor.Contributor, False, "pattern", False, None), 
+            ("patternDataRequirement", "patternDataRequirement", datarequirement.DataRequirement, False, "pattern", False, None), 
+            ("patternExpression", "patternExpression", expression.Expression, False, "pattern", False, None), 
+            ("patternParameterDefinition", "patternParameterDefinition", parameterdefinition.ParameterDefinition, False, "pattern", False, None), 
+            ("patternRelatedArtifact", "patternRelatedArtifact", relatedartifact.RelatedArtifact, False, "pattern", False, None), 
+            ("patternTriggerDefinition", "patternTriggerDefinition", triggerdefinition.TriggerDefinition, False, "pattern", False, None), 
+            ("patternUsageContext", "patternUsageContext", usagecontext.UsageContext, False, "pattern", False, None), 
+            ("patternDosage", "patternDosage", dosage.Dosage, False, "pattern", False, None), 
+            ("patternMeta", "patternMeta", meta.Meta, False, "pattern", False, None), 
+            ("example", "example", ElementDefinitionExample, True, None, False, None), 
+            ("minValueDate", "minValueDate", fhirdatatypes.FHIRDate, False, "minValue", False, None), 
+            ("minValueDateTime", "minValueDateTime", fhirdatatypes.FHIRDateTime, False, "minValue", False, None), 
+            ("minValueInstant", "minValueInstant", fhirdatatypes.FHIRInstant, False, "minValue", False, None), 
+            ("minValueTime", "minValueTime", fhirdatatypes.FHIRTime, False, "minValue", False, None), 
+            ("minValueDecimal", "minValueDecimal", float, False, "minValue", False, None), 
+            ("minValueInteger", "minValueInteger", int, False, "minValue", False, None), 
+            ("minValuePositiveInt", "minValuePositiveInt", fhirdatatypes.FHIRPositiveInt, False, "minValue", False, None), 
+            ("minValueUnsignedInt", "minValueUnsignedInt", fhirdatatypes.FHIRUnsignedInt, False, "minValue", False, None), 
+            ("minValueQuantity", "minValueQuantity", quantity.Quantity, False, "minValue", False, None), 
+            ("maxValueDate", "maxValueDate", fhirdatatypes.FHIRDate, False, "maxValue", False, None), 
+            ("maxValueDateTime", "maxValueDateTime", fhirdatatypes.FHIRDateTime, False, "maxValue", False, None), 
+            ("maxValueInstant", "maxValueInstant", fhirdatatypes.FHIRInstant, False, "maxValue", False, None), 
+            ("maxValueTime", "maxValueTime", fhirdatatypes.FHIRTime, False, "maxValue", False, None), 
+            ("maxValueDecimal", "maxValueDecimal", float, False, "maxValue", False, None), 
+            ("maxValueInteger", "maxValueInteger", int, False, "maxValue", False, None), 
+            ("maxValuePositiveInt", "maxValuePositiveInt", fhirdatatypes.FHIRPositiveInt, False, "maxValue", False, None), 
+            ("maxValueUnsignedInt", "maxValueUnsignedInt", fhirdatatypes.FHIRUnsignedInt, False, "maxValue", False, None), 
+            ("maxValueQuantity", "maxValueQuantity", quantity.Quantity, False, "maxValue", False, None), 
+            ("maxLength", "maxLength", int, False, None, False, None), 
+            ("condition", "condition", fhirdatatypes.FHIRId, True, None, False, None), 
+            ("constraint", "constraint", ElementDefinitionConstraint, True, None, False, None), 
+            ("mustSupport", "mustSupport", bool, False, None, False, None), 
+            ("isModifier", "isModifier", bool, False, None, False, None), 
+            ("isModifierReason", "isModifierReason", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("isSummary", "isSummary", bool, False, None, False, None), 
+            ("binding", "binding", ElementDefinitionBinding, False, None, False, None), 
+            ("mapping", "mapping", ElementDefinitionMapping, True, None, False, None), 
         ])
         return js
 
 
 
-from . import element
+from fhirclient.models import element
 
 class ElementDefinitionBase(element.Element):
     """ Base definition information for tools.
@@ -1058,9 +1058,9 @@ class ElementDefinitionBase(element.Element):
     def elementProperties(self):
         js = super(ElementDefinitionBase, self).elementProperties()
         js.extend([
-            ("path", "path", fhirdatatypes.FHIRString, False, None, True),
-            ("min", "min", fhirdatatypes.FHIRUnsignedInt, False, None, True),
-            ("max", "max", fhirdatatypes.FHIRString, False, None, True),
+            ("path", "path", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("min", "min", fhirdatatypes.FHIRUnsignedInt, False, None, True, None), 
+            ("max", "max", fhirdatatypes.FHIRString, False, None, True, None), 
         ])
         return js
 
@@ -1099,9 +1099,9 @@ class ElementDefinitionBinding(element.Element):
     def elementProperties(self):
         js = super(ElementDefinitionBinding, self).elementProperties()
         js.extend([
-            ("strength", "strength", fhirdatatypes.FHIRCode, False, None, True),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("valueSet", "valueSet", fhirdatatypes.FHIRCanonical, False, None, False),
+            ("strength", "strength", fhirdatatypes.FHIRCode, False, None, True, bindingstrength.BindingStrength), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("valueSet", "valueSet", fhirdatatypes.FHIRCanonical, False, None, False, None), 
         ])
         return js
 
@@ -1156,13 +1156,13 @@ class ElementDefinitionConstraint(element.Element):
     def elementProperties(self):
         js = super(ElementDefinitionConstraint, self).elementProperties()
         js.extend([
-            ("key", "key", fhirdatatypes.FHIRId, False, None, True),
-            ("requirements", "requirements", fhirdatatypes.FHIRString, False, None, False),
-            ("severity", "severity", fhirdatatypes.FHIRCode, False, None, True),
-            ("human", "human", fhirdatatypes.FHIRString, False, None, True),
-            ("expression", "expression", fhirdatatypes.FHIRString, False, None, False),
-            ("xpath", "xpath", fhirdatatypes.FHIRString, False, None, False),
-            ("source", "source", fhirdatatypes.FHIRCanonical, False, None, False),
+            ("key", "key", fhirdatatypes.FHIRId, False, None, True, None), 
+            ("requirements", "requirements", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("severity", "severity", fhirdatatypes.FHIRCode, False, None, True, constraintseverity.ConstraintSeverity), 
+            ("human", "human", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("expression", "expression", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("xpath", "xpath", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("source", "source", fhirdatatypes.FHIRCanonical, False, None, False, None), 
         ])
         return js
 
@@ -1393,57 +1393,57 @@ class ElementDefinitionExample(element.Element):
     def elementProperties(self):
         js = super(ElementDefinitionExample, self).elementProperties()
         js.extend([
-            ("label", "label", fhirdatatypes.FHIRString, False, None, True),
-            ("valueBase64Binary", "valueBase64Binary", fhirdatatypes.FHIRBase64Binary, False, "value", True),
-            ("valueBoolean", "valueBoolean", bool, False, "value", True),
-            ("valueCanonical", "valueCanonical", fhirdatatypes.FHIRCanonical, False, "value", True),
-            ("valueCode", "valueCode", fhirdatatypes.FHIRCode, False, "value", True),
-            ("valueDate", "valueDate", fhirdatatypes.FHIRDate, False, "value", True),
-            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", True),
-            ("valueDecimal", "valueDecimal", float, False, "value", True),
-            ("valueId", "valueId", fhirdatatypes.FHIRId, False, "value", True),
-            ("valueInstant", "valueInstant", fhirdatatypes.FHIRInstant, False, "value", True),
-            ("valueInteger", "valueInteger", int, False, "value", True),
-            ("valueMarkdown", "valueMarkdown", fhirdatatypes.FHIRMarkdown, False, "value", True),
-            ("valueOid", "valueOid", fhirdatatypes.FHIROid, False, "value", True),
-            ("valuePositiveInt", "valuePositiveInt", fhirdatatypes.FHIRPositiveInt, False, "value", True),
-            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", True),
-            ("valueTime", "valueTime", fhirdatatypes.FHIRTime, False, "value", True),
-            ("valueUnsignedInt", "valueUnsignedInt", fhirdatatypes.FHIRUnsignedInt, False, "value", True),
-            ("valueUri", "valueUri", fhirdatatypes.FHIRUri, False, "value", True),
-            ("valueUrl", "valueUrl", fhirdatatypes.FHIRUrl, False, "value", True),
-            ("valueUuid", "valueUuid", fhirdatatypes.FHIRUuid, False, "value", True),
-            ("valueAddress", "valueAddress", address.Address, False, "value", True),
-            ("valueAge", "valueAge", age.Age, False, "value", True),
-            ("valueAnnotation", "valueAnnotation", annotation.Annotation, False, "value", True),
-            ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", True),
-            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", True),
-            ("valueCoding", "valueCoding", coding.Coding, False, "value", True),
-            ("valueContactPoint", "valueContactPoint", contactpoint.ContactPoint, False, "value", True),
-            ("valueCount", "valueCount", count.Count, False, "value", True),
-            ("valueDistance", "valueDistance", distance.Distance, False, "value", True),
-            ("valueDuration", "valueDuration", duration.Duration, False, "value", True),
-            ("valueHumanName", "valueHumanName", humanname.HumanName, False, "value", True),
-            ("valueIdentifier", "valueIdentifier", identifier.Identifier, False, "value", True),
-            ("valueMoney", "valueMoney", money.Money, False, "value", True),
-            ("valuePeriod", "valuePeriod", period.Period, False, "value", True),
-            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", True),
-            ("valueRange", "valueRange", range.Range, False, "value", True),
-            ("valueRatio", "valueRatio", ratio.Ratio, False, "value", True),
-            ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", True),
-            ("valueSampledData", "valueSampledData", sampleddata.SampledData, False, "value", True),
-            ("valueSignature", "valueSignature", signature.Signature, False, "value", True),
-            ("valueTiming", "valueTiming", timing.Timing, False, "value", True),
-            ("valueContactDetail", "valueContactDetail", contactdetail.ContactDetail, False, "value", True),
-            ("valueContributor", "valueContributor", contributor.Contributor, False, "value", True),
-            ("valueDataRequirement", "valueDataRequirement", datarequirement.DataRequirement, False, "value", True),
-            ("valueExpression", "valueExpression", expression.Expression, False, "value", True),
-            ("valueParameterDefinition", "valueParameterDefinition", parameterdefinition.ParameterDefinition, False, "value", True),
-            ("valueRelatedArtifact", "valueRelatedArtifact", relatedartifact.RelatedArtifact, False, "value", True),
-            ("valueTriggerDefinition", "valueTriggerDefinition", triggerdefinition.TriggerDefinition, False, "value", True),
-            ("valueUsageContext", "valueUsageContext", usagecontext.UsageContext, False, "value", True),
-            ("valueDosage", "valueDosage", dosage.Dosage, False, "value", True),
-            ("valueMeta", "valueMeta", meta.Meta, False, "value", True),
+            ("label", "label", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("valueBase64Binary", "valueBase64Binary", fhirdatatypes.FHIRBase64Binary, False, "value", True, None), 
+            ("valueBoolean", "valueBoolean", bool, False, "value", True, None), 
+            ("valueCanonical", "valueCanonical", fhirdatatypes.FHIRCanonical, False, "value", True, None), 
+            ("valueCode", "valueCode", fhirdatatypes.FHIRCode, False, "value", True, None), 
+            ("valueDate", "valueDate", fhirdatatypes.FHIRDate, False, "value", True, None), 
+            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", True, None), 
+            ("valueDecimal", "valueDecimal", float, False, "value", True, None), 
+            ("valueId", "valueId", fhirdatatypes.FHIRId, False, "value", True, None), 
+            ("valueInstant", "valueInstant", fhirdatatypes.FHIRInstant, False, "value", True, None), 
+            ("valueInteger", "valueInteger", int, False, "value", True, None), 
+            ("valueMarkdown", "valueMarkdown", fhirdatatypes.FHIRMarkdown, False, "value", True, None), 
+            ("valueOid", "valueOid", fhirdatatypes.FHIROid, False, "value", True, None), 
+            ("valuePositiveInt", "valuePositiveInt", fhirdatatypes.FHIRPositiveInt, False, "value", True, None), 
+            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", True, None), 
+            ("valueTime", "valueTime", fhirdatatypes.FHIRTime, False, "value", True, None), 
+            ("valueUnsignedInt", "valueUnsignedInt", fhirdatatypes.FHIRUnsignedInt, False, "value", True, None), 
+            ("valueUri", "valueUri", fhirdatatypes.FHIRUri, False, "value", True, None), 
+            ("valueUrl", "valueUrl", fhirdatatypes.FHIRUrl, False, "value", True, None), 
+            ("valueUuid", "valueUuid", fhirdatatypes.FHIRUuid, False, "value", True, None), 
+            ("valueAddress", "valueAddress", address.Address, False, "value", True, None), 
+            ("valueAge", "valueAge", age.Age, False, "value", True, None), 
+            ("valueAnnotation", "valueAnnotation", annotation.Annotation, False, "value", True, None), 
+            ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", True, None), 
+            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", True, None), 
+            ("valueCoding", "valueCoding", coding.Coding, False, "value", True, None), 
+            ("valueContactPoint", "valueContactPoint", contactpoint.ContactPoint, False, "value", True, None), 
+            ("valueCount", "valueCount", count.Count, False, "value", True, None), 
+            ("valueDistance", "valueDistance", distance.Distance, False, "value", True, None), 
+            ("valueDuration", "valueDuration", duration.Duration, False, "value", True, None), 
+            ("valueHumanName", "valueHumanName", humanname.HumanName, False, "value", True, None), 
+            ("valueIdentifier", "valueIdentifier", identifier.Identifier, False, "value", True, None), 
+            ("valueMoney", "valueMoney", money.Money, False, "value", True, None), 
+            ("valuePeriod", "valuePeriod", period.Period, False, "value", True, None), 
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", True, None), 
+            ("valueRange", "valueRange", range.Range, False, "value", True, None), 
+            ("valueRatio", "valueRatio", ratio.Ratio, False, "value", True, None), 
+            ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", True, None), 
+            ("valueSampledData", "valueSampledData", sampleddata.SampledData, False, "value", True, None), 
+            ("valueSignature", "valueSignature", signature.Signature, False, "value", True, None), 
+            ("valueTiming", "valueTiming", timing.Timing, False, "value", True, None), 
+            ("valueContactDetail", "valueContactDetail", contactdetail.ContactDetail, False, "value", True, None), 
+            ("valueContributor", "valueContributor", contributor.Contributor, False, "value", True, None), 
+            ("valueDataRequirement", "valueDataRequirement", datarequirement.DataRequirement, False, "value", True, None), 
+            ("valueExpression", "valueExpression", expression.Expression, False, "value", True, None), 
+            ("valueParameterDefinition", "valueParameterDefinition", parameterdefinition.ParameterDefinition, False, "value", True, None), 
+            ("valueRelatedArtifact", "valueRelatedArtifact", relatedartifact.RelatedArtifact, False, "value", True, None), 
+            ("valueTriggerDefinition", "valueTriggerDefinition", triggerdefinition.TriggerDefinition, False, "value", True, None), 
+            ("valueUsageContext", "valueUsageContext", usagecontext.UsageContext, False, "value", True, None), 
+            ("valueDosage", "valueDosage", dosage.Dosage, False, "value", True, None), 
+            ("valueMeta", "valueMeta", meta.Meta, False, "value", True, None), 
         ])
         return js
 
@@ -1486,10 +1486,10 @@ class ElementDefinitionMapping(element.Element):
     def elementProperties(self):
         js = super(ElementDefinitionMapping, self).elementProperties()
         js.extend([
-            ("identity", "identity", fhirdatatypes.FHIRId, False, None, True),
-            ("language", "language", fhirdatatypes.FHIRCode, False, None, False),
-            ("map", "map", fhirdatatypes.FHIRString, False, None, True),
-            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False),
+            ("identity", "identity", fhirdatatypes.FHIRId, False, None, True, None), 
+            ("language", "language", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("map", "map", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("comment", "comment", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -1537,10 +1537,10 @@ class ElementDefinitionSlicing(element.Element):
     def elementProperties(self):
         js = super(ElementDefinitionSlicing, self).elementProperties()
         js.extend([
-            ("discriminator", "discriminator", ElementDefinitionSlicingDiscriminator, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("ordered", "ordered", bool, False, None, False),
-            ("rules", "rules", fhirdatatypes.FHIRCode, False, None, True),
+            ("discriminator", "discriminator", ElementDefinitionSlicingDiscriminator, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("ordered", "ordered", bool, False, None, False, None), 
+            ("rules", "rules", fhirdatatypes.FHIRCode, False, None, True, slicingrules.SlicingRules), 
         ])
         return js
 
@@ -1578,8 +1578,8 @@ class ElementDefinitionSlicingDiscriminator(element.Element):
     def elementProperties(self):
         js = super(ElementDefinitionSlicingDiscriminator, self).elementProperties()
         js.extend([
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("path", "path", fhirdatatypes.FHIRString, False, None, True),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, discriminatortype.DiscriminatorType), 
+            ("path", "path", fhirdatatypes.FHIRString, False, None, True, None), 
         ])
         return js
 
@@ -1627,174 +1627,91 @@ class ElementDefinitionType(element.Element):
     def elementProperties(self):
         js = super(ElementDefinitionType, self).elementProperties()
         js.extend([
-            ("code", "code", fhirdatatypes.FHIRUri, False, None, True),
-            ("profile", "profile", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("targetProfile", "targetProfile", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("aggregation", "aggregation", fhirdatatypes.FHIRCode, True, None, False),
-            ("versioning", "versioning", fhirdatatypes.FHIRCode, False, None, False),
+            ("code", "code", fhirdatatypes.FHIRUri, False, None, True, None), 
+            ("profile", "profile", fhirdatatypes.FHIRCanonical, True, None, False, None), 
+            ("targetProfile", "targetProfile", fhirdatatypes.FHIRCanonical, True, None, False, None), 
+            ("aggregation", "aggregation", fhirdatatypes.FHIRCode, True, None, False, aggregationmode.AggregationMode), 
+            ("versioning", "versioning", fhirdatatypes.FHIRCode, False, None, False, referenceversionrules.ReferenceVersionRules), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import address
-except ImportError:
-    address = sys.modules[__package__ + '.address']
+from fhirclient.models import address
 
-try:
-    from . import age
-except ImportError:
-    age = sys.modules[__package__ + '.age']
+from fhirclient.models import age
 
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.codesystems import aggregationmode
 
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import attachment
 
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
+from fhirclient.codesystems import bindingstrength
 
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import contactpoint
-except ImportError:
-    contactpoint = sys.modules[__package__ + '.contactpoint']
+from fhirclient.models import coding
 
-try:
-    from . import contributor
-except ImportError:
-    contributor = sys.modules[__package__ + '.contributor']
+from fhirclient.codesystems import constraintseverity
 
-try:
-    from . import count
-except ImportError:
-    count = sys.modules[__package__ + '.count']
+from fhirclient.models import contactdetail
 
-try:
-    from . import datarequirement
-except ImportError:
-    datarequirement = sys.modules[__package__ + '.datarequirement']
+from fhirclient.models import contactpoint
 
-try:
-    from . import distance
-except ImportError:
-    distance = sys.modules[__package__ + '.distance']
+from fhirclient.models import contributor
 
-try:
-    from . import dosage
-except ImportError:
-    dosage = sys.modules[__package__ + '.dosage']
+from fhirclient.models import count
 
-try:
-    from . import duration
-except ImportError:
-    duration = sys.modules[__package__ + '.duration']
+from fhirclient.models import datarequirement
 
-try:
-    from . import expression
-except ImportError:
-    expression = sys.modules[__package__ + '.expression']
+from fhirclient.codesystems import discriminatortype
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import distance
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import dosage
 
-try:
-    from . import humanname
-except ImportError:
-    humanname = sys.modules[__package__ + '.humanname']
+from fhirclient.models import duration
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import expression
 
-try:
-    from . import meta
-except ImportError:
-    meta = sys.modules[__package__ + '.meta']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import money
-except ImportError:
-    money = sys.modules[__package__ + '.money']
+from fhirclient.models import fhirreference
 
-try:
-    from . import parameterdefinition
-except ImportError:
-    parameterdefinition = sys.modules[__package__ + '.parameterdefinition']
+from fhirclient.models import humanname
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import meta
 
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from fhirclient.models import money
 
-try:
-    from . import ratio
-except ImportError:
-    ratio = sys.modules[__package__ + '.ratio']
+from fhirclient.models import parameterdefinition
 
-try:
-    from . import relatedartifact
-except ImportError:
-    relatedartifact = sys.modules[__package__ + '.relatedartifact']
+from fhirclient.models import period
 
-try:
-    from . import sampleddata
-except ImportError:
-    sampleddata = sys.modules[__package__ + '.sampleddata']
+from fhirclient.codesystems import propertyrepresentation
 
-try:
-    from . import signature
-except ImportError:
-    signature = sys.modules[__package__ + '.signature']
+from fhirclient.models import quantity
 
-try:
-    from . import timing
-except ImportError:
-    timing = sys.modules[__package__ + '.timing']
+from fhirclient.models import range
 
-try:
-    from . import triggerdefinition
-except ImportError:
-    triggerdefinition = sys.modules[__package__ + '.triggerdefinition']
+from fhirclient.models import ratio
 
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from fhirclient.codesystems import referenceversionrules
+
+from fhirclient.models import relatedartifact
+
+from fhirclient.models import sampleddata
+
+from fhirclient.models import signature
+
+from fhirclient.codesystems import slicingrules
+
+from fhirclient.models import timing
+
+from fhirclient.models import triggerdefinition
+
+from fhirclient.models import usagecontext
 

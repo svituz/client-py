@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class DeviceDefinition(domainresource.DomainResource):
     """ An instance of a medical-related component of a medical device.
@@ -128,35 +128,35 @@ class DeviceDefinition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(DeviceDefinition, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("udiDeviceIdentifier", "udiDeviceIdentifier", DeviceDefinitionUdiDeviceIdentifier, True, None, False),
-            ("manufacturerString", "manufacturerString", fhirdatatypes.FHIRString, False, "manufacturer", False),
-            ("manufacturerReference", "manufacturerReference", fhirreference.FHIRReference, False, "manufacturer", False),
-            ("deviceName", "deviceName", DeviceDefinitionDeviceName, True, None, False),
-            ("modelNumber", "modelNumber", fhirdatatypes.FHIRString, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("specialization", "specialization", DeviceDefinitionSpecialization, True, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, True, None, False),
-            ("safety", "safety", codeableconcept.CodeableConcept, True, None, False),
-            ("shelfLifeStorage", "shelfLifeStorage", productshelflife.ProductShelfLife, True, None, False),
-            ("physicalCharacteristics", "physicalCharacteristics", prodcharacteristic.ProdCharacteristic, False, None, False),
-            ("languageCode", "languageCode", codeableconcept.CodeableConcept, True, None, False),
-            ("capability", "capability", DeviceDefinitionCapability, True, None, False),
-            ("property", "property", DeviceDefinitionProperty, True, None, False),
-            ("owner", "owner", fhirreference.FHIRReference, False, None, False),
-            ("contact", "contact", contactpoint.ContactPoint, True, None, False),
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
-            ("onlineInformation", "onlineInformation", fhirdatatypes.FHIRUri, False, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
-            ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("parentDevice", "parentDevice", fhirreference.FHIRReference, False, None, False),
-            ("material", "material", DeviceDefinitionMaterial, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("udiDeviceIdentifier", "udiDeviceIdentifier", DeviceDefinitionUdiDeviceIdentifier, True, None, False, None), 
+            ("manufacturerString", "manufacturerString", fhirdatatypes.FHIRString, False, "manufacturer", False, None), 
+            ("manufacturerReference", "manufacturerReference", fhirreference.FHIRReference, False, "manufacturer", False, None), 
+            ("deviceName", "deviceName", DeviceDefinitionDeviceName, True, None, False, None), 
+            ("modelNumber", "modelNumber", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("specialization", "specialization", DeviceDefinitionSpecialization, True, None, False, None), 
+            ("version", "version", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("safety", "safety", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("shelfLifeStorage", "shelfLifeStorage", productshelflife.ProductShelfLife, True, None, False, None), 
+            ("physicalCharacteristics", "physicalCharacteristics", prodcharacteristic.ProdCharacteristic, False, None, False, None), 
+            ("languageCode", "languageCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("capability", "capability", DeviceDefinitionCapability, True, None, False, None), 
+            ("property", "property", DeviceDefinitionProperty, True, None, False, None), 
+            ("owner", "owner", fhirreference.FHIRReference, False, None, False, None), 
+            ("contact", "contact", contactpoint.ContactPoint, True, None, False, None), 
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("onlineInformation", "onlineInformation", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
+            ("quantity", "quantity", quantity.Quantity, False, None, False, None), 
+            ("parentDevice", "parentDevice", fhirreference.FHIRReference, False, None, False, None), 
+            ("material", "material", DeviceDefinitionMaterial, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class DeviceDefinitionCapability(backboneelement.BackboneElement):
     """ Device capabilities.
@@ -183,8 +183,8 @@ class DeviceDefinitionCapability(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(DeviceDefinitionCapability, self).elementProperties()
         js.extend([
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
-            ("description", "description", codeableconcept.CodeableConcept, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("description", "description", codeableconcept.CodeableConcept, True, None, False, None), 
         ])
         return js
 
@@ -217,8 +217,8 @@ class DeviceDefinitionDeviceName(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(DeviceDefinitionDeviceName, self).elementProperties()
         js.extend([
-            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, devicenametype.DeviceNameType), 
         ])
         return js
 
@@ -254,9 +254,9 @@ class DeviceDefinitionMaterial(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(DeviceDefinitionMaterial, self).elementProperties()
         js.extend([
-            ("substance", "substance", codeableconcept.CodeableConcept, False, None, True),
-            ("alternate", "alternate", bool, False, None, False),
-            ("allergenicIndicator", "allergenicIndicator", bool, False, None, False),
+            ("substance", "substance", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("alternate", "alternate", bool, False, None, False, None), 
+            ("allergenicIndicator", "allergenicIndicator", bool, False, None, False, None), 
         ])
         return js
 
@@ -294,9 +294,9 @@ class DeviceDefinitionProperty(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(DeviceDefinitionProperty, self).elementProperties()
         js.extend([
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
-            ("valueQuantity", "valueQuantity", quantity.Quantity, True, None, False),
-            ("valueCode", "valueCode", codeableconcept.CodeableConcept, True, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("valueQuantity", "valueQuantity", quantity.Quantity, True, None, False, None), 
+            ("valueCode", "valueCode", codeableconcept.CodeableConcept, True, None, False, None), 
         ])
         return js
 
@@ -329,8 +329,8 @@ class DeviceDefinitionSpecialization(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(DeviceDefinitionSpecialization, self).elementProperties()
         js.extend([
-            ("systemType", "systemType", fhirdatatypes.FHIRString, False, None, True),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
+            ("systemType", "systemType", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -373,57 +373,31 @@ class DeviceDefinitionUdiDeviceIdentifier(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(DeviceDefinitionUdiDeviceIdentifier, self).elementProperties()
         js.extend([
-            ("deviceIdentifier", "deviceIdentifier", fhirdatatypes.FHIRString, False, None, True),
-            ("issuer", "issuer", fhirdatatypes.FHIRUri, False, None, True),
-            ("jurisdiction", "jurisdiction", fhirdatatypes.FHIRUri, False, None, True),
+            ("deviceIdentifier", "deviceIdentifier", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("issuer", "issuer", fhirdatatypes.FHIRUri, False, None, True, None), 
+            ("jurisdiction", "jurisdiction", fhirdatatypes.FHIRUri, False, None, True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import contactpoint
-except ImportError:
-    contactpoint = sys.modules[__package__ + '.contactpoint']
+from fhirclient.models import contactpoint
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import devicenametype
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
 
-try:
-    from . import prodcharacteristic
-except ImportError:
-    prodcharacteristic = sys.modules[__package__ + '.prodcharacteristic']
+from fhirclient.models import identifier
 
-try:
-    from . import productshelflife
-except ImportError:
-    productshelflife = sys.modules[__package__ + '.productshelflife']
+from fhirclient.models import prodcharacteristic
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import productshelflife
+
+from fhirclient.models import quantity
 

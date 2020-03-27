@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class ImmunizationEvaluation(domainresource.DomainResource):
     """ Immunization evaluation information.
@@ -90,44 +90,33 @@ class ImmunizationEvaluation(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ImmunizationEvaluation, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("authority", "authority", fhirreference.FHIRReference, False, None, False),
-            ("targetDisease", "targetDisease", codeableconcept.CodeableConcept, False, None, True),
-            ("immunizationEvent", "immunizationEvent", fhirreference.FHIRReference, False, None, True),
-            ("doseStatus", "doseStatus", codeableconcept.CodeableConcept, False, None, True),
-            ("doseStatusReason", "doseStatusReason", codeableconcept.CodeableConcept, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("series", "series", fhirdatatypes.FHIRString, False, None, False),
-            ("doseNumberPositiveInt", "doseNumberPositiveInt", fhirdatatypes.FHIRPositiveInt, False, "doseNumber", False),
-            ("doseNumberString", "doseNumberString", fhirdatatypes.FHIRString, False, "doseNumber", False),
-            ("seriesDosesPositiveInt", "seriesDosesPositiveInt", fhirdatatypes.FHIRPositiveInt, False, "seriesDoses", False),
-            ("seriesDosesString", "seriesDosesString", fhirdatatypes.FHIRString, False, "seriesDoses", False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, medicationadministrationstatuscodes.MedicationAdministrationStatusCodes), 
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("authority", "authority", fhirreference.FHIRReference, False, None, False, None), 
+            ("targetDisease", "targetDisease", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("immunizationEvent", "immunizationEvent", fhirreference.FHIRReference, False, None, True, None), 
+            ("doseStatus", "doseStatus", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("doseStatusReason", "doseStatusReason", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("series", "series", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("doseNumberPositiveInt", "doseNumberPositiveInt", fhirdatatypes.FHIRPositiveInt, False, "doseNumber", False, None), 
+            ("doseNumberString", "doseNumberString", fhirdatatypes.FHIRString, False, "doseNumber", False, None), 
+            ("seriesDosesPositiveInt", "seriesDosesPositiveInt", fhirdatatypes.FHIRPositiveInt, False, "seriesDoses", False, None), 
+            ("seriesDosesString", "seriesDosesString", fhirdatatypes.FHIRString, False, "seriesDoses", False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
+
+from fhirclient.codesystems import medicationadministrationstatuscodes
 

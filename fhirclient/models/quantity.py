@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class Quantity(element.Element):
     """ A measured or measurable amount.
@@ -48,19 +48,17 @@ class Quantity(element.Element):
     def elementProperties(self):
         js = super(Quantity, self).elementProperties()
         js.extend([
-            ("value", "value", float, False, None, False),
-            ("comparator", "comparator", fhirdatatypes.FHIRCode, False, None, False),
-            ("unit", "unit", fhirdatatypes.FHIRString, False, None, False),
-            ("system", "system", fhirdatatypes.FHIRUri, False, None, False),
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, False),
+            ("value", "value", float, False, None, False, None), 
+            ("comparator", "comparator", fhirdatatypes.FHIRCode, False, None, False, quantitycomparator.QuantityComparator), 
+            ("unit", "unit", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("system", "system", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
+
+from fhirclient.codesystems import quantitycomparator
 

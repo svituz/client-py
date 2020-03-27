@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class MessageDefinition(domainresource.DomainResource):
     """ A resource that defines a type of message that can be exchanged between
@@ -131,37 +131,37 @@ class MessageDefinition(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MessageDefinition, self).elementProperties()
         js.extend([
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("replaces", "replaces", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("experimental", "experimental", bool, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, True),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("base", "base", fhirdatatypes.FHIRCanonical, False, None, False),
-            ("parent", "parent", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("eventCoding", "eventCoding", coding.Coding, False, "event", True),
-            ("eventUri", "eventUri", fhirdatatypes.FHIRUri, False, "event", True),
-            ("category", "category", fhirdatatypes.FHIRCode, False, None, False),
-            ("focus", "focus", MessageDefinitionFocus, True, None, False),
-            ("responseRequired", "responseRequired", fhirdatatypes.FHIRCode, False, None, False),
-            ("allowedResponse", "allowedResponse", MessageDefinitionAllowedResponse, True, None, False),
-            ("graph", "graph", fhirdatatypes.FHIRCanonical, True, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("replaces", "replaces", fhirdatatypes.FHIRCanonical, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, publicationstatus.PublicationStatus), 
+            ("experimental", "experimental", bool, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, True, None), 
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False, None), 
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("base", "base", fhirdatatypes.FHIRCanonical, False, None, False, None), 
+            ("parent", "parent", fhirdatatypes.FHIRCanonical, True, None, False, None), 
+            ("eventCoding", "eventCoding", coding.Coding, False, "event", True, None), 
+            ("eventUri", "eventUri", fhirdatatypes.FHIRUri, False, "event", True, None), 
+            ("category", "category", fhirdatatypes.FHIRCode, False, None, False, messagesignificancecategory.MessageSignificanceCategory), 
+            ("focus", "focus", MessageDefinitionFocus, True, None, False, None), 
+            ("responseRequired", "responseRequired", fhirdatatypes.FHIRCode, False, None, False, messageheaderresponserequest.MessageheaderResponseRequest), 
+            ("allowedResponse", "allowedResponse", MessageDefinitionAllowedResponse, True, None, False, None), 
+            ("graph", "graph", fhirdatatypes.FHIRCanonical, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class MessageDefinitionAllowedResponse(backboneelement.BackboneElement):
     """ Responses to this message.
@@ -191,8 +191,8 @@ class MessageDefinitionAllowedResponse(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MessageDefinitionAllowedResponse, self).elementProperties()
         js.extend([
-            ("message", "message", fhirdatatypes.FHIRCanonical, False, None, True),
-            ("situation", "situation", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("message", "message", fhirdatatypes.FHIRCanonical, False, None, True, None), 
+            ("situation", "situation", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
         ])
         return js
 
@@ -236,43 +236,32 @@ class MessageDefinitionFocus(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MessageDefinitionFocus, self).elementProperties()
         js.extend([
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
-            ("profile", "profile", fhirdatatypes.FHIRCanonical, False, None, False),
-            ("min", "min", fhirdatatypes.FHIRUnsignedInt, False, None, True),
-            ("max", "max", fhirdatatypes.FHIRString, False, None, False),
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True, resourcetype.ResourceType), 
+            ("profile", "profile", fhirdatatypes.FHIRCanonical, False, None, False, None), 
+            ("min", "min", fhirdatatypes.FHIRUnsignedInt, False, None, True, None), 
+            ("max", "max", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
+from fhirclient.models import coding
 
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.models import contactdetail
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from fhirclient.codesystems import messageheaderresponserequest
+
+from fhirclient.codesystems import messagesignificancecategory
+
+from fhirclient.codesystems import publicationstatus
+
+from fhirclient.codesystems import resourcetype
+
+from fhirclient.models import usagecontext
 

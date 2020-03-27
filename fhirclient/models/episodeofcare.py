@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class EpisodeOfCare(domainresource.DomainResource):
     """ An association of a Patient with an Organization and  Healthcare
@@ -84,24 +84,24 @@ class EpisodeOfCare(domainresource.DomainResource):
     def elementProperties(self):
         js = super(EpisodeOfCare, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("statusHistory", "statusHistory", EpisodeOfCareStatusHistory, True, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
-            ("diagnosis", "diagnosis", EpisodeOfCareDiagnosis, True, None, False),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
-            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False),
-            ("period", "period", period.Period, False, None, False),
-            ("referralRequest", "referralRequest", fhirreference.FHIRReference, True, None, False),
-            ("careManager", "careManager", fhirreference.FHIRReference, False, None, False),
-            ("team", "team", fhirreference.FHIRReference, True, None, False),
-            ("account", "account", fhirreference.FHIRReference, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, episodeofcarestatus.EpisodeOfCareStatus), 
+            ("statusHistory", "statusHistory", EpisodeOfCareStatusHistory, True, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("diagnosis", "diagnosis", EpisodeOfCareDiagnosis, True, None, False, None), 
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True, None), 
+            ("managingOrganization", "managingOrganization", fhirreference.FHIRReference, False, None, False, None), 
+            ("period", "period", period.Period, False, None, False, None), 
+            ("referralRequest", "referralRequest", fhirreference.FHIRReference, True, None, False, None), 
+            ("careManager", "careManager", fhirreference.FHIRReference, False, None, False, None), 
+            ("team", "team", fhirreference.FHIRReference, True, None, False, None), 
+            ("account", "account", fhirreference.FHIRReference, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class EpisodeOfCareDiagnosis(backboneelement.BackboneElement):
     """ The list of diagnosis relevant to this episode of care.
@@ -133,9 +133,9 @@ class EpisodeOfCareDiagnosis(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(EpisodeOfCareDiagnosis, self).elementProperties()
         js.extend([
-            ("condition", "condition", fhirreference.FHIRReference, False, None, True),
-            ("role", "role", codeableconcept.CodeableConcept, False, None, False),
-            ("rank", "rank", fhirdatatypes.FHIRPositiveInt, False, None, False),
+            ("condition", "condition", fhirreference.FHIRReference, False, None, True, None), 
+            ("role", "role", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("rank", "rank", fhirdatatypes.FHIRPositiveInt, False, None, False, None), 
         ])
         return js
 
@@ -172,36 +172,22 @@ class EpisodeOfCareStatusHistory(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(EpisodeOfCareStatusHistory, self).elementProperties()
         js.extend([
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("period", "period", period.Period, False, None, True),
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, episodeofcarestatus.EpisodeOfCareStatus), 
+            ("period", "period", period.Period, False, None, True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import episodeofcarestatus
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
+
+from fhirclient.models import period
 

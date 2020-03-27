@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import quantity
+from fhirclient.models import quantity
 
 class Duration(quantity.Quantity):
     """ A length of time.

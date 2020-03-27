@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class DeviceMetric(domainresource.DomainResource):
     """ Measurement, calculation or setting capability of a medical device.
@@ -70,22 +70,22 @@ class DeviceMetric(domainresource.DomainResource):
     def elementProperties(self):
         js = super(DeviceMetric, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
-            ("unit", "unit", codeableconcept.CodeableConcept, False, None, False),
-            ("source", "source", fhirreference.FHIRReference, False, None, False),
-            ("parent", "parent", fhirreference.FHIRReference, False, None, False),
-            ("operationalStatus", "operationalStatus", fhirdatatypes.FHIRCode, False, None, False),
-            ("color", "color", fhirdatatypes.FHIRCode, False, None, False),
-            ("category", "category", fhirdatatypes.FHIRCode, False, None, True),
-            ("measurementPeriod", "measurementPeriod", timing.Timing, False, None, False),
-            ("calibration", "calibration", DeviceMetricCalibration, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("unit", "unit", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("source", "source", fhirreference.FHIRReference, False, None, False, None), 
+            ("parent", "parent", fhirreference.FHIRReference, False, None, False, None), 
+            ("operationalStatus", "operationalStatus", fhirdatatypes.FHIRCode, False, None, False, devicemetricoperationalstatus.DeviceMetricOperationalStatus), 
+            ("color", "color", fhirdatatypes.FHIRCode, False, None, False, devicemetriccolor.DeviceMetricColor), 
+            ("category", "category", fhirdatatypes.FHIRCode, False, None, True, devicemetriccategory.DeviceMetricCategory), 
+            ("measurementPeriod", "measurementPeriod", timing.Timing, False, None, False, None), 
+            ("calibration", "calibration", DeviceMetricCalibration, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class DeviceMetricCalibration(backboneelement.BackboneElement):
     """ Describes the calibrations that have been performed or that are required to
@@ -117,37 +117,31 @@ class DeviceMetricCalibration(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(DeviceMetricCalibration, self).elementProperties()
         js.extend([
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, False),
-            ("state", "state", fhirdatatypes.FHIRCode, False, None, False),
-            ("time", "time", fhirdatatypes.FHIRInstant, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, False, devicemetriccalibrationtype.DeviceMetricCalibrationType), 
+            ("state", "state", fhirdatatypes.FHIRCode, False, None, False, devicemetriccalibrationstate.DeviceMetricCalibrationState), 
+            ("time", "time", fhirdatatypes.FHIRInstant, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import devicemetriccalibrationstate
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.codesystems import devicemetriccalibrationtype
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.codesystems import devicemetriccategory
 
-try:
-    from . import timing
-except ImportError:
-    timing = sys.modules[__package__ + '.timing']
+from fhirclient.codesystems import devicemetriccolor
+
+from fhirclient.codesystems import devicemetricoperationalstatus
+
+from fhirclient.models import fhirdatatypes
+
+from fhirclient.models import fhirreference
+
+from fhirclient.models import identifier
+
+from fhirclient.models import timing
 

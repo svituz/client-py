@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class FamilyMemberHistory(domainresource.DomainResource):
     """ Information about patient's relatives, relevant for patient.
@@ -133,38 +133,38 @@ class FamilyMemberHistory(domainresource.DomainResource):
     def elementProperties(self):
         js = super(FamilyMemberHistory, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False),
-            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("dataAbsentReason", "dataAbsentReason", codeableconcept.CodeableConcept, False, None, False),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("relationship", "relationship", codeableconcept.CodeableConcept, False, None, True),
-            ("sex", "sex", codeableconcept.CodeableConcept, False, None, False),
-            ("bornPeriod", "bornPeriod", period.Period, False, "born", False),
-            ("bornDate", "bornDate", fhirdatatypes.FHIRDate, False, "born", False),
-            ("bornString", "bornString", fhirdatatypes.FHIRString, False, "born", False),
-            ("ageAge", "ageAge", age.Age, False, "age", False),
-            ("ageRange", "ageRange", range.Range, False, "age", False),
-            ("ageString", "ageString", fhirdatatypes.FHIRString, False, "age", False),
-            ("estimatedAge", "estimatedAge", bool, False, None, False),
-            ("deceasedBoolean", "deceasedBoolean", bool, False, "deceased", False),
-            ("deceasedAge", "deceasedAge", age.Age, False, "deceased", False),
-            ("deceasedRange", "deceasedRange", range.Range, False, "deceased", False),
-            ("deceasedDate", "deceasedDate", fhirdatatypes.FHIRDate, False, "deceased", False),
-            ("deceasedString", "deceasedString", fhirdatatypes.FHIRString, False, "deceased", False),
-            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
-            ("condition", "condition", FamilyMemberHistoryCondition, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("instantiatesCanonical", "instantiatesCanonical", fhirdatatypes.FHIRCanonical, True, None, False, None), 
+            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, familyhistorystatus.FamilyHistoryStatus), 
+            ("dataAbsentReason", "dataAbsentReason", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("relationship", "relationship", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("sex", "sex", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("bornPeriod", "bornPeriod", period.Period, False, "born", False, None), 
+            ("bornDate", "bornDate", fhirdatatypes.FHIRDate, False, "born", False, None), 
+            ("bornString", "bornString", fhirdatatypes.FHIRString, False, "born", False, None), 
+            ("ageAge", "ageAge", age.Age, False, "age", False, None), 
+            ("ageRange", "ageRange", range.Range, False, "age", False, None), 
+            ("ageString", "ageString", fhirdatatypes.FHIRString, False, "age", False, None), 
+            ("estimatedAge", "estimatedAge", bool, False, None, False, None), 
+            ("deceasedBoolean", "deceasedBoolean", bool, False, "deceased", False, None), 
+            ("deceasedAge", "deceasedAge", age.Age, False, "deceased", False, None), 
+            ("deceasedRange", "deceasedRange", range.Range, False, "deceased", False, None), 
+            ("deceasedDate", "deceasedDate", fhirdatatypes.FHIRDate, False, "deceased", False, None), 
+            ("deceasedString", "deceasedString", fhirdatatypes.FHIRString, False, "deceased", False, None), 
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
+            ("condition", "condition", FamilyMemberHistoryCondition, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class FamilyMemberHistoryCondition(backboneelement.BackboneElement):
     """ Condition that the related person had.
@@ -220,57 +220,34 @@ class FamilyMemberHistoryCondition(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(FamilyMemberHistoryCondition, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
-            ("contributedToDeath", "contributedToDeath", bool, False, None, False),
-            ("onsetAge", "onsetAge", age.Age, False, "onset", False),
-            ("onsetRange", "onsetRange", range.Range, False, "onset", False),
-            ("onsetPeriod", "onsetPeriod", period.Period, False, "onset", False),
-            ("onsetString", "onsetString", fhirdatatypes.FHIRString, False, "onset", False),
-            ("note", "note", annotation.Annotation, True, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("contributedToDeath", "contributedToDeath", bool, False, None, False, None), 
+            ("onsetAge", "onsetAge", age.Age, False, "onset", False, None), 
+            ("onsetRange", "onsetRange", range.Range, False, "onset", False, None), 
+            ("onsetPeriod", "onsetPeriod", period.Period, False, "onset", False, None), 
+            ("onsetString", "onsetString", fhirdatatypes.FHIRString, False, "onset", False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import age
-except ImportError:
-    age = sys.modules[__package__ + '.age']
+from fhirclient.models import age
 
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import familyhistorystatus
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
 
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from fhirclient.models import period
+
+from fhirclient.models import range
 

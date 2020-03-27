@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import fhirabstractbase
+from fhirclient.models import fhirabstractbase
 
 class Element(fhirabstractbase.FHIRAbstractBase):
     """ Base for all elements.
@@ -36,8 +36,8 @@ class Element(fhirabstractbase.FHIRAbstractBase):
         from . import extension
         from . import fhirdatatypes
         js.extend([
-            ("id", "id", fhirdatatypes.FHIRString, False, None, False),
-            ("extension", "extension", extension.Extension, True, None, False),
+            ("id", "id", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("extension", "extension", extension.Extension, True, None, False, None), 
         ])
         return js
 

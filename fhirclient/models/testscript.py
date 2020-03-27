@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class TestScript(domainresource.DomainResource):
     """ Describes a set of tests.
@@ -129,36 +129,36 @@ class TestScript(domainresource.DomainResource):
     def elementProperties(self):
         js = super(TestScript, self).elementProperties()
         js.extend([
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, True),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("experimental", "experimental", bool, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("origin", "origin", TestScriptOrigin, True, None, False),
-            ("destination", "destination", TestScriptDestination, True, None, False),
-            ("metadata", "metadata", TestScriptMetadata, False, None, False),
-            ("fixture", "fixture", TestScriptFixture, True, None, False),
-            ("profile", "profile", fhirreference.FHIRReference, True, None, False),
-            ("variable", "variable", TestScriptVariable, True, None, False),
-            ("setup", "setup", TestScriptSetup, False, None, False),
-            ("test", "test", TestScriptTest, True, None, False),
-            ("teardown", "teardown", TestScriptTeardown, False, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, True, None), 
+            ("identifier", "identifier", identifier.Identifier, False, None, False, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, publicationstatus.PublicationStatus), 
+            ("experimental", "experimental", bool, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False, None), 
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("origin", "origin", TestScriptOrigin, True, None, False, None), 
+            ("destination", "destination", TestScriptDestination, True, None, False, None), 
+            ("metadata", "metadata", TestScriptMetadata, False, None, False, None), 
+            ("fixture", "fixture", TestScriptFixture, True, None, False, None), 
+            ("profile", "profile", fhirreference.FHIRReference, True, None, False, None), 
+            ("variable", "variable", TestScriptVariable, True, None, False, None), 
+            ("setup", "setup", TestScriptSetup, False, None, False, None), 
+            ("test", "test", TestScriptTest, True, None, False, None), 
+            ("teardown", "teardown", TestScriptTeardown, False, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class TestScriptDestination(backboneelement.BackboneElement):
     """ An abstract server representing a destination or receiver in a message
@@ -190,8 +190,8 @@ class TestScriptDestination(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptDestination, self).elementProperties()
         js.extend([
-            ("index", "index", int, False, None, True),
-            ("profile", "profile", coding.Coding, False, None, True),
+            ("index", "index", int, False, None, True, None), 
+            ("profile", "profile", coding.Coding, False, None, True, None), 
         ])
         return js
 
@@ -230,9 +230,9 @@ class TestScriptFixture(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptFixture, self).elementProperties()
         js.extend([
-            ("autocreate", "autocreate", bool, False, None, True),
-            ("autodelete", "autodelete", bool, False, None, True),
-            ("resource", "resource", fhirreference.FHIRReference, False, None, False),
+            ("autocreate", "autocreate", bool, False, None, True, None), 
+            ("autodelete", "autodelete", bool, False, None, True, None), 
+            ("resource", "resource", fhirreference.FHIRReference, False, None, False, None), 
         ])
         return js
 
@@ -269,8 +269,8 @@ class TestScriptMetadata(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptMetadata, self).elementProperties()
         js.extend([
-            ("link", "link", TestScriptMetadataLink, True, None, False),
-            ("capability", "capability", TestScriptMetadataCapability, True, None, True),
+            ("link", "link", TestScriptMetadataLink, True, None, False, None), 
+            ("capability", "capability", TestScriptMetadataCapability, True, None, True, None), 
         ])
         return js
 
@@ -326,13 +326,13 @@ class TestScriptMetadataCapability(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptMetadataCapability, self).elementProperties()
         js.extend([
-            ("required", "required", bool, False, None, True),
-            ("validated", "validated", bool, False, None, True),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("origin", "origin", int, True, None, False),
-            ("destination", "destination", int, False, None, False),
-            ("link", "link", fhirdatatypes.FHIRUri, True, None, False),
-            ("capabilities", "capabilities", fhirdatatypes.FHIRCanonical, False, None, True),
+            ("required", "required", bool, False, None, True, None), 
+            ("validated", "validated", bool, False, None, True, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("origin", "origin", int, True, None, False, None), 
+            ("destination", "destination", int, False, None, False, None), 
+            ("link", "link", fhirdatatypes.FHIRUri, True, None, False, None), 
+            ("capabilities", "capabilities", fhirdatatypes.FHIRCanonical, False, None, True, None), 
         ])
         return js
 
@@ -366,8 +366,8 @@ class TestScriptMetadataLink(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptMetadataLink, self).elementProperties()
         js.extend([
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, True),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, True, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -402,8 +402,8 @@ class TestScriptOrigin(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptOrigin, self).elementProperties()
         js.extend([
-            ("index", "index", int, False, None, True),
-            ("profile", "profile", coding.Coding, False, None, True),
+            ("index", "index", int, False, None, True, None), 
+            ("profile", "profile", coding.Coding, False, None, True, None), 
         ])
         return js
 
@@ -431,7 +431,7 @@ class TestScriptSetup(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptSetup, self).elementProperties()
         js.extend([
-            ("action", "action", TestScriptSetupAction, True, None, True),
+            ("action", "action", TestScriptSetupAction, True, None, True, None), 
         ])
         return js
 
@@ -465,8 +465,8 @@ class TestScriptSetupAction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptSetupAction, self).elementProperties()
         js.extend([
-            ("operation", "operation", TestScriptSetupActionOperation, False, None, False),
-            ("assert_fhir", "assert", TestScriptSetupActionAssert, False, None, False),
+            ("operation", "operation", TestScriptSetupActionOperation, False, None, False, None), 
+            ("assert_fhir", "assert", TestScriptSetupActionAssert, False, None, False, None), 
         ])
         return js
 
@@ -584,28 +584,28 @@ class TestScriptSetupActionAssert(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptSetupActionAssert, self).elementProperties()
         js.extend([
-            ("label", "label", fhirdatatypes.FHIRString, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("direction", "direction", fhirdatatypes.FHIRCode, False, None, False),
-            ("compareToSourceId", "compareToSourceId", fhirdatatypes.FHIRString, False, None, False),
-            ("compareToSourceExpression", "compareToSourceExpression", fhirdatatypes.FHIRString, False, None, False),
-            ("compareToSourcePath", "compareToSourcePath", fhirdatatypes.FHIRString, False, None, False),
-            ("contentType", "contentType", fhirdatatypes.FHIRCode, False, None, False),
-            ("expression", "expression", fhirdatatypes.FHIRString, False, None, False),
-            ("headerField", "headerField", fhirdatatypes.FHIRString, False, None, False),
-            ("minimumId", "minimumId", fhirdatatypes.FHIRString, False, None, False),
-            ("navigationLinks", "navigationLinks", bool, False, None, False),
-            ("operator", "operator", fhirdatatypes.FHIRCode, False, None, False),
-            ("path", "path", fhirdatatypes.FHIRString, False, None, False),
-            ("requestMethod", "requestMethod", fhirdatatypes.FHIRCode, False, None, False),
-            ("requestURL", "requestURL", fhirdatatypes.FHIRString, False, None, False),
-            ("resource", "resource", fhirdatatypes.FHIRCode, False, None, False),
-            ("response", "response", fhirdatatypes.FHIRCode, False, None, False),
-            ("responseCode", "responseCode", fhirdatatypes.FHIRString, False, None, False),
-            ("sourceId", "sourceId", fhirdatatypes.FHIRId, False, None, False),
-            ("validateProfileId", "validateProfileId", fhirdatatypes.FHIRId, False, None, False),
-            ("value", "value", fhirdatatypes.FHIRString, False, None, False),
-            ("warningOnly", "warningOnly", bool, False, None, True),
+            ("label", "label", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("direction", "direction", fhirdatatypes.FHIRCode, False, None, False, assertiondirectiontype.AssertionDirectionType), 
+            ("compareToSourceId", "compareToSourceId", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("compareToSourceExpression", "compareToSourceExpression", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("compareToSourcePath", "compareToSourcePath", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("contentType", "contentType", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("expression", "expression", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("headerField", "headerField", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("minimumId", "minimumId", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("navigationLinks", "navigationLinks", bool, False, None, False, None), 
+            ("operator", "operator", fhirdatatypes.FHIRCode, False, None, False, assertionoperatortype.AssertionOperatorType), 
+            ("path", "path", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("requestMethod", "requestMethod", fhirdatatypes.FHIRCode, False, None, False, testscriptrequestmethodcode.TestScriptRequestMethodCode), 
+            ("requestURL", "requestURL", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("resource", "resource", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("response", "response", fhirdatatypes.FHIRCode, False, None, False, assertionresponsetypes.AssertionResponseTypes), 
+            ("responseCode", "responseCode", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("sourceId", "sourceId", fhirdatatypes.FHIRId, False, None, False, None), 
+            ("validateProfileId", "validateProfileId", fhirdatatypes.FHIRId, False, None, False, None), 
+            ("value", "value", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("warningOnly", "warningOnly", bool, False, None, True, None), 
         ])
         return js
 
@@ -701,23 +701,23 @@ class TestScriptSetupActionOperation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptSetupActionOperation, self).elementProperties()
         js.extend([
-            ("type", "type", coding.Coding, False, None, False),
-            ("resource", "resource", fhirdatatypes.FHIRCode, False, None, False),
-            ("label", "label", fhirdatatypes.FHIRString, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("accept", "accept", fhirdatatypes.FHIRCode, False, None, False),
-            ("contentType", "contentType", fhirdatatypes.FHIRCode, False, None, False),
-            ("destination", "destination", int, False, None, False),
-            ("encodeRequestUrl", "encodeRequestUrl", bool, False, None, True),
-            ("method", "method", fhirdatatypes.FHIRCode, False, None, False),
-            ("origin", "origin", int, False, None, False),
-            ("params", "params", fhirdatatypes.FHIRString, False, None, False),
-            ("requestHeader", "requestHeader", TestScriptSetupActionOperationRequestHeader, True, None, False),
-            ("requestId", "requestId", fhirdatatypes.FHIRId, False, None, False),
-            ("responseId", "responseId", fhirdatatypes.FHIRId, False, None, False),
-            ("sourceId", "sourceId", fhirdatatypes.FHIRId, False, None, False),
-            ("targetId", "targetId", fhirdatatypes.FHIRId, False, None, False),
-            ("url", "url", fhirdatatypes.FHIRString, False, None, False),
+            ("type", "type", coding.Coding, False, None, False, None), 
+            ("resource", "resource", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("label", "label", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("accept", "accept", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("contentType", "contentType", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("destination", "destination", int, False, None, False, None), 
+            ("encodeRequestUrl", "encodeRequestUrl", bool, False, None, True, None), 
+            ("method", "method", fhirdatatypes.FHIRCode, False, None, False, testscriptrequestmethodcode.TestScriptRequestMethodCode), 
+            ("origin", "origin", int, False, None, False, None), 
+            ("params", "params", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("requestHeader", "requestHeader", TestScriptSetupActionOperationRequestHeader, True, None, False, None), 
+            ("requestId", "requestId", fhirdatatypes.FHIRId, False, None, False, None), 
+            ("responseId", "responseId", fhirdatatypes.FHIRId, False, None, False, None), 
+            ("sourceId", "sourceId", fhirdatatypes.FHIRId, False, None, False, None), 
+            ("targetId", "targetId", fhirdatatypes.FHIRId, False, None, False, None), 
+            ("url", "url", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -751,8 +751,8 @@ class TestScriptSetupActionOperationRequestHeader(backboneelement.BackboneElemen
     def elementProperties(self):
         js = super(TestScriptSetupActionOperationRequestHeader, self).elementProperties()
         js.extend([
-            ("field", "field", fhirdatatypes.FHIRString, False, None, True),
-            ("value", "value", fhirdatatypes.FHIRString, False, None, True),
+            ("field", "field", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("value", "value", fhirdatatypes.FHIRString, False, None, True, None), 
         ])
         return js
 
@@ -783,7 +783,7 @@ class TestScriptTeardown(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptTeardown, self).elementProperties()
         js.extend([
-            ("action", "action", TestScriptTeardownAction, True, None, True),
+            ("action", "action", TestScriptTeardownAction, True, None, True, None), 
         ])
         return js
 
@@ -813,7 +813,7 @@ class TestScriptTeardownAction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptTeardownAction, self).elementProperties()
         js.extend([
-            ("operation", "operation", TestScriptSetupActionOperation, False, None, True),
+            ("operation", "operation", TestScriptSetupActionOperation, False, None, True, None), 
         ])
         return js
 
@@ -849,9 +849,9 @@ class TestScriptTest(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptTest, self).elementProperties()
         js.extend([
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("action", "action", TestScriptTestAction, True, None, True),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("action", "action", TestScriptTestAction, True, None, True, None), 
         ])
         return js
 
@@ -885,8 +885,8 @@ class TestScriptTestAction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptTestAction, self).elementProperties()
         js.extend([
-            ("operation", "operation", TestScriptSetupActionOperation, False, None, False),
-            ("assert_fhir", "assert", TestScriptSetupActionAssert, False, None, False),
+            ("operation", "operation", TestScriptSetupActionOperation, False, None, False, None), 
+            ("assert_fhir", "assert", TestScriptSetupActionAssert, False, None, False, None), 
         ])
         return js
 
@@ -945,52 +945,40 @@ class TestScriptVariable(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestScriptVariable, self).elementProperties()
         js.extend([
-            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
-            ("defaultValue", "defaultValue", fhirdatatypes.FHIRString, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("expression", "expression", fhirdatatypes.FHIRString, False, None, False),
-            ("headerField", "headerField", fhirdatatypes.FHIRString, False, None, False),
-            ("hint", "hint", fhirdatatypes.FHIRString, False, None, False),
-            ("path", "path", fhirdatatypes.FHIRString, False, None, False),
-            ("sourceId", "sourceId", fhirdatatypes.FHIRId, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("defaultValue", "defaultValue", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("expression", "expression", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("headerField", "headerField", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("hint", "hint", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("path", "path", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("sourceId", "sourceId", fhirdatatypes.FHIRId, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.codesystems import assertiondirectiontype
 
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
+from fhirclient.codesystems import assertionoperatortype
 
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.codesystems import assertionresponsetypes
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import coding
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import contactdetail
 
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from fhirclient.models import fhirdatatypes
+
+from fhirclient.models import fhirreference
+
+from fhirclient.models import identifier
+
+from fhirclient.codesystems import publicationstatus
+
+from fhirclient.codesystems import testscriptrequestmethodcode
+
+from fhirclient.models import usagecontext
 

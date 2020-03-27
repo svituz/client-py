@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class VisionPrescription(domainresource.DomainResource):
     """ Prescription for vision correction products for a patient.
@@ -61,20 +61,20 @@ class VisionPrescription(domainresource.DomainResource):
     def elementProperties(self):
         js = super(VisionPrescription, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, True),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("dateWritten", "dateWritten", fhirdatatypes.FHIRDateTime, False, None, True),
-            ("prescriber", "prescriber", fhirreference.FHIRReference, False, None, True),
-            ("lensSpecification", "lensSpecification", VisionPrescriptionLensSpecification, True, None, True),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, financialresourcestatuscodes.FinancialResourceStatusCodes), 
+            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, True, None), 
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True, None), 
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False, None), 
+            ("dateWritten", "dateWritten", fhirdatatypes.FHIRDateTime, False, None, True, None), 
+            ("prescriber", "prescriber", fhirreference.FHIRReference, False, None, True, None), 
+            ("lensSpecification", "lensSpecification", VisionPrescriptionLensSpecification, True, None, True, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class VisionPrescriptionLensSpecification(backboneelement.BackboneElement):
     """ Vision lens authorization.
@@ -152,20 +152,20 @@ class VisionPrescriptionLensSpecification(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(VisionPrescriptionLensSpecification, self).elementProperties()
         js.extend([
-            ("product", "product", codeableconcept.CodeableConcept, False, None, True),
-            ("eye", "eye", fhirdatatypes.FHIRCode, False, None, True),
-            ("sphere", "sphere", float, False, None, False),
-            ("cylinder", "cylinder", float, False, None, False),
-            ("axis", "axis", int, False, None, False),
-            ("prism", "prism", VisionPrescriptionLensSpecificationPrism, True, None, False),
-            ("add", "add", float, False, None, False),
-            ("power", "power", float, False, None, False),
-            ("backCurve", "backCurve", float, False, None, False),
-            ("diameter", "diameter", float, False, None, False),
-            ("duration", "duration", quantity.Quantity, False, None, False),
-            ("color", "color", fhirdatatypes.FHIRString, False, None, False),
-            ("brand", "brand", fhirdatatypes.FHIRString, False, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
+            ("product", "product", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("eye", "eye", fhirdatatypes.FHIRCode, False, None, True, visioneyes.VisionEyes), 
+            ("sphere", "sphere", float, False, None, False, None), 
+            ("cylinder", "cylinder", float, False, None, False, None), 
+            ("axis", "axis", int, False, None, False, None), 
+            ("prism", "prism", VisionPrescriptionLensSpecificationPrism, True, None, False, None), 
+            ("add", "add", float, False, None, False, None), 
+            ("power", "power", float, False, None, False, None), 
+            ("backCurve", "backCurve", float, False, None, False, None), 
+            ("diameter", "diameter", float, False, None, False, None), 
+            ("duration", "duration", quantity.Quantity, False, None, False, None), 
+            ("color", "color", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("brand", "brand", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
         ])
         return js
 
@@ -199,41 +199,28 @@ class VisionPrescriptionLensSpecificationPrism(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(VisionPrescriptionLensSpecificationPrism, self).elementProperties()
         js.extend([
-            ("amount", "amount", float, False, None, True),
-            ("base", "base", fhirdatatypes.FHIRCode, False, None, True),
+            ("amount", "amount", float, False, None, True, None), 
+            ("base", "base", fhirdatatypes.FHIRCode, False, None, True, visionbase.VisionBase), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.codesystems import financialresourcestatuscodes
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import identifier
+
+from fhirclient.models import quantity
+
+from fhirclient.codesystems import visionbase
+
+from fhirclient.codesystems import visioneyes
 

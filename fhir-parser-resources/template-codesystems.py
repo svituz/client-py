@@ -17,8 +17,12 @@ class {{system.name}}(object):
     ValueSet: {{ system.definition.valueSet }}
     {%- endif %}
     """
+    {%- set allowed_values = [] %}
     {%- for code in system.codes %}
-    # {{ code.definition|wordwrap(width=112, wrapstring="\n	/// ") }}
-    {{code.name}} = "{{ code.code }}"
+    """{{ code.definition|wordwrap(width=112, wrapstring="\n	/// ") }}"""
+    {{code.name.upper()}} = "{{ code.code }}"
+    {%- set _ = allowed_values.append(code.name.upper()) %}
     {%- endfor %}
+    allowed_values = {{ allowed_values }}
+
 {%- endif %}

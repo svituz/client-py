@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class SearchParameter(domainresource.DomainResource):
     """ Search parameter for a resource.
@@ -136,38 +136,38 @@ class SearchParameter(domainresource.DomainResource):
     def elementProperties(self):
         js = super(SearchParameter, self).elementProperties()
         js.extend([
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, True),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
-            ("derivedFrom", "derivedFrom", fhirdatatypes.FHIRCanonical, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("experimental", "experimental", bool, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, True),
-            ("useContext", "useContext", usagecontext.UsageContext, True, None, False),
-            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False),
-            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
-            ("base", "base", fhirdatatypes.FHIRCode, True, None, True),
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("expression", "expression", fhirdatatypes.FHIRString, False, None, False),
-            ("xpath", "xpath", fhirdatatypes.FHIRString, False, None, False),
-            ("xpathUsage", "xpathUsage", fhirdatatypes.FHIRCode, False, None, False),
-            ("target", "target", fhirdatatypes.FHIRCode, True, None, False),
-            ("multipleOr", "multipleOr", bool, False, None, False),
-            ("multipleAnd", "multipleAnd", bool, False, None, False),
-            ("comparator", "comparator", fhirdatatypes.FHIRCode, True, None, False),
-            ("modifier", "modifier", fhirdatatypes.FHIRCode, True, None, False),
-            ("chain", "chain", fhirdatatypes.FHIRString, True, None, False),
-            ("component", "component", SearchParameterComponent, True, None, False),
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, True, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("derivedFrom", "derivedFrom", fhirdatatypes.FHIRCanonical, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, publicationstatus.PublicationStatus), 
+            ("experimental", "experimental", bool, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("publisher", "publisher", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, True, None), 
+            ("useContext", "useContext", usagecontext.UsageContext, True, None, False, None), 
+            ("jurisdiction", "jurisdiction", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("purpose", "purpose", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True, None), 
+            ("base", "base", fhirdatatypes.FHIRCode, True, None, True, resourcetype.ResourceType), 
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, searchparamtype.SearchParamType), 
+            ("expression", "expression", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("xpath", "xpath", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("xpathUsage", "xpathUsage", fhirdatatypes.FHIRCode, False, None, False, xpathusagetype.XPathUsageType), 
+            ("target", "target", fhirdatatypes.FHIRCode, True, None, False, resourcetype.ResourceType), 
+            ("multipleOr", "multipleOr", bool, False, None, False, None), 
+            ("multipleAnd", "multipleAnd", bool, False, None, False, None), 
+            ("comparator", "comparator", fhirdatatypes.FHIRCode, True, None, False, searchcomparator.SearchComparator), 
+            ("modifier", "modifier", fhirdatatypes.FHIRCode, True, None, False, searchmodifiercode.SearchModifierCode), 
+            ("chain", "chain", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("component", "component", SearchParameterComponent, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class SearchParameterComponent(backboneelement.BackboneElement):
     """ For Composite resources to define the parts.
@@ -196,31 +196,30 @@ class SearchParameterComponent(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SearchParameterComponent, self).elementProperties()
         js.extend([
-            ("definition", "definition", fhirdatatypes.FHIRCanonical, False, None, True),
-            ("expression", "expression", fhirdatatypes.FHIRString, False, None, True),
+            ("definition", "definition", fhirdatatypes.FHIRCanonical, False, None, True, None), 
+            ("expression", "expression", fhirdatatypes.FHIRString, False, None, True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.models import contactdetail
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import usagecontext
-except ImportError:
-    usagecontext = sys.modules[__package__ + '.usagecontext']
+from fhirclient.codesystems import publicationstatus
+
+from fhirclient.codesystems import resourcetype
+
+from fhirclient.codesystems import searchcomparator
+
+from fhirclient.codesystems import searchmodifiercode
+
+from fhirclient.codesystems import searchparamtype
+
+from fhirclient.models import usagecontext
+
+from fhirclient.codesystems import xpathusagetype
 

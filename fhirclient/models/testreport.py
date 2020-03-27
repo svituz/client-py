@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class TestReport(domainresource.DomainResource):
     """ Describes the results of a TestScript execution.
@@ -81,24 +81,24 @@ class TestReport(domainresource.DomainResource):
     def elementProperties(self):
         js = super(TestReport, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("testScript", "testScript", fhirreference.FHIRReference, False, None, True),
-            ("result", "result", fhirdatatypes.FHIRCode, False, None, True),
-            ("score", "score", float, False, None, False),
-            ("tester", "tester", fhirdatatypes.FHIRString, False, None, False),
-            ("issued", "issued", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("participant", "participant", TestReportParticipant, True, None, False),
-            ("setup", "setup", TestReportSetup, False, None, False),
-            ("test", "test", TestReportTest, True, None, False),
-            ("teardown", "teardown", TestReportTeardown, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, testreportstatus.TestReportStatus), 
+            ("testScript", "testScript", fhirreference.FHIRReference, False, None, True, None), 
+            ("result", "result", fhirdatatypes.FHIRCode, False, None, True, testreportresult.TestReportResult), 
+            ("score", "score", float, False, None, False, None), 
+            ("tester", "tester", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("issued", "issued", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("participant", "participant", TestReportParticipant, True, None, False, None), 
+            ("setup", "setup", TestReportSetup, False, None, False, None), 
+            ("test", "test", TestReportTest, True, None, False, None), 
+            ("teardown", "teardown", TestReportTeardown, False, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class TestReportParticipant(backboneelement.BackboneElement):
     """ A participant in the test execution, either the execution engine, a client,
@@ -130,9 +130,9 @@ class TestReportParticipant(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestReportParticipant, self).elementProperties()
         js.extend([
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, True),
-            ("uri", "uri", fhirdatatypes.FHIRUri, False, None, True),
-            ("display", "display", fhirdatatypes.FHIRString, False, None, False),
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, True, testreportparticipanttype.TestReportParticipantType), 
+            ("uri", "uri", fhirdatatypes.FHIRUri, False, None, True, None), 
+            ("display", "display", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -161,7 +161,7 @@ class TestReportSetup(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestReportSetup, self).elementProperties()
         js.extend([
-            ("action", "action", TestReportSetupAction, True, None, True),
+            ("action", "action", TestReportSetupAction, True, None, True, None), 
         ])
         return js
 
@@ -195,8 +195,8 @@ class TestReportSetupAction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestReportSetupAction, self).elementProperties()
         js.extend([
-            ("operation", "operation", TestReportSetupActionOperation, False, None, False),
-            ("assert_fhir", "assert", TestReportSetupActionAssert, False, None, False),
+            ("operation", "operation", TestReportSetupActionOperation, False, None, False, None), 
+            ("assert_fhir", "assert", TestReportSetupActionAssert, False, None, False, None), 
         ])
         return js
 
@@ -234,9 +234,9 @@ class TestReportSetupActionAssert(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestReportSetupActionAssert, self).elementProperties()
         js.extend([
-            ("result", "result", fhirdatatypes.FHIRCode, False, None, True),
-            ("message", "message", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("detail", "detail", fhirdatatypes.FHIRString, False, None, False),
+            ("result", "result", fhirdatatypes.FHIRCode, False, None, True, testreportactionresult.TestReportActionResult), 
+            ("message", "message", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("detail", "detail", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -274,9 +274,9 @@ class TestReportSetupActionOperation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestReportSetupActionOperation, self).elementProperties()
         js.extend([
-            ("result", "result", fhirdatatypes.FHIRCode, False, None, True),
-            ("message", "message", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("detail", "detail", fhirdatatypes.FHIRUri, False, None, False),
+            ("result", "result", fhirdatatypes.FHIRCode, False, None, True, testreportactionresult.TestReportActionResult), 
+            ("message", "message", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("detail", "detail", fhirdatatypes.FHIRUri, False, None, False, None), 
         ])
         return js
 
@@ -307,7 +307,7 @@ class TestReportTeardown(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestReportTeardown, self).elementProperties()
         js.extend([
-            ("action", "action", TestReportTeardownAction, True, None, True),
+            ("action", "action", TestReportTeardownAction, True, None, True, None), 
         ])
         return js
 
@@ -337,7 +337,7 @@ class TestReportTeardownAction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestReportTeardownAction, self).elementProperties()
         js.extend([
-            ("operation", "operation", TestReportSetupActionOperation, False, None, True),
+            ("operation", "operation", TestReportSetupActionOperation, False, None, True, None), 
         ])
         return js
 
@@ -373,9 +373,9 @@ class TestReportTest(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestReportTest, self).elementProperties()
         js.extend([
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("action", "action", TestReportTestAction, True, None, True),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("action", "action", TestReportTestAction, True, None, True, None), 
         ])
         return js
 
@@ -409,26 +409,24 @@ class TestReportTestAction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(TestReportTestAction, self).elementProperties()
         js.extend([
-            ("operation", "operation", TestReportSetupActionOperation, False, None, False),
-            ("assert_fhir", "assert", TestReportSetupActionAssert, False, None, False),
+            ("operation", "operation", TestReportSetupActionOperation, False, None, False, None), 
+            ("assert_fhir", "assert", TestReportSetupActionAssert, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
+
+from fhirclient.codesystems import testreportactionresult
+
+from fhirclient.codesystems import testreportparticipanttype
+
+from fhirclient.codesystems import testreportresult
+
+from fhirclient.codesystems import testreportstatus
 

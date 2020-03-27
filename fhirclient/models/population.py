@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class Population(backboneelement.BackboneElement):
     """ A definition of a set of people that apply to some clinically related
@@ -48,24 +48,17 @@ class Population(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(Population, self).elementProperties()
         js.extend([
-            ("ageRange", "ageRange", range.Range, False, "age", False),
-            ("ageCodeableConcept", "ageCodeableConcept", codeableconcept.CodeableConcept, False, "age", False),
-            ("gender", "gender", codeableconcept.CodeableConcept, False, None, False),
-            ("race", "race", codeableconcept.CodeableConcept, False, None, False),
-            ("physiologicalCondition", "physiologicalCondition", codeableconcept.CodeableConcept, False, None, False),
+            ("ageRange", "ageRange", range.Range, False, "age", False, None), 
+            ("ageCodeableConcept", "ageCodeableConcept", codeableconcept.CodeableConcept, False, "age", False, None), 
+            ("gender", "gender", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("race", "race", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("physiologicalCondition", "physiologicalCondition", codeableconcept.CodeableConcept, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from fhirclient.models import range
 

@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class MedicinalProductIngredient(domainresource.DomainResource):
     """ An ingredient of a manufactured item or pharmaceutical product.
@@ -50,18 +50,18 @@ class MedicinalProductIngredient(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MedicinalProductIngredient, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("role", "role", codeableconcept.CodeableConcept, False, None, True),
-            ("allergenicIndicator", "allergenicIndicator", bool, False, None, False),
-            ("manufacturer", "manufacturer", fhirreference.FHIRReference, True, None, False),
-            ("specifiedSubstance", "specifiedSubstance", MedicinalProductIngredientSpecifiedSubstance, True, None, False),
-            ("substance", "substance", MedicinalProductIngredientSubstance, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False, None), 
+            ("role", "role", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("allergenicIndicator", "allergenicIndicator", bool, False, None, False, None), 
+            ("manufacturer", "manufacturer", fhirreference.FHIRReference, True, None, False, None), 
+            ("specifiedSubstance", "specifiedSubstance", MedicinalProductIngredientSpecifiedSubstance, True, None, False, None), 
+            ("substance", "substance", MedicinalProductIngredientSubstance, False, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class MedicinalProductIngredientSpecifiedSubstance(backboneelement.BackboneElement):
     """ A specified substance that comprises this ingredient.
@@ -97,10 +97,10 @@ class MedicinalProductIngredientSpecifiedSubstance(backboneelement.BackboneEleme
     def elementProperties(self):
         js = super(MedicinalProductIngredientSpecifiedSubstance, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("group", "group", codeableconcept.CodeableConcept, False, None, True),
-            ("confidentiality", "confidentiality", codeableconcept.CodeableConcept, False, None, False),
-            ("strength", "strength", MedicinalProductIngredientSpecifiedSubstanceStrength, True, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("group", "group", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("confidentiality", "confidentiality", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("strength", "strength", MedicinalProductIngredientSpecifiedSubstanceStrength, True, None, False, None), 
         ])
         return js
 
@@ -160,13 +160,13 @@ class MedicinalProductIngredientSpecifiedSubstanceStrength(backboneelement.Backb
     def elementProperties(self):
         js = super(MedicinalProductIngredientSpecifiedSubstanceStrength, self).elementProperties()
         js.extend([
-            ("presentation", "presentation", ratio.Ratio, False, None, True),
-            ("presentationLowLimit", "presentationLowLimit", ratio.Ratio, False, None, False),
-            ("concentration", "concentration", ratio.Ratio, False, None, False),
-            ("concentrationLowLimit", "concentrationLowLimit", ratio.Ratio, False, None, False),
-            ("measurementPoint", "measurementPoint", fhirdatatypes.FHIRString, False, None, False),
-            ("country", "country", codeableconcept.CodeableConcept, True, None, False),
-            ("referenceStrength", "referenceStrength", MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength, True, None, False),
+            ("presentation", "presentation", ratio.Ratio, False, None, True, None), 
+            ("presentationLowLimit", "presentationLowLimit", ratio.Ratio, False, None, False, None), 
+            ("concentration", "concentration", ratio.Ratio, False, None, False, None), 
+            ("concentrationLowLimit", "concentrationLowLimit", ratio.Ratio, False, None, False, None), 
+            ("measurementPoint", "measurementPoint", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("country", "country", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("referenceStrength", "referenceStrength", MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength, True, None, False, None), 
         ])
         return js
 
@@ -210,11 +210,11 @@ class MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength(back
     def elementProperties(self):
         js = super(MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrength, self).elementProperties()
         js.extend([
-            ("substance", "substance", codeableconcept.CodeableConcept, False, None, False),
-            ("strength", "strength", ratio.Ratio, False, None, True),
-            ("strengthLowLimit", "strengthLowLimit", ratio.Ratio, False, None, False),
-            ("measurementPoint", "measurementPoint", fhirdatatypes.FHIRString, False, None, False),
-            ("country", "country", codeableconcept.CodeableConcept, True, None, False),
+            ("substance", "substance", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("strength", "strength", ratio.Ratio, False, None, True, None), 
+            ("strengthLowLimit", "strengthLowLimit", ratio.Ratio, False, None, False, None), 
+            ("measurementPoint", "measurementPoint", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("country", "country", codeableconcept.CodeableConcept, True, None, False, None), 
         ])
         return js
 
@@ -247,36 +247,20 @@ class MedicinalProductIngredientSubstance(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicinalProductIngredientSubstance, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("strength", "strength", MedicinalProductIngredientSpecifiedSubstanceStrength, True, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("strength", "strength", MedicinalProductIngredientSpecifiedSubstanceStrength, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import ratio
-except ImportError:
-    ratio = sys.modules[__package__ + '.ratio']
+from fhirclient.models import ratio
 

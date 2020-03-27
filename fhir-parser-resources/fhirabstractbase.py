@@ -139,7 +139,7 @@ class FHIRAbstractBase(object):
 
     def elementProperties(self):
         """ Returns a list of tuples, one tuple for each property that should
-        be serialized, as: ("name", "json_name", type, is_list, "of_many", not_optional)
+        be serialized, as: ("name", "json_name", type, is_list, "of_many", not_optional, valuset)
         """
         return []
 
@@ -162,7 +162,7 @@ class FHIRAbstractBase(object):
         valid = {'resourceType'}  # used to also contain `fhir_comments` until STU-3
         found = set()
         nonoptionals = set()
-        for name, jsname, typ, is_list, of_many, not_optional in self.elementProperties():
+        for name, jsname, typ, is_list, of_many, not_optional, codeset in self.elementProperties():
             valid.add(jsname)
             if of_many is not None:
                 valid.add(of_many)

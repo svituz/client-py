@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class ResearchStudy(domainresource.DomainResource):
     """ Investigation to increase healthcare-related patient-independent knowledge.
@@ -136,36 +136,36 @@ class ResearchStudy(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ResearchStudy, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("protocol", "protocol", fhirreference.FHIRReference, True, None, False),
-            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("primaryPurposeType", "primaryPurposeType", codeableconcept.CodeableConcept, False, None, False),
-            ("phase", "phase", codeableconcept.CodeableConcept, False, None, False),
-            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
-            ("focus", "focus", codeableconcept.CodeableConcept, True, None, False),
-            ("condition", "condition", codeableconcept.CodeableConcept, True, None, False),
-            ("contact", "contact", contactdetail.ContactDetail, True, None, False),
-            ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False),
-            ("keyword", "keyword", codeableconcept.CodeableConcept, True, None, False),
-            ("location", "location", codeableconcept.CodeableConcept, True, None, False),
-            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False),
-            ("enrollment", "enrollment", fhirreference.FHIRReference, True, None, False),
-            ("period", "period", period.Period, False, None, False),
-            ("sponsor", "sponsor", fhirreference.FHIRReference, False, None, False),
-            ("principalInvestigator", "principalInvestigator", fhirreference.FHIRReference, False, None, False),
-            ("site", "site", fhirreference.FHIRReference, True, None, False),
-            ("reasonStopped", "reasonStopped", codeableconcept.CodeableConcept, False, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
-            ("arm", "arm", ResearchStudyArm, True, None, False),
-            ("objective", "objective", ResearchStudyObjective, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("protocol", "protocol", fhirreference.FHIRReference, True, None, False, None), 
+            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, researchstudystatus.ResearchStudyStatus), 
+            ("primaryPurposeType", "primaryPurposeType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("phase", "phase", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("focus", "focus", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("condition", "condition", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("contact", "contact", contactdetail.ContactDetail, True, None, False, None), 
+            ("relatedArtifact", "relatedArtifact", relatedartifact.RelatedArtifact, True, None, False, None), 
+            ("keyword", "keyword", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("location", "location", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
+            ("enrollment", "enrollment", fhirreference.FHIRReference, True, None, False, None), 
+            ("period", "period", period.Period, False, None, False, None), 
+            ("sponsor", "sponsor", fhirreference.FHIRReference, False, None, False, None), 
+            ("principalInvestigator", "principalInvestigator", fhirreference.FHIRReference, False, None, False, None), 
+            ("site", "site", fhirreference.FHIRReference, True, None, False, None), 
+            ("reasonStopped", "reasonStopped", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
+            ("arm", "arm", ResearchStudyArm, True, None, False, None), 
+            ("objective", "objective", ResearchStudyObjective, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ResearchStudyArm(backboneelement.BackboneElement):
     """ Defined path through the study for a subject.
@@ -200,9 +200,9 @@ class ResearchStudyArm(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ResearchStudyArm, self).elementProperties()
         js.extend([
-            ("name", "name", fhirdatatypes.FHIRString, False, None, True),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -237,51 +237,28 @@ class ResearchStudyObjective(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ResearchStudyObjective, self).elementProperties()
         js.extend([
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import contactdetail
-except ImportError:
-    contactdetail = sys.modules[__package__ + '.contactdetail']
+from fhirclient.models import contactdetail
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import period
 
-try:
-    from . import relatedartifact
-except ImportError:
-    relatedartifact = sys.modules[__package__ + '.relatedartifact']
+from fhirclient.models import relatedartifact
+
+from fhirclient.codesystems import researchstudystatus
 

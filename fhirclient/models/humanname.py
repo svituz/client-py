@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class HumanName(element.Element):
     """ Name of a human - parts and usage.
@@ -54,26 +54,21 @@ class HumanName(element.Element):
     def elementProperties(self):
         js = super(HumanName, self).elementProperties()
         js.extend([
-            ("use", "use", fhirdatatypes.FHIRCode, False, None, False),
-            ("text", "text", fhirdatatypes.FHIRString, False, None, False),
-            ("family", "family", fhirdatatypes.FHIRString, False, None, False),
-            ("given", "given", fhirdatatypes.FHIRString, True, None, False),
-            ("prefix", "prefix", fhirdatatypes.FHIRString, True, None, False),
-            ("suffix", "suffix", fhirdatatypes.FHIRString, True, None, False),
-            ("period", "period", period.Period, False, None, False),
+            ("use", "use", fhirdatatypes.FHIRCode, False, None, False, nameuse.NameUse), 
+            ("text", "text", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("family", "family", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("given", "given", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("prefix", "prefix", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("suffix", "suffix", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("period", "period", period.Period, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.codesystems import nameuse
+
+from fhirclient.models import period
 

@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class MedicinalProductUndesirableEffect(domainresource.DomainResource):
     """ MedicinalProductUndesirableEffect.
@@ -48,29 +48,19 @@ class MedicinalProductUndesirableEffect(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MedicinalProductUndesirableEffect, self).elementProperties()
         js.extend([
-            ("subject", "subject", fhirreference.FHIRReference, True, None, False),
-            ("symptomConditionEffect", "symptomConditionEffect", codeableconcept.CodeableConcept, False, None, False),
-            ("classification", "classification", codeableconcept.CodeableConcept, False, None, False),
-            ("frequencyOfOccurrence", "frequencyOfOccurrence", codeableconcept.CodeableConcept, False, None, False),
-            ("population", "population", population.Population, True, None, False),
+            ("subject", "subject", fhirreference.FHIRReference, True, None, False, None), 
+            ("symptomConditionEffect", "symptomConditionEffect", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("classification", "classification", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("frequencyOfOccurrence", "frequencyOfOccurrence", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("population", "population", population.Population, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import population
-except ImportError:
-    population = sys.modules[__package__ + '.population']
+from fhirclient.models import population
 

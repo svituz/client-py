@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class MedicationStatement(domainresource.DomainResource):
     """ Record of medication being taken by a patient.
@@ -130,63 +130,43 @@ class MedicationStatement(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MedicationStatement, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
-            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("statusReason", "statusReason", codeableconcept.CodeableConcept, True, None, False),
-            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
-            ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", True),
-            ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
-            ("context", "context", fhirreference.FHIRReference, False, None, False),
-            ("effectiveDateTime", "effectiveDateTime", fhirdatatypes.FHIRDateTime, False, "effective", False),
-            ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", False),
-            ("dateAsserted", "dateAsserted", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("informationSource", "informationSource", fhirreference.FHIRReference, False, None, False),
-            ("derivedFrom", "derivedFrom", fhirreference.FHIRReference, True, None, False),
-            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
-            ("dosage", "dosage", dosage.Dosage, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False, None), 
+            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, medicationstatuscodes.MedicationStatusCodes), 
+            ("statusReason", "statusReason", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("category", "category", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", True, None), 
+            ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True, None), 
+            ("context", "context", fhirreference.FHIRReference, False, None, False, None), 
+            ("effectiveDateTime", "effectiveDateTime", fhirdatatypes.FHIRDateTime, False, "effective", False, None), 
+            ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", False, None), 
+            ("dateAsserted", "dateAsserted", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("informationSource", "informationSource", fhirreference.FHIRReference, False, None, False, None), 
+            ("derivedFrom", "derivedFrom", fhirreference.FHIRReference, True, None, False, None), 
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
+            ("dosage", "dosage", dosage.Dosage, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import dosage
-except ImportError:
-    dosage = sys.modules[__package__ + '.dosage']
+from fhirclient.models import dosage
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.codesystems import medicationstatuscodes
+
+from fhirclient.models import period
 

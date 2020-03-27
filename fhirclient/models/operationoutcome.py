@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class OperationOutcome(domainresource.DomainResource):
     """ Information about the success/failure of an action.
@@ -33,13 +33,13 @@ class OperationOutcome(domainresource.DomainResource):
     def elementProperties(self):
         js = super(OperationOutcome, self).elementProperties()
         js.extend([
-            ("issue", "issue", OperationOutcomeIssue, True, None, True),
+            ("issue", "issue", OperationOutcomeIssue, True, None, True, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class OperationOutcomeIssue(backboneelement.BackboneElement):
     """ A single issue associated with the action.
@@ -85,25 +85,22 @@ class OperationOutcomeIssue(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(OperationOutcomeIssue, self).elementProperties()
         js.extend([
-            ("severity", "severity", fhirdatatypes.FHIRCode, False, None, True),
-            ("code", "code", fhirdatatypes.FHIRCode, False, None, True),
-            ("details", "details", codeableconcept.CodeableConcept, False, None, False),
-            ("diagnostics", "diagnostics", fhirdatatypes.FHIRString, False, None, False),
-            ("location", "location", fhirdatatypes.FHIRString, True, None, False),
-            ("expression", "expression", fhirdatatypes.FHIRString, True, None, False),
+            ("severity", "severity", fhirdatatypes.FHIRCode, False, None, True, issueseverity.IssueSeverity), 
+            ("code", "code", fhirdatatypes.FHIRCode, False, None, True, issuetype.IssueType), 
+            ("details", "details", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("diagnostics", "diagnostics", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("location", "location", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("expression", "expression", fhirdatatypes.FHIRString, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
+
+from fhirclient.codesystems import issueseverity
+
+from fhirclient.codesystems import issuetype
 

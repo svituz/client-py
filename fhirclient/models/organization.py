@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Organization(domainresource.DomainResource):
     """ A grouping of people or organizations with a common purpose.
@@ -73,22 +73,22 @@ class Organization(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Organization, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("active", "active", bool, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("alias", "alias", fhirdatatypes.FHIRString, True, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
-            ("address", "address", address.Address, True, None, False),
-            ("partOf", "partOf", fhirreference.FHIRReference, False, None, False),
-            ("contact", "contact", OrganizationContact, True, None, False),
-            ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("active", "active", bool, False, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("alias", "alias", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False, None), 
+            ("address", "address", address.Address, True, None, False, None), 
+            ("partOf", "partOf", fhirreference.FHIRReference, False, None, False, None), 
+            ("contact", "contact", OrganizationContact, True, None, False, None), 
+            ("endpoint", "endpoint", fhirreference.FHIRReference, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class OrganizationContact(backboneelement.BackboneElement):
     """ Contact for the organization for a certain purpose.
@@ -123,48 +123,26 @@ class OrganizationContact(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(OrganizationContact, self).elementProperties()
         js.extend([
-            ("purpose", "purpose", codeableconcept.CodeableConcept, False, None, False),
-            ("name", "name", humanname.HumanName, False, None, False),
-            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False),
-            ("address", "address", address.Address, False, None, False),
+            ("purpose", "purpose", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("name", "name", humanname.HumanName, False, None, False, None), 
+            ("telecom", "telecom", contactpoint.ContactPoint, True, None, False, None), 
+            ("address", "address", address.Address, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import address
-except ImportError:
-    address = sys.modules[__package__ + '.address']
+from fhirclient.models import address
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import contactpoint
-except ImportError:
-    contactpoint = sys.modules[__package__ + '.contactpoint']
+from fhirclient.models import contactpoint
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import humanname
-except ImportError:
-    humanname = sys.modules[__package__ + '.humanname']
+from fhirclient.models import humanname
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 

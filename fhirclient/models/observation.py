@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Observation(domainresource.DomainResource):
     """ Measurements and simple assertions.
@@ -178,49 +178,49 @@ class Observation(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Observation, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False),
-            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("focus", "focus", fhirreference.FHIRReference, True, None, False),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("effectiveDateTime", "effectiveDateTime", fhirdatatypes.FHIRDateTime, False, "effective", False),
-            ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", False),
-            ("effectiveTiming", "effectiveTiming", timing.Timing, False, "effective", False),
-            ("effectiveInstant", "effectiveInstant", fhirdatatypes.FHIRInstant, False, "effective", False),
-            ("issued", "issued", fhirdatatypes.FHIRInstant, False, None, False),
-            ("performer", "performer", fhirreference.FHIRReference, True, None, False),
-            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
-            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", False),
-            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", False),
-            ("valueBoolean", "valueBoolean", bool, False, "value", False),
-            ("valueInteger", "valueInteger", int, False, "value", False),
-            ("valueRange", "valueRange", range.Range, False, "value", False),
-            ("valueRatio", "valueRatio", ratio.Ratio, False, "value", False),
-            ("valueSampledData", "valueSampledData", sampleddata.SampledData, False, "value", False),
-            ("valueTime", "valueTime", fhirdatatypes.FHIRTime, False, "value", False),
-            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", False),
-            ("valuePeriod", "valuePeriod", period.Period, False, "value", False),
-            ("dataAbsentReason", "dataAbsentReason", codeableconcept.CodeableConcept, False, None, False),
-            ("interpretation", "interpretation", codeableconcept.CodeableConcept, True, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
-            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False),
-            ("method", "method", codeableconcept.CodeableConcept, False, None, False),
-            ("specimen", "specimen", fhirreference.FHIRReference, False, None, False),
-            ("device", "device", fhirreference.FHIRReference, False, None, False),
-            ("referenceRange", "referenceRange", ObservationReferenceRange, True, None, False),
-            ("hasMember", "hasMember", fhirreference.FHIRReference, True, None, False),
-            ("derivedFrom", "derivedFrom", fhirreference.FHIRReference, True, None, False),
-            ("component", "component", ObservationComponent, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("basedOn", "basedOn", fhirreference.FHIRReference, True, None, False, None), 
+            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, observationstatus.ObservationStatus), 
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False, None), 
+            ("focus", "focus", fhirreference.FHIRReference, True, None, False, None), 
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False, None), 
+            ("effectiveDateTime", "effectiveDateTime", fhirdatatypes.FHIRDateTime, False, "effective", False, None), 
+            ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", False, None), 
+            ("effectiveTiming", "effectiveTiming", timing.Timing, False, "effective", False, None), 
+            ("effectiveInstant", "effectiveInstant", fhirdatatypes.FHIRInstant, False, "effective", False, None), 
+            ("issued", "issued", fhirdatatypes.FHIRInstant, False, None, False, None), 
+            ("performer", "performer", fhirreference.FHIRReference, True, None, False, None), 
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False, None), 
+            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", False, None), 
+            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", False, None), 
+            ("valueBoolean", "valueBoolean", bool, False, "value", False, None), 
+            ("valueInteger", "valueInteger", int, False, "value", False, None), 
+            ("valueRange", "valueRange", range.Range, False, "value", False, None), 
+            ("valueRatio", "valueRatio", ratio.Ratio, False, "value", False, None), 
+            ("valueSampledData", "valueSampledData", sampleddata.SampledData, False, "value", False, None), 
+            ("valueTime", "valueTime", fhirdatatypes.FHIRTime, False, "value", False, None), 
+            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", False, None), 
+            ("valuePeriod", "valuePeriod", period.Period, False, "value", False, None), 
+            ("dataAbsentReason", "dataAbsentReason", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("interpretation", "interpretation", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("method", "method", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("specimen", "specimen", fhirreference.FHIRReference, False, None, False, None), 
+            ("device", "device", fhirreference.FHIRReference, False, None, False, None), 
+            ("referenceRange", "referenceRange", ObservationReferenceRange, True, None, False, None), 
+            ("hasMember", "hasMember", fhirreference.FHIRReference, True, None, False, None), 
+            ("derivedFrom", "derivedFrom", fhirreference.FHIRReference, True, None, False, None), 
+            ("component", "component", ObservationComponent, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ObservationComponent(backboneelement.BackboneElement):
     """ Component results.
@@ -305,21 +305,21 @@ class ObservationComponent(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ObservationComponent, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False),
-            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", False),
-            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", False),
-            ("valueBoolean", "valueBoolean", bool, False, "value", False),
-            ("valueInteger", "valueInteger", int, False, "value", False),
-            ("valueRange", "valueRange", range.Range, False, "value", False),
-            ("valueRatio", "valueRatio", ratio.Ratio, False, "value", False),
-            ("valueSampledData", "valueSampledData", sampleddata.SampledData, False, "value", False),
-            ("valueTime", "valueTime", fhirdatatypes.FHIRTime, False, "value", False),
-            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", False),
-            ("valuePeriod", "valuePeriod", period.Period, False, "value", False),
-            ("dataAbsentReason", "dataAbsentReason", codeableconcept.CodeableConcept, False, None, False),
-            ("interpretation", "interpretation", codeableconcept.CodeableConcept, True, None, False),
-            ("referenceRange", "referenceRange", ObservationReferenceRange, True, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", False, None), 
+            ("valueCodeableConcept", "valueCodeableConcept", codeableconcept.CodeableConcept, False, "value", False, None), 
+            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", False, None), 
+            ("valueBoolean", "valueBoolean", bool, False, "value", False, None), 
+            ("valueInteger", "valueInteger", int, False, "value", False, None), 
+            ("valueRange", "valueRange", range.Range, False, "value", False, None), 
+            ("valueRatio", "valueRatio", ratio.Ratio, False, "value", False, None), 
+            ("valueSampledData", "valueSampledData", sampleddata.SampledData, False, "value", False, None), 
+            ("valueTime", "valueTime", fhirdatatypes.FHIRTime, False, "value", False, None), 
+            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", False, None), 
+            ("valuePeriod", "valuePeriod", period.Period, False, "value", False, None), 
+            ("dataAbsentReason", "dataAbsentReason", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("interpretation", "interpretation", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("referenceRange", "referenceRange", ObservationReferenceRange, True, None, False, None), 
         ])
         return js
 
@@ -372,70 +372,38 @@ class ObservationReferenceRange(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ObservationReferenceRange, self).elementProperties()
         js.extend([
-            ("low", "low", quantity.Quantity, False, None, False),
-            ("high", "high", quantity.Quantity, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("appliesTo", "appliesTo", codeableconcept.CodeableConcept, True, None, False),
-            ("age", "age", range.Range, False, None, False),
-            ("text", "text", fhirdatatypes.FHIRString, False, None, False),
+            ("low", "low", quantity.Quantity, False, None, False, None), 
+            ("high", "high", quantity.Quantity, False, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("appliesTo", "appliesTo", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("age", "age", range.Range, False, None, False, None), 
+            ("text", "text", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.codesystems import observationstatus
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import period
 
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from fhirclient.models import quantity
 
-try:
-    from . import ratio
-except ImportError:
-    ratio = sys.modules[__package__ + '.ratio']
+from fhirclient.models import range
 
-try:
-    from . import sampleddata
-except ImportError:
-    sampleddata = sys.modules[__package__ + '.sampleddata']
+from fhirclient.models import ratio
 
-try:
-    from . import timing
-except ImportError:
-    timing = sys.modules[__package__ + '.timing']
+from fhirclient.models import sampleddata
+
+from fhirclient.models import timing
 

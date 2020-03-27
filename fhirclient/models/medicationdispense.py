@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class MedicationDispense(domainresource.DomainResource):
     """ Dispensing a medication to a named patient.
@@ -138,38 +138,38 @@ class MedicationDispense(domainresource.DomainResource):
     def elementProperties(self):
         js = super(MedicationDispense, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("statusReasonCodeableConcept", "statusReasonCodeableConcept", codeableconcept.CodeableConcept, False, "statusReason", False),
-            ("statusReasonReference", "statusReasonReference", fhirreference.FHIRReference, False, "statusReason", False),
-            ("category", "category", codeableconcept.CodeableConcept, False, None, False),
-            ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", True),
-            ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, False),
-            ("context", "context", fhirreference.FHIRReference, False, None, False),
-            ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False),
-            ("performer", "performer", MedicationDispensePerformer, True, None, False),
-            ("location", "location", fhirreference.FHIRReference, False, None, False),
-            ("authorizingPrescription", "authorizingPrescription", fhirreference.FHIRReference, True, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("daysSupply", "daysSupply", quantity.Quantity, False, None, False),
-            ("whenPrepared", "whenPrepared", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("whenHandedOver", "whenHandedOver", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("destination", "destination", fhirreference.FHIRReference, False, None, False),
-            ("receiver", "receiver", fhirreference.FHIRReference, True, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
-            ("dosageInstruction", "dosageInstruction", dosage.Dosage, True, None, False),
-            ("substitution", "substitution", MedicationDispenseSubstitution, False, None, False),
-            ("detectedIssue", "detectedIssue", fhirreference.FHIRReference, True, None, False),
-            ("eventHistory", "eventHistory", fhirreference.FHIRReference, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("partOf", "partOf", fhirreference.FHIRReference, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, medicationdispensestatuscodes.MedicationDispenseStatusCodes), 
+            ("statusReasonCodeableConcept", "statusReasonCodeableConcept", codeableconcept.CodeableConcept, False, "statusReason", False, None), 
+            ("statusReasonReference", "statusReasonReference", fhirreference.FHIRReference, False, "statusReason", False, None), 
+            ("category", "category", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("medicationCodeableConcept", "medicationCodeableConcept", codeableconcept.CodeableConcept, False, "medication", True, None), 
+            ("medicationReference", "medicationReference", fhirreference.FHIRReference, False, "medication", True, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, False, None), 
+            ("context", "context", fhirreference.FHIRReference, False, None, False, None), 
+            ("supportingInformation", "supportingInformation", fhirreference.FHIRReference, True, None, False, None), 
+            ("performer", "performer", MedicationDispensePerformer, True, None, False, None), 
+            ("location", "location", fhirreference.FHIRReference, False, None, False, None), 
+            ("authorizingPrescription", "authorizingPrescription", fhirreference.FHIRReference, True, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("quantity", "quantity", quantity.Quantity, False, None, False, None), 
+            ("daysSupply", "daysSupply", quantity.Quantity, False, None, False, None), 
+            ("whenPrepared", "whenPrepared", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("whenHandedOver", "whenHandedOver", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("destination", "destination", fhirreference.FHIRReference, False, None, False, None), 
+            ("receiver", "receiver", fhirreference.FHIRReference, True, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
+            ("dosageInstruction", "dosageInstruction", dosage.Dosage, True, None, False, None), 
+            ("substitution", "substitution", MedicationDispenseSubstitution, False, None, False, None), 
+            ("detectedIssue", "detectedIssue", fhirreference.FHIRReference, True, None, False, None), 
+            ("eventHistory", "eventHistory", fhirreference.FHIRReference, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class MedicationDispensePerformer(backboneelement.BackboneElement):
     """ Who performed event.
@@ -198,8 +198,8 @@ class MedicationDispensePerformer(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicationDispensePerformer, self).elementProperties()
         js.extend([
-            ("function", "function", codeableconcept.CodeableConcept, False, None, False),
-            ("actor", "actor", fhirreference.FHIRReference, False, None, True),
+            ("function", "function", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("actor", "actor", fhirreference.FHIRReference, False, None, True, None), 
         ])
         return js
 
@@ -246,48 +246,28 @@ class MedicationDispenseSubstitution(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(MedicationDispenseSubstitution, self).elementProperties()
         js.extend([
-            ("wasSubstituted", "wasSubstituted", bool, False, None, True),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("reason", "reason", codeableconcept.CodeableConcept, True, None, False),
-            ("responsibleParty", "responsibleParty", fhirreference.FHIRReference, True, None, False),
+            ("wasSubstituted", "wasSubstituted", bool, False, None, True, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("reason", "reason", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("responsibleParty", "responsibleParty", fhirreference.FHIRReference, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import dosage
-except ImportError:
-    dosage = sys.modules[__package__ + '.dosage']
+from fhirclient.models import dosage
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.codesystems import medicationdispensestatuscodes
+
+from fhirclient.models import quantity
 

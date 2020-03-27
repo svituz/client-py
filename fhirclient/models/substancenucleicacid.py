@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class SubstanceNucleicAcid(domainresource.DomainResource):
     """ Nucleic acids are defined by three distinct elements: the base, sugar and
@@ -60,17 +60,17 @@ class SubstanceNucleicAcid(domainresource.DomainResource):
     def elementProperties(self):
         js = super(SubstanceNucleicAcid, self).elementProperties()
         js.extend([
-            ("sequenceType", "sequenceType", codeableconcept.CodeableConcept, False, None, False),
-            ("numberOfSubunits", "numberOfSubunits", int, False, None, False),
-            ("areaOfHybridisation", "areaOfHybridisation", fhirdatatypes.FHIRString, False, None, False),
-            ("oligoNucleotideType", "oligoNucleotideType", codeableconcept.CodeableConcept, False, None, False),
-            ("subunit", "subunit", SubstanceNucleicAcidSubunit, True, None, False),
+            ("sequenceType", "sequenceType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("numberOfSubunits", "numberOfSubunits", int, False, None, False, None), 
+            ("areaOfHybridisation", "areaOfHybridisation", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("oligoNucleotideType", "oligoNucleotideType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("subunit", "subunit", SubstanceNucleicAcidSubunit, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class SubstanceNucleicAcidSubunit(backboneelement.BackboneElement):
     """ Subunits are listed in order of decreasing length; sequences of the same
@@ -137,14 +137,14 @@ class SubstanceNucleicAcidSubunit(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SubstanceNucleicAcidSubunit, self).elementProperties()
         js.extend([
-            ("subunit", "subunit", int, False, None, False),
-            ("sequence", "sequence", fhirdatatypes.FHIRString, False, None, False),
-            ("length", "length", int, False, None, False),
-            ("sequenceAttachment", "sequenceAttachment", attachment.Attachment, False, None, False),
-            ("fivePrime", "fivePrime", codeableconcept.CodeableConcept, False, None, False),
-            ("threePrime", "threePrime", codeableconcept.CodeableConcept, False, None, False),
-            ("linkage", "linkage", SubstanceNucleicAcidSubunitLinkage, True, None, False),
-            ("sugar", "sugar", SubstanceNucleicAcidSubunitSugar, True, None, False),
+            ("subunit", "subunit", int, False, None, False, None), 
+            ("sequence", "sequence", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("length", "length", int, False, None, False, None), 
+            ("sequenceAttachment", "sequenceAttachment", attachment.Attachment, False, None, False, None), 
+            ("fivePrime", "fivePrime", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("threePrime", "threePrime", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("linkage", "linkage", SubstanceNucleicAcidSubunitLinkage, True, None, False, None), 
+            ("sugar", "sugar", SubstanceNucleicAcidSubunitSugar, True, None, False, None), 
         ])
         return js
 
@@ -190,10 +190,10 @@ class SubstanceNucleicAcidSubunitLinkage(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SubstanceNucleicAcidSubunitLinkage, self).elementProperties()
         js.extend([
-            ("connectivity", "connectivity", fhirdatatypes.FHIRString, False, None, False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("residueSite", "residueSite", fhirdatatypes.FHIRString, False, None, False),
+            ("connectivity", "connectivity", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("identifier", "identifier", identifier.Identifier, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("residueSite", "residueSite", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -233,32 +233,19 @@ class SubstanceNucleicAcidSubunitSugar(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(SubstanceNucleicAcidSubunitSugar, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("residueSite", "residueSite", fhirdatatypes.FHIRString, False, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("residueSite", "residueSite", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
+from fhirclient.models import attachment
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import identifier
 

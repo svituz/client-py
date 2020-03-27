@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class Timing(backboneelement.BackboneElement):
     """ A timing schedule that specifies an event that may occur multiple times.
@@ -42,15 +42,15 @@ class Timing(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(Timing, self).elementProperties()
         js.extend([
-            ("event", "event", fhirdatatypes.FHIRDateTime, True, None, False),
-            ("repeat", "repeat", TimingRepeat, False, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
+            ("event", "event", fhirdatatypes.FHIRDateTime, True, None, False, None), 
+            ("repeat", "repeat", TimingRepeat, False, None, False, None), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
         ])
         return js
 
 
 
-from . import element
+from fhirclient.models import element
 
 class TimingRepeat(element.Element):
     """ When the event is to occur.
@@ -139,51 +139,37 @@ class TimingRepeat(element.Element):
     def elementProperties(self):
         js = super(TimingRepeat, self).elementProperties()
         js.extend([
-            ("boundsDuration", "boundsDuration", duration.Duration, False, "bounds", False),
-            ("boundsRange", "boundsRange", range.Range, False, "bounds", False),
-            ("boundsPeriod", "boundsPeriod", period.Period, False, "bounds", False),
-            ("count", "count", fhirdatatypes.FHIRPositiveInt, False, None, False),
-            ("countMax", "countMax", fhirdatatypes.FHIRPositiveInt, False, None, False),
-            ("duration", "duration", float, False, None, False),
-            ("durationMax", "durationMax", float, False, None, False),
-            ("durationUnit", "durationUnit", fhirdatatypes.FHIRCode, False, None, False),
-            ("frequency", "frequency", fhirdatatypes.FHIRPositiveInt, False, None, False),
-            ("frequencyMax", "frequencyMax", fhirdatatypes.FHIRPositiveInt, False, None, False),
-            ("period", "period", float, False, None, False),
-            ("periodMax", "periodMax", float, False, None, False),
-            ("periodUnit", "periodUnit", fhirdatatypes.FHIRCode, False, None, False),
-            ("dayOfWeek", "dayOfWeek", fhirdatatypes.FHIRCode, True, None, False),
-            ("timeOfDay", "timeOfDay", fhirdatatypes.FHIRTime, True, None, False),
-            ("when", "when", fhirdatatypes.FHIRCode, True, None, False),
-            ("offset", "offset", fhirdatatypes.FHIRUnsignedInt, False, None, False),
+            ("boundsDuration", "boundsDuration", duration.Duration, False, "bounds", False, None), 
+            ("boundsRange", "boundsRange", range.Range, False, "bounds", False, None), 
+            ("boundsPeriod", "boundsPeriod", period.Period, False, "bounds", False, None), 
+            ("count", "count", fhirdatatypes.FHIRPositiveInt, False, None, False, None), 
+            ("countMax", "countMax", fhirdatatypes.FHIRPositiveInt, False, None, False, None), 
+            ("duration", "duration", float, False, None, False, None), 
+            ("durationMax", "durationMax", float, False, None, False, None), 
+            ("durationUnit", "durationUnit", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("frequency", "frequency", fhirdatatypes.FHIRPositiveInt, False, None, False, None), 
+            ("frequencyMax", "frequencyMax", fhirdatatypes.FHIRPositiveInt, False, None, False, None), 
+            ("period", "period", float, False, None, False, None), 
+            ("periodMax", "periodMax", float, False, None, False, None), 
+            ("periodUnit", "periodUnit", fhirdatatypes.FHIRCode, False, None, False, None), 
+            ("dayOfWeek", "dayOfWeek", fhirdatatypes.FHIRCode, True, None, False, daysofweek.DaysOfWeek), 
+            ("timeOfDay", "timeOfDay", fhirdatatypes.FHIRTime, True, None, False, None), 
+            ("when", "when", fhirdatatypes.FHIRCode, True, None, False, None), 
+            ("offset", "offset", fhirdatatypes.FHIRUnsignedInt, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import duration
-except ImportError:
-    duration = sys.modules[__package__ + '.duration']
+from fhirclient.codesystems import daysofweek
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import duration
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from fhirclient.models import period
+
+from fhirclient.models import range
 

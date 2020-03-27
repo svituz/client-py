@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class ClinicalImpression(domainresource.DomainResource):
     """ A clinical assessment performed when planning treatments and management
@@ -119,33 +119,33 @@ class ClinicalImpression(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ClinicalImpression, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, False),
-            ("description", "description", fhirdatatypes.FHIRString, False, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("effectiveDateTime", "effectiveDateTime", fhirdatatypes.FHIRDateTime, False, "effective", False),
-            ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("assessor", "assessor", fhirreference.FHIRReference, False, None, False),
-            ("previous", "previous", fhirreference.FHIRReference, False, None, False),
-            ("problem", "problem", fhirreference.FHIRReference, True, None, False),
-            ("investigation", "investigation", ClinicalImpressionInvestigation, True, None, False),
-            ("protocol", "protocol", fhirdatatypes.FHIRUri, True, None, False),
-            ("summary", "summary", fhirdatatypes.FHIRString, False, None, False),
-            ("finding", "finding", ClinicalImpressionFinding, True, None, False),
-            ("prognosisCodeableConcept", "prognosisCodeableConcept", codeableconcept.CodeableConcept, True, None, False),
-            ("prognosisReference", "prognosisReference", fhirreference.FHIRReference, True, None, False),
-            ("supportingInfo", "supportingInfo", fhirreference.FHIRReference, True, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, eventstatus.EventStatus), 
+            ("statusReason", "statusReason", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("description", "description", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True, None), 
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False, None), 
+            ("effectiveDateTime", "effectiveDateTime", fhirdatatypes.FHIRDateTime, False, "effective", False, None), 
+            ("effectivePeriod", "effectivePeriod", period.Period, False, "effective", False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("assessor", "assessor", fhirreference.FHIRReference, False, None, False, None), 
+            ("previous", "previous", fhirreference.FHIRReference, False, None, False, None), 
+            ("problem", "problem", fhirreference.FHIRReference, True, None, False, None), 
+            ("investigation", "investigation", ClinicalImpressionInvestigation, True, None, False, None), 
+            ("protocol", "protocol", fhirdatatypes.FHIRUri, True, None, False, None), 
+            ("summary", "summary", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("finding", "finding", ClinicalImpressionFinding, True, None, False, None), 
+            ("prognosisCodeableConcept", "prognosisCodeableConcept", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("prognosisReference", "prognosisReference", fhirreference.FHIRReference, True, None, False, None), 
+            ("supportingInfo", "supportingInfo", fhirreference.FHIRReference, True, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ClinicalImpressionFinding(backboneelement.BackboneElement):
     """ Possible or likely findings and diagnoses.
@@ -179,9 +179,9 @@ class ClinicalImpressionFinding(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClinicalImpressionFinding, self).elementProperties()
         js.extend([
-            ("itemCodeableConcept", "itemCodeableConcept", codeableconcept.CodeableConcept, False, None, False),
-            ("itemReference", "itemReference", fhirreference.FHIRReference, False, None, False),
-            ("basis", "basis", fhirdatatypes.FHIRString, False, None, False),
+            ("itemCodeableConcept", "itemCodeableConcept", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("itemReference", "itemReference", fhirreference.FHIRReference, False, None, False, None), 
+            ("basis", "basis", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -219,41 +219,24 @@ class ClinicalImpressionInvestigation(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClinicalImpressionInvestigation, self).elementProperties()
         js.extend([
-            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
-            ("item", "item", fhirreference.FHIRReference, True, None, False),
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("item", "item", fhirreference.FHIRReference, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import eventstatus
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
+
+from fhirclient.models import period
 

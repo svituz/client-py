@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class AdverseEvent(domainresource.DomainResource):
     """ Medical care, research study or other healthcare event causing physical
@@ -118,32 +118,32 @@ class AdverseEvent(domainresource.DomainResource):
     def elementProperties(self):
         js = super(AdverseEvent, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("actuality", "actuality", fhirdatatypes.FHIRCode, False, None, True),
-            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
-            ("event", "event", codeableconcept.CodeableConcept, False, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
-            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("detected", "detected", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("recordedDate", "recordedDate", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("resultingCondition", "resultingCondition", fhirreference.FHIRReference, True, None, False),
-            ("location", "location", fhirreference.FHIRReference, False, None, False),
-            ("seriousness", "seriousness", codeableconcept.CodeableConcept, False, None, False),
-            ("severity", "severity", codeableconcept.CodeableConcept, False, None, False),
-            ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False),
-            ("recorder", "recorder", fhirreference.FHIRReference, False, None, False),
-            ("contributor", "contributor", fhirreference.FHIRReference, True, None, False),
-            ("suspectEntity", "suspectEntity", AdverseEventSuspectEntity, True, None, False),
-            ("subjectMedicalHistory", "subjectMedicalHistory", fhirreference.FHIRReference, True, None, False),
-            ("referenceDocument", "referenceDocument", fhirreference.FHIRReference, True, None, False),
-            ("study", "study", fhirreference.FHIRReference, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False, None), 
+            ("actuality", "actuality", fhirdatatypes.FHIRCode, False, None, True, adverseeventactuality.AdverseEventActuality), 
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("event", "event", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True, None), 
+            ("encounter", "encounter", fhirreference.FHIRReference, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("detected", "detected", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("recordedDate", "recordedDate", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("resultingCondition", "resultingCondition", fhirreference.FHIRReference, True, None, False, None), 
+            ("location", "location", fhirreference.FHIRReference, False, None, False, None), 
+            ("seriousness", "seriousness", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("severity", "severity", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("outcome", "outcome", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("recorder", "recorder", fhirreference.FHIRReference, False, None, False, None), 
+            ("contributor", "contributor", fhirreference.FHIRReference, True, None, False, None), 
+            ("suspectEntity", "suspectEntity", AdverseEventSuspectEntity, True, None, False, None), 
+            ("subjectMedicalHistory", "subjectMedicalHistory", fhirreference.FHIRReference, True, None, False, None), 
+            ("referenceDocument", "referenceDocument", fhirreference.FHIRReference, True, None, False, None), 
+            ("study", "study", fhirreference.FHIRReference, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class AdverseEventSuspectEntity(backboneelement.BackboneElement):
     """ The suspected agent causing the adverse event.
@@ -172,8 +172,8 @@ class AdverseEventSuspectEntity(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(AdverseEventSuspectEntity, self).elementProperties()
         js.extend([
-            ("instance", "instance", fhirreference.FHIRReference, False, None, True),
-            ("causality", "causality", AdverseEventSuspectEntityCausality, True, None, False),
+            ("instance", "instance", fhirreference.FHIRReference, False, None, True, None), 
+            ("causality", "causality", AdverseEventSuspectEntityCausality, True, None, False, None), 
         ])
         return js
 
@@ -213,33 +213,22 @@ class AdverseEventSuspectEntityCausality(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(AdverseEventSuspectEntityCausality, self).elementProperties()
         js.extend([
-            ("assessment", "assessment", codeableconcept.CodeableConcept, False, None, False),
-            ("productRelatedness", "productRelatedness", fhirdatatypes.FHIRString, False, None, False),
-            ("author", "author", fhirreference.FHIRReference, False, None, False),
-            ("method", "method", codeableconcept.CodeableConcept, False, None, False),
+            ("assessment", "assessment", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("productRelatedness", "productRelatedness", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("author", "author", fhirreference.FHIRReference, False, None, False, None), 
+            ("method", "method", codeableconcept.CodeableConcept, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.codesystems import adverseeventactuality
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
+
+from fhirclient.models import identifier
 

@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class Identifier(element.Element):
     """ An identifier intended for computation.
@@ -51,35 +51,24 @@ class Identifier(element.Element):
     def elementProperties(self):
         js = super(Identifier, self).elementProperties()
         js.extend([
-            ("use", "use", fhirdatatypes.FHIRCode, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("system", "system", fhirdatatypes.FHIRUri, False, None, False),
-            ("value", "value", fhirdatatypes.FHIRString, False, None, False),
-            ("period", "period", period.Period, False, None, False),
-            ("assigner", "assigner", fhirreference.FHIRReference, False, None, False),
+            ("use", "use", fhirdatatypes.FHIRCode, False, None, False, identifieruse.IdentifierUse), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("system", "system", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("value", "value", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("period", "period", period.Period, False, None, False, None), 
+            ("assigner", "assigner", fhirreference.FHIRReference, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.codesystems import identifieruse
+
+from fhirclient.models import period
 

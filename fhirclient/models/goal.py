@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Goal(domainresource.DomainResource):
     """ Describes the intended objective(s) for a patient, group or organization.
@@ -101,29 +101,29 @@ class Goal(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Goal, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("lifecycleStatus", "lifecycleStatus", fhirdatatypes.FHIRCode, False, None, True),
-            ("achievementStatus", "achievementStatus", codeableconcept.CodeableConcept, False, None, False),
-            ("category", "category", codeableconcept.CodeableConcept, True, None, False),
-            ("priority", "priority", codeableconcept.CodeableConcept, False, None, False),
-            ("description", "description", codeableconcept.CodeableConcept, False, None, True),
-            ("subject", "subject", fhirreference.FHIRReference, False, None, True),
-            ("startDate", "startDate", fhirdatatypes.FHIRDate, False, "start", False),
-            ("startCodeableConcept", "startCodeableConcept", codeableconcept.CodeableConcept, False, "start", False),
-            ("target", "target", GoalTarget, True, None, False),
-            ("statusDate", "statusDate", fhirdatatypes.FHIRDate, False, None, False),
-            ("statusReason", "statusReason", fhirdatatypes.FHIRString, False, None, False),
-            ("expressedBy", "expressedBy", fhirreference.FHIRReference, False, None, False),
-            ("addresses", "addresses", fhirreference.FHIRReference, True, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
-            ("outcomeCode", "outcomeCode", codeableconcept.CodeableConcept, True, None, False),
-            ("outcomeReference", "outcomeReference", fhirreference.FHIRReference, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("lifecycleStatus", "lifecycleStatus", fhirdatatypes.FHIRCode, False, None, True, goallifecyclestatus.GoalLifecycleStatus), 
+            ("achievementStatus", "achievementStatus", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("category", "category", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("priority", "priority", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("description", "description", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("subject", "subject", fhirreference.FHIRReference, False, None, True, None), 
+            ("startDate", "startDate", fhirdatatypes.FHIRDate, False, "start", False, None), 
+            ("startCodeableConcept", "startCodeableConcept", codeableconcept.CodeableConcept, False, "start", False, None), 
+            ("target", "target", GoalTarget, True, None, False, None), 
+            ("statusDate", "statusDate", fhirdatatypes.FHIRDate, False, None, False, None), 
+            ("statusReason", "statusReason", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("expressedBy", "expressedBy", fhirreference.FHIRReference, False, None, False, None), 
+            ("addresses", "addresses", fhirreference.FHIRReference, True, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
+            ("outcomeCode", "outcomeCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("outcomeReference", "outcomeReference", fhirreference.FHIRReference, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class GoalTarget(backboneelement.BackboneElement):
     """ Target outcome for the goal.
@@ -184,64 +184,38 @@ class GoalTarget(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(GoalTarget, self).elementProperties()
         js.extend([
-            ("measure", "measure", codeableconcept.CodeableConcept, False, None, False),
-            ("detailQuantity", "detailQuantity", quantity.Quantity, False, "detail", False),
-            ("detailRange", "detailRange", range.Range, False, "detail", False),
-            ("detailCodeableConcept", "detailCodeableConcept", codeableconcept.CodeableConcept, False, "detail", False),
-            ("detailString", "detailString", fhirdatatypes.FHIRString, False, "detail", False),
-            ("detailBoolean", "detailBoolean", bool, False, "detail", False),
-            ("detailInteger", "detailInteger", int, False, "detail", False),
-            ("detailRatio", "detailRatio", ratio.Ratio, False, "detail", False),
-            ("dueDate", "dueDate", fhirdatatypes.FHIRDate, False, "due", False),
-            ("dueDuration", "dueDuration", duration.Duration, False, "due", False),
+            ("measure", "measure", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("detailQuantity", "detailQuantity", quantity.Quantity, False, "detail", False, None), 
+            ("detailRange", "detailRange", range.Range, False, "detail", False, None), 
+            ("detailCodeableConcept", "detailCodeableConcept", codeableconcept.CodeableConcept, False, "detail", False, None), 
+            ("detailString", "detailString", fhirdatatypes.FHIRString, False, "detail", False, None), 
+            ("detailBoolean", "detailBoolean", bool, False, "detail", False, None), 
+            ("detailInteger", "detailInteger", int, False, "detail", False, None), 
+            ("detailRatio", "detailRatio", ratio.Ratio, False, "detail", False, None), 
+            ("dueDate", "dueDate", fhirdatatypes.FHIRDate, False, "due", False, None), 
+            ("dueDuration", "dueDuration", duration.Duration, False, "due", False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import duration
-except ImportError:
-    duration = sys.modules[__package__ + '.duration']
+from fhirclient.models import duration
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirreference
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.codesystems import goallifecyclestatus
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import identifier
 
-try:
-    from . import range
-except ImportError:
-    range = sys.modules[__package__ + '.range']
+from fhirclient.models import quantity
 
-try:
-    from . import ratio
-except ImportError:
-    ratio = sys.modules[__package__ + '.ratio']
+from fhirclient.models import range
+
+from fhirclient.models import ratio
 

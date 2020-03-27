@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class ClaimResponse(domainresource.DomainResource):
     """ Response to a claim predetermination or preauthorization.
@@ -137,39 +137,39 @@ class ClaimResponse(domainresource.DomainResource):
     def elementProperties(self):
         js = super(ClaimResponse, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, True),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
-            ("subType", "subType", codeableconcept.CodeableConcept, False, None, False),
-            ("use", "use", fhirdatatypes.FHIRCode, False, None, True),
-            ("patient", "patient", fhirreference.FHIRReference, False, None, True),
-            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, True),
-            ("insurer", "insurer", fhirreference.FHIRReference, False, None, True),
-            ("requestor", "requestor", fhirreference.FHIRReference, False, None, False),
-            ("request", "request", fhirreference.FHIRReference, False, None, False),
-            ("outcome", "outcome", fhirdatatypes.FHIRCode, False, None, True),
-            ("disposition", "disposition", fhirdatatypes.FHIRString, False, None, False),
-            ("preAuthRef", "preAuthRef", fhirdatatypes.FHIRString, False, None, False),
-            ("preAuthPeriod", "preAuthPeriod", period.Period, False, None, False),
-            ("payeeType", "payeeType", codeableconcept.CodeableConcept, False, None, False),
-            ("item", "item", ClaimResponseItem, True, None, False),
-            ("addItem", "addItem", ClaimResponseAddItem, True, None, False),
-            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, False),
-            ("total", "total", ClaimResponseTotal, True, None, False),
-            ("payment", "payment", ClaimResponsePayment, False, None, False),
-            ("fundsReserve", "fundsReserve", codeableconcept.CodeableConcept, False, None, False),
-            ("formCode", "formCode", codeableconcept.CodeableConcept, False, None, False),
-            ("form", "form", attachment.Attachment, False, None, False),
-            ("processNote", "processNote", ClaimResponseProcessNote, True, None, False),
-            ("communicationRequest", "communicationRequest", fhirreference.FHIRReference, True, None, False),
-            ("insurance", "insurance", ClaimResponseInsurance, True, None, False),
-            ("error", "error", ClaimResponseError, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, True, financialresourcestatuscodes.FinancialResourceStatusCodes), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("subType", "subType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("use", "use", fhirdatatypes.FHIRCode, False, None, True, use.Use), 
+            ("patient", "patient", fhirreference.FHIRReference, False, None, True, None), 
+            ("created", "created", fhirdatatypes.FHIRDateTime, False, None, True, None), 
+            ("insurer", "insurer", fhirreference.FHIRReference, False, None, True, None), 
+            ("requestor", "requestor", fhirreference.FHIRReference, False, None, False, None), 
+            ("request", "request", fhirreference.FHIRReference, False, None, False, None), 
+            ("outcome", "outcome", fhirdatatypes.FHIRCode, False, None, True, claimprocessingcodes.ClaimProcessingCodes), 
+            ("disposition", "disposition", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("preAuthRef", "preAuthRef", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("preAuthPeriod", "preAuthPeriod", period.Period, False, None, False, None), 
+            ("payeeType", "payeeType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("item", "item", ClaimResponseItem, True, None, False, None), 
+            ("addItem", "addItem", ClaimResponseAddItem, True, None, False, None), 
+            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, False, None), 
+            ("total", "total", ClaimResponseTotal, True, None, False, None), 
+            ("payment", "payment", ClaimResponsePayment, False, None, False, None), 
+            ("fundsReserve", "fundsReserve", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("formCode", "formCode", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("form", "form", attachment.Attachment, False, None, False, None), 
+            ("processNote", "processNote", ClaimResponseProcessNote, True, None, False, None), 
+            ("communicationRequest", "communicationRequest", fhirreference.FHIRReference, True, None, False, None), 
+            ("insurance", "insurance", ClaimResponseInsurance, True, None, False, None), 
+            ("error", "error", ClaimResponseError, True, None, False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ClaimResponseAddItem(backboneelement.BackboneElement):
     """ Insurer added line items.
@@ -275,27 +275,27 @@ class ClaimResponseAddItem(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseAddItem, self).elementProperties()
         js.extend([
-            ("itemSequence", "itemSequence", fhirdatatypes.FHIRPositiveInt, True, None, False),
-            ("detailSequence", "detailSequence", fhirdatatypes.FHIRPositiveInt, True, None, False),
-            ("subdetailSequence", "subdetailSequence", fhirdatatypes.FHIRPositiveInt, True, None, False),
-            ("provider", "provider", fhirreference.FHIRReference, True, None, False),
-            ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
-            ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
-            ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False),
-            ("servicedDate", "servicedDate", fhirdatatypes.FHIRDate, False, "serviced", False),
-            ("servicedPeriod", "servicedPeriod", period.Period, False, "serviced", False),
-            ("locationCodeableConcept", "locationCodeableConcept", codeableconcept.CodeableConcept, False, "location", False),
-            ("locationAddress", "locationAddress", address.Address, False, "location", False),
-            ("locationReference", "locationReference", fhirreference.FHIRReference, False, "location", False),
-            ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("unitPrice", "unitPrice", money.Money, False, None, False),
-            ("factor", "factor", float, False, None, False),
-            ("net", "net", money.Money, False, None, False),
-            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False),
-            ("subSite", "subSite", codeableconcept.CodeableConcept, True, None, False),
-            ("noteNumber", "noteNumber", fhirdatatypes.FHIRPositiveInt, True, None, False),
-            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, True),
-            ("detail", "detail", ClaimResponseAddItemDetail, True, None, False),
+            ("itemSequence", "itemSequence", fhirdatatypes.FHIRPositiveInt, True, None, False, None), 
+            ("detailSequence", "detailSequence", fhirdatatypes.FHIRPositiveInt, True, None, False, None), 
+            ("subdetailSequence", "subdetailSequence", fhirdatatypes.FHIRPositiveInt, True, None, False, None), 
+            ("provider", "provider", fhirreference.FHIRReference, True, None, False, None), 
+            ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("programCode", "programCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("servicedDate", "servicedDate", fhirdatatypes.FHIRDate, False, "serviced", False, None), 
+            ("servicedPeriod", "servicedPeriod", period.Period, False, "serviced", False, None), 
+            ("locationCodeableConcept", "locationCodeableConcept", codeableconcept.CodeableConcept, False, "location", False, None), 
+            ("locationAddress", "locationAddress", address.Address, False, "location", False, None), 
+            ("locationReference", "locationReference", fhirreference.FHIRReference, False, "location", False, None), 
+            ("quantity", "quantity", quantity.Quantity, False, None, False, None), 
+            ("unitPrice", "unitPrice", money.Money, False, None, False, None), 
+            ("factor", "factor", float, False, None, False, None), 
+            ("net", "net", money.Money, False, None, False, None), 
+            ("bodySite", "bodySite", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("subSite", "subSite", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("noteNumber", "noteNumber", fhirdatatypes.FHIRPositiveInt, True, None, False, None), 
+            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, True, None), 
+            ("detail", "detail", ClaimResponseAddItemDetail, True, None, False, None), 
         ])
         return js
 
@@ -357,15 +357,15 @@ class ClaimResponseAddItemDetail(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseAddItemDetail, self).elementProperties()
         js.extend([
-            ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
-            ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
-            ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("unitPrice", "unitPrice", money.Money, False, None, False),
-            ("factor", "factor", float, False, None, False),
-            ("net", "net", money.Money, False, None, False),
-            ("noteNumber", "noteNumber", fhirdatatypes.FHIRPositiveInt, True, None, False),
-            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, True),
-            ("subDetail", "subDetail", ClaimResponseAddItemDetailSubDetail, True, None, False),
+            ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("quantity", "quantity", quantity.Quantity, False, None, False, None), 
+            ("unitPrice", "unitPrice", money.Money, False, None, False, None), 
+            ("factor", "factor", float, False, None, False, None), 
+            ("net", "net", money.Money, False, None, False, None), 
+            ("noteNumber", "noteNumber", fhirdatatypes.FHIRPositiveInt, True, None, False, None), 
+            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, True, None), 
+            ("subDetail", "subDetail", ClaimResponseAddItemDetailSubDetail, True, None, False, None), 
         ])
         return js
 
@@ -423,14 +423,14 @@ class ClaimResponseAddItemDetailSubDetail(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseAddItemDetailSubDetail, self).elementProperties()
         js.extend([
-            ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True),
-            ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False),
-            ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("unitPrice", "unitPrice", money.Money, False, None, False),
-            ("factor", "factor", float, False, None, False),
-            ("net", "net", money.Money, False, None, False),
-            ("noteNumber", "noteNumber", fhirdatatypes.FHIRPositiveInt, True, None, False),
-            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, True),
+            ("productOrService", "productOrService", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("modifier", "modifier", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("quantity", "quantity", quantity.Quantity, False, None, False, None), 
+            ("unitPrice", "unitPrice", money.Money, False, None, False, None), 
+            ("factor", "factor", float, False, None, False, None), 
+            ("net", "net", money.Money, False, None, False, None), 
+            ("noteNumber", "noteNumber", fhirdatatypes.FHIRPositiveInt, True, None, False, None), 
+            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, True, None), 
         ])
         return js
 
@@ -472,10 +472,10 @@ class ClaimResponseError(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseError, self).elementProperties()
         js.extend([
-            ("itemSequence", "itemSequence", fhirdatatypes.FHIRPositiveInt, False, None, False),
-            ("detailSequence", "detailSequence", fhirdatatypes.FHIRPositiveInt, False, None, False),
-            ("subDetailSequence", "subDetailSequence", fhirdatatypes.FHIRPositiveInt, False, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, False, None, True),
+            ("itemSequence", "itemSequence", fhirdatatypes.FHIRPositiveInt, False, None, False, None), 
+            ("detailSequence", "detailSequence", fhirdatatypes.FHIRPositiveInt, False, None, False, None), 
+            ("subDetailSequence", "subDetailSequence", fhirdatatypes.FHIRPositiveInt, False, None, False, None), 
+            ("code", "code", codeableconcept.CodeableConcept, False, None, True, None), 
         ])
         return js
 
@@ -522,11 +522,11 @@ class ClaimResponseInsurance(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseInsurance, self).elementProperties()
         js.extend([
-            ("sequence", "sequence", fhirdatatypes.FHIRPositiveInt, False, None, True),
-            ("focal", "focal", bool, False, None, True),
-            ("coverage", "coverage", fhirreference.FHIRReference, False, None, True),
-            ("businessArrangement", "businessArrangement", fhirdatatypes.FHIRString, False, None, False),
-            ("claimResponse", "claimResponse", fhirreference.FHIRReference, False, None, False),
+            ("sequence", "sequence", fhirdatatypes.FHIRPositiveInt, False, None, True, None), 
+            ("focal", "focal", bool, False, None, True, None), 
+            ("coverage", "coverage", fhirreference.FHIRReference, False, None, True, None), 
+            ("businessArrangement", "businessArrangement", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("claimResponse", "claimResponse", fhirreference.FHIRReference, False, None, False, None), 
         ])
         return js
 
@@ -569,10 +569,10 @@ class ClaimResponseItem(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseItem, self).elementProperties()
         js.extend([
-            ("itemSequence", "itemSequence", fhirdatatypes.FHIRPositiveInt, False, None, True),
-            ("noteNumber", "noteNumber", fhirdatatypes.FHIRPositiveInt, True, None, False),
-            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, True),
-            ("detail", "detail", ClaimResponseItemDetail, True, None, False),
+            ("itemSequence", "itemSequence", fhirdatatypes.FHIRPositiveInt, False, None, True, None), 
+            ("noteNumber", "noteNumber", fhirdatatypes.FHIRPositiveInt, True, None, False, None), 
+            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, True, None), 
+            ("detail", "detail", ClaimResponseItemDetail, True, None, False, None), 
         ])
         return js
 
@@ -616,10 +616,10 @@ class ClaimResponseItemAdjudication(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseItemAdjudication, self).elementProperties()
         js.extend([
-            ("category", "category", codeableconcept.CodeableConcept, False, None, True),
-            ("reason", "reason", codeableconcept.CodeableConcept, False, None, False),
-            ("amount", "amount", money.Money, False, None, False),
-            ("value", "value", float, False, None, False),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("reason", "reason", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("amount", "amount", money.Money, False, None, False, None), 
+            ("value", "value", float, False, None, False, None), 
         ])
         return js
 
@@ -662,10 +662,10 @@ class ClaimResponseItemDetail(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseItemDetail, self).elementProperties()
         js.extend([
-            ("detailSequence", "detailSequence", fhirdatatypes.FHIRPositiveInt, False, None, True),
-            ("noteNumber", "noteNumber", fhirdatatypes.FHIRPositiveInt, True, None, False),
-            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, True),
-            ("subDetail", "subDetail", ClaimResponseItemDetailSubDetail, True, None, False),
+            ("detailSequence", "detailSequence", fhirdatatypes.FHIRPositiveInt, False, None, True, None), 
+            ("noteNumber", "noteNumber", fhirdatatypes.FHIRPositiveInt, True, None, False, None), 
+            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, True, None), 
+            ("subDetail", "subDetail", ClaimResponseItemDetailSubDetail, True, None, False, None), 
         ])
         return js
 
@@ -703,9 +703,9 @@ class ClaimResponseItemDetailSubDetail(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseItemDetailSubDetail, self).elementProperties()
         js.extend([
-            ("subDetailSequence", "subDetailSequence", fhirdatatypes.FHIRPositiveInt, False, None, True),
-            ("noteNumber", "noteNumber", fhirdatatypes.FHIRPositiveInt, True, None, False),
-            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, False),
+            ("subDetailSequence", "subDetailSequence", fhirdatatypes.FHIRPositiveInt, False, None, True, None), 
+            ("noteNumber", "noteNumber", fhirdatatypes.FHIRPositiveInt, True, None, False, None), 
+            ("adjudication", "adjudication", ClaimResponseItemAdjudication, True, None, False, None), 
         ])
         return js
 
@@ -755,12 +755,12 @@ class ClaimResponsePayment(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponsePayment, self).elementProperties()
         js.extend([
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
-            ("adjustment", "adjustment", money.Money, False, None, False),
-            ("adjustmentReason", "adjustmentReason", codeableconcept.CodeableConcept, False, None, False),
-            ("date", "date", fhirdatatypes.FHIRDate, False, None, False),
-            ("amount", "amount", money.Money, False, None, True),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("adjustment", "adjustment", money.Money, False, None, False, None), 
+            ("adjustmentReason", "adjustmentReason", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("date", "date", fhirdatatypes.FHIRDate, False, None, False, None), 
+            ("amount", "amount", money.Money, False, None, True, None), 
+            ("identifier", "identifier", identifier.Identifier, False, None, False, None), 
         ])
         return js
 
@@ -803,10 +803,10 @@ class ClaimResponseProcessNote(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseProcessNote, self).elementProperties()
         js.extend([
-            ("number", "number", fhirdatatypes.FHIRPositiveInt, False, None, False),
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, False),
-            ("text", "text", fhirdatatypes.FHIRString, False, None, True),
-            ("language", "language", codeableconcept.CodeableConcept, False, None, False),
+            ("number", "number", fhirdatatypes.FHIRPositiveInt, False, None, False, None), 
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, False, notetype.NoteType), 
+            ("text", "text", fhirdatatypes.FHIRString, False, None, True, None), 
+            ("language", "language", codeableconcept.CodeableConcept, False, None, False, None), 
         ])
         return js
 
@@ -840,56 +840,36 @@ class ClaimResponseTotal(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ClaimResponseTotal, self).elementProperties()
         js.extend([
-            ("category", "category", codeableconcept.CodeableConcept, False, None, True),
-            ("amount", "amount", money.Money, False, None, True),
+            ("category", "category", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("amount", "amount", money.Money, False, None, True, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import address
-except ImportError:
-    address = sys.modules[__package__ + '.address']
+from fhirclient.models import address
 
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
+from fhirclient.models import attachment
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.codesystems import claimprocessingcodes
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirreference
 
-try:
-    from . import money
-except ImportError:
-    money = sys.modules[__package__ + '.money']
+from fhirclient.codesystems import financialresourcestatuscodes
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import money
+
+from fhirclient.codesystems import notetype
+
+from fhirclient.models import period
+
+from fhirclient.models import quantity
+
+from fhirclient.codesystems import use
 

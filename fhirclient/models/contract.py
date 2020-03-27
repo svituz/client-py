@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import domainresource
+from fhirclient.models import domainresource
 
 class Contract(domainresource.DomainResource):
     """ Legal Agreement.
@@ -172,47 +172,47 @@ class Contract(domainresource.DomainResource):
     def elementProperties(self):
         js = super(Contract, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("url", "url", fhirdatatypes.FHIRUri, False, None, False),
-            ("version", "version", fhirdatatypes.FHIRString, False, None, False),
-            ("status", "status", fhirdatatypes.FHIRCode, False, None, False),
-            ("legalState", "legalState", codeableconcept.CodeableConcept, False, None, False),
-            ("instantiatesCanonical", "instantiatesCanonical", fhirreference.FHIRReference, False, None, False),
-            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, False, None, False),
-            ("contentDerivative", "contentDerivative", codeableconcept.CodeableConcept, False, None, False),
-            ("issued", "issued", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("applies", "applies", period.Period, False, None, False),
-            ("expirationType", "expirationType", codeableconcept.CodeableConcept, False, None, False),
-            ("subject", "subject", fhirreference.FHIRReference, True, None, False),
-            ("authority", "authority", fhirreference.FHIRReference, True, None, False),
-            ("domain", "domain", fhirreference.FHIRReference, True, None, False),
-            ("site", "site", fhirreference.FHIRReference, True, None, False),
-            ("name", "name", fhirdatatypes.FHIRString, False, None, False),
-            ("title", "title", fhirdatatypes.FHIRString, False, None, False),
-            ("subtitle", "subtitle", fhirdatatypes.FHIRString, False, None, False),
-            ("alias", "alias", fhirdatatypes.FHIRString, True, None, False),
-            ("author", "author", fhirreference.FHIRReference, False, None, False),
-            ("scope", "scope", codeableconcept.CodeableConcept, False, None, False),
-            ("topicCodeableConcept", "topicCodeableConcept", codeableconcept.CodeableConcept, False, "topic", False),
-            ("topicReference", "topicReference", fhirreference.FHIRReference, False, "topic", False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("subType", "subType", codeableconcept.CodeableConcept, True, None, False),
-            ("contentDefinition", "contentDefinition", ContractContentDefinition, False, None, False),
-            ("term", "term", ContractTerm, True, None, False),
-            ("supportingInfo", "supportingInfo", fhirreference.FHIRReference, True, None, False),
-            ("relevantHistory", "relevantHistory", fhirreference.FHIRReference, True, None, False),
-            ("signer", "signer", ContractSigner, True, None, False),
-            ("friendly", "friendly", ContractFriendly, True, None, False),
-            ("legal", "legal", ContractLegal, True, None, False),
-            ("rule", "rule", ContractRule, True, None, False),
-            ("legallyBindingAttachment", "legallyBindingAttachment", attachment.Attachment, False, "legallyBinding", False),
-            ("legallyBindingReference", "legallyBindingReference", fhirreference.FHIRReference, False, "legallyBinding", False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("url", "url", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("version", "version", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("status", "status", fhirdatatypes.FHIRCode, False, None, False, contractresourcestatuscodes.ContractResourceStatusCodes), 
+            ("legalState", "legalState", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("instantiatesCanonical", "instantiatesCanonical", fhirreference.FHIRReference, False, None, False, None), 
+            ("instantiatesUri", "instantiatesUri", fhirdatatypes.FHIRUri, False, None, False, None), 
+            ("contentDerivative", "contentDerivative", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("issued", "issued", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("applies", "applies", period.Period, False, None, False, None), 
+            ("expirationType", "expirationType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("subject", "subject", fhirreference.FHIRReference, True, None, False, None), 
+            ("authority", "authority", fhirreference.FHIRReference, True, None, False, None), 
+            ("domain", "domain", fhirreference.FHIRReference, True, None, False, None), 
+            ("site", "site", fhirreference.FHIRReference, True, None, False, None), 
+            ("name", "name", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("title", "title", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("subtitle", "subtitle", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("alias", "alias", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("author", "author", fhirreference.FHIRReference, False, None, False, None), 
+            ("scope", "scope", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("topicCodeableConcept", "topicCodeableConcept", codeableconcept.CodeableConcept, False, "topic", False, None), 
+            ("topicReference", "topicReference", fhirreference.FHIRReference, False, "topic", False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("subType", "subType", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("contentDefinition", "contentDefinition", ContractContentDefinition, False, None, False, None), 
+            ("term", "term", ContractTerm, True, None, False, None), 
+            ("supportingInfo", "supportingInfo", fhirreference.FHIRReference, True, None, False, None), 
+            ("relevantHistory", "relevantHistory", fhirreference.FHIRReference, True, None, False, None), 
+            ("signer", "signer", ContractSigner, True, None, False, None), 
+            ("friendly", "friendly", ContractFriendly, True, None, False, None), 
+            ("legal", "legal", ContractLegal, True, None, False, None), 
+            ("rule", "rule", ContractRule, True, None, False, None), 
+            ("legallyBindingAttachment", "legallyBindingAttachment", attachment.Attachment, False, "legallyBinding", False, None), 
+            ("legallyBindingReference", "legallyBindingReference", fhirreference.FHIRReference, False, "legallyBinding", False, None), 
         ])
         return js
 
 
 
-from . import backboneelement
+from fhirclient.models import backboneelement
 
 class ContractContentDefinition(backboneelement.BackboneElement):
     """ Contract precursor content.
@@ -261,12 +261,12 @@ class ContractContentDefinition(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractContentDefinition, self).elementProperties()
         js.extend([
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
-            ("subType", "subType", codeableconcept.CodeableConcept, False, None, False),
-            ("publisher", "publisher", fhirreference.FHIRReference, False, None, False),
-            ("publicationDate", "publicationDate", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("publicationStatus", "publicationStatus", fhirdatatypes.FHIRCode, False, None, True),
-            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False),
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("subType", "subType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("publisher", "publisher", fhirreference.FHIRReference, False, None, False, None), 
+            ("publicationDate", "publicationDate", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("publicationStatus", "publicationStatus", fhirdatatypes.FHIRCode, False, None, True, contractresourcepublicationstatuscodes.ContractResourcePublicationStatusCodes), 
+            ("copyright", "copyright", fhirdatatypes.FHIRMarkdown, False, None, False, None), 
         ])
         return js
 
@@ -306,8 +306,8 @@ class ContractFriendly(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractFriendly, self).elementProperties()
         js.extend([
-            ("contentAttachment", "contentAttachment", attachment.Attachment, False, "content", True),
-            ("contentReference", "contentReference", fhirreference.FHIRReference, False, "content", True),
+            ("contentAttachment", "contentAttachment", attachment.Attachment, False, "content", True, None), 
+            ("contentReference", "contentReference", fhirreference.FHIRReference, False, "content", True, None), 
         ])
         return js
 
@@ -341,8 +341,8 @@ class ContractLegal(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractLegal, self).elementProperties()
         js.extend([
-            ("contentAttachment", "contentAttachment", attachment.Attachment, False, "content", True),
-            ("contentReference", "contentReference", fhirreference.FHIRReference, False, "content", True),
+            ("contentAttachment", "contentAttachment", attachment.Attachment, False, "content", True, None), 
+            ("contentReference", "contentReference", fhirreference.FHIRReference, False, "content", True, None), 
         ])
         return js
 
@@ -376,8 +376,8 @@ class ContractRule(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractRule, self).elementProperties()
         js.extend([
-            ("contentAttachment", "contentAttachment", attachment.Attachment, False, "content", True),
-            ("contentReference", "contentReference", fhirreference.FHIRReference, False, "content", True),
+            ("contentAttachment", "contentAttachment", attachment.Attachment, False, "content", True, None), 
+            ("contentReference", "contentReference", fhirreference.FHIRReference, False, "content", True, None), 
         ])
         return js
 
@@ -418,9 +418,9 @@ class ContractSigner(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractSigner, self).elementProperties()
         js.extend([
-            ("type", "type", coding.Coding, False, None, True),
-            ("party", "party", fhirreference.FHIRReference, False, None, True),
-            ("signature", "signature", signature.Signature, True, None, True),
+            ("type", "type", coding.Coding, False, None, True, None), 
+            ("party", "party", fhirreference.FHIRReference, False, None, True, None), 
+            ("signature", "signature", signature.Signature, True, None, True, None), 
         ])
         return js
 
@@ -499,19 +499,19 @@ class ContractTerm(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractTerm, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("issued", "issued", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("applies", "applies", period.Period, False, None, False),
-            ("topicCodeableConcept", "topicCodeableConcept", codeableconcept.CodeableConcept, False, "topic", False),
-            ("topicReference", "topicReference", fhirreference.FHIRReference, False, "topic", False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("subType", "subType", codeableconcept.CodeableConcept, False, None, False),
-            ("text", "text", fhirdatatypes.FHIRString, False, None, False),
-            ("securityLabel", "securityLabel", ContractTermSecurityLabel, True, None, False),
-            ("offer", "offer", ContractTermOffer, False, None, True),
-            ("asset", "asset", ContractTermAsset, True, None, False),
-            ("action", "action", ContractTermAction, True, None, False),
-            ("group", "group", ContractTerm, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, False, None, False, None), 
+            ("issued", "issued", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("applies", "applies", period.Period, False, None, False, None), 
+            ("topicCodeableConcept", "topicCodeableConcept", codeableconcept.CodeableConcept, False, "topic", False, None), 
+            ("topicReference", "topicReference", fhirreference.FHIRReference, False, "topic", False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("subType", "subType", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("text", "text", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("securityLabel", "securityLabel", ContractTermSecurityLabel, True, None, False, None), 
+            ("offer", "offer", ContractTermOffer, False, None, True, None), 
+            ("asset", "asset", ContractTermAsset, True, None, False, None), 
+            ("action", "action", ContractTermAction, True, None, False, None), 
+            ("group", "group", ContractTerm, True, None, False, None), 
         ])
         return js
 
@@ -630,29 +630,29 @@ class ContractTermAction(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractTermAction, self).elementProperties()
         js.extend([
-            ("doNotPerform", "doNotPerform", bool, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, True),
-            ("subject", "subject", ContractTermActionSubject, True, None, False),
-            ("intent", "intent", codeableconcept.CodeableConcept, False, None, True),
-            ("linkId", "linkId", fhirdatatypes.FHIRString, True, None, False),
-            ("status", "status", codeableconcept.CodeableConcept, False, None, True),
-            ("context", "context", fhirreference.FHIRReference, False, None, False),
-            ("contextLinkId", "contextLinkId", fhirdatatypes.FHIRString, True, None, False),
-            ("occurrenceDateTime", "occurrenceDateTime", fhirdatatypes.FHIRDateTime, False, "occurrence", False),
-            ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False),
-            ("occurrenceTiming", "occurrenceTiming", timing.Timing, False, "occurrence", False),
-            ("requester", "requester", fhirreference.FHIRReference, True, None, False),
-            ("requesterLinkId", "requesterLinkId", fhirdatatypes.FHIRString, True, None, False),
-            ("performerType", "performerType", codeableconcept.CodeableConcept, True, None, False),
-            ("performerRole", "performerRole", codeableconcept.CodeableConcept, False, None, False),
-            ("performer", "performer", fhirreference.FHIRReference, False, None, False),
-            ("performerLinkId", "performerLinkId", fhirdatatypes.FHIRString, True, None, False),
-            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False),
-            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False),
-            ("reason", "reason", fhirdatatypes.FHIRString, True, None, False),
-            ("reasonLinkId", "reasonLinkId", fhirdatatypes.FHIRString, True, None, False),
-            ("note", "note", annotation.Annotation, True, None, False),
-            ("securityLabelNumber", "securityLabelNumber", fhirdatatypes.FHIRUnsignedInt, True, None, False),
+            ("doNotPerform", "doNotPerform", bool, False, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("subject", "subject", ContractTermActionSubject, True, None, False, None), 
+            ("intent", "intent", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("linkId", "linkId", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("status", "status", codeableconcept.CodeableConcept, False, None, True, None), 
+            ("context", "context", fhirreference.FHIRReference, False, None, False, None), 
+            ("contextLinkId", "contextLinkId", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("occurrenceDateTime", "occurrenceDateTime", fhirdatatypes.FHIRDateTime, False, "occurrence", False, None), 
+            ("occurrencePeriod", "occurrencePeriod", period.Period, False, "occurrence", False, None), 
+            ("occurrenceTiming", "occurrenceTiming", timing.Timing, False, "occurrence", False, None), 
+            ("requester", "requester", fhirreference.FHIRReference, True, None, False, None), 
+            ("requesterLinkId", "requesterLinkId", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("performerType", "performerType", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("performerRole", "performerRole", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("performer", "performer", fhirreference.FHIRReference, False, None, False, None), 
+            ("performerLinkId", "performerLinkId", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("reasonCode", "reasonCode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("reasonReference", "reasonReference", fhirreference.FHIRReference, True, None, False, None), 
+            ("reason", "reason", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("reasonLinkId", "reasonLinkId", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("note", "note", annotation.Annotation, True, None, False, None), 
+            ("securityLabelNumber", "securityLabelNumber", fhirdatatypes.FHIRUnsignedInt, True, None, False, None), 
         ])
         return js
 
@@ -684,8 +684,8 @@ class ContractTermActionSubject(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractTermActionSubject, self).elementProperties()
         js.extend([
-            ("reference", "reference", fhirreference.FHIRReference, True, None, True),
-            ("role", "role", codeableconcept.CodeableConcept, False, None, False),
+            ("reference", "reference", fhirreference.FHIRReference, True, None, True, None), 
+            ("role", "role", codeableconcept.CodeableConcept, False, None, False, None), 
         ])
         return js
 
@@ -769,21 +769,21 @@ class ContractTermAsset(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractTermAsset, self).elementProperties()
         js.extend([
-            ("scope", "scope", codeableconcept.CodeableConcept, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, True, None, False),
-            ("typeReference", "typeReference", fhirreference.FHIRReference, True, None, False),
-            ("subtype", "subtype", codeableconcept.CodeableConcept, True, None, False),
-            ("relationship", "relationship", coding.Coding, False, None, False),
-            ("context", "context", ContractTermAssetContext, True, None, False),
-            ("condition", "condition", fhirdatatypes.FHIRString, False, None, False),
-            ("periodType", "periodType", codeableconcept.CodeableConcept, True, None, False),
-            ("period", "period", period.Period, True, None, False),
-            ("usePeriod", "usePeriod", period.Period, True, None, False),
-            ("text", "text", fhirdatatypes.FHIRString, False, None, False),
-            ("linkId", "linkId", fhirdatatypes.FHIRString, True, None, False),
-            ("answer", "answer", ContractTermOfferAnswer, True, None, False),
-            ("securityLabelNumber", "securityLabelNumber", fhirdatatypes.FHIRUnsignedInt, True, None, False),
-            ("valuedItem", "valuedItem", ContractTermAssetValuedItem, True, None, False),
+            ("scope", "scope", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("typeReference", "typeReference", fhirreference.FHIRReference, True, None, False, None), 
+            ("subtype", "subtype", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("relationship", "relationship", coding.Coding, False, None, False, None), 
+            ("context", "context", ContractTermAssetContext, True, None, False, None), 
+            ("condition", "condition", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("periodType", "periodType", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("period", "period", period.Period, True, None, False, None), 
+            ("usePeriod", "usePeriod", period.Period, True, None, False, None), 
+            ("text", "text", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("linkId", "linkId", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("answer", "answer", ContractTermOfferAnswer, True, None, False, None), 
+            ("securityLabelNumber", "securityLabelNumber", fhirdatatypes.FHIRUnsignedInt, True, None, False, None), 
+            ("valuedItem", "valuedItem", ContractTermAssetValuedItem, True, None, False, None), 
         ])
         return js
 
@@ -819,9 +819,9 @@ class ContractTermAssetContext(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractTermAssetContext, self).elementProperties()
         js.extend([
-            ("reference", "reference", fhirreference.FHIRReference, False, None, False),
-            ("code", "code", codeableconcept.CodeableConcept, True, None, False),
-            ("text", "text", fhirdatatypes.FHIRString, False, None, False),
+            ("reference", "reference", fhirreference.FHIRReference, False, None, False, None), 
+            ("code", "code", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("text", "text", fhirdatatypes.FHIRString, False, None, False, None), 
         ])
         return js
 
@@ -905,21 +905,21 @@ class ContractTermAssetValuedItem(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractTermAssetValuedItem, self).elementProperties()
         js.extend([
-            ("entityCodeableConcept", "entityCodeableConcept", codeableconcept.CodeableConcept, False, "entity", False),
-            ("entityReference", "entityReference", fhirreference.FHIRReference, False, "entity", False),
-            ("identifier", "identifier", identifier.Identifier, False, None, False),
-            ("effectiveTime", "effectiveTime", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("quantity", "quantity", quantity.Quantity, False, None, False),
-            ("unitPrice", "unitPrice", money.Money, False, None, False),
-            ("factor", "factor", float, False, None, False),
-            ("points", "points", float, False, None, False),
-            ("net", "net", money.Money, False, None, False),
-            ("payment", "payment", fhirdatatypes.FHIRString, False, None, False),
-            ("paymentDate", "paymentDate", fhirdatatypes.FHIRDateTime, False, None, False),
-            ("responsible", "responsible", fhirreference.FHIRReference, False, None, False),
-            ("recipient", "recipient", fhirreference.FHIRReference, False, None, False),
-            ("linkId", "linkId", fhirdatatypes.FHIRString, True, None, False),
-            ("securityLabelNumber", "securityLabelNumber", fhirdatatypes.FHIRUnsignedInt, True, None, False),
+            ("entityCodeableConcept", "entityCodeableConcept", codeableconcept.CodeableConcept, False, "entity", False, None), 
+            ("entityReference", "entityReference", fhirreference.FHIRReference, False, "entity", False, None), 
+            ("identifier", "identifier", identifier.Identifier, False, None, False, None), 
+            ("effectiveTime", "effectiveTime", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("quantity", "quantity", quantity.Quantity, False, None, False, None), 
+            ("unitPrice", "unitPrice", money.Money, False, None, False, None), 
+            ("factor", "factor", float, False, None, False, None), 
+            ("points", "points", float, False, None, False, None), 
+            ("net", "net", money.Money, False, None, False, None), 
+            ("payment", "payment", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("paymentDate", "paymentDate", fhirdatatypes.FHIRDateTime, False, None, False, None), 
+            ("responsible", "responsible", fhirreference.FHIRReference, False, None, False, None), 
+            ("recipient", "recipient", fhirreference.FHIRReference, False, None, False, None), 
+            ("linkId", "linkId", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("securityLabelNumber", "securityLabelNumber", fhirdatatypes.FHIRUnsignedInt, True, None, False, None), 
         ])
         return js
 
@@ -985,16 +985,16 @@ class ContractTermOffer(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractTermOffer, self).elementProperties()
         js.extend([
-            ("identifier", "identifier", identifier.Identifier, True, None, False),
-            ("party", "party", ContractTermOfferParty, True, None, False),
-            ("topic", "topic", fhirreference.FHIRReference, False, None, False),
-            ("type", "type", codeableconcept.CodeableConcept, False, None, False),
-            ("decision", "decision", codeableconcept.CodeableConcept, False, None, False),
-            ("decisionMode", "decisionMode", codeableconcept.CodeableConcept, True, None, False),
-            ("answer", "answer", ContractTermOfferAnswer, True, None, False),
-            ("text", "text", fhirdatatypes.FHIRString, False, None, False),
-            ("linkId", "linkId", fhirdatatypes.FHIRString, True, None, False),
-            ("securityLabelNumber", "securityLabelNumber", fhirdatatypes.FHIRUnsignedInt, True, None, False),
+            ("identifier", "identifier", identifier.Identifier, True, None, False, None), 
+            ("party", "party", ContractTermOfferParty, True, None, False, None), 
+            ("topic", "topic", fhirreference.FHIRReference, False, None, False, None), 
+            ("type", "type", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("decision", "decision", codeableconcept.CodeableConcept, False, None, False, None), 
+            ("decisionMode", "decisionMode", codeableconcept.CodeableConcept, True, None, False, None), 
+            ("answer", "answer", ContractTermOfferAnswer, True, None, False, None), 
+            ("text", "text", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("linkId", "linkId", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("securityLabelNumber", "securityLabelNumber", fhirdatatypes.FHIRUnsignedInt, True, None, False, None), 
         ])
         return js
 
@@ -1066,18 +1066,18 @@ class ContractTermOfferAnswer(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractTermOfferAnswer, self).elementProperties()
         js.extend([
-            ("valueBoolean", "valueBoolean", bool, False, "value", True),
-            ("valueDecimal", "valueDecimal", float, False, "value", True),
-            ("valueInteger", "valueInteger", int, False, "value", True),
-            ("valueDate", "valueDate", fhirdatatypes.FHIRDate, False, "value", True),
-            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", True),
-            ("valueTime", "valueTime", fhirdatatypes.FHIRTime, False, "value", True),
-            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", True),
-            ("valueUri", "valueUri", fhirdatatypes.FHIRUri, False, "value", True),
-            ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", True),
-            ("valueCoding", "valueCoding", coding.Coding, False, "value", True),
-            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", True),
-            ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", True),
+            ("valueBoolean", "valueBoolean", bool, False, "value", True, None), 
+            ("valueDecimal", "valueDecimal", float, False, "value", True, None), 
+            ("valueInteger", "valueInteger", int, False, "value", True, None), 
+            ("valueDate", "valueDate", fhirdatatypes.FHIRDate, False, "value", True, None), 
+            ("valueDateTime", "valueDateTime", fhirdatatypes.FHIRDateTime, False, "value", True, None), 
+            ("valueTime", "valueTime", fhirdatatypes.FHIRTime, False, "value", True, None), 
+            ("valueString", "valueString", fhirdatatypes.FHIRString, False, "value", True, None), 
+            ("valueUri", "valueUri", fhirdatatypes.FHIRUri, False, "value", True, None), 
+            ("valueAttachment", "valueAttachment", attachment.Attachment, False, "value", True, None), 
+            ("valueCoding", "valueCoding", coding.Coding, False, "value", True, None), 
+            ("valueQuantity", "valueQuantity", quantity.Quantity, False, "value", True, None), 
+            ("valueReference", "valueReference", fhirreference.FHIRReference, False, "value", True, None), 
         ])
         return js
 
@@ -1109,8 +1109,8 @@ class ContractTermOfferParty(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractTermOfferParty, self).elementProperties()
         js.extend([
-            ("reference", "reference", fhirreference.FHIRReference, True, None, True),
-            ("role", "role", codeableconcept.CodeableConcept, False, None, True),
+            ("reference", "reference", fhirreference.FHIRReference, True, None, True, None), 
+            ("role", "role", codeableconcept.CodeableConcept, False, None, True, None), 
         ])
         return js
 
@@ -1153,73 +1153,40 @@ class ContractTermSecurityLabel(backboneelement.BackboneElement):
     def elementProperties(self):
         js = super(ContractTermSecurityLabel, self).elementProperties()
         js.extend([
-            ("number", "number", fhirdatatypes.FHIRUnsignedInt, True, None, False),
-            ("classification", "classification", coding.Coding, False, None, True),
-            ("category", "category", coding.Coding, True, None, False),
-            ("control", "control", coding.Coding, True, None, False),
+            ("number", "number", fhirdatatypes.FHIRUnsignedInt, True, None, False, None), 
+            ("classification", "classification", coding.Coding, False, None, True, None), 
+            ("category", "category", coding.Coding, True, None, False, None), 
+            ("control", "control", coding.Coding, True, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import annotation
-except ImportError:
-    annotation = sys.modules[__package__ + '.annotation']
+from fhirclient.models import annotation
 
-try:
-    from . import attachment
-except ImportError:
-    attachment = sys.modules[__package__ + '.attachment']
+from fhirclient.models import attachment
 
-try:
-    from . import codeableconcept
-except ImportError:
-    codeableconcept = sys.modules[__package__ + '.codeableconcept']
+from fhirclient.models import codeableconcept
 
-try:
-    from . import coding
-except ImportError:
-    coding = sys.modules[__package__ + '.coding']
+from fhirclient.models import coding
 
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import contractresourcepublicationstatuscodes
 
-try:
-    from . import fhirreference
-except ImportError:
-    fhirreference = sys.modules[__package__ + '.fhirreference']
+from fhirclient.codesystems import contractresourcestatuscodes
 
-try:
-    from . import identifier
-except ImportError:
-    identifier = sys.modules[__package__ + '.identifier']
+from fhirclient.models import fhirdatatypes
 
-try:
-    from . import money
-except ImportError:
-    money = sys.modules[__package__ + '.money']
+from fhirclient.models import fhirreference
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.models import identifier
 
-try:
-    from . import quantity
-except ImportError:
-    quantity = sys.modules[__package__ + '.quantity']
+from fhirclient.models import money
 
-try:
-    from . import signature
-except ImportError:
-    signature = sys.modules[__package__ + '.signature']
+from fhirclient.models import period
 
-try:
-    from . import timing
-except ImportError:
-    timing = sys.modules[__package__ + '.timing']
+from fhirclient.models import quantity
+
+from fhirclient.models import signature
+
+from fhirclient.models import timing
 

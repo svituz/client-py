@@ -5,7 +5,7 @@
 #  2020, SMART Health IT.
 
 
-from . import element
+from fhirclient.models import element
 
 class Address(element.Element):
     """ An address expressed using postal conventions (as opposed to GPS or other
@@ -71,29 +71,26 @@ class Address(element.Element):
     def elementProperties(self):
         js = super(Address, self).elementProperties()
         js.extend([
-            ("use", "use", fhirdatatypes.FHIRCode, False, None, False),
-            ("type", "type", fhirdatatypes.FHIRCode, False, None, False),
-            ("text", "text", fhirdatatypes.FHIRString, False, None, False),
-            ("line", "line", fhirdatatypes.FHIRString, True, None, False),
-            ("city", "city", fhirdatatypes.FHIRString, False, None, False),
-            ("district", "district", fhirdatatypes.FHIRString, False, None, False),
-            ("state", "state", fhirdatatypes.FHIRString, False, None, False),
-            ("postalCode", "postalCode", fhirdatatypes.FHIRString, False, None, False),
-            ("country", "country", fhirdatatypes.FHIRString, False, None, False),
-            ("period", "period", period.Period, False, None, False),
+            ("use", "use", fhirdatatypes.FHIRCode, False, None, False, addressuse.AddressUse), 
+            ("type", "type", fhirdatatypes.FHIRCode, False, None, False, addresstype.AddressType), 
+            ("text", "text", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("line", "line", fhirdatatypes.FHIRString, True, None, False, None), 
+            ("city", "city", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("district", "district", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("state", "state", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("postalCode", "postalCode", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("country", "country", fhirdatatypes.FHIRString, False, None, False, None), 
+            ("period", "period", period.Period, False, None, False, None), 
         ])
         return js
 
 
 
-import sys
-try:
-    from . import fhirdatatypes
-except ImportError:
-    fhirdatatypes = sys.modules[__package__ + '.fhirdatatypes']
+from fhirclient.codesystems import addresstype
 
-try:
-    from . import period
-except ImportError:
-    period = sys.modules[__package__ + '.period']
+from fhirclient.codesystems import addressuse
+
+from fhirclient.models import fhirdatatypes
+
+from fhirclient.models import period
 
