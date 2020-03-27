@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  Generated from FHIR {{ info.version }} ({{ profile.url }}) on {{ info.date }}.
+#  Generated from FHIR {{ info.version }} ({{ profile.url }})
 #  {{ info.year }}, SMART Health IT.
 
 {%- set imported = [] %}
