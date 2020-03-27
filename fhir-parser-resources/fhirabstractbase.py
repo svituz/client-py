@@ -246,7 +246,7 @@ class FHIRAbstractBase(object):
         # JSONify all registered properties
         found = set()
         nonoptionals = set()
-        for name, jsname, typ, is_list, of_many, not_optional in self.elementProperties():
+        for name, jsname, typ, is_list, of_many, not_optional, codeset in self.elementProperties():
             if not_optional:
                 nonoptionals.add(of_many or jsname)
 
