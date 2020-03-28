@@ -15,18 +15,19 @@ patients visit.
     URL: http://terminology.hl7.org/CodeSystem/encounter-special-arrangements
     ValueSet: http://hl7.org/fhir/ValueSet/encounter-special-arrangements
     """
-    """The patient requires a wheelchair to be made available for the encounter."""
+    # The patient requires a wheelchair to be made available for the encounter.
     WHEEL = "wheel"
-    """An additional bed made available for a person accompanying the patient, for example a parent accompanying a
-	/// child."""
+    # An additional bed made available for a person accompanying the patient, for example a parent accompanying a
+    # child.
     ADDBED = "add-bed"
-    """The patient is not fluent in the local language and requires an interpreter to be available. Refer to the
-	/// Patient.Language property for the type of interpreter required."""
+    # The patient is not fluent in the local language and requires an interpreter to be available. Refer to the
+    # Patient.Language property for the type of interpreter required.
     INT = "int"
-    """A person who accompanies a patient to provide assistive services necessary for the patient's care during the
-	/// encounter."""
+    # A person who accompanies a patient to provide assistive services necessary for the patient's care during the
+    # encounter.
     ATT = "att"
-    """The patient has a guide dog and the location used for the encounter should be able to support the presence of
-	/// the service animal."""
+    # The patient has a guide dog and the location used for the encounter should be able to support the presence of
+    # the service animal.
     DOG = "dog"
-    allowed_values = ['WHEEL', 'ADDBED', 'INT', 'ATT', 'DOG']
+
+    allowed_values = [WHEEL, ADDBED, INT, ATT, DOG]

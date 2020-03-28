@@ -14,10 +14,11 @@ class DefinitionTopic(object):
     URL: http://terminology.hl7.org/CodeSystem/definition-topic
     ValueSet: http://hl7.org/fhir/ValueSet/definition-topic
     """
-    """The definition is related to treatment of the patient."""
+    # The definition is related to treatment of the patient.
     TREATMENT = "treatment"
-    """The definition is related to education of the patient."""
+    # The definition is related to education of the patient.
     EDUCATION = "education"
-    """The definition is related to assessment of the patient."""
+    # The definition is related to assessment of the patient.
     ASSESSMENT = "assessment"
-    allowed_values = ['TREATMENT', 'EDUCATION', 'ASSESSMENT']
+
+    allowed_values = [TREATMENT, EDUCATION, ASSESSMENT]

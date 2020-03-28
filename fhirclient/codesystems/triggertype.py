@@ -14,23 +14,24 @@ class TriggerType(object):
     URL: http://hl7.org/fhir/trigger-type
     ValueSet: http://hl7.org/fhir/ValueSet/trigger-type
     """
-    """The trigger occurs in response to a specific named event, and no other information about the trigger is
-	/// specified. Named events are completely pre-coordinated, and the formal semantics of the trigger are not
-	/// provided."""
+    # The trigger occurs in response to a specific named event, and no other information about the trigger is
+    # specified. Named events are completely pre-coordinated, and the formal semantics of the trigger are not
+    # provided.
     NAMEDEVENT = "named-event"
-    """The trigger occurs at a specific time or periodically as described by a timing or schedule. A periodic event
-	/// cannot have any data elements, but may have a name assigned as a shorthand for the event."""
+    # The trigger occurs at a specific time or periodically as described by a timing or schedule. A periodic event
+    # cannot have any data elements, but may have a name assigned as a shorthand for the event.
     PERIODIC = "periodic"
-    """The trigger occurs whenever data of a particular type is changed in any way, either added, modified, or removed."""
+    # The trigger occurs whenever data of a particular type is changed in any way, either added, modified, or removed.
     DATACHANGED = "data-changed"
-    """The trigger occurs whenever data of a particular type is added."""
+    # The trigger occurs whenever data of a particular type is added.
     DATAADDED = "data-added"
-    """The trigger occurs whenever data of a particular type is modified."""
+    # The trigger occurs whenever data of a particular type is modified.
     DATAMODIFIED = "data-modified"
-    """The trigger occurs whenever data of a particular type is removed."""
+    # The trigger occurs whenever data of a particular type is removed.
     DATAREMOVED = "data-removed"
-    """The trigger occurs whenever data of a particular type is accessed."""
+    # The trigger occurs whenever data of a particular type is accessed.
     DATAACCESSED = "data-accessed"
-    """The trigger occurs whenever access to data of a particular type is completed."""
+    # The trigger occurs whenever access to data of a particular type is completed.
     DATAACCESSENDED = "data-access-ended"
-    allowed_values = ['NAMEDEVENT', 'PERIODIC', 'DATACHANGED', 'DATAADDED', 'DATAMODIFIED', 'DATAREMOVED', 'DATAACCESSED', 'DATAACCESSENDED']
+
+    allowed_values = [NAMEDEVENT, PERIODIC, DATACHANGED, DATAADDED, DATAMODIFIED, DATAREMOVED, DATAACCESSED, DATAACCESSENDED]

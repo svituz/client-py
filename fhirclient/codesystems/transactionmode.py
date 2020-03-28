@@ -14,12 +14,13 @@ class TransactionMode(object):
     URL: http://hl7.org/fhir/transaction-mode
     ValueSet: http://hl7.org/fhir/ValueSet/transaction-mode
     """
-    """Neither batch or transaction is supported."""
+    # Neither batch or transaction is supported.
     NOTSUPPORTED = "not-supported"
-    """Batches are  supported."""
+    # Batches are  supported.
     BATCH = "batch"
-    """Transactions are supported."""
+    # Transactions are supported.
     TRANSACTION = "transaction"
-    """Both batches and transactions are supported."""
+    # Both batches and transactions are supported.
     BOTH = "both"
-    allowed_values = ['NOTSUPPORTED', 'BATCH', 'TRANSACTION', 'BOTH']
+
+    allowed_values = [NOTSUPPORTED, BATCH, TRANSACTION, BOTH]

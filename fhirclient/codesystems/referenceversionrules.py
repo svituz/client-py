@@ -14,10 +14,11 @@ class ReferenceVersionRules(object):
     URL: http://hl7.org/fhir/reference-version-rules
     ValueSet: http://hl7.org/fhir/ValueSet/reference-version-rules
     """
-    """The reference may be either version independent or version specific."""
+    # The reference may be either version independent or version specific.
     EITHER = "either"
-    """The reference must be version independent."""
+    # The reference must be version independent.
     INDEPENDENT = "independent"
-    """The reference must be version specific."""
+    # The reference must be version specific.
     SPECIFIC = "specific"
-    allowed_values = ['EITHER', 'INDEPENDENT', 'SPECIFIC']
+
+    allowed_values = [EITHER, INDEPENDENT, SPECIFIC]

@@ -14,12 +14,13 @@ class ConsentScopeCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/consentscope
     ValueSet: http://hl7.org/fhir/ValueSet/consent-scope
     """
-    """Actions to be taken if they are no longer able to make decisions for themselves"""
+    # Actions to be taken if they are no longer able to make decisions for themselves
     ADR = "adr"
-    """Consent to participate in research protocol and information sharing required"""
+    # Consent to participate in research protocol and information sharing required
     RESEARCH = "research"
-    """Agreement to collect, access, use or disclose (share) information"""
+    # Agreement to collect, access, use or disclose (share) information
     PATIENTPRIVACY = "patient-privacy"
-    """Consent to undergo a specific treatment"""
+    # Consent to undergo a specific treatment
     TREATMENT = "treatment"
-    allowed_values = ['ADR', 'RESEARCH', 'PATIENTPRIVACY', 'TREATMENT']
+
+    allowed_values = [ADR, RESEARCH, PATIENTPRIVACY, TREATMENT]

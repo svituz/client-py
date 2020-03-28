@@ -14,12 +14,13 @@ class FailureAction(object):
     URL: http://terminology.hl7.org/CodeSystem/failure-action
     ValueSet: http://hl7.org/fhir/ValueSet/verificationresult-failure-action
     """
-    """fatal"""
+    # fatal
     FATAL = "fatal"
-    """warn"""
+    # warn
     WARN = "warn"
-    """recOnly"""
+    # recOnly
     RECONLY = "rec-only"
-    """none"""
+    # none
     NONE = "none"
-    allowed_values = ['FATAL', 'WARN', 'RECONLY', 'NONE']
+
+    allowed_values = [FATAL, WARN, RECONLY, NONE]

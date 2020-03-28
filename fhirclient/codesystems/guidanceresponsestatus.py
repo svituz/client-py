@@ -14,16 +14,17 @@ class GuidanceResponseStatus(object):
     URL: http://hl7.org/fhir/guidance-response-status
     ValueSet: http://hl7.org/fhir/ValueSet/guidance-response-status
     """
-    """The request was processed successfully."""
+    # The request was processed successfully.
     SUCCESS = "success"
-    """The request was processed successfully, but more data may result in a more complete evaluation."""
+    # The request was processed successfully, but more data may result in a more complete evaluation.
     DATAREQUESTED = "data-requested"
-    """The request was processed, but more data is required to complete the evaluation."""
+    # The request was processed, but more data is required to complete the evaluation.
     DATAREQUIRED = "data-required"
-    """The request is currently being processed."""
+    # The request is currently being processed.
     INPROGRESS = "in-progress"
-    """The request was not processed successfully."""
+    # The request was not processed successfully.
     FAILURE = "failure"
-    """The response was entered in error."""
+    # The response was entered in error.
     ENTEREDINERROR = "entered-in-error"
-    allowed_values = ['SUCCESS', 'DATAREQUESTED', 'DATAREQUIRED', 'INPROGRESS', 'FAILURE', 'ENTEREDINERROR']
+
+    allowed_values = [SUCCESS, DATAREQUESTED, DATAREQUIRED, INPROGRESS, FAILURE, ENTEREDINERROR]

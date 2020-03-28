@@ -14,16 +14,17 @@ class HTTPVerb(object):
     URL: http://hl7.org/fhir/http-verb
     ValueSet: http://hl7.org/fhir/ValueSet/http-verb
     """
-    """HTTP GET Command."""
+    # HTTP GET Command.
     GET = "GET"
-    """HTTP HEAD Command."""
+    # HTTP HEAD Command.
     HEAD = "HEAD"
-    """HTTP POST Command."""
+    # HTTP POST Command.
     POST = "POST"
-    """HTTP PUT Command."""
+    # HTTP PUT Command.
     PUT = "PUT"
-    """HTTP DELETE Command."""
+    # HTTP DELETE Command.
     DELETE = "DELETE"
-    """HTTP PATCH Command."""
+    # HTTP PATCH Command.
     PATCH = "PATCH"
-    allowed_values = ['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'PATCH']
+
+    allowed_values = [GET, HEAD, POST, PUT, DELETE, PATCH]

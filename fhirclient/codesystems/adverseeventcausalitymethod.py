@@ -14,10 +14,11 @@ class AdverseEventCausalityMethod(object):
     URL: http://terminology.hl7.org/CodeSystem/adverse-event-causality-method
     ValueSet: http://hl7.org/fhir/ValueSet/adverse-event-causality-method
     """
-    """probabilityScale"""
+    # probabilityScale
     PROBABILITYSCALE = "ProbabilityScale"
-    """bayesian"""
+    # bayesian
     BAYESIAN = "Bayesian"
-    """checklist"""
+    # checklist
     CHECKLIST = "Checklist"
-    allowed_values = ['PROBABILITYSCALE', 'BAYESIAN', 'CHECKLIST']
+
+    allowed_values = [PROBABILITYSCALE, BAYESIAN, CHECKLIST]

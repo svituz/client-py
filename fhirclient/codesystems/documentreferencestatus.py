@@ -14,10 +14,11 @@ class DocumentReferenceStatus(object):
     URL: http://hl7.org/fhir/document-reference-status
     ValueSet: http://hl7.org/fhir/ValueSet/document-reference-status
     """
-    """This is the current reference for this document."""
+    # This is the current reference for this document.
     CURRENT = "current"
-    """This reference has been superseded by another reference."""
+    # This reference has been superseded by another reference.
     SUPERSEDED = "superseded"
-    """This reference was created in error."""
+    # This reference was created in error.
     ENTEREDINERROR = "entered-in-error"
-    allowed_values = ['CURRENT', 'SUPERSEDED', 'ENTEREDINERROR']
+
+    allowed_values = [CURRENT, SUPERSEDED, ENTEREDINERROR]

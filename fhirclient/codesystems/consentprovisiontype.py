@@ -14,8 +14,9 @@ class ConsentProvisionType(object):
     URL: http://hl7.org/fhir/consent-provision-type
     ValueSet: http://hl7.org/fhir/ValueSet/consent-provision-type
     """
-    """Consent is denied for actions meeting these rules."""
+    # Consent is denied for actions meeting these rules.
     DENY = "deny"
-    """Consent is provided for actions meeting these rules."""
+    # Consent is provided for actions meeting these rules.
     PERMIT = "permit"
-    allowed_values = ['DENY', 'PERMIT']
+
+    allowed_values = [DENY, PERMIT]

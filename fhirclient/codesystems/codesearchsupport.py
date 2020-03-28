@@ -14,8 +14,9 @@ class CodeSearchSupport(object):
     URL: http://hl7.org/fhir/code-search-support
     ValueSet: http://hl7.org/fhir/ValueSet/code-search-support
     """
-    """The search for code on ValueSet only includes codes explicitly detailed on includes or expansions."""
+    # The search for code on ValueSet only includes codes explicitly detailed on includes or expansions.
     EXPLICIT = "explicit"
-    """The search for code on ValueSet only includes all codes based on the expansion of the value set."""
+    # The search for code on ValueSet only includes all codes based on the expansion of the value set.
     ALL = "all"
-    allowed_values = ['EXPLICIT', 'ALL']
+
+    allowed_values = [EXPLICIT, ALL]

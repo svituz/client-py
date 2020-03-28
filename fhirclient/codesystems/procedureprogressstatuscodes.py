@@ -15,16 +15,17 @@ terminology code system that consists of or contains concepts to support the pro
     URL: http://hl7.org/fhir/procedure-progress-status-code
     ValueSet: http://hl7.org/fhir/ValueSet/procedure-progress-status-codes
     """
-    """A patient is in the Operating Room."""
+    # A patient is in the Operating Room.
     INOPERATINGROOM = "in-operating-room"
-    """The patient is prepared for a procedure."""
+    # The patient is prepared for a procedure.
     PREPARED = "prepared"
-    """The patient is under anesthesia."""
+    # The patient is under anesthesia.
     ANESTHESIAINDUCED = "anesthesia-induced"
-    """The patient has open incision(s)."""
+    # The patient has open incision(s).
     OPENINCISION = "open-incision"
-    """The patient has incision(s) closed."""
+    # The patient has incision(s) closed.
     CLOSEDINCISION = "closed-incision"
-    """The patient is in the recovery room."""
+    # The patient is in the recovery room.
     INRECOVERYROOM = "in-recovery-room"
-    allowed_values = ['INOPERATINGROOM', 'PREPARED', 'ANESTHESIAINDUCED', 'OPENINCISION', 'CLOSEDINCISION', 'INRECOVERYROOM']
+
+    allowed_values = [INOPERATINGROOM, PREPARED, ANESTHESIAINDUCED, OPENINCISION, CLOSEDINCISION, INRECOVERYROOM]

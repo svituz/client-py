@@ -14,14 +14,15 @@ class ParticipationStatus(object):
     URL: http://hl7.org/fhir/participationstatus
     ValueSet: http://hl7.org/fhir/ValueSet/participationstatus
     """
-    """The participant has accepted the appointment."""
+    # The participant has accepted the appointment.
     ACCEPTED = "accepted"
-    """The participant has declined the appointment and will not participate in the appointment."""
+    # The participant has declined the appointment and will not participate in the appointment.
     DECLINED = "declined"
-    """The participant has  tentatively accepted the appointment. This could be automatically created by a system and
-	/// requires further processing before it can be accepted. There is no commitment that attendance will occur."""
+    # The participant has  tentatively accepted the appointment. This could be automatically created by a system and
+    # requires further processing before it can be accepted. There is no commitment that attendance will occur.
     TENTATIVE = "tentative"
-    """The participant needs to indicate if they accept the appointment by changing this status to one of the other
-	/// statuses."""
+    # The participant needs to indicate if they accept the appointment by changing this status to one of the other
+    # statuses.
     NEEDSACTION = "needs-action"
-    allowed_values = ['ACCEPTED', 'DECLINED', 'TENTATIVE', 'NEEDSACTION']
+
+    allowed_values = [ACCEPTED, DECLINED, TENTATIVE, NEEDSACTION]

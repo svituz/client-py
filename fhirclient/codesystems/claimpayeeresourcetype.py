@@ -14,12 +14,13 @@ class ClaimPayeeResourceType(object):
     URL: http://terminology.hl7.org/CodeSystem/ex-payee-resource-type
     ValueSet: http://hl7.org/fhir/ValueSet/ex-payee-resource-type
     """
-    """Organization resource."""
+    # Organization resource.
     ORGANIZATION = "organization"
-    """Patient resource."""
+    # Patient resource.
     PATIENT = "patient"
-    """Practitioner resource."""
+    # Practitioner resource.
     PRACTITIONER = "practitioner"
-    """RelatedPerson resource."""
+    # RelatedPerson resource.
     RELATEDPERSON = "relatedperson"
-    allowed_values = ['ORGANIZATION', 'PATIENT', 'PRACTITIONER', 'RELATEDPERSON']
+
+    allowed_values = [ORGANIZATION, PATIENT, PRACTITIONER, RELATEDPERSON]

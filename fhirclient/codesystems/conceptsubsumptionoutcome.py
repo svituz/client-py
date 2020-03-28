@@ -16,12 +16,13 @@ codes/Codings, then it returns an error (i.e. an OperationOutcome).
     URL: http://hl7.org/fhir/concept-subsumption-outcome
     ValueSet: http://hl7.org/fhir/ValueSet/concept-subsumption-outcome
     """
-    """The two concepts are equivalent (have the same properties)."""
+    # The two concepts are equivalent (have the same properties).
     EQUIVALENT = "equivalent"
-    """Coding/code "A" subsumes Coding/code "B" (e.g. B has all the properties A has, and some of it's own)."""
+    # Coding/code "A" subsumes Coding/code "B" (e.g. B has all the properties A has, and some of it's own).
     SUBSUMES = "subsumes"
-    """Coding/code "A" is subsumed by Coding/code "B" (e.g. A has all the properties B has, and some of it's own)."""
+    # Coding/code "A" is subsumed by Coding/code "B" (e.g. A has all the properties B has, and some of it's own).
     SUBSUMEDBY = "subsumed-by"
-    """Coding/code "A" and Coding/code "B" are disjoint (e.g. each has propeties that the other doesn't have)."""
+    # Coding/code "A" and Coding/code "B" are disjoint (e.g. each has propeties that the other doesn't have).
     NOTSUBSUMED = "not-subsumed"
-    allowed_values = ['EQUIVALENT', 'SUBSUMES', 'SUBSUMEDBY', 'NOTSUBSUMED']
+
+    allowed_values = [EQUIVALENT, SUBSUMES, SUBSUMEDBY, NOTSUBSUMED]

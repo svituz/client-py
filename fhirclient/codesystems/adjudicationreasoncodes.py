@@ -14,8 +14,9 @@ class AdjudicationReasonCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/adjudication-reason
     ValueSet: http://hl7.org/fhir/ValueSet/adjudication-reason
     """
-    """Not covered"""
+    # Not covered
     AR001 = "ar001"
-    """Plan Limit Reached"""
+    # Plan Limit Reached
     AR002 = "ar002"
-    allowed_values = ['AR001', 'AR002']
+
+    allowed_values = [AR001, AR002]

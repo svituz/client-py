@@ -14,8 +14,9 @@ class EventCapabilityMode(object):
     URL: http://hl7.org/fhir/event-capability-mode
     ValueSet: http://hl7.org/fhir/ValueSet/event-capability-mode
     """
-    """The application sends requests and receives responses."""
+    # The application sends requests and receives responses.
     SENDER = "sender"
-    """The application receives requests and sends responses."""
+    # The application receives requests and sends responses.
     RECEIVER = "receiver"
-    allowed_values = ['SENDER', 'RECEIVER']
+
+    allowed_values = [SENDER, RECEIVER]

@@ -14,12 +14,13 @@ class FinancialResourceStatusCodes(object):
     URL: http://hl7.org/fhir/fm-status
     ValueSet: http://hl7.org/fhir/ValueSet/fm-status
     """
-    """The instance is currently in-force."""
+    # The instance is currently in-force.
     ACTIVE = "active"
-    """The instance is withdrawn, rescinded or reversed."""
+    # The instance is withdrawn, rescinded or reversed.
     CANCELLED = "cancelled"
-    """A new instance the contents of which is not complete."""
+    # A new instance the contents of which is not complete.
     DRAFT = "draft"
-    """The instance was entered in error."""
+    # The instance was entered in error.
     ENTEREDINERROR = "entered-in-error"
-    allowed_values = ['ACTIVE', 'CANCELLED', 'DRAFT', 'ENTEREDINERROR']
+
+    allowed_values = [ACTIVE, CANCELLED, DRAFT, ENTEREDINERROR]

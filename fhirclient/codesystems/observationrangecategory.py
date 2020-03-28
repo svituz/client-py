@@ -14,10 +14,11 @@ class ObservationRangeCategory(object):
     URL: http://hl7.org/fhir/observation-range-category
     ValueSet: http://hl7.org/fhir/ValueSet/observation-range-category
     """
-    """Reference (Normal) Range for Ordinal and Continuous Observations."""
+    # Reference (Normal) Range for Ordinal and Continuous Observations.
     REFERENCE = "reference"
-    """Critical Range for Ordinal and Continuous Observations."""
+    # Critical Range for Ordinal and Continuous Observations.
     CRITICAL = "critical"
-    """Absolute Range for Ordinal and Continuous Observations. Results outside this range are not possible."""
+    # Absolute Range for Ordinal and Continuous Observations. Results outside this range are not possible.
     ABSOLUTE = "absolute"
-    allowed_values = ['REFERENCE', 'CRITICAL', 'ABSOLUTE']
+
+    allowed_values = [REFERENCE, CRITICAL, ABSOLUTE]

@@ -14,12 +14,13 @@ class AllergyIntoleranceCriticality(object):
     URL: http://hl7.org/fhir/allergy-intolerance-criticality
     ValueSet: http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality
     """
-    """Worst case result of a future exposure is not assessed to be life-threatening or having high potential for organ
-	/// system failure."""
+    # Worst case result of a future exposure is not assessed to be life-threatening or having high potential for organ
+    # system failure.
     LOW = "low"
-    """Worst case result of a future exposure is assessed to be life-threatening or having high potential for organ
-	/// system failure."""
+    # Worst case result of a future exposure is assessed to be life-threatening or having high potential for organ
+    # system failure.
     HIGH = "high"
-    """Unable to assess the worst case result of a future exposure."""
+    # Unable to assess the worst case result of a future exposure.
     UNABLETOASSESS = "unable-to-assess"
-    allowed_values = ['LOW', 'HIGH', 'UNABLETOASSESS']
+
+    allowed_values = [LOW, HIGH, UNABLETOASSESS]

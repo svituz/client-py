@@ -15,18 +15,19 @@ EpisodeOfCare record.
     URL: http://terminology.hl7.org/CodeSystem/diagnosis-role
     ValueSet: http://hl7.org/fhir/ValueSet/diagnosis-role
     """
-    """AD"""
+    # AD
     AD = "AD"
-    """DD"""
+    # DD
     DD = "DD"
-    """CC"""
+    # CC
     CC = "CC"
-    """CM"""
+    # CM
     CM = "CM"
-    """preOp"""
+    # preOp
     PREOP = "pre-op"
-    """postOp"""
+    # postOp
     POSTOP = "post-op"
-    """billing"""
+    # billing
     BILLING = "billing"
-    allowed_values = ['AD', 'DD', 'CC', 'CM', 'PREOP', 'POSTOP', 'BILLING']
+
+    allowed_values = [AD, DD, CC, CM, PREOP, POSTOP, BILLING]

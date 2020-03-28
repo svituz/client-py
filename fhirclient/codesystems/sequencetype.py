@@ -14,10 +14,11 @@ class SequenceType(object):
     URL: http://hl7.org/fhir/sequence-type
     ValueSet: http://hl7.org/fhir/ValueSet/sequence-type
     """
-    """Amino acid sequence."""
+    # Amino acid sequence.
     AA = "aa"
-    """DNA Sequence."""
+    # DNA Sequence.
     DNA = "dna"
-    """RNA Sequence."""
+    # RNA Sequence.
     RNA = "rna"
-    allowed_values = ['AA', 'DNA', 'RNA']
+
+    allowed_values = [AA, DNA, RNA]

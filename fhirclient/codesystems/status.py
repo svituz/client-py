@@ -14,16 +14,17 @@ class Status(object):
     URL: http://hl7.org/fhir/CodeSystem/status
     ValueSet: http://hl7.org/fhir/ValueSet/verificationresult-status
     """
-    """***TODO***"""
+    # ***TODO***
     ATTESTED = "attested"
-    """***TODO***"""
+    # ***TODO***
     VALIDATED = "validated"
-    """***TODO***"""
+    # ***TODO***
     INPROCESS = "in-process"
-    """***TODO***"""
+    # ***TODO***
     REQREVALID = "req-revalid"
-    """***TODO***"""
+    # ***TODO***
     VALFAIL = "val-fail"
-    """***TODO***"""
+    # ***TODO***
     REVALFAIL = "reval-fail"
-    allowed_values = ['ATTESTED', 'VALIDATED', 'INPROCESS', 'REQREVALID', 'VALFAIL', 'REVALFAIL']
+
+    allowed_values = [ATTESTED, VALIDATED, INPROCESS, REQREVALID, VALFAIL, REVALFAIL]

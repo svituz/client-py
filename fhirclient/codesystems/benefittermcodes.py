@@ -14,10 +14,11 @@ class BenefitTermCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/benefit-term
     ValueSet: http://hl7.org/fhir/ValueSet/benefit-term
     """
-    """Annual, renewing on the anniversary"""
+    # Annual, renewing on the anniversary
     ANNUAL = "annual"
-    """Per day"""
+    # Per day
     DAY = "day"
-    """For the total term, lifetime, of the policy or coverage"""
+    # For the total term, lifetime, of the policy or coverage
     LIFETIME = "lifetime"
-    allowed_values = ['ANNUAL', 'DAY', 'LIFETIME']
+
+    allowed_values = [ANNUAL, DAY, LIFETIME]

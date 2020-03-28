@@ -15,8 +15,9 @@ institutional there may be subtypes for emergency services, bed stay and transpo
     URL: http://terminology.hl7.org/CodeSystem/ex-claimsubtype
     ValueSet: http://hl7.org/fhir/ValueSet/claim-subtype
     """
-    """A claim for Orthodontic Services."""
+    # A claim for Orthodontic Services.
     ORTHO = "ortho"
-    """A claim for emergency services."""
+    # A claim for emergency services.
     EMERGENCY = "emergency"
-    allowed_values = ['ORTHO', 'EMERGENCY']
+
+    allowed_values = [ORTHO, EMERGENCY]

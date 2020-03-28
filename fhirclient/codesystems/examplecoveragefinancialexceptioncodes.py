@@ -14,8 +14,9 @@ class ExampleCoverageFinancialExceptionCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/ex-coverage-financial-exception
     ValueSet: http://hl7.org/fhir/ValueSet/coverage-financial-exception
     """
-    """Retired persons have all copays and deductibles reduced."""
+    # Retired persons have all copays and deductibles reduced.
     RETIRED = "retired"
-    """Children in the foster care have all copays and deductibles waived."""
+    # Children in the foster care have all copays and deductibles waived.
     FOSTER = "foster"
-    allowed_values = ['RETIRED', 'FOSTER']
+
+    allowed_values = [RETIRED, FOSTER]

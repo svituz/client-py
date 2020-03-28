@@ -14,12 +14,13 @@ class DeviceMetricCalibrationState(object):
     URL: http://hl7.org/fhir/metric-calibration-state
     ValueSet: http://hl7.org/fhir/ValueSet/metric-calibration-state
     """
-    """The metric has not been calibrated."""
+    # The metric has not been calibrated.
     NOTCALIBRATED = "not-calibrated"
-    """The metric needs to be calibrated."""
+    # The metric needs to be calibrated.
     CALIBRATIONREQUIRED = "calibration-required"
-    """The metric has been calibrated."""
+    # The metric has been calibrated.
     CALIBRATED = "calibrated"
-    """The state of calibration of this metric is unspecified."""
+    # The state of calibration of this metric is unspecified.
     UNSPECIFIED = "unspecified"
-    allowed_values = ['NOTCALIBRATED', 'CALIBRATIONREQUIRED', 'CALIBRATED', 'UNSPECIFIED']
+
+    allowed_values = [NOTCALIBRATED, CALIBRATIONREQUIRED, CALIBRATED, UNSPECIFIED]

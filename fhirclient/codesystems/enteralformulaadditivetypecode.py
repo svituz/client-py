@@ -15,14 +15,15 @@ provided in addition to or mixed with the base formula. This value set is provid
     URL: http://terminology.hl7.org/CodeSystem/entformula-additive
     ValueSet: http://hl7.org/fhir/ValueSet/entformula-additive
     """
-    """Modular lipid enteral formula component"""
+    # Modular lipid enteral formula component
     LIPID = "lipid"
-    """Modular protein enteral formula component"""
+    # Modular protein enteral formula component
     PROTEIN = "protein"
-    """Modular carbohydrate enteral formula component"""
+    # Modular carbohydrate enteral formula component
     CARBOHYDRATE = "carbohydrate"
-    """Modular fiber enteral formula component"""
+    # Modular fiber enteral formula component
     FIBER = "fiber"
-    """Added water"""
+    # Added water
     WATER = "water"
-    allowed_values = ['LIPID', 'PROTEIN', 'CARBOHYDRATE', 'FIBER', 'WATER']
+
+    allowed_values = [LIPID, PROTEIN, CARBOHYDRATE, FIBER, WATER]

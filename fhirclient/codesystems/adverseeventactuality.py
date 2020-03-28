@@ -14,8 +14,9 @@ class AdverseEventActuality(object):
     URL: http://hl7.org/fhir/adverse-event-actuality
     ValueSet: http://hl7.org/fhir/ValueSet/adverse-event-actuality
     """
-    """The adverse event actually happened regardless of whether anyone was affected or harmed."""
+    # The adverse event actually happened regardless of whether anyone was affected or harmed.
     ACTUAL = "actual"
-    """A potential adverse event."""
+    # A potential adverse event.
     POTENTIAL = "potential"
-    allowed_values = ['ACTUAL', 'POTENTIAL']
+
+    allowed_values = [ACTUAL, POTENTIAL]

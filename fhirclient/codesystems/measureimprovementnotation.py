@@ -15,9 +15,10 @@ measured item or scored issue.
     URL: http://terminology.hl7.org/CodeSystem/measure-improvement-notation
     ValueSet: http://hl7.org/fhir/ValueSet/measure-improvement-notation
     """
-    """Improvement is indicated as an increase in the score or measurement (e.g. Higher score indicates better
-	/// quality)."""
+    # Improvement is indicated as an increase in the score or measurement (e.g. Higher score indicates better
+    # quality).
     INCREASE = "increase"
-    """Improvement is indicated as a decrease in the score or measurement (e.g. Lower score indicates better quality)."""
+    # Improvement is indicated as a decrease in the score or measurement (e.g. Lower score indicates better quality).
     DECREASE = "decrease"
-    allowed_values = ['INCREASE', 'DECREASE']
+
+    allowed_values = [INCREASE, DECREASE]

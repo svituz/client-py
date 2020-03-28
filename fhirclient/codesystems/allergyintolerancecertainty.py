@@ -15,14 +15,15 @@ reaction event.
     URL: http://terminology.hl7.org/CodeSystem/reaction-event-certainty
     ValueSet: http://hl7.org/fhir/ValueSet/reaction-event-certainty
     """
-    """There is a low level of clinical certainty that the reaction was caused by the identified substance."""
+    # There is a low level of clinical certainty that the reaction was caused by the identified substance.
     UNLIKELY = "unlikely"
-    """There is a high level of clinical certainty that the reaction was caused by the identified substance."""
+    # There is a high level of clinical certainty that the reaction was caused by the identified substance.
     LIKELY = "likely"
-    """There is a very high level of clinical certainty that the reaction was due to the identified substance, which
-	/// may include clinical evidence by testing or rechallenge."""
+    # There is a very high level of clinical certainty that the reaction was due to the identified substance, which
+    # may include clinical evidence by testing or rechallenge.
     CONFIRMED = "confirmed"
-    """The clinical certainty that the reaction was caused by the identified substance is unknown.  It is an explicit
-	/// assertion that certainty is not known."""
+    # The clinical certainty that the reaction was caused by the identified substance is unknown.  It is an explicit
+    # assertion that certainty is not known.
     UNKNOWN = "unknown"
-    allowed_values = ['UNLIKELY', 'LIKELY', 'CONFIRMED', 'UNKNOWN']
+
+    allowed_values = [UNLIKELY, LIKELY, CONFIRMED, UNKNOWN]

@@ -14,10 +14,11 @@ class CanPushUpdates(object):
     URL: http://terminology.hl7.org/CodeSystem/can-push-updates
     ValueSet: http://hl7.org/fhir/ValueSet/verificationresult-can-push-updates
     """
-    """yes"""
+    # yes
     YES = "yes"
-    """no"""
+    # no
     NO = "no"
-    """undetermined"""
+    # undetermined
     UNDETERMINED = "undetermined"
-    allowed_values = ['YES', 'NO', 'UNDETERMINED']
+
+    allowed_values = [YES, NO, UNDETERMINED]

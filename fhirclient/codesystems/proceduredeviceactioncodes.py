@@ -14,10 +14,11 @@ class ProcedureDeviceActionCodes(object):
 complete and might not even be appropriate for some uses.
     URL: http://hl7.org/fhir/device-action
     """
-    """The device was implanted in the patient during the procedure."""
+    # The device was implanted in the patient during the procedure.
     IMPLANTED = "implanted"
-    """The device was explanted from the patient during the procedure."""
+    # The device was explanted from the patient during the procedure.
     EXPLANTED = "explanted"
-    """The device remains in the patient, but its location, settings, or functionality was changed."""
+    # The device remains in the patient, but its location, settings, or functionality was changed.
     MANIPULATED = "manipulated"
-    allowed_values = ['IMPLANTED', 'EXPLANTED', 'MANIPULATED']
+
+    allowed_values = [IMPLANTED, EXPLANTED, MANIPULATED]

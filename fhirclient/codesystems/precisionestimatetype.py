@@ -14,12 +14,13 @@ class PrecisionEstimateType(object):
     URL: http://terminology.hl7.org/CodeSystem/precision-estimate-type
     ValueSet: http://hl7.org/fhir/ValueSet/precision-estimate-type
     """
-    """confidence interval."""
+    # confidence interval.
     CI = "CI"
-    """interquartile range."""
+    # interquartile range.
     IQR = "IQR"
-    """standard deviation."""
+    # standard deviation.
     SD = "SD"
-    """standard error."""
+    # standard error.
     SE = "SE"
-    allowed_values = ['CI', 'IQR', 'SD', 'SE']
+
+    allowed_values = [CI, IQR, SD, SE]

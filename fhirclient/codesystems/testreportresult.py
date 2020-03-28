@@ -14,10 +14,11 @@ class TestReportResult(object):
     URL: http://hl7.org/fhir/report-result-codes
     ValueSet: http://hl7.org/fhir/ValueSet/report-result-codes
     """
-    """All test operations successfully passed all asserts."""
+    # All test operations successfully passed all asserts.
     PASS = "pass"
-    """One or more test operations failed one or more asserts."""
+    # One or more test operations failed one or more asserts.
     FAIL = "fail"
-    """One or more test operations is pending execution completion."""
+    # One or more test operations is pending execution completion.
     PENDING = "pending"
-    allowed_values = ['PASS', 'FAIL', 'PENDING']
+
+    allowed_values = [PASS, FAIL, PENDING]

@@ -14,23 +14,24 @@ class ExampleUseCodesForList(object):
     URL: http://terminology.hl7.org/CodeSystem/list-example-use-codes
     ValueSet: http://hl7.org/fhir/ValueSet/list-example-codes
     """
-    """A list of alerts for the patient."""
+    # A list of alerts for the patient.
     ALERTS = "alerts"
-    """A list of part adverse reactions."""
+    # A list of part adverse reactions.
     ADVERSERXNS = "adverserxns"
-    """A list of Allergies for the patient."""
+    # A list of Allergies for the patient.
     ALLERGIES = "allergies"
-    """A list of medication statements for the patient."""
+    # A list of medication statements for the patient.
     MEDICATIONS = "medications"
-    """A list of problems that the patient is known of have (or have had in the past)."""
+    # A list of problems that the patient is known of have (or have had in the past).
     PROBLEMS = "problems"
-    """A list of items that constitute a set of work to be performed (typically this code would be specialized for more
-	/// specific uses, such as a ward round list)."""
+    # A list of items that constitute a set of work to be performed (typically this code would be specialized for more
+    # specific uses, such as a ward round list).
     WORKLIST = "worklist"
-    """A list of items waiting for an event (perhaps a surgical patient waiting list)."""
+    # A list of items waiting for an event (perhaps a surgical patient waiting list).
     WAITING = "waiting"
-    """A set of protocols to be followed."""
+    # A set of protocols to be followed.
     PROTOCOLS = "protocols"
-    """A set of care plans that apply in a particular context of care."""
+    # A set of care plans that apply in a particular context of care.
     PLANS = "plans"
-    allowed_values = ['ALERTS', 'ADVERSERXNS', 'ALLERGIES', 'MEDICATIONS', 'PROBLEMS', 'WORKLIST', 'WAITING', 'PROTOCOLS', 'PLANS']
+
+    allowed_values = [ALERTS, ADVERSERXNS, ALLERGIES, MEDICATIONS, PROBLEMS, WORKLIST, WAITING, PROTOCOLS, PLANS]

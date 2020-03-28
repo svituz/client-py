@@ -14,14 +14,15 @@ class TestReportActionResult(object):
     URL: http://hl7.org/fhir/report-action-result-codes
     ValueSet: http://hl7.org/fhir/ValueSet/report-action-result-codes
     """
-    """The action was successful."""
+    # The action was successful.
     PASS = "pass"
-    """The action was skipped."""
+    # The action was skipped.
     SKIP = "skip"
-    """The action failed."""
+    # The action failed.
     FAIL = "fail"
-    """The action passed but with warnings."""
+    # The action passed but with warnings.
     WARNING = "warning"
-    """The action encountered a fatal error and the engine was unable to process."""
+    # The action encountered a fatal error and the engine was unable to process.
     ERROR = "error"
-    allowed_values = ['PASS', 'SKIP', 'FAIL', 'WARNING', 'ERROR']
+
+    allowed_values = [PASS, SKIP, FAIL, WARNING, ERROR]

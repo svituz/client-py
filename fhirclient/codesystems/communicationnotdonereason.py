@@ -14,16 +14,17 @@ class CommunicationNotDoneReason(object):
     URL: http://terminology.hl7.org/CodeSystem/communication-not-done-reason
     ValueSet: http://hl7.org/fhir/ValueSet/communication-not-done-reason
     """
-    """The communication was not done due to an unknown reason."""
+    # The communication was not done due to an unknown reason.
     UNKNOWN = "unknown"
-    """The communication was not done due to a system error."""
+    # The communication was not done due to a system error.
     SYSTEMERROR = "system-error"
-    """The communication was not done due to an invalid phone number."""
+    # The communication was not done due to an invalid phone number.
     INVALIDPHONENUMBER = "invalid-phone-number"
-    """The communication was not done due to the recipient being unavailable."""
+    # The communication was not done due to the recipient being unavailable.
     RECIPIENTUNAVAILABLE = "recipient-unavailable"
-    """The communication was not done due to a family objection."""
+    # The communication was not done due to a family objection.
     FAMILYOBJECTION = "family-objection"
-    """The communication was not done due to a patient objection."""
+    # The communication was not done due to a patient objection.
     PATIENTOBJECTION = "patient-objection"
-    allowed_values = ['UNKNOWN', 'SYSTEMERROR', 'INVALIDPHONENUMBER', 'RECIPIENTUNAVAILABLE', 'FAMILYOBJECTION', 'PATIENTOBJECTION']
+
+    allowed_values = [UNKNOWN, SYSTEMERROR, INVALIDPHONENUMBER, RECIPIENTUNAVAILABLE, FAMILYOBJECTION, PATIENTOBJECTION]

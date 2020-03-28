@@ -14,8 +14,9 @@ class AbstractType(object):
 specializations actually are created.
     URL: http://hl7.org/fhir/abstract-types
     """
-    """A place holder that means any kind of data type"""
+    # A place holder that means any kind of data type
     TYPE = "Type"
-    """A place holder that means any kind of resource"""
+    # A place holder that means any kind of resource
     ANY = "Any"
-    allowed_values = ['TYPE', 'ANY']
+
+    allowed_values = [TYPE, ANY]

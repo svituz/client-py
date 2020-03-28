@@ -15,10 +15,11 @@ reproductive organs.
     URL: http://hl7.org/fhir/animal-genderstatus
     ValueSet: http://hl7.org/fhir/ValueSet/animal-genderstatus
     """
-    """The animal has been sterilized, castrated or otherwise made infertile."""
+    # The animal has been sterilized, castrated or otherwise made infertile.
     NEUTERED = "neutered"
-    """The animal's reproductive organs are intact."""
+    # The animal's reproductive organs are intact.
     INTACT = "intact"
-    """Unable to determine whether the animal has been neutered."""
+    # Unable to determine whether the animal has been neutered.
     UNKNOWN = "unknown"
-    allowed_values = ['NEUTERED', 'INTACT', 'UNKNOWN']
+
+    allowed_values = [NEUTERED, INTACT, UNKNOWN]

@@ -14,8 +14,9 @@ class GraphCompartmentUse(object):
     URL: http://hl7.org/fhir/graph-compartment-use
     ValueSet: http://hl7.org/fhir/ValueSet/graph-compartment-use
     """
-    """This compartment rule is a condition for whether the rule applies."""
+    # This compartment rule is a condition for whether the rule applies.
     CONDITION = "condition"
-    """This compartment rule is enforced on any relationships that meet the conditions."""
+    # This compartment rule is enforced on any relationships that meet the conditions.
     REQUIREMENT = "requirement"
-    allowed_values = ['CONDITION', 'REQUIREMENT']
+
+    allowed_values = [CONDITION, REQUIREMENT]

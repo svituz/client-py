@@ -14,10 +14,11 @@ class LocationStatus(object):
     URL: http://hl7.org/fhir/location-status
     ValueSet: http://hl7.org/fhir/ValueSet/location-status
     """
-    """The location is operational."""
+    # The location is operational.
     ACTIVE = "active"
-    """The location is temporarily closed."""
+    # The location is temporarily closed.
     SUSPENDED = "suspended"
-    """The location is no longer used."""
+    # The location is no longer used.
     INACTIVE = "inactive"
-    allowed_values = ['ACTIVE', 'SUSPENDED', 'INACTIVE']
+
+    allowed_values = [ACTIVE, SUSPENDED, INACTIVE]

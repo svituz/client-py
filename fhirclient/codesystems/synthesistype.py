@@ -14,17 +14,18 @@ class SynthesisType(object):
     URL: http://terminology.hl7.org/CodeSystem/synthesis-type
     ValueSet: http://hl7.org/fhir/ValueSet/synthesis-type
     """
-    """A meta-analysis of the summary data of estimates from individual studies or data sets."""
+    # A meta-analysis of the summary data of estimates from individual studies or data sets.
     STDMA = "std-MA"
-    """A meta-analysis of the individual participant data from individual studies or data sets."""
+    # A meta-analysis of the individual participant data from individual studies or data sets.
     IPDMA = "IPD-MA"
-    """An indirect meta-analysis derived from 2 or more direct comparisons in a network meta-analysis."""
+    # An indirect meta-analysis derived from 2 or more direct comparisons in a network meta-analysis.
     INDIRECTNMA = "indirect-NMA"
-    """An composite meta-analysis derived from direct comparisons and indirect comparisons in a network meta-analysis."""
+    # An composite meta-analysis derived from direct comparisons and indirect comparisons in a network meta-analysis.
     COMBINEDNMA = "combined-NMA"
-    """A range of results across a body of evidence."""
+    # A range of results across a body of evidence.
     RANGE = "range"
-    """An approach describing a body of evidence by categorically classifying individual studies (eg 3 studies showed
-	/// beneft and 2 studied found no effect)."""
+    # An approach describing a body of evidence by categorically classifying individual studies (eg 3 studies showed
+    # beneft and 2 studied found no effect).
     CLASSIFICATION = "classification"
-    allowed_values = ['STDMA', 'IPDMA', 'INDIRECTNMA', 'COMBINEDNMA', 'RANGE', 'CLASSIFICATION']
+
+    allowed_values = [STDMA, IPDMA, INDIRECTNMA, COMBINEDNMA, RANGE, CLASSIFICATION]

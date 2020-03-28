@@ -14,16 +14,17 @@ class CommunicationTopic(object):
     URL: http://terminology.hl7.org/CodeSystem/communication-topic
     ValueSet: http://hl7.org/fhir/ValueSet/communication-topic
     """
-    """The purpose or content of the communication is a prescription refill request."""
+    # The purpose or content of the communication is a prescription refill request.
     PRESCRIPTIONREFILLREQUEST = "prescription-refill-request"
-    """The purpose or content of the communication is a progress update."""
+    # The purpose or content of the communication is a progress update.
     PROGRESSUPDATE = "progress-update"
-    """The purpose or content of the communication is to report labs."""
+    # The purpose or content of the communication is to report labs.
     REPORTLABS = "report-labs"
-    """The purpose or content of the communication is an appointment reminder."""
+    # The purpose or content of the communication is an appointment reminder.
     APPOINTMENTREMINDER = "appointment-reminder"
-    """The purpose or content of the communication is a phone consult."""
+    # The purpose or content of the communication is a phone consult.
     PHONECONSULT = "phone-consult"
-    """The purpose or content of the communication is a summary report."""
+    # The purpose or content of the communication is a summary report.
     SUMMARYREPORT = "summary-report"
-    allowed_values = ['PRESCRIPTIONREFILLREQUEST', 'PROGRESSUPDATE', 'REPORTLABS', 'APPOINTMENTREMINDER', 'PHONECONSULT', 'SUMMARYREPORT']
+
+    allowed_values = [PRESCRIPTIONREFILLREQUEST, PROGRESSUPDATE, REPORTLABS, APPOINTMENTREMINDER, PHONECONSULT, SUMMARYREPORT]

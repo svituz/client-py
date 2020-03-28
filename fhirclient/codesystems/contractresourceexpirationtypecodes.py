@@ -14,6 +14,7 @@ class ContractResourceExpirationTypeCodes(object):
     URL: http://hl7.org/fhir/contract-expiration-type
     ValueSet: http://hl7.org/fhir/ValueSet/contract-expiration-type
     """
-    """To be completed"""
+    # To be completed
     BREACH = "breach"
-    allowed_values = ['BREACH']
+
+    allowed_values = [BREACH]

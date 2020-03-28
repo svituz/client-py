@@ -14,10 +14,11 @@ class AddressType(object):
     URL: http://hl7.org/fhir/address-type
     ValueSet: http://hl7.org/fhir/ValueSet/address-type
     """
-    """Mailing addresses - PO Boxes and care-of addresses."""
+    # Mailing addresses - PO Boxes and care-of addresses.
     POSTAL = "postal"
-    """A physical address that can be visited."""
+    # A physical address that can be visited.
     PHYSICAL = "physical"
-    """An address that is both physical and postal."""
+    # An address that is both physical and postal.
     BOTH = "both"
-    allowed_values = ['POSTAL', 'PHYSICAL', 'BOTH']
+
+    allowed_values = [POSTAL, PHYSICAL, BOTH]

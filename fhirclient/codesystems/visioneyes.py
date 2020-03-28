@@ -14,8 +14,9 @@ class VisionEyes(object):
     URL: http://hl7.org/fhir/vision-eye-codes
     ValueSet: http://hl7.org/fhir/ValueSet/vision-eye-codes
     """
-    """Right Eye."""
+    # Right Eye.
     RIGHT = "right"
-    """Left Eye."""
+    # Left Eye.
     LEFT = "left"
-    allowed_values = ['RIGHT', 'LEFT']
+
+    allowed_values = [RIGHT, LEFT]

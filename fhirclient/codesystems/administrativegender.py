@@ -14,12 +14,13 @@ class AdministrativeGender(object):
     URL: http://hl7.org/fhir/administrative-gender
     ValueSet: http://hl7.org/fhir/ValueSet/administrative-gender
     """
-    """Male."""
+    # Male.
     MALE = "male"
-    """Female."""
+    # Female.
     FEMALE = "female"
-    """Other."""
+    # Other.
     OTHER = "other"
-    """Unknown."""
+    # Unknown.
     UNKNOWN = "unknown"
-    allowed_values = ['MALE', 'FEMALE', 'OTHER', 'UNKNOWN']
+
+    allowed_values = [MALE, FEMALE, OTHER, UNKNOWN]

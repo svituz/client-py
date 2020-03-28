@@ -14,8 +14,9 @@ class ChoiceListOrientation(object):
     URL: http://terminology.hl7.org/CodeSystem/choice-list-orientation
     ValueSet: http://hl7.org/fhir/ValueSet/choice-list-orientation
     """
-    """List choices along the horizontal axis."""
+    # List choices along the horizontal axis.
     HORIZONTAL = "horizontal"
-    """List choices down the vertical axis."""
+    # List choices down the vertical axis.
     VERTICAL = "vertical"
-    allowed_values = ['HORIZONTAL', 'VERTICAL']
+
+    allowed_values = [HORIZONTAL, VERTICAL]

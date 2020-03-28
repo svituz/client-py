@@ -14,18 +14,19 @@ class FinancialTaskInputTypeCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/financialtaskinputtype
     ValueSet: http://hl7.org/fhir/ValueSet/financial-taskinputtype
     """
-    """The name of a resource to include in a selection."""
+    # The name of a resource to include in a selection.
     INCLUDE = "include"
-    """The name of a resource to not include in a selection."""
+    # The name of a resource to not include in a selection.
     EXCLUDE = "exclude"
-    """A reference to the response resource to the original processing of a resource."""
+    # A reference to the response resource to the original processing of a resource.
     ORIGRESPONSE = "origresponse"
-    """A reference value which must be quoted to authorize an action."""
+    # A reference value which must be quoted to authorize an action.
     REFERENCE = "reference"
-    """The sequence number associated with an item for reprocessing."""
+    # The sequence number associated with an item for reprocessing.
     ITEM = "item"
-    """The reference period for the action being requested."""
+    # The reference period for the action being requested.
     PERIOD = "period"
-    """The processing status from a check on the processing status of a resource such as the adjudication of a claim."""
+    # The processing status from a check on the processing status of a resource such as the adjudication of a claim.
     STATUS = "status"
-    allowed_values = ['INCLUDE', 'EXCLUDE', 'ORIGRESPONSE', 'REFERENCE', 'ITEM', 'PERIOD', 'STATUS']
+
+    allowed_values = [INCLUDE, EXCLUDE, ORIGRESPONSE, REFERENCE, ITEM, PERIOD, STATUS]

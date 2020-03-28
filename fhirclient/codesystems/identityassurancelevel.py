@@ -14,12 +14,13 @@ class IdentityAssuranceLevel(object):
     URL: http://hl7.org/fhir/identity-assuranceLevel
     ValueSet: http://hl7.org/fhir/ValueSet/identity-assuranceLevel
     """
-    """Little or no confidence in the asserted identity's accuracy."""
+    # Little or no confidence in the asserted identity's accuracy.
     LEVEL1 = "level1"
-    """Some confidence in the asserted identity's accuracy."""
+    # Some confidence in the asserted identity's accuracy.
     LEVEL2 = "level2"
-    """High confidence in the asserted identity's accuracy."""
+    # High confidence in the asserted identity's accuracy.
     LEVEL3 = "level3"
-    """Very high confidence in the asserted identity's accuracy."""
+    # Very high confidence in the asserted identity's accuracy.
     LEVEL4 = "level4"
-    allowed_values = ['LEVEL1', 'LEVEL2', 'LEVEL3', 'LEVEL4']
+
+    allowed_values = [LEVEL1, LEVEL2, LEVEL3, LEVEL4]

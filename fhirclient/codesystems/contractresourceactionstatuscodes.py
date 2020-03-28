@@ -14,6 +14,7 @@ class ContractResourceActionStatusCodes(object):
     URL: http://hl7.org/fhir/contract-action-status
     ValueSet: http://hl7.org/fhir/ValueSet/contract-actionstatus
     """
-    """To be completed"""
+    # To be completed
     COMPLETE = "complete"
-    allowed_values = ['COMPLETE']
+
+    allowed_values = [COMPLETE]

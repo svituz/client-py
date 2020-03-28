@@ -14,10 +14,11 @@ class ServiceProvisionConditions(object):
     URL: http://terminology.hl7.org/CodeSystem/service-provision-conditions
     ValueSet: http://hl7.org/fhir/ValueSet/service-provision-conditions
     """
-    """This service is available for no patient cost."""
+    # This service is available for no patient cost.
     FREE = "free"
-    """There are discounts available on this service for qualifying patients."""
+    # There are discounts available on this service for qualifying patients.
     DISC = "disc"
-    """Fees apply for this service."""
+    # Fees apply for this service.
     COST = "cost"
-    allowed_values = ['FREE', 'DISC', 'COST']
+
+    allowed_values = [FREE, DISC, COST]

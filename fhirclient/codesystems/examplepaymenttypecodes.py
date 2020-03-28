@@ -14,8 +14,9 @@ class ExamplePaymentTypeCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/ex-paymenttype
     ValueSet: http://hl7.org/fhir/ValueSet/ex-paymenttype
     """
-    """Complete (final) payment of the benefit under the Claim less any adjustments."""
+    # Complete (final) payment of the benefit under the Claim less any adjustments.
     COMPLETE = "complete"
-    """Partial payment of the benefit under the Claim less any adjustments."""
+    # Partial payment of the benefit under the Claim less any adjustments.
     PARTIAL = "partial"
-    allowed_values = ['COMPLETE', 'PARTIAL']
+
+    allowed_values = [COMPLETE, PARTIAL]

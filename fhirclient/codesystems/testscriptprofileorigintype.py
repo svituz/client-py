@@ -15,8 +15,9 @@ origin within a TestScript.
     URL: http://terminology.hl7.org/CodeSystem/testscript-profile-origin-types
     ValueSet: http://hl7.org/fhir/ValueSet/testscript-profile-origin-types
     """
-    """General FHIR client used to initiate operations against a FHIR server."""
+    # General FHIR client used to initiate operations against a FHIR server.
     FHIRCLIENT = "FHIR-Client"
-    """A FHIR client acting as a Structured Data Capture Form Filler."""
+    # A FHIR client acting as a Structured Data Capture Form Filler.
     FHIRSDCFORMFILLER = "FHIR-SDC-FormFiller"
-    allowed_values = ['FHIRCLIENT', 'FHIRSDCFORMFILLER']
+
+    allowed_values = [FHIRCLIENT, FHIRSDCFORMFILLER]

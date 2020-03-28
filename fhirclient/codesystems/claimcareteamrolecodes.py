@@ -14,12 +14,13 @@ class ClaimCareTeamRoleCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/claimcareteamrole
     ValueSet: http://hl7.org/fhir/ValueSet/claim-careteamrole
     """
-    """The primary care provider."""
+    # The primary care provider.
     PRIMARY = "primary"
-    """Assisting care provider."""
+    # Assisting care provider.
     ASSIST = "assist"
-    """Supervising care provider."""
+    # Supervising care provider.
     SUPERVISOR = "supervisor"
-    """Other role on the care team."""
+    # Other role on the care team.
     OTHER = "other"
-    allowed_values = ['PRIMARY', 'ASSIST', 'SUPERVISOR', 'OTHER']
+
+    allowed_values = [PRIMARY, ASSIST, SUPERVISOR, OTHER]

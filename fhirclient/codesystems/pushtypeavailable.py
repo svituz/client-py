@@ -14,10 +14,11 @@ class PushTypeAvailable(object):
     URL: http://terminology.hl7.org/CodeSystem/push-type-available
     ValueSet: http://hl7.org/fhir/ValueSet/verificationresult-push-type-available
     """
-    """specific"""
+    # specific
     SPECIFIC = "specific"
-    """any"""
+    # any
     ANY = "any"
-    """source"""
+    # source
     SOURCE = "source"
-    allowed_values = ['SPECIFIC', 'ANY', 'SOURCE']
+
+    allowed_values = [SPECIFIC, ANY, SOURCE]

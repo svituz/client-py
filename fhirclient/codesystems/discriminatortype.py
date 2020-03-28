@@ -14,17 +14,18 @@ class DiscriminatorType(object):
     URL: http://hl7.org/fhir/discriminator-type
     ValueSet: http://hl7.org/fhir/ValueSet/discriminator-type
     """
-    """The slices have different values in the nominated element."""
+    # The slices have different values in the nominated element.
     VALUE = "value"
-    """The slices are differentiated by the presence or absence of the nominated element."""
+    # The slices are differentiated by the presence or absence of the nominated element.
     EXISTS = "exists"
-    """The slices have different values in the nominated element, as determined by testing them against the applicable
-	/// ElementDefinition.pattern[x]."""
+    # The slices have different values in the nominated element, as determined by testing them against the applicable
+    # ElementDefinition.pattern[x].
     PATTERN = "pattern"
-    """The slices are differentiated by type of the nominated element."""
+    # The slices are differentiated by type of the nominated element.
     TYPE = "type"
-    """The slices are differentiated by conformance of the nominated element to a specified profile. Note that if the
-	/// path specifies .resolve() then the profile is the target profile on the reference. In this case, validation by
-	/// the possible profiles is required to differentiate the slices."""
+    # The slices are differentiated by conformance of the nominated element to a specified profile. Note that if the
+    # path specifies .resolve() then the profile is the target profile on the reference. In this case, validation by
+    # the possible profiles is required to differentiate the slices.
     PROFILE = "profile"
-    allowed_values = ['VALUE', 'EXISTS', 'PATTERN', 'TYPE', 'PROFILE']
+
+    allowed_values = [VALUE, EXISTS, PATTERN, TYPE, PROFILE]

@@ -14,16 +14,17 @@ class ExampleMessageReasonCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/message-reasons-encounter
     ValueSet: http://hl7.org/fhir/ValueSet/message-reason-encounter
     """
-    """The patient has been admitted."""
+    # The patient has been admitted.
     ADMIT = "admit"
-    """The patient has been discharged."""
+    # The patient has been discharged.
     DISCHARGE = "discharge"
-    """The patient has temporarily left the institution."""
+    # The patient has temporarily left the institution.
     ABSENT = "absent"
-    """The patient has returned from a temporary absence."""
+    # The patient has returned from a temporary absence.
     RETURN = "return"
-    """The patient has been moved to a new location."""
+    # The patient has been moved to a new location.
     MOVED = "moved"
-    """Encounter details have been updated (e.g. to correct a coding error)."""
+    # Encounter details have been updated (e.g. to correct a coding error).
     EDIT = "edit"
-    allowed_values = ['ADMIT', 'DISCHARGE', 'ABSENT', 'RETURN', 'MOVED', 'EDIT']
+
+    allowed_values = [ADMIT, DISCHARGE, ABSENT, RETURN, MOVED, EDIT]

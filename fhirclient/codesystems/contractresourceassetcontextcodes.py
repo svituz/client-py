@@ -14,6 +14,7 @@ class ContractResourceAssetContextCodes(object):
     URL: http://hl7.org/fhir/contract-asset-context
     ValueSet: http://hl7.org/fhir/ValueSet/contract-assetcontext
     """
-    """To be completed"""
+    # To be completed
     CUSTODIAN = "custodian"
-    allowed_values = ['CUSTODIAN']
+
+    allowed_values = [CUSTODIAN]

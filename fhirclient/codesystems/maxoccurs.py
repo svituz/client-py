@@ -14,6 +14,7 @@ class MaxOccurs(object):
     URL: http://terminology.hl7.org/CodeSystem/question-max-occurs
     ValueSet: http://hl7.org/fhir/ValueSet/question-max-occurs
     """
-    """Element can repeat an unlimited number of times."""
+    # Element can repeat an unlimited number of times.
     MAX = "*"
-    allowed_values = ['MAX']
+
+    allowed_values = [MAX]

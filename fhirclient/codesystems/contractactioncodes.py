@@ -14,8 +14,9 @@ class ContractActionCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/contractaction
     ValueSet: http://hl7.org/fhir/ValueSet/contract-action
     """
-    """Definition for Action A"""
+    # Definition for Action A
     ACTIONA = "action-a"
-    """Definition for Action B"""
+    # Definition for Action B
     ACTIONB = "action-b"
-    allowed_values = ['ACTIONA', 'ACTIONB']
+
+    allowed_values = [ACTIONA, ACTIONB]

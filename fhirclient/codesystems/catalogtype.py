@@ -14,10 +14,11 @@ class CatalogType(object):
     URL: http://terminology.hl7.org/CodeSystem/catalogType
     ValueSet: http://hl7.org/fhir/ValueSet/catalogType
     """
-    """Medication Catalog."""
+    # Medication Catalog.
     MEDICATION = "medication"
-    """Device Catalog."""
+    # Device Catalog.
     DEVICE = "device"
-    """Protocol List."""
+    # Protocol List.
     PROTOCOL = "protocol"
-    allowed_values = ['MEDICATION', 'DEVICE', 'PROTOCOL']
+
+    allowed_values = [MEDICATION, DEVICE, PROTOCOL]

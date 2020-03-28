@@ -14,18 +14,19 @@ class TestScriptRequestMethodCode(object):
     URL: http://hl7.org/fhir/http-operations
     ValueSet: http://hl7.org/fhir/ValueSet/http-operations
     """
-    """HTTP DELETE operation."""
+    # HTTP DELETE operation.
     DELETE = "delete"
-    """HTTP GET operation."""
+    # HTTP GET operation.
     GET = "get"
-    """HTTP OPTIONS operation."""
+    # HTTP OPTIONS operation.
     OPTIONS = "options"
-    """HTTP PATCH operation."""
+    # HTTP PATCH operation.
     PATCH = "patch"
-    """HTTP POST operation."""
+    # HTTP POST operation.
     POST = "post"
-    """HTTP PUT operation."""
+    # HTTP PUT operation.
     PUT = "put"
-    """HTTP HEAD operation."""
+    # HTTP HEAD operation.
     HEAD = "head"
-    allowed_values = ['DELETE', 'GET', 'OPTIONS', 'PATCH', 'POST', 'PUT', 'HEAD']
+
+    allowed_values = [DELETE, GET, OPTIONS, PATCH, POST, PUT, HEAD]

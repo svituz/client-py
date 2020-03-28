@@ -14,12 +14,13 @@ class MedicationAdministrationCategoryCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/medication-admin-category
     ValueSet: http://hl7.org/fhir/ValueSet/medication-admin-category
     """
-    """Includes administrations in an inpatient or acute care setting"""
+    # Includes administrations in an inpatient or acute care setting
     INPATIENT = "inpatient"
-    """Includes administrations in an outpatient setting (for example, Emergency Department, Outpatient Clinic,
-	/// Outpatient Surgery, Doctor's office)"""
+    # Includes administrations in an outpatient setting (for example, Emergency Department, Outpatient Clinic,
+    # Outpatient Surgery, Doctor's office)
     OUTPATIENT = "outpatient"
-    """Includes administrations by the patient in their home (this would include long term care or nursing homes,
-	/// hospices, etc.)"""
+    # Includes administrations by the patient in their home (this would include long term care or nursing homes,
+    # hospices, etc.)
     COMMUNITY = "community"
-    allowed_values = ['INPATIENT', 'OUTPATIENT', 'COMMUNITY']
+
+    allowed_values = [INPATIENT, OUTPATIENT, COMMUNITY]

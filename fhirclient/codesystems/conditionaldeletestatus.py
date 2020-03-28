@@ -14,10 +14,11 @@ class ConditionalDeleteStatus(object):
     URL: http://hl7.org/fhir/conditional-delete-status
     ValueSet: http://hl7.org/fhir/ValueSet/conditional-delete-status
     """
-    """No support for conditional deletes."""
+    # No support for conditional deletes.
     NOTSUPPORTED = "not-supported"
-    """Conditional deletes are supported, but only single resources at a time."""
+    # Conditional deletes are supported, but only single resources at a time.
     SINGLE = "single"
-    """Conditional deletes are supported, and multiple resources can be deleted in a single interaction."""
+    # Conditional deletes are supported, and multiple resources can be deleted in a single interaction.
     MULTIPLE = "multiple"
-    allowed_values = ['NOTSUPPORTED', 'SINGLE', 'MULTIPLE']
+
+    allowed_values = [NOTSUPPORTED, SINGLE, MULTIPLE]

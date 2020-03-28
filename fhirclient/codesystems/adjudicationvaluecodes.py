@@ -15,20 +15,21 @@ under the plan, the amount of benefit, copays etc.
     URL: http://terminology.hl7.org/CodeSystem/adjudication
     ValueSet: http://hl7.org/fhir/ValueSet/adjudication
     """
-    """The total submitted amount for the claim or group or line item."""
+    # The total submitted amount for the claim or group or line item.
     SUBMITTED = "submitted"
-    """Patient Co-Payment"""
+    # Patient Co-Payment
     COPAY = "copay"
-    """Amount of the change which is considered for adjudication."""
+    # Amount of the change which is considered for adjudication.
     ELIGIBLE = "eligible"
-    """Amount deducted from the eligible amount prior to adjudication."""
+    # Amount deducted from the eligible amount prior to adjudication.
     DEDUCTIBLE = "deductible"
-    """The amount of deductible which could not allocated to other line items."""
+    # The amount of deductible which could not allocated to other line items.
     UNALLOCDEDUCT = "unallocdeduct"
-    """Eligible Percentage."""
+    # Eligible Percentage.
     ELIGPERCENT = "eligpercent"
-    """The amount of tax."""
+    # The amount of tax.
     TAX = "tax"
-    """Amount payable under the coverage"""
+    # Amount payable under the coverage
     BENEFIT = "benefit"
-    allowed_values = ['SUBMITTED', 'COPAY', 'ELIGIBLE', 'DEDUCTIBLE', 'UNALLOCDEDUCT', 'ELIGPERCENT', 'TAX', 'BENEFIT']
+
+    allowed_values = [SUBMITTED, COPAY, ELIGIBLE, DEDUCTIBLE, UNALLOCDEDUCT, ELIGPERCENT, TAX, BENEFIT]

@@ -14,10 +14,11 @@ class ContractTermSubtypeCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/contracttermsubtypecodes
     ValueSet: http://hl7.org/fhir/ValueSet/contract-term-subtype
     """
-    """Terms that go to the very root of a contract."""
+    # Terms that go to the very root of a contract.
     CONDITION = "condition"
-    """Less imperative than a condition, so the contract will survive a breach"""
+    # Less imperative than a condition, so the contract will survive a breach
     WARRANTY = "warranty"
-    """Breach of which might or might not go to the root of the contract depending upon the nature of the breach"""
+    # Breach of which might or might not go to the root of the contract depending upon the nature of the breach
     INNOMINATE = "innominate"
-    allowed_values = ['CONDITION', 'WARRANTY', 'INNOMINATE']
+
+    allowed_values = [CONDITION, WARRANTY, INNOMINATE]

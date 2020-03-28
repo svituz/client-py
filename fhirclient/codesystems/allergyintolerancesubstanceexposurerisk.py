@@ -15,8 +15,9 @@ pharmaceutical products).
     URL: http://terminology.hl7.org/CodeSystem/allerg-intol-substance-exp-risk
     ValueSet: http://hl7.org/fhir/ValueSet/allerg-intol-substance-exp-risk
     """
-    """Known risk of allergy or intolerance reaction upon exposure to the specified substance."""
+    # Known risk of allergy or intolerance reaction upon exposure to the specified substance.
     KNOWNREACTIONRISK = "known-reaction-risk"
-    """No known risk of allergy or intolerance reaction upon exposure to the specified substance."""
+    # No known risk of allergy or intolerance reaction upon exposure to the specified substance.
     NOKNOWNREACTIONRISK = "no-known-reaction-risk"
-    allowed_values = ['KNOWNREACTIONRISK', 'NOKNOWNREACTIONRISK']
+
+    allowed_values = [KNOWNREACTIONRISK, NOKNOWNREACTIONRISK]

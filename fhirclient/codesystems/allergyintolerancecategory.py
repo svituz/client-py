@@ -14,17 +14,18 @@ class AllergyIntoleranceCategory(object):
     URL: http://hl7.org/fhir/allergy-intolerance-category
     ValueSet: http://hl7.org/fhir/ValueSet/allergy-intolerance-category
     """
-    """Any substance consumed to provide nutritional support for the body."""
+    # Any substance consumed to provide nutritional support for the body.
     FOOD = "food"
-    """Substances administered to achieve a physiological effect."""
+    # Substances administered to achieve a physiological effect.
     MEDICATION = "medication"
-    """Any substances that are encountered in the environment, including any substance not already classified as food,
-	/// medication, or biologic."""
+    # Any substances that are encountered in the environment, including any substance not already classified as food,
+    # medication, or biologic.
     ENVIRONMENT = "environment"
-    """A preparation that is synthesized from living organisms or their products, especially a human or animal protein,
-	/// such as a hormone or antitoxin, that is used as a diagnostic, preventive, or therapeutic agent. Examples of
-	/// biologic medications include: vaccines; allergenic extracts, which are used for both diagnosis and treatment
-	/// (for example, allergy shots); gene therapies; cellular therapies.  There are other biologic products, such as
-	/// tissues, which are not typically associated with allergies."""
+    # A preparation that is synthesized from living organisms or their products, especially a human or animal protein,
+    # such as a hormone or antitoxin, that is used as a diagnostic, preventive, or therapeutic agent. Examples of
+    # biologic medications include: vaccines; allergenic extracts, which are used for both diagnosis and treatment
+    # (for example, allergy shots); gene therapies; cellular therapies.  There are other biologic products, such as
+    # tissues, which are not typically associated with allergies.
     BIOLOGIC = "biologic"
-    allowed_values = ['FOOD', 'MEDICATION', 'ENVIRONMENT', 'BIOLOGIC']
+
+    allowed_values = [FOOD, MEDICATION, ENVIRONMENT, BIOLOGIC]

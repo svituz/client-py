@@ -14,8 +14,9 @@ class ActionCardinalityBehavior(object):
     URL: http://hl7.org/fhir/action-cardinality-behavior
     ValueSet: http://hl7.org/fhir/ValueSet/action-cardinality-behavior
     """
-    """The action may only be selected one time."""
+    # The action may only be selected one time.
     SINGLE = "single"
-    """The action may be selected multiple times."""
+    # The action may be selected multiple times.
     MULTIPLE = "multiple"
-    allowed_values = ['SINGLE', 'MULTIPLE']
+
+    allowed_values = [SINGLE, MULTIPLE]

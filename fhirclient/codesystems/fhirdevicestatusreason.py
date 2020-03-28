@@ -14,20 +14,21 @@ class FHIRDeviceStatusReason(object):
     URL: http://terminology.hl7.org/CodeSystem/device-status-reason
     ValueSet: http://hl7.org/fhir/ValueSet/device-status-reason
     """
-    """The device is off."""
+    # The device is off.
     ONLINE = "online"
-    """The device is paused."""
+    # The device is paused.
     PAUSED = "paused"
-    """The device is ready but not actively operating."""
+    # The device is ready but not actively operating.
     STANDBY = "standby"
-    """The device is offline."""
+    # The device is offline.
     OFFLINE = "offline"
-    """The device is not ready."""
+    # The device is not ready.
     NOTREADY = "not-ready"
-    """The device transducer is disconnected."""
+    # The device transducer is disconnected.
     TRANSDUCDISCON = "transduc-discon"
-    """The device hardware is disconnected."""
+    # The device hardware is disconnected.
     HWDISCON = "hw-discon"
-    """The device is off."""
+    # The device is off.
     OFF = "off"
-    allowed_values = ['ONLINE', 'PAUSED', 'STANDBY', 'OFFLINE', 'NOTREADY', 'TRANSDUCDISCON', 'HWDISCON', 'OFF']
+
+    allowed_values = [ONLINE, PAUSED, STANDBY, OFFLINE, NOTREADY, TRANSDUCDISCON, HWDISCON, OFF]

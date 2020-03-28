@@ -14,8 +14,9 @@ class ExampleServiceModifierCodes(object):
     URL: http://hl7.org/fhir/ex-servicemodifier
     ValueSet: http://hl7.org/fhir/ValueSet/service-modifiers
     """
-    """Services provided on the side of the road or such other non-conventional setting."""
+    # Services provided on the side of the road or such other non-conventional setting.
     SR = "sr"
-    """Services provided outside or normal business hours."""
+    # Services provided outside or normal business hours.
     AH = "ah"
-    allowed_values = ['SR', 'AH']
+
+    allowed_values = [SR, AH]

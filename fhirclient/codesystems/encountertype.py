@@ -15,12 +15,13 @@ indicating type of service provided.
     URL: http://terminology.hl7.org/CodeSystem/encounter-type
     ValueSet: http://hl7.org/fhir/ValueSet/encounter-type
     """
-    """ADMS"""
+    # ADMS
     ADMS = "ADMS"
-    """bDBMClin"""
+    # bDBMClin
     BDBMCLIN = "BD/BM-clin"
-    """CCS60"""
+    # CCS60
     CCS60 = "CCS60"
-    """OKI"""
+    # OKI
     OKI = "OKI"
-    allowed_values = ['ADMS', 'BDBMCLIN', 'CCS60', 'OKI']
+
+    allowed_values = [ADMS, BDBMCLIN, CCS60, OKI]

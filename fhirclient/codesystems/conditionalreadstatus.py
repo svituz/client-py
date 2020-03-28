@@ -14,12 +14,13 @@ class ConditionalReadStatus(object):
     URL: http://hl7.org/fhir/conditional-read-status
     ValueSet: http://hl7.org/fhir/ValueSet/conditional-read-status
     """
-    """No support for conditional reads."""
+    # No support for conditional reads.
     NOTSUPPORTED = "not-supported"
-    """Conditional reads are supported, but only with the If-Modified-Since HTTP Header."""
+    # Conditional reads are supported, but only with the If-Modified-Since HTTP Header.
     MODIFIEDSINCE = "modified-since"
-    """Conditional reads are supported, but only with the If-None-Match HTTP Header."""
+    # Conditional reads are supported, but only with the If-None-Match HTTP Header.
     NOTMATCH = "not-match"
-    """Conditional reads are supported, with both If-Modified-Since and If-None-Match HTTP Headers."""
+    # Conditional reads are supported, with both If-Modified-Since and If-None-Match HTTP Headers.
     FULLSUPPORT = "full-support"
-    allowed_values = ['NOTSUPPORTED', 'MODIFIEDSINCE', 'NOTMATCH', 'FULLSUPPORT']
+
+    allowed_values = [NOTSUPPORTED, MODIFIEDSINCE, NOTMATCH, FULLSUPPORT]

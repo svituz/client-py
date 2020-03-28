@@ -14,12 +14,13 @@ class RequestPriority(object):
     URL: http://hl7.org/fhir/request-priority
     ValueSet: http://hl7.org/fhir/ValueSet/request-priority
     """
-    """The request has normal priority."""
+    # The request has normal priority.
     ROUTINE = "routine"
-    """The request should be actioned promptly - higher priority than routine."""
+    # The request should be actioned promptly - higher priority than routine.
     URGENT = "urgent"
-    """The request should be actioned as soon as possible - higher priority than urgent."""
+    # The request should be actioned as soon as possible - higher priority than urgent.
     ASAP = "asap"
-    """The request should be actioned immediately - highest possible priority.  E.g. an emergency."""
+    # The request should be actioned immediately - highest possible priority.  E.g. an emergency.
     STAT = "stat"
-    allowed_values = ['ROUTINE', 'URGENT', 'ASAP', 'STAT']
+
+    allowed_values = [ROUTINE, URGENT, ASAP, STAT]

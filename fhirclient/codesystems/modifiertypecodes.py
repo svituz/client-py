@@ -14,16 +14,17 @@ class ModifierTypeCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/modifiers
     ValueSet: http://hl7.org/fhir/ValueSet/claim-modifiers
     """
-    """Repair of prior service or installation."""
+    # Repair of prior service or installation.
     A = "a"
-    """Temporary service or installation."""
+    # Temporary service or installation.
     B = "b"
-    """Treatment associated with TMJ."""
+    # Treatment associated with TMJ.
     C = "c"
-    """Implant or associated with an implant."""
+    # Implant or associated with an implant.
     E = "e"
-    """A Rush service or service performed outside of normal office hours."""
+    # A Rush service or service performed outside of normal office hours.
     ROOH = "rooh"
-    """None."""
+    # None.
     X = "x"
-    allowed_values = ['A', 'B', 'C', 'E', 'ROOH', 'X']
+
+    allowed_values = [A, B, C, E, ROOH, X]

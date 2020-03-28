@@ -14,8 +14,9 @@ class SpecimenContainedPreference(object):
     URL: http://hl7.org/fhir/specimen-contained-preference
     ValueSet: http://hl7.org/fhir/ValueSet/specimen-contained-preference
     """
-    """This type of contained specimen is preferred to collect this kind of specimen."""
+    # This type of contained specimen is preferred to collect this kind of specimen.
     PREFERRED = "preferred"
-    """This type of conditioned specimen is an alternate."""
+    # This type of conditioned specimen is an alternate.
     ALTERNATE = "alternate"
-    allowed_values = ['PREFERRED', 'ALTERNATE']
+
+    allowed_values = [PREFERRED, ALTERNATE]

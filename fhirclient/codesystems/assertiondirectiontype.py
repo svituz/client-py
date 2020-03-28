@@ -14,8 +14,9 @@ class AssertionDirectionType(object):
     URL: http://hl7.org/fhir/assert-direction-codes
     ValueSet: http://hl7.org/fhir/ValueSet/assert-direction-codes
     """
-    """The assertion is evaluated on the response. This is the default value."""
+    # The assertion is evaluated on the response. This is the default value.
     RESPONSE = "response"
-    """The assertion is evaluated on the request."""
+    # The assertion is evaluated on the request.
     REQUEST = "request"
-    allowed_values = ['RESPONSE', 'REQUEST']
+
+    allowed_values = [RESPONSE, REQUEST]

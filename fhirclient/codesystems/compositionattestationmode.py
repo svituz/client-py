@@ -14,12 +14,13 @@ class CompositionAttestationMode(object):
     URL: http://hl7.org/fhir/composition-attestation-mode
     ValueSet: http://hl7.org/fhir/ValueSet/composition-attestation-mode
     """
-    """The person authenticated the content in their personal capacity."""
+    # The person authenticated the content in their personal capacity.
     PERSONAL = "personal"
-    """The person authenticated the content in their professional capacity."""
+    # The person authenticated the content in their professional capacity.
     PROFESSIONAL = "professional"
-    """The person authenticated the content and accepted legal responsibility for its content."""
+    # The person authenticated the content and accepted legal responsibility for its content.
     LEGAL = "legal"
-    """The organization authenticated the content as consistent with their policies and procedures."""
+    # The organization authenticated the content as consistent with their policies and procedures.
     OFFICIAL = "official"
-    allowed_values = ['PERSONAL', 'PROFESSIONAL', 'LEGAL', 'OFFICIAL']
+
+    allowed_values = [PERSONAL, PROFESSIONAL, LEGAL, OFFICIAL]

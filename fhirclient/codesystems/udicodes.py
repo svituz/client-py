@@ -14,6 +14,7 @@ class UDICodes(object):
     URL: http://hl7.org/fhir/ex-udi
     ValueSet: http://hl7.org/fhir/ValueSet/udi
     """
-    """GUDID (FDA) US Repository"""
+    # GUDID (FDA) US Repository
     GUDID = "gudid"
-    allowed_values = ['GUDID']
+
+    allowed_values = [GUDID]

@@ -14,6 +14,7 @@ class ContractResourceAssetScopeCodes(object):
     URL: http://hl7.org/fhir/contract-asset-scope
     ValueSet: http://hl7.org/fhir/ValueSet/contract-assetscope
     """
-    """To be completed"""
+    # To be completed
     THING = "thing"
-    allowed_values = ['THING']
+
+    allowed_values = [THING]

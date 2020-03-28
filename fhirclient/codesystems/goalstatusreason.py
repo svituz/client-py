@@ -15,22 +15,23 @@ appropriate for some uses.
     URL: http://hl7.org/fhir/goal-status-reason
     ValueSet: http://hl7.org/fhir/ValueSet/goal-status-reason
     """
-    """Goal suspended or ended because of a surgical procedure."""
+    # Goal suspended or ended because of a surgical procedure.
     SURGERY = "surgery"
-    """Goal suspended or ended because of a significant life event (marital change, bereavement, etc.)."""
+    # Goal suspended or ended because of a significant life event (marital change, bereavement, etc.).
     LIFEEVENT = "life-event"
-    """Goal has been superseded by a new goal."""
+    # Goal has been superseded by a new goal.
     REPLACED = "replaced"
-    """Patient wishes the goal to be set aside, at least temporarily."""
+    # Patient wishes the goal to be set aside, at least temporarily.
     PATIENTREQUEST = "patient-request"
-    """Goal cannot be reached temporarily."""
+    # Goal cannot be reached temporarily.
     TEMPNOTATTAINABLE = "temp-not-attainable"
-    """Goal cannot be reached permanently."""
+    # Goal cannot be reached permanently.
     PERMANENTNOTATTAINABLE = "permanent-not-attainable"
-    """Goal cannot be reached due to financial barrier or reason."""
+    # Goal cannot be reached due to financial barrier or reason.
     FINANCIALBARRIER = "financial-barrier"
-    """Goal cannot be reached due to a lack of transportation."""
+    # Goal cannot be reached due to a lack of transportation.
     LACKOFTRANSPORTATION = "lack-of-transportation"
-    """Goal cannot be reached due to a lack of social support."""
+    # Goal cannot be reached due to a lack of social support.
     LACKOFSOCIALSUPPORT = "lack-of-social-support"
-    allowed_values = ['SURGERY', 'LIFEEVENT', 'REPLACED', 'PATIENTREQUEST', 'TEMPNOTATTAINABLE', 'PERMANENTNOTATTAINABLE', 'FINANCIALBARRIER', 'LACKOFTRANSPORTATION', 'LACKOFSOCIALSUPPORT']
+
+    allowed_values = [SURGERY, LIFEEVENT, REPLACED, PATIENTREQUEST, TEMPNOTATTAINABLE, PERMANENTNOTATTAINABLE, FINANCIALBARRIER, LACKOFTRANSPORTATION, LACKOFSOCIALSUPPORT]

@@ -14,10 +14,11 @@ class Indicator(object):
     URL: http://cds-hooks.hl7.org/CodeSystem/indicator
     ValueSet: http://hl7.org/fhir/ValueSet/cdshooks-indicator
     """
-    """info"""
+    # info
     INFO = "info"
-    """warning"""
+    # warning
     WARNING = "warning"
-    """critical"""
+    # critical
     CRITICAL = "critical"
-    allowed_values = ['INFO', 'WARNING', 'CRITICAL']
+
+    allowed_values = [INFO, WARNING, CRITICAL]

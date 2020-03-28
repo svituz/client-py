@@ -14,20 +14,21 @@ class CertaintySubcomponentType(object):
     URL: http://terminology.hl7.org/CodeSystem/certainty-subcomponent-type
     ValueSet: http://hl7.org/fhir/ValueSet/certainty-subcomponent-type
     """
-    """methodologic concerns reducing internal validity."""
+    # methodologic concerns reducing internal validity.
     RISKOFBIAS = "RiskOfBias"
-    """concerns that findings are not similar enough to support certainty."""
+    # concerns that findings are not similar enough to support certainty.
     INCONSISTENCY = "Inconsistency"
-    """concerns reducing external validity."""
+    # concerns reducing external validity.
     INDIRECTNESS = "Indirectness"
-    """High quality evidence."""
+    # High quality evidence.
     IMPRECISION = "Imprecision"
-    """likelihood that what is published misrepresents what is available to publish."""
+    # likelihood that what is published misrepresents what is available to publish.
     PUBLICATIONBIAS = "PublicationBias"
-    """higher certainty due to dose response relationship."""
+    # higher certainty due to dose response relationship.
     DOSERESPONSEGRADIENT = "DoseResponseGradient"
-    """higher certainty due to risk of bias in opposite direction."""
+    # higher certainty due to risk of bias in opposite direction.
     PLAUSIBLECONFOUNDING = "PlausibleConfounding"
-    """higher certainty due to large effect size."""
+    # higher certainty due to large effect size.
     LARGEEFFECT = "LargeEffect"
-    allowed_values = ['RISKOFBIAS', 'INCONSISTENCY', 'INDIRECTNESS', 'IMPRECISION', 'PUBLICATIONBIAS', 'DOSERESPONSEGRADIENT', 'PLAUSIBLECONFOUNDING', 'LARGEEFFECT']
+
+    allowed_values = [RISKOFBIAS, INCONSISTENCY, INDIRECTNESS, IMPRECISION, PUBLICATIONBIAS, DOSERESPONSEGRADIENT, PLAUSIBLECONFOUNDING, LARGEEFFECT]

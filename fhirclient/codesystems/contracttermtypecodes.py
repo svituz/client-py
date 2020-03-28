@@ -14,8 +14,9 @@ class ContractTermTypeCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/contracttermtypecodes
     ValueSet: http://hl7.org/fhir/ValueSet/contract-term-type
     """
-    """Based on specialized statutes that deal with particular subjects."""
+    # Based on specialized statutes that deal with particular subjects.
     STATUTORY = "statutory"
-    """Execution of the term in the contract is conditional on the execution of other actions."""
+    # Execution of the term in the contract is conditional on the execution of other actions.
     SUBJECTTO = "subject-to"
-    allowed_values = ['STATUTORY', 'SUBJECTTO']
+
+    allowed_values = [STATUTORY, SUBJECTTO]

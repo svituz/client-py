@@ -14,12 +14,13 @@ class BenefitCostApplicability(object):
     URL: http://terminology.hl7.org/CodeSystem/applicability
     ValueSet: http://hl7.org/fhir/ValueSet/insuranceplan-applicability
     """
-    """Provider is contracted with the health insurance company to provide services to plan members for specific pre-
-	/// negotiated rates"""
+    # Provider is contracted with the health insurance company to provide services to plan members for specific pre-
+    # negotiated rates
     INNETWORK = "in-network"
-    """Provider is  not contracted with the health insurance company to provide services to plan members for specific
-	/// pre-negotiated rates"""
+    # Provider is  not contracted with the health insurance company to provide services to plan members for specific
+    # pre-negotiated rates
     OUTOFNETWORK = "out-of-network"
-    """Other applicability"""
+    # Other applicability
     OTHER = "other"
-    allowed_values = ['INNETWORK', 'OUTOFNETWORK', 'OTHER']
+
+    allowed_values = [INNETWORK, OUTOFNETWORK, OTHER]

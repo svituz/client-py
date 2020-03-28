@@ -14,14 +14,15 @@ class RejectionCriterion(object):
     URL: http://terminology.hl7.org/CodeSystem/rejection-criteria
     ValueSet: http://hl7.org/fhir/ValueSet/rejection-criteria
     """
-    """blood specimen hemolized."""
+    # blood specimen hemolized.
     HEMOLIZED = "hemolized"
-    """insufficient quantity of specimen."""
+    # insufficient quantity of specimen.
     INSUFFICIENT = "insufficient"
-    """specimen container broken."""
+    # specimen container broken.
     BROKEN = "broken"
-    """specimen clotted."""
+    # specimen clotted.
     CLOTTED = "clotted"
-    """specimen temperature inappropriate."""
+    # specimen temperature inappropriate.
     WRONGTEMPERATURE = "wrong-temperature"
-    allowed_values = ['HEMOLIZED', 'INSUFFICIENT', 'BROKEN', 'CLOTTED', 'WRONGTEMPERATURE']
+
+    allowed_values = [HEMOLIZED, INSUFFICIENT, BROKEN, CLOTTED, WRONGTEMPERATURE]

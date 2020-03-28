@@ -14,14 +14,15 @@ class StructureMapSourceListMode(object):
     URL: http://hl7.org/fhir/map-source-list-mode
     ValueSet: http://hl7.org/fhir/ValueSet/map-source-list-mode
     """
-    """Only process this rule for the first in the list."""
+    # Only process this rule for the first in the list.
     FIRST = "first"
-    """Process this rule for all but the first."""
+    # Process this rule for all but the first.
     NOT_FIRST = "not_first"
-    """Only process this rule for the last in the list."""
+    # Only process this rule for the last in the list.
     LAST = "last"
-    """Process this rule for all but the last."""
+    # Process this rule for all but the last.
     NOT_LAST = "not_last"
-    """Only process this rule is there is only item."""
+    # Only process this rule is there is only item.
     ONLY_ONE = "only_one"
-    allowed_values = ['FIRST', 'NOT_FIRST', 'LAST', 'NOT_LAST', 'ONLY_ONE']
+
+    allowed_values = [FIRST, NOT_FIRST, LAST, NOT_LAST, ONLY_ONE]

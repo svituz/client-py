@@ -14,8 +14,9 @@ class BiologicallyDerivedProductStatus(object):
     URL: http://hl7.org/fhir/product-status
     ValueSet: http://hl7.org/fhir/ValueSet/product-status
     """
-    """Product is currently available for use."""
+    # Product is currently available for use.
     AVAILABLE = "available"
-    """Product is not currently available for use."""
+    # Product is not currently available for use.
     UNAVAILABLE = "unavailable"
-    allowed_values = ['AVAILABLE', 'UNAVAILABLE']
+
+    allowed_values = [AVAILABLE, UNAVAILABLE]

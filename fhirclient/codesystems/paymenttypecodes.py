@@ -14,10 +14,11 @@ class PaymentTypeCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/payment-type
     ValueSet: http://hl7.org/fhir/ValueSet/payment-type
     """
-    """The amount is partial or complete settlement of the amounts due."""
+    # The amount is partial or complete settlement of the amounts due.
     PAYMENT = "payment"
-    """The amount is an adjustment regarding claims already paid."""
+    # The amount is an adjustment regarding claims already paid.
     ADJUSTMENT = "adjustment"
-    """The amount is an advance against future claims."""
+    # The amount is an advance against future claims.
     ADVANCE = "advance"
-    allowed_values = ['PAYMENT', 'ADJUSTMENT', 'ADVANCE']
+
+    allowed_values = [PAYMENT, ADJUSTMENT, ADVANCE]

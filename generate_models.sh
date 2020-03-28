@@ -1,5 +1,5 @@
 #!/bin/bash
-PARSER_DIR=./fhir-parser
+PARSER_DIR=../fhir-parser
 if [ ! -e fhir-parser ]; then
 	git submodule update --init --recursive
 fi

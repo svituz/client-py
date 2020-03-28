@@ -14,6 +14,7 @@ class ContractResourceDefinitionTypeCodes(object):
     URL: http://hl7.org/fhir/contract-definition-type
     ValueSet: http://hl7.org/fhir/ValueSet/contract-definition-type
     """
-    """To be completed"""
+    # To be completed
     TEMP = "temp"
-    allowed_values = ['TEMP']
+
+    allowed_values = [TEMP]

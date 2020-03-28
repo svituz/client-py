@@ -14,8 +14,9 @@ class ExampleRelatedClaimRelationshipCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/ex-relatedclaimrelationship
     ValueSet: http://hl7.org/fhir/ValueSet/related-claim-relationship
     """
-    """A prior claim instance for the same intended suite of services."""
+    # A prior claim instance for the same intended suite of services.
     PRIOR = "prior"
-    """A claim for a different suite of services which is related the suite claimed here."""
+    # A claim for a different suite of services which is related the suite claimed here.
     ASSOCIATED = "associated"
-    allowed_values = ['PRIOR', 'ASSOCIATED']
+
+    allowed_values = [PRIOR, ASSOCIATED]

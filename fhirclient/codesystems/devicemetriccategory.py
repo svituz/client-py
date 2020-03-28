@@ -14,12 +14,13 @@ class DeviceMetricCategory(object):
     URL: http://hl7.org/fhir/metric-category
     ValueSet: http://hl7.org/fhir/ValueSet/metric-category
     """
-    """DeviceObservations generated for this DeviceMetric are measured."""
+    # DeviceObservations generated for this DeviceMetric are measured.
     MEASUREMENT = "measurement"
-    """DeviceObservations generated for this DeviceMetric is a setting that will influence the behavior of the Device."""
+    # DeviceObservations generated for this DeviceMetric is a setting that will influence the behavior of the Device.
     SETTING = "setting"
-    """DeviceObservations generated for this DeviceMetric are calculated."""
+    # DeviceObservations generated for this DeviceMetric are calculated.
     CALCULATION = "calculation"
-    """The category of this DeviceMetric is unspecified."""
+    # The category of this DeviceMetric is unspecified.
     UNSPECIFIED = "unspecified"
-    allowed_values = ['MEASUREMENT', 'SETTING', 'CALCULATION', 'UNSPECIFIED']
+
+    allowed_values = [MEASUREMENT, SETTING, CALCULATION, UNSPECIFIED]

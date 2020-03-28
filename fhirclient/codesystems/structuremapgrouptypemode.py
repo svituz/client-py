@@ -14,10 +14,11 @@ class StructureMapGroupTypeMode(object):
     URL: http://hl7.org/fhir/map-group-type-mode
     ValueSet: http://hl7.org/fhir/ValueSet/map-group-type-mode
     """
-    """This group is not a default group for the types."""
+    # This group is not a default group for the types.
     NONE = "none"
-    """This group is a default mapping group for the specified types and for the primary source type."""
+    # This group is a default mapping group for the specified types and for the primary source type.
     TYPES = "types"
-    """This group is a default mapping group for the specified types."""
+    # This group is a default mapping group for the specified types.
     TYPEANDTYPES = "type-and-types"
-    allowed_values = ['NONE', 'TYPES', 'TYPEANDTYPES']
+
+    allowed_values = [NONE, TYPES, TYPEANDTYPES]

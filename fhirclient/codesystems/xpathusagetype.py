@@ -14,15 +14,16 @@ class XPathUsageType(object):
     URL: http://hl7.org/fhir/search-xpath-usage
     ValueSet: http://hl7.org/fhir/ValueSet/search-xpath-usage
     """
-    """The search parameter is derived directly from the selected nodes based on the type definitions."""
+    # The search parameter is derived directly from the selected nodes based on the type definitions.
     NORMAL = "normal"
-    """The search parameter is derived by a phonetic transform from the selected nodes."""
+    # The search parameter is derived by a phonetic transform from the selected nodes.
     PHONETIC = "phonetic"
-    """The search parameter is based on a spatial transform of the selected nodes."""
+    # The search parameter is based on a spatial transform of the selected nodes.
     NEARBY = "nearby"
-    """The search parameter is based on a spatial transform of the selected nodes, using physical distance from the
-	/// middle."""
+    # The search parameter is based on a spatial transform of the selected nodes, using physical distance from the
+    # middle.
     DISTANCE = "distance"
-    """The interpretation of the xpath statement is unknown (and can't be automated)."""
+    # The interpretation of the xpath statement is unknown (and can't be automated).
     OTHER = "other"
-    allowed_values = ['NORMAL', 'PHONETIC', 'NEARBY', 'DISTANCE', 'OTHER']
+
+    allowed_values = [NORMAL, PHONETIC, NEARBY, DISTANCE, OTHER]

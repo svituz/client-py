@@ -14,10 +14,11 @@ class Use(object):
     URL: http://hl7.org/fhir/claim-use
     ValueSet: http://hl7.org/fhir/ValueSet/claim-use
     """
-    """The treatment is complete and this represents a Claim for the services."""
+    # The treatment is complete and this represents a Claim for the services.
     CLAIM = "claim"
-    """The treatment is proposed and this represents a Pre-authorization for the services."""
+    # The treatment is proposed and this represents a Pre-authorization for the services.
     PREAUTHORIZATION = "preauthorization"
-    """The treatment is proposed and this represents a Pre-determination for the services."""
+    # The treatment is proposed and this represents a Pre-determination for the services.
     PREDETERMINATION = "predetermination"
-    allowed_values = ['CLAIM', 'PREAUTHORIZATION', 'PREDETERMINATION']
+
+    allowed_values = [CLAIM, PREAUTHORIZATION, PREDETERMINATION]

@@ -14,22 +14,23 @@ class KnowledgeResourceType(object):
     URL: http://hl7.org/fhir/knowledge-resource-types
     ValueSet: http://hl7.org/fhir/ValueSet/knowledge-resource-types
     """
-    """The definition of a specific activity to be taken, independent of any particular patient or context."""
+    # The definition of a specific activity to be taken, independent of any particular patient or context.
     ACTIVITYDEFINITION = "ActivityDefinition"
-    """A set of codes drawn from one or more code systems."""
+    # A set of codes drawn from one or more code systems.
     CODESYSTEM = "CodeSystem"
-    """A map from one set of concepts to one or more other concepts."""
+    # A map from one set of concepts to one or more other concepts.
     CONCEPTMAP = "ConceptMap"
-    """Represents a library of quality improvement components."""
+    # Represents a library of quality improvement components.
     LIBRARY = "Library"
-    """A quality measure definition."""
+    # A quality measure definition.
     MEASURE = "Measure"
-    """The definition of a plan for a series of actions, independent of any specific patient or context."""
+    # The definition of a plan for a series of actions, independent of any specific patient or context.
     PLANDEFINITION = "PlanDefinition"
-    """Structural Definition."""
+    # Structural Definition.
     STRUCTUREDEFINITION = "StructureDefinition"
-    """A Map of relationships between 2 structures that can be used to transform data."""
+    # A Map of relationships between 2 structures that can be used to transform data.
     STRUCTUREMAP = "StructureMap"
-    """A set of codes drawn from one or more code systems."""
+    # A set of codes drawn from one or more code systems.
     VALUESET = "ValueSet"
-    allowed_values = ['ACTIVITYDEFINITION', 'CODESYSTEM', 'CONCEPTMAP', 'LIBRARY', 'MEASURE', 'PLANDEFINITION', 'STRUCTUREDEFINITION', 'STRUCTUREMAP', 'VALUESET']
+
+    allowed_values = [ACTIVITYDEFINITION, CODESYSTEM, CONCEPTMAP, LIBRARY, MEASURE, PLANDEFINITION, STRUCTUREDEFINITION, STRUCTUREMAP, VALUESET]

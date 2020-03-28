@@ -14,8 +14,9 @@ class ExampleProcedureTypeCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/ex-procedure-type
     ValueSet: http://hl7.org/fhir/ValueSet/ex-procedure-type
     """
-    """The first procedure in a series required to produce and overall patient outcome."""
+    # The first procedure in a series required to produce and overall patient outcome.
     PRIMARY = "primary"
-    """The second procedure in a series required to produce and overall patient outcome."""
+    # The second procedure in a series required to produce and overall patient outcome.
     SECONDARY = "secondary"
-    allowed_values = ['PRIMARY', 'SECONDARY']
+
+    allowed_values = [PRIMARY, SECONDARY]

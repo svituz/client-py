@@ -15,17 +15,18 @@ proportion or median).
     URL: http://terminology.hl7.org/CodeSystem/risk-estimate-type
     ValueSet: http://hl7.org/fhir/ValueSet/risk-estimate-type
     """
-    """dichotomous measure (present or absent) reported as a ratio compared to the denominator of 1 (A percentage is a
-	/// proportion with denominator of 100)."""
+    # dichotomous measure (present or absent) reported as a ratio compared to the denominator of 1 (A percentage is a
+    # proportion with denominator of 100).
     PROPORTION = "proportion"
-    """A special use case where the proportion is derived from a formula rather than derived from summary evidence."""
+    # A special use case where the proportion is derived from a formula rather than derived from summary evidence.
     DERIVEDPROPORTION = "derivedProportion"
-    """continuous numerical measure reported as an average."""
+    # continuous numerical measure reported as an average.
     MEAN = "mean"
-    """continuous numerical measure reported as the middle of the range."""
+    # continuous numerical measure reported as the middle of the range.
     MEDIAN = "median"
-    """descriptive measure reported as total number of items."""
+    # descriptive measure reported as total number of items.
     COUNT = "count"
-    """descriptive measure reported as narrative."""
+    # descriptive measure reported as narrative.
     DESCRIPTIVE = "descriptive"
-    allowed_values = ['PROPORTION', 'DERIVEDPROPORTION', 'MEAN', 'MEDIAN', 'COUNT', 'DESCRIPTIVE']
+
+    allowed_values = [PROPORTION, DERIVEDPROPORTION, MEAN, MEDIAN, COUNT, DESCRIPTIVE]

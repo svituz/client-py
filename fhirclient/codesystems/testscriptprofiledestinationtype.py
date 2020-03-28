@@ -15,12 +15,13 @@ destination within a TestScript.
     URL: http://terminology.hl7.org/CodeSystem/testscript-profile-destination-types
     ValueSet: http://hl7.org/fhir/ValueSet/testscript-profile-destination-types
     """
-    """General FHIR server used to respond to operations sent from a FHIR client."""
+    # General FHIR server used to respond to operations sent from a FHIR client.
     FHIRSERVER = "FHIR-Server"
-    """A FHIR server acting as a Structured Data Capture Form Manager."""
+    # A FHIR server acting as a Structured Data Capture Form Manager.
     FHIRSDCFORMMANAGER = "FHIR-SDC-FormManager"
-    """A FHIR server acting as a Structured Data Capture Form Processor."""
+    # A FHIR server acting as a Structured Data Capture Form Processor.
     FHIRSDCFORMPROCESSOR = "FHIR-SDC-FormProcessor"
-    """A FHIR server acting as a Structured Data Capture Form Receiver."""
+    # A FHIR server acting as a Structured Data Capture Form Receiver.
     FHIRSDCFORMRECEIVER = "FHIR-SDC-FormReceiver"
-    allowed_values = ['FHIRSERVER', 'FHIRSDCFORMMANAGER', 'FHIRSDCFORMPROCESSOR', 'FHIRSDCFORMRECEIVER']
+
+    allowed_values = [FHIRSERVER, FHIRSDCFORMMANAGER, FHIRSDCFORMPROCESSOR, FHIRSDCFORMRECEIVER]

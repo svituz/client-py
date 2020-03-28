@@ -14,14 +14,15 @@ class MedicationRequestCategoryCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/medicationrequest-category
     ValueSet: http://hl7.org/fhir/ValueSet/medicationrequest-category
     """
-    """Includes requests for medications to be administered or consumed in an inpatient or acute care setting"""
+    # Includes requests for medications to be administered or consumed in an inpatient or acute care setting
     INPATIENT = "inpatient"
-    """Includes requests for medications to be administered or consumed in an outpatient setting (for example,
-	/// Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor's office)"""
+    # Includes requests for medications to be administered or consumed in an outpatient setting (for example,
+    # Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor's office)
     OUTPATIENT = "outpatient"
-    """Includes requests for medications to be administered or consumed by the patient in their home (this would
-	/// include long term care or nursing homes, hospices, etc.)"""
+    # Includes requests for medications to be administered or consumed by the patient in their home (this would
+    # include long term care or nursing homes, hospices, etc.)
     COMMUNITY = "community"
-    """Includes requests for medications created when the patient is being released from a facility"""
+    # Includes requests for medications created when the patient is being released from a facility
     DISCHARGE = "discharge"
-    allowed_values = ['INPATIENT', 'OUTPATIENT', 'COMMUNITY', 'DISCHARGE']
+
+    allowed_values = [INPATIENT, OUTPATIENT, COMMUNITY, DISCHARGE]

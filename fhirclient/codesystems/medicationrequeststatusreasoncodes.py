@@ -14,42 +14,43 @@ class MedicationRequestStatusReasonCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/medicationrequest-status-reason
     ValueSet: http://hl7.org/fhir/ValueSet/medicationrequest-status-reason
     """
-    """This therapy has been ordered as a backup to a preferred therapy. This order will be released when and if the
-	/// preferred therapy is unsuccessful."""
+    # This therapy has been ordered as a backup to a preferred therapy. This order will be released when and if the
+    # preferred therapy is unsuccessful.
     ALTCHOICE = "altchoice"
-    """Clarification is required before the order can be acted upon."""
+    # Clarification is required before the order can be acted upon.
     CLARIF = "clarif"
-    """The current level of the medication in the patient's system is too high. The medication is suspended to allow
-	/// the level to subside to a safer level."""
+    # The current level of the medication in the patient's system is too high. The medication is suspended to allow
+    # the level to subside to a safer level.
     DRUGHIGH = "drughigh"
-    """The patient has been admitted to a care facility and their community medications are suspended until hospital
-	/// discharge."""
+    # The patient has been admitted to a care facility and their community medications are suspended until hospital
+    # discharge.
     HOSPADM = "hospadm"
-    """The therapy would interfere with a planned lab test and the therapy is being withdrawn until the test is
-	/// completed."""
+    # The therapy would interfere with a planned lab test and the therapy is being withdrawn until the test is
+    # completed.
     LABINT = "labint"
-    """Patient not available for a period of time due to a scheduled therapy, leave of absence or other reason."""
+    # Patient not available for a period of time due to a scheduled therapy, leave of absence or other reason.
     NONAVAIL = "non-avail"
-    """The patient is pregnant or breast feeding. The therapy will be resumed when the pregnancy is complete and the
-	/// patient is no longer breastfeeding."""
+    # The patient is pregnant or breast feeding. The therapy will be resumed when the pregnancy is complete and the
+    # patient is no longer breastfeeding.
     PREG = "preg"
-    """The patient is believed to be allergic to a substance that is part of the therapy and the therapy is being
-	/// temporarily withdrawn to confirm."""
+    # The patient is believed to be allergic to a substance that is part of the therapy and the therapy is being
+    # temporarily withdrawn to confirm.
     SALG = "salg"
-    """The drug interacts with a short-term treatment that is more urgently required. This order will be resumed when
-	/// the short-term treatment is complete."""
+    # The drug interacts with a short-term treatment that is more urgently required. This order will be resumed when
+    # the short-term treatment is complete.
     SDDI = "sddi"
-    """The drug interacts with a short-term treatment that is more urgently required. This order will be resumed when
-	/// the short-term treatment is complete."""
+    # The drug interacts with a short-term treatment that is more urgently required. This order will be resumed when
+    # the short-term treatment is complete.
     SDUPTHER = "sdupther"
-    """The drug interacts with a short-term treatment that is more urgently required. This order will be resumed when
-	/// the short-term treatment is complete."""
+    # The drug interacts with a short-term treatment that is more urgently required. This order will be resumed when
+    # the short-term treatment is complete.
     SINTOL = "sintol"
-    """The drug is contraindicated for patients receiving surgery and the patient is scheduled to be admitted for
-	/// surgery in the near future. The drug will be resumed when the patient has sufficiently recovered from the
-	/// surgery."""
+    # The drug is contraindicated for patients receiving surgery and the patient is scheduled to be admitted for
+    # surgery in the near future. The drug will be resumed when the patient has sufficiently recovered from the
+    # surgery.
     SURG = "surg"
-    """The patient was previously receiving a medication contraindicated with the current medication. The current
-	/// medication will remain on hold until the prior medication has been cleansed from their system."""
+    # The patient was previously receiving a medication contraindicated with the current medication. The current
+    # medication will remain on hold until the prior medication has been cleansed from their system.
     WASHOUT = "washout"
-    allowed_values = ['ALTCHOICE', 'CLARIF', 'DRUGHIGH', 'HOSPADM', 'LABINT', 'NONAVAIL', 'PREG', 'SALG', 'SDDI', 'SDUPTHER', 'SINTOL', 'SURG', 'WASHOUT']
+
+    allowed_values = [ALTCHOICE, CLARIF, DRUGHIGH, HOSPADM, LABINT, NONAVAIL, PREG, SALG, SDDI, SDUPTHER, SINTOL, SURG, WASHOUT]

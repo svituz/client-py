@@ -15,10 +15,11 @@ manifestations.
     URL: http://hl7.org/fhir/reaction-event-severity
     ValueSet: http://hl7.org/fhir/ValueSet/reaction-event-severity
     """
-    """Causes mild physiological effects."""
+    # Causes mild physiological effects.
     MILD = "mild"
-    """Causes moderate physiological effects."""
+    # Causes moderate physiological effects.
     MODERATE = "moderate"
-    """Causes severe physiological effects."""
+    # Causes severe physiological effects.
     SEVERE = "severe"
-    allowed_values = ['MILD', 'MODERATE', 'SEVERE']
+
+    allowed_values = [MILD, MODERATE, SEVERE]

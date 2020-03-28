@@ -14,12 +14,13 @@ class ExplanationOfBenefitStatus(object):
     URL: http://hl7.org/fhir/explanationofbenefit-status
     ValueSet: http://hl7.org/fhir/ValueSet/explanationofbenefit-status
     """
-    """The resource instance is currently in-force."""
+    # The resource instance is currently in-force.
     ACTIVE = "active"
-    """The resource instance is withdrawn, rescinded or reversed."""
+    # The resource instance is withdrawn, rescinded or reversed.
     CANCELLED = "cancelled"
-    """A new resource instance the contents of which is not complete."""
+    # A new resource instance the contents of which is not complete.
     DRAFT = "draft"
-    """The resource instance was entered in error."""
+    # The resource instance was entered in error.
     ENTEREDINERROR = "entered-in-error"
-    allowed_values = ['ACTIVE', 'CANCELLED', 'DRAFT', 'ENTEREDINERROR']
+
+    allowed_values = [ACTIVE, CANCELLED, DRAFT, ENTEREDINERROR]

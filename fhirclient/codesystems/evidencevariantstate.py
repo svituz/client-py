@@ -14,10 +14,11 @@ class EvidenceVariantState(object):
     URL: http://terminology.hl7.org/CodeSystem/evidence-variant-state
     ValueSet: http://hl7.org/fhir/ValueSet/evidence-variant-state
     """
-    """low risk estimate."""
+    # low risk estimate.
     LOWRISK = "low-risk"
-    """medium risk estimate."""
+    # medium risk estimate.
     MEDIUMRISK = "medium-risk"
-    """high risk estimate."""
+    # high risk estimate.
     HIGHRISK = "high-risk"
-    allowed_values = ['LOWRISK', 'MEDIUMRISK', 'HIGHRISK']
+
+    allowed_values = [LOWRISK, MEDIUMRISK, HIGHRISK]

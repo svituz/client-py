@@ -14,10 +14,11 @@ class ExpansionParameterSource(object):
     URL: http://terminology.hl7.org/CodeSystem/expansion-parameter-source
     ValueSet: http://hl7.org/fhir/ValueSet/expansion-parameter-source
     """
-    """The parameter was supplied by the client in the $expand request."""
+    # The parameter was supplied by the client in the $expand request.
     INPUT = "input"
-    """The parameter was added by the expansion engine on the server."""
+    # The parameter was added by the expansion engine on the server.
     SERVER = "server"
-    """The parameter was added from one the code systems used in the $expand operation."""
+    # The parameter was added from one the code systems used in the $expand operation.
     CODESYSTEM = "codesystem"
-    allowed_values = ['INPUT', 'SERVER', 'CODESYSTEM']
+
+    allowed_values = [INPUT, SERVER, CODESYSTEM]

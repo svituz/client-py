@@ -14,14 +14,15 @@ class InvoiceStatus(object):
     URL: http://hl7.org/fhir/invoice-status
     ValueSet: http://hl7.org/fhir/ValueSet/invoice-status
     """
-    """the invoice has been prepared but not yet finalized."""
+    # the invoice has been prepared but not yet finalized.
     DRAFT = "draft"
-    """the invoice has been finalized and sent to the recipient."""
+    # the invoice has been finalized and sent to the recipient.
     ISSUED = "issued"
-    """the invoice has been balaced / completely paid."""
+    # the invoice has been balaced / completely paid.
     BALANCED = "balanced"
-    """the invoice was cancelled."""
+    # the invoice was cancelled.
     CANCELLED = "cancelled"
-    """the invoice was determined as entered in error before it was issued."""
+    # the invoice was determined as entered in error before it was issued.
     ENTEREDINERROR = "entered-in-error"
-    allowed_values = ['DRAFT', 'ISSUED', 'BALANCED', 'CANCELLED', 'ENTEREDINERROR']
+
+    allowed_values = [DRAFT, ISSUED, BALANCED, CANCELLED, ENTEREDINERROR]

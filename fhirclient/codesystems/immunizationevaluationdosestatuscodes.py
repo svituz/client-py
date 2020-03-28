@@ -16,9 +16,10 @@ value set is provided as a suggestive example.
     URL: http://terminology.hl7.org/CodeSystem/immunization-evaluation-dose-status
     ValueSet: http://hl7.org/fhir/ValueSet/immunization-evaluation-dose-status
     """
-    """The dose counts toward fulfilling a path to immunity for a patient, providing protection against the target
-	/// disease."""
+    # The dose counts toward fulfilling a path to immunity for a patient, providing protection against the target
+    # disease.
     VALID = "valid"
-    """The dose does not count toward fulfilling a path to immunity for a patient."""
+    # The dose does not count toward fulfilling a path to immunity for a patient.
     NOTVALID = "notvalid"
-    allowed_values = ['VALID', 'NOTVALID']
+
+    allowed_values = [VALID, NOTVALID]

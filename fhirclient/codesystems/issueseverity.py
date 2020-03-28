@@ -14,13 +14,14 @@ class IssueSeverity(object):
     URL: http://hl7.org/fhir/issue-severity
     ValueSet: http://hl7.org/fhir/ValueSet/issue-severity
     """
-    """The issue caused the action to fail and no further checking could be performed."""
+    # The issue caused the action to fail and no further checking could be performed.
     FATAL = "fatal"
-    """The issue is sufficiently important to cause the action to fail."""
+    # The issue is sufficiently important to cause the action to fail.
     ERROR = "error"
-    """The issue is not important enough to cause the action to fail but may cause it to be performed suboptimally or
-	/// in a way that is not as desired."""
+    # The issue is not important enough to cause the action to fail but may cause it to be performed suboptimally or
+    # in a way that is not as desired.
     WARNING = "warning"
-    """The issue has no relation to the degree of success of the action."""
+    # The issue has no relation to the degree of success of the action.
     INFORMATION = "information"
-    allowed_values = ['FATAL', 'ERROR', 'WARNING', 'INFORMATION']
+
+    allowed_values = [FATAL, ERROR, WARNING, INFORMATION]

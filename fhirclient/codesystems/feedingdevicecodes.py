@@ -13,48 +13,49 @@ class FeedingDeviceCodes(object):
     """ Materials used or needed to feed the patient.
     URL: http://hl7.org/fhir/feeding-device
     """
-    """Standard nipple definition:"""
+    # Standard nipple definition:
     STANDARDNIPPLE = "standard-nipple"
-    """Preemie nipple definition:"""
+    # Preemie nipple definition:
     PREEMIENIPPLE = "preemie-nipple"
-    """Orthodontic nipple definition:"""
+    # Orthodontic nipple definition:
     ORTHONIPPLE = "ortho-nipple"
-    """Slow flow nipple definition:"""
+    # Slow flow nipple definition:
     SLOFLONIPPLE = "sloflo-nipple"
-    """Middle flow nipple definition:"""
+    # Middle flow nipple definition:
     MIDFLONIPPLE = "midflo-nipple"
-    """Enlarged, cross-cut nipple definition:"""
+    # Enlarged, cross-cut nipple definition:
     BIGCUTNIPPLE = "bigcut-nipple"
-    """Haberman bottle definition:"""
+    # Haberman bottle definition:
     HABERMANBOTTLE = "haberman-bottle"
-    """Sippy cup with valve definition:"""
+    # Sippy cup with valve definition:
     SIPPYVALVE = "sippy-valve"
-    """Sippy cup without valve definition:"""
+    # Sippy cup without valve definition:
     SIPPYNOVALVE = "sippy-no-valve"
-    """Provale Cup definition:"""
+    # Provale Cup definition:
     PROVALECUP = "provale-cup"
-    """Glass with lid/sippy cup definition:"""
+    # Glass with lid/sippy cup definition:
     GLASSLID = "glass-lid"
-    """Double handhold on glass/cup definition:"""
+    # Double handhold on glass/cup definition:
     HANDHOLDCUP = "handhold-cup"
-    """Rubber matting under tray definition:"""
+    # Rubber matting under tray definition:
     RUBBERMAT = "rubber-mat"
-    """Straw definition:"""
+    # Straw definition:
     STRAW = "straw"
-    """Nose cup definition:"""
+    # Nose cup definition:
     NOSECUP = "nose-cup"
-    """Scoop plate definition:"""
+    # Scoop plate definition:
     SCOOPPLATE = "scoop-plate"
-    """Hand wrap utensil holder definition:"""
+    # Hand wrap utensil holder definition:
     UTENSILHOLDER = "utensil-holder"
-    """Foam handle utensils definition:"""
+    # Foam handle utensils definition:
     FOAMHANDLE = "foam-handle"
-    """Angled utensils definition:"""
+    # Angled utensils definition:
     ANGLEDUTENSIL = "angled-utensil"
-    """Spout cup definition:"""
+    # Spout cup definition:
     SPOUTCUP = "spout-cup"
-    """Automated feeding devices definition:"""
+    # Automated feeding devices definition:
     AUTOFEEDINGDEVICE = "autofeeding-device"
-    """Rocker knife definition:"""
+    # Rocker knife definition:
     ROCKERKNIFE = "rocker-knife"
-    allowed_values = ['STANDARDNIPPLE', 'PREEMIENIPPLE', 'ORTHONIPPLE', 'SLOFLONIPPLE', 'MIDFLONIPPLE', 'BIGCUTNIPPLE', 'HABERMANBOTTLE', 'SIPPYVALVE', 'SIPPYNOVALVE', 'PROVALECUP', 'GLASSLID', 'HANDHOLDCUP', 'RUBBERMAT', 'STRAW', 'NOSECUP', 'SCOOPPLATE', 'UTENSILHOLDER', 'FOAMHANDLE', 'ANGLEDUTENSIL', 'SPOUTCUP', 'AUTOFEEDINGDEVICE', 'ROCKERKNIFE']
+
+    allowed_values = [STANDARDNIPPLE, PREEMIENIPPLE, ORTHONIPPLE, SLOFLONIPPLE, MIDFLONIPPLE, BIGCUTNIPPLE, HABERMANBOTTLE, SIPPYVALVE, SIPPYNOVALVE, PROVALECUP, GLASSLID, HANDHOLDCUP, RUBBERMAT, STRAW, NOSECUP, SCOOPPLATE, UTENSILHOLDER, FOAMHANDLE, ANGLEDUTENSIL, SPOUTCUP, AUTOFEEDINGDEVICE, ROCKERKNIFE]

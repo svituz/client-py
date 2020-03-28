@@ -14,10 +14,11 @@ class GoalAcceptanceStatus(object):
     URL: http://terminology.hl7.org/CodeSystem/goal-acceptance-status
     ValueSet: http://hl7.org/fhir/ValueSet/goal-acceptance-status
     """
-    """Stakeholder supports pursuit of the goal."""
+    # Stakeholder supports pursuit of the goal.
     AGREE = "agree"
-    """Stakeholder is not in support of the pursuit of the goal."""
+    # Stakeholder is not in support of the pursuit of the goal.
     DISAGREE = "disagree"
-    """Stakeholder has not yet made a decision on whether they support the goal."""
+    # Stakeholder has not yet made a decision on whether they support the goal.
     PENDING = "pending"
-    allowed_values = ['AGREE', 'DISAGREE', 'PENDING']
+
+    allowed_values = [AGREE, DISAGREE, PENDING]

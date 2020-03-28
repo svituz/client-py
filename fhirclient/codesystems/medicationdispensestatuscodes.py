@@ -14,26 +14,27 @@ class MedicationDispenseStatusCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/medicationdispense-status
     ValueSet: http://hl7.org/fhir/ValueSet/medicationdispense-status
     """
-    """The core event has not started yet, but some staging activities have begun (e.g. initial compounding or
-	/// packaging of medication). Preparation stages may be tracked for billing purposes."""
+    # The core event has not started yet, but some staging activities have begun (e.g. initial compounding or
+    # packaging of medication). Preparation stages may be tracked for billing purposes.
     PREPARATION = "preparation"
-    """The dispensed product is ready for pickup."""
+    # The dispensed product is ready for pickup.
     INPROGRESS = "in-progress"
-    """The dispensed product was not and will never be picked up by the patient."""
+    # The dispensed product was not and will never be picked up by the patient.
     CANCELLED = "cancelled"
-    """The dispense process is paused while waiting for an external event to reactivate the dispense.  For example, new
-	/// stock has arrived or the prescriber has called."""
+    # The dispense process is paused while waiting for an external event to reactivate the dispense.  For example, new
+    # stock has arrived or the prescriber has called.
     ONHOLD = "on-hold"
-    """The dispensed product has been picked up."""
+    # The dispensed product has been picked up.
     COMPLETED = "completed"
-    """The dispense was entered in error and therefore nullified."""
+    # The dispense was entered in error and therefore nullified.
     ENTEREDINERROR = "entered-in-error"
-    """Actions implied by the dispense have been permanently halted, before all of them occurred."""
+    # Actions implied by the dispense have been permanently halted, before all of them occurred.
     STOPPED = "stopped"
-    """The dispense was declined and not performed."""
+    # The dispense was declined and not performed.
     DECLINED = "declined"
-    """The authoring system does not know which of the status values applies for this medication dispense.  Note: this
-	/// concept is not to be used for other - one of the listed statuses is presumed to apply, it's just now known which
-	/// one."""
+    # The authoring system does not know which of the status values applies for this medication dispense.  Note: this
+    # concept is not to be used for other - one of the listed statuses is presumed to apply, it's just now known which
+    # one.
     UNKNOWN = "unknown"
-    allowed_values = ['PREPARATION', 'INPROGRESS', 'CANCELLED', 'ONHOLD', 'COMPLETED', 'ENTEREDINERROR', 'STOPPED', 'DECLINED', 'UNKNOWN']
+
+    allowed_values = [PREPARATION, INPROGRESS, CANCELLED, ONHOLD, COMPLETED, ENTEREDINERROR, STOPPED, DECLINED, UNKNOWN]

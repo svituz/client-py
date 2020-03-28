@@ -14,17 +14,18 @@ class SpecialValues(object):
     URL: http://terminology.hl7.org/CodeSystem/special-values
     ValueSet: http://hl7.org/fhir/ValueSet/special-values
     """
-    """Boolean true."""
+    # Boolean true.
     TRUE = "true"
-    """Boolean false."""
+    # Boolean false.
     FALSE = "false"
-    """The content is greater than zero, but too small to be quantified."""
+    # The content is greater than zero, but too small to be quantified.
     TRACE = "trace"
-    """The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the
-	/// bulk of the material."""
+    # The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the
+    # bulk of the material.
     SUFFICIENT = "sufficient"
-    """The value is no longer available."""
+    # The value is no longer available.
     WITHDRAWN = "withdrawn"
-    """The are no known applicable values in this context."""
+    # The are no known applicable values in this context.
     NILKNOWN = "nil-known"
-    allowed_values = ['TRUE', 'FALSE', 'TRACE', 'SUFFICIENT', 'WITHDRAWN', 'NILKNOWN']
+
+    allowed_values = [TRUE, FALSE, TRACE, SUFFICIENT, WITHDRAWN, NILKNOWN]

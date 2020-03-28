@@ -14,13 +14,14 @@ class LibraryType(object):
     URL: http://terminology.hl7.org/CodeSystem/library-type
     ValueSet: http://hl7.org/fhir/ValueSet/library-type
     """
-    """The resource is a shareable library of formalized knowledge."""
+    # The resource is a shareable library of formalized knowledge.
     LOGICLIBRARY = "logic-library"
-    """The resource is a definition of an information model."""
+    # The resource is a definition of an information model.
     MODELDEFINITION = "model-definition"
-    """The resource is a collection of knowledge assets."""
+    # The resource is a collection of knowledge assets.
     ASSETCOLLECTION = "asset-collection"
-    """The resource defines the dependencies, parameters, and data requirements for a particular module or evaluation
-	/// context."""
+    # The resource defines the dependencies, parameters, and data requirements for a particular module or evaluation
+    # context.
     MODULEDEFINITION = "module-definition"
-    allowed_values = ['LOGICLIBRARY', 'MODELDEFINITION', 'ASSETCOLLECTION', 'MODULEDEFINITION']
+
+    allowed_values = [LOGICLIBRARY, MODELDEFINITION, ASSETCOLLECTION, MODULEDEFINITION]

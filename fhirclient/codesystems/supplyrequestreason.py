@@ -14,8 +14,9 @@ class SupplyRequestReason(object):
     URL: http://terminology.hl7.org/CodeSystem/supplyrequest-reason
     ValueSet: http://hl7.org/fhir/ValueSet/supplyrequest-reason
     """
-    """The supply has been requested for use in direct patient care."""
+    # The supply has been requested for use in direct patient care.
     PATIENTCARE = "patient-care"
-    """The supply has been requested for creating or replenishing ward stock."""
+    # The supply has been requested for creating or replenishing ward stock.
     WARDSTOCK = "ward-stock"
-    allowed_values = ['PATIENTCARE', 'WARDSTOCK']
+
+    allowed_values = [PATIENTCARE, WARDSTOCK]

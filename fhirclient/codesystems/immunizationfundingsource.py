@@ -16,8 +16,9 @@ suggestive example.
     URL: http://terminology.hl7.org/CodeSystem/immunization-funding-source
     ValueSet: http://hl7.org/fhir/ValueSet/immunization-funding-source
     """
-    """The vaccine was purchased with private funds."""
+    # The vaccine was purchased with private funds.
     PRIVATE = "private"
-    """The vaccine was purchased with public funds."""
+    # The vaccine was purchased with public funds.
     PUBLIC = "public"
-    allowed_values = ['PRIVATE', 'PUBLIC']
+
+    allowed_values = [PRIVATE, PUBLIC]

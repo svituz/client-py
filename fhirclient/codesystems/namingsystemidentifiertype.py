@@ -14,12 +14,13 @@ class NamingSystemIdentifierType(object):
     URL: http://hl7.org/fhir/namingsystem-identifier-type
     ValueSet: http://hl7.org/fhir/ValueSet/namingsystem-identifier-type
     """
-    """An ISO object identifier; e.g. 1.2.3.4.5."""
+    # An ISO object identifier; e.g. 1.2.3.4.5.
     OID = "oid"
-    """A universally unique identifier of the form a5afddf4-e880-459b-876e-e4591b0acc11."""
+    # A universally unique identifier of the form a5afddf4-e880-459b-876e-e4591b0acc11.
     UUID = "uuid"
-    """A uniform resource identifier (ideally a URL - uniform resource locator); e.g. http://unitsofmeasure.org."""
+    # A uniform resource identifier (ideally a URL - uniform resource locator); e.g. http://unitsofmeasure.org.
     URI = "uri"
-    """Some other type of unique identifier; e.g. HL7-assigned reserved string such as LN for LOINC."""
+    # Some other type of unique identifier; e.g. HL7-assigned reserved string such as LN for LOINC.
     OTHER = "other"
-    allowed_values = ['OID', 'UUID', 'URI', 'OTHER']
+
+    allowed_values = [OID, UUID, URI, OTHER]

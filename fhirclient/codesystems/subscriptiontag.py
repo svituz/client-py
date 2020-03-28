@@ -14,8 +14,9 @@ class SubscriptionTag(object):
     URL: http://terminology.hl7.org/CodeSystem/subscription-tag
     ValueSet: http://hl7.org/fhir/ValueSet/subscription-tag
     """
-    """The message has been queued for processing on a destination systems."""
+    # The message has been queued for processing on a destination systems.
     QUEUED = "queued"
-    """The message has been delivered to its intended recipient."""
+    # The message has been delivered to its intended recipient.
     DELIVERED = "delivered"
-    allowed_values = ['QUEUED', 'DELIVERED']
+
+    allowed_values = [QUEUED, DELIVERED]

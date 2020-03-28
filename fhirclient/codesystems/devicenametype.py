@@ -14,16 +14,17 @@ class DeviceNameType(object):
     URL: http://hl7.org/fhir/device-nametype
     ValueSet: http://hl7.org/fhir/ValueSet/device-nametype
     """
-    """UDI Label name."""
+    # UDI Label name.
     UDILABELNAME = "udi-label-name"
-    """User Friendly name."""
+    # User Friendly name.
     USERFRIENDLYNAME = "user-friendly-name"
-    """Patient Reported name."""
+    # Patient Reported name.
     PATIENTREPORTEDNAME = "patient-reported-name"
-    """Manufacturer name."""
+    # Manufacturer name.
     MANUFACTURERNAME = "manufacturer-name"
-    """Model name."""
+    # Model name.
     MODELNAME = "model-name"
-    """other."""
+    # other.
     OTHER = "other"
-    allowed_values = ['UDILABELNAME', 'USERFRIENDLYNAME', 'PATIENTREPORTEDNAME', 'MANUFACTURERNAME', 'MODELNAME', 'OTHER']
+
+    allowed_values = [UDILABELNAME, USERFRIENDLYNAME, PATIENTREPORTEDNAME, MANUFACTURERNAME, MODELNAME, OTHER]

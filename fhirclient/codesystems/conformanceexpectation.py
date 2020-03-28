@@ -15,14 +15,15 @@ with a specification.
     URL: http://terminology.hl7.org/CodeSystem/conformance-expectation
     ValueSet: http://hl7.org/fhir/ValueSet/conformance-expectation
     """
-    """Support for the specified capability is required to be considered conformant."""
+    # Support for the specified capability is required to be considered conformant.
     SHALL = "SHALL"
-    """Support for the specified capability is strongly encouraged, and failure to support it should only occur after
-	/// careful consideration."""
+    # Support for the specified capability is strongly encouraged, and failure to support it should only occur after
+    # careful consideration.
     SHOULD = "SHOULD"
-    """Support for the specified capability is not necessary to be considered conformant, and the requirement should be
-	/// considered strictly optional."""
+    # Support for the specified capability is not necessary to be considered conformant, and the requirement should be
+    # considered strictly optional.
     MAY = "MAY"
-    """Support for the specified capability is strongly discouraged and should occur only after careful consideration."""
+    # Support for the specified capability is strongly discouraged and should occur only after careful consideration.
     SHOULDNOT = "SHOULD-NOT"
-    allowed_values = ['SHALL', 'SHOULD', 'MAY', 'SHOULDNOT']
+
+    allowed_values = [SHALL, SHOULD, MAY, SHOULDNOT]

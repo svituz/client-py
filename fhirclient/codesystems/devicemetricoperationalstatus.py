@@ -14,12 +14,13 @@ class DeviceMetricOperationalStatus(object):
     URL: http://hl7.org/fhir/metric-operational-status
     ValueSet: http://hl7.org/fhir/ValueSet/metric-operational-status
     """
-    """The DeviceMetric is operating and will generate DeviceObservations."""
+    # The DeviceMetric is operating and will generate DeviceObservations.
     ON = "on"
-    """The DeviceMetric is not operating."""
+    # The DeviceMetric is not operating.
     OFF = "off"
-    """The DeviceMetric is operating, but will not generate any DeviceObservations."""
+    # The DeviceMetric is operating, but will not generate any DeviceObservations.
     STANDBY = "standby"
-    """The DeviceMetric was entered in error."""
+    # The DeviceMetric was entered in error.
     ENTEREDINERROR = "entered-in-error"
-    allowed_values = ['ON', 'OFF', 'STANDBY', 'ENTEREDINERROR']
+
+    allowed_values = [ON, OFF, STANDBY, ENTEREDINERROR]

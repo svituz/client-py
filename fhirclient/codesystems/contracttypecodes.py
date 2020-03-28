@@ -14,14 +14,15 @@ class ContractTypeCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/contract-type
     ValueSet: http://hl7.org/fhir/ValueSet/contract-type
     """
-    """Privacy policy."""
+    # Privacy policy.
     PRIVACY = "privacy"
-    """Information disclosure policy."""
+    # Information disclosure policy.
     DISCLOSURE = "disclosure"
-    """Health Insurance policy."""
+    # Health Insurance policy.
     HEALTHINSURANCE = "healthinsurance"
-    """Contract to supply goods or services."""
+    # Contract to supply goods or services.
     SUPPLY = "supply"
-    """Consent Directive."""
+    # Consent Directive.
     CONSENT = "consent"
-    allowed_values = ['PRIVACY', 'DISCLOSURE', 'HEALTHINSURANCE', 'SUPPLY', 'CONSENT']
+
+    allowed_values = [PRIVACY, DISCLOSURE, HEALTHINSURANCE, SUPPLY, CONSENT]

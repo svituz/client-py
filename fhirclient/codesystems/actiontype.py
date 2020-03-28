@@ -14,12 +14,13 @@ class ActionType(object):
     URL: http://terminology.hl7.org/CodeSystem/action-type
     ValueSet: http://hl7.org/fhir/ValueSet/action-type
     """
-    """The action is to create a new resource."""
+    # The action is to create a new resource.
     CREATE = "create"
-    """The action is to update an existing resource."""
+    # The action is to update an existing resource.
     UPDATE = "update"
-    """The action is to remove an existing resource."""
+    # The action is to remove an existing resource.
     REMOVE = "remove"
-    """The action is to fire a specific event."""
+    # The action is to fire a specific event.
     FIREEVENT = "fire-event"
-    allowed_values = ['CREATE', 'UPDATE', 'REMOVE', 'FIREEVENT']
+
+    allowed_values = [CREATE, UPDATE, REMOVE, FIREEVENT]

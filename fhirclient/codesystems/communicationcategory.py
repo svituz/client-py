@@ -14,12 +14,13 @@ class CommunicationCategory(object):
     URL: http://terminology.hl7.org/CodeSystem/communication-category
     ValueSet: http://hl7.org/fhir/ValueSet/communication-category
     """
-    """The communication conveys an alert."""
+    # The communication conveys an alert.
     ALERT = "alert"
-    """The communication conveys a notification."""
+    # The communication conveys a notification.
     NOTIFICATION = "notification"
-    """The communication conveys a reminder."""
+    # The communication conveys a reminder.
     REMINDER = "reminder"
-    """The communication conveys an instruction."""
+    # The communication conveys an instruction.
     INSTRUCTION = "instruction"
-    allowed_values = ['ALERT', 'NOTIFICATION', 'REMINDER', 'INSTRUCTION']
+
+    allowed_values = [ALERT, NOTIFICATION, REMINDER, INSTRUCTION]

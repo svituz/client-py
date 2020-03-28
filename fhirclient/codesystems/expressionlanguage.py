@@ -14,10 +14,11 @@ class ExpressionLanguage(object):
     URL: http://hl7.org/fhir/expression-language
     ValueSet: http://hl7.org/fhir/ValueSet/expression-language
     """
-    """Clinical Quality Language."""
+    # Clinical Quality Language.
     TEXTCQL = "text/cql"
-    """FHIRPath."""
+    # FHIRPath.
     TEXTFHIRPATH = "text/fhirpath"
-    """FHIR's RESTful query syntax - typically independent of base URL."""
+    # FHIR's RESTful query syntax - typically independent of base URL.
     APPLICATIONXFHIRQUERY = "application/x-fhir-query"
-    allowed_values = ['TEXTCQL', 'TEXTFHIRPATH', 'APPLICATIONXFHIRQUERY']
+
+    allowed_values = [TEXTCQL, TEXTFHIRPATH, APPLICATIONXFHIRQUERY]

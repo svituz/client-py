@@ -14,14 +14,15 @@ class RiskProbability(object):
     URL: http://terminology.hl7.org/CodeSystem/risk-probability
     ValueSet: http://hl7.org/fhir/ValueSet/risk-probability
     """
-    """The specified outcome is exceptionally unlikely."""
+    # The specified outcome is exceptionally unlikely.
     NEGLIGIBLE = "negligible"
-    """The specified outcome is possible but unlikely."""
+    # The specified outcome is possible but unlikely.
     LOW = "low"
-    """The specified outcome has a reasonable likelihood of occurrence."""
+    # The specified outcome has a reasonable likelihood of occurrence.
     MODERATE = "moderate"
-    """The specified outcome is more likely to occur than not."""
+    # The specified outcome is more likely to occur than not.
     HIGH = "high"
-    """The specified outcome is effectively guaranteed."""
+    # The specified outcome is effectively guaranteed.
     CERTAIN = "certain"
-    allowed_values = ['NEGLIGIBLE', 'LOW', 'MODERATE', 'HIGH', 'CERTAIN']
+
+    allowed_values = [NEGLIGIBLE, LOW, MODERATE, HIGH, CERTAIN]

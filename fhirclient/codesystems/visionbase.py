@@ -14,12 +14,13 @@ class VisionBase(object):
     URL: http://hl7.org/fhir/vision-base-codes
     ValueSet: http://hl7.org/fhir/ValueSet/vision-base-codes
     """
-    """top."""
+    # top.
     UP = "up"
-    """bottom."""
+    # bottom.
     DOWN = "down"
-    """inner edge."""
+    # inner edge.
     IN = "in"
-    """outer edge."""
+    # outer edge.
     OUT = "out"
-    allowed_values = ['UP', 'DOWN', 'IN', 'OUT']
+
+    allowed_values = [UP, DOWN, IN, OUT]

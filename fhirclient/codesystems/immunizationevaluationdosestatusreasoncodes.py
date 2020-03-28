@@ -16,16 +16,17 @@ Often, this reason describes why a dose is considered invalid. This value set is
     URL: http://terminology.hl7.org/CodeSystem/immunization-evaluation-dose-status-reason
     ValueSet: http://hl7.org/fhir/ValueSet/immunization-evaluation-dose-status-reason
     """
-    """The product was stored in a manner inconsistent with manufacturer guidelines potentially reducing the
-	/// effectiveness of the product."""
+    # The product was stored in a manner inconsistent with manufacturer guidelines potentially reducing the
+    # effectiveness of the product.
     ADVSTORAGE = "advstorage"
-    """The product was stored at a temperature inconsistent with manufacturer guidelines potentially reducing the
-	/// effectiveness of the product."""
+    # The product was stored at a temperature inconsistent with manufacturer guidelines potentially reducing the
+    # effectiveness of the product.
     COLDCHBRK = "coldchbrk"
-    """The product was administered after the expiration date associated with lot of vaccine."""
+    # The product was administered after the expiration date associated with lot of vaccine.
     EXPLOT = "explot"
-    """The product was administered at a time inconsistent with the documented schedule."""
+    # The product was administered at a time inconsistent with the documented schedule.
     OUTSIDESCHED = "outsidesched"
-    """The product administered has been recalled by the manufacturer."""
+    # The product administered has been recalled by the manufacturer.
     PRODRECALL = "prodrecall"
-    allowed_values = ['ADVSTORAGE', 'COLDCHBRK', 'EXPLOT', 'OUTSIDESCHED', 'PRODRECALL']
+
+    allowed_values = [ADVSTORAGE, COLDCHBRK, EXPLOT, OUTSIDESCHED, PRODRECALL]

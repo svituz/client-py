@@ -14,10 +14,11 @@ class HandlingConditionSet(object):
     URL: http://terminology.hl7.org/CodeSystem/handling-condition
     ValueSet: http://hl7.org/fhir/ValueSet/handling-condition
     """
-    """room temperature."""
+    # room temperature.
     ROOM = "room"
-    """refrigerated temperature."""
+    # refrigerated temperature.
     REFRIGERATED = "refrigerated"
-    """frozen temperature."""
+    # frozen temperature.
     FROZEN = "frozen"
-    allowed_values = ['ROOM', 'REFRIGERATED', 'FROZEN']
+
+    allowed_values = [ROOM, REFRIGERATED, FROZEN]

@@ -14,11 +14,12 @@ class ParticipantRequired(object):
     URL: http://hl7.org/fhir/participantrequired
     ValueSet: http://hl7.org/fhir/ValueSet/participantrequired
     """
-    """The participant is required to attend the appointment."""
+    # The participant is required to attend the appointment.
     REQUIRED = "required"
-    """The participant may optionally attend the appointment."""
+    # The participant may optionally attend the appointment.
     OPTIONAL = "optional"
-    """The participant is excluded from the appointment, and might not be informed of the appointment taking place.
-	/// (Appointment is about them, not for them - such as 2 doctors discussing results about a patient's test)."""
+    # The participant is excluded from the appointment, and might not be informed of the appointment taking place.
+    # (Appointment is about them, not for them - such as 2 doctors discussing results about a patient's test).
     INFORMATIONONLY = "information-only"
-    allowed_values = ['REQUIRED', 'OPTIONAL', 'INFORMATIONONLY']
+
+    allowed_values = [REQUIRED, OPTIONAL, INFORMATIONONLY]

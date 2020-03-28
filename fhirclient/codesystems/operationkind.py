@@ -14,8 +14,9 @@ class OperationKind(object):
     URL: http://hl7.org/fhir/operation-kind
     ValueSet: http://hl7.org/fhir/ValueSet/operation-kind
     """
-    """This operation is invoked as an operation."""
+    # This operation is invoked as an operation.
     OPERATION = "operation"
-    """This operation is a named query, invoked using the search mechanism."""
+    # This operation is a named query, invoked using the search mechanism.
     QUERY = "query"
-    allowed_values = ['OPERATION', 'QUERY']
+
+    allowed_values = [OPERATION, QUERY]

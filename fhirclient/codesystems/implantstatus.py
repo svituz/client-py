@@ -14,12 +14,13 @@ class ImplantStatus(object):
     URL: http://terminology.hl7.org/CodeSystem/implantStatus
     ValueSet: http://hl7.org/fhir/ValueSet/implantStatus
     """
-    """The implanted device is working normally."""
+    # The implanted device is working normally.
     FUNCTIONAL = "functional"
-    """The implanted device is not working."""
+    # The implanted device is not working.
     NONFUNCTIONAL = "non-functional"
-    """The implanted device has been turned off."""
+    # The implanted device has been turned off.
     DISABLED = "disabled"
-    """the functional status of the implant has not been determined."""
+    # the functional status of the implant has not been determined.
     UNKNOWN = "unknown"
-    allowed_values = ['FUNCTIONAL', 'NONFUNCTIONAL', 'DISABLED', 'UNKNOWN']
+
+    allowed_values = [FUNCTIONAL, NONFUNCTIONAL, DISABLED, UNKNOWN]

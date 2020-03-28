@@ -14,18 +14,19 @@ class DaysOfWeek(object):
     URL: http://hl7.org/fhir/days-of-week
     ValueSet: http://hl7.org/fhir/ValueSet/days-of-week
     """
-    """Monday."""
+    # Monday.
     MON = "mon"
-    """Tuesday."""
+    # Tuesday.
     TUE = "tue"
-    """Wednesday."""
+    # Wednesday.
     WED = "wed"
-    """Thursday."""
+    # Thursday.
     THU = "thu"
-    """Friday."""
+    # Friday.
     FRI = "fri"
-    """Saturday."""
+    # Saturday.
     SAT = "sat"
-    """Sunday."""
+    # Sunday.
     SUN = "sun"
-    allowed_values = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN']
+
+    allowed_values = [MON, TUE, WED, THU, FRI, SAT, SUN]

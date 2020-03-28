@@ -14,13 +14,14 @@ class MessageSignificanceCategory(object):
     URL: http://hl7.org/fhir/message-significance-category
     ValueSet: http://hl7.org/fhir/ValueSet/message-significance-category
     """
-    """The message represents/requests a change that should not be processed more than once; e.g., making a booking for
-	/// an appointment."""
+    # The message represents/requests a change that should not be processed more than once; e.g., making a booking for
+    # an appointment.
     CONSEQUENCE = "consequence"
-    """The message represents a response to query for current information. Retrospective processing is wrong and/or
-	/// wasteful."""
+    # The message represents a response to query for current information. Retrospective processing is wrong and/or
+    # wasteful.
     CURRENCY = "currency"
-    """The content is not necessarily intended to be current, and it can be reprocessed, though there may be version
-	/// issues created by processing old notifications."""
+    # The content is not necessarily intended to be current, and it can be reprocessed, though there may be version
+    # issues created by processing old notifications.
     NOTIFICATION = "notification"
-    allowed_values = ['CONSEQUENCE', 'CURRENCY', 'NOTIFICATION']
+
+    allowed_values = [CONSEQUENCE, CURRENCY, NOTIFICATION]

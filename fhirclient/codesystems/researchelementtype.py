@@ -14,10 +14,11 @@ class ResearchElementType(object):
     URL: http://hl7.org/fhir/research-element-type
     ValueSet: http://hl7.org/fhir/ValueSet/research-element-type
     """
-    """The element defines the population that forms the basis for research."""
+    # The element defines the population that forms the basis for research.
     POPULATION = "population"
-    """The element defines an exposure within the population that is being researched."""
+    # The element defines an exposure within the population that is being researched.
     EXPOSURE = "exposure"
-    """The element defines an outcome within the population that is being researched."""
+    # The element defines an outcome within the population that is being researched.
     OUTCOME = "outcome"
-    allowed_values = ['POPULATION', 'EXPOSURE', 'OUTCOME']
+
+    allowed_values = [POPULATION, EXPOSURE, OUTCOME]

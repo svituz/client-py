@@ -14,28 +14,29 @@ class BenefitTypeCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/benefit-type
     ValueSet: http://hl7.org/fhir/ValueSet/benefit-type
     """
-    """Maximum benefit allowable."""
+    # Maximum benefit allowable.
     BENEFIT = "benefit"
-    """Cost to be incurred before benefits are applied"""
+    # Cost to be incurred before benefits are applied
     DEDUCTIBLE = "deductible"
-    """Service visit"""
+    # Service visit
     VISIT = "visit"
-    """Type of room"""
+    # Type of room
     ROOM = "room"
-    """Copayment per service"""
+    # Copayment per service
     COPAY = "copay"
-    """Copayment percentage per service"""
+    # Copayment percentage per service
     COPAYPERCENT = "copay-percent"
-    """Copayment maximum per service"""
+    # Copayment maximum per service
     COPAYMAXIMUM = "copay-maximum"
-    """Vision Exam"""
+    # Vision Exam
     VISIONEXAM = "vision-exam"
-    """Frames and lenses"""
+    # Frames and lenses
     VISIONGLASSES = "vision-glasses"
-    """Contact Lenses"""
+    # Contact Lenses
     VISIONCONTACTS = "vision-contacts"
-    """Medical Primary Health Coverage"""
+    # Medical Primary Health Coverage
     MEDICALPRIMARYCARE = "medical-primarycare"
-    """Pharmacy Dispense Coverage"""
+    # Pharmacy Dispense Coverage
     PHARMACYDISPENSE = "pharmacy-dispense"
-    allowed_values = ['BENEFIT', 'DEDUCTIBLE', 'VISIT', 'ROOM', 'COPAY', 'COPAYPERCENT', 'COPAYMAXIMUM', 'VISIONEXAM', 'VISIONGLASSES', 'VISIONCONTACTS', 'MEDICALPRIMARYCARE', 'PHARMACYDISPENSE']
+
+    allowed_values = [BENEFIT, DEDUCTIBLE, VISIT, ROOM, COPAY, COPAYPERCENT, COPAYMAXIMUM, VISIONEXAM, VISIONGLASSES, VISIONCONTACTS, MEDICALPRIMARYCARE, PHARMACYDISPENSE]

@@ -14,6 +14,7 @@ class ContractResourceAssetSubTypeCodes(object):
     URL: http://hl7.org/fhir/contract-asset-subtype
     ValueSet: http://hl7.org/fhir/ValueSet/contract-assetsubtype
     """
-    """To be completed"""
+    # To be completed
     PARTICIPATION = "participation"
-    allowed_values = ['PARTICIPATION']
+
+    allowed_values = [PARTICIPATION]

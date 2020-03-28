@@ -14,38 +14,39 @@ class FHIRRestfulInteractions(object):
     URL: http://hl7.org/fhir/restful-interaction
     ValueSet: http://hl7.org/fhir/ValueSet/restful-interaction
     """
-    """Read the current state of the resource."""
+    # Read the current state of the resource.
     READ = "read"
-    """Read the state of a specific version of the resource."""
+    # Read the state of a specific version of the resource.
     VREAD = "vread"
-    """Update an existing resource by its id (or create it if it is new)."""
+    # Update an existing resource by its id (or create it if it is new).
     UPDATE = "update"
-    """Update an existing resource by posting a set of changes to it."""
+    # Update an existing resource by posting a set of changes to it.
     PATCH = "patch"
-    """Delete a resource."""
+    # Delete a resource.
     DELETE = "delete"
-    """Retrieve the change history for a particular resource, type of resource, or the entire system."""
+    # Retrieve the change history for a particular resource, type of resource, or the entire system.
     HISTORY = "history"
-    """Retrieve the change history for a particular resource."""
+    # Retrieve the change history for a particular resource.
     HISTORYINSTANCE = "history-instance"
-    """Retrieve the change history for all resources of a particular type."""
+    # Retrieve the change history for all resources of a particular type.
     HISTORYTYPE = "history-type"
-    """Retrieve the change history for all resources on a system."""
+    # Retrieve the change history for all resources on a system.
     HISTORYSYSTEM = "history-system"
-    """Create a new resource with a server assigned id."""
+    # Create a new resource with a server assigned id.
     CREATE = "create"
-    """Search a resource type or all resources based on some filter criteria."""
+    # Search a resource type or all resources based on some filter criteria.
     SEARCH = "search"
-    """Search all resources of the specified type based on some filter criteria."""
+    # Search all resources of the specified type based on some filter criteria.
     SEARCHTYPE = "search-type"
-    """Search all resources based on some filter criteria."""
+    # Search all resources based on some filter criteria.
     SEARCHSYSTEM = "search-system"
-    """Get a Capability Statement for the system."""
+    # Get a Capability Statement for the system.
     CAPABILITIES = "capabilities"
-    """Update, create or delete a set of resources as a single transaction."""
+    # Update, create or delete a set of resources as a single transaction.
     TRANSACTION = "transaction"
-    """perform a set of a separate interactions in a single http operation"""
+    # perform a set of a separate interactions in a single http operation
     BATCH = "batch"
-    """Perform an operation as defined by an OperationDefinition."""
+    # Perform an operation as defined by an OperationDefinition.
     OPERATION = "operation"
-    allowed_values = ['READ', 'VREAD', 'UPDATE', 'PATCH', 'DELETE', 'HISTORY', 'HISTORYINSTANCE', 'HISTORYTYPE', 'HISTORYSYSTEM', 'CREATE', 'SEARCH', 'SEARCHTYPE', 'SEARCHSYSTEM', 'CAPABILITIES', 'TRANSACTION', 'BATCH', 'OPERATION']
+
+    allowed_values = [READ, VREAD, UPDATE, PATCH, DELETE, HISTORY, HISTORYINSTANCE, HISTORYTYPE, HISTORYSYSTEM, CREATE, SEARCH, SEARCHTYPE, SEARCHSYSTEM, CAPABILITIES, TRANSACTION, BATCH, OPERATION]

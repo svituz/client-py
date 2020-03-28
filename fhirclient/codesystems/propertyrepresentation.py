@@ -14,14 +14,15 @@ class PropertyRepresentation(object):
     URL: http://hl7.org/fhir/property-representation
     ValueSet: http://hl7.org/fhir/ValueSet/property-representation
     """
-    """In XML, this property is represented as an attribute not an element."""
+    # In XML, this property is represented as an attribute not an element.
     XMLATTR = "xmlAttr"
-    """This element is represented using the XML text attribute (primitives only)."""
+    # This element is represented using the XML text attribute (primitives only).
     XMLTEXT = "xmlText"
-    """The type of this element is indicated using xsi:type."""
+    # The type of this element is indicated using xsi:type.
     TYPEATTR = "typeAttr"
-    """Use CDA narrative instead of XHTML."""
+    # Use CDA narrative instead of XHTML.
     CDATEXT = "cdaText"
-    """The property is represented using XHTML."""
+    # The property is represented using XHTML.
     XHTML = "xhtml"
-    allowed_values = ['XMLATTR', 'XMLTEXT', 'TYPEATTR', 'CDATEXT', 'XHTML']
+
+    allowed_values = [XMLATTR, XMLTEXT, TYPEATTR, CDATEXT, XHTML]

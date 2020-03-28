@@ -14,15 +14,16 @@ class AllergyIntoleranceVerificationStatusCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/allergyintolerance-verification
     ValueSet: http://hl7.org/fhir/ValueSet/allergyintolerance-verification
     """
-    """A low level of certainty about the propensity for a reaction to the identified substance."""
+    # A low level of certainty about the propensity for a reaction to the identified substance.
     UNCONFIRMED = "unconfirmed"
-    """A high level of certainty about the propensity for a reaction to the identified substance, which may include
-	/// clinical evidence by testing or rechallenge."""
+    # A high level of certainty about the propensity for a reaction to the identified substance, which may include
+    # clinical evidence by testing or rechallenge.
     CONFIRMED = "confirmed"
-    """A propensity for a reaction to the identified substance has been disputed or disproven with a sufficient level
-	/// of clinical certainty to justify invalidating the assertion. This might or might not include testing or
-	/// rechallenge."""
+    # A propensity for a reaction to the identified substance has been disputed or disproven with a sufficient level
+    # of clinical certainty to justify invalidating the assertion. This might or might not include testing or
+    # rechallenge.
     REFUTED = "refuted"
-    """The statement was entered in error and is not valid."""
+    # The statement was entered in error and is not valid.
     ENTEREDINERROR = "entered-in-error"
-    allowed_values = ['UNCONFIRMED', 'CONFIRMED', 'REFUTED', 'ENTEREDINERROR']
+
+    allowed_values = [UNCONFIRMED, CONFIRMED, REFUTED, ENTEREDINERROR]

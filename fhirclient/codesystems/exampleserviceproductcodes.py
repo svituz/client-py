@@ -14,8 +14,9 @@ class ExampleServiceProductCodes(object):
     URL: http://hl7.org/fhir/ex-serviceproduct
     ValueSet: http://hl7.org/fhir/ValueSet/service-product
     """
-    """Exam"""
+    # Exam
     EXAM = "exam"
-    """Flu shot"""
+    # Flu shot
     FLUSHOT = "flushot"
-    allowed_values = ['EXAM', 'FLUSHOT']
+
+    allowed_values = [EXAM, FLUSHOT]

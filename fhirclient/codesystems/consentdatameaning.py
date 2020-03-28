@@ -14,12 +14,13 @@ class ConsentDataMeaning(object):
     URL: http://hl7.org/fhir/consent-data-meaning
     ValueSet: http://hl7.org/fhir/ValueSet/consent-data-meaning
     """
-    """The consent applies directly to the instance of the resource."""
+    # The consent applies directly to the instance of the resource.
     INSTANCE = "instance"
-    """The consent applies directly to the instance of the resource and instances it refers to."""
+    # The consent applies directly to the instance of the resource and instances it refers to.
     RELATED = "related"
-    """The consent applies directly to the instance of the resource and instances that refer to it."""
+    # The consent applies directly to the instance of the resource and instances that refer to it.
     DEPENDENTS = "dependents"
-    """The consent applies to instances of resources that are authored by."""
+    # The consent applies to instances of resources that are authored by.
     AUTHOREDBY = "authoredby"
-    allowed_values = ['INSTANCE', 'RELATED', 'DEPENDENTS', 'AUTHOREDBY']
+
+    allowed_values = [INSTANCE, RELATED, DEPENDENTS, AUTHOREDBY]

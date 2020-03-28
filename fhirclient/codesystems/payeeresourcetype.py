@@ -14,12 +14,13 @@ class PayeeResourceType(object):
     URL: http://terminology.hl7.org/CodeSystem/resource-type-link
     ValueSet: http://hl7.org/fhir/ValueSet/resource-type-link
     """
-    """Organization resource."""
+    # Organization resource.
     ORGANIZATION = "organization"
-    """Patient resource."""
+    # Patient resource.
     PATIENT = "patient"
-    """Practitioner resource."""
+    # Practitioner resource.
     PRACTITIONER = "practitioner"
-    """RelatedPerson resource."""
+    # RelatedPerson resource.
     RELATEDPERSON = "relatedperson"
-    allowed_values = ['ORGANIZATION', 'PATIENT', 'PRACTITIONER', 'RELATEDPERSON']
+
+    allowed_values = [ORGANIZATION, PATIENT, PRACTITIONER, RELATEDPERSON]

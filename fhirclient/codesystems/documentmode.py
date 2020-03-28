@@ -14,8 +14,9 @@ class DocumentMode(object):
     URL: http://hl7.org/fhir/document-mode
     ValueSet: http://hl7.org/fhir/ValueSet/document-mode
     """
-    """The application produces documents of the specified type."""
+    # The application produces documents of the specified type.
     PRODUCER = "producer"
-    """The application consumes documents of the specified type."""
+    # The application consumes documents of the specified type.
     CONSUMER = "consumer"
-    allowed_values = ['PRODUCER', 'CONSUMER']
+
+    allowed_values = [PRODUCER, CONSUMER]

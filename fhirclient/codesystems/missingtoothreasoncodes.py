@@ -14,12 +14,13 @@ class MissingToothReasonCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/missingtoothreason
     ValueSet: http://hl7.org/fhir/ValueSet/missing-tooth-reason
     """
-    """Extraction"""
+    # Extraction
     E = "e"
-    """Congenital"""
+    # Congenital
     C = "c"
-    """Unknown"""
+    # Unknown
     U = "u"
-    """Other"""
+    # Other
     O = "o"
-    allowed_values = ['E', 'C', 'U', 'O']
+
+    allowed_values = [E, C, U, O]

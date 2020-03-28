@@ -14,22 +14,23 @@ class GoalLifecycleStatus(object):
     URL: http://hl7.org/fhir/goal-status
     ValueSet: http://hl7.org/fhir/ValueSet/goal-status
     """
-    """A goal is proposed for this patient."""
+    # A goal is proposed for this patient.
     PROPOSED = "proposed"
-    """A goal is planned for this patient."""
+    # A goal is planned for this patient.
     PLANNED = "planned"
-    """A proposed goal was accepted or acknowledged."""
+    # A proposed goal was accepted or acknowledged.
     ACCEPTED = "accepted"
-    """The goal is being sought actively."""
+    # The goal is being sought actively.
     ACTIVE = "active"
-    """The goal remains a long term objective but is no longer being actively pursued for a temporary period of time."""
+    # The goal remains a long term objective but is no longer being actively pursued for a temporary period of time.
     ONHOLD = "on-hold"
-    """The goal is no longer being sought."""
+    # The goal is no longer being sought.
     COMPLETED = "completed"
-    """The goal has been abandoned."""
+    # The goal has been abandoned.
     CANCELLED = "cancelled"
-    """The goal was entered in error and voided."""
+    # The goal was entered in error and voided.
     ENTEREDINERROR = "entered-in-error"
-    """A proposed goal was rejected."""
+    # A proposed goal was rejected.
     REJECTED = "rejected"
-    allowed_values = ['PROPOSED', 'PLANNED', 'ACCEPTED', 'ACTIVE', 'ONHOLD', 'COMPLETED', 'CANCELLED', 'ENTEREDINERROR', 'REJECTED']
+
+    allowed_values = [PROPOSED, PLANNED, ACCEPTED, ACTIVE, ONHOLD, COMPLETED, CANCELLED, ENTEREDINERROR, REJECTED]

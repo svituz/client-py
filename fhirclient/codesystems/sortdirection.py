@@ -14,8 +14,9 @@ class SortDirection(object):
     URL: http://hl7.org/fhir/sort-direction
     ValueSet: http://hl7.org/fhir/ValueSet/sort-direction
     """
-    """Sort by the value ascending, so that lower values appear first."""
+    # Sort by the value ascending, so that lower values appear first.
     ASCENDING = "ascending"
-    """Sort by the value descending, so that lower values appear last."""
+    # Sort by the value descending, so that lower values appear last.
     DESCENDING = "descending"
-    allowed_values = ['ASCENDING', 'DESCENDING']
+
+    allowed_values = [ASCENDING, DESCENDING]

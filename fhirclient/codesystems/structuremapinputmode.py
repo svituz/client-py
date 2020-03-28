@@ -14,8 +14,9 @@ class StructureMapInputMode(object):
     URL: http://hl7.org/fhir/map-input-mode
     ValueSet: http://hl7.org/fhir/ValueSet/map-input-mode
     """
-    """Names an input instance used a source for mapping."""
+    # Names an input instance used a source for mapping.
     SOURCE = "source"
-    """Names an instance that is being populated."""
+    # Names an instance that is being populated.
     TARGET = "target"
-    allowed_values = ['SOURCE', 'TARGET']
+
+    allowed_values = [SOURCE, TARGET]

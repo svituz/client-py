@@ -14,14 +14,15 @@ class GoalCategory(object):
     URL: http://terminology.hl7.org/CodeSystem/goal-category
     ValueSet: http://hl7.org/fhir/ValueSet/goal-category
     """
-    """Goals related to the consumption of food and/or beverages."""
+    # Goals related to the consumption of food and/or beverages.
     DIETARY = "dietary"
-    """Goals related to the personal protection of the subject."""
+    # Goals related to the personal protection of the subject.
     SAFETY = "safety"
-    """Goals related to the manner in which the subject acts."""
+    # Goals related to the manner in which the subject acts.
     BEHAVIORAL = "behavioral"
-    """Goals related to the practice of nursing or established by nurses."""
+    # Goals related to the practice of nursing or established by nurses.
     NURSING = "nursing"
-    """Goals related to the mobility and/or motor capability of the subject."""
+    # Goals related to the mobility and/or motor capability of the subject.
     PHYSIOTHERAPY = "physiotherapy"
-    allowed_values = ['DIETARY', 'SAFETY', 'BEHAVIORAL', 'NURSING', 'PHYSIOTHERAPY']
+
+    allowed_values = [DIETARY, SAFETY, BEHAVIORAL, NURSING, PHYSIOTHERAPY]

@@ -14,10 +14,11 @@ class TestReportParticipantType(object):
     URL: http://hl7.org/fhir/report-participant-type
     ValueSet: http://hl7.org/fhir/ValueSet/report-participant-type
     """
-    """The test execution engine."""
+    # The test execution engine.
     TESTENGINE = "test-engine"
-    """A FHIR Client."""
+    # A FHIR Client.
     CLIENT = "client"
-    """A FHIR Server."""
+    # A FHIR Server.
     SERVER = "server"
-    allowed_values = ['TESTENGINE', 'CLIENT', 'SERVER']
+
+    allowed_values = [TESTENGINE, CLIENT, SERVER]

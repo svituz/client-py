@@ -14,8 +14,9 @@ class SupplyItemType(object):
     URL: http://terminology.hl7.org/CodeSystem/supply-item-type
     ValueSet: http://hl7.org/fhir/ValueSet/supplydelivery-type
     """
-    """Supply is a kind of medication."""
+    # Supply is a kind of medication.
     MEDICATION = "medication"
-    """What is supplied (or requested) is a device."""
+    # What is supplied (or requested) is a device.
     DEVICE = "device"
-    allowed_values = ['MEDICATION', 'DEVICE']
+
+    allowed_values = [MEDICATION, DEVICE]

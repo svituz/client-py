@@ -14,22 +14,23 @@ class PrimarySourceType(object):
     URL: http://terminology.hl7.org/CodeSystem/primary-source-type
     ValueSet: http://hl7.org/fhir/ValueSet/verificationresult-primary-source-type
     """
-    """licBoard"""
+    # licBoard
     LICBOARD = "lic-board"
-    """prim"""
+    # prim
     PRIM = "prim"
-    """contEd"""
+    # contEd
     CONTED = "cont-ed"
-    """postServ"""
+    # postServ
     POSTSERV = "post-serv"
-    """relOwn"""
+    # relOwn
     RELOWN = "rel-own"
-    """regAuth"""
+    # regAuth
     REGAUTH = "reg-auth"
-    """legal"""
+    # legal
     LEGAL = "legal"
-    """issuer"""
+    # issuer
     ISSUER = "issuer"
-    """authSource"""
+    # authSource
     AUTHSOURCE = "auth-source"
-    allowed_values = ['LICBOARD', 'PRIM', 'CONTED', 'POSTSERV', 'RELOWN', 'REGAUTH', 'LEGAL', 'ISSUER', 'AUTHSOURCE']
+
+    allowed_values = [LICBOARD, PRIM, CONTED, POSTSERV, RELOWN, REGAUTH, LEGAL, ISSUER, AUTHSOURCE]

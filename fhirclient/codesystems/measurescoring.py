@@ -14,12 +14,13 @@ class MeasureScoring(object):
     URL: http://terminology.hl7.org/CodeSystem/measure-scoring
     ValueSet: http://hl7.org/fhir/ValueSet/measure-scoring
     """
-    """The measure score is defined using a proportion."""
+    # The measure score is defined using a proportion.
     PROPORTION = "proportion"
-    """The measure score is defined using a ratio."""
+    # The measure score is defined using a ratio.
     RATIO = "ratio"
-    """The score is defined by a calculation of some quantity."""
+    # The score is defined by a calculation of some quantity.
     CONTINUOUSVARIABLE = "continuous-variable"
-    """The measure is a cohort definition."""
+    # The measure is a cohort definition.
     COHORT = "cohort"
-    allowed_values = ['PROPORTION', 'RATIO', 'CONTINUOUSVARIABLE', 'COHORT']
+
+    allowed_values = [PROPORTION, RATIO, CONTINUOUSVARIABLE, COHORT]

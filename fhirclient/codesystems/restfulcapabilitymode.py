@@ -14,8 +14,9 @@ class RestfulCapabilityMode(object):
     URL: http://hl7.org/fhir/restful-capability-mode
     ValueSet: http://hl7.org/fhir/ValueSet/restful-capability-mode
     """
-    """The application acts as a client for this resource."""
+    # The application acts as a client for this resource.
     CLIENT = "client"
-    """The application acts as a server for this resource."""
+    # The application acts as a server for this resource.
     SERVER = "server"
-    allowed_values = ['CLIENT', 'SERVER']
+
+    allowed_values = [CLIENT, SERVER]

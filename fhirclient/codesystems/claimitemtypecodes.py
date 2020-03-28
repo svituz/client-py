@@ -14,10 +14,11 @@ class ClaimItemTypeCodes(object):
     URL: http://hl7.org/fhir/ex-claimitemtype
     ValueSet: http://hl7.org/fhir/ValueSet/fm-itemtype
     """
-    """A group of products and/or Services, amount ar the summary or detail level products and services."""
+    # A group of products and/or Services, amount ar the summary or detail level products and services.
     GROUP = "group"
-    """A billed product line item."""
+    # A billed product line item.
     PRODUCT = "product"
-    """A billed service line item."""
+    # A billed service line item.
     SERVICE = "service"
-    allowed_values = ['GROUP', 'PRODUCT', 'SERVICE']
+
+    allowed_values = [GROUP, PRODUCT, SERVICE]

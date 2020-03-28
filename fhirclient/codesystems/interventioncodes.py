@@ -14,8 +14,9 @@ class InterventionCodes(object):
     URL: http://hl7.org/fhir/intervention
     ValueSet: http://hl7.org/fhir/ValueSet/intervention
     """
-    """Unknown"""
+    # Unknown
     UNKNOWN = "unknown"
-    """Other"""
+    # Other
     OTHER = "other"
-    allowed_values = ['UNKNOWN', 'OTHER']
+
+    allowed_values = [UNKNOWN, OTHER]

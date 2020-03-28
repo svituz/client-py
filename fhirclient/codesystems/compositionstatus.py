@@ -14,16 +14,17 @@ class CompositionStatus(object):
     URL: http://hl7.org/fhir/composition-status
     ValueSet: http://hl7.org/fhir/ValueSet/composition-status
     """
-    """This is a preliminary composition or document (also known as initial or interim). The content may be incomplete
-	/// or unverified."""
+    # This is a preliminary composition or document (also known as initial or interim). The content may be incomplete
+    # or unverified.
     PRELIMINARY = "preliminary"
-    """This version of the composition is complete and verified by an appropriate person and no further work is
-	/// planned. Any subsequent updates would be on a new version of the composition."""
+    # This version of the composition is complete and verified by an appropriate person and no further work is
+    # planned. Any subsequent updates would be on a new version of the composition.
     FINAL = "final"
-    """The composition content or the referenced resources have been modified (edited or added to) subsequent to being
-	/// released as "final" and the composition is complete and verified by an authorized person."""
+    # The composition content or the referenced resources have been modified (edited or added to) subsequent to being
+    # released as "final" and the composition is complete and verified by an authorized person.
     AMENDED = "amended"
-    """The composition or document was originally created/issued in error, and this is an amendment that marks that the
-	/// entire series should not be considered as valid."""
+    # The composition or document was originally created/issued in error, and this is an amendment that marks that the
+    # entire series should not be considered as valid.
     ENTEREDINERROR = "entered-in-error"
-    allowed_values = ['PRELIMINARY', 'FINAL', 'AMENDED', 'ENTEREDINERROR']
+
+    allowed_values = [PRELIMINARY, FINAL, AMENDED, ENTEREDINERROR]

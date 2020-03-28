@@ -14,12 +14,13 @@ class ContributorType(object):
     URL: http://hl7.org/fhir/contributor-type
     ValueSet: http://hl7.org/fhir/ValueSet/contributor-type
     """
-    """An author of the content of the module."""
+    # An author of the content of the module.
     AUTHOR = "author"
-    """An editor of the content of the module."""
+    # An editor of the content of the module.
     EDITOR = "editor"
-    """A reviewer of the content of the module."""
+    # A reviewer of the content of the module.
     REVIEWER = "reviewer"
-    """An endorser of the content of the module."""
+    # An endorser of the content of the module.
     ENDORSER = "endorser"
-    allowed_values = ['AUTHOR', 'EDITOR', 'REVIEWER', 'ENDORSER']
+
+    allowed_values = [AUTHOR, EDITOR, REVIEWER, ENDORSER]

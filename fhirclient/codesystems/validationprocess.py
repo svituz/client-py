@@ -14,16 +14,17 @@ class ValidationProcess(object):
     URL: http://terminology.hl7.org/CodeSystem/validation-process
     ValueSet: http://hl7.org/fhir/ValueSet/verificationresult-validation-process
     """
-    """editCheck"""
+    # editCheck
     EDITCHECK = "edit-check"
-    """valueset"""
+    # valueset
     VALUESET = "valueset"
-    """primary"""
+    # primary
     PRIMARY = "primary"
-    """multi"""
+    # multi
     MULTI = "multi"
-    """standalone"""
+    # standalone
     STANDALONE = "standalone"
-    """inContext"""
+    # inContext
     INCONTEXT = "in-context"
-    allowed_values = ['EDITCHECK', 'VALUESET', 'PRIMARY', 'MULTI', 'STANDALONE', 'INCONTEXT']
+
+    allowed_values = [EDITCHECK, VALUESET, PRIMARY, MULTI, STANDALONE, INCONTEXT]

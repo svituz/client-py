@@ -14,29 +14,30 @@ class RequestIntent(object):
     URL: http://hl7.org/fhir/request-intent
     ValueSet: http://hl7.org/fhir/ValueSet/request-intent
     """
-    """The request is a suggestion made by someone/something that does not have an intention to ensure it occurs and
-	/// without providing an authorization to act."""
+    # The request is a suggestion made by someone/something that does not have an intention to ensure it occurs and
+    # without providing an authorization to act.
     PROPOSAL = "proposal"
-    """The request represents an intention to ensure something occurs without providing an authorization for others to
-	/// act."""
+    # The request represents an intention to ensure something occurs without providing an authorization for others to
+    # act.
     PLAN = "plan"
-    """The request represents a legally binding instruction authored by a Patient or RelatedPerson."""
+    # The request represents a legally binding instruction authored by a Patient or RelatedPerson.
     DIRECTIVE = "directive"
-    """The request represents a request/demand and authorization for action by a Practitioner."""
+    # The request represents a request/demand and authorization for action by a Practitioner.
     ORDER = "order"
-    """The request represents an original authorization for action."""
+    # The request represents an original authorization for action.
     ORIGINALORDER = "original-order"
-    """The request represents an automatically generated supplemental authorization for action based on a parent
-	/// authorization together with initial results of the action taken against that parent authorization."""
+    # The request represents an automatically generated supplemental authorization for action based on a parent
+    # authorization together with initial results of the action taken against that parent authorization.
     REFLEXORDER = "reflex-order"
-    """The request represents the view of an authorization instantiated by a fulfilling system representing the details
-	/// of the fulfiller's intention to act upon a submitted order."""
+    # The request represents the view of an authorization instantiated by a fulfilling system representing the details
+    # of the fulfiller's intention to act upon a submitted order.
     FILLERORDER = "filler-order"
-    """An order created in fulfillment of a broader order that represents the authorization for a single activity
-	/// occurrence.  E.g. The administration of a single dose of a drug."""
+    # An order created in fulfillment of a broader order that represents the authorization for a single activity
+    # occurrence.  E.g. The administration of a single dose of a drug.
     INSTANCEORDER = "instance-order"
-    """The request represents a component or option for a RequestGroup that establishes timing, conditionality and/or
-	/// other constraints among a set of requests.  Refer to [[[RequestGroup]]] for additional information on how this
-	/// status is used."""
+    # The request represents a component or option for a RequestGroup that establishes timing, conditionality and/or
+    # other constraints among a set of requests.  Refer to [[[RequestGroup]]] for additional information on how this
+    # status is used.
     OPTION = "option"
-    allowed_values = ['PROPOSAL', 'PLAN', 'DIRECTIVE', 'ORDER', 'ORIGINALORDER', 'REFLEXORDER', 'FILLERORDER', 'INSTANCEORDER', 'OPTION']
+
+    allowed_values = [PROPOSAL, PLAN, DIRECTIVE, ORDER, ORIGINALORDER, REFLEXORDER, FILLERORDER, INSTANCEORDER, OPTION]

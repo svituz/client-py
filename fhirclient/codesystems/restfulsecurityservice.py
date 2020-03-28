@@ -14,16 +14,17 @@ class RestfulSecurityService(object):
     URL: http://terminology.hl7.org/CodeSystem/restful-security-service
     ValueSet: http://hl7.org/fhir/ValueSet/restful-security-service
     """
-    """OAuth (unspecified version see oauth.net)."""
+    # OAuth (unspecified version see oauth.net).
     OAUTH = "OAuth"
-    """OAuth2 using SMART-on-FHIR profile (see http://docs.smarthealthit.org/)."""
+    # OAuth2 using SMART-on-FHIR profile (see http://docs.smarthealthit.org/).
     SMARTONFHIR = "SMART-on-FHIR"
-    """Microsoft NTLM Authentication."""
+    # Microsoft NTLM Authentication.
     NTLM = "NTLM"
-    """Basic authentication defined in HTTP specification."""
+    # Basic authentication defined in HTTP specification.
     BASIC = "Basic"
-    """see http://www.ietf.org/rfc/rfc4120.txt."""
+    # see http://www.ietf.org/rfc/rfc4120.txt.
     KERBEROS = "Kerberos"
-    """SSL where client must have a certificate registered with the server."""
+    # SSL where client must have a certificate registered with the server.
     CERTIFICATES = "Certificates"
-    allowed_values = ['OAUTH', 'SMARTONFHIR', 'NTLM', 'BASIC', 'KERBEROS', 'CERTIFICATES']
+
+    allowed_values = [OAUTH, SMARTONFHIR, NTLM, BASIC, KERBEROS, CERTIFICATES]

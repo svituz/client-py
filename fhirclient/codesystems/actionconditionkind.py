@@ -14,10 +14,11 @@ class ActionConditionKind(object):
     URL: http://hl7.org/fhir/action-condition-kind
     ValueSet: http://hl7.org/fhir/ValueSet/action-condition-kind
     """
-    """The condition describes whether or not a given action is applicable."""
+    # The condition describes whether or not a given action is applicable.
     APPLICABILITY = "applicability"
-    """The condition is a starting condition for the action."""
+    # The condition is a starting condition for the action.
     START = "start"
-    """The condition is a stop, or exit condition for the action."""
+    # The condition is a stop, or exit condition for the action.
     STOP = "stop"
-    allowed_values = ['APPLICABILITY', 'START', 'STOP']
+
+    allowed_values = [APPLICABILITY, START, STOP]

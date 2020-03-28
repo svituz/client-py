@@ -14,16 +14,17 @@ class GroupType(object):
     URL: http://hl7.org/fhir/group-type
     ValueSet: http://hl7.org/fhir/ValueSet/group-type
     """
-    """Group contains "person" Patient resources."""
+    # Group contains "person" Patient resources.
     PERSON = "person"
-    """Group contains "animal" Patient resources."""
+    # Group contains "animal" Patient resources.
     ANIMAL = "animal"
-    """Group contains healthcare practitioner resources (Practitioner or PractitionerRole)."""
+    # Group contains healthcare practitioner resources (Practitioner or PractitionerRole).
     PRACTITIONER = "practitioner"
-    """Group contains Device resources."""
+    # Group contains Device resources.
     DEVICE = "device"
-    """Group contains Medication resources."""
+    # Group contains Medication resources.
     MEDICATION = "medication"
-    """Group contains Substance resources."""
+    # Group contains Substance resources.
     SUBSTANCE = "substance"
-    allowed_values = ['PERSON', 'ANIMAL', 'PRACTITIONER', 'DEVICE', 'MEDICATION', 'SUBSTANCE']
+
+    allowed_values = [PERSON, ANIMAL, PRACTITIONER, DEVICE, MEDICATION, SUBSTANCE]

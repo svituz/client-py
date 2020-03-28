@@ -14,13 +14,14 @@ class GraphCompartmentRule(object):
     URL: http://hl7.org/fhir/graph-compartment-rule
     ValueSet: http://hl7.org/fhir/ValueSet/graph-compartment-rule
     """
-    """The compartment must be identical (the same literal reference)."""
+    # The compartment must be identical (the same literal reference).
     IDENTICAL = "identical"
-    """The compartment must be the same - the record must be about the same patient, but the reference may be
-	/// different."""
+    # The compartment must be the same - the record must be about the same patient, but the reference may be
+    # different.
     MATCHING = "matching"
-    """The compartment must be different."""
+    # The compartment must be different.
     DIFFERENT = "different"
-    """The compartment rule is defined in the accompanying FHIRPath expression."""
+    # The compartment rule is defined in the accompanying FHIRPath expression.
     CUSTOM = "custom"
-    allowed_values = ['IDENTICAL', 'MATCHING', 'DIFFERENT', 'CUSTOM']
+
+    allowed_values = [IDENTICAL, MATCHING, DIFFERENT, CUSTOM]

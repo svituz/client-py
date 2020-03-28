@@ -14,8 +14,9 @@ class MeasureDataUsage(object):
     URL: http://terminology.hl7.org/CodeSystem/measure-data-usage
     ValueSet: http://hl7.org/fhir/ValueSet/measure-data-usage
     """
-    """The data is intended to be provided as additional information alongside the measure results."""
+    # The data is intended to be provided as additional information alongside the measure results.
     SUPPLEMENTALDATA = "supplemental-data"
-    """The data is intended to be used to calculate and apply a risk adjustment model for the measure."""
+    # The data is intended to be used to calculate and apply a risk adjustment model for the measure.
     RISKADJUSTMENTFACTOR = "risk-adjustment-factor"
-    allowed_values = ['SUPPLEMENTALDATA', 'RISKADJUSTMENTFACTOR']
+
+    allowed_values = [SUPPLEMENTALDATA, RISKADJUSTMENTFACTOR]

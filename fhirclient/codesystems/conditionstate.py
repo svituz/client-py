@@ -14,10 +14,11 @@ class ConditionState(object):
     URL: http://terminology.hl7.org/CodeSystem/condition-state
     ValueSet: http://hl7.org/fhir/ValueSet/condition-state
     """
-    """The condition is active."""
+    # The condition is active.
     ACTIVE = "active"
-    """The condition is inactive, but not resolved."""
+    # The condition is inactive, but not resolved.
     INACTIVE = "inactive"
-    """The condition is resolved."""
+    # The condition is resolved.
     RESOLVED = "resolved"
-    allowed_values = ['ACTIVE', 'INACTIVE', 'RESOLVED']
+
+    allowed_values = [ACTIVE, INACTIVE, RESOLVED]

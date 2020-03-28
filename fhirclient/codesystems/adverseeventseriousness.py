@@ -14,21 +14,22 @@ class AdverseEventSeriousness(object):
     URL: http://terminology.hl7.org/CodeSystem/adverse-event-seriousness
     ValueSet: http://hl7.org/fhir/ValueSet/adverse-event-seriousness
     """
-    """Non-serious."""
+    # Non-serious.
     NONSERIOUS = "Non-serious"
-    """Serious."""
+    # Serious.
     SERIOUS = "Serious"
-    """Results in death."""
+    # Results in death.
     SERIOUSRESULTSINDEATH = "SeriousResultsInDeath"
-    """Is Life-threatening."""
+    # Is Life-threatening.
     SERIOUSISLIFETHREATENING = "SeriousIsLifeThreatening"
-    """Requires inpatient hospitalization or causes prolongation of existing hospitalization."""
+    # Requires inpatient hospitalization or causes prolongation of existing hospitalization.
     SERIOUSRESULTSINHOSPITALIZATION = "SeriousResultsInHospitalization"
-    """Results in persistent or significant disability/incapacity."""
+    # Results in persistent or significant disability/incapacity.
     SERIOUSRESULTSINDISABILITY = "SeriousResultsInDisability"
-    """Is a congenital anomaly/birth defect."""
+    # Is a congenital anomaly/birth defect.
     SERIOUSISBIRTHDEFECT = "SeriousIsBirthDefect"
-    """Requires intervention to prevent permanent impairment or damage (i.e., an important medical event that requires
-	/// medical judgement)."""
+    # Requires intervention to prevent permanent impairment or damage (i.e., an important medical event that requires
+    # medical judgement).
     SERIOUSREQUIRESPREVENTIMPAIRMENT = "SeriousRequiresPreventImpairment"
-    allowed_values = ['NONSERIOUS', 'SERIOUS', 'SERIOUSRESULTSINDEATH', 'SERIOUSISLIFETHREATENING', 'SERIOUSRESULTSINHOSPITALIZATION', 'SERIOUSRESULTSINDISABILITY', 'SERIOUSISBIRTHDEFECT', 'SERIOUSREQUIRESPREVENTIMPAIRMENT']
+
+    allowed_values = [NONSERIOUS, SERIOUS, SERIOUSRESULTSINDEATH, SERIOUSISLIFETHREATENING, SERIOUSRESULTSINHOSPITALIZATION, SERIOUSRESULTSINDISABILITY, SERIOUSISBIRTHDEFECT, SERIOUSREQUIRESPREVENTIMPAIRMENT]

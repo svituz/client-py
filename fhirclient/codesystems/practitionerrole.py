@@ -13,16 +13,17 @@ class PractitionerRole(object):
     """ This example value set defines a set of codes that can be used to indicate the role of a Practitioner.
     URL: http://terminology.hl7.org/CodeSystem/practitioner-role
     """
-    """A qualified/registered medical practitioner"""
+    # A qualified/registered medical practitioner
     DOCTOR = "doctor"
-    """A practitioner with nursing experience that may be qualified/registered"""
+    # A practitioner with nursing experience that may be qualified/registered
     NURSE = "nurse"
-    """A qualified/registered/licensed pharmacist"""
+    # A qualified/registered/licensed pharmacist
     PHARMACIST = "pharmacist"
-    """A practitioner that may perform research"""
+    # A practitioner that may perform research
     RESEARCHER = "researcher"
-    """Someone who is able to provide educational services"""
+    # Someone who is able to provide educational services
     TEACHER = "teacher"
-    """Someone who is qualified in Information and Communication Technologies"""
+    # Someone who is qualified in Information and Communication Technologies
     ICT = "ict"
-    allowed_values = ['DOCTOR', 'NURSE', 'PHARMACIST', 'RESEARCHER', 'TEACHER', 'ICT']
+
+    allowed_values = [DOCTOR, NURSE, PHARMACIST, RESEARCHER, TEACHER, ICT]

@@ -15,16 +15,17 @@ contact party.
     URL: http://terminology.hl7.org/CodeSystem/contactentity-type
     ValueSet: http://hl7.org/fhir/ValueSet/contactentity-type
     """
-    """Contact details for information regarding to billing/general finance enquiries."""
+    # Contact details for information regarding to billing/general finance enquiries.
     BILL = "BILL"
-    """Contact details for administrative enquiries."""
+    # Contact details for administrative enquiries.
     ADMIN = "ADMIN"
-    """Contact details for issues related to Human Resources, such as staff matters, OH&S etc."""
+    # Contact details for issues related to Human Resources, such as staff matters, OH&S etc.
     HR = "HR"
-    """Contact details for dealing with issues related to insurance claims/adjudication/payment."""
+    # Contact details for dealing with issues related to insurance claims/adjudication/payment.
     PAYOR = "PAYOR"
-    """Generic information contact for patients."""
+    # Generic information contact for patients.
     PATINF = "PATINF"
-    """Dedicated contact point for matters relating to press enquiries."""
+    # Dedicated contact point for matters relating to press enquiries.
     PRESS = "PRESS"
-    allowed_values = ['BILL', 'ADMIN', 'HR', 'PAYOR', 'PATINF', 'PRESS']
+
+    allowed_values = [BILL, ADMIN, HR, PAYOR, PATINF, PRESS]

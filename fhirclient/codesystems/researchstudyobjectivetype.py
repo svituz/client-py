@@ -14,11 +14,12 @@ class ResearchStudyObjectiveType(object):
     URL: http://terminology.hl7.org/CodeSystem/research-study-objective-type
     ValueSet: http://hl7.org/fhir/ValueSet/research-study-objective-type
     """
-    """The main question to be answered, and the one that drives any statistical planning for the study—e.g.,
-	/// calculation of the sample size to provide the appropriate power for statistical testing."""
+    # The main question to be answered, and the one that drives any statistical planning for the study—e.g.,
+    # calculation of the sample size to provide the appropriate power for statistical testing.
     PRIMARY = "primary"
-    """Question to be answered in the study that is of lesser importance than the primary objective."""
+    # Question to be answered in the study that is of lesser importance than the primary objective.
     SECONDARY = "secondary"
-    """Exploratory questions to be answered in the study."""
+    # Exploratory questions to be answered in the study.
     EXPLORATORY = "exploratory"
-    allowed_values = ['PRIMARY', 'SECONDARY', 'EXPLORATORY']
+
+    allowed_values = [PRIMARY, SECONDARY, EXPLORATORY]

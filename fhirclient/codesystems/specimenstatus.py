@@ -14,12 +14,13 @@ class SpecimenStatus(object):
     URL: http://hl7.org/fhir/specimen-status
     ValueSet: http://hl7.org/fhir/ValueSet/specimen-status
     """
-    """The physical specimen is present and in good condition."""
+    # The physical specimen is present and in good condition.
     AVAILABLE = "available"
-    """There is no physical specimen because it is either lost, destroyed or consumed."""
+    # There is no physical specimen because it is either lost, destroyed or consumed.
     UNAVAILABLE = "unavailable"
-    """The specimen cannot be used because of a quality issue such as a broken container, contamination, or too old."""
+    # The specimen cannot be used because of a quality issue such as a broken container, contamination, or too old.
     UNSATISFACTORY = "unsatisfactory"
-    """The specimen was entered in error and therefore nullified."""
+    # The specimen was entered in error and therefore nullified.
     ENTEREDINERROR = "entered-in-error"
-    allowed_values = ['AVAILABLE', 'UNAVAILABLE', 'UNSATISFACTORY', 'ENTEREDINERROR']
+
+    allowed_values = [AVAILABLE, UNAVAILABLE, UNSATISFACTORY, ENTEREDINERROR]

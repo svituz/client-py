@@ -14,6 +14,7 @@ class ContractResourceSecurityControlCodes(object):
     URL: http://hl7.org/fhir/contract-security-control
     ValueSet: http://hl7.org/fhir/ValueSet/contract-security-control
     """
-    """To be completed"""
+    # To be completed
     POLICY = "policy"
-    allowed_values = ['POLICY']
+
+    allowed_values = [POLICY]

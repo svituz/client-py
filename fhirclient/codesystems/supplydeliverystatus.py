@@ -14,13 +14,14 @@ class SupplyDeliveryStatus(object):
     URL: http://hl7.org/fhir/supplydelivery-status
     ValueSet: http://hl7.org/fhir/ValueSet/supplydelivery-status
     """
-    """Supply has been requested, but not delivered."""
+    # Supply has been requested, but not delivered.
     INPROGRESS = "in-progress"
-    """Supply has been delivered ("completed")."""
+    # Supply has been delivered ("completed").
     COMPLETED = "completed"
-    """Delivery was not completed."""
+    # Delivery was not completed.
     ABANDONED = "abandoned"
-    """This electronic record should never have existed, though it is possible that real-world decisions were based on
-	/// it. (If real-world activity has occurred, the status should be "abandoned" rather than "entered-in-error".)."""
+    # This electronic record should never have existed, though it is possible that real-world decisions were based on
+    # it. (If real-world activity has occurred, the status should be "abandoned" rather than "entered-in-error".).
     ENTEREDINERROR = "entered-in-error"
-    allowed_values = ['INPROGRESS', 'COMPLETED', 'ABANDONED', 'ENTEREDINERROR']
+
+    allowed_values = [INPROGRESS, COMPLETED, ABANDONED, ENTEREDINERROR]

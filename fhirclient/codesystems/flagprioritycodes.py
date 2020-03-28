@@ -14,12 +14,13 @@ class FlagPriorityCodes(object):
     URL: http://hl7.org/fhir/flag-priority-code
     ValueSet: http://hl7.org/fhir/ValueSet/flag-priority
     """
-    """No alarm."""
+    # No alarm.
     PN = "PN"
-    """Low priority."""
+    # Low priority.
     PL = "PL"
-    """Medium priority."""
+    # Medium priority.
     PM = "PM"
-    """High priority."""
+    # High priority.
     PH = "PH"
-    allowed_values = ['PN', 'PL', 'PM', 'PH']
+
+    allowed_values = [PN, PL, PM, PH]

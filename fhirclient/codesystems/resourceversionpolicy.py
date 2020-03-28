@@ -14,10 +14,11 @@ class ResourceVersionPolicy(object):
     URL: http://hl7.org/fhir/versioning-policy
     ValueSet: http://hl7.org/fhir/ValueSet/versioning-policy
     """
-    """VersionId meta-property is not supported (server) or used (client)."""
+    # VersionId meta-property is not supported (server) or used (client).
     NOVERSION = "no-version"
-    """VersionId meta-property is supported (server) or used (client)."""
+    # VersionId meta-property is supported (server) or used (client).
     VERSIONED = "versioned"
-    """VersionId must be correct for updates (server) or will be specified (If-match header) for updates (client)."""
+    # VersionId must be correct for updates (server) or will be specified (If-match header) for updates (client).
     VERSIONEDUPDATE = "versioned-update"
-    allowed_values = ['NOVERSION', 'VERSIONED', 'VERSIONEDUPDATE']
+
+    allowed_values = [NOVERSION, VERSIONED, VERSIONEDUPDATE]

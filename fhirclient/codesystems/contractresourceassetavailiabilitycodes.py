@@ -14,6 +14,7 @@ class ContractResourceAssetAvailiabilityCodes(object):
     URL: http://hl7.org/fhir/asset-availability
     ValueSet: http://hl7.org/fhir/ValueSet/asset-availability
     """
-    """To be completed"""
+    # To be completed
     LEASE = "lease"
-    allowed_values = ['LEASE']
+
+    allowed_values = [LEASE]

@@ -14,14 +14,15 @@ class NarrativeStatus(object):
     URL: http://hl7.org/fhir/narrative-status
     ValueSet: http://hl7.org/fhir/ValueSet/narrative-status
     """
-    """The contents of the narrative are entirely generated from the core elements in the content."""
+    # The contents of the narrative are entirely generated from the core elements in the content.
     GENERATED = "generated"
-    """The contents of the narrative are entirely generated from the core elements in the content and some of the
-	/// content is generated from extensions. The narrative SHALL reflect the impact of all modifier extensions."""
+    # The contents of the narrative are entirely generated from the core elements in the content and some of the
+    # content is generated from extensions. The narrative SHALL reflect the impact of all modifier extensions.
     EXTENSIONS = "extensions"
-    """The contents of the narrative may contain additional information not found in the structured data. Note that
-	/// there is no computable way to determine what the extra information is, other than by human inspection."""
+    # The contents of the narrative may contain additional information not found in the structured data. Note that
+    # there is no computable way to determine what the extra information is, other than by human inspection.
     ADDITIONAL = "additional"
-    """The contents of the narrative are some equivalent of "No human-readable text provided in this case"."""
+    # The contents of the narrative are some equivalent of "No human-readable text provided in this case".
     EMPTY = "empty"
-    allowed_values = ['GENERATED', 'EXTENSIONS', 'ADDITIONAL', 'EMPTY']
+
+    allowed_values = [GENERATED, EXTENSIONS, ADDITIONAL, EMPTY]

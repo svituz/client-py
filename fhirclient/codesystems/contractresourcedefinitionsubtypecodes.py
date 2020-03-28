@@ -14,6 +14,7 @@ class ContractResourceDefinitionSubtypeCodes(object):
     URL: http://hl7.org/fhir/contract-definition-subtype
     ValueSet: http://hl7.org/fhir/ValueSet/contract-definition-subtype
     """
-    """To be completed"""
+    # To be completed
     TEMP = "temp"
-    allowed_values = ['TEMP']
+
+    allowed_values = [TEMP]

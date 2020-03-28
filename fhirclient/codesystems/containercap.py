@@ -14,28 +14,29 @@ class ContainerCap(object):
     URL: http://terminology.hl7.org/CodeSystem/container-cap
     ValueSet: http://hl7.org/fhir/ValueSet/container-cap
     """
-    """red cap."""
+    # red cap.
     RED = "red"
-    """yellow cap."""
+    # yellow cap.
     YELLOW = "yellow"
-    """dark yellow cap."""
+    # dark yellow cap.
     DARKYELLOW = "dark-yellow"
-    """grey cap."""
+    # grey cap.
     GREY = "grey"
-    """light blue cap."""
+    # light blue cap.
     LIGHTBLUE = "light-blue"
-    """black cap."""
+    # black cap.
     BLACK = "black"
-    """green cap."""
+    # green cap.
     GREEN = "green"
-    """light green cap."""
+    # light green cap.
     LIGHTGREEN = "light-green"
-    """lavender cap."""
+    # lavender cap.
     LAVENDER = "lavender"
-    """brown cap."""
+    # brown cap.
     BROWN = "brown"
-    """white cap."""
+    # white cap.
     WHITE = "white"
-    """pink cap."""
+    # pink cap.
     PINK = "pink"
-    allowed_values = ['RED', 'YELLOW', 'DARKYELLOW', 'GREY', 'LIGHTBLUE', 'BLACK', 'GREEN', 'LIGHTGREEN', 'LAVENDER', 'BROWN', 'WHITE', 'PINK']
+
+    allowed_values = [RED, YELLOW, DARKYELLOW, GREY, LIGHTBLUE, BLACK, GREEN, LIGHTGREEN, LAVENDER, BROWN, WHITE, PINK]

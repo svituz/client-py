@@ -14,10 +14,11 @@ class SequenceStatus(object):
     URL: http://terminology.hl7.org/CodeSystem/variant-state
     ValueSet: http://hl7.org/fhir/ValueSet/variant-state
     """
-    """the variant is detected."""
+    # the variant is detected.
     POSITIVE = "positive"
-    """no variant is detected."""
+    # no variant is detected.
     NEGATIVE = "negative"
-    """result of the variant is missing."""
+    # result of the variant is missing.
     ABSENT = "absent"
-    allowed_values = ['POSITIVE', 'NEGATIVE', 'ABSENT']
+
+    allowed_values = [POSITIVE, NEGATIVE, ABSENT]

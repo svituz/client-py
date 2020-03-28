@@ -14,22 +14,23 @@ class DeviceDefinitionParameterGroup(object):
     URL: http://terminology.hl7.org/CodeSystem/parameter-group
     ValueSet: http://hl7.org/fhir/ValueSet/parameter-group
     """
-    """Haemodynamic Parameter Group - MDC_PGRP_HEMO."""
+    # Haemodynamic Parameter Group - MDC_PGRP_HEMO.
     HAEMODYNAMIC = "haemodynamic"
-    """ECG Parameter Group - MDC_PGRP_ECG."""
+    # ECG Parameter Group - MDC_PGRP_ECG.
     ECG = "ecg"
-    """Respiratory Parameter Group - MDC_PGRP_RESP."""
+    # Respiratory Parameter Group - MDC_PGRP_RESP.
     RESPIRATORY = "respiratory"
-    """Ventilation Parameter Group - MDC_PGRP_VENT."""
+    # Ventilation Parameter Group - MDC_PGRP_VENT.
     VENTILATION = "ventilation"
-    """Neurological Parameter Group - MDC_PGRP_NEURO."""
+    # Neurological Parameter Group - MDC_PGRP_NEURO.
     NEUROLOGICAL = "neurological"
-    """Drug Delivery Parameter Group - MDC_PGRP_DRUG."""
+    # Drug Delivery Parameter Group - MDC_PGRP_DRUG.
     DRUGDELIVERY = "drug-delivery"
-    """Fluid Chemistry Parameter Group - MDC_PGRP_FLUID."""
+    # Fluid Chemistry Parameter Group - MDC_PGRP_FLUID.
     FLUIDCHEMISTRY = "fluid-chemistry"
-    """Blood Chemistry Parameter Group - MDC_PGRP_BLOOD_CHEM."""
+    # Blood Chemistry Parameter Group - MDC_PGRP_BLOOD_CHEM.
     BLOODCHEMISTRY = "blood-chemistry"
-    """Miscellaneous Parameter Group - MDC_PGRP_MISC."""
+    # Miscellaneous Parameter Group - MDC_PGRP_MISC.
     MISCELLANEOUS = "miscellaneous"
-    allowed_values = ['HAEMODYNAMIC', 'ECG', 'RESPIRATORY', 'VENTILATION', 'NEUROLOGICAL', 'DRUGDELIVERY', 'FLUIDCHEMISTRY', 'BLOODCHEMISTRY', 'MISCELLANEOUS']
+
+    allowed_values = [HAEMODYNAMIC, ECG, RESPIRATORY, VENTILATION, NEUROLOGICAL, DRUGDELIVERY, FLUIDCHEMISTRY, BLOODCHEMISTRY, MISCELLANEOUS]

@@ -14,24 +14,25 @@ class FlagCategory(object):
     URL: http://terminology.hl7.org/CodeSystem/flag-category
     ValueSet: http://hl7.org/fhir/ValueSet/flag-category
     """
-    """Flags related to the subject's dietary needs."""
+    # Flags related to the subject's dietary needs.
     DIET = "diet"
-    """Flags related to the subject's medications."""
+    # Flags related to the subject's medications.
     DRUG = "drug"
-    """Flags related to performing laboratory tests and related processes (e.g. phlebotomy)."""
+    # Flags related to performing laboratory tests and related processes (e.g. phlebotomy).
     LAB = "lab"
-    """Flags related to administrative and financial processes."""
+    # Flags related to administrative and financial processes.
     ADMIN = "admin"
-    """Flags related to coming into contact with the patient."""
+    # Flags related to coming into contact with the patient.
     CONTACT = "contact"
-    """Flags related to the subject's clinical data."""
+    # Flags related to the subject's clinical data.
     CLINICAL = "clinical"
-    """Flags related to behavior."""
+    # Flags related to behavior.
     BEHAVIORAL = "behavioral"
-    """Flags related to research."""
+    # Flags related to research.
     RESEARCH = "research"
-    """Flags related to subject's advance directives."""
+    # Flags related to subject's advance directives.
     ADVANCEDIRECTIVE = "advance-directive"
-    """Flags related to safety precautions."""
+    # Flags related to safety precautions.
     SAFETY = "safety"
-    allowed_values = ['DIET', 'DRUG', 'LAB', 'ADMIN', 'CONTACT', 'CLINICAL', 'BEHAVIORAL', 'RESEARCH', 'ADVANCEDIRECTIVE', 'SAFETY']
+
+    allowed_values = [DIET, DRUG, LAB, ADMIN, CONTACT, CLINICAL, BEHAVIORAL, RESEARCH, ADVANCEDIRECTIVE, SAFETY]

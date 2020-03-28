@@ -14,14 +14,15 @@ class MedicationDispenseCategoryCodes(object):
     URL: http://terminology.hl7.org/fhir/CodeSystem/medicationdispense-category
     ValueSet: http://hl7.org/fhir/ValueSet/medicationdispense-category
     """
-    """Includes dispenses for medications to be administered or consumed in an inpatient or acute care setting."""
+    # Includes dispenses for medications to be administered or consumed in an inpatient or acute care setting.
     INPATIENT = "inpatient"
-    """Includes dispenses for medications to be administered or consumed in an outpatient setting (for example,
-	/// Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor's office)."""
+    # Includes dispenses for medications to be administered or consumed in an outpatient setting (for example,
+    # Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor's office).
     OUTPATIENT = "outpatient"
-    """Includes dispenses for medications to be administered or consumed by the patient in their home (this would
-	/// include long term care or nursing homes, hospices, etc.)."""
+    # Includes dispenses for medications to be administered or consumed by the patient in their home (this would
+    # include long term care or nursing homes, hospices, etc.).
     COMMUNITY = "community"
-    """Includes dispenses for medications created when the patient is being released from a facility."""
+    # Includes dispenses for medications created when the patient is being released from a facility.
     DISCHARGE = "discharge"
-    allowed_values = ['INPATIENT', 'OUTPATIENT', 'COMMUNITY', 'DISCHARGE']
+
+    allowed_values = [INPATIENT, OUTPATIENT, COMMUNITY, DISCHARGE]

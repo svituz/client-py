@@ -15,10 +15,11 @@ terminology code system that consists of or contains concepts to support the med
     URL: http://terminology.hl7.org/CodeSystem/reason-medication-given
     ValueSet: http://hl7.org/fhir/ValueSet/reason-medication-given-codes
     """
-    """No reason known."""
+    # No reason known.
     A = "a"
-    """The administration was following an ordered protocol."""
+    # The administration was following an ordered protocol.
     B = "b"
-    """The administration was needed to treat an emergency."""
+    # The administration was needed to treat an emergency.
     C = "c"
-    allowed_values = ['A', 'B', 'C']
+
+    allowed_values = [A, B, C]

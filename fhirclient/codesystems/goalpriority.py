@@ -14,12 +14,13 @@ class GoalPriority(object):
     URL: http://terminology.hl7.org/CodeSystem/goal-priority
     ValueSet: http://hl7.org/fhir/ValueSet/goal-priority
     """
-    """Indicates that the goal is of considerable importance and should be a primary focus of care delivery."""
+    # Indicates that the goal is of considerable importance and should be a primary focus of care delivery.
     HIGHPRIORITY = "high-priority"
-    """Indicates that the goal has a reasonable degree of importance and that concrete action should be taken towards
-	/// the goal.  Attainment is not as critical as high-priority goals."""
+    # Indicates that the goal has a reasonable degree of importance and that concrete action should be taken towards
+    # the goal.  Attainment is not as critical as high-priority goals.
     MEDIUMPRIORITY = "medium-priority"
-    """The goal is desirable but is not sufficiently important to devote significant resources to.  Achievement of the
-	/// goal may be sought when incidental to achieving other goals."""
+    # The goal is desirable but is not sufficiently important to devote significant resources to.  Achievement of the
+    # goal may be sought when incidental to achieving other goals.
     LOWPRIORITY = "low-priority"
-    allowed_values = ['HIGHPRIORITY', 'MEDIUMPRIORITY', 'LOWPRIORITY']
+
+    allowed_values = [HIGHPRIORITY, MEDIUMPRIORITY, LOWPRIORITY]

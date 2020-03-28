@@ -14,17 +14,18 @@ class QuestionnaireResponseStatus(object):
     URL: http://hl7.org/fhir/questionnaire-answers-status
     ValueSet: http://hl7.org/fhir/ValueSet/questionnaire-answers-status
     """
-    """This QuestionnaireResponse has been partially filled out with answers but changes or additions are still
-	/// expected to be made to it."""
+    # This QuestionnaireResponse has been partially filled out with answers but changes or additions are still
+    # expected to be made to it.
     INPROGRESS = "in-progress"
-    """This QuestionnaireResponse has been filled out with answers and the current content is regarded as definitive."""
+    # This QuestionnaireResponse has been filled out with answers and the current content is regarded as definitive.
     COMPLETED = "completed"
-    """This QuestionnaireResponse has been filled out with answers, then marked as complete, yet changes or additions
-	/// have been made to it afterwards."""
+    # This QuestionnaireResponse has been filled out with answers, then marked as complete, yet changes or additions
+    # have been made to it afterwards.
     AMENDED = "amended"
-    """This QuestionnaireResponse was entered in error and voided."""
+    # This QuestionnaireResponse was entered in error and voided.
     ENTEREDINERROR = "entered-in-error"
-    """This QuestionnaireResponse has been partially filled out with answers but has been abandoned. It is unknown
-	/// whether changes or additions are expected to be made to it."""
+    # This QuestionnaireResponse has been partially filled out with answers but has been abandoned. It is unknown
+    # whether changes or additions are expected to be made to it.
     STOPPED = "stopped"
-    allowed_values = ['INPROGRESS', 'COMPLETED', 'AMENDED', 'ENTEREDINERROR', 'STOPPED']
+
+    allowed_values = [INPROGRESS, COMPLETED, AMENDED, ENTEREDINERROR, STOPPED]

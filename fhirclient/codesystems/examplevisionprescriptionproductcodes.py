@@ -14,8 +14,9 @@ class ExampleVisionPrescriptionProductCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/ex-visionprescriptionproduct
     ValueSet: http://hl7.org/fhir/ValueSet/vision-product
     """
-    """A lens to be fitted to a frame to comprise a pair of glasses."""
+    # A lens to be fitted to a frame to comprise a pair of glasses.
     LENS = "lens"
-    """A lens to be fitted for wearing directly on an eye."""
+    # A lens to be fitted for wearing directly on an eye.
     CONTACT = "contact"
-    allowed_values = ['LENS', 'CONTACT']
+
+    allowed_values = [LENS, CONTACT]

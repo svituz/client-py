@@ -276,6 +276,9 @@ class FHIRAbstractBase(object):
                 if not self._matches_type(value, typ):
                     err = TypeError("Expecting property \"{}\" on {} to be {}, but is {}"
                                     .format(name, type(self), typ, type(value)))
+                elif codeset is not None and value.value not in codeset.allowed_values:
+                    err = ValueError("Expecting value of property \"{}\"  on {} to be one of {}, but is {}"
+                                    .format(name, type(self), codeset.allowed_values, value.value))
                 else:
                     try:
                         found.add(of_many or jsname)

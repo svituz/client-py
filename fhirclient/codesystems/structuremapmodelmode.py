@@ -14,12 +14,13 @@ class StructureMapModelMode(object):
     URL: http://hl7.org/fhir/map-model-mode
     ValueSet: http://hl7.org/fhir/ValueSet/map-model-mode
     """
-    """This structure describes an instance passed to the mapping engine that is used a source of data."""
+    # This structure describes an instance passed to the mapping engine that is used a source of data.
     SOURCE = "source"
-    """This structure describes an instance that the mapping engine may ask for that is used a source of data."""
+    # This structure describes an instance that the mapping engine may ask for that is used a source of data.
     QUERIED = "queried"
-    """This structure describes an instance passed to the mapping engine that is used a target of data."""
+    # This structure describes an instance passed to the mapping engine that is used a target of data.
     TARGET = "target"
-    """This structure describes an instance that the mapping engine may ask to create that is used a target of data."""
+    # This structure describes an instance that the mapping engine may ask to create that is used a target of data.
     PRODUCED = "produced"
-    allowed_values = ['SOURCE', 'QUERIED', 'TARGET', 'PRODUCED']
+
+    allowed_values = [SOURCE, QUERIED, TARGET, PRODUCED]

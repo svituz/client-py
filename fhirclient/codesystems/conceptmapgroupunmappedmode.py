@@ -14,10 +14,11 @@ class ConceptMapGroupUnmappedMode(object):
     URL: http://hl7.org/fhir/conceptmap-unmapped-mode
     ValueSet: http://hl7.org/fhir/ValueSet/conceptmap-unmapped-mode
     """
-    """Use the code as provided in the $translate request."""
+    # Use the code as provided in the $translate request.
     PROVIDED = "provided"
-    """Use the code explicitly provided in the group.unmapped."""
+    # Use the code explicitly provided in the group.unmapped.
     FIXED = "fixed"
-    """Use the map identified by the canonical URL in the url element."""
+    # Use the map identified by the canonical URL in the url element.
     OTHERMAP = "other-map"
-    allowed_values = ['PROVIDED', 'FIXED', 'OTHERMAP']
+
+    allowed_values = [PROVIDED, FIXED, OTHERMAP]

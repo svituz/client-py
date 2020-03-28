@@ -14,14 +14,15 @@ class EpisodeOfCareType(object):
     URL: http://terminology.hl7.org/CodeSystem/episodeofcare-type
     ValueSet: http://hl7.org/fhir/ValueSet/episodeofcare-type
     """
-    """hacc"""
+    # hacc
     HACC = "hacc"
-    """pac"""
+    # pac
     PAC = "pac"
-    """diab"""
+    # diab
     DIAB = "diab"
-    """da"""
+    # da
     DA = "da"
-    """cacp"""
+    # cacp
     CACP = "cacp"
-    allowed_values = ['HACC', 'PAC', 'DIAB', 'DA', 'CACP']
+
+    allowed_values = [HACC, PAC, DIAB, DA, CACP]

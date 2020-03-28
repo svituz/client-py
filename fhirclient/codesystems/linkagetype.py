@@ -14,13 +14,14 @@ class LinkageType(object):
     URL: http://hl7.org/fhir/linkage-type
     ValueSet: http://hl7.org/fhir/ValueSet/linkage-type
     """
-    """The resource represents the "source of truth" (from the perspective of this Linkage resource) for the underlying
-	/// event/condition/etc."""
+    # The resource represents the "source of truth" (from the perspective of this Linkage resource) for the underlying
+    # event/condition/etc.
     SOURCE = "source"
-    """The resource represents an alternative view of the underlying event/condition/etc.  The resource may still be
-	/// actively maintained, even though it is not considered to be the source of truth."""
+    # The resource represents an alternative view of the underlying event/condition/etc.  The resource may still be
+    # actively maintained, even though it is not considered to be the source of truth.
     ALTERNATE = "alternate"
-    """The resource represents an obsolete record of the underlying event/condition/etc.  It is not expected to be
-	/// actively maintained."""
+    # The resource represents an obsolete record of the underlying event/condition/etc.  It is not expected to be
+    # actively maintained.
     HISTORICAL = "historical"
-    allowed_values = ['SOURCE', 'ALTERNATE', 'HISTORICAL']
+
+    allowed_values = [SOURCE, ALTERNATE, HISTORICAL]

@@ -13,8 +13,9 @@ class ParticipantType(object):
     """ This value set defines a set of codes that can be used to indicate how an individual participates in an encounter.
     URL: http://terminology.hl7.org/CodeSystem/participant-type
     """
-    """A translator who is facilitating communication with the patient during the encounter."""
+    # A translator who is facilitating communication with the patient during the encounter.
     TRANSLATOR = "translator"
-    """A person to be contacted in case of an emergency during the encounter."""
+    # A person to be contacted in case of an emergency during the encounter.
     EMERGENCY = "emergency"
-    allowed_values = ['TRANSLATOR', 'EMERGENCY']
+
+    allowed_values = [TRANSLATOR, EMERGENCY]

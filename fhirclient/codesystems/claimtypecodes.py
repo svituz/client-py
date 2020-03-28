@@ -14,15 +14,16 @@ class ClaimTypeCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/claim-type
     ValueSet: http://hl7.org/fhir/ValueSet/claim-type
     """
-    """Hospital, clinic and typically inpatient claims."""
+    # Hospital, clinic and typically inpatient claims.
     INSTITUTIONAL = "institutional"
-    """Dental, Denture and Hygiene claims."""
+    # Dental, Denture and Hygiene claims.
     ORAL = "oral"
-    """Pharmacy claims for goods and services."""
+    # Pharmacy claims for goods and services.
     PHARMACY = "pharmacy"
-    """Typically, outpatient claims from Physician, Psychological, Chiropractor, Physiotherapy, Speech Pathology,
-	/// rehabilitative, consulting."""
+    # Typically, outpatient claims from Physician, Psychological, Chiropractor, Physiotherapy, Speech Pathology,
+    # rehabilitative, consulting.
     PROFESSIONAL = "professional"
-    """Vision claims for professional services and products such as glasses and contact lenses."""
+    # Vision claims for professional services and products such as glasses and contact lenses.
     VISION = "vision"
-    allowed_values = ['INSTITUTIONAL', 'ORAL', 'PHARMACY', 'PROFESSIONAL', 'VISION']
+
+    allowed_values = [INSTITUTIONAL, ORAL, PHARMACY, PROFESSIONAL, VISION]

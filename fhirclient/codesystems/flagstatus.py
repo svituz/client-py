@@ -15,11 +15,12 @@ entered in error.
     URL: http://hl7.org/fhir/flag-status
     ValueSet: http://hl7.org/fhir/ValueSet/flag-status
     """
-    """A current flag that should be displayed to a user. A system may use the category to determine which user roles
-	/// should view the flag."""
+    # A current flag that should be displayed to a user. A system may use the category to determine which user roles
+    # should view the flag.
     ACTIVE = "active"
-    """The flag no longer needs to be displayed."""
+    # The flag no longer needs to be displayed.
     INACTIVE = "inactive"
-    """The flag was added in error and should no longer be displayed."""
+    # The flag was added in error and should no longer be displayed.
     ENTEREDINERROR = "entered-in-error"
-    allowed_values = ['ACTIVE', 'INACTIVE', 'ENTEREDINERROR']
+
+    allowed_values = [ACTIVE, INACTIVE, ENTEREDINERROR]

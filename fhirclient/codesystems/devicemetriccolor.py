@@ -14,20 +14,21 @@ class DeviceMetricColor(object):
     URL: http://hl7.org/fhir/metric-color
     ValueSet: http://hl7.org/fhir/ValueSet/metric-color
     """
-    """Color for representation - black."""
+    # Color for representation - black.
     BLACK = "black"
-    """Color for representation - red."""
+    # Color for representation - red.
     RED = "red"
-    """Color for representation - green."""
+    # Color for representation - green.
     GREEN = "green"
-    """Color for representation - yellow."""
+    # Color for representation - yellow.
     YELLOW = "yellow"
-    """Color for representation - blue."""
+    # Color for representation - blue.
     BLUE = "blue"
-    """Color for representation - magenta."""
+    # Color for representation - magenta.
     MAGENTA = "magenta"
-    """Color for representation - cyan."""
+    # Color for representation - cyan.
     CYAN = "cyan"
-    """Color for representation - white."""
+    # Color for representation - white.
     WHITE = "white"
-    allowed_values = ['BLACK', 'RED', 'GREEN', 'YELLOW', 'BLUE', 'MAGENTA', 'CYAN', 'WHITE']
+
+    allowed_values = [BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE]

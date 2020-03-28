@@ -14,6 +14,7 @@ class ContractResourceDecisionModeCodes(object):
     URL: http://hl7.org/fhir/contract-decision-mode
     ValueSet: http://hl7.org/fhir/ValueSet/contract-decision-mode
     """
-    """To be completed"""
+    # To be completed
     POLICY = "policy"
-    allowed_values = ['POLICY']
+
+    allowed_values = [POLICY]

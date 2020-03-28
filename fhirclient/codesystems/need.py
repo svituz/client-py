@@ -14,10 +14,11 @@ class Need(object):
     URL: http://terminology.hl7.org/CodeSystem/need
     ValueSet: http://hl7.org/fhir/ValueSet/verificationresult-need
     """
-    """***TODO***"""
+    # ***TODO***
     NONE = "none"
-    """***TODO***"""
+    # ***TODO***
     INITIAL = "initial"
-    """***TODO***"""
+    # ***TODO***
     PERIODIC = "periodic"
-    allowed_values = ['NONE', 'INITIAL', 'PERIODIC']
+
+    allowed_values = [NONE, INITIAL, PERIODIC]

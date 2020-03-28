@@ -14,16 +14,17 @@ class UDIEntryType(object):
     URL: http://hl7.org/fhir/udi-entry-type
     ValueSet: http://hl7.org/fhir/ValueSet/udi-entry-type
     """
-    """a barcodescanner captured the data from the device label."""
+    # a barcodescanner captured the data from the device label.
     BARCODE = "barcode"
-    """An RFID chip reader captured the data from the device label."""
+    # An RFID chip reader captured the data from the device label.
     RFID = "rfid"
-    """The data was read from the label by a person and manually entered. (e.g.  via a keyboard)."""
+    # The data was read from the label by a person and manually entered. (e.g.  via a keyboard).
     MANUAL = "manual"
-    """The data originated from a patient's implant card and was read by an operator."""
+    # The data originated from a patient's implant card and was read by an operator.
     CARD = "card"
-    """The data originated from a patient source and was not directly scanned or read from a label or card."""
+    # The data originated from a patient source and was not directly scanned or read from a label or card.
     SELFREPORTED = "self-reported"
-    """The method of data capture has not been determined."""
+    # The method of data capture has not been determined.
     UNKNOWN = "unknown"
-    allowed_values = ['BARCODE', 'RFID', 'MANUAL', 'CARD', 'SELFREPORTED', 'UNKNOWN']
+
+    allowed_values = [BARCODE, RFID, MANUAL, CARD, SELFREPORTED, UNKNOWN]

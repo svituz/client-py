@@ -14,15 +14,16 @@ class GoalRelationshipType(object):
     URL: http://terminology.hl7.org/CodeSystem/goal-relationship-type
     ValueSet: http://hl7.org/fhir/ValueSet/goal-relationship-type
     """
-    """Indicates that the target goal is one which must be met before striving for the current goal."""
+    # Indicates that the target goal is one which must be met before striving for the current goal.
     PREDECESSOR = "predecessor"
-    """Indicates that the target goal is a desired objective once the current goal is met."""
+    # Indicates that the target goal is a desired objective once the current goal is met.
     SUCCESSOR = "successor"
-    """Indicates that this goal has been replaced by the target goal."""
+    # Indicates that this goal has been replaced by the target goal.
     REPLACEMENT = "replacement"
-    """Indicates that the target goal is considered to be a "piece" of attaining this goal."""
+    # Indicates that the target goal is considered to be a "piece" of attaining this goal.
     MILESTONE = "milestone"
-    """Indicates that the relationship is not covered by one of the pre-defined codes.  (An extension may convey more
-	/// information about the meaning of the relationship.)."""
+    # Indicates that the relationship is not covered by one of the pre-defined codes.  (An extension may convey more
+    # information about the meaning of the relationship.).
     OTHER = "other"
-    allowed_values = ['PREDECESSOR', 'SUCCESSOR', 'REPLACEMENT', 'MILESTONE', 'OTHER']
+
+    allowed_values = [PREDECESSOR, SUCCESSOR, REPLACEMENT, MILESTONE, OTHER]

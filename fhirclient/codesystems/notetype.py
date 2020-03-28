@@ -14,10 +14,11 @@ class NoteType(object):
     URL: http://hl7.org/fhir/note-type
     ValueSet: http://hl7.org/fhir/ValueSet/note-type
     """
-    """Display the note."""
+    # Display the note.
     DISPLAY = "display"
-    """Print the note on the form."""
+    # Print the note on the form.
     PRINT = "print"
-    """Print the note for the operator."""
+    # Print the note for the operator.
     PRINTOPER = "printoper"
-    allowed_values = ['DISPLAY', 'PRINT', 'PRINTOPER']
+
+    allowed_values = [DISPLAY, PRINT, PRINTOPER]

@@ -14,16 +14,17 @@ class ConsentState(object):
     URL: http://hl7.org/fhir/consent-state-codes
     ValueSet: http://hl7.org/fhir/ValueSet/consent-state-codes
     """
-    """The consent is in development or awaiting use but is not yet intended to be acted upon."""
+    # The consent is in development or awaiting use but is not yet intended to be acted upon.
     DRAFT = "draft"
-    """The consent has been proposed but not yet agreed to by all parties. The negotiation stage."""
+    # The consent has been proposed but not yet agreed to by all parties. The negotiation stage.
     PROPOSED = "proposed"
-    """The consent is to be followed and enforced."""
+    # The consent is to be followed and enforced.
     ACTIVE = "active"
-    """The consent has been rejected by one or more of the parties."""
+    # The consent has been rejected by one or more of the parties.
     REJECTED = "rejected"
-    """The consent is terminated or replaced."""
+    # The consent is terminated or replaced.
     INACTIVE = "inactive"
-    """The consent was created wrongly (e.g. wrong patient) and should be ignored."""
+    # The consent was created wrongly (e.g. wrong patient) and should be ignored.
     ENTEREDINERROR = "entered-in-error"
-    allowed_values = ['DRAFT', 'PROPOSED', 'ACTIVE', 'REJECTED', 'INACTIVE', 'ENTEREDINERROR']
+
+    allowed_values = [DRAFT, PROPOSED, ACTIVE, REJECTED, INACTIVE, ENTEREDINERROR]

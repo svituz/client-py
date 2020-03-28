@@ -14,10 +14,11 @@ class FHIRSubstanceStatus(object):
     URL: http://hl7.org/fhir/substance-status
     ValueSet: http://hl7.org/fhir/ValueSet/substance-status
     """
-    """The substance is considered for use or reference."""
+    # The substance is considered for use or reference.
     ACTIVE = "active"
-    """The substance is considered for reference, but not for use."""
+    # The substance is considered for reference, but not for use.
     INACTIVE = "inactive"
-    """The substance was entered in error."""
+    # The substance was entered in error.
     ENTEREDINERROR = "entered-in-error"
-    allowed_values = ['ACTIVE', 'INACTIVE', 'ENTEREDINERROR']
+
+    allowed_values = [ACTIVE, INACTIVE, ENTEREDINERROR]

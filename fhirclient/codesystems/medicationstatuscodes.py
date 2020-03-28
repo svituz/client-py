@@ -14,10 +14,11 @@ class MedicationStatusCodes(object):
     URL: http://hl7.org/fhir/CodeSystem/medication-status
     ValueSet: http://hl7.org/fhir/ValueSet/medication-status
     """
-    """The medication is available for use."""
+    # The medication is available for use.
     ACTIVE = "active"
-    """The medication is not available for use."""
+    # The medication is not available for use.
     INACTIVE = "inactive"
-    """The medication was entered in error."""
+    # The medication was entered in error.
     ENTEREDINERROR = "entered-in-error"
-    allowed_values = ['ACTIVE', 'INACTIVE', 'ENTEREDINERROR']
+
+    allowed_values = [ACTIVE, INACTIVE, ENTEREDINERROR]

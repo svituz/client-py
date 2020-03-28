@@ -14,9 +14,10 @@ class ContractActorRoleCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/contractactorrole
     ValueSet: http://hl7.org/fhir/ValueSet/contract-actorrole
     """
-    """Someone who provides health care related services to people or animals including both clinical and support
-	/// services."""
+    # Someone who provides health care related services to people or animals including both clinical and support
+    # services.
     PRACTITIONER = "practitioner"
-    """A receiver, human or animal, of health care related goods and services."""
+    # A receiver, human or animal, of health care related goods and services.
     PATIENT = "patient"
-    allowed_values = ['PRACTITIONER', 'PATIENT']
+
+    allowed_values = [PRACTITIONER, PATIENT]

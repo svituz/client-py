@@ -14,12 +14,13 @@ class SNOMEDCTReasonMedicationNotGivenCodes(object):
 medicine codes from SNOMED CT - provided as an exemplar value set.
     URL: http://hl7.org/fhir/reason-medication-not-given
     """
-    """No reason known."""
+    # No reason known.
     A = "a"
-    """The patient was not available when the dose was scheduled."""
+    # The patient was not available when the dose was scheduled.
     B = "b"
-    """The patient was asleep when the dose was scheduled."""
+    # The patient was asleep when the dose was scheduled.
     C = "c"
-    """The patient was given the medication and immediately vomited it back."""
+    # The patient was given the medication and immediately vomited it back.
     D = "d"
-    allowed_values = ['A', 'B', 'C', 'D']
+
+    allowed_values = [A, B, C, D]

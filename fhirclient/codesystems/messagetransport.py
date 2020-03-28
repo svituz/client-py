@@ -14,10 +14,11 @@ class MessageTransport(object):
     URL: http://terminology.hl7.org/CodeSystem/message-transport
     ValueSet: http://hl7.org/fhir/ValueSet/message-transport
     """
-    """The application sends or receives messages using HTTP POST (may be over http: or https:)."""
+    # The application sends or receives messages using HTTP POST (may be over http: or https:).
     HTTP = "http"
-    """The application sends or receives messages using File Transfer Protocol."""
+    # The application sends or receives messages using File Transfer Protocol.
     FTP = "ftp"
-    """The application sends or receives messages using HL7's Minimal Lower Level Protocol."""
+    # The application sends or receives messages using HL7's Minimal Lower Level Protocol.
     MLLP = "mllp"
-    allowed_values = ['HTTP', 'FTP', 'MLLP']
+
+    allowed_values = [HTTP, FTP, MLLP]

@@ -14,8 +14,9 @@ class ConstraintSeverity(object):
     URL: http://hl7.org/fhir/constraint-severity
     ValueSet: http://hl7.org/fhir/ValueSet/constraint-severity
     """
-    """If the constraint is violated, the resource is not conformant."""
+    # If the constraint is violated, the resource is not conformant.
     ERROR = "error"
-    """If the constraint is violated, the resource is conformant, but it is not necessarily following best practice."""
+    # If the constraint is violated, the resource is conformant, but it is not necessarily following best practice.
     WARNING = "warning"
-    allowed_values = ['ERROR', 'WARNING']
+
+    allowed_values = [ERROR, WARNING]

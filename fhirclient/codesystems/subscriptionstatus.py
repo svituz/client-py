@@ -14,12 +14,13 @@ class SubscriptionStatus(object):
     URL: http://hl7.org/fhir/subscription-status
     ValueSet: http://hl7.org/fhir/ValueSet/subscription-status
     """
-    """The client has requested the subscription, and the server has not yet set it up."""
+    # The client has requested the subscription, and the server has not yet set it up.
     REQUESTED = "requested"
-    """The subscription is active."""
+    # The subscription is active.
     ACTIVE = "active"
-    """The server has an error executing the notification."""
+    # The server has an error executing the notification.
     ERROR = "error"
-    """Too many errors have occurred or the subscription has expired."""
+    # Too many errors have occurred or the subscription has expired.
     OFF = "off"
-    allowed_values = ['REQUESTED', 'ACTIVE', 'ERROR', 'OFF']
+
+    allowed_values = [REQUESTED, ACTIVE, ERROR, OFF]

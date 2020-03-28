@@ -14,6 +14,7 @@ class ContractResourceAssetTypeCodes(object):
     URL: http://hl7.org/fhir/contract-asset-type
     ValueSet: http://hl7.org/fhir/ValueSet/contract-assettype
     """
-    """To be completed"""
+    # To be completed
     PARTICIPATION = "participation"
-    allowed_values = ['PARTICIPATION']
+
+    allowed_values = [PARTICIPATION]

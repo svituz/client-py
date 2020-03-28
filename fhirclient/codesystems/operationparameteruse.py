@@ -14,8 +14,9 @@ class OperationParameterUse(object):
     URL: http://hl7.org/fhir/operation-parameter-use
     ValueSet: http://hl7.org/fhir/ValueSet/operation-parameter-use
     """
-    """This is an input parameter."""
+    # This is an input parameter.
     IN = "in"
-    """This is an output parameter."""
+    # This is an output parameter.
     OUT = "out"
-    allowed_values = ['IN', 'OUT']
+
+    allowed_values = [IN, OUT]

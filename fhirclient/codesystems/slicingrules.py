@@ -14,11 +14,12 @@ class SlicingRules(object):
     URL: http://hl7.org/fhir/resource-slicing-rules
     ValueSet: http://hl7.org/fhir/ValueSet/resource-slicing-rules
     """
-    """No additional content is allowed other than that described by the slices in this profile."""
+    # No additional content is allowed other than that described by the slices in this profile.
     CLOSED = "closed"
-    """Additional content is allowed anywhere in the list."""
+    # Additional content is allowed anywhere in the list.
     OPEN = "open"
-    """Additional content is allowed, but only at the end of the list. Note that using this requires that the slices be
-	/// ordered, which makes it hard to share uses. This should only be done where absolutely required."""
+    # Additional content is allowed, but only at the end of the list. Note that using this requires that the slices be
+    # ordered, which makes it hard to share uses. This should only be done where absolutely required.
     OPENATEND = "openAtEnd"
-    allowed_values = ['CLOSED', 'OPEN', 'OPENATEND']
+
+    allowed_values = [CLOSED, OPEN, OPENATEND]

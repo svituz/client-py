@@ -16,15 +16,16 @@ preventable disease. This value set is provided as a suggestive example.
     URL: http://terminology.hl7.org/CodeSystem/immunization-recommendation-status
     ValueSet: http://hl7.org/fhir/ValueSet/immunization-recommendation-status
     """
-    """The patient is due for their next vaccination."""
+    # The patient is due for their next vaccination.
     DUE = "due"
-    """The patient is considered overdue for their next vaccination."""
+    # The patient is considered overdue for their next vaccination.
     OVERDUE = "overdue"
-    """The patient is immune to the target disease and further immunization against the disease is not likely to
-	/// provide benefit."""
+    # The patient is immune to the target disease and further immunization against the disease is not likely to
+    # provide benefit.
     IMMUNE = "immune"
-    """The patient is contraindicated for futher doses."""
+    # The patient is contraindicated for futher doses.
     CONTRAINDICATED = "contraindicated"
-    """The patient is fully protected and no further doses are recommended."""
+    # The patient is fully protected and no further doses are recommended.
     COMPLETE = "complete"
-    allowed_values = ['DUE', 'OVERDUE', 'IMMUNE', 'CONTRAINDICATED', 'COMPLETE']
+
+    allowed_values = [DUE, OVERDUE, IMMUNE, CONTRAINDICATED, COMPLETE]

@@ -14,11 +14,12 @@ class NamingSystemType(object):
     URL: http://hl7.org/fhir/namingsystem-type
     ValueSet: http://hl7.org/fhir/ValueSet/namingsystem-type
     """
-    """The naming system is used to define concepts and symbols to represent those concepts; e.g. UCUM, LOINC, NDC
-	/// code, local lab codes, etc."""
+    # The naming system is used to define concepts and symbols to represent those concepts; e.g. UCUM, LOINC, NDC
+    # code, local lab codes, etc.
     CODESYSTEM = "codesystem"
-    """The naming system is used to manage identifiers (e.g. license numbers, order numbers, etc.)."""
+    # The naming system is used to manage identifiers (e.g. license numbers, order numbers, etc.).
     IDENTIFIER = "identifier"
-    """The naming system is used as the root for other identifiers and naming systems."""
+    # The naming system is used as the root for other identifiers and naming systems.
     ROOT = "root"
-    allowed_values = ['CODESYSTEM', 'IDENTIFIER', 'ROOT']
+
+    allowed_values = [CODESYSTEM, IDENTIFIER, ROOT]

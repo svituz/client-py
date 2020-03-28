@@ -18,41 +18,42 @@ medical procedures, reproductive procedures; health care directive (Living Will)
 (DNR); Physician Orders for Life-Sustaining Treatment (POLST)
     URL: http://terminology.hl7.org/CodeSystem/consentcategorycodes
     """
-    """Any instructions, written or given verbally by a patient to a health care provider in anticipation of potential
-	/// need for medical treatment. [2005 Honor My Wishes]"""
+    # Any instructions, written or given verbally by a patient to a health care provider in anticipation of potential
+    # need for medical treatment. [2005 Honor My Wishes]
     ACD = "acd"
-    """A legal document, signed by both the patient and their provider, stating a desire not to have CPR initiated in
-	/// case of a cardiac event. Note: This form was replaced in 2003 with the Physician Orders for Life-Sustaining
-	/// Treatment [POLST]."""
+    # A legal document, signed by both the patient and their provider, stating a desire not to have CPR initiated in
+    # case of a cardiac event. Note: This form was replaced in 2003 with the Physician Orders for Life-Sustaining
+    # Treatment [POLST].
     DNR = "dnr"
-    """Opt-in to disclosure of health information for emergency only consent directive. Comment: This general consent
-	/// directive specifically limits disclosure of health information for purpose of emergency treatment. Additional
-	/// parameters may further limit the disclosure to specific users, roles, duration, types of information, and impose
-	/// uses obligations. [ActConsentDirective (2.16.840.1.113883.1.11.20425)]"""
+    # Opt-in to disclosure of health information for emergency only consent directive. Comment: This general consent
+    # directive specifically limits disclosure of health information for purpose of emergency treatment. Additional
+    # parameters may further limit the disclosure to specific users, roles, duration, types of information, and impose
+    # uses obligations. [ActConsentDirective (2.16.840.1.113883.1.11.20425)]
     EMRGONLY = "emrgonly"
-    """Patient's document telling patient's health care provider what the patient wants or does not want if the patient
-	/// is diagnosed as being terminally ill and in a persistent vegetative state or in a permanently unconscious
-	/// condition.[2005 Honor My Wishes]"""
+    # Patient's document telling patient's health care provider what the patient wants or does not want if the patient
+    # is diagnosed as being terminally ill and in a persistent vegetative state or in a permanently unconscious
+    # condition.[2005 Honor My Wishes]
     HCD = "hcd"
-    """Acknowledgement of custodian notice of privacy practices. Usage Notes: This type of consent directive
-	/// acknowledges a custodian's notice of privacy practices including its permitted collection, access, use and
-	/// disclosure of health information to users and for purposes of use specified. [ActConsentDirective
-	/// (2.16.840.1.113883.1.11.20425)]"""
+    # Acknowledgement of custodian notice of privacy practices. Usage Notes: This type of consent directive
+    # acknowledges a custodian's notice of privacy practices including its permitted collection, access, use and
+    # disclosure of health information to users and for purposes of use specified. [ActConsentDirective
+    # (2.16.840.1.113883.1.11.20425)]
     NPP = "npp"
-    """The Physician Order for Life-Sustaining Treatment form records a person's health care wishes for end of life
-	/// emergency treatment and translates them into an order by the physician. It must be reviewed and signed by both
-	/// the patient and the physician, Advanced Registered Nurse Practitioner or Physician Assistant. [2005 Honor My
-	/// Wishes] Comment: Opt-in Consent Directive with restrictions."""
+    # The Physician Order for Life-Sustaining Treatment form records a person's health care wishes for end of life
+    # emergency treatment and translates them into an order by the physician. It must be reviewed and signed by both
+    # the patient and the physician, Advanced Registered Nurse Practitioner or Physician Assistant. [2005 Honor My
+    # Wishes] Comment: Opt-in Consent Directive with restrictions.
     POLST = "polst"
-    """Consent to have healthcare information in an electronic health record accessed for research purposes. [VALUE
-	/// SET: ActConsentType (2.16.840.1.113883.1.11.19897)]"""
+    # Consent to have healthcare information in an electronic health record accessed for research purposes. [VALUE
+    # SET: ActConsentType (2.16.840.1.113883.1.11.19897)]
     RESEARCH = "research"
-    """Consent to have de-identified healthcare information in an electronic health record that is accessed for
-	/// research purposes, but without consent to re-identify the information under any circumstance. [VALUE SET:
-	/// ActConsentType (2.16.840.1.113883.1.11.19897)"""
+    # Consent to have de-identified healthcare information in an electronic health record that is accessed for
+    # research purposes, but without consent to re-identify the information under any circumstance. [VALUE SET:
+    # ActConsentType (2.16.840.1.113883.1.11.19897)
     RSDID = "rsdid"
-    """Consent to have de-identified healthcare information in an electronic health record that is accessed for
-	/// research purposes re-identified under specific circumstances outlined in the consent. [VALUE SET: ActConsentType
-	/// (2.16.840.1.113883.1.11.19897)]"""
+    # Consent to have de-identified healthcare information in an electronic health record that is accessed for
+    # research purposes re-identified under specific circumstances outlined in the consent. [VALUE SET: ActConsentType
+    # (2.16.840.1.113883.1.11.19897)]
     RSREID = "rsreid"
-    allowed_values = ['ACD', 'DNR', 'EMRGONLY', 'HCD', 'NPP', 'POLST', 'RESEARCH', 'RSDID', 'RSREID']
+
+    allowed_values = [ACD, DNR, EMRGONLY, HCD, NPP, POLST, RESEARCH, RSDID, RSREID]

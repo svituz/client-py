@@ -14,10 +14,11 @@ class QualityType(object):
     URL: http://hl7.org/fhir/quality-type
     ValueSet: http://hl7.org/fhir/ValueSet/quality-type
     """
-    """INDEL Comparison."""
+    # INDEL Comparison.
     INDEL = "indel"
-    """SNP Comparison."""
+    # SNP Comparison.
     SNP = "snp"
-    """UNKNOWN Comparison."""
+    # UNKNOWN Comparison.
     UNKNOWN = "unknown"
-    allowed_values = ['INDEL', 'SNP', 'UNKNOWN']
+
+    allowed_values = [INDEL, SNP, UNKNOWN]

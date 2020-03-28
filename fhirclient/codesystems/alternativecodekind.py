@@ -14,17 +14,18 @@ class AlternativeCodeKind(object):
     URL: http://terminology.hl7.org/CodeSystem/codesystem-altcode-kind
     ValueSet: http://hl7.org/fhir/ValueSet/codesystem-altcode-kind
     """
-    """The code is an alternative code that can be used in any of the circumstances that the primary code can be used."""
+    # The code is an alternative code that can be used in any of the circumstances that the primary code can be used.
     ALTERNATE = "alternate"
-    """The code should no longer be used, but was used in the past."""
+    # The code should no longer be used, but was used in the past.
     DEPRECATED = "deprecated"
-    """The code is an alternative to be used when a case insensitive code is required (when the primary codes are case
-	/// sensitive)."""
+    # The code is an alternative to be used when a case insensitive code is required (when the primary codes are case
+    # sensitive).
     CASEINSENSITIVE = "case-insensitive"
-    """The code is an alternative to be used when a case sensitive code is required (when the primary codes are case
-	/// insensitive)."""
+    # The code is an alternative to be used when a case sensitive code is required (when the primary codes are case
+    # insensitive).
     CASESENSITIVE = "case-sensitive"
-    """The code is an alternative for the primary code that is built using the expression grammar defined by the code
-	/// system."""
+    # The code is an alternative for the primary code that is built using the expression grammar defined by the code
+    # system.
     EXPRESSION = "expression"
-    allowed_values = ['ALTERNATE', 'DEPRECATED', 'CASEINSENSITIVE', 'CASESENSITIVE', 'EXPRESSION']
+
+    allowed_values = [ALTERNATE, DEPRECATED, CASEINSENSITIVE, CASESENSITIVE, EXPRESSION]

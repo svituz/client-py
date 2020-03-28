@@ -15,18 +15,19 @@ party/patient).
     URL: http://terminology.hl7.org/CodeSystem/subscriber-relationship
     ValueSet: http://hl7.org/fhir/ValueSet/subscriber-relationship
     """
-    """The Beneficiary is a child of the Subscriber"""
+    # The Beneficiary is a child of the Subscriber
     CHILD = "child"
-    """The Beneficiary is a parent of the Subscriber"""
+    # The Beneficiary is a parent of the Subscriber
     PARENT = "parent"
-    """The Beneficiary is a spouse or equivalent of the Subscriber"""
+    # The Beneficiary is a spouse or equivalent of the Subscriber
     SPOUSE = "spouse"
-    """The Beneficiary is a common law spouse or equivalent of the Subscriber"""
+    # The Beneficiary is a common law spouse or equivalent of the Subscriber
     COMMON = "common"
-    """The Beneficiary has some other relationship the Subscriber"""
+    # The Beneficiary has some other relationship the Subscriber
     OTHER = "other"
-    """The Beneficiary is the Subscriber"""
+    # The Beneficiary is the Subscriber
     SELF = "self"
-    """The Beneficiary is covered under insurance of the subscriber due to an injury."""
+    # The Beneficiary is covered under insurance of the subscriber due to an injury.
     INJURED = "injured"
-    allowed_values = ['CHILD', 'PARENT', 'SPOUSE', 'COMMON', 'OTHER', 'SELF', 'INJURED']
+
+    allowed_values = [CHILD, PARENT, SPOUSE, COMMON, OTHER, SELF, INJURED]

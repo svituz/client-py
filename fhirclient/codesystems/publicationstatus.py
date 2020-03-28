@@ -14,14 +14,15 @@ class PublicationStatus(object):
     URL: http://hl7.org/fhir/publication-status
     ValueSet: http://hl7.org/fhir/ValueSet/publication-status
     """
-    """This resource is still under development and is not yet considered to be ready for normal use."""
+    # This resource is still under development and is not yet considered to be ready for normal use.
     DRAFT = "draft"
-    """This resource is ready for normal use."""
+    # This resource is ready for normal use.
     ACTIVE = "active"
-    """This resource has been withdrawn or superseded and should no longer be used."""
+    # This resource has been withdrawn or superseded and should no longer be used.
     RETIRED = "retired"
-    """The authoring system does not know which of the status values currently applies for this resource.  Note: This
-	/// concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known
-	/// which one."""
+    # The authoring system does not know which of the status values currently applies for this resource.  Note: This
+    # concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known
+    # which one.
     UNKNOWN = "unknown"
-    allowed_values = ['DRAFT', 'ACTIVE', 'RETIRED', 'UNKNOWN']
+
+    allowed_values = [DRAFT, ACTIVE, RETIRED, UNKNOWN]

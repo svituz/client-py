@@ -14,8 +14,9 @@ class StrandType(object):
     URL: http://hl7.org/fhir/strand-type
     ValueSet: http://hl7.org/fhir/ValueSet/strand-type
     """
-    """Watson strand of reference sequence."""
+    # Watson strand of reference sequence.
     WATSON = "watson"
-    """Crick strand of reference sequence."""
+    # Crick strand of reference sequence.
     CRICK = "crick"
-    allowed_values = ['WATSON', 'CRICK']
+
+    allowed_values = [WATSON, CRICK]

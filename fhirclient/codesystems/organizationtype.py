@@ -14,31 +14,32 @@ class OrganizationType(object):
     URL: http://terminology.hl7.org/CodeSystem/organization-type
     ValueSet: http://hl7.org/fhir/ValueSet/organization-type
     """
-    """An organization that provides healthcare services."""
+    # An organization that provides healthcare services.
     PROV = "prov"
-    """A department or ward within a hospital (Generally is not applicable to top level organizations)"""
+    # A department or ward within a hospital (Generally is not applicable to top level organizations)
     DEPT = "dept"
-    """An organizational team is usually a grouping of practitioners that perform a specific function within an
-	/// organization (which could be a top level organization, or a department)."""
+    # An organizational team is usually a grouping of practitioners that perform a specific function within an
+    # organization (which could be a top level organization, or a department).
     TEAM = "team"
-    """A political body, often used when including organization records for government bodies such as a Federal
-	/// Government, State or Local Government."""
+    # A political body, often used when including organization records for government bodies such as a Federal
+    # Government, State or Local Government.
     GOVT = "govt"
-    """A company that provides insurance to its subscribers that may include healthcare related policies."""
+    # A company that provides insurance to its subscribers that may include healthcare related policies.
     INS = "ins"
-    """A company, charity, or governmental organization, which processes claims and/or issues payments to providers on
-	/// behalf of patients or groups of patients."""
+    # A company, charity, or governmental organization, which processes claims and/or issues payments to providers on
+    # behalf of patients or groups of patients.
     PAY = "pay"
-    """An educational institution that provides education or research facilities."""
+    # An educational institution that provides education or research facilities.
     EDU = "edu"
-    """An organization that is identified as a part of a religious institution."""
+    # An organization that is identified as a part of a religious institution.
     RELI = "reli"
-    """An organization that is identified as a Pharmaceutical/Clinical Research Sponsor."""
+    # An organization that is identified as a Pharmaceutical/Clinical Research Sponsor.
     CRS = "crs"
-    """An un-incorporated community group."""
+    # An un-incorporated community group.
     CG = "cg"
-    """An organization that is a registered business or corporation but not identified by other types."""
+    # An organization that is a registered business or corporation but not identified by other types.
     BUS = "bus"
-    """Other type of organization not already specified."""
+    # Other type of organization not already specified.
     OTHER = "other"
-    allowed_values = ['PROV', 'DEPT', 'TEAM', 'GOVT', 'INS', 'PAY', 'EDU', 'RELI', 'CRS', 'CG', 'BUS', 'OTHER']
+
+    allowed_values = [PROV, DEPT, TEAM, GOVT, INS, PAY, EDU, RELI, CRS, CG, BUS, OTHER]

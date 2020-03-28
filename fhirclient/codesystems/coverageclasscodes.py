@@ -14,26 +14,27 @@ class CoverageClassCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/coverage-class
     ValueSet: http://hl7.org/fhir/ValueSet/coverage-class
     """
-    """An employee group"""
+    # An employee group
     GROUP = "group"
-    """A sub-group of an employee group"""
+    # A sub-group of an employee group
     SUBGROUP = "subgroup"
-    """A specific suite of benefits."""
+    # A specific suite of benefits.
     PLAN = "plan"
-    """A subset of a specific suite of benefits."""
+    # A subset of a specific suite of benefits.
     SUBPLAN = "subplan"
-    """A class of benefits."""
+    # A class of benefits.
     CLASS_FHIR = "class"
-    """A subset of a class of benefits."""
+    # A subset of a class of benefits.
     SUBCLASS = "subclass"
-    """A sequence number associated with a short-term continuance of the coverage."""
+    # A sequence number associated with a short-term continuance of the coverage.
     SEQUENCE = "sequence"
-    """Pharmacy benefit manager's Business Identification Number."""
+    # Pharmacy benefit manager's Business Identification Number.
     RXBIN = "rxbin"
-    """A Pharmacy Benefit Manager specified Processor Control Number."""
+    # A Pharmacy Benefit Manager specified Processor Control Number.
     RXPCN = "rxpcn"
-    """A Pharmacy Benefit Manager specified Member ID."""
+    # A Pharmacy Benefit Manager specified Member ID.
     RXID = "rxid"
-    """A Pharmacy Benefit Manager specified Group number."""
+    # A Pharmacy Benefit Manager specified Group number.
     RXGROUP = "rxgroup"
-    allowed_values = ['GROUP', 'SUBGROUP', 'PLAN', 'SUBPLAN', 'CLASS_FHIR', 'SUBCLASS', 'SEQUENCE', 'RXBIN', 'RXPCN', 'RXID', 'RXGROUP']
+
+    allowed_values = [GROUP, SUBGROUP, PLAN, SUBPLAN, CLASS_FHIR, SUBCLASS, SEQUENCE, RXBIN, RXPCN, RXID, RXGROUP]

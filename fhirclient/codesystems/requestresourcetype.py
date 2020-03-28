@@ -14,35 +14,36 @@ class RequestResourceType(object):
     URL: http://hl7.org/fhir/request-resource-types
     ValueSet: http://hl7.org/fhir/ValueSet/request-resource-types
     """
-    """A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a
-	/// specific date/time. This may result in one or more Encounter(s)."""
+    # A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a
+    # specific date/time. This may result in one or more Encounter(s).
     APPOINTMENT = "Appointment"
-    """A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection."""
+    # A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.
     APPOINTMENTRESPONSE = "AppointmentResponse"
-    """Healthcare plan for patient or group."""
+    # Healthcare plan for patient or group.
     CAREPLAN = "CarePlan"
-    """Claim, Pre-determination or Pre-authorization."""
+    # Claim, Pre-determination or Pre-authorization.
     CLAIM = "Claim"
-    """A request for information to be sent to a receiver."""
+    # A request for information to be sent to a receiver.
     COMMUNICATIONREQUEST = "CommunicationRequest"
-    """Legal Agreement."""
+    # Legal Agreement.
     CONTRACT = "Contract"
-    """Medical device request."""
+    # Medical device request.
     DEVICEREQUEST = "DeviceRequest"
-    """Enrollment request."""
+    # Enrollment request.
     ENROLLMENTREQUEST = "EnrollmentRequest"
-    """Guidance or advice relating to an immunization."""
+    # Guidance or advice relating to an immunization.
     IMMUNIZATIONRECOMMENDATION = "ImmunizationRecommendation"
-    """Ordering of medication for patient or group."""
+    # Ordering of medication for patient or group.
     MEDICATIONREQUEST = "MedicationRequest"
-    """Diet, formula or nutritional supplement request."""
+    # Diet, formula or nutritional supplement request.
     NUTRITIONORDER = "NutritionOrder"
-    """A record of a request for service such as diagnostic investigations, treatments, or operations to be performed."""
+    # A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.
     SERVICEREQUEST = "ServiceRequest"
-    """Request for a medication, substance or device."""
+    # Request for a medication, substance or device.
     SUPPLYREQUEST = "SupplyRequest"
-    """A task to be performed."""
+    # A task to be performed.
     TASK = "Task"
-    """Prescription for vision correction products for a patient."""
+    # Prescription for vision correction products for a patient.
     VISIONPRESCRIPTION = "VisionPrescription"
-    allowed_values = ['APPOINTMENT', 'APPOINTMENTRESPONSE', 'CAREPLAN', 'CLAIM', 'COMMUNICATIONREQUEST', 'CONTRACT', 'DEVICEREQUEST', 'ENROLLMENTREQUEST', 'IMMUNIZATIONRECOMMENDATION', 'MEDICATIONREQUEST', 'NUTRITIONORDER', 'SERVICEREQUEST', 'SUPPLYREQUEST', 'TASK', 'VISIONPRESCRIPTION']
+
+    allowed_values = [APPOINTMENT, APPOINTMENTRESPONSE, CAREPLAN, CLAIM, COMMUNICATIONREQUEST, CONTRACT, DEVICEREQUEST, ENROLLMENTREQUEST, IMMUNIZATIONRECOMMENDATION, MEDICATIONREQUEST, NUTRITIONORDER, SERVICEREQUEST, SUPPLYREQUEST, TASK, VISIONPRESCRIPTION]

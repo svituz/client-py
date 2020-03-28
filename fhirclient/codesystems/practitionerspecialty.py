@@ -14,14 +14,15 @@ class PractitionerSpecialty(object):
     URL: http://hl7.org/fhir/practitioner-specialty
     ValueSet: http://hl7.org/fhir/ValueSet/practitioner-specialty
     """
-    """cardio"""
+    # cardio
     CARDIO = "cardio"
-    """dent"""
+    # dent
     DENT = "dent"
-    """dietary"""
+    # dietary
     DIETARY = "dietary"
-    """midw"""
+    # midw
     MIDW = "midw"
-    """sysarch"""
+    # sysarch
     SYSARCH = "sysarch"
-    allowed_values = ['CARDIO', 'DENT', 'DIETARY', 'MIDW', 'SYSARCH']
+
+    allowed_values = [CARDIO, DENT, DIETARY, MIDW, SYSARCH]

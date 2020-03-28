@@ -15,9 +15,10 @@ alternative state (exposureAlternative).
     URL: http://hl7.org/fhir/exposure-state
     ValueSet: http://hl7.org/fhir/ValueSet/exposure-state
     """
-    """used when the results by exposure is describing the results for the primary exposure of interest."""
+    # used when the results by exposure is describing the results for the primary exposure of interest.
     EXPOSURE = "exposure"
-    """used when the results by exposure is describing the results for the alternative exposure state, control state or
-	/// comparator state."""
+    # used when the results by exposure is describing the results for the alternative exposure state, control state or
+    # comparator state.
     EXPOSUREALTERNATIVE = "exposure-alternative"
-    allowed_values = ['EXPOSURE', 'EXPOSUREALTERNATIVE']
+
+    allowed_values = [EXPOSURE, EXPOSUREALTERNATIVE]

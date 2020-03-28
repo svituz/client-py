@@ -14,16 +14,17 @@ class AdverseEventOutcome(object):
     URL: http://terminology.hl7.org/CodeSystem/adverse-event-outcome
     ValueSet: http://hl7.org/fhir/ValueSet/adverse-event-outcome
     """
-    """resolved"""
+    # resolved
     RESOLVED = "resolved"
-    """recovering"""
+    # recovering
     RECOVERING = "recovering"
-    """ongoing"""
+    # ongoing
     ONGOING = "ongoing"
-    """resolvedWithSequelae"""
+    # resolvedWithSequelae
     RESOLVEDWITHSEQUELAE = "resolvedWithSequelae"
-    """fatal"""
+    # fatal
     FATAL = "fatal"
-    """unknown"""
+    # unknown
     UNKNOWN = "unknown"
-    allowed_values = ['RESOLVED', 'RECOVERING', 'ONGOING', 'RESOLVEDWITHSEQUELAE', 'FATAL', 'UNKNOWN']
+
+    allowed_values = [RESOLVED, RECOVERING, ONGOING, RESOLVEDWITHSEQUELAE, FATAL, UNKNOWN]

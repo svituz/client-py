@@ -15,22 +15,23 @@ another.
     URL: http://hl7.org/fhir/organization-role
     ValueSet: http://hl7.org/fhir/ValueSet/organization-role
     """
-    """provider"""
+    # provider
     PROVIDER = "provider"
-    """An organization such as a public health agency, community/social services provider, etc."""
+    # An organization such as a public health agency, community/social services provider, etc.
     AGENCY = "agency"
-    """An organization providing research-related services such as conducting research, recruiting research
-	/// participants, analyzing data, etc."""
+    # An organization providing research-related services such as conducting research, recruiting research
+    # participants, analyzing data, etc.
     RESEARCH = "research"
-    """An organization providing reimbursement, payment, or related services"""
+    # An organization providing reimbursement, payment, or related services
     PAYER = "payer"
-    """An organization providing diagnostic testing/laboratory services"""
+    # An organization providing diagnostic testing/laboratory services
     DIAGNOSTICS = "diagnostics"
-    """An organization that provides medical supplies (e.g. medical devices, equipment, pharmaceutical products, etc.)"""
+    # An organization that provides medical supplies (e.g. medical devices, equipment, pharmaceutical products, etc.)
     SUPPLIER = "supplier"
-    """An organization that facilitates electronic clinical data exchange between entities"""
+    # An organization that facilitates electronic clinical data exchange between entities
     HIEHIO = "HIE/HIO"
-    """A type of non-ownership relationship between entities (encompasses partnerships, collaboration, joint ventures,
-	/// etc.)"""
+    # A type of non-ownership relationship between entities (encompasses partnerships, collaboration, joint ventures,
+    # etc.)
     MEMBER = "member"
-    allowed_values = ['PROVIDER', 'AGENCY', 'RESEARCH', 'PAYER', 'DIAGNOSTICS', 'SUPPLIER', 'HIEHIO', 'MEMBER']
+
+    allowed_values = [PROVIDER, AGENCY, RESEARCH, PAYER, DIAGNOSTICS, SUPPLIER, HIEHIO, MEMBER]

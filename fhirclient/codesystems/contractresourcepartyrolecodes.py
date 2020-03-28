@@ -14,6 +14,7 @@ class ContractResourcePartyRoleCodes(object):
     URL: http://hl7.org/fhir/contract-party-role
     ValueSet: http://hl7.org/fhir/ValueSet/contract-party-role
     """
-    """To be completed"""
+    # To be completed
     FLUNKY = "flunky"
-    allowed_values = ['FLUNKY']
+
+    allowed_values = [FLUNKY]

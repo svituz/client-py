@@ -16,10 +16,11 @@ provided as a suggestive example.
     URL: http://terminology.hl7.org/CodeSystem/immunization-subpotent-reason
     ValueSet: http://hl7.org/fhir/ValueSet/immunization-subpotent-reason
     """
-    """The full volume of the dose was not administered to the patient."""
+    # The full volume of the dose was not administered to the patient.
     PARTIAL = "partial"
-    """The vaccine experienced a cold chain break."""
+    # The vaccine experienced a cold chain break.
     COLDCHAINBREAK = "coldchainbreak"
-    """The vaccine was recalled by the manufacturer."""
+    # The vaccine was recalled by the manufacturer.
     RECALL = "recall"
-    allowed_values = ['PARTIAL', 'COLDCHAINBREAK', 'RECALL']
+
+    allowed_values = [PARTIAL, COLDCHAINBREAK, RECALL]

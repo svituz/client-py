@@ -14,6 +14,7 @@ class ContractResourceScopeCodes(object):
     URL: http://hl7.org/fhir/contract-scope
     ValueSet: http://hl7.org/fhir/ValueSet/contract-scope
     """
-    """To be completed"""
+    # To be completed
     POLICY = "policy"
-    allowed_values = ['POLICY']
+
+    allowed_values = [POLICY]

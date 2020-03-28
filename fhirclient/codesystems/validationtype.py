@@ -14,10 +14,11 @@ class ValidationType(object):
     URL: http://terminology.hl7.org/CodeSystem/validation-type
     ValueSet: http://hl7.org/fhir/ValueSet/verificationresult-validation-type
     """
-    """nothing"""
+    # nothing
     NOTHING = "nothing"
-    """primary"""
+    # primary
     PRIMARY = "primary"
-    """multiple"""
+    # multiple
     MULTIPLE = "multiple"
-    allowed_values = ['NOTHING', 'PRIMARY', 'MULTIPLE']
+
+    allowed_values = [NOTHING, PRIMARY, MULTIPLE]

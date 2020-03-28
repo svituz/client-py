@@ -17,12 +17,13 @@ validated.
     URL: http://terminology.hl7.org/CodeSystem/verificationresult-communication-method
     ValueSet: http://hl7.org/fhir/ValueSet/verificationresult-communication-method
     """
-    """The information is submitted/retrieved manually (e.g. by phone, fax, paper-based)"""
+    # The information is submitted/retrieved manually (e.g. by phone, fax, paper-based)
     MANUAL = "manual"
-    """The information is submitted/retrieved via a portal"""
+    # The information is submitted/retrieved via a portal
     PORTAL = "portal"
-    """The information is retrieved (i.e. pulled) from a source (e.g. over an API)"""
+    # The information is retrieved (i.e. pulled) from a source (e.g. over an API)
     PULL = "pull"
-    """The information is sent (i.e. pushed) from a source (e.g. over an API, asynchronously, secure messaging)"""
+    # The information is sent (i.e. pushed) from a source (e.g. over an API, asynchronously, secure messaging)
     PUSH = "push"
-    allowed_values = ['MANUAL', 'PORTAL', 'PULL', 'PUSH']
+
+    allowed_values = [MANUAL, PORTAL, PULL, PUSH]

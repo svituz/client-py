@@ -14,8 +14,9 @@ class PaymentStatusCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/paymentstatus
     ValueSet: http://hl7.org/fhir/ValueSet/payment-status
     """
-    """The payment has been sent physically or electronically."""
+    # The payment has been sent physically or electronically.
     PAID = "paid"
-    """The payment has been received by the payee."""
+    # The payment has been received by the payee.
     CLEARED = "cleared"
-    allowed_values = ['PAID', 'CLEARED']
+
+    allowed_values = [PAID, CLEARED]

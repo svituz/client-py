@@ -14,8 +14,9 @@ class SupplyType(object):
     URL: http://terminology.hl7.org/CodeSystem/supply-kind
     ValueSet: http://hl7.org/fhir/ValueSet/supplyrequest-kind
     """
-    """Supply is stored and requested from central supply."""
+    # Supply is stored and requested from central supply.
     CENTRAL = "central"
-    """Supply is not onsite and must be requested from an outside vendor using a non-stock requisition."""
+    # Supply is not onsite and must be requested from an outside vendor using a non-stock requisition.
     NONSTOCK = "nonstock"
-    allowed_values = ['CENTRAL', 'NONSTOCK']
+
+    allowed_values = [CENTRAL, NONSTOCK]

@@ -14,10 +14,11 @@ class ProcessPriorityCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/processpriority
     ValueSet: http://hl7.org/fhir/ValueSet/process-priority
     """
-    """Immediately in real time."""
+    # Immediately in real time.
     STAT = "stat"
-    """With best effort."""
+    # With best effort.
     NORMAL = "normal"
-    """Later, when possible."""
+    # Later, when possible.
     DEFERRED = "deferred"
-    allowed_values = ['STAT', 'NORMAL', 'DEFERRED']
+
+    allowed_values = [STAT, NORMAL, DEFERRED]

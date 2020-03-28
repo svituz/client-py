@@ -14,10 +14,11 @@ class EvidenceVariableType(object):
     URL: http://hl7.org/fhir/variable-type
     ValueSet: http://hl7.org/fhir/ValueSet/variable-type
     """
-    """The variable is dichotomous, such as present or absent."""
+    # The variable is dichotomous, such as present or absent.
     DICHOTOMOUS = "dichotomous"
-    """The variable is a continuous result such as a quantity."""
+    # The variable is a continuous result such as a quantity.
     CONTINUOUS = "continuous"
-    """The variable is described narratively rather than quantitatively."""
+    # The variable is described narratively rather than quantitatively.
     DESCRIPTIVE = "descriptive"
-    allowed_values = ['DICHOTOMOUS', 'CONTINUOUS', 'DESCRIPTIVE']
+
+    allowed_values = [DICHOTOMOUS, CONTINUOUS, DESCRIPTIVE]

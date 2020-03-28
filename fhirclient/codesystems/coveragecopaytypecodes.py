@@ -14,25 +14,26 @@ class CoverageCopayTypeCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/coverage-copay-type
     ValueSet: http://hl7.org/fhir/ValueSet/coverage-copay-type
     """
-    """An office visit for a general practitioner of a discipline."""
+    # An office visit for a general practitioner of a discipline.
     GPVISIT = "gpvisit"
-    """An office visit for a specialist practitioner of a discipline"""
+    # An office visit for a specialist practitioner of a discipline
     SPVISIT = "spvisit"
-    """An episode in an emergency department."""
+    # An episode in an emergency department.
     EMERGENCY = "emergency"
-    """An episode of an Inpatient hospital stay."""
+    # An episode of an Inpatient hospital stay.
     INPTHOSP = "inpthosp"
-    """A visit held where the patient is remote relative to the practitioner, e.g. by phone, computer or video
-	/// conference."""
+    # A visit held where the patient is remote relative to the practitioner, e.g. by phone, computer or video
+    # conference.
     TELEVISIT = "televisit"
-    """A visit to an urgent care facility - typically a community care clinic."""
+    # A visit to an urgent care facility - typically a community care clinic.
     URGENTCARE = "urgentcare"
-    """A standard percentage applied to all classes or service or product not otherwise specified."""
+    # A standard percentage applied to all classes or service or product not otherwise specified.
     COPAYPCT = "copaypct"
-    """A standard fixed currency amount applied to all classes or service or product not otherwise specified."""
+    # A standard fixed currency amount applied to all classes or service or product not otherwise specified.
     COPAY = "copay"
-    """The accumulated amount of patient payment before the coverage begins to pay for services."""
+    # The accumulated amount of patient payment before the coverage begins to pay for services.
     DEDUCTIBLE = "deductible"
-    """The maximum amout of payment for services which a patient, or family, is expected to incur - typically annually."""
+    # The maximum amout of payment for services which a patient, or family, is expected to incur - typically annually.
     MAXOUTOFPOCKET = "maxoutofpocket"
-    allowed_values = ['GPVISIT', 'SPVISIT', 'EMERGENCY', 'INPTHOSP', 'TELEVISIT', 'URGENTCARE', 'COPAYPCT', 'COPAY', 'DEDUCTIBLE', 'MAXOUTOFPOCKET']
+
+    allowed_values = [GPVISIT, SPVISIT, EMERGENCY, INPTHOSP, TELEVISIT, URGENTCARE, COPAYPCT, COPAY, DEDUCTIBLE, MAXOUTOFPOCKET]

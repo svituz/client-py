@@ -16,16 +16,17 @@ on information from the person, entity or organization who administered the vacc
 suggestive example.
     URL: http://terminology.hl7.org/CodeSystem/immunization-origin
     """
-    """The data for the immunization event originated with another provider."""
+    # The data for the immunization event originated with another provider.
     PROVIDER = "provider"
-    """The data for the immunization event originated with a written record for the patient."""
+    # The data for the immunization event originated with a written record for the patient.
     RECORD = "record"
-    """The data for the immunization event originated from the recollection of the patient or parent/guardian of the
-	/// patient."""
+    # The data for the immunization event originated from the recollection of the patient or parent/guardian of the
+    # patient.
     RECALL = "recall"
-    """The data for the immunization event originated with a school record for the patient."""
+    # The data for the immunization event originated with a school record for the patient.
     SCHOOL = "school"
-    """The data for the immunization event originated with an immunization information system (IIS) or registry
-	/// operating within the jurisdiction."""
+    # The data for the immunization event originated with an immunization information system (IIS) or registry
+    # operating within the jurisdiction.
     JURISDICTION = "jurisdiction"
-    allowed_values = ['PROVIDER', 'RECORD', 'RECALL', 'SCHOOL', 'JURISDICTION']
+
+    allowed_values = [PROVIDER, RECORD, RECALL, SCHOOL, JURISDICTION]

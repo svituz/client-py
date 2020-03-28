@@ -14,10 +14,11 @@ class ValidationStatus(object):
     URL: http://terminology.hl7.org/CodeSystem/validation-status
     ValueSet: http://hl7.org/fhir/ValueSet/verificationresult-validation-status
     """
-    """successful"""
+    # successful
     SUCCESSFUL = "successful"
-    """failed"""
+    # failed
     FAILED = "failed"
-    """The validations status has not been determined yet"""
+    # The validations status has not been determined yet
     UNKNOWN = "unknown"
-    allowed_values = ['SUCCESSFUL', 'FAILED', 'UNKNOWN']
+
+    allowed_values = [SUCCESSFUL, FAILED, UNKNOWN]

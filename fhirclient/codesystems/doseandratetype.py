@@ -14,8 +14,9 @@ class DoseAndRateType(object):
     URL: http://terminology.hl7.org/CodeSystem/dose-rate-type
     ValueSet: http://hl7.org/fhir/ValueSet/dose-rate-type
     """
-    """The dose specified is calculated by the prescriber or the system."""
+    # The dose specified is calculated by the prescriber or the system.
     CALCULATED = "calculated"
-    """The dose specified is as ordered by the prescriber."""
+    # The dose specified is as ordered by the prescriber.
     ORDERED = "ordered"
-    allowed_values = ['CALCULATED', 'ORDERED']
+
+    allowed_values = [CALCULATED, ORDERED]

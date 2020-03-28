@@ -16,8 +16,9 @@ provided as a suggestive example.
     URL: http://terminology.hl7.org/CodeSystem/immunization-program-eligibility
     ValueSet: http://hl7.org/fhir/ValueSet/immunization-program-eligibility
     """
-    """The patient is not eligible for the funding program."""
+    # The patient is not eligible for the funding program.
     INELIGIBLE = "ineligible"
-    """The patient is eligible for the funding program because they are uninsured."""
+    # The patient is eligible for the funding program because they are uninsured.
     UNINSURED = "uninsured"
-    allowed_values = ['INELIGIBLE', 'UNINSURED']
+
+    allowed_values = [INELIGIBLE, UNINSURED]

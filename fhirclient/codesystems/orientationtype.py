@@ -14,8 +14,9 @@ class OrientationType(object):
     URL: http://hl7.org/fhir/orientation-type
     ValueSet: http://hl7.org/fhir/ValueSet/orientation-type
     """
-    """Sense orientation of reference sequence."""
+    # Sense orientation of reference sequence.
     SENSE = "sense"
-    """Antisense orientation of reference sequence."""
+    # Antisense orientation of reference sequence.
     ANTISENSE = "antisense"
-    allowed_values = ['SENSE', 'ANTISENSE']
+
+    allowed_values = [SENSE, ANTISENSE]

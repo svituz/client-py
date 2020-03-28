@@ -13,10 +13,11 @@ class AnimalSpecies(object):
     """ This example value set defines a set of codes that can be used to indicate species of animal patients.
     URL: http://hl7.org/fhir/animal-species
     """
-    """Canis lupus familiaris"""
+    # Canis lupus familiaris
     CANISLF = "canislf"
-    """Ovis aries"""
+    # Ovis aries
     OVISA = "ovisa"
-    """Serinus canaria domestica"""
+    # Serinus canaria domestica
     SERINUSCD = "serinuscd"
-    allowed_values = ['CANISLF', 'OVISA', 'SERINUSCD']
+
+    allowed_values = [CANISLF, OVISA, SERINUSCD]

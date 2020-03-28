@@ -14,48 +14,49 @@ class MedicationKnowledgePackageTypeCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/medicationknowledge-package-type
     ValueSet: http://hl7.org/fhir/ValueSet/medicationknowledge-package-type
     """
-    """amp"""
+    # amp
     AMP = "amp"
-    """bag"""
+    # bag
     BAG = "bag"
-    """blstrpk"""
+    # blstrpk
     BLSTRPK = "blstrpk"
-    """bot"""
+    # bot
     BOT = "bot"
-    """box"""
+    # box
     BOX = "box"
-    """can"""
+    # can
     CAN = "can"
-    """cart"""
+    # cart
     CART = "cart"
-    """disk"""
+    # disk
     DISK = "disk"
-    """doset"""
+    # doset
     DOSET = "doset"
-    """jar"""
+    # jar
     JAR = "jar"
-    """jug"""
+    # jug
     JUG = "jug"
-    """minim"""
+    # minim
     MINIM = "minim"
-    """nebamp"""
+    # nebamp
     NEBAMP = "nebamp"
-    """ovul"""
+    # ovul
     OVUL = "ovul"
-    """pch"""
+    # pch
     PCH = "pch"
-    """pkt"""
+    # pkt
     PKT = "pkt"
-    """sash"""
+    # sash
     SASH = "sash"
-    """strip"""
+    # strip
     STRIP = "strip"
-    """tin"""
+    # tin
     TIN = "tin"
-    """tub"""
+    # tub
     TUB = "tub"
-    """tube"""
+    # tube
     TUBE = "tube"
-    """vial"""
+    # vial
     VIAL = "vial"
-    allowed_values = ['AMP', 'BAG', 'BLSTRPK', 'BOT', 'BOX', 'CAN', 'CART', 'DISK', 'DOSET', 'JAR', 'JUG', 'MINIM', 'NEBAMP', 'OVUL', 'PCH', 'PKT', 'SASH', 'STRIP', 'TIN', 'TUB', 'TUBE', 'VIAL']
+
+    allowed_values = [AMP, BAG, BLSTRPK, BOT, BOX, CAN, CART, DISK, DOSET, JAR, JUG, MINIM, NEBAMP, OVUL, PCH, PKT, SASH, STRIP, TIN, TUB, TUBE, VIAL]

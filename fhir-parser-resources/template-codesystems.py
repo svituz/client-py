@@ -19,10 +19,10 @@ class {{system.name}}(object):
     """
     {%- set allowed_values = [] %}
     {%- for code in system.codes %}
-    """{{ code.definition|wordwrap(width=112, wrapstring="\n	/// ") }}"""
+    # {{ code.definition|wordwrap(width=112, wrapstring="\n    # ") }}
     {{code.name.upper()}} = "{{ code.code }}"
     {%- set _ = allowed_values.append(code.name.upper()) %}
     {%- endfor %}
-    allowed_values = {{ allowed_values }}
 
+    allowed_values = [{{ allowed_values|join(', ') }}]
 {%- endif %}

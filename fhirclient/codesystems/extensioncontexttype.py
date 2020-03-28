@@ -14,13 +14,14 @@ class ExtensionContextType(object):
     URL: http://hl7.org/fhir/extension-context-type
     ValueSet: http://hl7.org/fhir/ValueSet/extension-context-type
     """
-    """The context is all elements that match the FHIRPath query found in the expression."""
+    # The context is all elements that match the FHIRPath query found in the expression.
     FHIRPATH = "fhirpath"
-    """The context is any element that has an ElementDefinition.id that matches that found in the expression. This
-	/// includes ElementDefinition Ids that have slicing identifiers. The full path for the element is
-	/// [url]#[elementid]. If there is no #, the Element id is one defined in the base specification."""
+    # The context is any element that has an ElementDefinition.id that matches that found in the expression. This
+    # includes ElementDefinition Ids that have slicing identifiers. The full path for the element is
+    # [url]#[elementid]. If there is no #, the Element id is one defined in the base specification.
     ELEMENT = "element"
-    """The context is a particular extension from a particular StructureDefinition, and the expression is just a uri
-	/// that identifies the extension."""
+    # The context is a particular extension from a particular StructureDefinition, and the expression is just a uri
+    # that identifies the extension.
     EXTENSION = "extension"
-    allowed_values = ['FHIRPATH', 'ELEMENT', 'EXTENSION']
+
+    allowed_values = [FHIRPATH, ELEMENT, EXTENSION]

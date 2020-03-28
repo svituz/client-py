@@ -14,8 +14,9 @@ class StructureMapContextType(object):
     URL: http://hl7.org/fhir/map-context-type
     ValueSet: http://hl7.org/fhir/ValueSet/map-context-type
     """
-    """The context specifies a type."""
+    # The context specifies a type.
     TYPE = "type"
-    """The context specifies a variable."""
+    # The context specifies a variable.
     VARIABLE = "variable"
-    allowed_values = ['TYPE', 'VARIABLE']
+
+    allowed_values = [TYPE, VARIABLE]

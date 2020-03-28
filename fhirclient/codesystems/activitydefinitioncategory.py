@@ -14,10 +14,11 @@ class ActivityDefinitionCategory(object):
     URL: http://terminology.hl7.org/CodeSystem/activity-definition-category
     ValueSet: http://hl7.org/fhir/ValueSet/activity-definition-category
     """
-    """The activity is intended to provide or is related to treatment of the patient."""
+    # The activity is intended to provide or is related to treatment of the patient.
     TREATMENT = "treatment"
-    """The activity is intended to provide or is related to education of the patient."""
+    # The activity is intended to provide or is related to education of the patient.
     EDUCATION = "education"
-    """The activity is intended to perform or is related to assessment of the patient."""
+    # The activity is intended to perform or is related to assessment of the patient.
     ASSESSMENT = "assessment"
-    allowed_values = ['TREATMENT', 'EDUCATION', 'ASSESSMENT']
+
+    allowed_values = [TREATMENT, EDUCATION, ASSESSMENT]

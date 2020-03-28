@@ -14,20 +14,21 @@ class PropertyType(object):
     URL: http://hl7.org/fhir/concept-property-type
     ValueSet: http://hl7.org/fhir/ValueSet/concept-property-type
     """
-    """The property value is a code that identifies a concept defined in the code system."""
+    # The property value is a code that identifies a concept defined in the code system.
     CODE = "code"
-    """The property  value is a code defined in an external code system. This may be used for translations, but is not
-	/// the intent."""
+    # The property  value is a code defined in an external code system. This may be used for translations, but is not
+    # the intent.
     CODING = "Coding"
-    """The property value is a string."""
+    # The property value is a string.
     STRING = "string"
-    """The property value is a string (often used to assign ranking values to concepts for supporting score
-	/// assessments)."""
+    # The property value is a string (often used to assign ranking values to concepts for supporting score
+    # assessments).
     INTEGER = "integer"
-    """The property value is a boolean true | false."""
+    # The property value is a boolean true | false.
     BOOLEAN = "boolean"
-    """The property is a date or a date + time."""
+    # The property is a date or a date + time.
     DATETIME = "dateTime"
-    """The property value is a decimal number."""
+    # The property value is a decimal number.
     DECIMAL = "decimal"
-    allowed_values = ['CODE', 'CODING', 'STRING', 'INTEGER', 'BOOLEAN', 'DATETIME', 'DECIMAL']
+
+    allowed_values = [CODE, CODING, STRING, INTEGER, BOOLEAN, DATETIME, DECIMAL]

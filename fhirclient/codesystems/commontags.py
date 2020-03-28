@@ -14,6 +14,7 @@ class CommonTags(object):
     URL: http://terminology.hl7.org/CodeSystem/common-tags
     ValueSet: http://hl7.org/fhir/ValueSet/common-tags
     """
-    """This request is intended to be acted upon, not merely stored"""
+    # This request is intended to be acted upon, not merely stored
     ACTIONABLE = "actionable"
-    allowed_values = ['ACTIONABLE']
+
+    allowed_values = [ACTIONABLE]

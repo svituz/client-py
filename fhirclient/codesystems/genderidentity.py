@@ -13,18 +13,19 @@ class GenderIdentity(object):
     """ This example value set defines a set of codes that can be used to indicate a patient's gender identity.
     URL: http://hl7.org/fhir/gender-identity
     """
-    """the patient identifies as transgender male-to-female"""
+    # the patient identifies as transgender male-to-female
     TRANSGENDERFEMALE = "transgender-female"
-    """the patient identifies as transgender female-to-male"""
+    # the patient identifies as transgender female-to-male
     TRANSGENDERMALE = "transgender-male"
-    """the patient identifies with neither/both female and male"""
+    # the patient identifies with neither/both female and male
     NONBINARY = "non-binary"
-    """the patient identifies as male"""
+    # the patient identifies as male
     MALE = "male"
-    """the patient identifies as female"""
+    # the patient identifies as female
     FEMALE = "female"
-    """other gender identity"""
+    # other gender identity
     OTHER = "other"
-    """the patient does not wish to disclose his gender identity"""
+    # the patient does not wish to disclose his gender identity
     NONDISCLOSE = "non-disclose"
-    allowed_values = ['TRANSGENDERFEMALE', 'TRANSGENDERMALE', 'NONBINARY', 'MALE', 'FEMALE', 'OTHER', 'NONDISCLOSE']
+
+    allowed_values = [TRANSGENDERFEMALE, TRANSGENDERMALE, NONBINARY, MALE, FEMALE, OTHER, NONDISCLOSE]

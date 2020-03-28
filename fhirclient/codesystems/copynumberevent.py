@@ -14,10 +14,11 @@ class CopyNumberEvent(object):
     URL: http://terminology.hl7.org/CodeSystem/copy-number-event
     ValueSet: http://hl7.org/fhir/ValueSet/copy-number-event
     """
-    """amplification."""
+    # amplification.
     AMP = "amp"
-    """deletion."""
+    # deletion.
     DEL = "del"
-    """loss of function."""
+    # loss of function.
     LOF = "lof"
-    allowed_values = ['AMP', 'DEL', 'LOF']
+
+    allowed_values = [AMP, DEL, LOF]

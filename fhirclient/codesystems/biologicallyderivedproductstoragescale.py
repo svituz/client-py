@@ -14,10 +14,11 @@ class BiologicallyDerivedProductStorageScale(object):
     URL: http://hl7.org/fhir/product-storage-scale
     ValueSet: http://hl7.org/fhir/ValueSet/product-storage-scale
     """
-    """Fahrenheit temperature scale."""
+    # Fahrenheit temperature scale.
     FARENHEIT = "farenheit"
-    """Celsius or centigrade temperature scale."""
+    # Celsius or centigrade temperature scale.
     CELSIUS = "celsius"
-    """Kelvin absolute thermodynamic temperature scale."""
+    # Kelvin absolute thermodynamic temperature scale.
     KELVIN = "kelvin"
-    allowed_values = ['FARENHEIT', 'CELSIUS', 'KELVIN']
+
+    allowed_values = [FARENHEIT, CELSIUS, KELVIN]

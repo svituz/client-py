@@ -15,10 +15,11 @@ information or warning information about the search process.
     URL: http://hl7.org/fhir/search-entry-mode
     ValueSet: http://hl7.org/fhir/ValueSet/search-entry-mode
     """
-    """This resource matched the search specification."""
+    # This resource matched the search specification.
     MATCH = "match"
-    """This resource is returned because it is referred to from another resource in the search set."""
+    # This resource is returned because it is referred to from another resource in the search set.
     INCLUDE = "include"
-    """An OperationOutcome that provides additional information about the processing of a search."""
+    # An OperationOutcome that provides additional information about the processing of a search.
     OUTCOME = "outcome"
-    allowed_values = ['MATCH', 'INCLUDE', 'OUTCOME']
+
+    allowed_values = [MATCH, INCLUDE, OUTCOME]

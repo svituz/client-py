@@ -14,8 +14,9 @@ class UnitTypeCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/benefit-unit
     ValueSet: http://hl7.org/fhir/ValueSet/benefit-unit
     """
-    """A single individual"""
+    # A single individual
     INDIVIDUAL = "individual"
-    """A family, typically includes self, spouse(s) and children to a defined age"""
+    # A family, typically includes self, spouse(s) and children to a defined age
     FAMILY = "family"
-    allowed_values = ['INDIVIDUAL', 'FAMILY']
+
+    allowed_values = [INDIVIDUAL, FAMILY]

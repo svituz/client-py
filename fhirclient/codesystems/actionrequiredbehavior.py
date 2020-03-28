@@ -14,12 +14,13 @@ class ActionRequiredBehavior(object):
     URL: http://hl7.org/fhir/action-required-behavior
     ValueSet: http://hl7.org/fhir/ValueSet/action-required-behavior
     """
-    """An action with this behavior must be included in the actions processed by the end user; the end user SHALL NOT
-	/// choose not to include this action."""
+    # An action with this behavior must be included in the actions processed by the end user; the end user SHALL NOT
+    # choose not to include this action.
     MUST = "must"
-    """An action with this behavior may be included in the set of actions processed by the end user."""
+    # An action with this behavior may be included in the set of actions processed by the end user.
     COULD = "could"
-    """An action with this behavior must be included in the set of actions processed by the end user, unless the end
-	/// user provides documentation as to why the action was not included."""
+    # An action with this behavior must be included in the set of actions processed by the end user, unless the end
+    # user provides documentation as to why the action was not included.
     MUSTUNLESSDOCUMENTED = "must-unless-documented"
-    allowed_values = ['MUST', 'COULD', 'MUSTUNLESSDOCUMENTED']
+
+    allowed_values = [MUST, COULD, MUSTUNLESSDOCUMENTED]

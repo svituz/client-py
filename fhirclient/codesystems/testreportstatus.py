@@ -14,14 +14,15 @@ class TestReportStatus(object):
     URL: http://hl7.org/fhir/report-status-codes
     ValueSet: http://hl7.org/fhir/ValueSet/report-status-codes
     """
-    """All test operations have completed."""
+    # All test operations have completed.
     COMPLETED = "completed"
-    """A test operations is currently executing."""
+    # A test operations is currently executing.
     INPROGRESS = "in-progress"
-    """A test operation is waiting for an external client request."""
+    # A test operation is waiting for an external client request.
     WAITING = "waiting"
-    """The test script execution was manually stopped."""
+    # The test script execution was manually stopped.
     STOPPED = "stopped"
-    """This test report was entered or created in error."""
+    # This test report was entered or created in error.
     ENTEREDINERROR = "entered-in-error"
-    allowed_values = ['COMPLETED', 'INPROGRESS', 'WAITING', 'STOPPED', 'ENTEREDINERROR']
+
+    allowed_values = [COMPLETED, INPROGRESS, WAITING, STOPPED, ENTEREDINERROR]

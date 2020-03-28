@@ -14,16 +14,17 @@ class AdditionalMaterialCodes(object):
     URL: http://hl7.org/fhir/additionalmaterials
     ValueSet: http://hl7.org/fhir/ValueSet/additionalmaterials
     """
-    """XRay"""
+    # XRay
     XRAY = "xray"
-    """Image"""
+    # Image
     IMAGE = "image"
-    """Email"""
+    # Email
     EMAIL = "email"
-    """Model"""
+    # Model
     MODEL = "model"
-    """Document"""
+    # Document
     DOCUMENT = "document"
-    """Other"""
+    # Other
     OTHER = "other"
-    allowed_values = ['XRAY', 'IMAGE', 'EMAIL', 'MODEL', 'DOCUMENT', 'OTHER']
+
+    allowed_values = [XRAY, IMAGE, EMAIL, MODEL, DOCUMENT, OTHER]

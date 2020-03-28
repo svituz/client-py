@@ -14,18 +14,19 @@ class StudyType(object):
     URL: http://terminology.hl7.org/CodeSystem/study-type
     ValueSet: http://hl7.org/fhir/ValueSet/study-type
     """
-    """randomized controlled trial."""
+    # randomized controlled trial.
     RCT = "RCT"
-    """controlled (but not randomized) trial."""
+    # controlled (but not randomized) trial.
     CCT = "CCT"
-    """observational study comparing cohorts."""
+    # observational study comparing cohorts.
     COHORT = "cohort"
-    """case-control study."""
+    # case-control study.
     CASECONTROL = "case-control"
-    """uncontrolled cohort or case series."""
+    # uncontrolled cohort or case series.
     SERIES = "series"
-    """a single case report."""
+    # a single case report.
     CASEREPORT = "case-report"
-    """a combination of 1 or more types of studies."""
+    # a combination of 1 or more types of studies.
     MIXED = "mixed"
-    allowed_values = ['RCT', 'CCT', 'COHORT', 'CASECONTROL', 'SERIES', 'CASEREPORT', 'MIXED']
+
+    allowed_values = [RCT, CCT, COHORT, CASECONTROL, SERIES, CASEREPORT, MIXED]

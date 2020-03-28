@@ -14,15 +14,16 @@ class BiologicallyDerivedProductCategory(object):
     URL: http://hl7.org/fhir/product-category
     ValueSet: http://hl7.org/fhir/ValueSet/product-category
     """
-    """A collection of tissues joined in a structural unit to serve a common function."""
+    # A collection of tissues joined in a structural unit to serve a common function.
     ORGAN = "organ"
-    """An ensemble of similar cells and their extracellular matrix from the same origin that together carry out a
-	/// specific function."""
+    # An ensemble of similar cells and their extracellular matrix from the same origin that together carry out a
+    # specific function.
     TISSUE = "tissue"
-    """Body fluid."""
+    # Body fluid.
     FLUID = "fluid"
-    """Collection of cells."""
+    # Collection of cells.
     CELLS = "cells"
-    """Biological agent of unspecified type."""
+    # Biological agent of unspecified type.
     BIOLOGICALAGENT = "biologicalAgent"
-    allowed_values = ['ORGAN', 'TISSUE', 'FLUID', 'CELLS', 'BIOLOGICALAGENT']
+
+    allowed_values = [ORGAN, TISSUE, FLUID, CELLS, BIOLOGICALAGENT]

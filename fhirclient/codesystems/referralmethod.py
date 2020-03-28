@@ -14,16 +14,17 @@ class ReferralMethod(object):
     URL: http://terminology.hl7.org/CodeSystem/service-referral-method
     ValueSet: http://hl7.org/fhir/ValueSet/service-referral-method
     """
-    """Referrals may be accepted by fax."""
+    # Referrals may be accepted by fax.
     FAX = "fax"
-    """Referrals may be accepted over the phone from a practitioner."""
+    # Referrals may be accepted over the phone from a practitioner.
     PHONE = "phone"
-    """Referrals may be accepted via a secure messaging system. To determine the types of secure messaging systems
-	/// supported, refer to the identifiers collection. Callers will need to understand the specific identifier system
-	/// used to know that they are able to transmit messages."""
+    # Referrals may be accepted via a secure messaging system. To determine the types of secure messaging systems
+    # supported, refer to the identifiers collection. Callers will need to understand the specific identifier system
+    # used to know that they are able to transmit messages.
     ELEC = "elec"
-    """Referrals may be accepted via a secure email. To send please encrypt with the services public key."""
+    # Referrals may be accepted via a secure email. To send please encrypt with the services public key.
     SEMAIL = "semail"
-    """Referrals may be accepted via regular postage (or hand delivered)."""
+    # Referrals may be accepted via regular postage (or hand delivered).
     MAIL = "mail"
-    allowed_values = ['FAX', 'PHONE', 'ELEC', 'SEMAIL', 'MAIL']
+
+    allowed_values = [FAX, PHONE, ELEC, SEMAIL, MAIL]

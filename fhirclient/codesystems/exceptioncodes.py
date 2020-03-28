@@ -14,8 +14,9 @@ class ExceptionCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/claim-exception
     ValueSet: http://hl7.org/fhir/ValueSet/claim-exception
     """
-    """Fulltime Student"""
+    # Fulltime Student
     STUDENT = "student"
-    """Disabled"""
+    # Disabled
     DISABLED = "disabled"
-    allowed_values = ['STUDENT', 'DISABLED']
+
+    allowed_values = [STUDENT, DISABLED]

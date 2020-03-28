@@ -14,10 +14,11 @@ class AdverseEventSeverity(object):
     URL: http://terminology.hl7.org/CodeSystem/adverse-event-severity
     ValueSet: http://hl7.org/fhir/ValueSet/adverse-event-severity
     """
-    """mild"""
+    # mild
     MILD = "mild"
-    """moderate"""
+    # moderate
     MODERATE = "moderate"
-    """severe"""
+    # severe
     SEVERE = "severe"
-    allowed_values = ['MILD', 'MODERATE', 'SEVERE']
+
+    allowed_values = [MILD, MODERATE, SEVERE]

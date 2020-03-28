@@ -14,8 +14,9 @@ class StrengthOfRecommendationRating(object):
     URL: http://terminology.hl7.org/CodeSystem/recommendation-strength
     ValueSet: http://hl7.org/fhir/ValueSet/recommendation-strength
     """
-    """Strong recommendation."""
+    # Strong recommendation.
     STRONG = "strong"
-    """Weak recommendation."""
+    # Weak recommendation.
     WEAK = "weak"
-    allowed_values = ['STRONG', 'WEAK']
+
+    allowed_values = [STRONG, WEAK]

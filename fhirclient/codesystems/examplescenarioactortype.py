@@ -14,8 +14,9 @@ class ExampleScenarioActorType(object):
     URL: http://hl7.org/fhir/examplescenario-actor-type
     ValueSet: http://hl7.org/fhir/ValueSet/examplescenario-actor-type
     """
-    """A person."""
+    # A person.
     PERSON = "person"
-    """A system."""
+    # A system.
     ENTITY = "entity"
-    allowed_values = ['PERSON', 'ENTITY']
+
+    allowed_values = [PERSON, ENTITY]

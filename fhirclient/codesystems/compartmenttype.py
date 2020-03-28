@@ -14,14 +14,15 @@ class CompartmentType(object):
     URL: http://hl7.org/fhir/compartment-type
     ValueSet: http://hl7.org/fhir/ValueSet/compartment-type
     """
-    """The compartment definition is for the patient compartment."""
+    # The compartment definition is for the patient compartment.
     PATIENT = "Patient"
-    """The compartment definition is for the encounter compartment."""
+    # The compartment definition is for the encounter compartment.
     ENCOUNTER = "Encounter"
-    """The compartment definition is for the related-person compartment."""
+    # The compartment definition is for the related-person compartment.
     RELATEDPERSON = "RelatedPerson"
-    """The compartment definition is for the practitioner compartment."""
+    # The compartment definition is for the practitioner compartment.
     PRACTITIONER = "Practitioner"
-    """The compartment definition is for the device compartment."""
+    # The compartment definition is for the device compartment.
     DEVICE = "Device"
-    allowed_values = ['PATIENT', 'ENCOUNTER', 'RELATEDPERSON', 'PRACTITIONER', 'DEVICE']
+
+    allowed_values = [PATIENT, ENCOUNTER, RELATEDPERSON, PRACTITIONER, DEVICE]

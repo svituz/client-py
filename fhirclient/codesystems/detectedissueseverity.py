@@ -14,12 +14,13 @@ class DetectedIssueSeverity(object):
     URL: http://hl7.org/fhir/detectedissue-severity
     ValueSet: http://hl7.org/fhir/ValueSet/detectedissue-severity
     """
-    """Indicates the issue may be life-threatening or has the potential to cause permanent injury."""
+    # Indicates the issue may be life-threatening or has the potential to cause permanent injury.
     HIGH = "high"
-    """Indicates the issue may result in noticeable adverse consequences but is unlikely to be life-threatening or
-	/// cause permanent injury."""
+    # Indicates the issue may result in noticeable adverse consequences but is unlikely to be life-threatening or
+    # cause permanent injury.
     MODERATE = "moderate"
-    """Indicates the issue may result in some adverse consequences but is unlikely to substantially affect the
-	/// situation of the subject."""
+    # Indicates the issue may result in some adverse consequences but is unlikely to substantially affect the
+    # situation of the subject.
     LOW = "low"
-    allowed_values = ['HIGH', 'MODERATE', 'LOW']
+
+    allowed_values = [HIGH, MODERATE, LOW]

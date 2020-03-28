@@ -15,10 +15,11 @@ date, is required.
     URL: http://hl7.org/fhir/ex-onsettype
     ValueSet: http://hl7.org/fhir/ValueSet/ex-onsettype
     """
-    """Date of last examination."""
+    # Date of last examination.
     LXM = "lxm"
-    """Date when symptoms were first noticed."""
+    # Date when symptoms were first noticed.
     SYM = "sym"
-    """Start date of last menstruation."""
+    # Start date of last menstruation.
     LMN = "lmn"
-    allowed_values = ['LXM', 'SYM', 'LMN']
+
+    allowed_values = [LXM, SYM, LMN]

@@ -14,8 +14,9 @@ class PaymentAdjustmentReasonCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/payment-adjustment-reason
     ValueSet: http://hl7.org/fhir/ValueSet/payment-adjustment-reason
     """
-    """Prior Payment Reversal"""
+    # Prior Payment Reversal
     A001 = "a001"
-    """Prior Overpayment"""
+    # Prior Overpayment
     A002 = "a002"
-    allowed_values = ['A001', 'A002']
+
+    allowed_values = [A001, A002]

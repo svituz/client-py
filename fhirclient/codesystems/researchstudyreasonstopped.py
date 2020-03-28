@@ -14,12 +14,13 @@ class ResearchStudyReasonStopped(object):
     URL: http://terminology.hl7.org/CodeSystem/research-study-reason-stopped
     ValueSet: http://hl7.org/fhir/ValueSet/research-study-reason-stopped
     """
-    """The study prematurely ended because the accrual goal was met."""
+    # The study prematurely ended because the accrual goal was met.
     ACCRUALGOALMET = "accrual-goal-met"
-    """The study prematurely ended due to toxicity."""
+    # The study prematurely ended due to toxicity.
     CLOSEDDUETOTOXICITY = "closed-due-to-toxicity"
-    """The study prematurely ended due to lack of study progress."""
+    # The study prematurely ended due to lack of study progress.
     CLOSEDDUETOLACKOFSTUDYPROGRESS = "closed-due-to-lack-of-study-progress"
-    """The study prematurely ended temporarily per study design."""
+    # The study prematurely ended temporarily per study design.
     TEMPORARILYCLOSEDPERSTUDYDESIGN = "temporarily-closed-per-study-design"
-    allowed_values = ['ACCRUALGOALMET', 'CLOSEDDUETOTOXICITY', 'CLOSEDDUETOLACKOFSTUDYPROGRESS', 'TEMPORARILYCLOSEDPERSTUDYDESIGN']
+
+    allowed_values = [ACCRUALGOALMET, CLOSEDDUETOTOXICITY, CLOSEDDUETOLACKOFSTUDYPROGRESS, TEMPORARILYCLOSEDPERSTUDYDESIGN]

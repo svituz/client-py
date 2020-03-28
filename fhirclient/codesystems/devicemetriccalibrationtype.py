@@ -14,12 +14,13 @@ class DeviceMetricCalibrationType(object):
     URL: http://hl7.org/fhir/metric-calibration-type
     ValueSet: http://hl7.org/fhir/ValueSet/metric-calibration-type
     """
-    """Metric calibration method has not been identified."""
+    # Metric calibration method has not been identified.
     UNSPECIFIED = "unspecified"
-    """Offset metric calibration method."""
+    # Offset metric calibration method.
     OFFSET = "offset"
-    """Gain metric calibration method."""
+    # Gain metric calibration method.
     GAIN = "gain"
-    """Two-point metric calibration method."""
+    # Two-point metric calibration method.
     TWOPOINT = "two-point"
-    allowed_values = ['UNSPECIFIED', 'OFFSET', 'GAIN', 'TWOPOINT']
+
+    allowed_values = [UNSPECIFIED, OFFSET, GAIN, TWOPOINT]

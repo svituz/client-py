@@ -14,12 +14,13 @@ class QualityOfEvidenceRating(object):
     URL: http://terminology.hl7.org/CodeSystem/evidence-quality
     ValueSet: http://hl7.org/fhir/ValueSet/evidence-quality
     """
-    """High quality evidence."""
+    # High quality evidence.
     HIGH = "high"
-    """Moderate quality evidence."""
+    # Moderate quality evidence.
     MODERATE = "moderate"
-    """Low quality evidence."""
+    # Low quality evidence.
     LOW = "low"
-    """Very low quality evidence."""
+    # Very low quality evidence.
     VERYLOW = "very-low"
-    allowed_values = ['HIGH', 'MODERATE', 'LOW', 'VERYLOW']
+
+    allowed_values = [HIGH, MODERATE, LOW, VERYLOW]

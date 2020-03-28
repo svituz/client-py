@@ -14,8 +14,9 @@ class NetworkTypeCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/benefit-network
     ValueSet: http://hl7.org/fhir/ValueSet/benefit-network
     """
-    """Services rendered by a Network provider"""
+    # Services rendered by a Network provider
     IN = "in"
-    """Services rendered by a provider who is not in the Network"""
+    # Services rendered by a provider who is not in the Network
     OUT = "out"
-    allowed_values = ['IN', 'OUT']
+
+    allowed_values = [IN, OUT]

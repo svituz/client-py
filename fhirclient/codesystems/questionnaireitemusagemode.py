@@ -14,16 +14,17 @@ class QuestionnaireItemUsageMode(object):
     URL: http://terminology.hl7.org/CodeSystem/questionnaire-usage-mode
     ValueSet: http://hl7.org/fhir/ValueSet/questionnaire-usage-mode
     """
-    """Render the item regardless of usage mode."""
+    # Render the item regardless of usage mode.
     CAPTUREDISPLAY = "capture-display"
-    """Render the item only when capturing data."""
+    # Render the item only when capturing data.
     CAPTURE = "capture"
-    """Render the item only when displaying a completed form."""
+    # Render the item only when displaying a completed form.
     DISPLAY = "display"
-    """Render the item only when displaying a completed form and the item has been answered (or has child items that
-	/// have been answered)."""
+    # Render the item only when displaying a completed form and the item has been answered (or has child items that
+    # have been answered).
     DISPLAYNONEMPTY = "display-non-empty"
-    """Render the item when capturing data or when displaying a completed form and the item has been answered (or has
-	/// child items that have been answered)."""
+    # Render the item when capturing data or when displaying a completed form and the item has been answered (or has
+    # child items that have been answered).
     CAPTUREDISPLAYNONEMPTY = "capture-display-non-empty"
-    allowed_values = ['CAPTUREDISPLAY', 'CAPTURE', 'DISPLAY', 'DISPLAYNONEMPTY', 'CAPTUREDISPLAYNONEMPTY']
+
+    allowed_values = [CAPTUREDISPLAY, CAPTURE, DISPLAY, DISPLAYNONEMPTY, CAPTUREDISPLAYNONEMPTY]

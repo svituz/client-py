@@ -14,13 +14,14 @@ class ExampleDiagnosisOnAdmissionCodes(object):
     URL: http://terminology.hl7.org/CodeSystem/ex-diagnosis-on-admission
     ValueSet: http://hl7.org/fhir/ValueSet/ex-diagnosis-on-admission
     """
-    """Diagnosis was present at time of inpatient admission."""
+    # Diagnosis was present at time of inpatient admission.
     Y = "y"
-    """Diagnosis was not present at time of inpatient admission."""
+    # Diagnosis was not present at time of inpatient admission.
     N = "n"
-    """Documentation insufficient to determine if condition was present at the time of inpatient admission."""
+    # Documentation insufficient to determine if condition was present at the time of inpatient admission.
     U = "u"
-    """Clinically undetermined. Provider unable to clinically determine whether the condition was present at the time
-	/// of inpatient admission."""
+    # Clinically undetermined. Provider unable to clinically determine whether the condition was present at the time
+    # of inpatient admission.
     W = "w"
-    allowed_values = ['Y', 'N', 'U', 'W']
+
+    allowed_values = [Y, N, U, W]

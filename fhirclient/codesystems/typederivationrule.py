@@ -14,8 +14,9 @@ class TypeDerivationRule(object):
     URL: http://hl7.org/fhir/type-derivation-rule
     ValueSet: http://hl7.org/fhir/ValueSet/type-derivation-rule
     """
-    """This definition defines a new type that adds additional elements to the base type."""
+    # This definition defines a new type that adds additional elements to the base type.
     SPECIALIZATION = "specialization"
-    """This definition adds additional rules to an existing concrete type."""
+    # This definition adds additional rules to an existing concrete type.
     CONSTRAINT = "constraint"
-    allowed_values = ['SPECIALIZATION', 'CONSTRAINT']
+
+    allowed_values = [SPECIALIZATION, CONSTRAINT]
