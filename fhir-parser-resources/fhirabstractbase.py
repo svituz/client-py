@@ -3,6 +3,7 @@
 #
 #  Base class for all FHIR elements.
 
+import six
 import sys
 import logging
 
@@ -16,7 +17,7 @@ class FHIRValidationError(Exception):
 
     def __init__(self, errors, path=None):
         """ Initializer.
-        
+
         :param errors: List of Exception instances. Also accepts a string,
             which is converted to a TypeError.
         :param str path: The property path on the object where errors occurred
@@ -49,7 +50,7 @@ class FHIRAbstractBase(object):
     def __init__(self, jsondict=None, strict=True):
         """ Initializer. If strict is true, raises on errors, otherwise uses
         `logger.warning()`.
-        
+
         :raises: FHIRValidationError on validation errors, unless strict is False
         :param dict jsondict: A JSON dictionary to use for initialization
         :param bool strict: If True (the default), invalid variables will raise a TypeError
@@ -76,27 +77,31 @@ class FHIRAbstractBase(object):
     @classmethod
     def with_json(cls, jsonobj):
         """ Initialize an element from a JSON dictionary or array.
-        
+
         If the JSON dictionary has a "resourceType" entry and the specified
         resource type is not the receiving classes type, uses
         `FHIRElementFactory` to return a correct class instance.
-        
+
         :raises: TypeError on anything but dict or list of dicts
         :raises: FHIRValidationError if instantiation fails
         :param jsonobj: A dict or list of dicts to instantiate from
         :returns: An instance or a list of instances created from JSON data
         """
-        if isinstance(jsonobj, dict):
-            return cls._with_json_dict(jsonobj)
-
         if isinstance(jsonobj, list):
             arr = []
             for jsondict in jsonobj:
-                try:
-                    arr.append(cls._with_json_dict(jsondict))
-                except FHIRValidationError as e:
-                    raise e.prefixed(str(len(arr)))
+                if isinstance(jsondict, cls):
+                    obj = jsondict
+                else:
+                    try:
+                        obj = cls._with_json_dict(jsondict)
+                    except FHIRValidationError as e:
+                        raise e.prefixed(str(len(arr)))
+                arr.append(obj)
             return arr
+
+        if isinstance(jsonobj, dict):
+            return cls._with_json_dict(jsonobj)
 
         raise TypeError("`with_json()` on {} only takes dict or list of dict, but you provided {}"
                         .format(cls, type(jsonobj)))
@@ -104,7 +109,7 @@ class FHIRAbstractBase(object):
     @classmethod
     def _with_json_dict(cls, jsondict):
         """ Internal method to instantiate from JSON dictionary.
-        
+
         :raises: TypeError on anything but dict
         :raises: FHIRValidationError if instantiation fails
         :returns: An instance created from dictionary data
@@ -119,7 +124,7 @@ class FHIRAbstractBase(object):
         """ Instantiates by forwarding to `with_json()`, then remembers the
         "owner" of the instantiated elements. The "owner" is the resource
         containing the receiver and is used to resolve contained resources.
-        
+
         :raises: TypeError on anything but dict or list of dicts
         :raises: FHIRValidationError if instantiation fails
         :param dict jsonobj: Decoded JSON dictionary (or list thereof)
@@ -145,7 +150,7 @@ class FHIRAbstractBase(object):
 
     def update_with_json(self, jsondict):
         """ Update the receiver with data in a JSON dictionary.
-        
+
         :raises: FHIRValidationError on validation errors
         :param dict jsondict: The JSON dictionary to use to update the receiver
         :returns: None on success, a list of errors if there were errors
@@ -232,10 +237,10 @@ class FHIRAbstractBase(object):
     def as_json(self):
         """ Serializes to JSON by inspecting `elementProperties()` and creating
         a JSON dictionary of all registered properties. Checks:
-        
+
         - whether required properties are not None (and lists not empty)
         - whether not-None properties are of the correct type
-        
+
         :raises: FHIRValidationError if properties have the wrong type or if
             required properties are empty
         :returns: A validated dict object that can be JSON serialized
@@ -272,13 +277,15 @@ class FHIRAbstractBase(object):
                                 err = e.prefixed(str(len(lst))).prefixed(name)
                         found.add(of_many or jsname)
                         js[jsname] = lst
+                else:
+                    js[jsname] = value
             else:
                 if not self._matches_type(value, typ):
                     err = TypeError("Expecting property \"{}\" on {} to be {}, but is {}"
                                     .format(name, type(self), typ, type(value)))
                 elif codeset is not None and value.value not in codeset.allowed_values:
                     err = ValueError("Expecting value of property \"{}\"  on {} to be one of {}, but is {}"
-                                    .format(name, type(self), codeset.allowed_values, value.value))
+                                     .format(name, type(self), codeset.allowed_values, value.value))
                 else:
                     try:
                         found.add(of_many or jsname)
@@ -306,8 +313,8 @@ class FHIRAbstractBase(object):
             return True
         if int == typ or float == typ:
             return (isinstance(value, int) or isinstance(value, float))
-        if (sys.version_info < (3, 0)) and (str == typ or unicode == typ):
-            return (isinstance(value, str) or isinstance(value, unicode))
+        if typ == six.string_types:
+            return isinstance(value, six.string_types)
         return False
 
     # MARK: Handling References
@@ -334,9 +341,9 @@ class FHIRAbstractBase(object):
         """ Returns the resolved reference with the given id, if it has been
         resolved already. If it hasn't, forwards the call to its owner if it
         has one.
-        
+
         You should probably use `resolve()` on the `FHIRReference` itself.
-        
+
         :param refid: The id of the resource to resolve
         :returns: An instance of `Resource`, if it was found
         """
@@ -347,7 +354,7 @@ class FHIRAbstractBase(object):
     def didResolveReference(self, refid, resolved):
         """ Called by `FHIRResource` when it resolves a reference. Stores the
         resolved reference into the `_resolved` dictionary.
-        
+
         :param refid: The id of the resource that was resolved
         :param refid: The resolved resource, ready to be cached
         """
@@ -355,3 +362,31 @@ class FHIRAbstractBase(object):
             self._resolved[refid] = resolved
         else:
             self._resolved = {refid: resolved}
+
+    def __setattr__(self, attr, value):
+        """
+        When setting an element property it will create the correct fhirdatatypes.
+        An example is:
+        ```
+        p = Patient()
+        p.gender = 'male'
+        type(p.gender)
+        ```
+        """
+        for name, jsname, typ, is_list, of_many, not_optional, codeset in self.elementProperties():
+            if name == attr and value is not None and typ not in (int, float, bool, str):
+                arr = []
+                # first we check if it's a list
+                if isinstance(value, list):
+                    for item in value:
+                        # if it's already a required obj we use it
+                        if isinstance(item, typ):
+                            arr.append(item)
+                        else:
+                            # otherwise we parse the dict
+                            arr.append(typ.with_json(item))
+                    value = arr
+                # if it's a single value, we check if it's json obj, in this case we parse it
+                elif not isinstance(value, typ):
+                    value = typ.with_json(value)
+        return object.__setattr__(self, attr, value)
